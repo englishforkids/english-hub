@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Past Tenses in English 🕰️</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f0e17;
+    --card-bg: #1a1a2e;
+    --ps-color: #ff6b6b;
+    --pc-color: #ffd93d;
+    --pp-color: #6bcb77;
+    --ppc-color: #4d96ff;
+    --ut-color: #c77dff;
+    --white: #fffffe;
+    --soft: #a7a9be;
+    --radius: 20px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--white);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    text-align: center;
+    padding: 70px 20px 50px;
+    background: radial-gradient(ellipse at 50% 0%, #1e0a3c 0%, var(--bg) 70%);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+  .hero-emoji { font-size: 80px; animation: float 3s ease-in-out infinite; display: block; margin-bottom: 10px; }
+  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
+  .hero h1 {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(2.4rem, 7vw, 5rem);
+    letter-spacing: 2px;
+    background: linear-gradient(135deg, #ff6b6b, #ffd93d, #6bcb77, #4d96ff, #c77dff);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    margin-bottom: 10px;
+  }
+  .hero p { font-size: 1.2rem; color: var(--soft); max-width: 600px; margin: 0 auto 30px; }
+
+  /* ── NAV PILLS ── */
+  .nav-pills {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
+    padding: 0 20px 50px;
+  }
+  .pill {
+    padding: 10px 22px; border-radius: 50px; font-weight: 800; font-size: 0.9rem;
+    cursor: pointer; border: none; transition: all .25s; text-decoration: none;
+    display: inline-block;
+  }
+  .pill-ps { background: var(--ps-color); color: #1a0000; }
+  .pill-pc { background: var(--pc-color); color: #1a1200; }
+  .pill-pp { background: var(--pp-color); color: #001a05; }
+  .pill-ppc { background: var(--ppc-color); color: #000d2e; }
+  .pill-ut { background: var(--ut-color); color: #0d0020; }
+  .pill:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 8px 20px rgba(0,0,0,.4); }
+
+  /* ── MAGIC SENTENCE BOX ── */
+  .magic-box {
+    max-width: 860px; margin: 0 auto 60px;
+    background: linear-gradient(135deg, #1e0a3c, #0a1628);
+    border: 2px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius);
+    padding: 36px 36px 30px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .magic-box::after {
+    content: '✨';
+    position: absolute; top: 14px; right: 20px; font-size: 1.6rem;
+    animation: spin 4s linear infinite;
+  }
+  @keyframes spin { 0%{transform:rotate(0deg)} 100%{transform:rotate(360deg)} }
+  .magic-box h2 {
+    font-family: 'Fredoka One', cursive; font-size: 1.6rem;
+    color: #ffd93d; margin-bottom: 6px;
+  }
+  .magic-box .uk { color: var(--soft); font-size: 0.95rem; margin-bottom: 20px; }
+  .sentence-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 12px; text-align: left;
+  }
+  .sent-card {
+    background: rgba(255,255,255,0.05);
+    border-left: 4px solid;
+    border-radius: 12px;
+    padding: 12px 14px;
+  }
+  .sent-card .label { font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+  .sent-card .en { font-size: 1rem; font-weight: 700; }
+  .sent-card .ua { font-size: 0.85rem; color: var(--soft); }
+
+  /* ── SECTION ── */
+  .section { max-width: 960px; margin: 0 auto 80px; padding: 0 20px; }
+  .section-header {
+    display: flex; align-items: center; gap: 16px;
+    margin-bottom: 30px; padding: 24px 28px;
+    border-radius: var(--radius);
+  }
+  .section-header .icon { font-size: 3rem; }
+  .section-header h2 { font-family: 'Fredoka One', cursive; font-size: 2rem; }
+  .section-header .sub { font-size: 0.95rem; color: rgba(255,255,255,0.7); margin-top: 3px; }
+
+  /* ── FORMULA BOX ── */
+  .formula-box {
+    background: rgba(255,255,255,0.06);
+    border-radius: 16px; padding: 20px 24px; margin-bottom: 20px;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .formula-box h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; opacity:.6; }
+  .formula { font-family: 'Baloo 2', sans-serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 6px; }
+  .formula span { background: rgba(255,255,255,0.12); padding: 2px 10px; border-radius: 8px; margin: 0 3px; display: inline-block; }
+  .formula .plus { opacity: .5; margin: 0 4px; }
+
+  /* ── CARDS GRID ── */
+  .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 20px; }
+  .ex-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px; padding: 18px 20px;
+    transition: transform .2s;
+  }
+  .ex-card:hover { transform: translateY(-4px); }
+  .ex-card .cat { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 800; margin-bottom: 8px; opacity: .7; }
+  .ex-card .en-sentence { font-size: 1rem; font-weight: 700; margin-bottom: 4px; }
+  .ex-card .en-sentence strong { font-size: 1.05rem; }
+  .ex-card .ua-sentence { font-size: 0.85rem; color: var(--soft); }
+  .ex-card .emoji { font-size: 1.4rem; float: right; margin-top: -4px; }
+
+  /* ── WHEN BOX ── */
+  .when-box {
+    border-radius: 16px; padding: 22px 24px; margin-bottom: 20px;
+  }
+  .when-box h3 { font-family: 'Fredoka One', cursive; font-size: 1.2rem; margin-bottom: 14px; }
+  .when-list { list-style: none; }
+  .when-list li {
+    padding: 8px 0 8px 32px; position: relative;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    font-size: 0.95rem;
+  }
+  .when-list li:last-child { border-bottom: none; }
+  .when-list li::before { content: attr(data-icon); position: absolute; left: 0; font-size: 1.1rem; }
+  .when-list .ua-note { font-size: 0.8rem; color: var(--soft); display: block; margin-top: 2px; }
+
+  /* ── SIGNAL WORDS ── */
+  .signal-wrap { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+  .signal { padding: 6px 14px; border-radius: 50px; font-size: 0.85rem; font-weight: 700; }
+
+  /* ── COMPARE TABLE ── */
+  .compare-section { max-width: 960px; margin: 0 auto 80px; padding: 0 20px; }
+  .compare-section h2 { font-family: 'Fredoka One', cursive; font-size: 2rem; text-align: center; margin-bottom: 30px; color: #ffd93d; }
+  .compare-table { width: 100%; border-collapse: separate; border-spacing: 0 8px; font-size: 0.9rem; }
+  .compare-table thead th {
+    padding: 14px 16px; text-align: left;
+    font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px;
+    color: var(--soft); font-weight: 800;
+  }
+  .compare-table tbody tr {
+    background: rgba(255,255,255,0.04);
+    border-radius: 12px;
+    transition: background .2s;
+  }
+  .compare-table tbody tr:hover { background: rgba(255,255,255,0.08); }
+  .compare-table tbody td { padding: 14px 16px; }
+  .compare-table tbody td:first-child { border-radius: 12px 0 0 12px; font-weight: 800; }
+  .compare-table tbody td:last-child { border-radius: 0 12px 12px 0; color: var(--soft); font-size: 0.83rem; }
+
+  /* ── USED TO ── */
+  .ut-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px; }
+  @media(max-width:540px){ .ut-compare{grid-template-columns:1fr;} }
+  .ut-col { border-radius: 14px; padding: 18px 20px; }
+  .ut-col h4 { font-family: 'Fredoka One', cursive; font-size: 1.1rem; margin-bottom: 10px; }
+  .ut-col ul { list-style: none; }
+  .ut-col ul li { padding: 5px 0; font-size: 0.9rem; }
+  .ut-col ul li::before { content: '→ '; opacity: .5; }
+
+  /* ── QUIZ ── */
+  .quiz-section { max-width: 760px; margin: 0 auto 80px; padding: 0 20px; }
+  .quiz-section h2 { font-family: 'Fredoka One', cursive; font-size: 2rem; text-align: center; color: #ffd93d; margin-bottom: 30px; }
+  .quiz-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 18px; padding: 24px 28px; margin-bottom: 16px;
+  }
+  .quiz-q { font-weight: 800; font-size: 1.05rem; margin-bottom: 14px; }
+  .quiz-opts { display: flex; flex-direction: column; gap: 8px; }
+  .quiz-opt {
+    background: rgba(255,255,255,0.06); border: 2px solid transparent;
+    border-radius: 12px; padding: 10px 16px; cursor: pointer;
+    transition: all .2s; font-size: 0.9rem; text-align: left;
+    font-family: 'Nunito', sans-serif; color: var(--white);
+  }
+  .quiz-opt:hover { border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.1); }
+  .quiz-opt.correct { background: rgba(107,203,119,0.25); border-color: var(--pp-color); }
+  .quiz-opt.wrong { background: rgba(255,107,107,0.2); border-color: var(--ps-color); }
+  .quiz-feedback { margin-top: 12px; font-size: 0.9rem; font-weight: 700; display: none; }
+  .quiz-feedback.show { display: block; }
+  .score-box { text-align: center; padding: 30px; background: rgba(255,255,255,0.05); border-radius: 18px; display: none; }
+  .score-box.show { display: block; }
+  .score-box h3 { font-family: 'Fredoka One', cursive; font-size: 2rem; color: #ffd93d; }
+  #submit-quiz {
+    display: block; margin: 20px auto 0; padding: 14px 40px;
+    background: linear-gradient(135deg, #ffd93d, #ff6b6b);
+    border: none; border-radius: 50px; font-family: 'Fredoka One', cursive;
+    font-size: 1.2rem; color: #1a0000; cursor: pointer;
+    transition: transform .2s, box-shadow .2s;
+  }
+  #submit-quiz:hover { transform: scale(1.05); box-shadow: 0 8px 24px rgba(255,107,107,.4); }
+
+  /* ── TIMELINE ── */
+  .timeline-vis {
+    background: rgba(255,255,255,0.04); border-radius: 16px;
+    padding: 24px; margin-bottom: 20px; overflow-x: auto;
+  }
+  .timeline-vis h3 { font-family: 'Fredoka One', cursive; font-size: 1.1rem; margin-bottom: 18px; text-align: center; opacity: .7; }
+  .tl-track { display: flex; align-items: center; gap: 0; margin-bottom: 14px; position: relative; }
+  .tl-line {
+    flex: 1; height: 4px; background: linear-gradient(90deg, rgba(255,255,255,0.1), rgba(255,255,255,0.3));
+    position: relative; border-radius: 2px;
+  }
+  .tl-dot { width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0; border: 3px solid #0f0e17; }
+  .tl-dot.past { background: var(--ps-color); }
+  .tl-dot.now { background: #ffd93d; }
+  .tl-label { display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--soft); padding: 0 4px; }
+  .tl-marker {
+    position: absolute; bottom: 8px; font-size: 0.7rem; font-weight: 800;
+    transform: translateX(-50%); white-space: nowrap;
+  }
+
+  /* ── FOOTER ── */
+  footer { text-align: center; padding: 40px 20px; color: var(--soft); font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.06); }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: #0f0e17; }
+  ::-webkit-scrollbar-thumb { background: #2a2a4a; border-radius: 4px; }
+
+  /* scroll reveal */
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity .6s, transform .6s; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ─ color shorthands ─ */
+  .c-ps { color: var(--ps-color); }
+  .c-pc { color: var(--pc-color); }
+  .c-pp { color: var(--pp-color); }
+  .c-ppc { color: var(--ppc-color); }
+  .c-ut { color: var(--ut-color); }
+
+  .bg-ps { background: rgba(255,107,107,0.12); border-color: rgba(255,107,107,0.25) !important; }
+  .bg-pc { background: rgba(255,217,61,0.10); border-color: rgba(255,217,61,0.25) !important; }
+  .bg-pp { background: rgba(107,203,119,0.10); border-color: rgba(107,203,119,0.25) !important; }
+  .bg-ppc { background: rgba(77,150,255,0.10); border-color: rgba(77,150,255,0.25) !important; }
+  .bg-ut { background: rgba(199,125,255,0.10); border-color: rgba(199,125,255,0.25) !important; }
+
+  .header-ps { background: linear-gradient(135deg, rgba(255,107,107,0.25), rgba(255,107,107,0.08)); border: 1px solid rgba(255,107,107,0.3); }
+  .header-pc { background: linear-gradient(135deg, rgba(255,217,61,0.2), rgba(255,217,61,0.06)); border: 1px solid rgba(255,217,61,0.3); }
+  .header-pp { background: linear-gradient(135deg, rgba(107,203,119,0.2), rgba(107,203,119,0.06)); border: 1px solid rgba(107,203,119,0.3); }
+  .header-ppc { background: linear-gradient(135deg, rgba(77,150,255,0.2), rgba(77,150,255,0.06)); border: 1px solid rgba(77,150,255,0.3); }
+  .header-ut { background: linear-gradient(135deg, rgba(199,125,255,0.2), rgba(199,125,255,0.06)); border: 1px solid rgba(199,125,255,0.3); }
+
+  #scroll-top-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #1a1208;
+    border: 1.5px solid rgba(200,150,62,0.4);
+    color: #f5f0e8;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+    pointer-events: none;
+    z-index: 9998;
+  }
+  #scroll-top-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  #scroll-top-btn:hover {
+    background: #c8963e;
+    border-color: #c8963e;
+    color: #1a1208;
+  }
+
+  /* ══════════════════════════════════════════
+     MOBILE RESPONSIVE — max-width: 600px
+  ══════════════════════════════════════════ */
+  @media (max-width: 600px) {
+
+    /* Hero */
+    .hero { padding: 44px 16px 36px; }
+    .hero-emoji { font-size: 56px; }
+    .hero p { font-size: 1rem; }
+
+    /* Nav pills — scroll horizontally */
+    .nav-pills {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      justify-content: flex-start;
+      padding: 0 16px 36px;
+      gap: 8px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .nav-pills::-webkit-scrollbar { display: none; }
+    .pill { flex-shrink: 0; padding: 8px 16px; font-size: 0.82rem; }
+
+    /* Magic box */
+    .magic-box {
+      margin: 0 16px 40px;
+      padding: 24px 18px 20px;
+    }
+    .magic-box h2 { font-size: 1.25rem; }
+    .sentence-grid { grid-template-columns: 1fr; }
+
+    /* Sections */
+    .section { padding: 0 16px; margin-bottom: 56px; }
+    .section-header { padding: 18px 18px; gap: 12px; flex-wrap: wrap; }
+    .section-header .icon { font-size: 2.2rem; }
+    .section-header h2 { font-size: 1.5rem; }
+    .section-header .sub { font-size: 0.82rem; }
+
+    /* Formula box */
+    .formula-box { padding: 16px 16px; }
+    .formula { font-size: 0.95rem; flex-wrap: wrap; }
+    .formula span { margin: 2px 2px; padding: 2px 8px; font-size: 0.88rem; }
+
+    /* Cards grid — single column */
+    .cards-grid { grid-template-columns: 1fr; gap: 12px; }
+    .ex-card { padding: 14px 14px; }
+    .ex-card .en-sentence { font-size: 0.95rem; }
+
+    /* When box */
+    .when-box { padding: 16px 14px; }
+    .when-list li { font-size: 0.88rem; padding-left: 28px; }
+    .when-list .ua-note { font-size: 0.76rem; }
+
+    /* Signal words */
+    .signal { font-size: 0.78rem; padding: 5px 11px; }
+
+    /* Compare section */
+    .compare-section { padding: 0 16px; margin-bottom: 56px; }
+    .compare-section h2 { font-size: 1.5rem; margin-bottom: 20px; }
+
+    /* Table — scrollable wrapper */
+    .table-scroll-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 30px;
+    }
+    .compare-table { min-width: 560px; font-size: 0.8rem; }
+    .compare-table thead th { padding: 10px 12px; font-size: 0.68rem; }
+    .compare-table tbody td { padding: 10px 12px; }
+
+    /* Story box */
+    .compare-section > div:last-child { padding: 20px 16px; }
+    .compare-section > div:last-child p { font-size: 0.9rem; line-height: 1.85; }
+
+    /* ut-compare */
+    .ut-compare { grid-template-columns: 1fr; }
+    .ut-col { padding: 14px 14px; }
+
+    /* Quiz */
+    .quiz-section { padding: 0 16px; margin-bottom: 56px; }
+    .quiz-section h2 { font-size: 1.5rem; margin-bottom: 20px; }
+    .quiz-card { padding: 18px 16px; }
+    .quiz-q { font-size: 0.95rem; }
+    .quiz-opt { font-size: 0.85rem; padding: 9px 13px; }
+    .quiz-feedback { font-size: 0.82rem; }
+    #submit-quiz { padding: 12px 30px; font-size: 1.05rem; width: 100%; }
+
+    /* Footer */
+    footer { padding: 30px 16px; font-size: 0.8rem; }
+
+    /* Scroll top btn — slightly smaller on mobile */
+    #scroll-top-btn { width: 40px; height: 40px; font-size: 16px; bottom: 20px; right: 16px; }
+  }
+
+  /* ── Tablet tweak — 601px–860px ── */
+  @media (min-width: 601px) and (max-width: 860px) {
+    .cards-grid { grid-template-columns: repeat(2, 1fr); }
+    .sentence-grid { grid-template-columns: repeat(2, 1fr); }
+    .section { padding: 0 20px; }
+    .compare-section { padding: 0 20px; }
+    .table-scroll-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .compare-table { min-width: 580px; }
+    .magic-box { margin: 0 20px 50px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <span class="hero-emoji">⏳</span>
+  <h1>Past Tenses in English</h1>
+  <p>Часи минулого в англійській мові — все, що потрібно знати, з купою прикладів!</p>
+</div>
+
+<!-- NAV -->
+<div class="nav-pills">
+  <a href="#ps" class="pill pill-ps">⚡ Past Simple</a>
+  <a href="#pc" class="pill pill-pc">🌊 Past Continuous</a>
+  <a href="#pp" class="pill pill-pp">✅ Past Perfect</a>
+  <a href="#ppc" class="pill pill-ppc">🔄 Past Perfect Continuous</a>
+  <a href="#ut" class="pill pill-ut">🔮 Used To</a>
+  <a href="#compare" class="pill" style="background:rgba(255,255,255,0.1);color:#fff;">📊 Compare</a>
+  <a href="#quiz" class="pill" style="background:rgba(255,255,255,0.1);color:#fff;">🧠 Quiz</a>
+</div>
+
+<!-- MAGIC SENTENCE -->
+<div class="magic-box reveal" style="padding: 36px; margin: 0 20px 60px; max-width:860px; margin-left:auto; margin-right:auto;">
+  <h2>✨ Magic Sentence — Чарівне речення</h2>
+  <p class="uk">Одне і те саме речення про "навчання" — дивись, як воно змінюється!</p>
+  <div class="sentence-grid">
+    <div class="sent-card" style="border-color: var(--ps-color);">
+      <div class="label c-ps">Past Simple</div>
+      <div class="en">She <strong>studied</strong> English.</div>
+      <div class="ua">Вона вчила англійську. (факт)</div>
+    </div>
+    <div class="sent-card" style="border-color: var(--pc-color);">
+      <div class="label c-pc">Past Continuous</div>
+      <div class="en">She <strong>was studying</strong> English.</div>
+      <div class="ua">Вона вчила англійську (у цей момент у минулому).</div>
+    </div>
+    <div class="sent-card" style="border-color: var(--pp-color);">
+      <div class="label c-pp">Past Perfect</div>
+      <div class="en">She <strong>had studied</strong> English.</div>
+      <div class="ua">Вона вже вивчила англійську (до якоїсь події).</div>
+    </div>
+    <div class="sent-card" style="border-color: var(--ppc-color);">
+      <div class="label c-ppc">Past Perfect Continuous</div>
+      <div class="en">She <strong>had been studying</strong> English.</div>
+      <div class="ua">Вона вчила англійську певний час (до якоїсь події).</div>
+    </div>
+    <div class="sent-card" style="border-color: var(--ut-color);">
+      <div class="label c-ut">Used To</div>
+      <div class="en">She <strong>used to study</strong> English.</div>
+      <div class="ua">Раніше вона вчила англійську (але більше не вчить).</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PAST SIMPLE
+══════════════════════════════════════════ -->
+<div id="ps" class="section reveal">
+  <div class="section-header header-ps">
+    <span class="icon">⚡</span>
+    <div>
+      <h2 class="c-ps">Past Simple</h2>
+      <div class="sub">Простий минулий час · Що відбулось і закінчилось</div>
+    </div>
+  </div>
+
+  <!-- What is it -->
+  <div class="formula-box bg-ps">
+    <h3>📖 What is it? / Що це таке?</h3>
+    <p style="margin-bottom:12px;">Past Simple describes a <strong>completed action</strong> in the past. We know WHEN it happened.</p>
+    <p style="font-size:0.9rem;color:var(--soft);">Описує <strong>завершену дію</strong> в минулому. Ми знаємо, КОЛИ це сталося — або це просто факт з минулого.</p>
+  </div>
+
+  <!-- FORMULAS -->
+  <div class="formula-box bg-ps">
+    <h3>📐 Formulas / Формули</h3>
+    <div class="formula c-ps">✅ (+) <span>Subject</span> <span class="plus">+</span> <span>Verb-ed / V₂</span></div>
+    <div style="font-size:.82rem;color:var(--soft);margin-bottom:10px;">I played · She went · They ate</div>
+    <div class="formula c-ps">❌ (–) <span>Subject</span> <span class="plus">+</span> <span>didn't</span> <span class="plus">+</span> <span>Verb (base)</span></div>
+    <div style="font-size:.82rem;color:var(--soft);margin-bottom:10px;">I didn't play · She didn't go</div>
+    <div class="formula c-ps">❓ (?) <span>Did</span> <span class="plus">+</span> <span>Subject</span> <span class="plus">+</span> <span>Verb (base)?</span></div>
+    <div style="font-size:.82rem;color:var(--soft);">Did you play? · Did she go?</div>
+  </div>
+
+  <!-- SIGNAL WORDS -->
+  <div style="margin-bottom:20px;">
+    <p style="font-weight:800;margin-bottom:10px;font-size:0.85rem;text-transform:uppercase;letter-spacing:1px;color:var(--soft);">🔑 Signal words / Слова-підказки</p>
+    <div class="signal-wrap">
+      <span class="signal" style="background:rgba(255,107,107,0.2);color:var(--ps-color);">yesterday</span>
+      <span class="signal" style="background:rgba(255,107,107,0.2);color:var(--ps-color);">last week/year/night</span>
+      <span class="signal" style="background:rgba(255,107,107,0.2);color:var(--ps-color);">ago</span>
+      <span class="signal" style="background:rgba(255,107,107,0.2);color:var(--ps-color);">in 2010</span>
+      <span class="signal" style="background:rgba(255,107,107,0.2);color:var(--ps-color);">when I was young</span>
+      <span class="signal" style="background:rgba(255,107,107,0.2);color:var(--ps-color);">once</span>
+      <span class="signal" style="background:rgba(255,107,107,0.2);color:var(--ps-color);">in the morning</span>
+      <span class="signal" style="background:rgba(255,107,107,0.2);color:var(--ps-color);">then</span>
+      <span class="signal" style="background:rgba(255,107,107,0.2);color:var(--ps-color);">just now</span>
+    </div>
+  </div>
+
+  <!-- WHEN TO USE -->
+  <div class="when-box bg-ps" style="border:1px solid rgba(255,107,107,0.2);">
+    <h3 class="c-ps">⏰ When to use? / Коли вживати?</h3>
+    <ul class="when-list">
+      <li data-icon="1️⃣">A single completed action in the past <span class="ua-note">Одна завершена дія в минулому: "She opened the door."</span></li>
+      <li data-icon="2️⃣">A series of completed actions <span class="ua-note">Послідовність дій: "I woke up, brushed my teeth and had breakfast."</span></li>
+      <li data-icon="3️⃣">A habit or repeated action in the past <span class="ua-note">Звичка чи повторювана дія: "He played football every Saturday."</span></li>
+      <li data-icon="4️⃣">A state in the past (feelings, thoughts, facts) <span class="ua-note">Стан у минулому: "She was happy." / "I knew the answer."</span></li>
+      <li data-icon="5️⃣">Historical facts <span class="ua-note">Історичні факти: "The war ended in 1945."</span></li>
+    </ul>
+  </div>
+
+  <!-- EXAMPLES -->
+  <div class="cards-grid">
+    <div class="ex-card bg-ps"><span class="emoji">🏃</span><div class="cat c-ps">Sport / Спорт</div><div class="en-sentence">I <strong>ran</strong> 5 km yesterday.</div><div class="ua-sentence">Вчора я пробіг(ла) 5 км.</div></div>
+    <div class="ex-card bg-ps"><span class="emoji">🍕</span><div class="cat c-ps">Food / Їжа</div><div class="en-sentence">We <strong>ate</strong> pizza last night.</div><div class="ua-sentence">Минулого вечора ми їли піцу.</div></div>
+    <div class="ex-card bg-ps"><span class="emoji">📚</span><div class="cat c-ps">School / Школа</div><div class="en-sentence">She <strong>studied</strong> for the test.</div><div class="ua-sentence">Вона готувалась до тесту.</div></div>
+    <div class="ex-card bg-ps"><span class="emoji">🎬</span><div class="cat c-ps">Free time / Дозвілля</div><div class="en-sentence">They <strong>watched</strong> a film on Friday.</div><div class="ua-sentence">У п'ятницю вони дивились фільм.</div></div>
+    <div class="ex-card bg-ps"><span class="emoji">✈️</span><div class="cat c-ps">Travel / Подорожі</div><div class="en-sentence">My family <strong>visited</strong> Paris two years ago.</div><div class="ua-sentence">Два роки тому моя родина відвідала Париж.</div></div>
+    <div class="ex-card bg-ps"><span class="emoji">😢</span><div class="cat c-ps">Feelings / Почуття</div><div class="en-sentence">He <strong>felt</strong> sad after the news.</div><div class="ua-sentence">Він засмутився після цих новин.</div></div>
+    <div class="ex-card bg-ps"><span class="emoji">🛒</span><div class="cat c-ps">Shopping / Покупки</div><div class="en-sentence">She <strong>bought</strong> new shoes yesterday.</div><div class="ua-sentence">Вчора вона купила нові кросівки.</div></div>
+    <div class="ex-card bg-ps"><span class="emoji">💬</span><div class="cat c-ps">Conversation / Розмова</div><div class="en-sentence">I <strong>called</strong> my friend this morning.</div><div class="ua-sentence">Сьогодні вранці я телефонував(ла) другу.</div></div>
+    <div class="ex-card bg-ps"><span class="emoji">🏥</span><div class="cat c-ps">Health / Здоров'я</div><div class="en-sentence">She <strong>broke</strong> her leg last winter.</div><div class="ua-sentence">Минулої зими вона зламала ногу.</div></div>
+    <div class="ex-card bg-ps"><span class="emoji">🎂</span><div class="cat c-ps">Events / Події</div><div class="en-sentence">They <strong>got married</strong> in 2019.</div><div class="ua-sentence">Вони одружились у 2019 році.</div></div>
+  </div>
+
+  <!-- NEGATIVES -->
+  <div class="formula-box bg-ps" style="margin-top:8px;">
+    <h3>❌ Negative & Question examples / Приклади заперечень та питань</h3>
+    <div class="cards-grid" style="margin:10px 0 0;">
+      <div class="ex-card bg-ps"><div class="cat c-ps">Negative</div><div class="en-sentence">I <strong>didn't go</strong> to school yesterday.</div><div class="ua-sentence">Вчора я не ходив(ла) до школи.</div></div>
+      <div class="ex-card bg-ps"><div class="cat c-ps">Negative</div><div class="en-sentence">She <strong>didn't eat</strong> breakfast this morning.</div><div class="ua-sentence">Сьогодні вранці вона не снідала.</div></div>
+      <div class="ex-card bg-ps"><div class="cat c-ps">Question</div><div class="en-sentence"><strong>Did</strong> you see that movie?</div><div class="ua-sentence">Ти дивився(ла) той фільм?</div></div>
+      <div class="ex-card bg-ps"><div class="cat c-ps">Question</div><div class="en-sentence"><strong>Where did</strong> they go last summer?</div><div class="ua-sentence">Куди вони їздили минулого літа?</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PAST CONTINUOUS
+══════════════════════════════════════════ -->
+<div id="pc" class="section reveal">
+  <div class="section-header header-pc">
+    <span class="icon">🌊</span>
+    <div>
+      <h2 class="c-pc">Past Continuous</h2>
+      <div class="sub">Минулий тривалий час · Дія, що тривала в конкретний момент</div>
+    </div>
+  </div>
+
+  <div class="formula-box bg-pc">
+    <h3>📖 What is it? / Що це таке?</h3>
+    <p style="margin-bottom:12px;">Past Continuous shows an action that <strong>was in progress</strong> at a specific moment in the past. Think of it like a movie — the camera catches you <em>in the middle of doing something</em>.</p>
+    <p style="font-size:0.9rem;color:var(--soft);">Показує дію, яка <strong>тривала в певний момент</strong> у минулому. Уяви: хтось знімає кіно — і камера застає тебе <em>посеред якоїсь дії</em>.</p>
+  </div>
+
+  <div class="formula-box bg-pc">
+    <h3>📐 Formulas / Формули</h3>
+    <div class="formula c-pc">✅ (+) <span>Subject</span> <span class="plus">+</span> <span>was / were</span> <span class="plus">+</span> <span>Verb-ing</span></div>
+    <div style="font-size:.82rem;color:var(--soft);margin-bottom:10px;">I was sleeping · They were playing</div>
+    <div class="formula c-pc">❌ (–) <span>Subject</span> <span class="plus">+</span> <span>wasn't / weren't</span> <span class="plus">+</span> <span>Verb-ing</span></div>
+    <div style="font-size:.82rem;color:var(--soft);margin-bottom:10px;">I wasn't sleeping · They weren't playing</div>
+    <div class="formula c-pc">❓ (?) <span>Was / Were</span> <span class="plus">+</span> <span>Subject</span> <span class="plus">+</span> <span>Verb-ing?</span></div>
+    <div style="font-size:.82rem;color:var(--soft);">Was he sleeping? · Were they playing?</div>
+  </div>
+
+  <div style="margin-bottom:20px;">
+    <p style="font-weight:800;margin-bottom:10px;font-size:0.85rem;text-transform:uppercase;letter-spacing:1px;color:var(--soft);">🔑 Signal words</p>
+    <div class="signal-wrap">
+      <span class="signal" style="background:rgba(255,217,61,0.15);color:var(--pc-color);">at 5 o'clock yesterday</span>
+      <span class="signal" style="background:rgba(255,217,61,0.15);color:var(--pc-color);">this time last week</span>
+      <span class="signal" style="background:rgba(255,217,61,0.15);color:var(--pc-color);">while</span>
+      <span class="signal" style="background:rgba(255,217,61,0.15);color:var(--pc-color);">when</span>
+      <span class="signal" style="background:rgba(255,217,61,0.15);color:var(--pc-color);">all day long</span>
+      <span class="signal" style="background:rgba(255,217,61,0.15);color:var(--pc-color);">still</span>
+    </div>
+  </div>
+
+  <div class="when-box bg-pc" style="border:1px solid rgba(255,217,61,0.2);">
+    <h3 class="c-pc">⏰ When to use? / Коли вживати?</h3>
+    <ul class="when-list">
+      <li data-icon="1️⃣">Action in progress at a specific time <span class="ua-note">Дія тривала в конкретний момент: "At 8pm I was eating dinner."</span></li>
+      <li data-icon="2️⃣">Long action interrupted by a short action (use WHEN) <span class="ua-note">Довга дія переривається короткою (WHEN): "I was sleeping WHEN the phone rang."</span></li>
+      <li data-icon="3️⃣">Two actions happening at the same time (use WHILE) <span class="ua-note">Дві одночасні дії (WHILE): "She was cooking WHILE he was watching TV."</span></li>
+      <li data-icon="4️⃣">Background setting in a story <span class="ua-note">Тло для розповіді: "It was raining. People were walking fast."</span></li>
+      <li data-icon="5️⃣">Gradual change <span class="ua-note">Поступові зміни: "The weather was getting colder."</span></li>
+    </ul>
+  </div>
+
+  <div class="cards-grid">
+    <div class="ex-card bg-pc"><span class="emoji">😴</span><div class="cat c-pc">Everyday / Побут</div><div class="en-sentence">I <strong>was sleeping</strong> at 7 am.</div><div class="ua-sentence">О 7 ранку я спав(ла).</div></div>
+    <div class="ex-card bg-pc"><span class="emoji">📱</span><div class="cat c-pc">Interruption / Переривання</div><div class="en-sentence">She <strong>was studying</strong> when her phone rang.</div><div class="ua-sentence">Вона вчилась, коли задзвонив телефон.</div></div>
+    <div class="ex-card bg-pc"><span class="emoji">🍳</span><div class="cat c-pc">Simultaneous / Одночасно</div><div class="en-sentence">Mom <strong>was cooking</strong> while Dad <strong>was reading</strong>.</div><div class="ua-sentence">Мама готувала, поки тато читав.</div></div>
+    <div class="ex-card bg-pc"><span class="emoji">🌧️</span><div class="cat c-pc">Background / Тло</div><div class="en-sentence">It <strong>was raining</strong> when we arrived.</div><div class="ua-sentence">Коли ми приїхали, йшов дощ.</div></div>
+    <div class="ex-card bg-pc"><span class="emoji">🎮</span><div class="cat c-pc">Gaming / Ігри</div><div class="en-sentence">He <strong>was playing</strong> games all evening.</div><div class="ua-sentence">Він увесь вечір грав у ігри.</div></div>
+    <div class="ex-card bg-pc"><span class="emoji">💃</span><div class="cat c-pc">Event / Подія</div><div class="en-sentence">Everyone <strong>was dancing</strong> at the party.</div><div class="ua-sentence">На вечірці всі танцювали.</div></div>
+    <div class="ex-card bg-pc"><span class="emoji">🚗</span><div class="cat c-pc">Transport / Транспорт</div><div class="en-sentence">We <strong>were driving</strong> when the accident happened.</div><div class="ua-sentence">Ми їхали, коли сталась аварія.</div></div>
+    <div class="ex-card bg-pc"><span class="emoji">📖</span><div class="cat c-pc">School / Школа</div><div class="en-sentence">The students <strong>were writing</strong> a test at noon.</div><div class="ua-sentence">Опівдні учні писали контрольну.</div></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PAST PERFECT
+══════════════════════════════════════════ -->
+<div id="pp" class="section reveal">
+  <div class="section-header header-pp">
+    <span class="icon">✅</span>
+    <div>
+      <h2 class="c-pp">Past Perfect</h2>
+      <div class="sub">Минулий передминулий час · "Ще раніше до минулого"</div>
+    </div>
+  </div>
+
+  <div class="formula-box bg-pp">
+    <h3>📖 What is it? / Що це таке?</h3>
+    <p style="margin-bottom:12px;">Past Perfect shows an action that was <strong>completed BEFORE another past action</strong>. It's the "past of the past". When you have two past actions, the earlier one uses Past Perfect.</p>
+    <p style="font-size:0.9rem;color:var(--soft);">Показує дію, яка <strong>завершилась ДО іншої минулої дії</strong>. Це "минуле минулого". Коли дві дії відбулись у минулому, та, що сталась раніше — у Past Perfect.</p>
+    <div style="background:rgba(255,255,255,0.06);border-radius:10px;padding:12px 16px;margin-top:12px;font-size:0.9rem;">
+      💡 <strong>Think of it as:</strong> Past Perfect = the "BEFORE" action → Past Simple = the "AFTER" action
+      <br><span style="color:var(--soft);font-size:0.82rem;">Уяви стрілку часу: Past Perfect = "РАНІШЕ" → Past Simple = "ПІЗНІШЕ"</span>
+    </div>
+  </div>
+
+  <div class="formula-box bg-pp">
+    <h3>📐 Formulas / Формули</h3>
+    <div class="formula c-pp">✅ (+) <span>Subject</span> <span class="plus">+</span> <span>had</span> <span class="plus">+</span> <span>Past Participle (V₃)</span></div>
+    <div style="font-size:.82rem;color:var(--soft);margin-bottom:10px;">I had eaten · She had gone · They had finished</div>
+    <div class="formula c-pp">❌ (–) <span>Subject</span> <span class="plus">+</span> <span>hadn't</span> <span class="plus">+</span> <span>Past Participle</span></div>
+    <div style="font-size:.82rem;color:var(--soft);margin-bottom:10px;">I hadn't eaten · She hadn't gone</div>
+    <div class="formula c-pp">❓ (?) <span>Had</span> <span class="plus">+</span> <span>Subject</span> <span class="plus">+</span> <span>Past Participle?</span></div>
+    <div style="font-size:.82rem;color:var(--soft);">Had you eaten? · Had she gone?</div>
+  </div>
+
+  <div style="margin-bottom:20px;">
+    <div class="signal-wrap">
+      <span class="signal" style="background:rgba(107,203,119,0.15);color:var(--pp-color);">before</span>
+      <span class="signal" style="background:rgba(107,203,119,0.15);color:var(--pp-color);">after</span>
+      <span class="signal" style="background:rgba(107,203,119,0.15);color:var(--pp-color);">already</span>
+      <span class="signal" style="background:rgba(107,203,119,0.15);color:var(--pp-color);">never … before</span>
+      <span class="signal" style="background:rgba(107,203,119,0.15);color:var(--pp-color);">just</span>
+      <span class="signal" style="background:rgba(107,203,119,0.15);color:var(--pp-color);">by the time</span>
+      <span class="signal" style="background:rgba(107,203,119,0.15);color:var(--pp-color);">when (before another past event)</span>
+    </div>
+  </div>
+
+  <div class="when-box bg-pp" style="border:1px solid rgba(107,203,119,0.2);">
+    <h3 class="c-pp">⏰ When to use? / Коли вживати?</h3>
+    <ul class="when-list">
+      <li data-icon="1️⃣">Action completed BEFORE another past action <span class="ua-note">Дія завершена ДО іншої: "She had left before he arrived."</span></li>
+      <li data-icon="2️⃣">Explaining the cause of a past situation <span class="ua-note">Пояснення причини: "He was tired because he hadn't slept."</span></li>
+      <li data-icon="3️⃣">Reporting what had happened earlier (indirect speech) <span class="ua-note">Непряма мова: "She said she had seen that film."</span></li>
+      <li data-icon="4️⃣">Third conditional sentences <span class="ua-note">Третій тип умовних речень: "If I had studied more, I would have passed."</span></li>
+      <li data-icon="5️⃣">After "wish" for past regrets <span class="ua-note">Після "wish": "I wish I had listened to her."</span></li>
+    </ul>
+  </div>
+
+  <div class="cards-grid">
+    <div class="ex-card bg-pp"><span class="emoji">🍽️</span><div class="cat c-pp">Food / Їжа</div><div class="en-sentence">By the time we arrived, they <strong>had already eaten</strong>.</div><div class="ua-sentence">Коли ми приїхали, вони вже поїли.</div></div>
+    <div class="ex-card bg-pp"><span class="emoji">🎬</span><div class="cat c-pp">Cinema / Кіно</div><div class="en-sentence">She <strong>had never seen</strong> that film before.</div><div class="ua-sentence">Вона ніколи до цього не бачила цей фільм.</div></div>
+    <div class="ex-card bg-pp"><span class="emoji">📝</span><div class="cat c-pp">School / Школа</div><div class="en-sentence">He <strong>had finished</strong> his homework before dinner.</div><div class="ua-sentence">До вечері він вже зробив домашнє завдання.</div></div>
+    <div class="ex-card bg-pp"><span class="emoji">🚂</span><div class="cat c-pp">Transport / Транспорт</div><div class="en-sentence">When we got to the station, the train <strong>had already left</strong>.</div><div class="ua-sentence">Коли ми дістались станції, потяг вже поїхав.</div></div>
+    <div class="ex-card bg-pp"><span class="emoji">😴</span><div class="cat c-pp">Tired / Втома</div><div class="en-sentence">I was exhausted because I <strong>hadn't slept</strong> all night.</div><div class="ua-sentence">Я був(ла) виснажений(а), бо не спав(ла) всю ніч.</div></div>
+    <div class="ex-card bg-pp"><span class="emoji">🔑</span><div class="cat c-pp">Problem / Проблема</div><div class="en-sentence">She couldn't get in because she <strong>had forgotten</strong> her keys.</div><div class="ua-sentence">Вона не могла увійти, бо забула ключі.</div></div>
+    <div class="ex-card bg-pp"><span class="emoji">🏆</span><div class="cat c-pp">Achievement / Досягнення</div><div class="en-sentence">He was proud because he <strong>had won</strong> the competition.</div><div class="ua-sentence">Він пишався, бо виграв змагання.</div></div>
+    <div class="ex-card bg-pp"><span class="emoji">🌍</span><div class="cat c-pp">Travel / Подорожі</div><div class="en-sentence">They <strong>had visited</strong> 10 countries before they turned 20.</div><div class="ua-sentence">До 20 років вони вже відвідали 10 країн.</div></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PAST PERFECT CONTINUOUS
+══════════════════════════════════════════ -->
+<div id="ppc" class="section reveal">
+  <div class="section-header header-ppc">
+    <span class="icon">🔄</span>
+    <div>
+      <h2 class="c-ppc">Past Perfect Continuous</h2>
+      <div class="sub">Минулий передминулий тривалий · "Скільки часу тривало ДО іншого минулого"</div>
+    </div>
+  </div>
+
+  <div class="formula-box bg-ppc">
+    <h3>📖 What is it? / Що це таке?</h3>
+    <p style="margin-bottom:12px;">Past Perfect Continuous shows an action that <strong>had been in progress for some time BEFORE another past action</strong>. It emphasises the <em>duration</em> of that action.</p>
+    <p style="font-size:0.9rem;color:var(--soft);">Показує дію, яка <strong>тривала певний час ДО іншої минулої дії</strong>. Наголошує на <em>тривалості</em>. "Скільки часу я це робив, ПЕРШ НІЖ сталось щось інше."</p>
+  </div>
+
+  <div class="formula-box bg-ppc">
+    <h3>📐 Formulas / Формули</h3>
+    <div class="formula c-ppc">✅ (+) <span>Subject</span> <span class="plus">+</span> <span>had been</span> <span class="plus">+</span> <span>Verb-ing</span></div>
+    <div style="font-size:.82rem;color:var(--soft);margin-bottom:10px;">I had been waiting · She had been running</div>
+    <div class="formula c-ppc">❌ (–) <span>Subject</span> <span class="plus">+</span> <span>hadn't been</span> <span class="plus">+</span> <span>Verb-ing</span></div>
+    <div style="font-size:.82rem;color:var(--soft);margin-bottom:10px;">He hadn't been working</div>
+    <div class="formula c-ppc">❓ (?) <span>Had</span> <span class="plus">+</span> <span>Subject</span> <span class="plus">+</span> <span>been</span> <span class="plus">+</span> <span>Verb-ing?</span></div>
+    <div style="font-size:.82rem;color:var(--soft);">Had you been waiting long?</div>
+  </div>
+
+  <div style="margin-bottom:20px;">
+    <div class="signal-wrap">
+      <span class="signal" style="background:rgba(77,150,255,0.15);color:var(--ppc-color);">for (2 hours, days…)</span>
+      <span class="signal" style="background:rgba(77,150,255,0.15);color:var(--ppc-color);">since</span>
+      <span class="signal" style="background:rgba(77,150,255,0.15);color:var(--ppc-color);">before</span>
+      <span class="signal" style="background:rgba(77,150,255,0.15);color:var(--ppc-color);">by the time</span>
+      <span class="signal" style="background:rgba(77,150,255,0.15);color:var(--ppc-color);">when</span>
+      <span class="signal" style="background:rgba(77,150,255,0.15);color:var(--ppc-color);">all day / all morning</span>
+    </div>
+  </div>
+
+  <div class="when-box bg-ppc" style="border:1px solid rgba(77,150,255,0.2);">
+    <h3 class="c-ppc">⏰ When to use? / Коли вживати?</h3>
+    <ul class="when-list">
+      <li data-icon="1️⃣">Duration of an activity before a past event <span class="ua-note">Тривалість дії до події: "I had been waiting for 2 hours when she arrived."</span></li>
+      <li data-icon="2️⃣">Cause of a visible result in the past <span class="ua-note">Причина видимого результату: "His hands were dirty because he had been gardening."</span></li>
+      <li data-icon="3️⃣">Showing tiredness, frustration, or effort before something happened <span class="ua-note">Зусилля, втома: "She was tired because she had been running."</span></li>
+    </ul>
+  </div>
+
+  <div class="cards-grid">
+    <div class="ex-card bg-ppc"><span class="emoji">⏳</span><div class="cat c-ppc">Waiting / Очікування</div><div class="en-sentence">I <strong>had been waiting</strong> for 2 hours when the bus finally came.</div><div class="ua-sentence">Я чекав(ла) 2 години, коли нарешті прийшов автобус.</div></div>
+    <div class="ex-card bg-ppc"><span class="emoji">🏃</span><div class="cat c-ppc">Sport / Спорт</div><div class="en-sentence">She was out of breath because she <strong>had been running</strong>.</div><div class="ua-sentence">Вона задихалась, бо бігла.</div></div>
+    <div class="ex-card bg-ppc"><span class="emoji">📚</span><div class="cat c-ppc">School / Школа</div><div class="en-sentence">He <strong>had been studying</strong> for 5 hours before he took a break.</div><div class="ua-sentence">Він вчився 5 годин, перш ніж зробив перерву.</div></div>
+    <div class="ex-card bg-ppc"><span class="emoji">😭</span><div class="cat c-ppc">Emotions / Емоції</div><div class="en-sentence">Her eyes were red because she <strong>had been crying</strong>.</div><div class="ua-sentence">Очі були червоні, бо вона плакала.</div></div>
+    <div class="ex-card bg-ppc"><span class="emoji">🔨</span><div class="cat c-ppc">Work / Робота</div><div class="en-sentence">They <strong>had been working</strong> on the project for months before it launched.</div><div class="ua-sentence">Вони місяцями працювали над проєктом до його запуску.</div></div>
+    <div class="ex-card bg-ppc"><span class="emoji">🎵</span><div class="cat c-ppc">Music / Музика</div><div class="en-sentence">She <strong>had been playing</strong> piano for 10 years when she gave her first concert.</div><div class="ua-sentence">Вона грала на піаніно 10 років, коли дала перший концерт.</div></div>
+  </div>
+
+  <!-- PP vs PPC -->
+  <div class="formula-box bg-ppc" style="margin-top:8px;">
+    <h3 class="c-ppc">🔍 Past Perfect vs Past Perfect Continuous — Key difference</h3>
+    <div class="ut-compare">
+      <div class="ut-col" style="background:rgba(107,203,119,0.1);border:1px solid rgba(107,203,119,0.2);">
+        <h4 class="c-pp">Past Perfect — RESULT</h4>
+        <ul>
+          <li>"She <strong>had read</strong> the book." → She finished it ✅</li>
+          <li>"He <strong>had eaten</strong> dinner." → He ate it all ✅</li>
+        </ul>
+        <p style="font-size:.8rem;color:var(--soft);margin-top:8px;">Фокус на ЗАВЕРШЕНОМУ результаті</p>
+      </div>
+      <div class="ut-col" style="background:rgba(77,150,255,0.1);border:1px solid rgba(77,150,255,0.2);">
+        <h4 class="c-ppc">Past Perf. Cont. — DURATION</h4>
+        <ul>
+          <li>"She <strong>had been reading</strong> for 2 hours." → How long 🕒</li>
+          <li>"He <strong>had been eating</strong>." → He was mid-meal 🍽️</li>
+        </ul>
+        <p style="font-size:.8rem;color:var(--soft);margin-top:8px;">Фокус на ТРИВАЛОСТІ дії</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     USED TO
+══════════════════════════════════════════ -->
+<div id="ut" class="section reveal">
+  <div class="section-header header-ut">
+    <span class="icon">🔮</span>
+    <div>
+      <h2 class="c-ut">Used To</h2>
+      <div class="sub">Звичка в минулому · "Раніше робив, але більше не робить"</div>
+    </div>
+  </div>
+
+  <div class="formula-box bg-ut">
+    <h3>📖 What is it? / Що це таке?</h3>
+    <p style="margin-bottom:12px;"><strong>Used to</strong> describes a <em>past habit or state</em> that no longer exists. It strongly implies: <strong>"…but not anymore!"</strong></p>
+    <p style="font-size:0.9rem;color:var(--soft);"><strong>Used to</strong> описує <em>звичку або стан у минулому</em>, яких вже немає. Це завжди означає: <strong>"…але більше не так!"</strong></p>
+    <div style="background:rgba(255,255,255,0.06);border-radius:10px;padding:12px 16px;margin-top:12px;font-size:0.9rem;">
+      ⚠️ There is <strong>NO</strong> "I use to" — always: <strong>I used to</strong> (even in questions and negatives with <em>did</em>)
+      <br><span style="color:var(--soft);font-size:0.82rem;">НЕ "I use to" — завжди: <strong>I used to</strong></span>
+    </div>
+  </div>
+
+  <div class="formula-box bg-ut">
+    <h3>📐 Formulas / Формули</h3>
+    <div class="formula c-ut">✅ (+) <span>Subject</span> <span class="plus">+</span> <span>used to</span> <span class="plus">+</span> <span>Verb (base)</span></div>
+    <div style="font-size:.82rem;color:var(--soft);margin-bottom:10px;">I used to swim · She used to live here</div>
+    <div class="formula c-ut">❌ (–) <span>Subject</span> <span class="plus">+</span> <span>didn't use to</span> <span class="plus">+</span> <span>Verb (base)</span></div>
+    <div style="font-size:.82rem;color:var(--soft);margin-bottom:10px;">I didn't use to like coffee · He didn't use to wake up early</div>
+    <div class="formula c-ut">❓ (?) <span>Did</span> <span class="plus">+</span> <span>Subject</span> <span class="plus">+</span> <span>use to</span> <span class="plus">+</span> <span>Verb?</span></div>
+    <div style="font-size:.82rem;color:var(--soft);">Did you use to play football? · Did she use to live here?</div>
+  </div>
+
+  <div class="when-box bg-ut" style="border:1px solid rgba(199,125,255,0.2);">
+    <h3 class="c-ut">⏰ When to use? / Коли вживати?</h3>
+    <ul class="when-list">
+      <li data-icon="1️⃣">Past habits that no longer happen <span class="ua-note">Минулі звички: "I used to eat sweets every day." (But I don't now.)</span></li>
+      <li data-icon="2️⃣">Past states that are no longer true <span class="ua-note">Минулі стани: "She used to be shy." (She's confident now.)</span></li>
+      <li data-icon="3️⃣">Comparing how things were vs. how they are now <span class="ua-note">Порівняння: "This place used to be a forest." (Now it's a city.)</span></li>
+    </ul>
+  </div>
+
+  <div class="cards-grid">
+    <div class="ex-card bg-ut"><span class="emoji">🚴</span><div class="cat c-ut">Habits / Звички</div><div class="en-sentence">I <strong>used to ride</strong> my bike to school.</div><div class="ua-sentence">Раніше я їздив(ла) до школи на велосипеді.</div></div>
+    <div class="ex-card bg-ut"><span class="emoji">🦁</span><div class="cat c-ut">Fears / Страхи</div><div class="en-sentence">She <strong>used to be afraid</strong> of dogs.</div><div class="ua-sentence">Раніше вона боялась собак.</div></div>
+    <div class="ex-card bg-ut"><span class="emoji">📺</span><div class="cat c-ut">Free time / Дозвілля</div><div class="en-sentence">We <strong>used to watch</strong> cartoons every morning.</div><div class="ua-sentence">Раніше ми щоранку дивились мультики.</div></div>
+    <div class="ex-card bg-ut"><span class="emoji">🌳</span><div class="cat c-ut">Places / Місця</div><div class="en-sentence">There <strong>used to be</strong> a big park here.</div><div class="ua-sentence">Раніше тут був великий парк.</div></div>
+    <div class="ex-card bg-ut"><span class="emoji">☕</span><div class="cat c-ut">Food / Смаки</div><div class="en-sentence">He <strong>didn't use to like</strong> coffee at all.</div><div class="ua-sentence">Раніше він зовсім не любив каву.</div></div>
+    <div class="ex-card bg-ut"><span class="emoji">🎸</span><div class="cat c-ut">Hobbies / Хобі</div><div class="en-sentence">She <strong>used to play</strong> guitar when she was a teenager.</div><div class="ua-sentence">У підлітковому віці вона грала на гітарі.</div></div>
+    <div class="ex-card bg-ut"><span class="emoji">🏡</span><div class="cat c-ut">Lifestyle / Спосіб життя</div><div class="en-sentence">My grandparents <strong>used to live</strong> in the countryside.</div><div class="ua-sentence">Мої дідусь і бабуся раніше жили в селі.</div></div>
+    <div class="ex-card bg-ut"><span class="emoji">🌙</span><div class="cat c-ut">Sleep / Сон</div><div class="en-sentence">I <strong>used to go</strong> to bed very late as a child.</div><div class="ua-sentence">В дитинстві я лягав(ла) спати дуже пізно.</div></div>
+  </div>
+
+  <!-- USED TO vs PAST SIMPLE -->
+  <div class="formula-box bg-ut">
+    <h3 class="c-ut">⚡ Used to vs Past Simple — Key difference</h3>
+    <div class="ut-compare">
+      <div class="ut-col" style="background:rgba(255,107,107,0.1);border:1px solid rgba(255,107,107,0.2);">
+        <h4 class="c-ps">Past Simple</h4>
+        <ul>
+          <li>"I <strong>played</strong> tennis." → Could be once or habit</li>
+          <li>"She <strong>lived</strong> in Paris." → No extra implication</li>
+        </ul>
+        <p style="font-size:.8rem;color:var(--soft);margin-top:8px;">Просто факт. Не говорить про зміни.</p>
+      </div>
+      <div class="ut-col" style="background:rgba(199,125,255,0.1);border:1px solid rgba(199,125,255,0.2);">
+        <h4 class="c-ut">Used To</h4>
+        <ul>
+          <li>"I <strong>used to play</strong> tennis." → But I don't now! ❌</li>
+          <li>"She <strong>used to live</strong> in Paris." → She moved away! 🏃</li>
+        </ul>
+        <p style="font-size:.8rem;color:var(--soft);margin-top:8px;">Підкреслює ЗМІНУ. Більше так не є / не робить.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     COMPARE TABLE
+══════════════════════════════════════════ -->
+<div id="compare" class="compare-section reveal">
+  <h2>📊 Big Comparison / Велике Порівняння</h2>
+
+  <div class="table-scroll-wrap" style="margin-bottom:40px;">
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Tense / Час</th>
+          <th>Focus / Акцент</th>
+          <th>Key question / Ключове питання</th>
+          <th>Example</th>
+          <th>Nuance / Відтінок</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="c-ps">⚡ Past Simple</td>
+          <td>Completed fact</td>
+          <td>WHAT happened?</td>
+          <td style="font-size:.88rem;">She <strong>studied</strong> English.</td>
+          <td>Basic past fact, no extras</td>
+        </tr>
+        <tr>
+          <td class="c-pc">🌊 Past Continuous</td>
+          <td>In progress at a moment</td>
+          <td>WHAT was happening?</td>
+          <td style="font-size:.88rem;">She <strong>was studying</strong> at 6pm.</td>
+          <td>Middle of action, atmosphere</td>
+        </tr>
+        <tr>
+          <td class="c-pp">✅ Past Perfect</td>
+          <td>Before another past event</td>
+          <td>What had happened FIRST?</td>
+          <td style="font-size:.88rem;">She <strong>had studied</strong> before the exam.</td>
+          <td>"Earlier past", cause & result</td>
+        </tr>
+        <tr>
+          <td class="c-ppc">🔄 Past Perf. Cont.</td>
+          <td>Duration before past event</td>
+          <td>HOW LONG before something?</td>
+          <td style="font-size:.88rem;">She <strong>had been studying</strong> for 3 hours.</td>
+          <td>Emphasises effort, duration</td>
+        </tr>
+        <tr>
+          <td class="c-ut">🔮 Used To</td>
+          <td>Past habit / state (gone)</td>
+          <td>What was DIFFERENT in the past?</td>
+          <td style="font-size:.88rem;">She <strong>used to study</strong> every day.</td>
+          <td>Change implied — not any more!</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- REAL STORY using all tenses -->
+  <div style="background:linear-gradient(135deg,rgba(255,107,107,0.08),rgba(77,150,255,0.08),rgba(199,125,255,0.08));border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:28px 30px;margin-bottom:40px;">
+    <h3 style="font-family:'Fredoka One',cursive;font-size:1.4rem;color:#ffd93d;margin-bottom:16px;">📖 A story using ALL tenses / Історія з усіма часами</h3>
+    <p style="font-size:1rem;line-height:2;">
+      Anna <span class="c-ut" title="used to = past habit"><strong>used to hate</strong></span> running.
+      But last year she <span class="c-ps" title="past simple = completed action"><strong>decided</strong></span> to change her life.
+      One morning, while she <span class="c-pc" title="past continuous = in progress"><strong>was walking</strong></span> in the park, she saw a running club.
+      She <span class="c-pp" title="past perfect = before that moment"><strong>had never tried</strong></span> running with others before.
+      By June, she <span class="c-ppc" title="past perfect continuous = duration"><strong>had been training</strong></span> for 6 months, and she finally <span class="c-ps"><strong>ran</strong></span> her first race!
+    </p>
+    <p style="font-size:0.85rem;color:var(--soft);margin-top:14px;line-height:1.9;">
+      Анна <span class="c-ut">раніше ненавиділа</span> бігати. Але минулого року вона <span class="c-ps">вирішила</span> змінити своє життя. Одного ранку, поки вона <span class="c-pc">гуляла</span> у парку, вона побачила бігову команду. Раніше вона <span class="c-pp">ніколи не пробувала</span> бігати з іншими. До червня вона <span class="c-ppc">тренувалась</span> вже 6 місяців, і нарешті <span class="c-ps">пробігла</span> свій перший забіг!
+    </p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     QUIZ
+══════════════════════════════════════════ -->
+<div id="quiz" class="quiz-section reveal">
+  <h2>🧠 Quick Quiz / Маленький тест</h2>
+
+  <div class="quiz-card" id="q1">
+    <div class="quiz-q">1. I _____ my keys. I can't find them! (Я загубив(ла) ключі.)</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt" data-q="1" data-val="a">a) lost</button>
+      <button class="quiz-opt" data-q="1" data-val="b">b) had lost</button>
+      <button class="quiz-opt" data-q="1" data-val="c">c) was losing</button>
+    </div>
+    <div class="quiz-feedback" id="fb1"></div>
+  </div>
+
+  <div class="quiz-card" id="q2">
+    <div class="quiz-q">2. When I arrived, she _____ for 2 hours. (Коли я прийшов, вона вже чекала 2 години.)</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt" data-q="2" data-val="a">a) was waiting</button>
+      <button class="quiz-opt" data-q="2" data-val="b">b) had been waiting</button>
+      <button class="quiz-opt" data-q="2" data-val="c">c) waited</button>
+    </div>
+    <div class="quiz-feedback" id="fb2"></div>
+  </div>
+
+  <div class="quiz-card" id="q3">
+    <div class="quiz-q">3. I _____ eat broccoli when I was young. (Раніше я не їв брокколі.)</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt" data-q="3" data-val="a">a) didn't use to</button>
+      <button class="quiz-opt" data-q="3" data-val="b">b) wasn't eating</button>
+      <button class="quiz-opt" data-q="3" data-val="c">c) hadn't eaten</button>
+    </div>
+    <div class="quiz-feedback" id="fb3"></div>
+  </div>
+
+  <div class="quiz-card" id="q4">
+    <div class="quiz-q">4. She _____ TV when the lights went off. (Вона дивилась телевізор, коли вимкнулось світло.)</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt" data-q="4" data-val="a">a) watched</button>
+      <button class="quiz-opt" data-q="4" data-val="b">b) had watched</button>
+      <button class="quiz-opt" data-q="4" data-val="c">c) was watching</button>
+    </div>
+    <div class="quiz-feedback" id="fb4"></div>
+  </div>
+
+  <div class="quiz-card" id="q5">
+    <div class="quiz-q">5. By the time the film started, we _____ our popcorn. (До початку фільму ми вже з'їли попкорн.)</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt" data-q="5" data-val="a">a) ate</button>
+      <button class="quiz-opt" data-q="5" data-val="b">b) had already eaten</button>
+      <button class="quiz-opt" data-q="5" data-val="c">c) were eating</button>
+    </div>
+    <div class="quiz-feedback" id="fb5"></div>
+  </div>
+
+  <div class="quiz-card" id="q6">
+    <div class="quiz-q">6. His eyes were red because he _____ all night. (Очі були червоні, бо він плакав усю ніч.)</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt" data-q="6" data-val="a">a) cried</button>
+      <button class="quiz-opt" data-q="6" data-val="b">b) had cried</button>
+      <button class="quiz-opt" data-q="6" data-val="c">c) had been crying</button>
+    </div>
+    <div class="quiz-feedback" id="fb6"></div>
+  </div>
+
+  <button id="submit-quiz">Check Answers ✅</button>
+  <div class="score-box" id="score-box">
+    <h3 id="score-text"></h3>
+    <p id="score-msg" style="margin-top:8px;color:var(--soft);"></p>
+  </div>
+</div>
+
+<footer>
+  Made with 💜 for English learners · Past Tenses Reference Page · Всі мінулі часи в одному місці 🕰️
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Quiz logic
+  const answers = { 1:'a', 2:'b', 3:'a', 4:'c', 5:'b', 6:'c' };
+  const explanations = {
+    1: "✅ Past Simple — lost. Simple completed action. / Проста завершена дія.",
+    2: "✅ Past Perfect Continuous — had been waiting. Duration before arrival. / Тривалість до події.",
+    3: "✅ Used to — didn't use to eat. Past habit that changed. / Минула звичка, яка змінилась.",
+    4: "✅ Past Continuous — was watching. Action in progress interrupted. / Дія тривала, потім перервалась.",
+    5: "✅ Past Perfect — had already eaten. Completed before the film. / Завершилось ДО початку фільму.",
+    6: "✅ Past Perfect Continuous — had been crying. Duration explains the visible result. / Тривалість пояснює результат (червоні очі).",
+  };
+
+  let selected = {};
+  document.querySelectorAll('.quiz-opt').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const q = this.dataset.q;
+      selected[q] = this.dataset.val;
+      document.querySelectorAll(`.quiz-opt[data-q="${q}"]`).forEach(b => b.classList.remove('correct','wrong'));
+      this.style.borderColor = 'rgba(255,217,61,0.8)';
+      this.style.background = 'rgba(255,217,61,0.15)';
+    });
+  });
+
+  document.getElementById('submit-quiz').addEventListener('click', function() {
+    let score = 0;
+    for(let q = 1; q <= 6; q++) {
+      const val = selected[q];
+      const fb = document.getElementById('fb'+q);
+      document.querySelectorAll(`.quiz-opt[data-q="${q}"]`).forEach(b => {
+        b.style.borderColor = ''; b.style.background = '';
+        if(b.dataset.val === answers[q]) b.classList.add('correct');
+        else if(b.dataset.val === val && val !== answers[q]) b.classList.add('wrong');
+      });
+      if(val === answers[q]) { score++; fb.textContent = '✅ Correct! ' + explanations[q]; fb.style.color = '#6bcb77'; }
+      else { fb.textContent = '❌ ' + (val ? '' : 'Not answered. ') + explanations[q]; fb.style.color = '#ff6b6b'; }
+      fb.classList.add('show');
+    }
+    const box = document.getElementById('score-box');
+    const msgs = ['Keep trying! 💪 Продовжуй!', 'Good start! 🌱', 'Not bad! 😊', 'Good job! 👍', 'Great! 🎉', 'Excellent! 🏆', 'Perfect! ⭐'];
+    document.getElementById('score-text').textContent = `${score} / 6`;
+    document.getElementById('score-msg').textContent = msgs[score];
+    box.classList.add('show');
+    box.scrollIntoView({ behavior:'smooth', block:'center' });
+  });
+</script>
+
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+</body>
+</html>

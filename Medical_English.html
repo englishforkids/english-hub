@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medical English — Медична Англійська</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #FF4757;
+    --blue: #1E90FF;
+    --teal: #00C9A7;
+    --yellow: #FFD32A;
+    --purple: #7C4FFF;
+    --orange: #FF6B35;
+    --pink: #FF6B9D;
+    --bg: #F0F7FF;
+    --card: #FFFFFF;
+    --text: #1A1A2E;
+    --muted: #6B7A99;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    background: linear-gradient(135deg, #1E3A8A 0%, #1E90FF 50%, #00C9A7 100%);
+    padding: 60px 20px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-cross {
+    font-size: 80px;
+    animation: pulse 2s ease-in-out infinite;
+    display: block;
+    margin-bottom: 10px;
+  }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+  }
+  .hero h1 {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+  .hero h1 span { color: var(--yellow); }
+  .hero p {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: rgba(255,255,255,0.9);
+    max-width: 600px;
+    margin: 0 auto 30px;
+  }
+  .hero-badges {
+    display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+  }
+  .badge {
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.4);
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    backdrop-filter: blur(8px);
+  }
+
+  /* ===== CONTAINER ===== */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* ===== SECTION TITLES ===== */
+  .section {
+    padding: 60px 20px;
+  }
+  .section-title {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  .section-sub {
+    text-align: center;
+    color: var(--muted);
+    font-size: 1rem;
+    margin-bottom: 40px;
+  }
+  .accent-line {
+    display: inline-block;
+    width: 60px; height: 5px;
+    border-radius: 3px;
+    margin: 8px auto 24px;
+    display: block;
+  }
+
+  /* ===== NAV TABS ===== */
+  .nav-tabs {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 24px 20px;
+    background: #fff;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+    position: sticky; top: 0; z-index: 100;
+  }
+  .nav-tab {
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: none;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.25s;
+    text-decoration: none;
+  }
+  .nav-tab:hover { background: var(--blue); color: #fff; transform: translateY(-2px); }
+
+  /* ===== VOCAB CARDS ===== */
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 18px;
+  }
+  .vocab-card {
+    background: var(--card);
+    border-radius: 20px;
+    padding: 22px 18px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    border-top: 5px solid var(--blue);
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: default;
+  }
+  .vocab-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+  .vocab-emoji { font-size: 2.2rem; margin-bottom: 10px; }
+  .vocab-en {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--blue);
+    margin-bottom: 4px;
+  }
+  .vocab-ua {
+    font-size: 0.95rem;
+    color: var(--muted);
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .vocab-pronunciation {
+    font-size: 0.8rem;
+    color: #aaa;
+    font-style: italic;
+  }
+
+  /* ===== BODY PARTS SVG INFOGRAPHIC ===== */
+  .body-infographic {
+    background: var(--card);
+    border-radius: 24px;
+    padding: 40px 24px;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .body-parts-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 20px;
+    align-items: center;
+  }
+  .body-label-left, .body-label-right {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .body-label-left { align-items: flex-end; }
+  .body-label-right { align-items: flex-start; }
+  .b-label {
+    background: var(--bg);
+    border-radius: 12px;
+    padding: 10px 16px;
+    text-align: center;
+    min-width: 160px;
+    border: 2px solid transparent;
+    transition: border-color 0.2s;
+  }
+  .b-label:hover { border-color: var(--blue); }
+  .b-label .en { font-weight: 800; font-size: 1rem; color: var(--blue); }
+  .b-label .ua { font-size: 0.82rem; color: var(--muted); font-weight: 600; }
+  .body-svg-wrap { display: flex; justify-content: center; }
+  .body-svg-wrap svg { width: 160px; height: 340px; }
+
+  /* ===== PHRASE BOXES ===== */
+  .phrase-section {
+    background: var(--card);
+    border-radius: 24px;
+    padding: 36px 28px;
+    margin-bottom: 28px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  }
+  .phrase-section h3 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 6px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .phrase-section .section-desc {
+    color: var(--muted);
+    font-size: 0.92rem;
+    margin-bottom: 20px;
+  }
+  .phrase-list { display: flex; flex-direction: column; gap: 12px; }
+  .phrase-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    background: var(--bg);
+    border-radius: 14px;
+    padding: 14px 18px;
+    border-left: 4px solid var(--blue);
+    transition: transform 0.15s;
+  }
+  .phrase-item:hover { transform: translateX(4px); }
+  .phrase-en { font-weight: 800; color: var(--text); font-size: 0.98rem; }
+  .phrase-ua { color: var(--muted); font-size: 0.93rem; font-weight: 600; }
+
+  @media (max-width: 560px) {
+    .phrase-item { grid-template-columns: 1fr; }
+    .phrase-en::after { content: ''; display: block; height: 1px; background: #e0e0e0; margin: 6px 0; }
+  }
+
+  /* ===== DIALOGUE BOXES ===== */
+  .dialogue-wrap {
+    background: var(--card);
+    border-radius: 24px;
+    padding: 36px 28px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    margin-bottom: 28px;
+  }
+  .dialogue-title {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.35rem;
+    font-weight: 800;
+    margin-bottom: 6px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .dialogue-desc { color: var(--muted); font-size: 0.9rem; margin-bottom: 22px; }
+  .chat-bubble {
+    margin-bottom: 14px;
+    max-width: 85%;
+  }
+  .chat-bubble.doctor { margin-left: 0; }
+  .chat-bubble.patient { margin-left: auto; text-align: right; }
+  .bubble-label {
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+    color: var(--muted);
+  }
+  .bubble-content {
+    display: inline-block;
+    padding: 12px 18px;
+    border-radius: 18px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  }
+  .chat-bubble.doctor .bubble-content {
+    background: #EEF6FF;
+    border-bottom-left-radius: 4px;
+    border: 2px solid #D0E8FF;
+  }
+  .chat-bubble.patient .bubble-content {
+    background: #E8FFF7;
+    border-bottom-right-radius: 4px;
+    border: 2px solid #C0F0E0;
+  }
+  .bubble-en { font-weight: 700; color: var(--text); }
+  .bubble-ua { font-size: 0.82rem; color: var(--muted); margin-top: 4px; font-style: italic; }
+
+  /* ===== PAIN SCALE ===== */
+  .pain-scale {
+    background: var(--card);
+    border-radius: 24px;
+    padding: 36px 28px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    margin-bottom: 28px;
+  }
+  .pain-emojis {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    margin: 24px 0 12px;
+    flex-wrap: wrap;
+  }
+  .pain-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    flex: 1;
+    min-width: 60px;
+  }
+  .pain-face { font-size: 2.2rem; }
+  .pain-num {
+    font-weight: 900;
+    font-size: 1.1rem;
+  }
+  .pain-label { font-size: 0.72rem; color: var(--muted); text-align: center; font-weight: 600; }
+  .pain-bar {
+    height: 14px;
+    border-radius: 7px;
+    background: linear-gradient(to right, #00C9A7, #FFD32A, #FF6B35, #FF4757);
+    margin-bottom: 8px;
+    box-shadow: 0 2px 8px rgba(255,71,87,0.3);
+  }
+
+  /* ===== WARNING CARDS ===== */
+  .warning-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+  }
+  .warning-card {
+    border-radius: 20px;
+    padding: 24px 20px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.15);
+  }
+  .warning-card::before {
+    content: '';
+    position: absolute;
+    top: -20px; right: -20px;
+    width: 90px; height: 90px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+  }
+  .warning-card .wc-emoji { font-size: 2.4rem; margin-bottom: 12px; display: block; }
+  .warning-card .wc-title { font-family: 'Baloo 2'; font-size: 1.2rem; font-weight: 800; margin-bottom: 6px; }
+  .warning-card .wc-en { font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; }
+  .warning-card .wc-ua { font-size: 0.82rem; opacity: 0.85; }
+
+  /* ===== TIPS BOX ===== */
+  .tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .tip-card {
+    background: var(--card);
+    border-radius: 20px;
+    padding: 24px 20px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    display: flex; gap: 16px; align-items: flex-start;
+    border-left: 5px solid var(--teal);
+    transition: transform 0.2s;
+  }
+  .tip-card:hover { transform: translateY(-4px); }
+  .tip-icon { font-size: 2rem; flex-shrink: 0; }
+  .tip-content .tip-en { font-weight: 800; font-size: 1rem; color: var(--text); margin-bottom: 4px; }
+  .tip-content .tip-ua { font-size: 0.88rem; color: var(--muted); }
+
+  /* ===== EMERGENCY SECTION ===== */
+  .emergency-box {
+    background: linear-gradient(135deg, #FF4757, #FF6B35);
+    color: #fff;
+    border-radius: 24px;
+    padding: 40px 32px;
+    box-shadow: 0 8px 40px rgba(255,71,87,0.35);
+    margin-bottom: 28px;
+  }
+  .emergency-box h3 {
+    font-family: 'Baloo 2'; font-size: 1.8rem; font-weight: 800;
+    margin-bottom: 8px; display: flex; align-items: center; gap: 12px;
+  }
+  .emergency-box p { opacity: 0.9; margin-bottom: 24px; }
+  .emergency-phrases {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 14px;
+  }
+  .ep-item {
+    background: rgba(255,255,255,0.18);
+    border: 2px solid rgba(255,255,255,0.35);
+    border-radius: 14px;
+    padding: 14px 16px;
+    backdrop-filter: blur(8px);
+  }
+  .ep-en { font-weight: 800; font-size: 1rem; margin-bottom: 4px; }
+  .ep-ua { font-size: 0.82rem; opacity: 0.85; }
+
+  /* ===== SYMPTOMS TABLE ===== */
+  .symptoms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 14px;
+  }
+  .sym-card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 18px 16px;
+    box-shadow: 0 3px 14px rgba(0,0,0,0.08);
+    text-align: center;
+    transition: transform 0.2s;
+  }
+  .sym-card:hover { transform: scale(1.04); }
+  .sym-emoji { font-size: 2rem; display: block; margin-bottom: 8px; }
+  .sym-en { font-weight: 800; color: var(--text); font-size: 0.98rem; margin-bottom: 4px; }
+  .sym-ua { color: var(--muted); font-size: 0.85rem; font-weight: 600; }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: #1A1A2E;
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+    padding: 32px 20px;
+    font-size: 0.9rem;
+  }
+  footer strong { color: #fff; }
+
+  /* ===== SECTION COLORS ===== */
+  .bg-white { background: #fff; }
+  .bg-light { background: var(--bg); }
+  .bg-teal { background: linear-gradient(135deg, #00C9A7, #00B4D8); }
+
+  /* ===== RESPONSIVE — MOBILE FIRST ===== */
+
+  /* Prevent any horizontal overflow globally */
+  html, body { max-width: 100%; overflow-x: hidden; }
+  img, svg, video, iframe { max-width: 100%; }
+
+  /* ---- Tablet: 768px and below ---- */
+  @media (max-width: 768px) {
+    .section { padding: 40px 14px; }
+    .container { padding: 0 14px; }
+
+    /* Hero */
+    .hero { padding: 40px 16px 56px; }
+    .hero-cross { font-size: 56px; }
+    .hero-badges { gap: 8px; }
+    .badge { font-size: 0.8rem; padding: 6px 14px; }
+
+    /* Nav tabs — horizontal scroll, no wrap */
+    .nav-tabs {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      justify-content: flex-start;
+      padding: 14px 12px;
+      gap: 8px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .nav-tabs::-webkit-scrollbar { display: none; }
+    .nav-tab { flex-shrink: 0; padding: 8px 14px; font-size: 0.82rem; }
+
+    /* Vocab grid */
+    .vocab-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+
+    /* Symptoms grid */
+    .symptoms-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .sym-card { padding: 14px 10px; }
+
+    /* Warning / disease cards */
+    .warning-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+
+    /* Tips */
+    .tips-grid { grid-template-columns: 1fr; gap: 12px; }
+
+    /* Phrase items — stack vertically */
+    .phrase-item {
+      grid-template-columns: 1fr;
+      gap: 4px;
+    }
+    .phrase-ua { font-size: 0.85rem; color: var(--muted); padding-top: 4px; border-top: 1px dashed #dde; }
+
+    /* Phrase section padding */
+    .phrase-section { padding: 24px 16px; }
+
+    /* Emergency phrases */
+    .emergency-phrases { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .emergency-box { padding: 28px 18px; }
+    .emergency-box h3 { font-size: 1.4rem; }
+
+    /* Dialogue bubbles */
+    .chat-bubble { max-width: 95%; }
+    .dialogue-wrap { padding: 24px 16px; }
+    .bubble-content { font-size: 0.88rem; padding: 10px 14px; }
+
+    /* Pain scale */
+    .pain-scale { padding: 24px 16px; }
+    .pain-face { font-size: 1.6rem; }
+    .pain-num { font-size: 0.95rem; }
+    .pain-label { font-size: 0.66rem; }
+
+    /* Body infographic — stack */
+    .body-infographic { padding: 24px 14px; }
+    .body-parts-grid { grid-template-columns: 1fr; gap: 16px; }
+    .body-label-left, .body-label-right { align-items: center; flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 8px; }
+    .b-label { min-width: 120px; padding: 8px 12px; }
+    .body-svg-wrap { order: -1; }
+    .body-svg-wrap svg { width: 120px; height: 255px; }
+  }
+
+  /* ---- Small mobile: 480px and below ---- */
+  @media (max-width: 480px) {
+    .section { padding: 32px 12px; }
+
+    /* Hero */
+    .hero { padding: 32px 12px 44px; }
+    .hero-cross { font-size: 44px; }
+
+    /* Vocab — single column on very small screens */
+    .vocab-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .vocab-card { padding: 16px 12px; }
+    .vocab-emoji { font-size: 1.8rem; }
+    .vocab-en { font-size: 1rem; }
+
+    /* Symptoms — single column */
+    .symptoms-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+
+    /* Diseases — single column */
+    .warning-grid { grid-template-columns: 1fr; }
+
+    /* Emergency phrases — single column */
+    .emergency-phrases { grid-template-columns: 1fr; }
+    .emergency-box { padding: 22px 14px; border-radius: 18px; }
+
+    /* Section titles */
+    .section-title { font-size: 1.4rem; }
+
+    /* Dialogue */
+    .chat-bubble { max-width: 100%; }
+    .bubble-content { font-size: 0.85rem; }
+
+    /* Phrase section */
+    .phrase-section { padding: 18px 12px; border-radius: 16px; }
+    .phrase-section h3 { font-size: 1.15rem; }
+    .phrase-item { padding: 10px 12px; }
+
+    /* Pain emojis — scrollable row on very small */
+    .pain-emojis { gap: 4px; }
+    .pain-item { min-width: 52px; }
+
+    /* Body labels — full width tags */
+    .b-label { min-width: 100px; font-size: 0.88rem; }
+
+    /* Scroll top btn */
+    #scroll-top-btn { bottom: 16px; right: 16px; width: 40px; height: 40px; font-size: 16px; }
+  }
+
+  /* ---- Very small: 360px ---- */
+  @media (max-width: 360px) {
+    .vocab-grid { grid-template-columns: 1fr; }
+    .symptoms-grid { grid-template-columns: 1fr 1fr; }
+    .nav-tab { font-size: 0.76rem; padding: 7px 10px; }
+  }
+
+  /* ===== ANIMATIONS ===== */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up { animation: fadeUp 0.5s ease both; }
+
+  /* number tags on vocab */
+  .color-1 { border-top-color: var(--blue); }
+  .color-2 { border-top-color: var(--teal); }
+  .color-3 { border-top-color: var(--orange); }
+  .color-4 { border-top-color: var(--purple); }
+  .color-5 { border-top-color: var(--pink); }
+  .color-6 { border-top-color: var(--red); }
+
+  .wc-blue { background: linear-gradient(135deg, #1E90FF, #7C4FFF); }
+  .wc-green { background: linear-gradient(135deg, #00C9A7, #1E90FF); }
+  .wc-orange { background: linear-gradient(135deg, #FF6B35, #FFD32A); }
+  .wc-red { background: linear-gradient(135deg, #FF4757, #FF6B9D); }
+
+  #scroll-top-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #1a1208;
+    border: 1.5px solid rgba(200,150,62,0.4);
+    color: #f5f0e8;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+    pointer-events: none;
+    z-index: 9998;
+  }
+  #scroll-top-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  #scroll-top-btn:hover {
+    background: #c8963e;
+    border-color: #c8963e;
+    color: #1a1208;
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="hero-cross">🏥</span>
+  <h1>Medical <span>English</span><br>Медична Англійська</h1>
+  <p>Навчись говорити в лікарні, описувати симптоми й розуміти лікарів англійською мовою!</p>
+  <div class="hero-badges">
+    <span class="badge">👶 Для початківців</span>
+    <span class="badge">🗣️ Розмовні фрази</span>
+    <span class="badge">🩺 Лікарня</span>
+    <span class="badge">🚨 Надзвичайні ситуації</span>
+  </div>
+</section>
+
+<!-- NAV -->
+<nav class="nav-tabs">
+  <a href="#body" class="nav-tab">🫀 Body Parts</a>
+  <a href="#symptoms" class="nav-tab">🤒 Symptoms</a>
+  <a href="#hospital" class="nav-tab">🏥 At Hospital</a>
+  <a href="#dialogues" class="nav-tab">💬 Dialogues</a>
+  <a href="#pain" class="nav-tab">😣 Pain Scale</a>
+  <a href="#emergency" class="nav-tab">🚨 Emergency</a>
+  <a href="#tips" class="nav-tab">💡 Tips</a>
+</nav>
+
+<!-- ===== BODY PARTS ===== -->
+<section class="section bg-white" id="body">
+  <div class="container">
+    <h2 class="section-title">🫀 Body Parts — Частини тіла</h2>
+    <div class="accent-line" style="background: var(--blue);"></div>
+    <p class="section-sub">Знаючи частини тіла, ти зможеш точно пояснити, де болить! / Know body parts to explain where it hurts!</p>
+    <div class="body-infographic">
+      <div class="body-parts-grid">
+        <div class="body-label-left">
+          <div class="b-label"><div class="en">Head</div><div class="ua">Голова</div></div>
+          <div class="b-label"><div class="en">Eye</div><div class="ua">Око</div></div>
+          <div class="b-label"><div class="en">Ear</div><div class="ua">Вухо</div></div>
+          <div class="b-label"><div class="en">Neck</div><div class="ua">Шия</div></div>
+          <div class="b-label"><div class="en">Shoulder</div><div class="ua">Плече</div></div>
+          <div class="b-label"><div class="en">Chest</div><div class="ua">Груди</div></div>
+          <div class="b-label"><div class="en">Arm</div><div class="ua">Рука (вся)</div></div>
+          <div class="b-label"><div class="en">Wrist</div><div class="ua">Зап'ясток</div></div>
+        </div>
+        <div class="body-svg-wrap">
+          <svg viewBox="0 0 160 340" xmlns="http://www.w3.org/2000/svg">
+            <!-- Head -->
+            <circle cx="80" cy="40" r="32" fill="#FFD6B0" stroke="#E8A87C" stroke-width="2"/>
+            <!-- Hair -->
+            <ellipse cx="80" cy="14" rx="32" ry="12" fill="#5C3D1E"/>
+            <!-- Eyes -->
+            <circle cx="68" cy="36" r="5" fill="#fff" stroke="#333" stroke-width="1.5"/>
+            <circle cx="92" cy="36" r="5" fill="#fff" stroke="#333" stroke-width="1.5"/>
+            <circle cx="68" cy="37" r="2.5" fill="#333"/>
+            <circle cx="92" cy="37" r="2.5" fill="#333"/>
+            <!-- Nose -->
+            <path d="M78 44 Q80 50 82 44" stroke="#B07A50" stroke-width="1.5" fill="none"/>
+            <!-- Mouth -->
+            <path d="M72 52 Q80 58 88 52" stroke="#B07A50" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <!-- Ears -->
+            <ellipse cx="48" cy="40" rx="6" ry="8" fill="#FFD6B0" stroke="#E8A87C" stroke-width="1.5"/>
+            <ellipse cx="112" cy="40" rx="6" ry="8" fill="#FFD6B0" stroke="#E8A87C" stroke-width="1.5"/>
+            <!-- Neck -->
+            <rect x="70" y="72" width="20" height="20" rx="4" fill="#FFD6B0" stroke="#E8A87C" stroke-width="1.5"/>
+            <!-- Body (torso) -->
+            <path d="M40 92 Q30 100 32 160 L128 160 Q130 100 120 92 Q100 88 80 88 Q60 88 40 92Z" fill="#4A90D9" stroke="#2E6FB5" stroke-width="1.5"/>
+            <!-- Cross on shirt -->
+            <rect x="76" y="110" width="8" height="24" rx="2" fill="#fff" opacity="0.8"/>
+            <rect x="68" y="118" width="24" height="8" rx="2" fill="#fff" opacity="0.8"/>
+            <!-- Arms -->
+            <path d="M40 96 Q20 110 18 155 Q16 165 24 165 Q28 165 30 155 L44 120Z" fill="#FFD6B0" stroke="#E8A87C" stroke-width="1.5"/>
+            <path d="M120 96 Q140 110 142 155 Q144 165 136 165 Q132 165 130 155 L116 120Z" fill="#FFD6B0" stroke="#E8A87C" stroke-width="1.5"/>
+            <!-- Hands -->
+            <ellipse cx="22" cy="170" rx="10" ry="12" fill="#FFD6B0" stroke="#E8A87C" stroke-width="1.5"/>
+            <ellipse cx="138" cy="170" rx="10" ry="12" fill="#FFD6B0" stroke="#E8A87C" stroke-width="1.5"/>
+            <!-- Legs -->
+            <path d="M56 160 Q50 200 48 250 L68 250 Q70 200 72 160Z" fill="#2C3E50" stroke="#1A252F" stroke-width="1.5"/>
+            <path d="M88 160 Q90 200 92 250 L112 250 Q110 200 108 160Z" fill="#2C3E50" stroke="#1A252F" stroke-width="1.5"/>
+            <!-- Feet -->
+            <ellipse cx="58" cy="258" rx="14" ry="8" fill="#333" rx="4"/>
+            <ellipse cx="102" cy="258" rx="14" ry="8" fill="#333"/>
+            <!-- Knees dots -->
+            <circle cx="58" cy="210" r="5" fill="#FFD6B0" stroke="#E8A87C" stroke-width="1"/>
+            <circle cx="102" cy="210" r="5" fill="#FFD6B0" stroke="#E8A87C" stroke-width="1"/>
+          </svg>
+        </div>
+        <div class="body-label-right">
+          <div class="b-label"><div class="en">Nose</div><div class="ua">Ніс</div></div>
+          <div class="b-label"><div class="en">Mouth / Throat</div><div class="ua">Рот / Горло</div></div>
+          <div class="b-label"><div class="en">Back</div><div class="ua">Спина</div></div>
+          <div class="b-label"><div class="en">Stomach</div><div class="ua">Живіт / Шлунок</div></div>
+          <div class="b-label"><div class="en">Hip</div><div class="ua">Стегно</div></div>
+          <div class="b-label"><div class="en">Knee</div><div class="ua">Коліно</div></div>
+          <div class="b-label"><div class="en">Ankle</div><div class="ua">Щиколотка</div></div>
+          <div class="b-label"><div class="en">Foot</div><div class="ua">Ступня</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== KEY VOCAB ===== -->
+<section class="section bg-light">
+  <div class="container">
+    <h2 class="section-title">📖 Key Medical Words — Ключові медичні слова</h2>
+    <div class="accent-line" style="background: var(--teal);"></div>
+    <div class="vocab-grid">
+      <div class="vocab-card color-1"><div class="vocab-emoji">👨‍⚕️</div><div class="vocab-en">Doctor</div><div class="vocab-ua">Лікар</div><div class="vocab-pronunciation">/ˈdɒktər/</div></div>
+      <div class="vocab-card color-2"><div class="vocab-emoji">👩‍⚕️</div><div class="vocab-en">Nurse</div><div class="vocab-ua">Медсестра / Медбрат</div><div class="vocab-pronunciation">/nɜːrs/</div></div>
+      <div class="vocab-card color-3"><div class="vocab-emoji">🏥</div><div class="vocab-en">Hospital</div><div class="vocab-ua">Лікарня</div><div class="vocab-pronunciation">/ˈhɒspɪtl/</div></div>
+      <div class="vocab-card color-4"><div class="vocab-emoji">🚑</div><div class="vocab-en">Ambulance</div><div class="vocab-ua">Швидка допомога</div><div class="vocab-pronunciation">/ˈæmbjʊləns/</div></div>
+      <div class="vocab-card color-5"><div class="vocab-emoji">💊</div><div class="vocab-en">Medicine / Pill</div><div class="vocab-ua">Ліки / Таблетка</div><div class="vocab-pronunciation">/ˈmedɪsɪn/</div></div>
+      <div class="vocab-card color-6"><div class="vocab-emoji">📋</div><div class="vocab-en">Prescription</div><div class="vocab-ua">Рецепт</div><div class="vocab-pronunciation">/prɪˈskrɪpʃn/</div></div>
+      <div class="vocab-card color-1"><div class="vocab-emoji">🩹</div><div class="vocab-en">Bandage</div><div class="vocab-ua">Пов'язка / Бинт</div><div class="vocab-pronunciation">/ˈbændɪdʒ/</div></div>
+      <div class="vocab-card color-2"><div class="vocab-emoji">🌡️</div><div class="vocab-en">Thermometer</div><div class="vocab-ua">Термометр</div><div class="vocab-pronunciation">/θəˈmɒmɪtər/</div></div>
+      <div class="vocab-card color-3"><div class="vocab-emoji">💉</div><div class="vocab-en">Injection / Shot</div><div class="vocab-ua">Укол / Ін'єкція</div><div class="vocab-pronunciation">/ɪnˈdʒekʃn/</div></div>
+      <div class="vocab-card color-4"><div class="vocab-emoji">🩻</div><div class="vocab-en">X-ray</div><div class="vocab-ua">Рентген</div><div class="vocab-pronunciation">/ˈeksreɪ/</div></div>
+      <div class="vocab-card color-5"><div class="vocab-emoji">🧪</div><div class="vocab-en">Blood test</div><div class="vocab-ua">Аналіз крові</div><div class="vocab-pronunciation">/blʌd test/</div></div>
+      <div class="vocab-card color-6"><div class="vocab-emoji">🛏️</div><div class="vocab-en">Ward / Room</div><div class="vocab-ua">Палата / Кімната</div><div class="vocab-pronunciation">/wɔːrd/</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SYMPTOMS ===== -->
+<section class="section bg-white" id="symptoms">
+  <div class="container">
+    <h2 class="section-title">🤒 Symptoms — Симптоми</h2>
+    <div class="accent-line" style="background: var(--orange);"></div>
+    <p class="section-sub">Як описати, що ти відчуваєш / How to describe what you feel</p>
+    <div class="symptoms-grid">
+      <div class="sym-card"><span class="sym-emoji">🤕</span><div class="sym-en">Headache</div><div class="sym-ua">Головний біль</div></div>
+      <div class="sym-card"><span class="sym-emoji">🤧</span><div class="sym-en">Runny nose</div><div class="sym-ua">Нежить</div></div>
+      <div class="sym-card"><span class="sym-emoji">🤒</span><div class="sym-en">Fever / High temperature</div><div class="sym-ua">Жар / Температура</div></div>
+      <div class="sym-card"><span class="sym-emoji">😮‍💨</span><div class="sym-en">Cough</div><div class="sym-ua">Кашель</div></div>
+      <div class="sym-card"><span class="sym-emoji">🥴</span><div class="sym-en">Dizziness</div><div class="sym-ua">Запаморочення</div></div>
+      <div class="sym-card"><span class="sym-emoji">🤢</span><div class="sym-en">Nausea</div><div class="sym-ua">Нудота</div></div>
+      <div class="sym-card"><span class="sym-emoji">🤮</span><div class="sym-en">Vomiting</div><div class="sym-ua">Блювання</div></div>
+      <div class="sym-card"><span class="sym-emoji">😫</span><div class="sym-en">Fatigue / Tiredness</div><div class="sym-ua">Втома</div></div>
+      <div class="sym-card"><span class="sym-emoji">🦷</span><div class="sym-en">Toothache</div><div class="sym-ua">Зубний біль</div></div>
+      <div class="sym-card"><span class="sym-emoji">🫀</span><div class="sym-en">Chest pain</div><div class="sym-ua">Біль у грудях</div></div>
+      <div class="sym-card"><span class="sym-emoji">😮</span><div class="sym-en">Sore throat</div><div class="sym-ua">Біль у горлі</div></div>
+      <div class="sym-card"><span class="sym-emoji">🩸</span><div class="sym-en">Bleeding</div><div class="sym-ua">Кровотеча</div></div>
+      <div class="sym-card"><span class="sym-emoji">🦵</span><div class="sym-en">Swelling</div><div class="sym-ua">Набряк</div></div>
+      <div class="sym-card"><span class="sym-emoji">🔴</span><div class="sym-en">Rash</div><div class="sym-ua">Висип</div></div>
+      <div class="sym-card"><span class="sym-emoji">😴</span><div class="sym-en">Insomnia</div><div class="sym-ua">Безсоння</div></div>
+      <div class="sym-card"><span class="sym-emoji">👁️</span><div class="sym-en">Blurred vision</div><div class="sym-ua">Розмитий зір</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HOSPITAL PHRASES ===== -->
+<section class="section bg-light" id="hospital">
+  <div class="container">
+    <h2 class="section-title">🏥 At the Hospital — У лікарні</h2>
+    <div class="accent-line" style="background: var(--purple);"></div>
+    <p class="section-sub">Найважливіші фрази для розмови в лікарні / Most important phrases for the hospital</p>
+
+    <div class="phrase-section">
+      <h3>📝 Registration — Реєстрація</h3>
+      <p class="section-desc">Що казати, коли приходиш у лікарню / What to say when you arrive at the hospital</p>
+      <div class="phrase-list">
+        <div class="phrase-item">
+          <div class="phrase-en">I have an appointment.</div>
+          <div class="phrase-ua">Я записаний(а) на прийом.</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">I need to see a doctor.</div>
+          <div class="phrase-ua">Мені потрібно до лікаря.</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">I don't have an appointment. Is it possible to see someone today?</div>
+          <div class="phrase-ua">Я не записаний(а). Чи можу я потрапити до лікаря сьогодні?</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">My name is... and I'm here for a check-up.</div>
+          <div class="phrase-ua">Мене звати... Я прийшов(ла) на огляд.</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">Where is the waiting room, please?</div>
+          <div class="phrase-ua">Де зал очікування, будь ласка?</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">Do you accept my insurance?</div>
+          <div class="phrase-ua">Ви приймаєте мою страховку?</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phrase-section">
+      <h3>🗣️ Describing Your Problem — Опис проблеми</h3>
+      <p class="section-desc">Як розповісти лікарю, що тебе турбує / How to tell the doctor what's wrong</p>
+      <div class="phrase-list">
+        <div class="phrase-item">
+          <div class="phrase-en">I have a pain in my <strong>[part]</strong>.</div>
+          <div class="phrase-ua">У мене болить <strong>[частина тіла]</strong>.</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">My <strong>[part]</strong> hurts.</div>
+          <div class="phrase-ua">У мене болить <strong>[частина тіла]</strong>.</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">I've had this pain for <strong>[2 days / a week]</strong>.</div>
+          <div class="phrase-ua">Я відчуваю цей біль вже <strong>[2 дні / тиждень]</strong>.</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">The pain is sharp / dull / burning / throbbing.</div>
+          <div class="phrase-ua">Біль гострий / тупий / пекучий / пульсуючий.</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">It hurts when I breathe / walk / move.</div>
+          <div class="phrase-ua">Боляче, коли я дихаю / ходжу / рухаюсь.</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">I feel sick / dizzy / weak.</div>
+          <div class="phrase-ua">Мені погано / запаморочення / слабкість.</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">I have a high temperature / fever.</div>
+          <div class="phrase-ua">У мене висока температура / жар.</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">I'm allergic to <strong>[penicillin / nuts / ...]</strong>.</div>
+          <div class="phrase-ua">У мене алергія на <strong>[пеніцилін / горіхи / ...]</strong>.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phrase-section">
+      <h3>❓ Questions to the Doctor — Питання до лікаря</h3>
+      <p class="section-desc">Не бійся запитувати! / Don't be afraid to ask!</p>
+      <div class="phrase-list">
+        <div class="phrase-item">
+          <div class="phrase-en">What is wrong with me?</div>
+          <div class="phrase-ua">Що зі мною?</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">Is it serious?</div>
+          <div class="phrase-ua">Це серйозно?</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">How long will the treatment take?</div>
+          <div class="phrase-ua">Скільки триватиме лікування?</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">Can you explain that again, please?</div>
+          <div class="phrase-ua">Можете пояснити ще раз, будь ласка?</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">Do I need surgery?</div>
+          <div class="phrase-ua">Мені потрібна операція?</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">How many times a day should I take this medicine?</div>
+          <div class="phrase-ua">Скільки разів на день приймати ці ліки?</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">Are there any side effects?</div>
+          <div class="phrase-ua">Є якісь побічні ефекти?</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DIALOGUES ===== -->
+<section class="section bg-white" id="dialogues">
+  <div class="container">
+    <h2 class="section-title">💬 Real Dialogues — Реальні діалоги</h2>
+    <div class="accent-line" style="background: var(--teal);"></div>
+    <p class="section-sub">Приклади розмов у лікарні / Example hospital conversations</p>
+
+    <div class="dialogue-wrap">
+      <div class="dialogue-title">🤒 Dialogue 1: Feeling Sick — Погане самопочуття</div>
+      <p class="dialogue-desc">Візит до лікаря через хворобу / A doctor's visit for illness</p>
+
+      <div class="chat-bubble doctor"><div class="bubble-label">👨‍⚕️ Doctor</div><div class="bubble-content"><div class="bubble-en">Hello! What brings you here today?</div><div class="bubble-ua">Привіт! Що вас привело сьогодні?</div></div></div>
+      <div class="chat-bubble patient"><div class="bubble-label">Patient 🧑</div><div class="bubble-content"><div class="bubble-en">I've had a sore throat and a fever for two days.</div><div class="bubble-ua">Два дні болить горло та є температура.</div></div></div>
+      <div class="chat-bubble doctor"><div class="bubble-label">👨‍⚕️ Doctor</div><div class="bubble-content"><div class="bubble-en">How high is your temperature?</div><div class="bubble-ua">Яка температура?</div></div></div>
+      <div class="chat-bubble patient"><div class="bubble-label">Patient 🧑</div><div class="bubble-content"><div class="bubble-en">Around 38.5 degrees Celsius.</div><div class="bubble-ua">Приблизно 38.5 градусів за Цельсієм.</div></div></div>
+      <div class="chat-bubble doctor"><div class="bubble-label">👨‍⚕️ Doctor</div><div class="bubble-content"><div class="bubble-en">Open your mouth, please. I need to check your throat. Do you have any allergies to medicine?</div><div class="bubble-ua">Відкрийте рот, будь ласка. Перевірю горло. У вас є алергія на ліки?</div></div></div>
+      <div class="chat-bubble patient"><div class="bubble-label">Patient 🧑</div><div class="bubble-content"><div class="bubble-en">No, I don't have any allergies.</div><div class="bubble-ua">Ні, алергій немає.</div></div></div>
+      <div class="chat-bubble doctor"><div class="bubble-label">👨‍⚕️ Doctor</div><div class="bubble-content"><div class="bubble-en">You have a bacterial infection. I'll prescribe antibiotics. Take one pill three times a day after meals.</div><div class="bubble-ua">У вас бактеріальна інфекція. Пропишу антибіотики. Приймати по 1 таблетці тричі на день після їжі.</div></div></div>
+      <div class="chat-bubble patient"><div class="bubble-label">Patient 🧑</div><div class="bubble-content"><div class="bubble-en">For how many days?</div><div class="bubble-ua">Скільки днів?</div></div></div>
+      <div class="chat-bubble doctor"><div class="bubble-label">👨‍⚕️ Doctor</div><div class="bubble-content"><div class="bubble-en">For 7 days. Drink plenty of water and rest. Come back if you don't feel better in 3 days.</div><div class="bubble-ua">7 днів. Пийте більше води та відпочивайте. Повертайтесь, якщо не покращає за 3 дні.</div></div></div>
+    </div>
+
+    <div class="dialogue-wrap">
+      <div class="dialogue-title">🦴 Dialogue 2: Injury — Травма</div>
+      <p class="dialogue-desc">Коли ти впав і болить нога / After a fall with leg pain</p>
+
+      <div class="chat-bubble doctor"><div class="bubble-label">👩‍⚕️ Nurse</div><div class="bubble-content"><div class="bubble-en">What happened? Are you okay?</div><div class="bubble-ua">Що сталось? З вами все гаразд?</div></div></div>
+      <div class="chat-bubble patient"><div class="bubble-label">Patient 🧑</div><div class="bubble-content"><div class="bubble-en">I fell down the stairs and I can't walk. My knee hurts a lot.</div><div class="bubble-ua">Я впав(ла) зі сходів і не можу ходити. Дуже болить коліно.</div></div></div>
+      <div class="chat-bubble doctor"><div class="bubble-label">👩‍⚕️ Nurse</div><div class="bubble-content"><div class="bubble-en">Is the pain sharp or dull? Can you move your leg at all?</div><div class="bubble-ua">Біль гострий чи тупий? Ви взагалі можете рухати ногою?</div></div></div>
+      <div class="chat-bubble patient"><div class="bubble-label">Patient 🧑</div><div class="bubble-content"><div class="bubble-en">It's very sharp. I can barely move it. There's also some swelling.</div><div class="bubble-ua">Дуже гострий. Ледве можу рухати. Ще й набряк є.</div></div></div>
+      <div class="chat-bubble doctor"><div class="bubble-label">👩‍⚕️ Nurse</div><div class="bubble-content"><div class="bubble-en">We'll need to do an X-ray. The doctor will examine you right away.</div><div class="bubble-ua">Потрібно зробити рентген. Лікар вас огляне відразу.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PAIN SCALE ===== -->
+<section class="section bg-light" id="pain">
+  <div class="container">
+    <h2 class="section-title">😣 Pain Scale — Шкала болю</h2>
+    <div class="accent-line" style="background: var(--red);"></div>
+    <p class="section-sub">Лікар часто запитає: "How bad is the pain? From 1 to 10?" / The doctor will ask: how bad is the pain from 1 to 10?</p>
+    <div class="pain-scale">
+      <div class="pain-bar"></div>
+      <div class="pain-emojis">
+        <div class="pain-item">
+          <div class="pain-face">😊</div>
+          <div class="pain-num" style="color:#00C9A7">1–2</div>
+          <div class="pain-label">No pain<br>Не болить</div>
+        </div>
+        <div class="pain-item">
+          <div class="pain-face">🙂</div>
+          <div class="pain-num" style="color:#52D4A0">3–4</div>
+          <div class="pain-label">Mild<br>Легкий</div>
+        </div>
+        <div class="pain-item">
+          <div class="pain-face">😐</div>
+          <div class="pain-num" style="color:#FFD32A">5–6</div>
+          <div class="pain-label">Moderate<br>Помірний</div>
+        </div>
+        <div class="pain-item">
+          <div class="pain-face">😟</div>
+          <div class="pain-num" style="color:#FF8C42">7–8</div>
+          <div class="pain-label">Severe<br>Сильний</div>
+        </div>
+        <div class="pain-item">
+          <div class="pain-face">😭</div>
+          <div class="pain-num" style="color:#FF4757">9–10</div>
+          <div class="pain-label">Worst<br>Нестерпний</div>
+        </div>
+      </div>
+      <div class="phrase-list" style="margin-top:20px">
+        <div class="phrase-item"><div class="phrase-en">On a scale of 1 to 10, how bad is the pain?</div><div class="phrase-ua">Від 1 до 10, наскільки сильний біль?</div></div>
+        <div class="phrase-item"><div class="phrase-en">The pain is about a 7 out of 10.</div><div class="phrase-ua">Біль приблизно на 7 із 10.</div></div>
+        <div class="phrase-item"><div class="phrase-en">It's unbearable / I can't stand it.</div><div class="phrase-ua">Це нестерпно / Я не можу терпіти.</div></div>
+        <div class="phrase-item"><div class="phrase-en">It comes and goes.</div><div class="phrase-ua">Біль то з'являється, то зникає.</div></div>
+        <div class="phrase-item"><div class="phrase-en">It's a constant / non-stop pain.</div><div class="phrase-ua">Це постійний / безперервний біль.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DISEASES ===== -->
+<section class="section bg-white">
+  <div class="container">
+    <h2 class="section-title">🦠 Common Diseases — Поширені хвороби</h2>
+    <div class="accent-line" style="background: var(--purple);"></div>
+    <div class="warning-grid">
+      <div class="warning-card wc-blue">
+        <span class="wc-emoji">🤧</span>
+        <div class="wc-title">Cold / Flu</div>
+        <div class="wc-en">I have a cold. / I have the flu.</div>
+        <div class="wc-ua">У мене застуда. / Грип.</div>
+      </div>
+      <div class="warning-card wc-green">
+        <span class="wc-emoji">🫁</span>
+        <div class="wc-title">Pneumonia</div>
+        <div class="wc-en">I was diagnosed with pneumonia.</div>
+        <div class="wc-ua">Мені поставили діагноз пневмонія.</div>
+      </div>
+      <div class="warning-card wc-orange">
+        <span class="wc-emoji">🦴</span>
+        <div class="wc-title">Fracture / Broken bone</div>
+        <div class="wc-en">I think I've broken my arm.</div>
+        <div class="wc-ua">Здається, я зламав(ла) руку.</div>
+      </div>
+      <div class="warning-card wc-red">
+        <span class="wc-emoji">❤️‍🩹</span>
+        <div class="wc-title">Sprain / Bruise</div>
+        <div class="wc-en">I've sprained my ankle.</div>
+        <div class="wc-ua">Я підвернув(ла) щиколотку.</div>
+      </div>
+      <div class="warning-card wc-blue">
+        <span class="wc-emoji">🤢</span>
+        <div class="wc-title">Food poisoning</div>
+        <div class="wc-en">I think I have food poisoning.</div>
+        <div class="wc-ua">Здається, я отруївся(лась).</div>
+      </div>
+      <div class="warning-card wc-green">
+        <span class="wc-emoji">🌸</span>
+        <div class="wc-title">Allergy</div>
+        <div class="wc-en">I'm having an allergic reaction.</div>
+        <div class="wc-ua">У мене алергічна реакція.</div>
+      </div>
+      <div class="warning-card wc-orange">
+        <span class="wc-emoji">🧠</span>
+        <div class="wc-title">Migraine</div>
+        <div class="wc-en">I have a terrible migraine.</div>
+        <div class="wc-ua">У мене жахлива мігрень.</div>
+      </div>
+      <div class="warning-card wc-red">
+        <span class="wc-emoji">💉</span>
+        <div class="wc-title">Diabetes</div>
+        <div class="wc-en">I have diabetes / high blood sugar.</div>
+        <div class="wc-ua">У мене діабет / високий цукор.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EMERGENCY ===== -->
+<section class="section bg-light" id="emergency">
+  <div class="container">
+    <div class="emergency-box">
+      <h3>🚨 Emergency! — Надзвичайна ситуація!</h3>
+      <p>Ці фрази потрібно знати напам'ять — вони можуть врятувати життя! / Learn these by heart — they can save a life!</p>
+      <div class="emergency-phrases">
+        <div class="ep-item"><div class="ep-en">Help! Call an ambulance!</div><div class="ep-ua">Допоможіть! Викличте швидку!</div></div>
+        <div class="ep-item"><div class="ep-en">Call 911! / Call emergency services!</div><div class="ep-ua">Телефонуйте 112! / Виклич рятувальників!</div></div>
+        <div class="ep-item"><div class="ep-en">He/She is not breathing!</div><div class="ep-ua">Він/Вона не дихає!</div></div>
+        <div class="ep-item"><div class="ep-en">She is unconscious!</div><div class="ep-ua">Вона непритомна!</div></div>
+        <div class="ep-item"><div class="ep-en">I'm having a heart attack!</div><div class="ep-ua">У мене серцевий напад!</div></div>
+        <div class="ep-item"><div class="ep-en">There's been an accident!</div><div class="ep-ua">Сталась аварія!</div></div>
+        <div class="ep-item"><div class="ep-en">I'm bleeding badly.</div><div class="ep-ua">У мене сильна кровотеча.</div></div>
+        <div class="ep-item"><div class="ep-en">He/She swallowed poison!</div><div class="ep-ua">Він/Вона проковтнув(ла) отруту!</div></div>
+        <div class="ep-item"><div class="ep-en">It's an emergency! Please hurry!</div><div class="ep-ua">Це надзвичайна ситуація! Поспішайте!</div></div>
+        <div class="ep-item"><div class="ep-en">I need a doctor immediately!</div><div class="ep-ua">Мені терміново потрібен лікар!</div></div>
+        <div class="ep-item"><div class="ep-en">She fell from a height.</div><div class="ep-ua">Вона впала з висоти.</div></div>
+        <div class="ep-item"><div class="ep-en">I can't feel my legs / arms.</div><div class="ep-ua">Я не відчуваю ніг / рук.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== USEFUL PHRASES ===== -->
+<section class="section bg-white">
+  <div class="container">
+    <h2 class="section-title">🗒️ Useful Short Phrases — Корисні короткі фрази</h2>
+    <div class="accent-line" style="background: var(--blue);"></div>
+
+    <div class="phrase-section">
+      <h3>💊 About Medicines — Про ліки</h3>
+      <div class="phrase-list">
+        <div class="phrase-item"><div class="phrase-en">Take this twice a day.</div><div class="phrase-ua">Приймати двічі на день.</div></div>
+        <div class="phrase-item"><div class="phrase-en">Take it before / after meals.</div><div class="phrase-ua">Приймати до / після їжі.</div></div>
+        <div class="phrase-item"><div class="phrase-en">Don't take more than the prescribed dose.</div><div class="phrase-ua">Не приймати більше призначеної дози.</div></div>
+        <div class="phrase-item"><div class="phrase-en">This medicine may cause drowsiness.</div><div class="phrase-ua">Цей препарат може викликати сонливість.</div></div>
+        <div class="phrase-item"><div class="phrase-en">Finish the full course of antibiotics.</div><div class="phrase-ua">Допийте весь курс антибіотиків.</div></div>
+      </div>
+    </div>
+
+    <div class="phrase-section">
+      <h3>🏥 Hospital Procedures — Процедури в лікарні</h3>
+      <div class="phrase-list">
+        <div class="phrase-item"><div class="phrase-en">Please roll up your sleeve.</div><div class="phrase-ua">Будь ласка, засукайте рукав.</div></div>
+        <div class="phrase-item"><div class="phrase-en">Take a deep breath. Now breathe out slowly.</div><div class="phrase-ua">Глибоко вдихніть. Тепер повільно видихніть.</div></div>
+        <div class="phrase-item"><div class="phrase-en">This might sting a little.</div><div class="phrase-ua">Може трохи поколоти.</div></div>
+        <div class="phrase-item"><div class="phrase-en">We need to take a blood sample.</div><div class="phrase-ua">Нам потрібно взяти зразок крові.</div></div>
+        <div class="phrase-item"><div class="phrase-en">Please stay still for the X-ray.</div><div class="phrase-ua">Будь ласка, не рухайтесь під час рентгену.</div></div>
+        <div class="phrase-item"><div class="phrase-en">You will need to be admitted to hospital.</div><div class="phrase-ua">Вас потрібно госпіталізувати.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TIPS ===== -->
+<section class="section bg-light" id="tips">
+  <div class="container">
+    <h2 class="section-title">💡 Important Tips — Важливі поради</h2>
+    <div class="accent-line" style="background: var(--teal);"></div>
+    <p class="section-sub">Що важливо знати, коли ти в лікарні за кордоном / What to know when you're in a hospital abroad</p>
+    <div class="tips-grid">
+      <div class="tip-card">
+        <div class="tip-icon">📋</div>
+        <div class="tip-content">
+          <div class="tip-en">Bring your medical history / documents</div>
+          <div class="tip-ua">Візьми свої медичні документи / картку хворого</div>
+        </div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">💊</div>
+        <div class="tip-content">
+          <div class="tip-en">Know the names of your medicines in English</div>
+          <div class="tip-ua">Знай назви своїх ліків англійською</div>
+        </div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">🚫</div>
+        <div class="tip-content">
+          <div class="tip-en">Always tell about your allergies first</div>
+          <div class="tip-ua">Завжди спочатку розкажи про свої алергії</div>
+        </div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">❓</div>
+        <div class="tip-content">
+          <div class="tip-en">Ask "Can you repeat that?" if you don't understand</div>
+          <div class="tip-ua">Питай "Можете повторити?" якщо не розумієш</div>
+        </div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">📱</div>
+        <div class="tip-content">
+          <div class="tip-en">You can use a translation app to help</div>
+          <div class="tip-ua">Можеш скористатись додатком-перекладачем</div>
+        </div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">🛡️</div>
+        <div class="tip-content">
+          <div class="tip-en">Ask for an interpreter if needed: "I need a translator"</div>
+          <div class="tip-ua">Попроси перекладача: "I need a translator"</div>
+        </div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">✍️</div>
+        <div class="tip-content">
+          <div class="tip-en">Write down the doctor's instructions / don't rely on memory</div>
+          <div class="tip-ua">Запишуй вказівки лікаря — не покладайся на пам'ять</div>
+        </div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">📞</div>
+        <div class="tip-content">
+          <div class="tip-en">Emergency number in UK: 999 | EU: 112 | US: 911</div>
+          <div class="tip-ua">Служби порятунку: UK 999 | Євросоюз 112 | США 911</div>
+        </div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">🩺</div>
+        <div class="tip-content">
+          <div class="tip-en">Always say if symptoms get worse: "It's getting worse"</div>
+          <div class="tip-ua">Кажи, якщо стає гірше: "It's getting worse"</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p style="font-size:2rem;margin-bottom:12px">🏥 + 🇬🇧</p>
+  <p><strong>Medical English — Медична Англійська</strong></p>
+  <p style="margin-top:8px">Вчи ці фрази, і ти завжди зможеш пояснити, що тебе турбує! 💪<br>
+  Learn these phrases and you'll always be able to explain how you feel!</p>
+</footer>
+
+<script>
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  // Fade in on scroll
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('fade-up'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.vocab-card, .sym-card, .warning-card, .tip-card').forEach(el => observer.observe(el));
+</script>
+
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+</body>
+</html>

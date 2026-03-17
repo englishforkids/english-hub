@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shopping in English 🛍️</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --pink: #FF6B9D;
+    --yellow: #FFD93D;
+    --mint: #6BCB77;
+    --sky: #4ECDC4;
+    --purple: #A855F7;
+    --orange: #FF8C42;
+    --bg: #FFF8F0;
+    --dark: #2D2D2D;
+    --card-radius: 20px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--dark);
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #FF6B9D 0%, #FF8C42 40%, #FFD93D 100%);
+    padding: 60px 20px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.08'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-emoji {
+    font-size: 5rem;
+    animation: bounce 2s infinite;
+    display: block;
+    margin-bottom: 10px;
+  }
+  @keyframes bounce {
+    0%,100%{transform:translateY(0)} 50%{transform:translateY(-15px)}
+  }
+  .hero h1 {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    color: white;
+    text-shadow: 4px 4px 0 rgba(0,0,0,0.15);
+    position: relative;
+  }
+  .hero p {
+    color: rgba(255,255,255,0.95);
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-top: 12px;
+    position: relative;
+  }
+  .hero-badges {
+    display: flex; flex-wrap: wrap; justify-content: center;
+    gap: 10px; margin-top: 25px; position: relative;
+  }
+  .badge {
+    background: rgba(255,255,255,0.25);
+    border: 2px solid rgba(255,255,255,0.5);
+    color: white;
+    border-radius: 50px;
+    padding: 6px 18px;
+    font-weight: 800;
+    font-size: 0.9rem;
+    backdrop-filter: blur(5px);
+  }
+
+  /* SECTION */
+  .section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 50px 20px;
+  }
+  .section-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 35px;
+    position: relative;
+    display: inline-block;
+    left: 50%; transform: translateX(-50%);
+  }
+  .section-title span {
+    position: relative;
+    z-index: 1;
+  }
+  .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 2px; left: -5px; right: -5px;
+    height: 12px;
+    border-radius: 6px;
+    z-index: 0;
+    opacity: 0.4;
+  }
+  .title-pink::after { background: var(--pink); }
+  .title-sky::after { background: var(--sky); }
+  .title-mint::after { background: var(--mint); }
+  .title-yellow::after { background: var(--yellow); }
+  .title-purple::after { background: var(--purple); }
+
+  /* STORE CARDS GRID */
+  .stores-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+  }
+  .store-card {
+    border-radius: var(--card-radius);
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.10);
+    transition: transform 0.25s, box-shadow 0.25s;
+    cursor: default;
+  }
+  .store-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.15);
+  }
+  .store-header {
+    padding: 22px 22px 16px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .store-icon {
+    font-size: 2.6rem;
+    background: rgba(255,255,255,0.3);
+    border-radius: 14px;
+    width: 60px; height: 60px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .store-title { color: white; }
+  .store-title h3 { font-family: 'Fredoka One', cursive; font-size: 1.3rem; line-height:1; }
+  .store-title .ua { font-size: 0.85rem; opacity: 0.9; font-weight: 700; margin-top: 2px; }
+  .store-body { background: white; padding: 18px 20px 20px; }
+  .store-desc { font-size: 0.88rem; color: #666; margin-bottom: 12px; line-height: 1.5; }
+  .store-desc strong { color: var(--dark); }
+
+  .words-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+  .words-list li {
+    display: flex; align-items: baseline; gap: 8px;
+    font-size: 0.88rem;
+  }
+  .en-word { font-weight: 800; color: var(--dark); }
+  .ua-word { color: #888; font-size: 0.82rem; }
+
+  /* COLOR SCHEMES */
+  .c-pink   .store-header { background: linear-gradient(135deg, #FF6B9D, #FF8C42); }
+  .c-sky    .store-header { background: linear-gradient(135deg, #4ECDC4, #44B0E8); }
+  .c-mint   .store-header { background: linear-gradient(135deg, #6BCB77, #44B0E8); }
+  .c-yellow .store-header { background: linear-gradient(135deg, #FFD93D, #FF8C42); }
+  .c-purple .store-header { background: linear-gradient(135deg, #A855F7, #EC4899); }
+  .c-orange .store-header { background: linear-gradient(135deg, #FF8C42, #FFD93D); }
+  .c-teal   .store-header { background: linear-gradient(135deg, #14B8A6, #3B82F6); }
+  .c-red    .store-header { background: linear-gradient(135deg, #EF4444, #F97316); }
+
+  /* PHRASEBOOK */
+  .phrasebook {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 30px;
+    padding: 40px 30px;
+    color: white;
+  }
+  .phrasebook h2 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .phrase-tabs {
+    display: flex; flex-wrap: wrap; gap: 10px;
+    justify-content: center; margin-bottom: 30px;
+  }
+  .tab-btn {
+    background: rgba(255,255,255,0.15);
+    border: 2px solid rgba(255,255,255,0.3);
+    color: white; cursor: pointer;
+    border-radius: 50px; padding: 8px 20px;
+    font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 0.9rem;
+    transition: all 0.2s;
+  }
+  .tab-btn:hover, .tab-btn.active {
+    background: white; color: #764ba2;
+  }
+  .tab-content { display: none; }
+  .tab-content.active { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 15px; }
+  .phrase-card {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 15px;
+    padding: 16px 18px;
+    backdrop-filter: blur(5px);
+  }
+  .phrase-en { font-weight: 800; font-size: 1.05rem; margin-bottom: 5px; }
+  .phrase-ua { font-size: 0.85rem; opacity: 0.85; margin-bottom: 8px; }
+  .phrase-example { font-size: 0.82rem; background: rgba(255,255,255,0.1); border-radius: 8px; padding: 7px 10px; font-style: italic; line-height: 1.4; }
+
+  /* INFOGRAPHIC: NUMBERS */
+  .infographic-strip {
+    background: white;
+    border-radius: 25px;
+    padding: 35px 30px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+  }
+  .infographic-strip h2 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 25px;
+    color: var(--dark);
+  }
+  .numbers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 15px;
+  }
+  .num-card {
+    border-radius: 16px;
+    padding: 18px 15px;
+    text-align: center;
+  }
+  .num-card .num { font-family: 'Fredoka One', cursive; font-size: 2rem; }
+  .num-card .label { font-size: 0.82rem; font-weight: 700; margin-top: 4px; }
+  .num-card .ua { font-size: 0.75rem; opacity: 0.75; }
+
+  /* DIALOGUE */
+  .dialogue-box {
+    background: white;
+    border-radius: 25px;
+    padding: 35px 30px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+  }
+  .dialogue-box h2 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    text-align: center;
+  }
+  .dialogue-tabs {
+    display: flex; flex-wrap:wrap; gap: 10px; margin-bottom: 25px; justify-content: center;
+  }
+  .d-tab {
+    background: #f0f0f0;
+    border: none; cursor: pointer;
+    border-radius: 50px; padding: 8px 18px;
+    font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 0.88rem;
+    color: #666; transition: all 0.2s;
+  }
+  .d-tab:hover, .d-tab.active { background: var(--pink); color: white; }
+  .d-content { display: none; }
+  .d-content.active { display: flex; flex-direction: column; gap: 12px; }
+  .bubble {
+    max-width: 75%;
+    padding: 12px 18px;
+    border-radius: 20px;
+    font-size: 0.92rem;
+    line-height: 1.5;
+  }
+  .bubble .speaker {
+    font-weight: 800; font-size: 0.8rem;
+    text-transform: uppercase; letter-spacing: 0.05em;
+    margin-bottom: 4px;
+    opacity: 0.7;
+  }
+  .bubble .en { font-weight: 700; }
+  .bubble .ua { font-size: 0.8rem; opacity: 0.7; margin-top: 3px; }
+  .left { background: #f0f4ff; align-self: flex-start; border-bottom-left-radius: 5px; }
+  .right { background: linear-gradient(135deg, #FF6B9D22, #FF8C4222); align-self: flex-end; border-bottom-right-radius: 5px; }
+  .left .speaker { color: #3B82F6; }
+  .right .speaker { color: #FF6B9D; }
+
+  /* TIPS BOX */
+  .tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+  }
+  .tip-card {
+    border-radius: 18px;
+    padding: 22px;
+    border-left: 5px solid;
+  }
+  .tip-card h4 { font-size: 1rem; font-weight: 800; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+  .tip-card p { font-size: 0.85rem; line-height: 1.55; color: #555; }
+  .tip-card .examples { margin-top: 10px; font-size: 0.82rem; color: #444; }
+  .tip-card .examples span { display: block; background: rgba(0,0,0,0.05); border-radius: 8px; padding: 4px 8px; margin-bottom: 4px; }
+
+  .tip-pink   { background: #fff0f5; border-color: var(--pink); }
+  .tip-sky    { background: #f0fdfc; border-color: var(--sky); }
+  .tip-mint   { background: #f0fff4; border-color: var(--mint); }
+  .tip-yellow { background: #fffbeb; border-color: var(--yellow); }
+  .tip-purple { background: #faf5ff; border-color: var(--purple); }
+  .tip-orange { background: #fff7ed; border-color: var(--orange); }
+
+  /* VOCAB TABLE */
+  .vocab-table-wrap { overflow-x: auto; }
+  .vocab-table {
+    width: 100%; border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+  .vocab-table th {
+    background: #2D2D2D;
+    color: white;
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 800;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .vocab-table td { padding: 11px 16px; border-bottom: 1px solid #f0f0f0; }
+  .vocab-table tr:nth-child(even) td { background: #fafafa; }
+  .vocab-table tr:hover td { background: #fff5f8; }
+  .vocab-table .en { font-weight: 800; }
+  .vocab-table .tag {
+    display: inline-block;
+    padding: 2px 9px; border-radius: 50px;
+    font-size: 0.75rem; font-weight: 800;
+  }
+
+  /* GLOBAL GRID OVERFLOW FIX */
+  .stores-grid > *, .numbers-grid > *, .tips-grid > *,
+  .tab-content > *, .d-content > * { min-width: 0; }
+
+  /* MONEY INFO GRID */
+  .money-info-grid {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 15px;
+  }
+
+  /* WAVE DIVIDER */
+  .wave { line-height: 0; overflow: hidden; }
+  .wave svg { display: block; }
+
+  /* FOOTER */
+  footer {
+    background: #2D2D2D;
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 0.88rem;
+    font-weight: 600;
+  }
+  footer span { color: var(--yellow); }
+
+  #scroll-top-btn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #1a1208;
+  border: 1.5px solid rgba(200,150,62,0.4);
+  color: #f5f0e8;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+  pointer-events: none;
+  z-index: 9998;
+}
+#scroll-top-btn.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+#scroll-top-btn:hover {
+  background: #c8963e;
+  border-color: #c8963e;
+  color: #1a1208;
+}
+
+  /* RESPONSIVE — TABLET */
+  @media(max-width: 768px) {
+    .section { padding: 35px 16px; }
+    .stores-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+    .numbers-grid { grid-template-columns: 1fr 1fr; }
+    .tips-grid { grid-template-columns: 1fr 1fr; }
+    .section-title { font-size: 1.7rem; }
+    .tab-content.active { grid-template-columns: 1fr; }
+    .phrase-tabs { gap: 7px; }
+    .tab-btn { padding: 7px 14px; font-size: 0.82rem; }
+    .dialogue-tabs { gap: 7px; }
+    .d-tab { padding: 7px 14px; font-size: 0.82rem; }
+    .bubble { max-width: 88%; }
+    .vocab-table th, .vocab-table td { padding: 9px 12px; font-size: 0.82rem; }
+  }
+
+  /* RESPONSIVE — MOBILE */
+  @media(max-width: 480px) {
+    .hero { padding: 40px 16px 55px; }
+    .hero-emoji { font-size: 3.5rem; }
+    .hero h1 { font-size: 1.75rem; }
+    .hero p { font-size: 1rem; }
+    .hero-badges { gap: 7px; }
+    .badge { font-size: 0.78rem; padding: 5px 12px; }
+
+    .section { padding: 28px 14px; }
+    .section-title { font-size: 1.4rem; }
+
+    .stores-grid { grid-template-columns: 1fr; gap: 14px; }
+    .store-icon { width: 48px; height: 48px; font-size: 2rem; }
+    .store-title h3 { font-size: 1.1rem; }
+
+    .phrasebook { padding: 22px 13px; border-radius: 20px; }
+    .phrasebook h2 { font-size: 1.5rem; }
+    .phrase-tabs { gap: 6px; }
+    .tab-btn { padding: 6px 11px; font-size: 0.78rem; }
+    .tab-content.active { grid-template-columns: 1fr; gap: 12px; }
+    .phrase-card { padding: 13px 14px; }
+    .phrase-en { font-size: 0.97rem; }
+    .phrase-ua { font-size: 0.8rem; }
+    .phrase-example { font-size: 0.78rem; }
+
+    .dialogue-box { padding: 22px 13px; }
+    .dialogue-box h2 { font-size: 1.5rem; }
+    .dialogue-tabs { gap: 6px; }
+    .d-tab { padding: 6px 11px; font-size: 0.78rem; }
+    .bubble { max-width: 95%; padding: 10px 14px; font-size: 0.85rem; }
+    .bubble .en { font-size: 0.87rem; }
+    .bubble .ua { font-size: 0.75rem; }
+
+    .infographic-strip { padding: 22px 13px; }
+    .infographic-strip h2 { font-size: 1.4rem; }
+    .numbers-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .num-card .num { font-size: 1.5rem; }
+    .num-card .label { font-size: 0.75rem; }
+    .num-card .ua { font-size: 0.7rem; }
+
+    .vocab-table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 12px;
+    }
+    .vocab-table { min-width: 520px; font-size: 0.78rem; }
+    .vocab-table th { padding: 9px 10px; font-size: 0.72rem; }
+    .vocab-table td { padding: 8px 10px; }
+    .vocab-table .tag { font-size: 0.68rem; padding: 2px 7px; }
+
+    .tips-grid { grid-template-columns: 1fr; gap: 14px; }
+    .tip-card { padding: 16px; }
+    .tip-card h4 { font-size: 0.95rem; }
+    .tip-card p { font-size: 0.82rem; }
+    .tip-card .examples span { font-size: 0.78rem; }
+
+    .money-info-grid { grid-template-columns: 1fr; gap: 10px; margin-top: 18px; }
+
+    #scroll-top-btn { bottom: 16px; right: 16px; width: 40px; height: 40px; font-size: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <span class="hero-emoji">🛍️</span>
+  <h1><span>Shopping in English</span></h1>
+  <p>Все про шопінг та магазини — англійською! 🇬🇧</p>
+  <div class="hero-badges">
+    <span class="badge">🏪 Types of Shops</span>
+    <span class="badge">💬 Key Phrases</span>
+    <span class="badge">🎭 Dialogues</span>
+    <span class="badge">📖 Vocabulary</span>
+    <span class="badge">💡 Tips</span>
+  </div>
+</div>
+
+<!-- WAVE -->
+<div class="wave"><svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg"><path fill="#FFF8F0" d="M0,30 C360,60 1080,0 1440,30 L1440,0 L0,0 Z"/><path fill="#FF6B9D" opacity="0.2" d="M0,45 C480,0 960,60 1440,15 L1440,60 L0,60 Z"/></svg></div>
+
+<!-- TYPES OF STORES -->
+<div class="section">
+  <div class="section-title title-pink"><span>🏪 Types of Shops — Види Магазинів</span></div>
+  <div class="stores-grid">
+
+    <div class="store-card c-pink">
+      <div class="store-header">
+        <div class="store-icon">🛒</div>
+        <div class="store-title">
+          <h3>Supermarket</h3>
+          <div class="ua">Супермаркет</div>
+        </div>
+      </div>
+      <div class="store-body">
+        <p class="store-desc"><strong>A big store</strong> that sells food, drinks, and household items. / <em>Великий магазин</em> з їжею, напоями та товарами для дому.</p>
+        <ul class="words-list">
+          <li><span class="en-word">aisle</span><span class="ua-word">прохід між полицями</span></li>
+          <li><span class="en-word">checkout</span><span class="ua-word">каса / розрахунок</span></li>
+          <li><span class="en-word">trolley / cart</span><span class="ua-word">візок</span></li>
+          <li><span class="en-word">basket</span><span class="ua-word">кошик</span></li>
+          <li><span class="en-word">loyalty card</span><span class="ua-word">картка знижок</span></li>
+          <li><span class="en-word">special offer</span><span class="ua-word">спеціальна пропозиція</span></li>
+          <li><span class="en-word">expiry date</span><span class="ua-word">термін придатності</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="store-card c-sky">
+      <div class="store-header">
+        <div class="store-icon">👗</div>
+        <div class="store-title">
+          <h3>Clothing Store</h3>
+          <div class="ua">Магазин одягу</div>
+        </div>
+      </div>
+      <div class="store-body">
+        <p class="store-desc"><strong>Sells clothes</strong> like shirts, jeans, dresses. / <em>Продає одяг</em> — сорочки, джинси, сукні.</p>
+        <ul class="words-list">
+          <li><span class="en-word">fitting room</span><span class="ua-word">примірювальна кабінка</span></li>
+          <li><span class="en-word">size (S/M/L/XL)</span><span class="ua-word">розмір</span></li>
+          <li><span class="en-word">sale / discount</span><span class="ua-word">розпродаж / знижка</span></li>
+          <li><span class="en-word">receipt</span><span class="ua-word">чек</span></li>
+          <li><span class="en-word">exchange / refund</span><span class="ua-word">обмін / повернення грошей</span></li>
+          <li><span class="en-word">to try on</span><span class="ua-word">приміряти</span></li>
+          <li><span class="en-word">it fits / it doesn't fit</span><span class="ua-word">підходить / не підходить</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="store-card c-mint">
+      <div class="store-header">
+        <div class="store-icon">💊</div>
+        <div class="store-title">
+          <h3>Pharmacy / Chemist</h3>
+          <div class="ua">Аптека</div>
+        </div>
+      </div>
+      <div class="store-body">
+        <p class="store-desc"><strong>Sells medicine</strong> and health products. / <em>Продає ліки</em> та товари для здоров'я.</p>
+        <ul class="words-list">
+          <li><span class="en-word">prescription</span><span class="ua-word">рецепт лікаря</span></li>
+          <li><span class="en-word">over-the-counter</span><span class="ua-word">без рецепта</span></li>
+          <li><span class="en-word">tablets / pills</span><span class="ua-word">таблетки</span></li>
+          <li><span class="en-word">dosage</span><span class="ua-word">доза</span></li>
+          <li><span class="en-word">side effects</span><span class="ua-word">побічні ефекти</span></li>
+          <li><span class="en-word">pharmacist</span><span class="ua-word">фармацевт</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="store-card c-yellow">
+      <div class="store-header">
+        <div class="store-icon">📚</div>
+        <div class="store-title">
+          <h3>Bookshop</h3>
+          <div class="ua">Книжковий магазин</div>
+        </div>
+      </div>
+      <div class="store-body">
+        <p class="store-desc"><strong>Sells books</strong>, magazines, and stationery. / <em>Продає книжки</em>, журнали та канцтовари.</p>
+        <ul class="words-list">
+          <li><span class="en-word">novel / fiction</span><span class="ua-word">роман / художня литра</span></li>
+          <li><span class="en-word">non-fiction</span><span class="ua-word">документальна книга</span></li>
+          <li><span class="en-word">bestseller</span><span class="ua-word">бестселер</span></li>
+          <li><span class="en-word">stationery</span><span class="ua-word">канцтовари</span></li>
+          <li><span class="en-word">author</span><span class="ua-word">автор</span></li>
+          <li><span class="en-word">hardback / paperback</span><span class="ua-word">тверда / м'яка обкладинка</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="store-card c-purple">
+      <div class="store-header">
+        <div class="store-icon">🍞</div>
+        <div class="store-title">
+          <h3>Bakery</h3>
+          <div class="ua">Пекарня / Булочна</div>
+        </div>
+      </div>
+      <div class="store-body">
+        <p class="store-desc"><strong>Sells fresh bread</strong>, cakes, and pastries. / <em>Продає свіжий хліб</em>, торти та випічку.</p>
+        <ul class="words-list">
+          <li><span class="en-word">loaf of bread</span><span class="ua-word">буханець хліба</span></li>
+          <li><span class="en-word">baguette</span><span class="ua-word">багет</span></li>
+          <li><span class="en-word">pastry</span><span class="ua-word">тістечко / випічка</span></li>
+          <li><span class="en-word">fresh / stale</span><span class="ua-word">свіжий / черствий</span></li>
+          <li><span class="en-word">gluten-free</span><span class="ua-word">без глютену</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="store-card c-orange">
+      <div class="store-header">
+        <div class="store-icon">⚡</div>
+        <div class="store-title">
+          <h3>Electronics Store</h3>
+          <div class="ua">Магазин електроніки</div>
+        </div>
+      </div>
+      <div class="store-body">
+        <p class="store-desc"><strong>Sells gadgets</strong> — phones, laptops, TVs. / <em>Продає гаджети</em> — телефони, ноутбуки, телевізори.</p>
+        <ul class="words-list">
+          <li><span class="en-word">warranty</span><span class="ua-word">гарантія</span></li>
+          <li><span class="en-word">charger</span><span class="ua-word">зарядний пристрій</span></li>
+          <li><span class="en-word">battery life</span><span class="ua-word">час роботи від батареї</span></li>
+          <li><span class="en-word">in stock / out of stock</span><span class="ua-word">є в наявності / немає</span></li>
+          <li><span class="en-word">on display</span><span class="ua-word">на вітрині</span></li>
+          <li><span class="en-word">second-hand</span><span class="ua-word">вживаний</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="store-card c-teal">
+      <div class="store-header">
+        <div class="store-icon">💍</div>
+        <div class="store-title">
+          <h3>Jewellery Shop</h3>
+          <div class="ua">Ювелірний магазин</div>
+        </div>
+      </div>
+      <div class="store-body">
+        <p class="store-desc"><strong>Sells rings</strong>, necklaces, watches, and gems. / <em>Продає кільця</em>, намисто, годинники та коштовності.</p>
+        <ul class="words-list">
+          <li><span class="en-word">necklace</span><span class="ua-word">намисто / ланцюжок</span></li>
+          <li><span class="en-word">bracelet</span><span class="ua-word">браслет</span></li>
+          <li><span class="en-word">gold / silver</span><span class="ua-word">золото / срібло</span></li>
+          <li><span class="en-word">gemstone</span><span class="ua-word">коштовний камінь</span></li>
+          <li><span class="en-word">engraving</span><span class="ua-word">гравіювання</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="store-card c-red">
+      <div class="store-header">
+        <div class="store-icon">🌸</div>
+        <div class="store-title">
+          <h3>Florist / Flower Shop</h3>
+          <div class="ua">Квіткова крамниця</div>
+        </div>
+      </div>
+      <div class="store-body">
+        <p class="store-desc"><strong>Sells flowers</strong> and arrangements. / <em>Продає квіти</em> та букети.</p>
+        <ul class="words-list">
+          <li><span class="en-word">bouquet</span><span class="ua-word">букет</span></li>
+          <li><span class="en-word">pot plant</span><span class="ua-word">кімнатна рослина</span></li>
+          <li><span class="en-word">to wrap</span><span class="ua-word">загорнути</span></li>
+          <li><span class="en-word">seasonal flowers</span><span class="ua-word">сезонні квіти</span></li>
+          <li><span class="en-word">fresh / artificial</span><span class="ua-word">свіжі / штучні</span></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- PHRASEBOOK TABS -->
+<div style="background: linear-gradient(180deg,#FFF8F0 0%, #f0e8ff 100%); padding: 10px 0 60px;">
+<div class="section" style="padding-top:20px;">
+  <div class="section-title title-purple"><span>💬 Key Phrases — Ключові Фрази</span></div>
+  <div class="phrasebook">
+    <div class="phrase-tabs">
+      <button class="tab-btn active" onclick="showTab('asking')">🙋 Asking</button>
+      <button class="tab-btn" onclick="showTab('price')">💰 Price & Payment</button>
+      <button class="tab-btn" onclick="showTab('size')">📐 Size & Fit</button>
+      <button class="tab-btn" onclick="showTab('problems')">⚠️ Problems</button>
+      <button class="tab-btn" onclick="showTab('compliments')">⭐ Compliments</button>
+    </div>
+
+    <div id="asking" class="tab-content active">
+      <div class="phrase-card">
+        <div class="phrase-en">Can I help you?</div>
+        <div class="phrase-ua">Чим можу допомогти? (продавець до покупця)</div>
+        <div class="phrase-example">🗣 Seller: "Good morning! Can I help you?" — Buyer: "Yes, I'm looking for a blue jacket."</div>
+      </div>
+      <div class="phrase-card">
+        <div class="phrase-en">I'm just looking, thanks.</div>
+        <div class="phrase-ua">Я просто дивлюся, дякую.</div>
+        <div class="phrase-example">🗣 Use this when you don't need help yet but want to be polite. / Використовуй, коли ще не готовий купувати.</div>
+      </div>
+      <div class="phrase-card">
+        <div class="phrase-en">Do you have this in...?</div>
+        <div class="phrase-ua">Чи є у вас це в...?</div>
+        <div class="phrase-example">🗣 "Do you have this in red?" / "Do you have this in a bigger size?"</div>
+      </div>
+      <div class="phrase-card">
+        <div class="phrase-en">Where can I find...?</div>
+        <div class="phrase-ua">Де я можу знайти...?</div>
+        <div class="phrase-example">🗣 "Excuse me, where can I find the dairy section?" — "It's in aisle 4, sir."</div>
+      </div>
+      <div class="phrase-card">
+        <div class="phrase-en">Is this on sale?</div>
+        <div class="phrase-ua">Це на розпродажу? / Є знижка на це?</div>
+        <div class="phrase-example">🗣 "Excuse me, is this jacket on sale?" — "Yes, it's 30% off today!"</div>
+      </div>
+      <div class="phrase-card">
+        <div class="phrase-en">I'd like to buy...</div>
+        <div class="phrase-ua">Я хочу купити...</div>
+        <div class="phrase-example">🗣 "I'd like to buy two bottles of water and some bread, please."</div>
+      </div>
+    </div>
+
+    <div id="price" class="tab-content">
+      <div class="phrase-card">
+        <div class="phrase-en">How much is this?</div>
+        <div class="phrase-ua">Скільки це коштує?</div>
+        <div class="phrase-example">🗣 "Excuse me, how much is this scarf?" — "It's £15."</div>
+      </div>
+      <div class="phrase-card">
+        <div class="phrase-en">That's too expensive.</div>
+        <div class="phrase-ua">Це занадто дорого.</div>
+        <div class="phrase-example">🗣 "Hmm, £200 for a bag? That's too expensive for me."</div>
+      </div>
+      <div class="phrase-card">
+        <div class="phrase-en">Can I pay by card?</div>
+        <div class="phrase-ua">Чи можна сплатити карткою?</div>
+        <div class="phrase-example">🗣 "Can I pay by card or is it cash only?" — "We accept both!"</div>
+      </div>
+      <div class="phrase-card">
+        <div class="phrase-en">Do you accept contactless?</div>
+        <div class="phrase-ua">Ви приймаєте безконтактну оплату?</div>
+        <div class="phrase-example">🗣 Also: "Do you accept Apple Pay / Google Pay?"</div>
+      </div>
+      <div class="phrase-card">
+        <div class="phrase-en">Can I have a receipt?</div>
+        <div class="phrase-ua">Чи можу я отримати чек?</div>
+        <div class="phrase-example">🗣 "Can I have a receipt, please?" — "Of course! Here you go."</div>
+      </div>
+      <div class="phrase-card">
+        <div class="phrase-en">Keep the change.</div>
+        <div class="phrase-ua">Залиш здачу собі.</div>
+        <div class="phrase-example">🗣 When paying cash and you want to leave the change as a tip. / Коли залишаєш здачу як чайові.</div>
+      </div>
+    </div>
+
+    <div id="size" class="tab-content">
+      <div class="phrase-card">
+        <div class="phrase-en">Can I try this on?</div>
+        <div class="phrase-ua">Чи можу я це приміряти?</div>
+        <div class="phrase-example">🗣 "Excuse me, can I try this dress on?" — "Of course! The fitting rooms are over there."</div>
+      </div>
+      <div class="phrase-card">
+        <div class="phrase-en">It fits perfectly!</div>
+        <div class="phrase-ua">Ідеально сидить!</div>
+        <div class="phrase-example">🗣 "Wow, it fits perfectly! I'll take it." — "Great choice!"</div>
+      </div>
+      <div class="phrase-card">
+        <div class="phrase-en">It's too tight / loose.</div>
+        <div class="phrase-ua">Занадто тісно / вільно.</div>
+        <div class="phrase-example">🗣 "These jeans are too tight. Do you have a larger size?"</div>
+      </div>
+      <div class="phrase-card">
+        <div class="phrase-en">Do you have a medium?</div>
+        <div class="phrase-ua">Чи є у вас розмір M (середній)?</div>
+        <div class="phrase-example">🗣 "I usually wear a medium. Do you have this in medium?"</div>
+      </div>
+      <div class="phrase-card">
+        <div class="phrase-en">What's my size?</div>
+        <div class="phrase-ua">Який мій розмір? (питання до продавця)</div>
+        <div class="phrase-example">🗣 "I'm not sure about UK sizes. Can you help me find my size?"</div>
+      </div>
+    </div>
+
+    <div id="problems" class="tab-content">
+      <div class="phrase-card">
+        <div class="phrase-en">I'd like to return this.</div>
+        <div class="phrase-ua">Я хочу повернути це.</div>
+        <div class="phrase-example">🗣 "I'd like to return this shirt — it has a stain on it." — "Do you have your receipt?"</div>
+      </div>
+      <div class="phrase-card">
+        <div class="phrase-en">It's broken / damaged.</div>
+        <div class="phrase-ua">Це зламане / пошкоджене.</div>
+        <div class="phrase-example">🗣 "I bought this yesterday and it's already broken. Can I get a replacement?"</div>
+      </div>
+      <div class="phrase-card">
+        <div class="phrase-en">You've given me the wrong change.</div>
+        <div class="phrase-ua">Ви дали мені неправильну здачу.</div>
+        <div class="phrase-example">🗣 "Excuse me, I think you've given me the wrong change. I gave you £20."</div>
+      </div>
+      <div class="phrase-card">
+        <div class="phrase-en">Can I speak to the manager?</div>
+        <div class="phrase-ua">Чи можу я поговорити з менеджером?</div>
+        <div class="phrase-example">🗣 Use when you have a serious problem. / Для серйозних проблем.</div>
+      </div>
+      <div class="phrase-card">
+        <div class="phrase-en">This wasn't what I ordered.</div>
+        <div class="phrase-ua">Це не те, що я замовив/ла.</div>
+        <div class="phrase-example">🗣 "Sorry, this wasn't what I ordered. I asked for the small, not the large."</div>
+      </div>
+    </div>
+
+    <div id="compliments" class="tab-content">
+      <div class="phrase-card">
+        <div class="phrase-en">I love it!</div>
+        <div class="phrase-ua">Мені це дуже подобається!</div>
+        <div class="phrase-example">🗣 "I love it — it's exactly what I was looking for!"</div>
+      </div>
+      <div class="phrase-card">
+        <div class="phrase-en">What a bargain!</div>
+        <div class="phrase-ua">Яка вигідна покупка!</div>
+        <div class="phrase-example">🗣 "£5 for this quality? What a bargain!"</div>
+      </div>
+      <div class="phrase-card">
+        <div class="phrase-en">It's great value for money.</div>
+        <div class="phrase-ua">Воно того варте (хороша ціна за якість).</div>
+        <div class="phrase-example">🗣 "I know it's pricey, but it's great value for money."</div>
+      </div>
+      <div class="phrase-card">
+        <div class="phrase-en">It suits you!</div>
+        <div class="phrase-ua">Тобі / Вам дуже личить!</div>
+        <div class="phrase-example">🗣 "Oh, that colour really suits you! You should get it."</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- DIALOGUES -->
+<div class="section">
+  <div class="section-title title-sky"><span>🎭 Real Dialogues — Справжні Діалоги</span></div>
+  <div class="dialogue-box">
+    <div class="dialogue-tabs">
+      <button class="d-tab active" onclick="showDTab('clothes')">👗 Clothing</button>
+      <button class="d-tab" onclick="showDTab('supermarket')">🛒 Supermarket</button>
+      <button class="d-tab" onclick="showDTab('electronics')">📱 Electronics</button>
+      <button class="d-tab" onclick="showDTab('bakery')">🍞 Bakery</button>
+    </div>
+
+    <div id="clothes" class="d-content active">
+      <div class="bubble left"><div class="speaker">🧑 Shop Assistant</div><div class="en">Good afternoon! Can I help you?</div><div class="ua">Добрий день! Чим можу допомогти?</div></div>
+      <div class="bubble right"><div class="speaker">🙋 Customer</div><div class="en">Yes, please. I'm looking for a winter jacket.</div><div class="ua">Так, будь ласка. Я шукаю зимову куртку.</div></div>
+      <div class="bubble left"><div class="speaker">🧑 Shop Assistant</div><div class="en">What size are you?</div><div class="ua">Який у вас розмір?</div></div>
+      <div class="bubble right"><div class="speaker">🙋 Customer</div><div class="en">I'm usually a medium. Can I try this one on?</div><div class="ua">Зазвичай я ношу M. Чи можна мені це приміряти?</div></div>
+      <div class="bubble left"><div class="speaker">🧑 Shop Assistant</div><div class="en">Of course! The fitting rooms are on the right.</div><div class="ua">Звичайно! Примірювальні кабінки праворуч.</div></div>
+      <div class="bubble right"><div class="speaker">🙋 Customer</div><div class="en">It fits perfectly! How much is it?</div><div class="ua">Ідеально сидить! Скільки це коштує?</div></div>
+      <div class="bubble left"><div class="speaker">🧑 Shop Assistant</div><div class="en">It's £89. And it's on sale — 20% off today!</div><div class="ua">£89. До того ж, сьогодні знижка 20%!</div></div>
+      <div class="bubble right"><div class="speaker">🙋 Customer</div><div class="en">What a bargain! I'll take it. Can I pay by card?</div><div class="ua">Яка вигідна покупка! Беру! Можна карткою?</div></div>
+    </div>
+
+    <div id="supermarket" class="d-content">
+      <div class="bubble left"><div class="speaker">🧑 Staff</div><div class="en">Excuse me, can I help you find something?</div><div class="ua">Вибачте, допомогти вам щось знайти?</div></div>
+      <div class="bubble right"><div class="speaker">🙋 Customer</div><div class="en">Yes! Where are the dairy products?</div><div class="ua">Так! Де знаходяться молочні продукти?</div></div>
+      <div class="bubble left"><div class="speaker">🧑 Staff</div><div class="en">They're in aisle 3, next to the juices.</div><div class="ua">У проході 3, поруч із соками.</div></div>
+      <div class="bubble right"><div class="speaker">🙋 Customer</div><div class="en">Thank you! Also — do you have any gluten-free bread?</div><div class="ua">Дякую! Також — є хліб без глютену?</div></div>
+      <div class="bubble left"><div class="speaker">🧑 Staff</div><div class="en">Yes, it's in aisle 6, on the bottom shelf.</div><div class="ua">Так, у проході 6, на нижній полиці.</div></div>
+      <div class="bubble right"><div class="speaker">🙋 Customer</div><div class="en">Great, thanks! Is the self-checkout open?</div><div class="ua">Чудово, дякую! Каса самообслуговування відкрита?</div></div>
+      <div class="bubble left"><div class="speaker">🧑 Staff</div><div class="en">Yes, all six machines are available!</div><div class="ua">Так, усі шість апаратів вільні!</div></div>
+    </div>
+
+    <div id="electronics" class="d-content">
+      <div class="bubble right"><div class="speaker">🙋 Customer</div><div class="en">Hi! I'm looking for a pair of wireless headphones.</div><div class="ua">Привіт! Я шукаю бездротові навушники.</div></div>
+      <div class="bubble left"><div class="speaker">🧑 Seller</div><div class="en">Sure! Do you have a budget in mind?</div><div class="ua">Звичайно! Є якийсь бюджет?</div></div>
+      <div class="bubble right"><div class="speaker">🙋 Customer</div><div class="en">Around £50 to £80.</div><div class="ua">Приблизно від £50 до £80.</div></div>
+      <div class="bubble left"><div class="speaker">🧑 Seller</div><div class="en">I'd recommend these — great battery life and sound quality.</div><div class="ua">Рекомендую ці — чудовий час роботи й якість звуку.</div></div>
+      <div class="bubble right"><div class="speaker">🙋 Customer</div><div class="en">Do they come with a warranty?</div><div class="ua">Вони йдуть з гарантією?</div></div>
+      <div class="bubble left"><div class="speaker">🧑 Seller</div><div class="en">Yes, 2-year manufacturer's warranty.</div><div class="ua">Так, 2-річна гарантія виробника.</div></div>
+      <div class="bubble right"><div class="speaker">🙋 Customer</div><div class="en">Perfect. I'll take them!</div><div class="ua">Чудово. Беру!</div></div>
+    </div>
+
+    <div id="bakery" class="d-content">
+      <div class="bubble right"><div class="speaker">🙋 Customer</div><div class="en">Good morning! Can I have a sourdough loaf, please?</div><div class="ua">Добрий ранок! Дайте мені, будь ласка, буханець хліба на заквасці.</div></div>
+      <div class="bubble left"><div class="speaker">🧑 Baker</div><div class="en">Of course! Would you like it sliced?</div><div class="ua">Звичайно! Нарізати?</div></div>
+      <div class="bubble right"><div class="speaker">🙋 Customer</div><div class="en">Yes, please. And two croissants as well.</div><div class="ua">Так, будь ласка. І ще два круасани.</div></div>
+      <div class="bubble left"><div class="speaker">🧑 Baker</div><div class="en">Anything else? We have fresh cinnamon rolls today!</div><div class="ua">Щось іще? Сьогодні є свіжі булочки з корицею!</div></div>
+      <div class="bubble right"><div class="speaker">🙋 Customer</div><div class="en">Oh, they smell amazing! I'll take one.</div><div class="ua">О, вони так чудово пахнуть! Візьму одну.</div></div>
+      <div class="bubble left"><div class="speaker">🧑 Baker</div><div class="en">That's £8.50 in total. Enjoy!</div><div class="ua">Разом £8.50. Смачного!</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- NUMBERS & PRICES -->
+<div style="background: #f9fafb; padding: 10px 0 60px;">
+<div class="section" style="padding-top:30px;">
+  <div class="section-title title-mint"><span>🔢 Numbers & Prices — Числа та Ціни</span></div>
+  <div class="infographic-strip">
+    <h2>💷 Talking About Money — Як говорити про гроші</h2>
+    <div class="numbers-grid">
+      <div class="num-card" style="background:#fff0f5;">
+        <div class="num" style="color:#FF6B9D;">£5.99</div>
+        <div class="label">"Five ninety-nine"</div>
+        <div class="ua">П'ять фунтів дев'яносто дев'ять пенсів</div>
+      </div>
+      <div class="num-card" style="background:#f0fdfc;">
+        <div class="num" style="color:#4ECDC4;">$12.50</div>
+        <div class="label">"Twelve fifty"</div>
+        <div class="ua">Дванадцять доларів п'ятдесят центів</div>
+      </div>
+      <div class="num-card" style="background:#faf5ff;">
+        <div class="num" style="color:#A855F7;">€100</div>
+        <div class="label">"A hundred euros"</div>
+        <div class="ua">Сто євро</div>
+      </div>
+      <div class="num-card" style="background:#fffbeb;">
+        <div class="num" style="color:#F59E0B;">50%</div>
+        <div class="label">"Fifty percent off"</div>
+        <div class="ua">П'ятдесят відсотків знижки</div>
+      </div>
+      <div class="num-card" style="background:#f0fff4;">
+        <div class="num" style="color:#6BCB77;">2 for 1</div>
+        <div class="label">"Two for one"</div>
+        <div class="ua">Два за ціною одного</div>
+      </div>
+      <div class="num-card" style="background:#fff7ed;">
+        <div class="num" style="color:#FF8C42;">Buy 3</div>
+        <div class="label">"Buy 3, get 1 free"</div>
+        <div class="ua">Купи 3 — четвертий безкоштовно</div>
+      </div>
+    </div>
+
+    <div class="money-info-grid">
+      <div style="background:#f8f8f8; border-radius:14px; padding:16px;">
+        <div style="font-weight:800; margin-bottom:8px; color:#FF6B9D;">💰 Saying prices</div>
+        <div style="font-size:0.87rem; line-height:1.7; color:#555;">
+          <strong>£3.00</strong> → "three pounds" / "three quid" 🇬🇧<br>
+          <strong>$0.99</strong> → "ninety-nine cents"<br>
+          <strong>€1.50</strong> → "one euro fifty"<br>
+          <strong>£20.00</strong> → "twenty pounds exactly"
+        </div>
+      </div>
+      <div style="background:#f8f8f8; border-radius:14px; padding:16px;">
+        <div style="font-weight:800; margin-bottom:8px; color:#4ECDC4;">🏷️ Useful discount words</div>
+        <div style="font-size:0.87rem; line-height:1.7; color:#555;">
+          <strong>on sale</strong> — на розпродажу<br>
+          <strong>half price</strong> — пів ціни (50%)<br>
+          <strong>clearance</strong> — розпродаж залишків<br>
+          <strong>flash sale</strong> — короткочасна акція
+        </div>
+      </div>
+      <div style="background:#f8f8f8; border-radius:14px; padding:16px;">
+        <div style="font-weight:800; margin-bottom:8px; color:#A855F7;">💳 Payment words</div>
+        <div style="font-size:0.87rem; line-height:1.7; color:#555;">
+          <strong>cash</strong> — готівка<br>
+          <strong>card</strong> — карта<br>
+          <strong>contactless</strong> — безконтактно<br>
+          <strong>installments</strong> — розстрочка
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- VOCAB TABLE -->
+<div class="section">
+  <div class="section-title title-yellow"><span>📖 Essential Vocabulary — Словник</span></div>
+  <div class="vocab-table-wrap">
+    <table class="vocab-table">
+      <thead>
+        <tr>
+          <th>English Word</th>
+          <th>Українською</th>
+          <th>Example Sentence</th>
+          <th>Category</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="en">to browse</td><td>переглядати (магазин)</td><td>"I like to browse before I buy anything."</td><td><span class="tag" style="background:#fff0f5;color:#FF6B9D;">Action</span></td></tr>
+        <tr><td class="en">to afford</td><td>дозволити собі (фінансово)</td><td>"I can't afford this — it's too expensive."</td><td><span class="tag" style="background:#f0fdfc;color:#14B8A6;">Money</span></td></tr>
+        <tr><td class="en">to haggle</td><td>торгуватися</td><td>"You can haggle at the market but not in shops."</td><td><span class="tag" style="background:#f0fdfc;color:#14B8A6;">Money</span></td></tr>
+        <tr><td class="en">refund</td><td>повернення грошей</td><td>"I got a full refund because the item was broken."</td><td><span class="tag" style="background:#fffbeb;color:#F59E0B;">Returns</span></td></tr>
+        <tr><td class="en">exchange</td><td>обмін товару</td><td>"Can I exchange this for a different colour?"</td><td><span class="tag" style="background:#fffbeb;color:#F59E0B;">Returns</span></td></tr>
+        <tr><td class="en">queue / line</td><td>черга</td><td>"There's a long queue at the checkout today."</td><td><span class="tag" style="background:#fff0f5;color:#FF6B9D;">Action</span></td></tr>
+        <tr><td class="en">window shopping</td><td>роздивлятися вітрини (без купівлі)</td><td>"We spent the afternoon window shopping."</td><td><span class="tag" style="background:#faf5ff;color:#A855F7;">Fun</span></td></tr>
+        <tr><td class="en">sold out</td><td>розпродано</td><td>"Sorry, this model is sold out."</td><td><span class="tag" style="background:#f0fff4;color:#6BCB77;">Stock</span></td></tr>
+        <tr><td class="en">brand new</td><td>зовсім новий</td><td>"This phone is brand new — never been used!"</td><td><span class="tag" style="background:#f0fff4;color:#6BCB77;">Stock</span></td></tr>
+        <tr><td class="en">impulse buy</td><td>імпульсивна покупка</td><td>"That chocolate bar was an impulse buy."</td><td><span class="tag" style="background:#faf5ff;color:#A855F7;">Fun</span></td></tr>
+        <tr><td class="en">to splurge</td><td>витратити багато грошей</td><td>"I decided to splurge on a designer bag."</td><td><span class="tag" style="background:#f0fdfc;color:#14B8A6;">Money</span></td></tr>
+        <tr><td class="en">shoplifting</td><td>крадіжка з магазину</td><td>"Shoplifting is a crime. Never do it!"</td><td><span class="tag" style="background:#fff7ed;color:#F97316;">Warning</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- TIPS -->
+<div style="background: linear-gradient(135deg, #e0f7fa, #e8f5e9); padding: 20px 0 60px;">
+<div class="section" style="padding-top:30px;">
+  <div class="section-title title-sky"><span>💡 Smart Tips — Корисні Поради</span></div>
+  <div class="tips-grid">
+    <div class="tip-card tip-pink">
+      <h4>🗣️ Be Polite!</h4>
+      <p>Always say <strong>"please"</strong>, <strong>"thank you"</strong>, and <strong>"excuse me"</strong>. British and American people really appreciate politeness.</p>
+      <p style="margin-top:6px; color:#888; font-size:0.8rem;">Завжди говори "please", "thank you" і "excuse me". Це дуже важливо!</p>
+      <div class="examples">
+        <span>"Excuse me, can you help me?"</span>
+        <span>"Thank you so much!"</span>
+        <span>"Could I have..., please?"</span>
+      </div>
+    </div>
+    <div class="tip-card tip-sky">
+      <h4>🔤 "Could" is magic!</h4>
+      <p>Use <strong>"Could I...?"</strong> instead of <strong>"Can I...?"</strong> for a more polite request. It sounds friendlier!</p>
+      <p style="margin-top:6px; color:#888; font-size:0.8rem;">«Could I...?» звучить ввічливіше, ніж «Can I...?»</p>
+      <div class="examples">
+        <span>✅ "Could I try this on?"</span>
+        <span>✅ "Could you help me find...?"</span>
+        <span>✅ "Could I have a bag?"</span>
+      </div>
+    </div>
+    <div class="tip-card tip-mint">
+      <h4>🏷️ Read the labels!</h4>
+      <p>Key label words: <strong>reduced</strong> (знижена ціна), <strong>special offer</strong> (спецпропозиція), <strong>BOGOF</strong> = Buy One Get One Free!</p>
+      <div class="examples">
+        <span>BOGOF = купи один — другий безкоштовно</span>
+        <span>Reduced = ціна знижена</span>
+        <span>Multi-buy = купи кілька — дешевше</span>
+      </div>
+    </div>
+    <div class="tip-card tip-yellow">
+      <h4>📱 Online Shopping</h4>
+      <p>Important online words: <strong>add to cart</strong>, <strong>checkout</strong>, <strong>wishlist</strong>, <strong>tracking number</strong>, <strong>estimated delivery</strong>.</p>
+      <p style="margin-top:6px; color:#888; font-size:0.8rem;">Слова для онлайн-шопінгу</p>
+      <div class="examples">
+        <span>Add to cart = додати в кошик</span>
+        <span>Wishlist = список бажань</span>
+        <span>Tracking number = номер відстеження</span>
+      </div>
+    </div>
+    <div class="tip-card tip-purple">
+      <h4>🤝 Bargaining</h4>
+      <p>In <strong>markets</strong> you can often negotiate! Try: <em>"Is that your best price?"</em> or <em>"Would you take £...?"</em></p>
+      <p style="margin-top:6px; color:#888; font-size:0.8rem;">На ринках можна торгуватися!</p>
+      <div class="examples">
+        <span>"Is that your best price?"</span>
+        <span>"Would you take £10?"</span>
+        <span>"Can you do any better?"</span>
+      </div>
+    </div>
+    <div class="tip-card tip-orange">
+      <h4>↩️ Know your rights!</h4>
+      <p>In the UK and US, you usually have the right to return items within <strong>28–30 days</strong> with a receipt. Say: <em>"I'd like to return this, please."</em></p>
+      <p style="margin-top:6px; color:#888; font-size:0.8rem;">Ти маєш право повернути товар протягом 28-30 днів!</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- WAVE BOTTOM -->
+<div class="wave"><svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" style="transform:scaleY(-1)"><path fill="#2D2D2D" d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z"/></svg></div>
+
+<footer>
+  Made with ❤️ for English learners 🇺🇦 | <span>Shopping in English</span> — вчи мову граючись! 🛍️
+</footer>
+
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+
+<script>
+function showTab(id) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+}
+function showDTab(id) {
+  document.querySelectorAll('.d-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.d-tab').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
+</body>
+</html>

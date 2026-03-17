@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🔬 Science in English — Talk Like a Scientist!</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0f1a;
+    --card: #141726;
+    --card2: #1a1f35;
+    --accent1: #00e5ff;
+    --accent2: #ff6b6b;
+    --accent3: #a78bfa;
+    --accent4: #34d399;
+    --accent5: #fbbf24;
+    --text: #e8eaf6;
+    --muted: #8892b0;
+    --border: rgba(255,255,255,0.07);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── STARS BG ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,.6), transparent),
+      radial-gradient(1px 1px at 80% 10%, rgba(255,255,255,.4), transparent),
+      radial-gradient(1.5px 1.5px at 50% 60%, rgba(255,255,255,.5), transparent),
+      radial-gradient(1px 1px at 10% 80%, rgba(255,255,255,.3), transparent),
+      radial-gradient(2px 2px at 70% 50%, rgba(0,229,255,.3), transparent),
+      radial-gradient(1px 1px at 35% 90%, rgba(255,255,255,.4), transparent),
+      radial-gradient(1px 1px at 90% 70%, rgba(167,139,250,.4), transparent);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .wrap { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+  /* ── HERO ── */
+  header {
+    text-align: center;
+    padding: 70px 20px 50px;
+    position: relative;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #00e5ff22, #a78bfa22);
+    border: 1px solid #00e5ff44;
+    border-radius: 50px;
+    padding: 6px 20px;
+    font-size: 13px;
+    color: var(--accent1);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    animation: fadeDown .7s ease both;
+  }
+  header h1 {
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    font-weight: 900;
+    line-height: 1.1;
+    animation: fadeDown .8s .1s ease both;
+  }
+  header h1 .line1 { display: block; color: #fff; }
+  header h1 .line2 {
+    display: block;
+    background: linear-gradient(90deg, var(--accent1), var(--accent3));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  header p.sub {
+    margin: 18px auto 0;
+    max-width: 600px;
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    animation: fadeDown .9s .2s ease both;
+  }
+  .ua { color: var(--accent3); font-style: italic; }
+
+  /* floating atoms */
+  .atom {
+    position: absolute;
+    border-radius: 50%;
+    opacity: .18;
+    pointer-events: none;
+    animation: float 6s ease-in-out infinite;
+  }
+  .atom1 { width: 120px; height: 120px; background: var(--accent1); top: 20px; left: -30px; animation-delay: 0s; }
+  .atom2 { width: 80px; height: 80px; background: var(--accent2); top: 60px; right: 0; animation-delay: 2s; }
+  .atom3 { width: 60px; height: 60px; background: var(--accent5); bottom: 0; left: 40%; animation-delay: 4s; }
+
+  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-18px)} }
+  @keyframes fadeDown { from{opacity:0;transform:translateY(-20px)} to{opacity:1;transform:translateY(0)} }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+  @keyframes pop { from{opacity:0;transform:scale(.85)} to{opacity:1;transform:scale(1)} }
+
+  /* ── SECTION TITLES ── */
+  .section { padding: 60px 0; }
+  .sec-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 36px;
+  }
+  .sec-label .emoji { font-size: 2rem; }
+  .sec-label h2 {
+    font-size: 1.7rem;
+    font-weight: 800;
+  }
+  .sec-label h2 span { display: block; font-size: .9rem; color: var(--muted); font-weight: 600; margin-top: 2px; }
+
+  /* ── CARDS GRID ── */
+  .cards { display: grid; gap: 16px; }
+  .cards-3 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+  .cards-2 { grid-template-columns: repeat(auto-fit, minmax(440px, 1fr)); }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 24px 28px;
+    transition: transform .2s, box-shadow .2s;
+    animation: pop .5s ease both;
+  }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,.4); }
+
+  .card-icon { font-size: 2.2rem; margin-bottom: 14px; }
+  .card h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 6px; }
+  .card .en { font-size: 1rem; color: var(--accent1); font-weight: 700; }
+  .card .ukr { font-size: .9rem; color: var(--accent3); margin-top: 3px; }
+  .card .example {
+    margin-top: 12px;
+    background: rgba(255,255,255,.04);
+    border-left: 3px solid var(--accent4);
+    border-radius: 0 10px 10px 0;
+    padding: 10px 14px;
+    font-size: .9rem;
+  }
+  .card .example .ex-en { color: var(--accent4); font-weight: 700; }
+  .card .example .ex-ua { color: var(--muted); font-style: italic; font-size: .85rem; margin-top: 3px; }
+
+  /* ── PHRASE CHIPS ── */
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; }
+  .chip {
+    display: inline-flex;
+    flex-direction: column;
+    background: var(--card2);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 10px 18px;
+    font-size: .88rem;
+    transition: all .2s;
+    cursor: default;
+  }
+  .chip:hover { border-color: var(--accent1); transform: scale(1.03); }
+  .chip .c-en { color: var(--accent1); font-weight: 700; }
+  .chip .c-ua { color: var(--muted); font-size: .78rem; margin-top: 2px; }
+
+  /* ── INFOGRAPHIC STEPS ── */
+  .steps { display: flex; flex-direction: column; gap: 0; }
+  .step {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    position: relative;
+    padding-bottom: 28px;
+  }
+  .step:last-child { padding-bottom: 0; }
+  .step-num {
+    flex-shrink: 0;
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 900;
+    position: relative;
+    z-index: 1;
+  }
+  .step:not(:last-child) .step-num::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: calc(100% + 8px);
+    background: linear-gradient(to bottom, currentColor, transparent);
+    opacity: .3;
+  }
+  .step-body h4 { font-size: 1rem; font-weight: 800; margin-bottom: 4px; }
+  .step-body p { font-size: .9rem; color: var(--muted); line-height: 1.6; }
+  .step-body .phrase {
+    display: inline-block;
+    margin-top: 8px;
+    background: rgba(0,229,255,.08);
+    border: 1px solid rgba(0,229,255,.25);
+    border-radius: 8px;
+    padding: 5px 12px;
+    font-size: .88rem;
+    color: var(--accent1);
+    font-weight: 700;
+  }
+
+  /* ── VOCAB TABLE ── */
+  .vocab-table { width: 100%; border-collapse: collapse; }
+  .vocab-table th {
+    text-align: left;
+    padding: 12px 18px;
+    background: rgba(0,229,255,.08);
+    color: var(--accent1);
+    font-size: .82rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .vocab-table th:first-child { border-radius: 12px 0 0 0; }
+  .vocab-table th:last-child { border-radius: 0 12px 0 0; }
+  .vocab-table td {
+    padding: 12px 18px;
+    border-bottom: 1px solid var(--border);
+    font-size: .92rem;
+  }
+  .vocab-table tr:last-child td { border-bottom: none; }
+  .vocab-table tr:hover td { background: rgba(255,255,255,.02); }
+  .vocab-table .word { color: #fff; font-weight: 700; }
+  .vocab-table .trans { color: var(--accent3); }
+  .vocab-table .use { color: var(--muted); font-size: .85rem; font-style: italic; }
+  .vocab-table .tag {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 50px;
+    font-size: .75rem;
+    font-weight: 700;
+  }
+  .tag-noun { background: rgba(0,229,255,.15); color: var(--accent1); }
+  .tag-verb { background: rgba(52,211,153,.15); color: var(--accent4); }
+  .tag-adj  { background: rgba(251,191,36,.15); color: var(--accent5); }
+  .tag-phrase { background: rgba(167,139,250,.15); color: var(--accent3); }
+
+  /* ── CONVERSATION BUBBLE ── */
+  .dialogue { display: flex; flex-direction: column; gap: 16px; }
+  .bubble-wrap { display: flex; align-items: flex-end; gap: 12px; }
+  .bubble-wrap.right { flex-direction: row-reverse; }
+  .avatar {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+  .av-a { background: linear-gradient(135deg,#00e5ff33,#00e5ff11); border: 2px solid #00e5ff55; }
+  .av-b { background: linear-gradient(135deg,#a78bfa33,#a78bfa11); border: 2px solid #a78bfa55; }
+  .bubble {
+    max-width: 75%;
+    padding: 14px 18px;
+    border-radius: 18px;
+    font-size: .93rem;
+    line-height: 1.6;
+  }
+  .bubble-a {
+    background: linear-gradient(135deg,rgba(0,229,255,.12),rgba(0,229,255,.06));
+    border: 1px solid rgba(0,229,255,.2);
+    border-bottom-left-radius: 4px;
+  }
+  .bubble-b {
+    background: linear-gradient(135deg,rgba(167,139,250,.12),rgba(167,139,250,.06));
+    border: 1px solid rgba(167,139,250,.2);
+    border-bottom-right-radius: 4px;
+  }
+  .bubble .name { font-size: .75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+  .name-a { color: var(--accent1); }
+  .name-b { color: var(--accent3); }
+  .bubble .translation { margin-top: 6px; font-size: .8rem; color: var(--muted); font-style: italic; }
+  .highlight-phrase { background: rgba(251,191,36,.15); color: var(--accent5); padding: 0 4px; border-radius: 4px; font-weight: 700; }
+
+  /* ── TIP BOX ── */
+  .tip-box {
+    border-radius: 18px;
+    padding: 22px 26px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .tip-blue  { background: rgba(0,229,255,.07); border: 1px solid rgba(0,229,255,.2); }
+  .tip-green { background: rgba(52,211,153,.07); border: 1px solid rgba(52,211,153,.2); }
+  .tip-pink  { background: rgba(255,107,107,.07); border: 1px solid rgba(255,107,107,.2); }
+  .tip-icon { font-size: 1.8rem; flex-shrink: 0; }
+  .tip-content h4 { font-size: 1rem; font-weight: 800; margin-bottom: 5px; }
+  .tip-content p { font-size: .9rem; color: var(--muted); line-height: 1.65; }
+
+  /* ── DIVIDER ── */
+  .divider { height: 1px; background: var(--border); margin: 0; }
+
+  /* ── QUIZ ── */
+  .quiz-q {
+    background: var(--card2);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 24px 28px;
+    margin-bottom: 16px;
+  }
+  .quiz-q p { font-weight: 700; margin-bottom: 14px; font-size: 1rem; }
+  .options { display: flex; flex-direction: column; gap: 8px; }
+  .opt {
+    background: rgba(255,255,255,.04);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 16px;
+    cursor: pointer;
+    font-size: .9rem;
+    transition: all .2s;
+    user-select: none;
+  }
+  .opt:hover { border-color: var(--accent1); background: rgba(0,229,255,.06); }
+  .opt.correct { border-color: var(--accent4)!important; background: rgba(52,211,153,.12)!important; color: var(--accent4); }
+  .opt.wrong   { border-color: var(--accent2)!important; background: rgba(255,107,107,.1)!important; color: var(--accent2); }
+  .feedback { font-size: .85rem; margin-top: 10px; font-weight: 700; display: none; }
+  .feedback.show { display: block; }
+  .fb-ok { color: var(--accent4); }
+  .fb-no { color: var(--accent2); }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center;
+    padding: 50px 20px 40px;
+    color: var(--muted);
+    font-size: .88rem;
+  }
+  footer strong { color: var(--accent1); }
+
+  /* ── SECTION COLOR ACCENTS ── */
+  .c1 { color: var(--accent1); }
+  .c2 { color: var(--accent2); }
+  .c3 { color: var(--accent3); }
+  .c4 { color: var(--accent4); }
+  .c5 { color: var(--accent5); }
+
+  .border-c1 { border-color: var(--accent1) !important; }
+  .border-c2 { border-color: var(--accent2) !important; }
+  .border-c3 { border-color: var(--accent3) !important; }
+  .border-c4 { border-color: var(--accent4) !important; }
+  .border-c5 { border-color: var(--accent5) !important; }
+
+  .num-c1 { background: linear-gradient(135deg,var(--accent1),#0099bb); color: #000; }
+  .num-c2 { background: linear-gradient(135deg,var(--accent2),#c0392b); color: #fff; }
+  .num-c3 { background: linear-gradient(135deg,var(--accent3),#7c3aed); color: #fff; }
+  .num-c4 { background: linear-gradient(135deg,var(--accent4),#059669); color: #000; }
+  .num-c5 { background: linear-gradient(135deg,var(--accent5),#b45309); color: #000; }
+
+  /* ── MOBILE & RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .wrap { padding: 0 14px; }
+
+    header { padding: 48px 16px 36px; }
+    header h1 { font-size: clamp(1.7rem, 8vw, 2.6rem); }
+    header p.sub { font-size: .95rem; }
+    .hero-badge { font-size: 11px; padding: 5px 14px; }
+    .atom { display: none; }
+
+    .section { padding: 40px 0; }
+    .sec-label { gap: 10px; margin-bottom: 24px; }
+    .sec-label .emoji { font-size: 1.6rem; }
+    .sec-label h2 { font-size: 1.3rem; }
+    .sec-label h2 span { font-size: .8rem; }
+
+    .cards-3,
+    .cards-2 { grid-template-columns: 1fr; }
+
+    .card { padding: 18px 18px; border-radius: 16px; }
+    .card-icon { font-size: 1.8rem; margin-bottom: 10px; }
+    .card h3 { font-size: 1rem; }
+    .card .en { font-size: .95rem; }
+    .card .ukr { font-size: .85rem; }
+    .card .example { padding: 8px 12px; font-size: .85rem; }
+
+    .chips { gap: 8px; }
+    .chip { padding: 8px 13px; font-size: .82rem; border-radius: 11px; }
+    .chip .c-ua { font-size: .73rem; }
+
+    .step { gap: 14px; padding-bottom: 22px; }
+    .step-num { width: 40px; height: 40px; font-size: 1rem; }
+    .step-body h4 { font-size: .95rem; }
+    .step-body p { font-size: .85rem; }
+    .step-body .phrase { font-size: .82rem; padding: 4px 10px; }
+
+    .vocab-table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 20px;
+    }
+    .vocab-table { min-width: 560px; }
+    .vocab-table th { padding: 10px 14px; font-size: .75rem; }
+    .vocab-table td { padding: 10px 14px; font-size: .85rem; }
+    .tag { font-size: .7rem; padding: 2px 8px; }
+
+    .bubble { max-width: 88%; padding: 12px 14px; font-size: .88rem; }
+    .bubble .name { font-size: .7rem; }
+    .bubble .translation { font-size: .76rem; }
+    .avatar { width: 34px; height: 34px; font-size: 1.1rem; }
+    .bubble-wrap { gap: 8px; }
+
+    .tip-box { padding: 16px 18px; gap: 12px; border-radius: 14px; }
+    .tip-icon { font-size: 1.5rem; }
+    .tip-content h4 { font-size: .95rem; }
+    .tip-content p { font-size: .85rem; }
+
+    .quiz-q { padding: 18px 18px; border-radius: 14px; }
+    .quiz-q p { font-size: .93rem; }
+    .opt { font-size: .85rem; padding: 9px 13px; }
+    .feedback { font-size: .82rem; }
+
+    footer { padding: 36px 16px 32px; font-size: .82rem; }
+    footer div { font-size: 2rem; }
+
+    #scroll-top-btn { bottom: 18px; right: 16px; width: 40px; height: 40px; font-size: 16px; }
+  }
+
+  @media (max-width: 400px) {
+    header h1 { font-size: 1.55rem; }
+    .sec-label h2 { font-size: 1.15rem; }
+    .chip { font-size: .78rem; padding: 7px 11px; }
+  }
+
+  #scroll-top-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #1a1208;
+    border: 1.5px solid rgba(200,150,62,0.4);
+    color: #f5f0e8;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+    pointer-events: none;
+    z-index: 9998;
+  }
+  #scroll-top-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  #scroll-top-btn:hover {
+    background: #c8963e;
+    border-color: #c8963e;
+    color: #1a1208;
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════ HERO ══════════════════════ -->
+<header>
+  <div class="atom atom1"></div>
+  <div class="atom atom2"></div>
+  <div class="atom atom3"></div>
+  <div class="hero-badge">🚀 English for Science Learners</div>
+  <h1>
+    <span class="line1">Talk Like a Scientist!</span>
+    <span class="line2">Говори як вчений!</span>
+  </h1>
+  <p class="sub">
+    Learn how to discuss, explain, and explore science in English.<br>
+    <span class="ua">Дізнайся, як обговорювати науку англійською — з фразами, прикладами та підказками!</span>
+  </p>
+</header>
+
+<div class="wrap">
+
+  <!-- ══════ SECTION 1: WHAT SCIENCE TOPICS LOOK LIKE ══════ -->
+  <section class="section">
+    <div class="sec-label">
+      <span class="emoji">🌍</span>
+      <h2 class="c1">Science Topics — Наукові теми
+        <span>The main areas of science you might talk about / Основні напрямки науки</span>
+      </h2>
+    </div>
+    <div class="cards cards-3">
+
+      <div class="card" style="border-top: 3px solid var(--accent1)">
+        <div class="card-icon">🔬</div>
+        <div class="en">Biology</div>
+        <div class="ukr">Біологія</div>
+        <div class="example">
+          <div class="ex-en">"Let's talk about how cells divide."</div>
+          <div class="ex-ua">Поговоримо про те, як клітини діляться.</div>
+        </div>
+      </div>
+
+      <div class="card" style="border-top: 3px solid var(--accent5)">
+        <div class="card-icon">⚗️</div>
+        <div class="en">Chemistry</div>
+        <div class="ukr">Хімія</div>
+        <div class="example">
+          <div class="ex-en">"Water is made of hydrogen and oxygen."</div>
+          <div class="ex-ua">Вода складається з водню та кисню.</div>
+        </div>
+      </div>
+
+      <div class="card" style="border-top: 3px solid var(--accent3)">
+        <div class="card-icon">🚀</div>
+        <div class="en">Physics</div>
+        <div class="ukr">Фізика</div>
+        <div class="example">
+          <div class="ex-en">"Gravity pulls objects toward the Earth."</div>
+          <div class="ex-ua">Гравітація притягує предмети до Землі.</div>
+        </div>
+      </div>
+
+      <div class="card" style="border-top: 3px solid var(--accent4)">
+        <div class="card-icon">🌱</div>
+        <div class="en">Ecology</div>
+        <div class="ukr">Екологія</div>
+        <div class="example">
+          <div class="ex-en">"Climate change affects all living things."</div>
+          <div class="ex-ua">Зміна клімату впливає на всі живі організми.</div>
+        </div>
+      </div>
+
+      <div class="card" style="border-top: 3px solid var(--accent2)">
+        <div class="card-icon">🌌</div>
+        <div class="en">Astronomy</div>
+        <div class="ukr">Астрономія</div>
+        <div class="example">
+          <div class="ex-en">"The Sun is a medium-sized star."</div>
+          <div class="ex-ua">Сонце — це зоря середнього розміру.</div>
+        </div>
+      </div>
+
+      <div class="card" style="border-top: 3px solid #f472b6">
+        <div class="card-icon">💻</div>
+        <div class="en">Technology / IT</div>
+        <div class="ukr">Технології / ІТ</div>
+        <div class="example">
+          <div class="ex-en">"Artificial intelligence can learn from data."</div>
+          <div class="ex-ua">Штучний інтелект може навчатися на даних.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ══════ SECTION 2: THE SCIENTIFIC METHOD ══════ -->
+  <section class="section">
+    <div class="sec-label">
+      <span class="emoji">🧪</span>
+      <h2 class="c4">The Scientific Method — Науковий метод
+        <span>How scientists think step by step / Як вчені мислять крок за кроком</span>
+      </h2>
+    </div>
+    <div class="cards cards-2">
+      <div class="card">
+        <div class="steps">
+          <div class="step">
+            <div class="step-num num-c1 c1">1</div>
+            <div class="step-body">
+              <h4 class="c1">Observation — Спостереження</h4>
+              <p>You notice something interesting in the world.<br><span class="ua">Ти помічаєш щось цікаве у світі.</span></p>
+              <span class="phrase">"I noticed that…" / "Я помітив(ла), що…"</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num num-c5 c5">2</div>
+            <div class="step-body">
+              <h4 class="c5">Question — Питання</h4>
+              <p>You ask: why? how? what?<br><span class="ua">Ти запитуєш: чому? як? що?</span></p>
+              <span class="phrase" style="border-color:#fbbf2455;background:rgba(251,191,36,.08);color:var(--accent5)">"Why does…?" / "How does…work?"</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num num-c3 c3">3</div>
+            <div class="step-body">
+              <h4 class="c3">Hypothesis — Гіпотеза</h4>
+              <p>You make a prediction / Ти робиш припущення</p>
+              <span class="phrase" style="border-color:#a78bfa55;background:rgba(167,139,250,.08);color:var(--accent3)">"I think… because…" / "Я думаю… тому що…"</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num num-c4 c4">4</div>
+            <div class="step-body">
+              <h4 class="c4">Experiment — Експеримент</h4>
+              <p>You test your idea / Ти перевіряєш свою ідею</p>
+              <span class="phrase" style="border-color:#34d39955;background:rgba(52,211,153,.08);color:var(--accent4)">"We tested… by…" / "Ми перевірили… за допомогою…"</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num num-c2 c2">5</div>
+            <div class="step-body">
+              <h4 class="c2">Conclusion — Висновок</h4>
+              <p>You explain what you found / Ти пояснюєш, що дізнався(лась)</p>
+              <span class="phrase" style="border-color:#ff6b6b55;background:rgba(255,107,107,.08);color:var(--accent2)">"The results show that…" / "Результати показують, що…"</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div class="tip-box tip-blue">
+          <div class="tip-icon">💡</div>
+          <div class="tip-content">
+            <h4 class="c1">Pro Tip — Порада</h4>
+            <p>Scientists ALWAYS explain their reasoning. Use phrases like <strong style="color:#fff">"because", "therefore", "as a result"</strong> to connect your ideas.<br><span class="ua">Вчені ЗАВЖДИ пояснюють свої міркування. Використовуй слова <strong style="color:#fff">because (тому що), therefore (отже), as a result (як результат)</strong>.</span></p>
+          </div>
+        </div>
+        <div class="tip-box tip-green">
+          <div class="tip-icon">🎯</div>
+          <div class="tip-content">
+            <h4 class="c4">Key sentence: Hypothesis / Гіпотеза</h4>
+            <p><strong style="color:#fff">"If [something happens], then [result] because [reason]."</strong><br>
+            <span class="ua">Якщо [щось відбувається], то [результат], тому що [причина].</span><br><br>
+            <em style="color:var(--accent4)">Example: "If plants get more sunlight, then they will grow faster because sunlight gives energy."</em><br>
+            <span class="ua">Якщо рослини отримують більше сонячного світла, вони ростуть швидше, бо світло дає енергію.</span></p>
+          </div>
+        </div>
+        <div class="tip-box tip-pink">
+          <div class="tip-icon">⚠️</div>
+          <div class="tip-content">
+            <h4 class="c2">Avoid saying / Не кажи</h4>
+            <p><strong style="color:#ff6b6b">"I think it's just like that."</strong> — too vague!<br>
+            <span class="ua">Це занадто розмито. Краще давай докази!</span><br><br>
+            ✅ Instead say: <strong style="color:#fff">"The data suggests that…" / "Evidence shows…"</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ══════ SECTION 3: KEY PHRASES ══════ -->
+  <section class="section">
+    <div class="sec-label">
+      <span class="emoji">💬</span>
+      <h2 class="c3">Key Science Phrases — Ключові фрази для науки
+        <span>Use these when speaking or writing about science / Використовуй, коли говориш або пишеш про науку</span>
+      </h2>
+    </div>
+
+    <h3 style="color:var(--muted);font-size:.85rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:14px;">🔍 Describing / Опис</h3>
+    <div class="chips" style="margin-bottom:28px;">
+      <div class="chip"><span class="c-en">It consists of…</span><span class="c-ua">Це складається з…</span></div>
+      <div class="chip"><span class="c-en">It is made of…</span><span class="c-ua">Це зроблено з…</span></div>
+      <div class="chip"><span class="c-en">It is composed of…</span><span class="c-ua">Це містить у собі…</span></div>
+      <div class="chip"><span class="c-en">It looks like…</span><span class="c-ua">Це схоже на…</span></div>
+      <div class="chip"><span class="c-en">It is characterised by…</span><span class="c-ua">Це характеризується…</span></div>
+      <div class="chip"><span class="c-en">The main feature is…</span><span class="c-ua">Головна особливість — це…</span></div>
+    </div>
+
+    <h3 style="color:var(--muted);font-size:.85rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:14px;">⚡ Cause & Effect / Причина і наслідок</h3>
+    <div class="chips" style="margin-bottom:28px;">
+      <div class="chip"><span class="c-en">This causes…</span><span class="c-ua">Це спричиняє…</span></div>
+      <div class="chip"><span class="c-en">As a result…</span><span class="c-ua">Як результат…</span></div>
+      <div class="chip"><span class="c-en">Therefore…</span><span class="c-ua">Тому / Отже…</span></div>
+      <div class="chip"><span class="c-en">This leads to…</span><span class="c-ua">Це призводить до…</span></div>
+      <div class="chip"><span class="c-en">Due to…</span><span class="c-ua">Через те що… / Завдяки…</span></div>
+      <div class="chip"><span class="c-en">Because of this…</span><span class="c-ua">Через це…</span></div>
+    </div>
+
+    <h3 style="color:var(--muted);font-size:.85rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:14px;">📊 Presenting Results / Представлення результатів</h3>
+    <div class="chips" style="margin-bottom:28px;">
+      <div class="chip"><span class="c-en">The results show…</span><span class="c-ua">Результати показують…</span></div>
+      <div class="chip"><span class="c-en">The data indicates…</span><span class="c-ua">Дані вказують на…</span></div>
+      <div class="chip"><span class="c-en">We found that…</span><span class="c-ua">Ми виявили, що…</span></div>
+      <div class="chip"><span class="c-en">This confirms that…</span><span class="c-ua">Це підтверджує, що…</span></div>
+      <div class="chip"><span class="c-en">According to…</span><span class="c-ua">Відповідно до… / За словами…</span></div>
+      <div class="chip"><span class="c-en">In conclusion…</span><span class="c-ua">На завершення… / Отже…</span></div>
+    </div>
+
+    <h3 style="color:var(--muted);font-size:.85rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:14px;">🤔 Expressing Uncertainty / Виражаємо невпевненість</h3>
+    <div class="chips">
+      <div class="chip"><span class="c-en">It might be…</span><span class="c-ua">Можливо, це…</span></div>
+      <div class="chip"><span class="c-en">It seems that…</span><span class="c-ua">Здається, що…</span></div>
+      <div class="chip"><span class="c-en">This could suggest…</span><span class="c-ua">Це може свідчити про…</span></div>
+      <div class="chip"><span class="c-en">We are not sure yet…</span><span class="c-ua">Ми ще не впевнені…</span></div>
+      <div class="chip"><span class="c-en">Further research is needed…</span><span class="c-ua">Потрібні додаткові дослідження…</span></div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ══════ SECTION 4: VOCABULARY TABLE ══════ -->
+  <section class="section">
+    <div class="sec-label">
+      <span class="emoji">📚</span>
+      <h2 class="c5">Must-Know Vocabulary — Обов'язкові слова
+        <span>The most useful science words in English / Найкорисніші наукові слова англійською</span>
+      </h2>
+    </div>
+    <div class="card" style="padding:0;overflow:hidden;">
+      <div class="vocab-table-wrap">
+      <table class="vocab-table">
+        <thead>
+          <tr>
+            <th>Word / Слово</th>
+            <th>Translation / Переклад</th>
+            <th>Part of speech</th>
+            <th>Example use / Приклад</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="word">experiment</span></td>
+            <td><span class="trans">експеримент</span></td>
+            <td><span class="tag tag-noun">noun</span></td>
+            <td><span class="use">We did an experiment with water.</span></td>
+          </tr>
+          <tr>
+            <td><span class="word">hypothesis</span></td>
+            <td><span class="trans">гіпотеза</span></td>
+            <td><span class="tag tag-noun">noun</span></td>
+            <td><span class="use">My hypothesis is that plants need light.</span></td>
+          </tr>
+          <tr>
+            <td><span class="word">observe</span></td>
+            <td><span class="trans">спостерігати</span></td>
+            <td><span class="tag tag-verb">verb</span></td>
+            <td><span class="use">We observed the cells under a microscope.</span></td>
+          </tr>
+          <tr>
+            <td><span class="word">analyse / analyze</span></td>
+            <td><span class="trans">аналізувати</span></td>
+            <td><span class="tag tag-verb">verb</span></td>
+            <td><span class="use">Let's analyse the data.</span></td>
+          </tr>
+          <tr>
+            <td><span class="word">evidence</span></td>
+            <td><span class="trans">доказ, свідчення</span></td>
+            <td><span class="tag tag-noun">noun</span></td>
+            <td><span class="use">The evidence supports our theory.</span></td>
+          </tr>
+          <tr>
+            <td><span class="word">reaction</span></td>
+            <td><span class="trans">реакція</span></td>
+            <td><span class="tag tag-noun">noun</span></td>
+            <td><span class="use">A chemical reaction occurred.</span></td>
+          </tr>
+          <tr>
+            <td><span class="word">molecule</span></td>
+            <td><span class="trans">молекула</span></td>
+            <td><span class="tag tag-noun">noun</span></td>
+            <td><span class="use">Water is made of two molecules.</span></td>
+          </tr>
+          <tr>
+            <td><span class="word">accurate</span></td>
+            <td><span class="trans">точний</span></td>
+            <td><span class="tag tag-adj">adjective</span></td>
+            <td><span class="use">The measurement must be accurate.</span></td>
+          </tr>
+          <tr>
+            <td><span class="word">variable</span></td>
+            <td><span class="trans">змінна</span></td>
+            <td><span class="tag tag-noun">noun</span></td>
+            <td><span class="use">Change only one variable at a time.</span></td>
+          </tr>
+          <tr>
+            <td><span class="word">conclude</span></td>
+            <td><span class="trans">робити висновок</span></td>
+            <td><span class="tag tag-verb">verb</span></td>
+            <td><span class="use">We concluded that heat speeds reactions.</span></td>
+          </tr>
+          <tr>
+            <td><span class="word">significant</span></td>
+            <td><span class="trans">значний, суттєвий</span></td>
+            <td><span class="tag tag-adj">adjective</span></td>
+            <td><span class="use">This is a significant discovery.</span></td>
+          </tr>
+          <tr>
+            <td><span class="word">furthermore</span></td>
+            <td><span class="trans">більше того, крім того</span></td>
+            <td><span class="tag tag-phrase">linking word</span></td>
+            <td><span class="use">Furthermore, the results were surprising.</span></td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ══════ SECTION 5: EXAMPLE DIALOGUE ══════ -->
+  <section class="section">
+    <div class="sec-label">
+      <span class="emoji">🗣️</span>
+      <h2 class="c1">Example Dialogue — Приклад розмови
+        <span>Two students discuss a science experiment / Двоє учнів обговорюють науковий експеримент</span>
+      </h2>
+    </div>
+    <div class="card">
+      <div class="dialogue">
+
+        <div class="bubble-wrap">
+          <div class="avatar av-a">🧑‍🔬</div>
+          <div class="bubble bubble-a">
+            <div class="name name-a">Alex</div>
+            <span class="highlight-phrase">Did you notice</span> that the plant near the window grew much faster?
+            <div class="translation">Ти помітив(ла), що рослина біля вікна виросла набагато швидше?</div>
+          </div>
+        </div>
+
+        <div class="bubble-wrap right">
+          <div class="avatar av-b">👩‍🔬</div>
+          <div class="bubble bubble-b">
+            <div class="name name-b">Sofia</div>
+            Yes! <span class="highlight-phrase">I think</span> it's because it gets more sunlight. <span class="highlight-phrase">My hypothesis is that</span> sunlight is the key variable.
+            <div class="translation">Так! Я думаю, це тому що вона отримує більше сонця. Моя гіпотеза — сонячне світло є ключовою змінною.</div>
+          </div>
+        </div>
+
+        <div class="bubble-wrap">
+          <div class="avatar av-a">🧑‍🔬</div>
+          <div class="bubble bubble-a">
+            <div class="name name-a">Alex</div>
+            Interesting! <span class="highlight-phrase">How can we test</span> that? <span class="highlight-phrase">We could measure</span> the height of the plants every day.
+            <div class="translation">Цікаво! Як ми можемо це перевірити? Ми могли б вимірювати висоту рослин щодня.</div>
+          </div>
+        </div>
+
+        <div class="bubble-wrap right">
+          <div class="avatar av-b">👩‍🔬</div>
+          <div class="bubble bubble-b">
+            <div class="name name-b">Sofia</div>
+            Great idea. <span class="highlight-phrase">The results will show</span> whether sunlight affects growth. <span class="highlight-phrase">As a result</span>, we can draw a conclusion.
+            <div class="translation">Чудова ідея. Результати покажуть, чи впливає сонячне світло на ріст. Як результат — ми зможемо зробити висновок.</div>
+          </div>
+        </div>
+
+        <div class="bubble-wrap">
+          <div class="avatar av-a">🧑‍🔬</div>
+          <div class="bubble bubble-a">
+            <div class="name name-a">Alex</div>
+            <span class="highlight-phrase">According to</span> what we found, the data <span class="highlight-phrase">suggests that</span> more light leads to faster growth. <span class="highlight-phrase">In conclusion</span>, our hypothesis was correct!
+            <div class="translation">Відповідно до наших даних, більше світла призводить до швидшого росту. На завершення — наша гіпотеза була правильною!</div>
+          </div>
+        </div>
+
+      </div>
+      <div style="margin-top:20px;" class="tip-box tip-green">
+        <div class="tip-icon">✨</div>
+        <div class="tip-content">
+          <p>The <strong style="color:#fff">highlighted phrases</strong> above are science English in action! Try using them in your own conversations.<br>
+          <span class="ua">Виділені фрази — це наукова англійська в дії! Спробуй використати їх у своїх розмовах.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ══════ SECTION 6: CONNECTORS ══════ -->
+  <section class="section">
+    <div class="sec-label">
+      <span class="emoji">🔗</span>
+      <h2 class="c4">Linking Words — Слова-зв'язки
+        <span>Use these to make your science talk flow smoothly / Роблять твою розповідь зв'язною і логічною</span>
+      </h2>
+    </div>
+    <div class="cards cards-3">
+
+      <div class="card border-c1" style="border-left:4px solid var(--accent1)">
+        <div class="card-icon">➕</div>
+        <h3 class="c1">Adding Info / Додавання</h3>
+        <div class="chips" style="margin-top:12px;">
+          <div class="chip"><span class="c-en">Also</span><span class="c-ua">Також</span></div>
+          <div class="chip"><span class="c-en">In addition</span><span class="c-ua">Крім того</span></div>
+          <div class="chip"><span class="c-en">Furthermore</span><span class="c-ua">До того ж</span></div>
+          <div class="chip"><span class="c-en">Moreover</span><span class="c-ua">Більше того</span></div>
+        </div>
+      </div>
+
+      <div class="card border-c2" style="border-left:4px solid var(--accent2)">
+        <div class="card-icon">⚡</div>
+        <h3 class="c2">Cause & Effect / Причина</h3>
+        <div class="chips" style="margin-top:12px;">
+          <div class="chip"><span class="c-en">Because</span><span class="c-ua">Тому що</span></div>
+          <div class="chip"><span class="c-en">Therefore</span><span class="c-ua">Тому / Отже</span></div>
+          <div class="chip"><span class="c-en">As a result</span><span class="c-ua">Як результат</span></div>
+          <div class="chip"><span class="c-en">Due to</span><span class="c-ua">Через / Завдяки</span></div>
+        </div>
+      </div>
+
+      <div class="card border-c3" style="border-left:4px solid var(--accent3)">
+        <div class="card-icon">🔄</div>
+        <h3 class="c3">Contrast / Протиставлення</h3>
+        <div class="chips" style="margin-top:12px;">
+          <div class="chip"><span class="c-en">However</span><span class="c-ua">Однак</span></div>
+          <div class="chip"><span class="c-en">On the other hand</span><span class="c-ua">З іншого боку</span></div>
+          <div class="chip"><span class="c-en">Although</span><span class="c-ua">Хоча</span></div>
+          <div class="chip"><span class="c-en">Despite</span><span class="c-ua">Незважаючи на</span></div>
+        </div>
+      </div>
+
+      <div class="card border-c4" style="border-left:4px solid var(--accent4)">
+        <div class="card-icon">🏁</div>
+        <h3 class="c4">Concluding / Висновки</h3>
+        <div class="chips" style="margin-top:12px;">
+          <div class="chip"><span class="c-en">In conclusion</span><span class="c-ua">На завершення</span></div>
+          <div class="chip"><span class="c-en">To sum up</span><span class="c-ua">Підсумовуючи</span></div>
+          <div class="chip"><span class="c-en">Finally</span><span class="c-ua">Нарешті / Зрештою</span></div>
+          <div class="chip"><span class="c-en">Overall</span><span class="c-ua">Загалом</span></div>
+        </div>
+      </div>
+
+      <div class="card border-c5" style="border-left:4px solid var(--accent5)">
+        <div class="card-icon">📋</div>
+        <h3 class="c5">Sequencing / Послідовність</h3>
+        <div class="chips" style="margin-top:12px;">
+          <div class="chip"><span class="c-en">First / Firstly</span><span class="c-ua">По-перше</span></div>
+          <div class="chip"><span class="c-en">Then / Next</span><span class="c-ua">Потім / Далі</span></div>
+          <div class="chip"><span class="c-en">After that</span><span class="c-ua">Після цього</span></div>
+          <div class="chip"><span class="c-en">Finally</span><span class="c-ua">Нарешті</span></div>
+        </div>
+      </div>
+
+      <div class="card" style="border-left:4px solid #f472b6">
+        <div class="card-icon">💡</div>
+        <h3 style="color:#f472b6">Giving Examples / Приклади</h3>
+        <div class="chips" style="margin-top:12px;">
+          <div class="chip"><span class="c-en">For example</span><span class="c-ua">Наприклад</span></div>
+          <div class="chip"><span class="c-en">For instance</span><span class="c-ua">Зокрема</span></div>
+          <div class="chip"><span class="c-en">Such as</span><span class="c-ua">Такий як / Наприклад</span></div>
+          <div class="chip"><span class="c-en">In particular</span><span class="c-ua">Зокрема / Особливо</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ══════ SECTION 7: QUICK QUIZ ══════ -->
+  <section class="section">
+    <div class="sec-label">
+      <span class="emoji">🏆</span>
+      <h2 class="c2">Quick Quiz — Швидкий тест
+        <span>Test what you learned! / Перевір себе!</span>
+      </h2>
+    </div>
+
+    <div class="quiz-q" id="q1">
+      <p>1. What phrase do you use to state a hypothesis? / Яку фразу використовувати для гіпотези?</p>
+      <div class="options">
+        <div class="opt" onclick="answer(this,'q1',false)">A) "I don't know if…"</div>
+        <div class="opt" onclick="answer(this,'q1',true)">B) "I think… because…" / "My hypothesis is that…"</div>
+        <div class="opt" onclick="answer(this,'q1',false)">C) "Whatever happens…"</div>
+      </div>
+      <div class="feedback fb-ok" id="q1-fb-ok">✅ Correct! / Правильно! Hypotheses use confident but reasoned predictions.</div>
+      <div class="feedback fb-no" id="q1-fb-no">❌ Try again! / Спробуй ще! A hypothesis is a reasoned prediction.</div>
+    </div>
+
+    <div class="quiz-q" id="q2">
+      <p>2. Which word means "тому що / спричиняє" in science writing?</p>
+      <div class="options">
+        <div class="opt" onclick="answer(this,'q2',false)">A) However</div>
+        <div class="opt" onclick="answer(this,'q2',false)">B) Furthermore</div>
+        <div class="opt" onclick="answer(this,'q2',true)">C) Therefore / Because</div>
+      </div>
+      <div class="feedback fb-ok" id="q2-fb-ok">✅ Correct! / Правильно! "Therefore" shows cause and effect.</div>
+      <div class="feedback fb-no" id="q2-fb-no">❌ Not quite! / Не зовсім! "However" = contrast, "Furthermore" = adding info.</div>
+    </div>
+
+    <div class="quiz-q" id="q3">
+      <p>3. How do you present data results? / Як представити результати?</p>
+      <div class="options">
+        <div class="opt" onclick="answer(this,'q3',false)">A) "Stuff happened and things changed."</div>
+        <div class="opt" onclick="answer(this,'q3',true)">B) "The results show that… / The data indicates…"</div>
+        <div class="opt" onclick="answer(this,'q3',false)">C) "It was pretty interesting I guess."</div>
+      </div>
+      <div class="feedback fb-ok" id="q3-fb-ok">✅ Excellent! / Чудово! Precise scientific language makes your report credible.</div>
+      <div class="feedback fb-no" id="q3-fb-no">❌ No! / Ні! Avoid vague language in science. Be specific!</div>
+    </div>
+
+  </section>
+
+</div><!-- /wrap -->
+
+<!-- ══════ FOOTER ══════ -->
+<footer>
+  <div style="font-size:2.5rem;margin-bottom:12px;">🔬🌍🚀</div>
+  <p>Keep exploring, keep questioning, keep learning!</p>
+  <p class="ua" style="margin-top:6px;">Продовжуй досліджувати, запитувати і навчатися!</p>
+  <p style="margin-top:20px;font-size:.8rem;">Made for science learners of all ages · <strong>English for Science 🇬🇧</strong></p>
+</footer>
+
+<script>
+function answer(el, qid, correct) {
+  const q = document.getElementById(qid);
+  const opts = q.querySelectorAll('.opt');
+  opts.forEach(o => { o.onclick = null; });
+
+  if (correct) {
+    el.classList.add('correct');
+    document.getElementById(qid + '-fb-ok').classList.add('show');
+  } else {
+    el.classList.add('wrong');
+    document.getElementById(qid + '-fb-no').classList.add('show');
+  }
+}
+
+// Staggered card animation on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      entry.target.style.animationDelay = (i * 0.08) + 's';
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.card, .chip, .quiz-q').forEach(el => observer.observe(el));
+</script>
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+</body>
+</html>

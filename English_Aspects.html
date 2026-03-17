@@ -1,0 +1,1491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English Aspects 🌟 Аспекти англійської мови</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --simple: #FF6B6B;
+    --simple-light: #FFE0E0;
+    --simple-dark: #c0392b;
+    --cont: #4ECDC4;
+    --cont-light: #D4F5F3;
+    --cont-dark: #1a9c94;
+    --perfect: #FFD93D;
+    --perfect-light: #FFF8D6;
+    --perfect-dark: #c9a800;
+    --perf-cont: #A78BFA;
+    --perf-cont-light: #EDE9FE;
+    --perf-cont-dark: #6d28d9;
+    --bg: #F8F7FF;
+    --dark: #1e1b4b;
+    --text: #374151;
+    --card-shadow: 0 8px 30px rgba(0,0,0,0.10);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4338ca 100%);
+    padding: 60px 20px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-emoji {
+    font-size: 72px;
+    animation: float 3s ease-in-out infinite;
+    display: block;
+    margin-bottom: 16px;
+  }
+  @keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-14px); }
+  }
+  .hero h1 {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 12px;
+  }
+  .hero-sub {
+    color: #c7d2fe;
+    font-size: 1.15rem;
+    font-weight: 600;
+    max-width: 600px;
+    margin: 0 auto 30px;
+  }
+  .hero-badges {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .badge {
+    padding: 8px 20px;
+    border-radius: 999px;
+    font-weight: 800;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+  }
+  .badge-simple { background: var(--simple); color: #fff; }
+  .badge-cont { background: var(--cont); color: #fff; }
+  .badge-perfect { background: var(--perfect); color: #1e1b4b; }
+  .badge-pc { background: var(--perf-cont); color: #fff; }
+
+  /* MAGIC SENTENCE */
+  .magic-section {
+    max-width: 900px;
+    margin: -30px auto 0;
+    padding: 0 20px 40px;
+    position: relative;
+    z-index: 10;
+  }
+  .magic-card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 36px;
+    box-shadow: var(--card-shadow);
+    border-top: 6px solid #4338ca;
+  }
+  .magic-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.5rem;
+    color: #4338ca;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .magic-desc {
+    color: #6b7280;
+    font-size: 0.95rem;
+    margin-bottom: 24px;
+    font-weight: 600;
+  }
+  .magic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+  }
+  .magic-item {
+    border-radius: 16px;
+    padding: 16px;
+    text-align: center;
+  }
+  .magic-item .aspect-label {
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    opacity: 0.8;
+  }
+  .magic-item .sentence {
+    font-size: 1rem;
+    font-weight: 800;
+    line-height: 1.4;
+    margin-bottom: 6px;
+  }
+  .magic-item .meaning {
+    font-size: 0.82rem;
+    font-weight: 600;
+    opacity: 0.75;
+    font-style: italic;
+  }
+  .mi-s { background: var(--simple-light); color: var(--simple-dark); }
+  .mi-c { background: var(--cont-light); color: var(--cont-dark); }
+  .mi-p { background: var(--perfect-light); color: var(--perfect-dark); }
+  .mi-pc { background: var(--perf-cont-light); color: var(--perf-cont-dark); }
+
+  /* MAIN CONTENT */
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+  }
+
+  /* WHAT IS ASPECT */
+  .intro-box {
+    background: linear-gradient(135deg, #312e81, #4338ca);
+    border-radius: 24px;
+    padding: 36px;
+    color: #fff;
+    margin-bottom: 50px;
+    text-align: center;
+  }
+  .intro-box h2 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 2rem;
+    margin-bottom: 14px;
+  }
+  .intro-box p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    opacity: 0.92;
+    max-width: 680px;
+    margin: 0 auto 14px;
+  }
+  .clock-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 24px;
+  }
+  .clock-item {
+    background: rgba(255,255,255,0.12);
+    border-radius: 16px;
+    padding: 14px 20px;
+    text-align: center;
+    min-width: 140px;
+  }
+  .clock-icon { font-size: 2rem; margin-bottom: 6px; }
+  .clock-label { font-size: 0.82rem; font-weight: 700; opacity: 0.9; }
+
+  /* SECTION HEADERS */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 30px;
+    margin-top: 50px;
+  }
+  .section-dot {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    flex-shrink: 0;
+  }
+  .dot-s { background: var(--simple); }
+  .dot-c { background: var(--cont); }
+  .dot-p { background: var(--perfect); }
+  .dot-pc { background: var(--perf-cont); }
+  .section-header h2 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.9rem;
+    line-height: 1.2;
+  }
+  .h2-s { color: var(--simple-dark); }
+  .h2-c { color: var(--cont-dark); }
+  .h2-p { color: var(--perfect-dark); }
+  .h2-pc { color: var(--perf-cont-dark); }
+
+  /* ASPECT CARD */
+  .aspect-card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 32px;
+    margin-bottom: 30px;
+    box-shadow: var(--card-shadow);
+    border-left: 8px solid;
+  }
+  .ac-s { border-color: var(--simple); }
+  .ac-c { border-color: var(--cont); }
+  .ac-p { border-color: var(--perfect); }
+  .ac-pc { border-color: var(--perf-cont); }
+
+  .meaning-banner {
+    border-radius: 14px;
+    padding: 18px 22px;
+    margin-bottom: 24px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .mb-s { background: var(--simple-light); }
+  .mb-c { background: var(--cont-light); }
+  .mb-p { background: var(--perfect-light); }
+  .mb-pc { background: var(--perf-cont-light); }
+  .meaning-banner .icon { font-size: 2rem; flex-shrink: 0; }
+  .meaning-banner p { font-size: 1rem; line-height: 1.7; font-weight: 600; }
+
+  /* FORMULA */
+  .formula-box {
+    background: #1e1b4b;
+    border-radius: 16px;
+    padding: 20px 26px;
+    margin-bottom: 24px;
+    color: #fff;
+  }
+  .formula-title {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #a5b4fc;
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+  .formula {
+    font-size: 1.1rem;
+    font-weight: 800;
+    line-height: 1.8;
+  }
+  .f-verb { color: #fbbf24; }
+  .f-aux { color: #86efac; }
+  .f-neg { color: #f87171; }
+  .f-q { color: #7dd3fc; }
+
+  /* EXAMPLES */
+  .examples-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+  .ex-card {
+    border-radius: 16px;
+    padding: 16px 18px;
+    border: 2px solid;
+  }
+  .ex-s { background: #fff5f5; border-color: #fca5a5; }
+  .ex-c { background: #f0fffe; border-color: #99f6e4; }
+  .ex-p { background: #fffef0; border-color: #fde68a; }
+  .ex-pc { background: #f5f3ff; border-color: #c4b5fd; }
+
+  .ex-card .ex-en {
+    font-weight: 800;
+    font-size: 0.97rem;
+    margin-bottom: 4px;
+    line-height: 1.5;
+  }
+  .ex-card .ex-ua {
+    font-size: 0.88rem;
+    color: #6b7280;
+    font-style: italic;
+    font-weight: 600;
+  }
+  .ex-card .ex-note {
+    font-size: 0.78rem;
+    margin-top: 8px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 999px;
+    display: inline-block;
+  }
+  .note-s { background: var(--simple-light); color: var(--simple-dark); }
+  .note-c { background: var(--cont-light); color: var(--cont-dark); }
+  .note-p { background: var(--perfect-light); color: var(--perfect-dark); }
+  .note-pc { background: var(--perf-cont-light); color: var(--perf-cont-dark); }
+
+  /* SIGNAL WORDS */
+  .signals {
+    border-radius: 16px;
+    padding: 18px 22px;
+    margin-bottom: 20px;
+  }
+  .sig-s { background: var(--simple-light); }
+  .sig-c { background: var(--cont-light); }
+  .sig-p { background: var(--perfect-light); }
+  .sig-pc { background: var(--perf-cont-light); }
+  .signals h4 {
+    font-weight: 800;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .signal-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .pill {
+    padding: 4px 14px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+  .pill-s { background: var(--simple); color: #fff; }
+  .pill-c { background: var(--cont); color: #fff; }
+  .pill-p { background: var(--perfect); color: #1e1b4b; }
+  .pill-pc { background: var(--perf-cont); color: #fff; }
+
+  /* TIMELINE INFOGRAPHIC */
+  .timeline-section {
+    background: #fff;
+    border-radius: 24px;
+    padding: 36px;
+    margin: 50px 0;
+    box-shadow: var(--card-shadow);
+  }
+  .timeline-section h2 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.8rem;
+    color: #1e1b4b;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .timeline {
+    position: relative;
+    padding: 20px 0;
+  }
+  .tl-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 18px;
+    gap: 16px;
+  }
+  .tl-label {
+    min-width: 160px;
+    font-weight: 800;
+    font-size: 0.9rem;
+    text-align: right;
+  }
+  .tl-bar-wrap {
+    flex: 1;
+    height: 40px;
+    background: #f3f4f6;
+    border-radius: 999px;
+    position: relative;
+    overflow: hidden;
+  }
+  .tl-bar {
+    height: 100%;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #fff;
+    white-space: nowrap;
+  }
+  .tl-dot {
+    position: absolute;
+    width: 16px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .tl-dot::after {
+    content: '▲';
+    font-size: 1.2rem;
+  }
+  .bar-s { background: var(--simple); width: 20%; }
+  .bar-c { background: var(--cont); width: 55%; }
+  .bar-p { background: var(--perfect); width: 40%; }
+  .bar-pc { background: var(--perf-cont); width: 70%; }
+
+  /* COMPARISON TABLE */
+  .compare-section {
+    margin: 50px 0;
+  }
+  .compare-section h2 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.8rem;
+    color: #1e1b4b;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  .compare-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    background: #fff;
+  }
+  .compare-table th {
+    padding: 16px 14px;
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: #fff;
+    text-align: left;
+  }
+  .th-q { background: #312e81; }
+  .th-s { background: var(--simple); }
+  .th-c { background: var(--cont); }
+  .th-p { background: var(--perfect); }
+  .th-pc { background: var(--perf-cont); }
+  .compare-table td {
+    padding: 14px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    border-bottom: 1px solid #f3f4f6;
+    vertical-align: top;
+    line-height: 1.6;
+  }
+  .compare-table tr:last-child td { border-bottom: none; }
+  .compare-table tr:nth-child(even) td { background: #fafafa; }
+  .td-q { font-weight: 800; color: #312e81; }
+
+  /* NUANCES */
+  .nuance-section {
+    margin: 50px 0;
+  }
+  .nuance-section h2 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.8rem;
+    color: #1e1b4b;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  .nuance-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 18px;
+  }
+  .nuance-card {
+    border-radius: 20px;
+    padding: 24px;
+    text-align: center;
+  }
+  .nc-s { background: var(--simple-light); }
+  .nc-c { background: var(--cont-light); }
+  .nc-p { background: var(--perfect-light); }
+  .nc-pc { background: var(--perf-cont-light); }
+  .nuance-card .n-emoji { font-size: 2.5rem; margin-bottom: 10px; }
+  .nuance-card h3 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+  }
+  .nh-s { color: var(--simple-dark); }
+  .nh-c { color: var(--cont-dark); }
+  .nh-p { color: var(--perfect-dark); }
+  .nh-pc { color: var(--perf-cont-dark); }
+  .nuance-card p { font-size: 0.88rem; font-weight: 600; line-height: 1.6; opacity: 0.85; }
+
+  /* REAL LIFE SECTION */
+  .real-life {
+    margin: 50px 0;
+  }
+  .real-life h2 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.8rem;
+    color: #1e1b4b;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  .real-life .sub {
+    text-align: center;
+    color: #6b7280;
+    font-weight: 600;
+    margin-bottom: 28px;
+  }
+  .life-tabs {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    justify-content: center;
+  }
+  .tab-btn {
+    padding: 8px 18px;
+    border-radius: 999px;
+    border: 2px solid #e5e7eb;
+    background: #fff;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 0.88rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .tab-btn.active, .tab-btn:hover {
+    background: #1e1b4b;
+    color: #fff;
+    border-color: #1e1b4b;
+  }
+  .life-panel {
+    display: none;
+  }
+  .life-panel.active {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 14px;
+  }
+  .life-card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 18px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+    border-top: 5px solid;
+  }
+  .lc-s { border-color: var(--simple); }
+  .lc-c { border-color: var(--cont); }
+  .lc-p { border-color: var(--perfect); }
+  .lc-pc { border-color: var(--perf-cont); }
+  .life-card .lc-tag {
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    display: inline-block;
+  }
+  .tag-s { background: var(--simple-light); color: var(--simple-dark); }
+  .tag-c { background: var(--cont-light); color: var(--cont-dark); }
+  .tag-p { background: var(--perfect-light); color: var(--perfect-dark); }
+  .tag-pc { background: var(--perf-cont-light); color: var(--perf-cont-dark); }
+  .life-card .lc-en { font-weight: 800; font-size: 0.97rem; margin-bottom: 4px; }
+  .life-card .lc-ua { font-size: 0.87rem; color: #6b7280; font-style: italic; font-weight: 600; }
+
+  /* QUICK REFERENCE */
+  .quick-ref {
+    background: linear-gradient(135deg, #1e1b4b, #312e81);
+    border-radius: 24px;
+    padding: 40px;
+    margin: 50px 0;
+    color: #fff;
+  }
+  .quick-ref h2 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 28px;
+    color: #c7d2fe;
+  }
+  .qr-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+  }
+  .qr-item {
+    border-radius: 16px;
+    padding: 20px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+  .qr-item h3 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1rem;
+    margin-bottom: 12px;
+  }
+  .qr-line {
+    font-size: 0.82rem;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    line-height: 1.5;
+    opacity: 0.9;
+  }
+  .qr-line span:first-child { flex-shrink: 0; }
+
+  /* FOOTER */
+  .page-footer {
+    text-align: center;
+    padding: 30px;
+    color: #9ca3af;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  /* RESPONSIVE */
+
+  /* Tablet — 768px */
+  @media (max-width: 768px) {
+    .hero { padding: 44px 16px 64px; }
+    .hero h1 { font-size: 2rem; }
+    .hero-sub { font-size: 1rem; }
+    .magic-section { padding: 0 14px 32px; }
+    .magic-card { padding: 24px 18px; }
+    .magic-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .container { padding: 0 14px 48px; }
+    .intro-box { padding: 28px 18px; }
+    .intro-box h2 { font-size: 1.5rem; }
+    .clock-row { gap: 12px; }
+    .clock-item { min-width: 110px; padding: 12px 14px; }
+    .section-header { gap: 12px; margin-top: 38px; }
+    .section-header h2 { font-size: 1.5rem; }
+    .aspect-card { padding: 22px 16px; }
+    .formula-box { padding: 16px 18px; }
+    .formula { font-size: 0.95rem; }
+    .examples-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .nuance-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+    .timeline-section { padding: 26px 16px; }
+    .tl-label { min-width: 120px; font-size: 0.82rem; }
+    .tl-bar { font-size: 0.75rem; padding: 0 10px; }
+    .qr-grid { grid-template-columns: 1fr 1fr; }
+    .quick-ref { padding: 28px 18px; }
+    .compare-section { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .compare-table { min-width: 600px; }
+    .compare-table th, .compare-table td { font-size: 0.82rem; padding: 12px 10px; }
+    .life-panel.active { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* Mobile — 480px */
+  @media (max-width: 480px) {
+    .hero { padding: 36px 14px 54px; }
+    .hero-emoji { font-size: 52px; }
+    .hero h1 { font-size: 1.65rem; }
+    .hero-sub { font-size: 0.92rem; }
+    .hero-badges { gap: 8px; }
+    .badge { font-size: 0.8rem; padding: 6px 14px; }
+    .magic-card { padding: 20px 14px; border-radius: 18px; }
+    .magic-title { font-size: 1.2rem; }
+    .magic-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+    .magic-item { padding: 12px 10px; border-radius: 12px; }
+    .magic-item .sentence { font-size: 0.88rem; }
+    .magic-item .meaning { font-size: 0.76rem; }
+    .intro-box { padding: 22px 14px; border-radius: 18px; }
+    .intro-box h2 { font-size: 1.3rem; }
+    .intro-box p { font-size: 0.93rem; }
+    .clock-row { gap: 8px; }
+    .clock-item { min-width: 90px; padding: 10px; font-size: 0.8rem; border-radius: 12px; }
+    .clock-icon { font-size: 1.6rem; }
+    .clock-label { font-size: 0.74rem; }
+    .section-dot { width: 42px; height: 42px; font-size: 1.2rem; }
+    .section-header h2 { font-size: 1.35rem; }
+    .section-header { gap: 10px; margin-top: 32px; margin-bottom: 20px; }
+    .aspect-card { padding: 18px 14px; border-radius: 18px; border-left-width: 5px; }
+    .meaning-banner { padding: 14px; gap: 10px; border-radius: 12px; }
+    .meaning-banner .icon { font-size: 1.6rem; }
+    .meaning-banner p { font-size: 0.9rem; }
+    .formula-box { padding: 14px; border-radius: 12px; }
+    .formula-title { font-size: 0.72rem; }
+    .formula { font-size: 0.88rem; line-height: 1.9; }
+    .signals { padding: 14px; border-radius: 12px; }
+    .signals h4 { font-size: 0.8rem; }
+    .pill { font-size: 0.78rem; padding: 3px 11px; }
+    .examples-grid { grid-template-columns: 1fr; gap: 10px; }
+    .ex-card { border-radius: 12px; padding: 14px; }
+    .ex-card .ex-en { font-size: 0.93rem; }
+    .ex-card .ex-ua { font-size: 0.83rem; }
+    .ex-card .ex-note { font-size: 0.73rem; }
+    .timeline-section { padding: 22px 14px; border-radius: 18px; }
+    .timeline-section h2 { font-size: 1.35rem; }
+    .tl-row { gap: 8px; }
+    .tl-label { min-width: 88px; font-size: 0.74rem; line-height: 1.3; }
+    .tl-bar { font-size: 0.68rem; padding: 0 8px; white-space: normal; line-height: 1.3; }
+    .tl-bar-wrap { height: 36px; }
+    .compare-section { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .compare-table { min-width: 560px; }
+    .compare-table th { font-size: 0.78rem; padding: 10px 8px; }
+    .compare-table td { font-size: 0.78rem; padding: 10px 8px; }
+    .scroll-hint { display: block; text-align: center; font-size: 0.75rem; color: #9ca3af; font-weight: 700; margin-top: 8px; }
+    .nuance-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .nuance-card { padding: 18px 14px; border-radius: 16px; }
+    .nuance-card .n-emoji { font-size: 2rem; }
+    .nuance-card h3 { font-size: 1rem; }
+    .nuance-card p { font-size: 0.82rem; }
+    .real-life h2 { font-size: 1.35rem; }
+    .life-tabs { gap: 7px; }
+    .tab-btn { padding: 7px 14px; font-size: 0.82rem; }
+    .life-panel.active { grid-template-columns: 1fr; gap: 10px; }
+    .life-card { padding: 14px; border-radius: 14px; }
+    .life-card .lc-en { font-size: 0.92rem; }
+    .life-card .lc-ua { font-size: 0.83rem; }
+    .quick-ref { padding: 24px 14px; border-radius: 18px; }
+    .quick-ref h2 { font-size: 1.35rem; }
+    .qr-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .qr-item { padding: 16px 12px; border-radius: 12px; }
+    .qr-item h3 { font-size: 0.9rem; }
+    .qr-line { font-size: 0.76rem; gap: 5px; }
+    .page-footer { font-size: 0.82rem; padding: 22px 14px; }
+  }
+
+  /* Very small phones — 360px */
+  @media (max-width: 360px) {
+    .magic-grid { grid-template-columns: 1fr; }
+    .nuance-grid { grid-template-columns: 1fr; }
+    .qr-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 1.45rem; }
+    .tl-label { min-width: 72px; font-size: 0.7rem; }
+  }
+
+  #scroll-top-btn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #1a1208;
+  border: 1.5px solid rgba(200,150,62,0.4);
+  color: #f5f0e8;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+  pointer-events: none;
+  z-index: 9998;
+}
+#scroll-top-btn.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+#scroll-top-btn:hover {
+  background: #c8963e;
+  border-color: #c8963e;
+  color: #1a1208;
+}
+
+  /* ANIMATIONS */
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .aspect-card { animation: slideUp 0.5s ease both; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <span class="hero-emoji">⏰</span>
+  <h1>English Aspects<br>Аспекти англійської мови</h1>
+  <p class="hero-sub">Зрозуміло, просто, з прикладами — для кожного! 🎯<br>Simple, visual, and fun for everyone!</p>
+  <div class="hero-badges">
+    <span class="badge badge-simple">🔴 Simple</span>
+    <span class="badge badge-cont">🟢 Continuous</span>
+    <span class="badge badge-perfect">🟡 Perfect</span>
+    <span class="badge badge-pc">🟣 Perfect Continuous</span>
+  </div>
+</div>
+
+<!-- MAGIC SENTENCE -->
+<div class="magic-section">
+  <div class="magic-card">
+    <div class="magic-title">✨ Magic Sentence / Магічне речення</div>
+    <p class="magic-desc">Одне слово <strong>"read"</strong> — 4 різні відтінки часу! Дивись, як змінюється речення залежно від аспекту:</p>
+    <div class="magic-grid">
+      <div class="magic-item mi-s">
+        <div class="aspect-label">🔴 Simple</div>
+        <div class="sentence">She reads books.</div>
+        <div class="meaning">Вона читає книги. (звичка)</div>
+      </div>
+      <div class="magic-item mi-c">
+        <div class="aspect-label">🟢 Continuous</div>
+        <div class="sentence">She is reading a book.</div>
+        <div class="meaning">Вона читає книгу. (зараз!)</div>
+      </div>
+      <div class="magic-item mi-p">
+        <div class="aspect-label">🟡 Perfect</div>
+        <div class="sentence">She has read the book.</div>
+        <div class="meaning">Вона прочитала книгу. (вже!)</div>
+      </div>
+      <div class="magic-item mi-pc">
+        <div class="aspect-label">🟣 Perfect Continuous</div>
+        <div class="sentence">She has been reading for 2 hours.</div>
+        <div class="meaning">Вона читає вже 2 години!</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="container">
+
+  <!-- WHAT IS ASPECT -->
+  <div class="intro-box">
+    <h2>🤔 What is Aspect? / Що таке аспект?</h2>
+    <p><strong>Aspect</strong> tells us <em>HOW</em> an action happens in time — not just when, but what kind of action it is: a quick single action, something ongoing, something finished, or something that started long ago and still continues.</p>
+    <p><strong>Аспект</strong> показує нам, <em>ЯК</em> дія відбувається в часі — не просто коли, а її характер: короткочасна, тривала, завершена чи та, що почалась давно й досі продовжується.</p>
+    <div class="clock-row">
+      <div class="clock-item">
+        <div class="clock-icon">⚡</div>
+        <div class="clock-label">Simple = факт/звичка<br>fact / habit</div>
+      </div>
+      <div class="clock-item">
+        <div class="clock-icon">🔄</div>
+        <div class="clock-label">Continuous = в процесі<br>in progress</div>
+      </div>
+      <div class="clock-item">
+        <div class="clock-icon">✅</div>
+        <div class="clock-label">Perfect = завершено<br>completed</div>
+      </div>
+      <div class="clock-item">
+        <div class="clock-icon">⏳</div>
+        <div class="clock-label">Perfect Cont. = давно й досі<br>since & still</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SIMPLE ASPECT ===== -->
+  <div class="section-header">
+    <div class="section-dot dot-s">🔴</div>
+    <div>
+      <h2 class="h2-s">Simple Aspect</h2>
+      <div style="color:#6b7280;font-weight:600;font-size:0.95rem;">Простий аспект — факт, звичка, правда</div>
+    </div>
+  </div>
+
+  <div class="aspect-card ac-s">
+    <div class="meaning-banner mb-s">
+      <div class="icon">💡</div>
+      <p><strong>Simple</strong> = we state a FACT. The action is complete, habitual, or always true. We don't care if it's happening RIGHT NOW — we just state that it happens.<br><br>
+      <strong>Simple</strong> = ми повідомляємо ФАКТ. Дія завершена, звична або завжди правдива. Нам не важливо, чи відбувається вона саме зараз — ми просто стверджуємо, що вона відбувається.</p>
+    </div>
+
+    <div class="formula-box">
+      <div class="formula-title">📐 Formula / Формула</div>
+      <div class="formula">
+        ✅ Positive: <span class="f-verb">Subject + V1 (s/es)</span> → She <span class="f-verb">reads</span> / He <span class="f-verb">works</span><br>
+        ❌ Negative: <span class="f-neg">Subject + do/does not + V1</span> → She <span class="f-neg">doesn't read</span><br>
+        ❓ Question: <span class="f-q">Do/Does + Subject + V1?</span> → <span class="f-q">Does she read?</span><br>
+        📅 Past: <span class="f-aux">Subject + V2 (ed/irregular)</span> → She <span class="f-aux">read</span> / He <span class="f-aux">worked</span><br>
+        🔮 Future: <span class="f-aux">Subject + will + V1</span> → She <span class="f-aux">will read</span>
+      </div>
+    </div>
+
+    <div class="signals sig-s">
+      <h4 style="color:var(--simple-dark);">🔑 Signal words / Сигнальні слова</h4>
+      <div class="signal-pills">
+        <span class="pill pill-s">always</span><span class="pill pill-s">usually</span><span class="pill pill-s">often</span>
+        <span class="pill pill-s">sometimes</span><span class="pill pill-s">never</span><span class="pill pill-s">every day</span>
+        <span class="pill pill-s">yesterday</span><span class="pill pill-s">last year</span><span class="pill pill-s">in 2010</span>
+        <span class="pill pill-s">tomorrow</span><span class="pill pill-s">next week</span><span class="pill pill-s">once</span>
+      </div>
+    </div>
+
+    <div class="examples-grid">
+      <div class="ex-card ex-s">
+        <div class="ex-en">☀️ The sun rises in the east.</div>
+        <div class="ex-ua">Сонце сходить на сході.</div>
+        <div class="ex-note note-s">Scientific fact / Науковий факт</div>
+      </div>
+      <div class="ex-card ex-s">
+        <div class="ex-en">🐶 My dog barks every morning.</div>
+        <div class="ex-ua">Мій пес гавкає щоранку.</div>
+        <div class="ex-note note-s">Habit / Звичка</div>
+      </div>
+      <div class="ex-card ex-s">
+        <div class="ex-en">📚 She reads books every night.</div>
+        <div class="ex-ua">Вона читає книги щовечора.</div>
+        <div class="ex-note note-s">Routine / Розпорядок</div>
+      </div>
+      <div class="ex-card ex-s">
+        <div class="ex-en">🚌 The bus leaves at 7 AM.</div>
+        <div class="ex-ua">Автобус відправляється о 7 ранку.</div>
+        <div class="ex-note note-s">Schedule / Розклад</div>
+      </div>
+      <div class="ex-card ex-s">
+        <div class="ex-en">💧 Water boils at 100°C.</div>
+        <div class="ex-ua">Вода кипить при 100°C.</div>
+        <div class="ex-note note-s">Always true / Завжди правда</div>
+      </div>
+      <div class="ex-card ex-s">
+        <div class="ex-en">🎮 He played games yesterday.</div>
+        <div class="ex-ua">Він грав у ігри вчора.</div>
+        <div class="ex-note note-s">Past fact / Минулий факт</div>
+      </div>
+      <div class="ex-card ex-s">
+        <div class="ex-en">🛒 We go shopping on Saturdays.</div>
+        <div class="ex-ua">Ми ходимо по магазинах у суботу.</div>
+        <div class="ex-note note-s">Weekly habit / Тижнева звичка</div>
+      </div>
+      <div class="ex-card ex-s">
+        <div class="ex-en">✈️ They will visit Paris next summer.</div>
+        <div class="ex-ua">Вони відвідають Париж наступного літа.</div>
+        <div class="ex-note note-s">Future plan / Майбутній план</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CONTINUOUS ASPECT ===== -->
+  <div class="section-header">
+    <div class="section-dot dot-c">🟢</div>
+    <div>
+      <h2 class="h2-c">Continuous Aspect</h2>
+      <div style="color:#6b7280;font-weight:600;font-size:0.95rem;">Тривалий аспект — дія в процесі, незавершена</div>
+    </div>
+  </div>
+
+  <div class="aspect-card ac-c">
+    <div class="meaning-banner mb-c">
+      <div class="icon">🎬</div>
+      <p><strong>Continuous</strong> = the action is IN PROGRESS. Imagine pressing PAUSE on a video — you catch the action happening! It's ongoing, temporary, or being interrupted.<br><br>
+      <strong>Continuous</strong> = дія В ПРОЦЕСІ. Уяви, що ти натис ПАУЗУ на відео — ти бачиш дію прямо в момент! Вона тривала, тимчасова або перервана.</p>
+    </div>
+
+    <div class="formula-box">
+      <div class="formula-title">📐 Formula / Формула</div>
+      <div class="formula">
+        ✅ Present: <span class="f-aux">am/is/are</span> + <span class="f-verb">V-ing</span> → She <span class="f-aux">is</span> <span class="f-verb">reading</span><br>
+        ❌ Negative: <span class="f-aux">am/is/are</span> <span class="f-neg">not</span> + <span class="f-verb">V-ing</span> → She <span class="f-neg">isn't reading</span><br>
+        ❓ Question: <span class="f-q">Am/Is/Are</span> + Subject + <span class="f-verb">V-ing?</span> → <span class="f-q">Is she reading?</span><br>
+        📅 Past: <span class="f-aux">was/were</span> + <span class="f-verb">V-ing</span> → She <span class="f-aux">was</span> <span class="f-verb">reading</span><br>
+        🔮 Future: <span class="f-aux">will be</span> + <span class="f-verb">V-ing</span> → She <span class="f-aux">will be</span> <span class="f-verb">reading</span>
+      </div>
+    </div>
+
+    <div class="signals sig-c">
+      <h4 style="color:var(--cont-dark);">🔑 Signal words / Сигнальні слова</h4>
+      <div class="signal-pills">
+        <span class="pill pill-c">now</span><span class="pill pill-c">right now</span><span class="pill pill-c">at the moment</span>
+        <span class="pill pill-c">currently</span><span class="pill pill-c">look!</span><span class="pill pill-c">listen!</span>
+        <span class="pill pill-c">while</span><span class="pill pill-c">when</span><span class="pill pill-c">at 5 o'clock</span>
+        <span class="pill pill-c">still</span><span class="pill pill-c">these days</span>
+      </div>
+    </div>
+
+    <div class="examples-grid">
+      <div class="ex-card ex-c">
+        <div class="ex-en">📖 She is reading a book right now.</div>
+        <div class="ex-ua">Вона читає книгу прямо зараз.</div>
+        <div class="ex-note note-c">Happening NOW / Відбувається ЗАРАЗ</div>
+      </div>
+      <div class="ex-card ex-c">
+        <div class="ex-en">🎵 They are listening to music.</div>
+        <div class="ex-ua">Вони слухають музику.</div>
+        <div class="ex-note note-c">In progress / В процесі</div>
+      </div>
+      <div class="ex-card ex-c">
+        <div class="ex-en">🌧️ It was raining when I left.</div>
+        <div class="ex-ua">Йшов дощ, коли я виходив.</div>
+        <div class="ex-note note-c">Past in progress / Тривала в минулому</div>
+      </div>
+      <div class="ex-card ex-c">
+        <div class="ex-en">💻 I am currently working from home.</div>
+        <div class="ex-ua">Зараз я працюю з дому.</div>
+        <div class="ex-note note-c">Temporary / Тимчасово</div>
+      </div>
+      <div class="ex-card ex-c">
+        <div class="ex-en">🍳 Mum is cooking dinner now.</div>
+        <div class="ex-ua">Мама готує вечерю зараз.</div>
+        <div class="ex-note note-c">At this moment / В цю мить</div>
+      </div>
+      <div class="ex-card ex-c">
+        <div class="ex-en">📱 Stop! You are always interrupting me!</div>
+        <div class="ex-ua">Стоп! Ти завжди мене перебиваєш!</div>
+        <div class="ex-note note-c">Annoying habit / Дратівлива звичка</div>
+      </div>
+      <div class="ex-card ex-c">
+        <div class="ex-en">✈️ Tomorrow at 8, I will be flying to London.</div>
+        <div class="ex-ua">Завтра о 8 я летітиму до Лондона.</div>
+        <div class="ex-note note-c">Future in progress / Тривала в майбутньому</div>
+      </div>
+      <div class="ex-card ex-c">
+        <div class="ex-en">🎭 She is getting better at dancing.</div>
+        <div class="ex-ua">Вона все краще танцює (покращується).</div>
+        <div class="ex-note note-c">Changing trend / Зміна, розвиток</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== PERFECT ASPECT ===== -->
+  <div class="section-header">
+    <div class="section-dot dot-p">🟡</div>
+    <div>
+      <h2 class="h2-p">Perfect Aspect</h2>
+      <div style="color:#6b7280;font-weight:600;font-size:0.95rem;">Досконалий аспект — дія вже завершена, є результат</div>
+    </div>
+  </div>
+
+  <div class="aspect-card ac-p">
+    <div class="meaning-banner mb-p">
+      <div class="icon">✅</div>
+      <p><strong>Perfect</strong> = the action is DONE and has a result or connection to NOW. Think of it as a bridge between the past and present. "I have eaten" → I'm not hungry NOW.<br><br>
+      <strong>Perfect</strong> = дія ЗАВЕРШЕНА і має результат або зв'язок із теперішнім. Це як місток між минулим і теперішнім. "I have eaten" → я не голодний ЗАРАЗ.</p>
+    </div>
+
+    <div class="formula-box">
+      <div class="formula-title">📐 Formula / Формула</div>
+      <div class="formula">
+        ✅ Present: <span class="f-aux">have/has</span> + <span class="f-verb">V3 (past participle)</span> → She <span class="f-aux">has</span> <span class="f-verb">read</span> the book<br>
+        ❌ Negative: <span class="f-aux">have/has</span> <span class="f-neg">not</span> + <span class="f-verb">V3</span> → She <span class="f-neg">hasn't read</span> it<br>
+        ❓ Question: <span class="f-q">Have/Has</span> + Subject + <span class="f-verb">V3?</span> → <span class="f-q">Has she read it?</span><br>
+        📅 Past Perfect: <span class="f-aux">had</span> + <span class="f-verb">V3</span> → She <span class="f-aux">had</span> <span class="f-verb">read</span> the book before the class<br>
+        🔮 Future Perfect: <span class="f-aux">will have</span> + <span class="f-verb">V3</span> → She <span class="f-aux">will have</span> <span class="f-verb">read</span> it by Monday
+      </div>
+    </div>
+
+    <div class="signals sig-p">
+      <h4 style="color:var(--perfect-dark);">🔑 Signal words / Сигнальні слова</h4>
+      <div class="signal-pills">
+        <span class="pill pill-p">already</span><span class="pill pill-p">yet</span><span class="pill pill-p">just</span>
+        <span class="pill pill-p">ever</span><span class="pill pill-p">never</span><span class="pill pill-p">since</span>
+        <span class="pill pill-p">for</span><span class="pill pill-p">recently</span><span class="pill pill-p">before</span>
+        <span class="pill pill-p">so far</span><span class="pill pill-p">by Monday</span><span class="pill pill-p">this year</span>
+      </div>
+    </div>
+
+    <div class="examples-grid">
+      <div class="ex-card ex-p">
+        <div class="ex-en">🍕 She has already read the book.</div>
+        <div class="ex-ua">Вона вже прочитала книгу.</div>
+        <div class="ex-note note-p">Completed + result / Завершено + результат</div>
+      </div>
+      <div class="ex-card ex-p">
+        <div class="ex-en">✈️ I have never been to Japan.</div>
+        <div class="ex-ua">Я ніколи не був у Японії.</div>
+        <div class="ex-note note-p">Life experience / Досвід</div>
+      </div>
+      <div class="ex-card ex-p">
+        <div class="ex-en">🎉 They have just arrived!</div>
+        <div class="ex-ua">Вони щойно приїхали!</div>
+        <div class="ex-note note-p">Just finished / Щойно завершилось</div>
+      </div>
+      <div class="ex-card ex-p">
+        <div class="ex-en">📱 Have you called mum yet?</div>
+        <div class="ex-ua">Ти вже зателефонував мамі?</div>
+        <div class="ex-note note-p">Asking about result / Питання про результат</div>
+      </div>
+      <div class="ex-card ex-p">
+        <div class="ex-en">🏆 He had finished work before dinner.</div>
+        <div class="ex-ua">Він закінчив роботу до вечері.</div>
+        <div class="ex-note note-p">Before another past event / До іншої дії</div>
+      </div>
+      <div class="ex-card ex-p">
+        <div class="ex-en">🎓 By June, I will have graduated.</div>
+        <div class="ex-ua">До червня я вже закінчу університет.</div>
+        <div class="ex-note note-p">Future before deadline / До дедлайну</div>
+      </div>
+      <div class="ex-card ex-p">
+        <div class="ex-en">🍽️ I have eaten, so I'm not hungry.</div>
+        <div class="ex-ua">Я поїв, тому не голодний.</div>
+        <div class="ex-note note-p">Result now / Результат зараз</div>
+      </div>
+      <div class="ex-card ex-p">
+        <div class="ex-en">😢 She has lost her phone.</div>
+        <div class="ex-ua">Вона загубила телефон.</div>
+        <div class="ex-note note-p">Past action affects now / Вплив на сьогодні</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== PERFECT CONTINUOUS ASPECT ===== -->
+  <div class="section-header">
+    <div class="section-dot dot-pc">🟣</div>
+    <div>
+      <h2 class="h2-pc">Perfect Continuous Aspect</h2>
+      <div style="color:#6b7280;font-weight:600;font-size:0.95rem;">Тривало-досконалий — почалося давно й продовжується</div>
+    </div>
+  </div>
+
+  <div class="aspect-card ac-pc">
+    <div class="meaning-banner mb-pc">
+      <div class="icon">⏳</div>
+      <p><strong>Perfect Continuous</strong> = the action STARTED in the past and is STILL ongoing (or just stopped with visible results). Focus is on DURATION — how long something has been happening.<br><br>
+      <strong>Perfect Continuous</strong> = дія ПОЧАЛАСЯ в минулому і ВСЕ ЩЕ триває (або щойно закінчилась, але є видимі наслідки). Акцент на ТРИВАЛОСТІ — як довго щось відбувається.</p>
+    </div>
+
+    <div class="formula-box">
+      <div class="formula-title">📐 Formula / Формула</div>
+      <div class="formula">
+        ✅ Present: <span class="f-aux">have/has been</span> + <span class="f-verb">V-ing</span> → She <span class="f-aux">has been</span> <span class="f-verb">reading</span> for 2 hours<br>
+        ❌ Negative: <span class="f-aux">have/has</span> <span class="f-neg">not</span> been + <span class="f-verb">V-ing</span> → She <span class="f-neg">hasn't been reading</span><br>
+        ❓ Question: <span class="f-q">Have/Has</span> + Subject + been + <span class="f-verb">V-ing?</span><br>
+        📅 Past: <span class="f-aux">had been</span> + <span class="f-verb">V-ing</span> → She <span class="f-aux">had been</span> <span class="f-verb">reading</span> for hours<br>
+        🔮 Future: <span class="f-aux">will have been</span> + <span class="f-verb">V-ing</span> → She <span class="f-aux">will have been</span> <span class="f-verb">reading</span> for 3 hours
+      </div>
+    </div>
+
+    <div class="signals sig-pc">
+      <h4 style="color:var(--perf-cont-dark);">🔑 Signal words / Сигнальні слова</h4>
+      <div class="signal-pills">
+        <span class="pill pill-pc">for (2 hours)</span><span class="pill pill-pc">since (Monday)</span>
+        <span class="pill pill-pc">all day</span><span class="pill pill-pc">all night</span>
+        <span class="pill pill-pc">how long</span><span class="pill pill-pc">lately</span>
+        <span class="pill pill-pc">recently</span><span class="pill pill-pc">the whole day</span>
+      </div>
+    </div>
+
+    <div class="examples-grid">
+      <div class="ex-card ex-pc">
+        <div class="ex-en">📚 She has been reading for 2 hours.</div>
+        <div class="ex-ua">Вона читає вже 2 години.</div>
+        <div class="ex-note note-pc">Duration / Тривалість</div>
+      </div>
+      <div class="ex-card ex-pc">
+        <div class="ex-en">🏃 I have been running since 6 AM.</div>
+        <div class="ex-ua">Я бігаю з 6 ранку.</div>
+        <div class="ex-note note-pc">Since a point / Від певного моменту</div>
+      </div>
+      <div class="ex-card ex-pc">
+        <div class="ex-en">😤 Why are you wet? — I've been walking in the rain.</div>
+        <div class="ex-ua">Чому ти мокрий? — Я ходив під дощем.</div>
+        <div class="ex-note note-pc">Visible result / Видимий результат</div>
+      </div>
+      <div class="ex-card ex-pc">
+        <div class="ex-en">🎹 She has been playing piano since age 5.</div>
+        <div class="ex-ua">Вона грає на піаніно з 5 років.</div>
+        <div class="ex-note note-pc">Ongoing since past / Триває з минулого</div>
+      </div>
+      <div class="ex-card ex-pc">
+        <div class="ex-en">😴 He had been working all night when I called.</div>
+        <div class="ex-ua">Він працював всю ніч, коли я подзвонив.</div>
+        <div class="ex-note note-pc">Past before past / Минуле до минулого</div>
+      </div>
+      <div class="ex-card ex-pc">
+        <div class="ex-en">🌍 By 2030, I will have been living here for 10 years.</div>
+        <div class="ex-ua">До 2030 року я вже 10 років буду жити тут.</div>
+        <div class="ex-note note-pc">Future duration / Майбутня тривалість</div>
+      </div>
+      <div class="ex-card ex-pc">
+        <div class="ex-en">🤧 He looks tired — he's been studying all day.</div>
+        <div class="ex-ua">Він виглядає втомленим — вчився цілий день.</div>
+        <div class="ex-note note-pc">Explains current state / Пояснює стан зараз</div>
+      </div>
+      <div class="ex-card ex-pc">
+        <div class="ex-en">👨‍💻 How long have you been working here?</div>
+        <div class="ex-ua">Як довго ти тут працюєш?</div>
+        <div class="ex-note note-pc">How long? / Як довго?</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIMELINE INFOGRAPHIC -->
+  <div class="timeline-section">
+    <h2>📊 Visual Timeline / Візуальна шкала часу</h2>
+    <p style="text-align:center;color:#6b7280;font-weight:600;margin-bottom:24px;">How each aspect relates to time / Як кожен аспект відноситься до часу</p>
+    <div class="timeline">
+
+      <div class="tl-row">
+        <div class="tl-label" style="color:var(--simple-dark);">🔴 Simple<br><small>Факт/звичка</small></div>
+        <div class="tl-bar-wrap">
+          <div class="tl-bar bar-s">⚡ Single completed action</div>
+        </div>
+        <span style="font-size:1.4rem">📌</span>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-label" style="color:var(--cont-dark);">🟢 Continuous<br><small>В процесі</small></div>
+        <div class="tl-bar-wrap">
+          <div class="tl-bar bar-c">🔄 Action in progress ~~~~~~~~~~~</div>
+        </div>
+        <span style="font-size:1.4rem">🎬</span>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-label" style="color:var(--perfect-dark);">🟡 Perfect<br><small>Завершено</small></div>
+        <div class="tl-bar-wrap">
+          <div class="tl-bar bar-p">✅ Done → result NOW</div>
+        </div>
+        <span style="font-size:1.4rem">🏁</span>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-label" style="color:var(--perf-cont-dark);">🟣 Perf. Cont.<br><small>Давно й досі</small></div>
+        <div class="tl-bar-wrap">
+          <div class="tl-bar bar-pc">⏳ Started then ~~~~ still going NOW</div>
+        </div>
+        <span style="font-size:1.4rem">⏰</span>
+      </div>
+
+    </div>
+    <div style="margin-top:20px;padding:16px 20px;background:#f8f7ff;border-radius:12px;text-align:center;font-weight:700;color:#1e1b4b;">
+      📌 PAST ←————————————————————→ NOW ←——→ FUTURE
+    </div>
+  </div>
+
+  <!-- COMPARISON TABLE -->
+  <div class="compare-section">
+    <h2>🔍 Big Comparison / Велике порівняння</h2>
+    <div style="overflow-x:auto; -webkit-overflow-scrolling:touch;">
+    <p class="scroll-hint" style="display:none;">← прокрути таблицю / scroll table →</p>
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th class="th-q">Question / Питання</th>
+            <th class="th-s">🔴 Simple</th>
+            <th class="th-c">🟢 Continuous</th>
+            <th class="th-p">🟡 Perfect</th>
+            <th class="th-pc">🟣 Perf. Cont.</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="td-q">What does it show?<br>Що показує?</td>
+            <td>Fact, habit, truth<br>Факт, звичка, правда</td>
+            <td>Action in progress<br>Дія в процесі</td>
+            <td>Completed action + result<br>Завершена дія + результат</td>
+            <td>Duration from past to now<br>Тривалість від минулого</td>
+          </tr>
+          <tr>
+            <td class="td-q">Key feeling?<br>Головний відтінок?</td>
+            <td>⚡ "It happens"<br>"Це відбувається"</td>
+            <td>🎬 "It is happening NOW"<br>"Це відбувається ЗАРАЗ"</td>
+            <td>✅ "It is done!"<br>"Це вже зроблено!"</td>
+            <td>⏳ "How long has it been?"<br>"Як давно це вже?"</td>
+          </tr>
+          <tr>
+            <td class="td-q">Focus on?<br>Акцент на?</td>
+            <td>The fact of the action<br>Факт дії</td>
+            <td>The process itself<br>Сам процес</td>
+            <td>The result / effect<br>Результат / ефект</td>
+            <td>How long / duration<br>Тривалість</td>
+          </tr>
+          <tr>
+            <td class="td-q">Present formula<br>Формула (Present)</td>
+            <td>V1 / V-s/es<br><em>reads</em></td>
+            <td>is/am/are + V-ing<br><em>is reading</em></td>
+            <td>have/has + V3<br><em>has read</em></td>
+            <td>have/has been + V-ing<br><em>has been reading</em></td>
+          </tr>
+          <tr>
+            <td class="td-q">Magic sentence<br>Магічне речення</td>
+            <td>She <strong>reads</strong> books.<br>Вона читає книги.</td>
+            <td>She <strong>is reading</strong> a book.<br>Вона читає зараз.</td>
+            <td>She <strong>has read</strong> the book.<br>Вона вже прочитала.</td>
+            <td>She <strong>has been reading</strong> for 2h.<br>Вона читає вже 2 год.</td>
+          </tr>
+          <tr>
+            <td class="td-q">When to use?<br>Коли вживати?</td>
+            <td>Facts, schedules, habits, general truths</td>
+            <td>Actions now, temporary situations, parallel actions</td>
+            <td>Just finished, life experience, news, result</td>
+            <td>Ongoing duration, visible tiredness/effects</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- NUANCES -->
+  <div class="nuance-section">
+    <h2>🎨 The Feeling / Відтінок кожного аспекту</h2>
+    <p style="text-align:center;color:#6b7280;font-weight:600;margin-bottom:24px;">Every aspect has its own emotional colour / Кожен аспект має свій особливий відтінок</p>
+    <div class="nuance-grid">
+      <div class="nuance-card nc-s">
+        <div class="n-emoji">📰</div>
+        <h3 class="nh-s">Simple = Statement</h3>
+        <p>Cool, neutral, factual. Like a newspaper headline. No drama, no emotion about when — just the fact.<br><br>Нейтральний, фактичний. Як заголовок газети. Просто констатація факту.</p>
+      </div>
+      <div class="nuance-card nc-c">
+        <div class="n-emoji">📸</div>
+        <h3 class="nh-c">Continuous = Snapshot</h3>
+        <p>Like a photo taken at one moment. Dynamic, alive, often temporary. You feel the motion!<br><br>Як фото у конкретний момент. Динамічний, живий, часто тимчасовий.</p>
+      </div>
+      <div class="nuance-card nc-p">
+        <div class="n-emoji">🏆</div>
+        <h3 class="nh-p">Perfect = Achievement</h3>
+        <p>Something is done and it MATTERS now. Proud, complete, with a connection to the present.<br><br>Щось зроблено і це важливо ЗАРАЗ. Гордість, завершеність, зв'язок із теперішнім.</p>
+      </div>
+      <div class="nuance-card nc-pc">
+        <div class="n-emoji">😤</div>
+        <h3 class="nh-pc">Perf. Continuous = Effort</h3>
+        <p>Shows struggle, tiredness, or impressive endurance. "Look how long I've been at this!"<br><br>Показує зусилля, втому, наполегливість. "Дивись, як довго я вже це роблю!"</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- REAL LIFE EXAMPLES -->
+  <div class="real-life">
+    <h2>🌟 Real Life Examples / Приклади з реального життя</h2>
+    <p class="sub">Click a topic to explore! / Натисни тему, щоб побачити приклади!</p>
+    <div class="life-tabs">
+      <button class="tab-btn active" onclick="showTab('school')">🏫 School</button>
+      <button class="tab-btn" onclick="showTab('home')">🏠 Home</button>
+      <button class="tab-btn" onclick="showTab('sport')">⚽ Sport</button>
+      <button class="tab-btn" onclick="showTab('travel')">✈️ Travel</button>
+      <button class="tab-btn" onclick="showTab('food')">🍕 Food</button>
+      <button class="tab-btn" onclick="showTab('tech')">📱 Tech</button>
+    </div>
+
+    <!-- SCHOOL -->
+    <div id="tab-school" class="life-panel active">
+      <div class="life-card lc-s"><span class="lc-tag tag-s">Simple</span><div class="lc-en">She reads books every day.</div><div class="lc-ua">Вона читає книги щодня.</div></div>
+      <div class="life-card lc-c"><span class="lc-tag tag-c">Continuous</span><div class="lc-en">She is reading a book right now.</div><div class="lc-ua">Вона читає книгу прямо зараз.</div></div>
+      <div class="life-card lc-p"><span class="lc-tag tag-p">Perfect</span><div class="lc-en">She has already done her homework.</div><div class="lc-ua">Вона вже зробила домашнє завдання.</div></div>
+      <div class="life-card lc-pc"><span class="lc-tag tag-pc">Perf. Cont.</span><div class="lc-en">She has been studying for 3 hours.</div><div class="lc-ua">Вона вчиться вже 3 години.</div></div>
+      <div class="life-card lc-s"><span class="lc-tag tag-s">Simple</span><div class="lc-en">Our teacher explains grammar very well.</div><div class="lc-ua">Наш вчитель пояснює граматику дуже добре.</div></div>
+      <div class="life-card lc-c"><span class="lc-tag tag-c">Continuous</span><div class="lc-en">The teacher is explaining the rule now.</div><div class="lc-ua">Вчитель пояснює правило зараз.</div></div>
+      <div class="life-card lc-p"><span class="lc-tag tag-p">Perfect</span><div class="lc-en">I have never failed a test.</div><div class="lc-ua">Я ніколи не провалював тест.</div></div>
+      <div class="life-card lc-pc"><span class="lc-tag tag-pc">Perf. Cont.</span><div class="lc-en">We have been learning English since grade 1.</div><div class="lc-ua">Ми вчимо англійську з 1 класу.</div></div>
+    </div>
+
+    <!-- HOME -->
+    <div id="tab-home" class="life-panel">
+      <div class="life-card lc-s"><span class="lc-tag tag-s">Simple</span><div class="lc-en">Mum cooks dinner every evening.</div><div class="lc-ua">Мама готує вечерю щовечора.</div></div>
+      <div class="life-card lc-c"><span class="lc-tag tag-c">Continuous</span><div class="lc-en">Mum is cooking dinner right now.</div><div class="lc-ua">Мама готує вечерю прямо зараз.</div></div>
+      <div class="life-card lc-p"><span class="lc-tag tag-p">Perfect</span><div class="lc-en">Mum has already cooked dinner.</div><div class="lc-ua">Мама вже приготувала вечерю.</div></div>
+      <div class="life-card lc-pc"><span class="lc-tag tag-pc">Perf. Cont.</span><div class="lc-en">Mum has been cooking for an hour.</div><div class="lc-ua">Мама готує вже годину.</div></div>
+      <div class="life-card lc-s"><span class="lc-tag tag-s">Simple</span><div class="lc-en">Dad fixes things on weekends.</div><div class="lc-ua">Тато полагоджує речі у вихідні.</div></div>
+      <div class="life-card lc-c"><span class="lc-tag tag-c">Continuous</span><div class="lc-en">Dad is fixing the bike now.</div><div class="lc-ua">Тато лагодить велосипед зараз.</div></div>
+      <div class="life-card lc-p"><span class="lc-tag tag-p">Perfect</span><div class="lc-en">Dad has cleaned the house.</div><div class="lc-ua">Тато прибрав у будинку.</div></div>
+      <div class="life-card lc-pc"><span class="lc-tag tag-pc">Perf. Cont.</span><div class="lc-en">He has been cleaning all morning.</div><div class="lc-ua">Він прибирає вже цілий ранок.</div></div>
+    </div>
+
+    <!-- SPORT -->
+    <div id="tab-sport" class="life-panel">
+      <div class="life-card lc-s"><span class="lc-tag tag-s">Simple</span><div class="lc-en">He trains every morning.</div><div class="lc-ua">Він тренується щоранку.</div></div>
+      <div class="life-card lc-c"><span class="lc-tag tag-c">Continuous</span><div class="lc-en">He is training right now.</div><div class="lc-ua">Він тренується прямо зараз.</div></div>
+      <div class="life-card lc-p"><span class="lc-tag tag-p">Perfect</span><div class="lc-en">He has won three gold medals.</div><div class="lc-ua">Він здобув три золоті медалі.</div></div>
+      <div class="life-card lc-pc"><span class="lc-tag tag-pc">Perf. Cont.</span><div class="lc-en">He has been training for 5 years.</div><div class="lc-ua">Він тренується вже 5 років.</div></div>
+      <div class="life-card lc-s"><span class="lc-tag tag-s">Simple</span><div class="lc-en">Our team won the match yesterday.</div><div class="lc-ua">Наша команда виграла матч вчора.</div></div>
+      <div class="life-card lc-c"><span class="lc-tag tag-c">Continuous</span><div class="lc-en">Look! They are scoring a goal!</div><div class="lc-ua">Дивись! Вони забивають гол!</div></div>
+      <div class="life-card lc-p"><span class="lc-tag tag-p">Perfect</span><div class="lc-en">She has broken the world record!</div><div class="lc-ua">Вона побила світовий рекорд!</div></div>
+      <div class="life-card lc-pc"><span class="lc-tag tag-pc">Perf. Cont.</span><div class="lc-en">They have been playing for 90 minutes.</div><div class="lc-ua">Вони грають вже 90 хвилин.</div></div>
+    </div>
+
+    <!-- TRAVEL -->
+    <div id="tab-travel" class="life-panel">
+      <div class="life-card lc-s"><span class="lc-tag tag-s">Simple</span><div class="lc-en">She travels every summer.</div><div class="lc-ua">Вона подорожує кожне літо.</div></div>
+      <div class="life-card lc-c"><span class="lc-tag tag-c">Continuous</span><div class="lc-en">She is travelling through Europe now.</div><div class="lc-ua">Вона подорожує Європою зараз.</div></div>
+      <div class="life-card lc-p"><span class="lc-tag tag-p">Perfect</span><div class="lc-en">She has visited 20 countries!</div><div class="lc-ua">Вона відвідала 20 країн!</div></div>
+      <div class="life-card lc-pc"><span class="lc-tag tag-pc">Perf. Cont.</span><div class="lc-en">She has been travelling for 6 months.</div><div class="lc-ua">Вона подорожує вже 6 місяців.</div></div>
+      <div class="life-card lc-s"><span class="lc-tag tag-s">Simple</span><div class="lc-en">Planes fly faster than trains.</div><div class="lc-ua">Літаки літають швидше за потяги.</div></div>
+      <div class="life-card lc-c"><span class="lc-tag tag-c">Continuous</span><div class="lc-en">We are flying over the Alps right now!</div><div class="lc-ua">Ми летимо над Альпами прямо зараз!</div></div>
+      <div class="life-card lc-p"><span class="lc-tag tag-p">Perfect</span><div class="lc-en">They have just landed in Tokyo.</div><div class="lc-ua">Вони щойно приземлилися в Токіо.</div></div>
+      <div class="life-card lc-pc"><span class="lc-tag tag-pc">Perf. Cont.</span><div class="lc-en">We had been waiting for 2 hours when the plane arrived.</div><div class="lc-ua">Ми чекали 2 години, коли прилетів літак.</div></div>
+    </div>
+
+    <!-- FOOD -->
+    <div id="tab-food" class="life-panel">
+      <div class="life-card lc-s"><span class="lc-tag tag-s">Simple</span><div class="lc-en">I eat breakfast every day.</div><div class="lc-ua">Я снідаю щодня.</div></div>
+      <div class="life-card lc-c"><span class="lc-tag tag-c">Continuous</span><div class="lc-en">I am eating pizza right now. 🍕</div><div class="lc-ua">Я їм піцу прямо зараз.</div></div>
+      <div class="life-card lc-p"><span class="lc-tag tag-p">Perfect</span><div class="lc-en">I have eaten, so I'm full.</div><div class="lc-ua">Я поїв, тому я ситий.</div></div>
+      <div class="life-card lc-pc"><span class="lc-tag tag-pc">Perf. Cont.</span><div class="lc-en">The chef has been cooking since 6 AM.</div><div class="lc-ua">Шеф-кухар готує з 6 ранку.</div></div>
+      <div class="life-card lc-s"><span class="lc-tag tag-s">Simple</span><div class="lc-en">She never eats fast food.</div><div class="lc-ua">Вона ніколи не їсть фастфуд.</div></div>
+      <div class="life-card lc-c"><span class="lc-tag tag-c">Continuous</span><div class="lc-en">They are trying new dishes this week.</div><div class="lc-ua">Цього тижня вони пробують нові страви.</div></div>
+      <div class="life-card lc-p"><span class="lc-tag tag-p">Perfect</span><div class="lc-en">I have never tried sushi before.</div><div class="lc-ua">Я ніколи раніше не пробував суші.</div></div>
+      <div class="life-card lc-pc"><span class="lc-tag tag-pc">Perf. Cont.</span><div class="lc-en">She has been baking all afternoon.</div><div class="lc-ua">Вона пече вже цілий день.</div></div>
+    </div>
+
+    <!-- TECH -->
+    <div id="tab-tech" class="life-panel">
+      <div class="life-card lc-s"><span class="lc-tag tag-s">Simple</span><div class="lc-en">He reads books on his tablet every night.</div><div class="lc-ua">Він читає книги на планшеті щовечора.</div></div>
+      <div class="life-card lc-c"><span class="lc-tag tag-c">Continuous</span><div class="lc-en">She is reading on her phone right now.</div><div class="lc-ua">Вона читає з телефону прямо зараз.</div></div>
+      <div class="life-card lc-p"><span class="lc-tag tag-p">Perfect</span><div class="lc-en">I have downloaded the new app already.</div><div class="lc-ua">Я вже завантажив новий додаток.</div></div>
+      <div class="life-card lc-pc"><span class="lc-tag tag-pc">Perf. Cont.</span><div class="lc-en">He has been gaming for 5 hours straight!</div><div class="lc-ua">Він грає вже 5 годин підряд!</div></div>
+      <div class="life-card lc-s"><span class="lc-tag tag-s">Simple</span><div class="lc-en">Computers process data very fast.</div><div class="lc-ua">Комп'ютери обробляють дані дуже швидко.</div></div>
+      <div class="life-card lc-c"><span class="lc-tag tag-c">Continuous</span><div class="lc-en">The system is updating right now.</div><div class="lc-ua">Система оновлюється прямо зараз.</div></div>
+      <div class="life-card lc-p"><span class="lc-tag tag-p">Perfect</span><div class="lc-en">Someone has hacked my account!</div><div class="lc-ua">Хтось зламав мій акаунт!</div></div>
+      <div class="life-card lc-pc"><span class="lc-tag tag-pc">Perf. Cont.</span><div class="lc-en">I have been waiting for this game for years!</div><div class="lc-ua">Я чекаю на цю гру вже роками!</div></div>
+    </div>
+  </div>
+
+  <!-- QUICK REFERENCE -->
+  <div class="quick-ref">
+    <h2>⚡ Quick Reference Card / Шпаргалка</h2>
+    <div class="qr-grid">
+      <div class="qr-item">
+        <h3 style="color:#fca5a5;">🔴 Simple</h3>
+        <div class="qr-line"><span>📌</span><span>Facts & habits — Факти й звички</span></div>
+        <div class="qr-line"><span>📌</span><span>General truths — Загальні істини</span></div>
+        <div class="qr-line"><span>📌</span><span>Schedules — Розклади</span></div>
+        <div class="qr-line"><span>📌</span><span>Completed past — Минуле</span></div>
+        <div class="qr-line"><span>📌</span><span>Future plans — Майбутні плани</span></div>
+        <div style="margin-top:12px;font-size:0.82rem;opacity:0.8;font-weight:700;">She <em>reads</em> / She <em>read</em> / She <em>will read</em></div>
+      </div>
+      <div class="qr-item">
+        <h3 style="color:#6ee7df;">🟢 Continuous</h3>
+        <div class="qr-line"><span>📌</span><span>Right now — Прямо зараз</span></div>
+        <div class="qr-line"><span>📌</span><span>Temporary — Тимчасово</span></div>
+        <div class="qr-line"><span>📌</span><span>In progress — В процесі</span></div>
+        <div class="qr-line"><span>📌</span><span>Annoying habits — Дратівливі звички</span></div>
+        <div class="qr-line"><span>📌</span><span>Changing trends — Зміни</span></div>
+        <div style="margin-top:12px;font-size:0.82rem;opacity:0.8;font-weight:700;">She <em>is reading</em> / <em>was</em> / <em>will be reading</em></div>
+      </div>
+      <div class="qr-item">
+        <h3 style="color:#fde68a;">🟡 Perfect</h3>
+        <div class="qr-line"><span>📌</span><span>Just / Already / Yet</span></div>
+        <div class="qr-line"><span>📌</span><span>Life experience — Досвід</span></div>
+        <div class="qr-line"><span>📌</span><span>Result now — Результат зараз</span></div>
+        <div class="qr-line"><span>📌</span><span>Before past — До минулого</span></div>
+        <div class="qr-line"><span>📌</span><span>By a deadline — До дедлайну</span></div>
+        <div style="margin-top:12px;font-size:0.82rem;opacity:0.8;font-weight:700;">She <em>has read</em> / <em>had</em> / <em>will have read</em></div>
+      </div>
+      <div class="qr-item">
+        <h3 style="color:#c4b5fd;">🟣 Perf. Continuous</h3>
+        <div class="qr-line"><span>📌</span><span>For / Since — Протягом / З</span></div>
+        <div class="qr-line"><span>📌</span><span>How long — Як довго</span></div>
+        <div class="qr-line"><span>📌</span><span>Ongoing activity — Тривала дія</span></div>
+        <div class="qr-line"><span>📌</span><span>Visible results — Видимий результат</span></div>
+        <div class="qr-line"><span>📌</span><span>Exhausted / tired — Втомлений</span></div>
+        <div style="margin-top:12px;font-size:0.82rem;opacity:0.8;font-weight:700;">She <em>has been reading</em> for 2h</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<div class="page-footer">
+  Made with ❤️ for English learners | Створено для учнів англійської мови 🇺🇦🇬🇧
+</div>
+
+<script>
+function showTab(name) {
+  document.querySelectorAll('.life-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  event.target.classList.add('active');
+}
+
+// Show table scroll hint on small screens
+if (window.innerWidth <= 480) {
+  var hint = document.querySelector('.scroll-hint');
+  if (hint) hint.style.display = 'block';
+}
+</script>
+
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+
+</body>
+</html>

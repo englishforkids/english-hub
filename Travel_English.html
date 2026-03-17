@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travel English 🌍 — Англійська для мандрівників</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sky: #0ea5e9;
+    --ocean: #0369a1;
+    --sun: #fbbf24;
+    --sand: #fef3c7;
+    --grass: #22c55e;
+    --coral: #f97316;
+    --pink: #ec4899;
+    --purple: #8b5cf6;
+    --white: #ffffff;
+    --dark: #1e293b;
+    --soft: #f0f9ff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: #e0f2fe;
+    color: var(--dark);
+    overflow-x: hidden;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    background: linear-gradient(135deg, #0ea5e9 0%, #8b5cf6 50%, #ec4899 100%);
+    padding: 60px 20px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    bottom: -2px; left: 0; right: 0;
+    height: 60px;
+    background: #e0f2fe;
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+  .hero-clouds {
+    position: absolute; top: 20px; left: 0; right: 0;
+    display: flex; justify-content: space-around; opacity: 0.25;
+    font-size: 3rem; pointer-events: none;
+    animation: drift 8s ease-in-out infinite alternate;
+  }
+  @keyframes drift { from { transform: translateX(-10px); } to { transform: translateX(10px); } }
+
+  .hero h1 {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    font-weight: 800;
+    color: white;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    margin-bottom: 12px;
+  }
+  .hero p {
+    font-size: 1.15rem;
+    color: rgba(255,255,255,0.92);
+    max-width: 560px;
+    margin: 0 auto 20px;
+    line-height: 1.7;
+  }
+  .badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.25);
+    border: 2px solid rgba(255,255,255,0.5);
+    color: white;
+    border-radius: 50px;
+    padding: 6px 20px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    backdrop-filter: blur(4px);
+    margin: 4px;
+  }
+
+  /* ─── LAYOUT ─── */
+  .container {
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  section {
+    padding: 50px 0 30px;
+  }
+
+  .section-title {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.9rem;
+    font-weight: 800;
+    color: var(--ocean);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-subtitle {
+    color: #64748b;
+    font-size: 1rem;
+    margin-bottom: 28px;
+  }
+
+  /* ─── VOCABULARY CARDS ─── */
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .vocab-card {
+    background: white;
+    border-radius: 20px;
+    padding: 20px 18px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+    border-top: 5px solid var(--sky);
+    transition: transform 0.25s, box-shadow 0.25s;
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+  }
+  .vocab-card::after {
+    content: attr(data-emoji);
+    position: absolute;
+    right: 12px; top: 10px;
+    font-size: 1.8rem;
+    opacity: 0.15;
+  }
+  .vocab-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.14); }
+  .vocab-card.green { border-top-color: var(--grass); }
+  .vocab-card.orange { border-top-color: var(--coral); }
+  .vocab-card.purple { border-top-color: var(--purple); }
+  .vocab-card.pink { border-top-color: var(--pink); }
+  .vocab-card.yellow { border-top-color: var(--sun); }
+
+  .vocab-en {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 3px;
+  }
+  .vocab-transc {
+    font-size: 0.78rem;
+    color: #94a3b8;
+    margin-bottom: 4px;
+    font-style: italic;
+  }
+  .vocab-ua {
+    font-size: 0.95rem;
+    color: #475569;
+    font-weight: 600;
+  }
+  .vocab-example {
+    margin-top: 8px;
+    font-size: 0.82rem;
+    color: #64748b;
+    background: #f8fafc;
+    border-radius: 10px;
+    padding: 7px 10px;
+    border-left: 3px solid var(--sky);
+    line-height: 1.5;
+  }
+  .vocab-card.green .vocab-example { border-left-color: var(--grass); }
+  .vocab-card.orange .vocab-example { border-left-color: var(--coral); }
+  .vocab-card.purple .vocab-example { border-left-color: var(--purple); }
+  .vocab-card.pink .vocab-example { border-left-color: var(--pink); }
+  .vocab-card.yellow .vocab-example { border-left-color: var(--sun); }
+
+  /* ─── PHRASE BLOCKS ─── */
+  .phrase-section {
+    background: white;
+    border-radius: 24px;
+    padding: 30px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+  }
+  .phrase-section h3 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .phrase-list { list-style: none; }
+  .phrase-list li {
+    display: flex;
+    flex-direction: column;
+    padding: 12px 0;
+    border-bottom: 1px dashed #e2e8f0;
+  }
+  .phrase-list li:last-child { border-bottom: none; }
+  .phrase-en {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--ocean);
+  }
+  .phrase-ua {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin-top: 2px;
+  }
+  .phrase-tip {
+    margin-top: 5px;
+    font-size: 0.82rem;
+    background: #fef9c3;
+    border-radius: 8px;
+    padding: 5px 10px;
+    color: #92400e;
+    display: inline-block;
+  }
+
+  /* ─── DIALOGUE BOX ─── */
+  .dialogue {
+    background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+    border-radius: 24px;
+    padding: 28px;
+    border: 2px solid #bbf7d0;
+    margin-bottom: 24px;
+  }
+  .dialogue h3 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.3rem;
+    color: #166534;
+    margin-bottom: 18px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .bubble-row {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 14px;
+    gap: 10px;
+  }
+  .bubble-row.right { flex-direction: row-reverse; }
+  .avatar {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  }
+  .avatar.a { background: #bfdbfe; }
+  .avatar.b { background: #fce7f3; }
+  .bubble {
+    max-width: 75%;
+    border-radius: 18px;
+    padding: 12px 16px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+  }
+  .bubble.a {
+    background: white;
+    border-bottom-left-radius: 4px;
+  }
+  .bubble.b {
+    background: #0ea5e9;
+    color: white;
+    border-bottom-right-radius: 4px;
+  }
+  .bubble .en { font-weight: 700; font-size: 0.95rem; }
+  .bubble .ua { font-size: 0.8rem; margin-top: 3px; opacity: 0.75; }
+  .bubble.b .ua { opacity: 0.85; }
+
+  /* ─── INFOGRAPHIC STRIPS ─── */
+  .infographic {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+    margin: 20px 0 30px;
+  }
+  .info-card {
+    background: white;
+    border-radius: 20px;
+    padding: 22px 16px;
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    transition: transform 0.2s;
+  }
+  .info-card:hover { transform: scale(1.03); }
+  .info-icon { font-size: 2.8rem; margin-bottom: 10px; }
+  .info-label-en {
+    font-family: 'Baloo 2', cursive;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--dark);
+  }
+  .info-label-ua {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin-top: 2px;
+  }
+
+  /* ─── TIPS BOX ─── */
+  .tips-box {
+    background: linear-gradient(135deg, #fdf4ff, #fae8ff);
+    border: 2px solid #e9d5ff;
+    border-radius: 24px;
+    padding: 28px;
+    margin-bottom: 24px;
+  }
+  .tips-box h3 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.3rem;
+    color: #6b21a8;
+    margin-bottom: 16px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .tip-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    margin-bottom: 14px;
+  }
+  .tip-num {
+    width: 30px; height: 30px;
+    background: var(--purple);
+    color: white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .tip-text .en { font-weight: 700; font-size: 0.95rem; color: var(--dark); }
+  .tip-text .ua { font-size: 0.88rem; color: #64748b; margin-top: 2px; }
+
+  /* ─── STORY SECTION ─── */
+  .story-box {
+    background: linear-gradient(135deg, #fff7ed, #ffedd5);
+    border: 2px solid #fed7aa;
+    border-radius: 24px;
+    padding: 28px;
+    margin-bottom: 30px;
+  }
+  .story-box h3 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.3rem;
+    color: #9a3412;
+    margin-bottom: 14px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .story-text {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #431407;
+  }
+  .story-text .highlight {
+    background: #fbbf24;
+    border-radius: 5px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #431407;
+  }
+  .story-ua {
+    margin-top: 16px;
+    font-size: 0.9rem;
+    color: #7c3500;
+    line-height: 1.8;
+    background: rgba(255,255,255,0.5);
+    border-radius: 12px;
+    padding: 12px 16px;
+    border-left: 4px solid var(--coral);
+  }
+
+  /* ─── TENSES QUICK REF ─── */
+  .tense-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .tense-card {
+    border-radius: 20px;
+    padding: 22px 20px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  }
+  .tense-card.past { background: linear-gradient(135deg, #fef3c7, #fde68a); border-top: 5px solid #f59e0b; }
+  .tense-card.present { background: linear-gradient(135deg, #dcfce7, #bbf7d0); border-top: 5px solid #22c55e; }
+  .tense-card.future { background: linear-gradient(135deg, #dbeafe, #bfdbfe); border-top: 5px solid #3b82f6; }
+  .tense-title {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+  }
+  .tense-card.past .tense-title { color: #92400e; }
+  .tense-card.present .tense-title { color: #166534; }
+  .tense-card.future .tense-title { color: #1e40af; }
+  .tense-example {
+    font-size: 0.92rem;
+    margin-bottom: 5px;
+    font-weight: 600;
+  }
+  .tense-example-ua {
+    font-size: 0.82rem;
+    opacity: 0.75;
+    margin-bottom: 10px;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--ocean);
+    color: rgba(255,255,255,0.85);
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 0.9rem;
+    margin-top: 40px;
+  }
+  footer span { color: var(--sun); font-weight: 700; }
+
+  /* ─── NAV ─── */
+  .nav {
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 12px 20px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.1);
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .nav a {
+    text-decoration: none;
+    background: #f0f9ff;
+    color: var(--ocean);
+    border-radius: 50px;
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    transition: background 0.2s, color 0.2s;
+    border: 2px solid transparent;
+  }
+  .nav a:hover {
+    background: var(--sky);
+    color: white;
+    border-color: var(--sky);
+  }
+
+  /* ─── SCROLL REVEAL ─── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ─── MOBILE ─── */
+  @media (max-width: 768px) {
+    /* Global */
+    body { font-size: 15px; }
+    .container { padding: 0 14px; }
+    section { padding: 36px 0 20px; }
+
+    /* Hero */
+    .hero { padding: 44px 16px 64px; }
+    .hero h1 { font-size: 1.8rem; }
+    .hero p { font-size: 0.95rem; }
+    .badge { font-size: 0.78rem; padding: 5px 12px; }
+
+    /* Nav — horizontal scroll instead of wrapping */
+    .nav {
+      justify-content: flex-start;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      padding: 10px 14px;
+      gap: 8px;
+      scrollbar-width: none;
+    }
+    .nav::-webkit-scrollbar { display: none; }
+    .nav a {
+      white-space: nowrap;
+      flex-shrink: 0;
+      font-size: 0.8rem;
+      padding: 6px 12px;
+    }
+
+    /* Section titles */
+    .section-title { font-size: 1.45rem; }
+
+    /* Vocab grid — 1 column on very small, 2 on medium mobile */
+    .vocab-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    .vocab-card { padding: 14px 12px; }
+    .vocab-en { font-size: 1.05rem; }
+    .vocab-example { font-size: 0.78rem; }
+
+    /* Infographic — 2 columns */
+    .infographic {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    .info-icon { font-size: 2.2rem; }
+    .info-label-en { font-size: 0.92rem; }
+
+    /* Phrase sections */
+    .phrase-section, .dialogue, .tips-box, .story-box { padding: 16px 14px; border-radius: 16px; }
+    .phrase-section h3, .dialogue h3, .tips-box h3, .story-box h3 { font-size: 1.1rem; }
+    .phrase-en { font-size: 0.97rem; }
+    .phrase-ua { font-size: 0.83rem; }
+    .phrase-tip { font-size: 0.78rem; }
+
+    /* Dialogue bubbles */
+    .bubble { max-width: 88%; }
+    .bubble .en { font-size: 0.88rem; }
+    .bubble .ua { font-size: 0.75rem; }
+    .avatar { width: 34px; height: 34px; font-size: 1.1rem; }
+
+    /* Story */
+    .story-text { font-size: 0.92rem; line-height: 1.75; }
+    .story-ua { font-size: 0.83rem; }
+
+    /* Tense grid — 1 column, scrollable if needed */
+    .tense-grid {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    .tense-card { padding: 18px 14px; }
+    .tense-title { font-size: 1rem; }
+    .tense-example { font-size: 0.88rem; }
+    .tense-example-ua { font-size: 0.78rem; }
+
+    /* Tips */
+    .tip-item { gap: 10px; }
+    .tip-text .en { font-size: 0.88rem; }
+    .tip-text .ua { font-size: 0.82rem; }
+
+    /* Cheat sheet grid — 2 columns */
+    .cheat-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 8px !important;
+    }
+
+    /* Footer */
+    footer { font-size: 0.82rem; padding: 22px 14px; }
+
+    /* Scroll-top button */
+    #scroll-top-btn { bottom: 16px; right: 16px; width: 40px; height: 40px; font-size: 16px; }
+  }
+
+  @media (max-width: 400px) {
+    .vocab-grid { grid-template-columns: 1fr; }
+    .infographic { grid-template-columns: repeat(2, 1fr); }
+    .hero h1 { font-size: 1.5rem; }
+    .cheat-grid { grid-template-columns: 1fr !important; }
+  }
+
+#scroll-top-btn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #1a1208;
+  border: 1.5px solid rgba(200,150,62,0.4);
+  color: #f5f0e8;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+  pointer-events: none;
+  z-index: 9998;
+}
+#scroll-top-btn.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+#scroll-top-btn:hover {
+  background: #c8963e;
+  border-color: #c8963e;
+  color: #1a1208;
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-clouds">☁️ ☁️ ☁️ ☁️ ☁️</div>
+  <h1>✈️ Travel English<br>Англійська для мандрівників</h1>
+  <p>Learn how to talk about adventures and travels in English!<br>
+  <em>Навчись розповідати про подорожі та пригоди англійською!</em></p>
+  <div>
+    <span class="badge">🎒 For beginners · Для початківців</span>
+    <span class="badge">🌍 A1–B1 Level</span>
+    <span class="badge">🧒 Teens & Kids</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="#vocab">📚 Vocabulary</a>
+  <a href="#phrases">💬 Phrases</a>
+  <a href="#dialogue">🗣️ Dialogue</a>
+  <a href="#story">📖 Story</a>
+  <a href="#tenses">⏳ Tenses</a>
+  <a href="#tips">💡 Tips</a>
+</nav>
+
+<!-- ════════════════════════════════ VOCABULARY ════════════════════════════════ -->
+<section id="vocab">
+<div class="container">
+  <div class="section-title reveal">📚 Key Travel Vocabulary · Ключові слова</div>
+  <div class="section-subtitle reveal">The most useful words for talking about travel / Найкорисніші слова для розмов про подорожі</div>
+
+  <!-- Transport -->
+  <div class="section-title reveal" style="font-size:1.2rem; color: var(--coral); margin-top:10px;">🚗 Transport · Транспорт</div>
+  <div class="vocab-grid reveal">
+    <div class="vocab-card" data-emoji="✈️">
+      <div class="vocab-en">flight</div>
+      <div class="vocab-transc">/flaɪt/</div>
+      <div class="vocab-ua">рейс, політ</div>
+      <div class="vocab-example">My <b>flight</b> was 3 hours long.<br>Мій <b>рейс</b> тривав 3 години.</div>
+    </div>
+    <div class="vocab-card orange" data-emoji="🚂">
+      <div class="vocab-en">train</div>
+      <div class="vocab-transc">/treɪn/</div>
+      <div class="vocab-ua">потяг</div>
+      <div class="vocab-example">We took a <b>train</b> to Paris.<br>Ми поїхали <b>потягом</b> до Парижа.</div>
+    </div>
+    <div class="vocab-card green" data-emoji="🚌">
+      <div class="vocab-en">bus</div>
+      <div class="vocab-transc">/bʌs/</div>
+      <div class="vocab-ua">автобус</div>
+      <div class="vocab-example">The <b>bus</b> left at 8 am.<br><b>Автобус</b> відправився о 8 ранку.</div>
+    </div>
+    <div class="vocab-card purple" data-emoji="🚢">
+      <div class="vocab-en">ship / ferry</div>
+      <div class="vocab-transc">/ʃɪp/ /ˈferi/</div>
+      <div class="vocab-ua">корабель / пором</div>
+      <div class="vocab-example">We crossed the sea by <b>ferry</b>.<br>Ми перетнули море на <b>поромі</b>.</div>
+    </div>
+  </div>
+
+  <!-- Places -->
+  <div class="section-title reveal" style="font-size:1.2rem; color: var(--grass); margin-top:20px;">🏨 Places · Місця</div>
+  <div class="vocab-grid reveal">
+    <div class="vocab-card green" data-emoji="🏨">
+      <div class="vocab-en">hotel</div>
+      <div class="vocab-transc">/həʊˈtel/</div>
+      <div class="vocab-ua">готель</div>
+      <div class="vocab-example">We stayed in a nice <b>hotel</b>.<br>Ми жили у гарному <b>готелі</b>.</div>
+    </div>
+    <div class="vocab-card pink" data-emoji="🏖️">
+      <div class="vocab-en">beach</div>
+      <div class="vocab-transc">/biːtʃ/</div>
+      <div class="vocab-ua">пляж</div>
+      <div class="vocab-example">The <b>beach</b> was beautiful!<br><b>Пляж</b> був чудовим!</div>
+    </div>
+    <div class="vocab-card yellow" data-emoji="🏔️">
+      <div class="vocab-en">mountain</div>
+      <div class="vocab-transc">/ˈmaʊntɪn/</div>
+      <div class="vocab-ua">гора</div>
+      <div class="vocab-example">We hiked up the <b>mountain</b>.<br>Ми піднялися на <b>гору</b>.</div>
+    </div>
+    <div class="vocab-card" data-emoji="🏛️">
+      <div class="vocab-en">museum</div>
+      <div class="vocab-transc">/mjuːˈziːəm/</div>
+      <div class="vocab-ua">музей</div>
+      <div class="vocab-example">The <b>museum</b> was amazing.<br><b>Музей</b> був вражаючим.</div>
+    </div>
+    <div class="vocab-card orange" data-emoji="🗺️">
+      <div class="vocab-en">destination</div>
+      <div class="vocab-transc">/ˌdestɪˈneɪʃn/</div>
+      <div class="vocab-ua">місце призначення</div>
+      <div class="vocab-example">Our <b>destination</b> was Rome.<br>Наше <b>місце призначення</b> — Рим.</div>
+    </div>
+    <div class="vocab-card purple" data-emoji="🧳">
+      <div class="vocab-en">luggage / suitcase</div>
+      <div class="vocab-transc">/ˈlʌɡɪdʒ/</div>
+      <div class="vocab-ua">багаж / валіза</div>
+      <div class="vocab-example">I lost my <b>suitcase</b>!<br>Я загубив свою <b>валізу</b>!</div>
+    </div>
+  </div>
+
+  <!-- Adjectives -->
+  <div class="section-title reveal" style="font-size:1.2rem; color: var(--purple); margin-top:20px;">🌟 Adjectives to describe · Прикметники для опису</div>
+  <div class="vocab-grid reveal">
+    <div class="vocab-card purple" data-emoji="😍">
+      <div class="vocab-en">breathtaking</div>
+      <div class="vocab-transc">/ˈbreθteɪkɪŋ/</div>
+      <div class="vocab-ua">захопливий, той що перехоплює подих</div>
+      <div class="vocab-example">The view was <b>breathtaking</b>.<br>Краєвид був <b>захопливим</b>.</div>
+    </div>
+    <div class="vocab-card pink" data-emoji="🤩">
+      <div class="vocab-en">amazing / awesome</div>
+      <div class="vocab-transc">/əˈmeɪzɪŋ/</div>
+      <div class="vocab-ua">дивовижний / чудовий</div>
+      <div class="vocab-example">It was an <b>amazing</b> trip!<br>Це була <b>дивовижна</b> подорож!</div>
+    </div>
+    <div class="vocab-card" data-emoji="😌">
+      <div class="vocab-en">peaceful</div>
+      <div class="vocab-transc">/ˈpiːsfl/</div>
+      <div class="vocab-ua">спокійний, тихий</div>
+      <div class="vocab-example">The village was so <b>peaceful</b>.<br>Селище було дуже <b>спокійним</b>.</div>
+    </div>
+    <div class="vocab-card yellow" data-emoji="🥵">
+      <div class="vocab-en">exhausting</div>
+      <div class="vocab-transc">/ɪɡˈzɔːstɪŋ/</div>
+      <div class="vocab-ua">виснажливий</div>
+      <div class="vocab-example">The hike was <b>exhausting</b>.<br>Похід був <b>виснажливим</b>.</div>
+    </div>
+    <div class="vocab-card orange" data-emoji="😱">
+      <div class="vocab-en">unforgettable</div>
+      <div class="vocab-transc">/ˌʌnfəˈɡetəbl/</div>
+      <div class="vocab-ua">незабутній</div>
+      <div class="vocab-example">It was <b>unforgettable</b>!<br>Це було <b>незабутньо</b>!</div>
+    </div>
+    <div class="vocab-card green" data-emoji="🌿">
+      <div class="vocab-en">stunning</div>
+      <div class="vocab-transc">/ˈstʌnɪŋ/</div>
+      <div class="vocab-ua">приголомшливий</div>
+      <div class="vocab-example">The scenery was <b>stunning</b>.<br>Пейзаж був <b>приголомшливим</b>.</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ════════════════════════════════ INFOGRAPHIC ════════════════════════════════ -->
+<section style="background: white; padding: 40px 0;">
+<div class="container">
+  <div class="section-title reveal">🗺️ Types of Travel · Типи подорожей</div>
+  <div class="infographic reveal">
+    <div class="info-card">
+      <div class="info-icon">🏖️</div>
+      <div class="info-label-en">Beach holiday</div>
+      <div class="info-label-ua">Відпочинок на пляжі</div>
+    </div>
+    <div class="info-card">
+      <div class="info-icon">🏔️</div>
+      <div class="info-label-en">Hiking trip</div>
+      <div class="info-label-ua">Похід у гори</div>
+    </div>
+    <div class="info-card">
+      <div class="info-icon">🏙️</div>
+      <div class="info-label-en">City break</div>
+      <div class="info-label-ua">Подорож до міста</div>
+    </div>
+    <div class="info-card">
+      <div class="info-icon">🛕</div>
+      <div class="info-label-en">Cultural tour</div>
+      <div class="info-label-ua">Культурна екскурсія</div>
+    </div>
+    <div class="info-card">
+      <div class="info-icon">🚐</div>
+      <div class="info-label-en">Road trip</div>
+      <div class="info-label-ua">Автомобільна подорож</div>
+    </div>
+    <div class="info-card">
+      <div class="info-icon">🛳️</div>
+      <div class="info-label-en">Cruise</div>
+      <div class="info-label-ua">Морський круїз</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ════════════════════════════════ PHRASES ════════════════════════════════ -->
+<section id="phrases">
+<div class="container">
+  <div class="section-title reveal">💬 Useful Phrases · Корисні фрази</div>
+  <div class="section-subtitle reveal">Use these to talk about your travels / Використовуй ці фрази для розповіді про подорожі</div>
+
+  <div class="phrase-section reveal">
+    <h3 style="color: var(--sky);">📣 Starting a story · Як почати розповідь</h3>
+    <ul class="phrase-list">
+      <li>
+        <span class="phrase-en">Last summer, I went to…</span>
+        <span class="phrase-ua">Минулого літа я поїхав/поїхала до…</span>
+        <span class="phrase-tip">💡 Use "went" — це минулий час від "go"</span>
+      </li>
+      <li>
+        <span class="phrase-en">I had an amazing adventure in…</span>
+        <span class="phrase-ua">У мене була дивовижна пригода в…</span>
+      </li>
+      <li>
+        <span class="phrase-en">Have you ever been to…?</span>
+        <span class="phrase-ua">Ти коли-небудь бував/бувала в…?</span>
+        <span class="phrase-tip">💡 "Have you ever been" — Present Perfect, для досвіду</span>
+      </li>
+      <li>
+        <span class="phrase-en">Let me tell you about my trip to…</span>
+        <span class="phrase-ua">Дозволь розповісти про мою поїздку до…</span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="phrase-section reveal">
+    <h3 style="color: var(--grass);">📍 Describing a place · Опис місця</h3>
+    <ul class="phrase-list">
+      <li>
+        <span class="phrase-en">The city was full of life and energy.</span>
+        <span class="phrase-ua">Місто було повне життя та енергії.</span>
+      </li>
+      <li>
+        <span class="phrase-en">The scenery was absolutely breathtaking.</span>
+        <span class="phrase-ua">Пейзаж був просто захопливим.</span>
+        <span class="phrase-tip">💡 "Absolutely" підсилює прикметник — дуже сильно!</span>
+      </li>
+      <li>
+        <span class="phrase-en">It looked like something from a postcard.</span>
+        <span class="phrase-ua">Це виглядало як з листівки.</span>
+      </li>
+      <li>
+        <span class="phrase-en">The streets were lined with colorful shops.</span>
+        <span class="phrase-ua">Вулиці були вкриті барвистими крамничками.</span>
+      </li>
+      <li>
+        <span class="phrase-en">The food there was incredible.</span>
+        <span class="phrase-ua">Їжа там була неймовірною.</span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="phrase-section reveal">
+    <h3 style="color: var(--coral);">🎉 Describing experiences · Опис вражень</h3>
+    <ul class="phrase-list">
+      <li>
+        <span class="phrase-en">We tried local food and it was delicious.</span>
+        <span class="phrase-ua">Ми спробували місцеву їжу, і вона була смачною.</span>
+      </li>
+      <li>
+        <span class="phrase-en">I met a lot of interesting people.</span>
+        <span class="phrase-ua">Я познайомився/познайомилась з багатьма цікавими людьми.</span>
+      </li>
+      <li>
+        <span class="phrase-en">We got lost, but it turned out to be fun!</span>
+        <span class="phrase-ua">Ми заблукали, але це виявилось цікавим!</span>
+        <span class="phrase-tip">💡 "Turn out" = виявитись, стати (несподівано)</span>
+      </li>
+      <li>
+        <span class="phrase-en">I'll never forget the moment when…</span>
+        <span class="phrase-ua">Я ніколи не забуду момент, коли…</span>
+      </li>
+      <li>
+        <span class="phrase-en">It was the highlight of the trip!</span>
+        <span class="phrase-ua">Це було найкращим моментом подорожі!</span>
+        <span class="phrase-tip">💡 "Highlight" = найяскравіший момент, кульмінація</span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="phrase-section reveal">
+    <h3 style="color: var(--purple);">🔚 Finishing a story · Як закінчити розповідь</h3>
+    <ul class="phrase-list">
+      <li>
+        <span class="phrase-en">Overall, it was a fantastic experience.</span>
+        <span class="phrase-ua">Загалом, це був фантастичний досвід.</span>
+      </li>
+      <li>
+        <span class="phrase-en">I would definitely recommend it to everyone!</span>
+        <span class="phrase-ua">Я б точно порекомендував/порекомендувала це всім!</span>
+      </li>
+      <li>
+        <span class="phrase-en">I can't wait to go back someday.</span>
+        <span class="phrase-ua">Я не можу дочекатись, коли поїду туди знову.</span>
+        <span class="phrase-tip">💡 "Can't wait" = дуже хочу, з нетерпінням чекаю</span>
+      </li>
+      <li>
+        <span class="phrase-en">It was a trip I'll always remember.</span>
+        <span class="phrase-ua">Це подорож, яку я завжди пам'ятатиму.</span>
+      </li>
+    </ul>
+  </div>
+</div>
+</section>
+
+<!-- ════════════════════════════════ DIALOGUE ════════════════════════════════ -->
+<section id="dialogue" style="background: white; padding-bottom: 50px;">
+<div class="container">
+  <div class="section-title reveal">🗣️ Example Dialogue · Приклад діалогу</div>
+  <div class="section-subtitle reveal">Two friends talking about a trip / Двоє друзів розмовляють про подорож</div>
+
+  <div class="dialogue reveal">
+    <h3>🌴 "Tell me about your holiday!" / «Розкажи про свої канікули!»</h3>
+
+    <div class="bubble-row">
+      <div class="avatar a">👦</div>
+      <div class="bubble a">
+        <div class="en">Hey! How was your trip to Greece?</div>
+        <div class="ua">Привіт! Як була твоя поїздка до Греції?</div>
+      </div>
+    </div>
+    <div class="bubble-row right">
+      <div class="avatar b">👧</div>
+      <div class="bubble b">
+        <div class="en">It was absolutely amazing! We visited Athens and a few beautiful islands.</div>
+        <div class="ua">Це було просто неймовірно! Ми відвідали Афіни та кілька гарних островів.</div>
+      </div>
+    </div>
+    <div class="bubble-row">
+      <div class="avatar a">👦</div>
+      <div class="bubble a">
+        <div class="en">What was the best part?</div>
+        <div class="ua">Що було найкращим?</div>
+      </div>
+    </div>
+    <div class="bubble-row right">
+      <div class="avatar b">👧</div>
+      <div class="bubble b">
+        <div class="en">Definitely the sunsets in Santorini. The view was breathtaking!</div>
+        <div class="ua">Звісно, заходи сонця на Санторіні. Краєвид перехоплював подих!</div>
+      </div>
+    </div>
+    <div class="bubble-row">
+      <div class="avatar a">👦</div>
+      <div class="bubble a">
+        <div class="en">Did anything go wrong?</div>
+        <div class="ua">Щось пішло не так?</div>
+      </div>
+    </div>
+    <div class="bubble-row right">
+      <div class="avatar b">👧</div>
+      <div class="bubble b">
+        <div class="en">We got lost in the old town, but we found a cosy little cafe — it turned out to be great!</div>
+        <div class="ua">Ми заблукали у старому місті, але знайшли затишне кафе — виявилося, що це було чудово!</div>
+      </div>
+    </div>
+    <div class="bubble-row">
+      <div class="avatar a">👦</div>
+      <div class="bubble a">
+        <div class="en">Would you recommend Greece to others?</div>
+        <div class="ua">Ти б порекомендувала Грецію іншим?</div>
+      </div>
+    </div>
+    <div class="bubble-row right">
+      <div class="avatar b">👧</div>
+      <div class="bubble b">
+        <div class="en">Absolutely! I can't wait to go back. It was truly unforgettable.</div>
+        <div class="ua">Безумовно! Не можу дочекатись знову поїхати. Це було по-справжньому незабутньо.</div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ════════════════════════════════ STORY ════════════════════════════════ -->
+<section id="story">
+<div class="container">
+  <div class="section-title reveal">📖 Sample Travel Story · Зразок розповіді про подорож</div>
+  <div class="section-subtitle reveal">Read this and notice the highlighted words / Прочитай та зверни увагу на виділені слова</div>
+
+  <div class="story-box reveal">
+    <h3>🏕️ My Adventure in the Mountains / Моя пригода в горах</h3>
+    <p class="story-text">
+      <span class="highlight">Last summer</span>, my family and I decided to go on a hiking trip in the Carpathian mountains. 
+      We packed our <span class="highlight">luggage</span> the night before and <span class="highlight">set off</span> early in the morning.
+      The journey took about four hours by <span class="highlight">bus</span>, but the time flew by because the scenery along the way was <span class="highlight">stunning</span>.
+      <br><br>
+      When we finally arrived at our <span class="highlight">destination</span>, I couldn't believe my eyes. 
+      The mountains were covered in green forests, and a cool breeze was blowing. 
+      We stayed in a small wooden <span class="highlight">cabin</span> near a river — it was so <span class="highlight">peaceful</span>!
+      <br><br>
+      The next day, we hiked to the top of a nearby peak. It was <span class="highlight">exhausting</span>, 
+      but when we reached the summit, the view was absolutely <span class="highlight">breathtaking</span>. 
+      I could see the whole valley below. <span class="highlight">I'll never forget</span> that moment.
+      <br><br>
+      <span class="highlight">Overall</span>, it was one of the best trips of my life. 
+      I <span class="highlight">would definitely recommend</span> hiking to anyone who loves nature and adventure!
+    </p>
+    <div class="story-ua">
+      🇺🇦 <b>Переклад:</b> Минулого літа моя сім'я та я вирішили вирушити в похід до Карпатських гір. Ми зібрали речі напередодні ввечері та рушили вранці. Дорога зайняла близько чотирьох годин автобусом, але час пройшов непомітно — краєвиди були приголомшливими. Коли ми нарешті прибули до місця призначення, я не міг повірити своїм очам. Гори були вкриті зеленими лісами, і віяв прохолодний вітерець. Ми жили в маленькій дерев'яній хатині біля річки — так спокійно! Наступного дня ми піднялися на вершину. Це було виснажливо, але вид зверху перехоплював подих. Я ніколи не забуду цей момент. Загалом — одна з найкращих подорожей у моєму житті. Я б точно порекомендував похід усім, хто любить природу та пригоди!
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ════════════════════════════════ TENSES ════════════════════════════════ -->
+<section id="tenses" style="background: white; padding-bottom: 50px;">
+<div class="container">
+  <div class="section-title reveal">⏳ Grammar Quick Guide · Граматика коротко</div>
+  <div class="section-subtitle reveal">Which tense to use when / Який час використовувати і коли</div>
+
+  <div class="tense-grid reveal">
+    <div class="tense-card past">
+      <div class="tense-title">⏪ Past Simple · Минулий простий</div>
+      <p style="font-size:0.85rem; color:#78350f; margin-bottom:10px;">Use for finished actions in the past / Для завершених дій у минулому</p>
+      <div class="tense-example">✔ We <b>visited</b> Rome last year.</div>
+      <div class="tense-example-ua">Ми <b>відвідали</b> Рим минулого року.</div>
+      <div class="tense-example">✔ I <b>saw</b> the Eiffel Tower.</div>
+      <div class="tense-example-ua">Я <b>побачив</b> Ейфелеву вежу.</div>
+      <div class="tense-example">✔ The food <b>was</b> amazing!</div>
+      <div class="tense-example-ua">Їжа <b>була</b> дивовижною!</div>
+    </div>
+
+    <div class="tense-card present">
+      <div class="tense-title">🟢 Present Perfect · Теперішній перфект</div>
+      <p style="font-size:0.85rem; color:#166534; margin-bottom:10px;">For experience or what happened up to now / Для досвіду або нещодавніх подій</p>
+      <div class="tense-example">✔ I <b>have been</b> to London.</div>
+      <div class="tense-example-ua">Я <b>бував</b> у Лондоні.</div>
+      <div class="tense-example">✔ Have you <b>ever tried</b> sushi?</div>
+      <div class="tense-example-ua">Ти коли-небудь <b>пробував</b> суші?</div>
+      <div class="tense-example">✔ I <b>have just arrived</b>.</div>
+      <div class="tense-example-ua">Я <b>щойно приїхав</b>.</div>
+    </div>
+
+    <div class="tense-card future">
+      <div class="tense-title">🔵 Future · Майбутній час</div>
+      <p style="font-size:0.85rem; color:#1e40af; margin-bottom:10px;">For plans and dreams / Для планів та мрій</p>
+      <div class="tense-example">✔ I <b>will visit</b> Japan next year.</div>
+      <div class="tense-example-ua">Я <b>відвідаю</b> Японію наступного року.</div>
+      <div class="tense-example">✔ We <b>are going to</b> travel by train.</div>
+      <div class="tense-example-ua">Ми <b>збираємось</b> їхати потягом.</div>
+      <div class="tense-example">✔ Someday I <b>want to go</b> to Australia.</div>
+      <div class="tense-example-ua">Колись я <b>хочу поїхати</b> до Австралії.</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ════════════════════════════════ TIPS ════════════════════════════════ -->
+<section id="tips">
+<div class="container">
+  <div class="section-title reveal">💡 Top Tips for Telling Travel Stories · Поради для розповіді</div>
+
+  <div class="tips-box reveal">
+    <h3>🎯 How to Sound Natural · Як звучати природно</h3>
+
+    <div class="tip-item">
+      <div class="tip-num">1</div>
+      <div class="tip-text">
+        <div class="en">Use time expressions: <i>first, then, after that, finally</i></div>
+        <div class="ua">Використовуй слова часу: спочатку, потім, після цього, нарешті</div>
+      </div>
+    </div>
+    <div class="tip-item">
+      <div class="tip-num">2</div>
+      <div class="tip-text">
+        <div class="en">Add feelings: <i>"I felt excited / nervous / amazed"</i></div>
+        <div class="ua">Додай почуття: «Я відчував захоплення / хвилювання / подив»</div>
+      </div>
+    </div>
+    <div class="tip-item">
+      <div class="tip-num">3</div>
+      <div class="tip-text">
+        <div class="en">Use strong adjectives: <i>breathtaking, stunning, incredible</i> — not just "nice" or "good"!</div>
+        <div class="ua">Використовуй яскраві прикметники, а не просто «гарний» або «добрий»!</div>
+      </div>
+    </div>
+    <div class="tip-item">
+      <div class="tip-num">4</div>
+      <div class="tip-text">
+        <div class="en">Include a surprising moment: <i>"We got lost, but…" / "Suddenly…" / "To our surprise…"</i></div>
+        <div class="ua">Додай несподіваний момент: «Ми заблукали, але…» / «Раптом…» / «На наш подив…»</div>
+      </div>
+    </div>
+    <div class="tip-item">
+      <div class="tip-num">5</div>
+      <div class="tip-text">
+        <div class="en">End with a recommendation or personal conclusion</div>
+        <div class="ua">Завершуй порадою або особистим висновком</div>
+      </div>
+    </div>
+    <div class="tip-item">
+      <div class="tip-num">6</div>
+      <div class="tip-text">
+        <div class="en">Practice out loud — it makes a huge difference! 🗣️</div>
+        <div class="ua">Практикуй вголос — це дуже допомагає! 🗣️</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick phrase reminder strip -->
+  <div style="background: linear-gradient(135deg, #0ea5e9, #8b5cf6); border-radius: 24px; padding: 28px; color: white; margin-bottom: 30px;" class="reveal">
+    <h3 style="font-family:'Baloo 2',cursive; font-size:1.4rem; margin-bottom:16px;">⚡ Quick Phrase Cheat Sheet · Шпаргалка</h3>
+    <div class="cheat-grid" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:10px;">
+      <div style="background:rgba(255,255,255,0.15); border-radius:14px; padding:12px 14px;">
+        <div style="font-weight:800; font-size:0.95rem;">🚀 Start</div>
+        <div style="font-size:0.88rem; margin-top:5px; line-height:1.7;">
+          Last summer I went to…<br>
+          It all started when…<br>
+          I had the best trip to…
+        </div>
+      </div>
+      <div style="background:rgba(255,255,255,0.15); border-radius:14px; padding:12px 14px;">
+        <div style="font-weight:800; font-size:0.95rem;">📍 Describe</div>
+        <div style="font-size:0.88rem; margin-top:5px; line-height:1.7;">
+          The scenery was stunning…<br>
+          The city was full of life…<br>
+          It felt like another world!
+        </div>
+      </div>
+      <div style="background:rgba(255,255,255,0.15); border-radius:14px; padding:12px 14px;">
+        <div style="font-weight:800; font-size:0.95rem;">😱 Drama</div>
+        <div style="font-size:0.88rem; margin-top:5px; line-height:1.7;">
+          Suddenly, we got lost…<br>
+          To our surprise…<br>
+          We didn't expect that…
+        </div>
+      </div>
+      <div style="background:rgba(255,255,255,0.15); border-radius:14px; padding:12px 14px;">
+        <div style="font-weight:800; font-size:0.95rem;">🏁 Finish</div>
+        <div style="font-size:0.88rem; margin-top:5px; line-height:1.7;">
+          Overall, it was amazing…<br>
+          I'd definitely recommend…<br>
+          I can't wait to go back!
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<footer>
+  <p>✈️ <span>Travel English</span> · Англійська для мандрівників</p>
+  <p style="margin-top:8px; opacity:0.7;">Вивчай мову — відкривай світ! · Learn the language — explore the world! 🌍</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+</body>
+</html>

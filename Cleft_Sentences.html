@@ -1,0 +1,1459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cleft Sentences — Split the Spotlight!</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Nunito:wght@400;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1C1C2E;
+  --paper: #FFFDF5;
+  --yellow: #FFD166;
+  --coral: #EF476F;
+  --teal: #06D6A0;
+  --blue: #118AB2;
+  --purple: #9B5DE5;
+  --orange: #FF9F1C;
+  --pink: #FF6B9D;
+  --green: #2DC653;
+  --line: rgba(0,0,0,0.08);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  overflow-x: hidden;
+  /* Notebook lines */
+  background-image: repeating-linear-gradient(
+    transparent, transparent 31px,
+    rgba(173, 216, 230, 0.35) 31px, rgba(173, 216, 230, 0.35) 32px
+  );
+  background-size: 100% 32px;
+}
+
+/* ─── HERO ─── */
+.hero {
+  background: var(--ink);
+  padding: 64px 24px 56px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero-bg-circles span {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.12;
+  animation: float 6s ease-in-out infinite;
+}
+.hero-bg-circles span:nth-child(1){ width:280px;height:280px;background:var(--yellow);top:-80px;left:-80px;animation-delay:0s; }
+.hero-bg-circles span:nth-child(2){ width:200px;height:200px;background:var(--coral);bottom:-60px;right:-40px;animation-delay:1.5s; }
+.hero-bg-circles span:nth-child(3){ width:140px;height:140px;background:var(--teal);top:20px;right:20%;animation-delay:3s; }
+
+.hero-tag {
+  display: inline-block;
+  background: var(--yellow);
+  color: var(--ink);
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 4px 18px;
+  border-radius: 100px;
+  margin-bottom: 18px;
+  transform: rotate(-1.5deg);
+}
+.hero h1 {
+  font-family: 'Baloo 2', cursive;
+  font-size: clamp(2.6rem, 7vw, 5rem);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.05;
+  position: relative;
+  z-index: 1;
+}
+.hero h1 .accent { color: var(--yellow); }
+.hero-sub {
+  margin-top: 14px;
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.65);
+  position: relative; z-index: 1;
+}
+.hero-sub .ua { color: rgba(255,220,100,0.8); margin-top: 4px; font-family: 'Nunito', sans-serif; font-size: 1.1rem; }
+.hero-emojis {
+  font-size: 2.4rem;
+  margin-top: 22px;
+  letter-spacing: 10px;
+  position: relative; z-index: 1;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+/* ─── LAYOUT ─── */
+.container { max-width: 940px; margin: 0 auto; padding: 0 18px; }
+
+section { padding: 52px 0; }
+
+.section-label {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--blue);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.section-title {
+  font-family: 'Baloo 2', cursive;
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+.section-ua {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.05rem;
+  color: #888;
+  margin-bottom: 30px;
+}
+
+/* ─── WHAT IS IT ─── */
+.what-card {
+  background: var(--ink);
+  color: #fff;
+  border-radius: 28px;
+  padding: 36px 32px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 8px 8px 0 var(--yellow);
+  margin-bottom: 0;
+}
+.what-card::before {
+  content: '✂️';
+  position: absolute;
+  right: 28px; top: 24px;
+  font-size: 5rem;
+  opacity: 0.15;
+  transform: rotate(45deg);
+}
+.what-card p { font-size: 1.05rem; line-height: 1.8; color: rgba(255,255,255,0.85); }
+.what-card .ua-block {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.1rem;
+  color: var(--yellow);
+  line-height: 1.6;
+}
+.pill-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+.pill {
+  background: rgba(255,255,255,0.1);
+  border: 1.5px solid rgba(255,255,255,0.2);
+  border-radius: 100px;
+  padding: 5px 16px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #fff;
+}
+.pill span { margin-right: 5px; }
+
+/* ─── SPOTLIGHT SENTENCE ─── */
+.spotlight-section { background: transparent; }
+
+.master-sentence-box {
+  background: var(--ink);
+  border-radius: 20px;
+  padding: 22px 28px;
+  margin-bottom: 12px;
+  text-align: center;
+  box-shadow: 6px 6px 0 var(--yellow);
+  position: relative;
+}
+.master-sentence-box .label {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 8px;
+}
+.master-sentence-box .sentence {
+  font-family: 'Baloo 2', cursive;
+  font-size: clamp(1.1rem, 3vw, 1.7rem);
+  font-weight: 800;
+  color: var(--yellow);
+  letter-spacing: -0.3px;
+}
+.master-sentence-box .ua-hint {
+  font-family: 'Nunito', sans-serif;
+  color: rgba(255,255,255,0.4);
+  font-size: 0.95rem;
+  margin-top: 6px;
+}
+
+.arrow-down {
+  text-align: center;
+  font-size: 2rem;
+  margin: 4px 0;
+  animation: arrowBounce 1.5s ease-in-out infinite;
+}
+
+/* Focus grid */
+.focus-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.focus-card {
+  border-radius: 20px;
+  padding: 20px 20px 18px;
+  border: 2.5px solid;
+  position: relative;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: default;
+}
+.focus-card:hover {
+  transform: translateY(-4px) rotate(-0.5deg);
+}
+.focus-card.who  { border-color: var(--coral); background: #FFF0F3; }
+.focus-card.what { border-color: var(--teal);  background: #F0FFFA; }
+.focus-card.where{ border-color: var(--blue);  background: #F0F6FF; }
+.focus-card.when { border-color: var(--purple);background: #F6F0FF; }
+.focus-card.how  { border-color: var(--orange);background: #FFF5E6; }
+
+.focus-card .fc-icon {
+  width: 42px; height: 42px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+  font-weight: 700;
+  color: #fff;
+}
+.focus-card.who  .fc-icon { background: var(--coral); }
+.focus-card.what .fc-icon { background: var(--teal); }
+.focus-card.where .fc-icon { background: var(--blue); }
+.focus-card.when  .fc-icon { background: var(--purple); }
+.focus-card.how   .fc-icon { background: var(--orange); }
+
+.focus-card .fc-focus-label {
+  font-family: 'Baloo 2', cursive;
+  font-size: 1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+.focus-card.who   .fc-focus-label { color: var(--coral); }
+.focus-card.what  .fc-focus-label { color: var(--teal); }
+.focus-card.where .fc-focus-label { color: var(--blue); }
+.focus-card.when  .fc-focus-label { color: var(--purple); }
+.focus-card.how   .fc-focus-label { color: var(--orange); }
+
+.fc-original {
+  font-size: 0.8rem;
+  color: #999;
+  margin-bottom: 6px;
+  text-decoration: line-through;
+}
+.fc-cleft {
+  font-size: 0.98rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--ink);
+}
+.fc-cleft .hl {
+  display: inline-block;
+  border-radius: 6px;
+  padding: 0 6px;
+  font-weight: 800;
+  color: #fff;
+}
+.focus-card.who   .hl { background: var(--coral); }
+.focus-card.what  .hl { background: var(--teal); }
+.focus-card.where .hl { background: var(--blue); }
+.focus-card.when  .hl { background: var(--purple); }
+.focus-card.how   .hl { background: var(--orange); }
+
+.fc-ua {
+  margin-top: 8px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.92rem;
+  color: #777;
+  line-height: 1.4;
+}
+
+/* ─── TYPE CARDS ─── */
+.types-section { background: transparent; }
+
+.type-block {
+  background: #fff;
+  border-radius: 24px;
+  padding: 28px 28px 24px;
+  margin-bottom: 20px;
+  border: 2.5px solid var(--ink);
+  position: relative;
+  box-shadow: 5px 5px 0 var(--ink);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.type-block:hover {
+  transform: translate(-2px,-2px);
+  box-shadow: 8px 8px 0 var(--ink);
+}
+
+.type-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+.type-emoji-box {
+  width: 56px; height: 56px;
+  border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.8rem;
+  flex-shrink: 0;
+  border: 2.5px solid var(--ink);
+}
+.tb-1 .type-emoji-box { background: #FFF0B3; }
+.tb-2 .type-emoji-box { background: #D4F7E8; }
+.tb-3 .type-emoji-box { background: #D8E8FF; }
+.tb-4 .type-emoji-box { background: #F0DCFF; }
+.tb-5 .type-emoji-box { background: #FFE5CC; }
+
+.type-header-text {}
+.type-name {
+  font-family: 'Baloo 2', cursive;
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+.tb-1 .type-name { color: #C89000; }
+.tb-2 .type-name { color: var(--teal); }
+.tb-3 .type-name { color: var(--blue); }
+.tb-4 .type-name { color: var(--purple); }
+.tb-5 .type-name { color: var(--orange); }
+
+.type-tagline {
+  font-size: 0.88rem;
+  color: #666;
+}
+.type-tagline .ua { font-family: 'Nunito', sans-serif; color: #aaa; }
+
+.formula-box {
+  background: var(--ink);
+  color: var(--yellow);
+  border-radius: 12px;
+  padding: 10px 16px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  display: inline-block;
+  letter-spacing: 0.3px;
+}
+
+.example-flow {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.ex-normal {
+  background: #F5F5F5;
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-size: 0.9rem;
+  color: #666;
+  flex: 1; min-width: 180px;
+}
+.ex-normal .ex-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #bbb; margin-bottom: 4px; }
+
+.ex-arrow { font-size: 1.4rem; margin-top: 14px; }
+
+.ex-cleft {
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  flex: 2; min-width: 220px;
+  border: 2px solid;
+}
+.tb-1 .ex-cleft { background: #FFFCE6; border-color: var(--yellow); }
+.tb-2 .ex-cleft { background: #EDFFF8; border-color: var(--teal); }
+.tb-3 .ex-cleft { background: #EBF4FF; border-color: var(--blue); }
+.tb-4 .ex-cleft { background: #F7EDFF; border-color: var(--purple); }
+.tb-5 .ex-cleft { background: #FFF5EA; border-color: var(--orange); }
+
+.ex-cleft .ex-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+.tb-1 .ex-cleft .ex-label { color: #C89000; }
+.tb-2 .ex-cleft .ex-label { color: var(--teal); }
+.tb-3 .ex-cleft .ex-label { color: var(--blue); }
+.tb-4 .ex-cleft .ex-label { color: var(--purple); }
+.tb-5 .ex-cleft .ex-label { color: var(--orange); }
+
+.type-explain {
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: #FAFAFA;
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: #555;
+  border-left: 4px solid;
+}
+.tb-1 .type-explain { border-color: var(--yellow); }
+.tb-2 .type-explain { border-color: var(--teal); }
+.tb-3 .type-explain { border-color: var(--blue); }
+.tb-4 .type-explain { border-color: var(--purple); }
+.tb-5 .type-explain { border-color: var(--orange); }
+
+.type-explain .ua-note {
+  font-family: 'Nunito', sans-serif;
+  color: #aaa;
+  font-size: 0.93rem;
+  margin-top: 4px;
+  display: block;
+}
+
+/* ─── TENSES ─── */
+.tenses-section {}
+.tenses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+}
+.tense-card {
+  border-radius: 18px;
+  padding: 20px;
+  border: 2px solid var(--ink);
+  text-align: center;
+}
+.tense-card:nth-child(1) { background: #FFFCE6; }
+.tense-card:nth-child(2) { background: #FFF0F3; }
+.tense-card:nth-child(3) { background: #E6FFF8; }
+.tense-card:nth-child(4) { background: #EBF4FF; }
+
+.tense-label {
+  font-family: 'Baloo 2', cursive;
+  font-weight: 800;
+  font-size: 0.85rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.tense-card:nth-child(1) .tense-label { color: #C89000; }
+.tense-card:nth-child(2) .tense-label { color: var(--coral); }
+.tense-card:nth-child(3) .tense-label { color: var(--teal); }
+.tense-card:nth-child(4) .tense-label { color: var(--blue); }
+
+.tense-sentence {
+  font-size: 0.93rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+.tense-sentence .be-verb {
+  border-radius: 4px;
+  padding: 0 4px;
+  font-weight: 800;
+  color: #fff;
+}
+.tense-card:nth-child(1) .be-verb { background: #C89000; }
+.tense-card:nth-child(2) .be-verb { background: var(--coral); }
+.tense-card:nth-child(3) .be-verb { background: var(--teal); }
+.tense-card:nth-child(4) .be-verb { background: var(--blue); }
+
+.tense-ua {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.85rem;
+  color: #aaa;
+  margin-top: 6px;
+}
+
+/* ─── MISTAKES ─── */
+.mistakes-section {}
+.mistakes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+.mistake-card {
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 2px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+.mistake-wrong {
+  background: #FFF0F0;
+  padding: 16px 18px;
+  border-bottom: 2px solid var(--ink);
+}
+.mistake-right {
+  background: #F0FFF8;
+  padding: 16px 18px;
+}
+.mistake-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+.mistake-wrong .mistake-badge { color: var(--coral); }
+.mistake-right .mistake-badge { color: var(--teal); }
+.mistake-text { font-size: 0.93rem; font-weight: 600; line-height: 1.5; }
+.mistake-wrong .mistake-text { color: var(--coral); }
+.mistake-right .mistake-text { color: #1A7A4A; }
+.mistake-ua {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.85rem;
+  color: #aaa;
+  margin-top: 5px;
+}
+
+/* ─── QUIZ ─── */
+.quiz-section {
+  background: var(--ink);
+  border-radius: 28px;
+  padding: 40px 32px;
+  margin-top: 10px;
+  box-shadow: 8px 8px 0 var(--yellow);
+}
+.quiz-section .section-title { color: #fff; }
+.quiz-section .section-label { color: var(--yellow); }
+.quiz-section .section-ua { color: rgba(255,255,255,0.45); }
+
+.quiz-item {
+  background: rgba(255,255,255,0.07);
+  border: 1.5px solid rgba(255,255,255,0.15);
+  border-radius: 18px;
+  padding: 20px 22px;
+  margin-bottom: 14px;
+  transition: background 0.2s;
+}
+.quiz-item:last-child { margin-bottom: 0; }
+.quiz-q {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+.quiz-q .q-number {
+  display: inline-flex;
+  align-items: center; justify-content: center;
+  width: 26px; height: 26px;
+  background: var(--yellow);
+  color: var(--ink);
+  border-radius: 50%;
+  font-family: 'Baloo 2', cursive;
+  font-weight: 800;
+  font-size: 0.85rem;
+  margin-right: 8px;
+}
+.quiz-q .type-hint {
+  font-size: 0.78rem;
+  background: rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.7);
+  border-radius: 8px;
+  padding: 2px 10px;
+  margin-left: 8px;
+  vertical-align: middle;
+  font-weight: 500;
+}
+.quiz-answer {
+  display: none;
+  background: rgba(6,214,160,0.12);
+  border: 1.5px solid var(--teal);
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 0.93rem;
+  font-weight: 700;
+  color: var(--teal);
+  margin-top: 8px;
+  animation: fadeIn 0.3s ease;
+}
+.quiz-answer .ans-ua {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.45);
+  font-weight: 400;
+  display: block;
+  margin-top: 4px;
+}
+.show-btn {
+  background: var(--yellow);
+  color: var(--ink);
+  border: 2px solid transparent;
+  border-radius: 100px;
+  padding: 7px 20px;
+  font-family: 'Baloo 2', cursive;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s, background 0.15s;
+}
+.show-btn:hover { transform: scale(1.06); background: #FFE04D; }
+
+/* ─── SUMMARY TABLE ─── */
+.summary-section {}
+.summary-scroll { overflow-x: auto; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 2px solid var(--ink);
+  box-shadow: 5px 5px 0 var(--ink);
+  min-width: 560px;
+}
+thead { background: var(--ink); }
+th {
+  padding: 14px 18px;
+  text-align: left;
+  font-family: 'Baloo 2', cursive;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--yellow);
+  letter-spacing: 0.5px;
+}
+td {
+  padding: 13px 18px;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #F0F0F0;
+  vertical-align: top;
+  line-height: 1.5;
+}
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: #FAFAFA; }
+.t-badge {
+  display: inline-block;
+  border-radius: 8px;
+  padding: 3px 12px;
+  font-weight: 800;
+  font-size: 0.8rem;
+  color: #fff;
+  white-space: nowrap;
+}
+.t1 { background: #C89000; color: #fff; }
+.t2 { background: var(--teal); }
+.t3 { background: var(--blue); }
+.t4 { background: var(--purple); }
+.t5 { background: var(--orange); }
+.formula-inline {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.95rem;
+  color: var(--ink);
+  font-weight: 600;
+}
+.td-ua {
+  display: block;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.82rem;
+  color: #aaa;
+  margin-top: 2px;
+}
+
+/* ─── TIP BOX ─── */
+.tip-box {
+  background: var(--yellow);
+  border-radius: 18px;
+  padding: 22px 24px;
+  margin-top: 22px;
+  border: 2px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.tip-icon { font-size: 2rem; flex-shrink: 0; }
+.tip-text { font-size: 0.93rem; line-height: 1.7; font-weight: 600; }
+.tip-text .ua { font-family: 'Nunito', sans-serif; font-size: 0.95rem; color: #6B4F00; font-weight: 400; display: block; margin-top: 4px; }
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--ink);
+  color: rgba(255,255,255,0.45);
+  text-align: center;
+  padding: 28px 20px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+}
+footer span { color: var(--yellow); }
+
+/* ─── ANIMATIONS ─── */
+@keyframes float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-20px) scale(1.05); }
+}
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes arrowBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(5px); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Staggered card animation */
+.focus-card { animation: slideIn 0.5s both; }
+.focus-card:nth-child(1) { animation-delay: 0.05s; }
+.focus-card:nth-child(2) { animation-delay: 0.12s; }
+.focus-card:nth-child(3) { animation-delay: 0.19s; }
+.focus-card:nth-child(4) { animation-delay: 0.26s; }
+.focus-card:nth-child(5) { animation-delay: 0.33s; }
+
+/* Nav dots */
+.nav-dots {
+  position: fixed;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 100;
+}
+.nav-dot {
+  width: 10px; height: 10px;
+  background: rgba(0,0,0,0.2);
+  border-radius: 50%;
+  display: block;
+  transition: background 0.2s, transform 0.2s;
+}
+.nav-dot:hover { background: var(--blue); transform: scale(1.3); }
+
+@media(max-width: 640px) {
+  /* Nav */
+  .nav-dots { display: none; }
+
+  /* Hero */
+  .hero { padding: 40px 18px 36px; }
+  .hero h1 { font-size: 2.2rem; }
+  .hero-emojis { font-size: 1.8rem; letter-spacing: 6px; }
+
+  /* Container */
+  .container { padding: 0 14px; }
+  section { padding: 36px 0; }
+
+  /* Section titles */
+  .section-title { font-size: 1.5rem; }
+
+  /* What card */
+  .what-card { padding: 22px 18px; }
+  .what-card::before { display: none; }
+  .pill-row { gap: 7px; }
+  .pill { font-size: 0.8rem; padding: 4px 12px; }
+
+  /* Master sentence */
+  .master-sentence-box { padding: 18px 16px; }
+  .master-sentence-box .sentence { font-size: 1rem; }
+
+  /* Focus grid — single column */
+  .focus-grid { grid-template-columns: 1fr; gap: 12px; }
+  .focus-card { padding: 18px 16px; }
+
+  /* Tip box */
+  .tip-box { padding: 16px 16px; gap: 10px; }
+  .tip-icon { font-size: 1.6rem; }
+  .tip-text { font-size: 0.88rem; }
+
+  /* Type blocks */
+  .type-block { padding: 20px 16px 18px; }
+  .type-header { flex-direction: column; gap: 10px; }
+  .type-emoji-box { width: 48px; height: 48px; font-size: 1.5rem; }
+  .type-name { font-size: 1.15rem; }
+  .formula-box { font-size: 0.9rem; padding: 8px 12px; display: block; word-break: break-word; }
+
+  /* Example flows — stack vertically */
+  .example-flow { flex-direction: column; gap: 6px; }
+  .ex-normal { min-width: unset; width: 100%; }
+  .ex-cleft  { min-width: unset; width: 100%; }
+  .ex-arrow  { font-size: 1.2rem; margin: 0; text-align: center; }
+
+  /* Tenses grid — 2 columns */
+  .tenses-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .tense-card { padding: 14px 12px; }
+  .tense-sentence { font-size: 0.85rem; }
+
+  /* Mistakes grid — single column */
+  .mistakes-grid { grid-template-columns: 1fr; gap: 14px; }
+
+  /* Quiz */
+  .quiz-section { padding: 26px 18px; border-radius: 20px; }
+  .quiz-item { padding: 16px 16px; }
+  .quiz-q { font-size: 0.88rem; }
+  .quiz-q .type-hint { display: block; margin: 6px 0 0 0; }
+  .show-btn { padding: 7px 16px; font-size: 0.85rem; }
+
+  /* Summary table — horizontal scroll */
+  .summary-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .summary-scroll table { min-width: 520px; }
+  th { padding: 11px 12px; font-size: 0.85rem; }
+  td { padding: 10px 12px; font-size: 0.82rem; }
+
+  /* Footer */
+  footer { font-size: 0.88rem; padding: 22px 16px; }
+
+  /* Scroll-to-top */
+  #scroll-top-btn { bottom: 18px; right: 18px; width: 40px; height: 40px; font-size: 16px; }
+}
+#scroll-top-btn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #1a1208;
+  border: 1.5px solid rgba(200,150,62,0.4);
+  color: #f5f0e8;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+  pointer-events: none;
+  z-index: 9998;
+}
+#scroll-top-btn.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+#scroll-top-btn:hover {
+  background: #c8963e;
+  border-color: #c8963e;
+  color: #1a1208;
+}
+</style>
+</head>
+<body>
+
+<!-- NAV DOTS -->
+<nav class="nav-dots" aria-hidden="true">
+  <span class="nav-dot"></span>
+  <span class="nav-dot"></span>
+  <span class="nav-dot"></span>
+  <span class="nav-dot"></span>
+  <span class="nav-dot"></span>
+</nav>
+
+<!-- ════════════════════════════════════ HERO -->
+<header class="hero">
+  <div class="hero-bg-circles">
+    <span></span><span></span><span></span>
+  </div>
+  <div class="hero-tag">🇬🇧 English Grammar</div>
+  <h1>Split the <span class="accent">Spotlight</span>!<br>Cleft Sentences ✂️</h1>
+  <div class="hero-sub">
+    <div>One sentence — infinite ways to shine a light on what matters.</div>
+    <div class="ua">Одне речення — нескінченно багато способів виділити головне.</div>
+  </div>
+  <div class="hero-emojis">🔦 🎯 ✨</div>
+</header>
+
+<!-- ════════════════════════════════════ WHAT IS IT -->
+<section>
+  <div class="container">
+    <div class="section-label">The Basics • Основи</div>
+    <h2 class="section-title">What Are Cleft Sentences? 🤔</h2>
+    <div class="section-ua">Що таке cleft sentences (розщеплені речення)?</div>
+
+    <div class="what-card">
+      <p>
+        A <strong>cleft sentence</strong> is a normal sentence that has been <strong>"split" into two parts</strong> so that you can put a <strong>spotlight on one specific piece of information</strong>. Think of it like directing a camera — you choose exactly what gets the close-up!
+      </p>
+      <p style="margin-top: 12px; color: rgba(255,255,255,0.75); font-size: 0.95rem; line-height: 1.7;">
+        In speech, you can just say a word louder: "I met <u>JOHN</u> yesterday." But in <strong>writing</strong>, you can't show stress — so you use a cleft sentence instead: <em>"It was John that I met yesterday."</em>
+      </p>
+      <div class="ua-block">
+        🇺🇦 Cleft sentence — це звичайне речення, розбите на дві частини, щоб виділити одну важливу думку. Це як направити камеру — ти вибираєш, що потрапляє в крупний план!<br><br>
+        В усному мовленні можна просто виділити слово голосом. На письмі — наголосу не видно, тому і використовуємо cleft sentences!
+      </div>
+      <div class="pill-row">
+        <div class="pill"><span>👤</span> WHO did it?</div>
+        <div class="pill"><span>💎</span> WHAT happened?</div>
+        <div class="pill"><span>📍</span> WHERE?</div>
+        <div class="pill"><span>📅</span> WHEN?</div>
+        <div class="pill"><span>❓</span> WHY / HOW?</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════ MAGIC SENTENCE -->
+<section class="spotlight-section">
+  <div class="container">
+    <div class="section-label">The Magic Sentence • Чарівне речення</div>
+    <h2 class="section-title">Watch the Spotlight Move! 🔦</h2>
+    <div class="section-ua">Дивись, як прожектор переміщається — одне речення, різний акцент!</div>
+
+    <div class="master-sentence-box">
+      <div class="label">📖 Our base sentence / Наше базове речення</div>
+      <div class="sentence">"Tom bought the last pizza at the mall yesterday."</div>
+      <div class="ua-hint">Том купив останню піцу в торговому центрі вчора.</div>
+    </div>
+
+    <div class="arrow-down">⬇</div>
+
+    <div class="focus-grid">
+      <!-- WHO -->
+      <div class="focus-card who">
+        <div class="fc-icon">👤</div>
+        <div class="fc-focus-label">Focus: WHO?</div>
+        <div class="fc-original">Tom bought the last pizza...</div>
+        <div class="fc-cleft">It was <span class="hl">Tom</span> who bought the last pizza at the mall yesterday.</div>
+        <div class="fc-ua">🇺🇦 Виділяємо <strong>хто</strong> — "Саме Том купив..."</div>
+      </div>
+
+      <!-- WHAT -->
+      <div class="focus-card what">
+        <div class="fc-icon">🍕</div>
+        <div class="fc-focus-label">Focus: WHAT?</div>
+        <div class="fc-original">Tom bought the last pizza...</div>
+        <div class="fc-cleft">It was <span class="hl">the last pizza</span> that Tom bought at the mall yesterday.</div>
+        <div class="fc-ua">🇺🇦 Виділяємо <strong>що саме</strong> — "Саме останню піцу..."</div>
+      </div>
+
+      <!-- WHERE -->
+      <div class="focus-card where">
+        <div class="fc-icon">📍</div>
+        <div class="fc-focus-label">Focus: WHERE?</div>
+        <div class="fc-original">...at the mall...</div>
+        <div class="fc-cleft">It was <span class="hl">at the mall</span> that Tom bought the last pizza yesterday.</div>
+        <div class="fc-ua">🇺🇦 Виділяємо <strong>де</strong> — "Саме в торговому центрі..."</div>
+      </div>
+
+      <!-- WHEN -->
+      <div class="focus-card when">
+        <div class="fc-icon">📅</div>
+        <div class="fc-focus-label">Focus: WHEN?</div>
+        <div class="fc-original">...yesterday.</div>
+        <div class="fc-cleft">It was <span class="hl">yesterday</span> that Tom bought the last pizza at the mall.</div>
+        <div class="fc-ua">🇺🇦 Виділяємо <strong>коли</strong> — "Саме вчора..."</div>
+      </div>
+
+      <!-- WHAT HE DID -->
+      <div class="focus-card how">
+        <div class="fc-icon">💡</div>
+        <div class="fc-focus-label">Focus: WHAT HE DID</div>
+        <div class="fc-original">Tom did something → bought pizza</div>
+        <div class="fc-cleft"><span class="hl">What Tom did</span> was buy the last pizza at the mall.</div>
+        <div class="fc-ua">🇺🇦 Виділяємо <strong>дію</strong> — "Те, що зробив Том — купив піцу..."</div>
+      </div>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-icon">💡</div>
+      <div class="tip-text">
+        The meaning is the same in every sentence above — only the <strong>FOCUS</strong> changes! Choose the structure based on what you want your reader or listener to pay attention to.
+        <span class="ua">🇺🇦 Значення у всіх реченнях однакове — змінюється лише АКЦЕНТ! Вибирай структуру залежно від того, на що хочеш звернути увагу.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════ 5 TYPES -->
+<section class="types-section">
+  <div class="container">
+    <div class="section-label">The Five Types • П'ять типів</div>
+    <h2 class="section-title">Meet the Cleft Family! 👨‍👩‍👧‍👦</h2>
+    <div class="section-ua">Познайомся з усіма типами — у кожного свій характер!</div>
+
+    <!-- TYPE 1: IT-CLEFT -->
+    <div class="type-block tb-1">
+      <div class="type-header">
+        <div class="type-emoji-box">📌</div>
+        <div class="type-header-text">
+          <div class="type-name">1. IT-CLEFT</div>
+          <div class="type-tagline">
+            The most popular type — use it for almost anything!<br>
+            <span class="ua">🇺🇦 Найпопулярніший тип — підходить майже для всього!</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="formula-box">📐 It + BE + [IMPORTANT WORD] + that/who + rest of sentence</div>
+
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <div class="example-flow">
+          <div class="ex-normal">
+            <div class="ex-label">❌ Neutral</div>
+            Mary called me.
+          </div>
+          <div class="ex-arrow">→</div>
+          <div class="ex-cleft">
+            <div class="ex-label">✅ It-Cleft</div>
+            It was <strong>Mary</strong> who called me.
+          </div>
+        </div>
+        <div class="example-flow">
+          <div class="ex-normal">
+            <div class="ex-label">❌ Neutral</div>
+            He left because of stress.
+          </div>
+          <div class="ex-arrow">→</div>
+          <div class="ex-cleft">
+            <div class="ex-label">✅ It-Cleft</div>
+            It was <strong>because of stress</strong> that he left.
+          </div>
+        </div>
+      </div>
+
+      <div class="type-explain">
+        Use <strong>who</strong> for people, <strong>that</strong> for things/places/time/reasons. In casual speech, you can drop "that": <em>"It was John I met."</em>
+        <span class="ua-note">🇺🇦 Для людей — "who", для всього іншого — "that". У розмовній мові "that" можна опустити.</span>
+      </div>
+    </div>
+
+    <!-- TYPE 2: WH-CLEFT -->
+    <div class="type-block tb-2">
+      <div class="type-header">
+        <div class="type-emoji-box">❓</div>
+        <div class="type-header-text">
+          <div class="type-name">2. WH-CLEFT (Pseudo-Cleft)</div>
+          <div class="type-tagline">
+            Great for explaining and defining things clearly!<br>
+            <span class="ua">🇺🇦 Чудово для пояснень і точних визначень!</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="formula-box">📐 What/Where/Why + clause + BE + [IMPORTANT THING]</div>
+
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <div class="example-flow">
+          <div class="ex-normal">
+            <div class="ex-label">❌ Neutral</div>
+            I need a break.
+          </div>
+          <div class="ex-arrow">→</div>
+          <div class="ex-cleft">
+            <div class="ex-label">✅ Wh-Cleft</div>
+            What I need is <strong>a break</strong>.
+          </div>
+        </div>
+        <div class="example-flow">
+          <div class="ex-normal">
+            <div class="ex-label">❌ Neutral</div>
+            I feel happiest at home.
+          </div>
+          <div class="ex-arrow">→</div>
+          <div class="ex-cleft">
+            <div class="ex-label">✅ Wh-Cleft</div>
+            Where I feel happiest is <strong>at home</strong>.
+          </div>
+        </div>
+      </div>
+
+      <div class="type-explain">
+        The important word goes at the <strong>END</strong> after "is/was". Think of it like building suspense — you reveal the answer last!
+        <span class="ua-note">🇺🇦 Важливе слово ставимо В КІНЦІ після "is/was". Це як навмисна пауза перед відповіддю!</span>
+      </div>
+    </div>
+
+    <!-- TYPE 3: REVERSED WH-CLEFT -->
+    <div class="type-block tb-3">
+      <div class="type-header">
+        <div class="type-emoji-box">🔄</div>
+        <div class="type-header-text">
+          <div class="type-name">3. REVERSED WH-CLEFT</div>
+          <div class="type-tagline">
+            Perfect for contrast — flip the wh-cleft around!<br>
+            <span class="ua">🇺🇦 Ідеально для контрасту — перевертаємо wh-cleft!</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="formula-box">📐 [IMPORTANT THING] + BE + what/where/why + clause</div>
+
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <div class="example-flow">
+          <div class="ex-normal">
+            <div class="ex-label">Wh-Cleft version</div>
+            What I need is a break.
+          </div>
+          <div class="ex-arrow">→</div>
+          <div class="ex-cleft">
+            <div class="ex-label">✅ Reversed</div>
+            <strong>A break</strong> is what I need.
+          </div>
+        </div>
+        <div class="example-flow">
+          <div class="ex-normal">
+            <div class="ex-label">❌ Flat</div>
+            Growth matters, not success.
+          </div>
+          <div class="ex-arrow">→</div>
+          <div class="ex-cleft">
+            <div class="ex-label">✅ Reversed + Contrast</div>
+            Success isn't what matters. <strong>Growth</strong> is what matters.
+          </div>
+        </div>
+      </div>
+
+      <div class="type-explain">
+        Very common in spoken English. It sounds natural and punchy, especially for contrast: put the surprising word at the start!
+        <span class="ua-note">🇺🇦 Дуже поширено в розмовній мові. Звучить природно і акцентовано — для контрасту постав несподіване слово на початок!</span>
+      </div>
+    </div>
+
+    <!-- TYPE 4: ALL-CLEFT -->
+    <div class="type-block tb-4">
+      <div class="type-header">
+        <div class="type-emoji-box">💜</div>
+        <div class="type-header-text">
+          <div class="type-name">4. ALL-CLEFT</div>
+          <div class="type-tagline">
+            Emotional and dramatic — "that's the ONE thing I want!"<br>
+            <span class="ua">🇺🇦 Емоційно і драматично — "це ЄДИНЕ, чого я хочу!"</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="formula-box">📐 All + clause + BE + [THE ONLY THING]</div>
+
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <div class="example-flow">
+          <div class="ex-normal">
+            <div class="ex-label">❌ Flat</div>
+            I want peace.
+          </div>
+          <div class="ex-arrow">→</div>
+          <div class="ex-cleft">
+            <div class="ex-label">✅ All-Cleft (emotional!)</div>
+            All I want is <strong>peace</strong>. 🕊️
+          </div>
+        </div>
+        <div class="example-flow">
+          <div class="ex-normal">
+            <div class="ex-label">❌ Flat</div>
+            He complained the whole time.
+          </div>
+          <div class="ex-arrow">→</div>
+          <div class="ex-cleft">
+            <div class="ex-label">✅ All-Cleft (frustrated!)</div>
+            All he did was <strong>complain</strong>. 🙄
+          </div>
+        </div>
+      </div>
+
+      <div class="type-explain">
+        "All" means "the only thing" — it minimizes everything else. Perfect for dramatic effect in storytelling and speeches!
+        <span class="ua-note">🇺🇦 "All" означає "єдине" — воно зменшує все інше. Ідеально для драматичного ефекту в розповідях і промовах!</span>
+      </div>
+    </div>
+
+    <!-- TYPE 5: THERE-CLEFT -->
+    <div class="type-block tb-5">
+      <div class="type-header">
+        <div class="type-emoji-box">👉</div>
+        <div class="type-header-text">
+          <div class="type-name">5. THERE-CLEFT</div>
+          <div class="type-tagline">
+            Introduces a key point — creates suspense before explaining!<br>
+            <span class="ua">🇺🇦 Вводить ключову думку — створює інтригу перед поясненням!</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="formula-box">📐 There + BE + [key intro phrase] + clause</div>
+
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <div class="example-flow">
+          <div class="ex-normal">
+            <div class="ex-label">❌ Flat</div>
+            I don't understand something.
+          </div>
+          <div class="ex-arrow">→</div>
+          <div class="ex-cleft">
+            <div class="ex-label">✅ There-Cleft</div>
+            There's <strong>one thing</strong> I don't understand.
+          </div>
+        </div>
+        <div class="example-flow">
+          <div class="ex-normal">
+            <div class="ex-label">❌ Flat</div>
+            I had a reason to leave.
+          </div>
+          <div class="ex-arrow">→</div>
+          <div class="ex-cleft">
+            <div class="ex-label">✅ There-Cleft</div>
+            There was <strong>a reason</strong> I left.
+          </div>
+        </div>
+      </div>
+
+      <div class="type-explain">
+        Less common than the others, but great for setting up a key idea before you explain it in detail. It's like saying "listen carefully — here comes the important part!"
+        <span class="ua-note">🇺🇦 Менш поширений, але чудово підходить для підготовки слухача перед поясненням. Це як сказати: "Слухай уважно — зараз буде головне!"</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════ TENSES -->
+<section class="tenses-section">
+  <div class="container">
+    <div class="section-label">Grammar Tip • Граматична підказка</div>
+    <h2 class="section-title">Change the Tense! 🕐</h2>
+    <div class="section-ua">Змінюй форму дієслова "be" залежно від часу!</div>
+
+    <div class="tenses-grid">
+      <div class="tense-card">
+        <div class="tense-label">🟡 Present</div>
+        <div class="tense-sentence">It <span class="be-verb">is</span> John who helps me.</div>
+        <div class="tense-ua">🇺🇦 Саме Том мені допомагає (зараз)</div>
+      </div>
+      <div class="tense-card">
+        <div class="tense-label">🔴 Past</div>
+        <div class="tense-sentence">It <span class="be-verb">was</span> John who helped me.</div>
+        <div class="tense-ua">🇺🇦 Саме Том мені допоміг (колись)</div>
+      </div>
+      <div class="tense-card">
+        <div class="tense-label">🟢 Present Perfect</div>
+        <div class="tense-sentence">It <span class="be-verb">has been</span> John who has helped me.</div>
+        <div class="tense-ua">🇺🇦 Саме Том допомагав мені (до цього часу)</div>
+      </div>
+      <div class="tense-card">
+        <div class="tense-label">🔵 Future</div>
+        <div class="tense-sentence">It <span class="be-verb">will be</span> John who leads us.</div>
+        <div class="tense-ua">🇺🇦 Саме Том буде вести нас (майбутнє)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════ MISTAKES -->
+<section class="mistakes-section">
+  <div class="container">
+    <div class="section-label">Watch Out! • Увага!</div>
+    <h2 class="section-title">Common Mistakes ⚠️</h2>
+    <div class="section-ua">Найпоширеніші помилки — запам'ятай, щоб не повторювати!</div>
+
+    <div class="mistakes-grid">
+      <div class="mistake-card">
+        <div class="mistake-wrong">
+          <div class="mistake-badge">❌ Wrong / Неправильно</div>
+          <div class="mistake-text">It was John <u>which</u> called me.</div>
+          <div class="mistake-ua">🇺🇦 Для людей НЕ "which"!</div>
+        </div>
+        <div class="mistake-right">
+          <div class="mistake-badge">✅ Correct / Правильно</div>
+          <div class="mistake-text">It was John <u>who</u> called me.</div>
+          <div class="mistake-ua">🇺🇦 Для людей завжди "WHO" 👤</div>
+        </div>
+      </div>
+
+      <div class="mistake-card">
+        <div class="mistake-wrong">
+          <div class="mistake-badge">❌ Wrong / Неправильно</div>
+          <div class="mistake-text">What I like <u>it</u> is music.</div>
+          <div class="mistake-ua">🇺🇦 Зайве "it" — не повторюй підмет!</div>
+        </div>
+        <div class="mistake-right">
+          <div class="mistake-badge">✅ Correct / Правильно</div>
+          <div class="mistake-text">What I like is music.</div>
+          <div class="mistake-ua">🇺🇦 Просто: "What I like is..." ✨</div>
+        </div>
+      </div>
+
+      <div class="mistake-card">
+        <div class="mistake-wrong">
+          <div class="mistake-badge">❌ Wrong / Неправильно</div>
+          <div class="mistake-text">It was because he was tired <u>he</u> left.</div>
+          <div class="mistake-ua">🇺🇦 Після причини потрібне "that"!</div>
+        </div>
+        <div class="mistake-right">
+          <div class="mistake-badge">✅ Correct / Правильно</div>
+          <div class="mistake-text">It was because he was tired <u>that</u> he left.</div>
+          <div class="mistake-ua">🇺🇦 Завжди "because... <strong>that</strong>..." 🔑</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════ QUIZ -->
+<section>
+  <div class="container">
+    <div class="quiz-section">
+      <div class="section-label">Practice Time! • Час практики!</div>
+      <h2 class="section-title">Test Yourself! 🎮</h2>
+      <div class="section-ua">Спробуй самостійно — натисни кнопку, щоб побачити відповідь!</div>
+
+      <div class="quiz-item">
+        <div class="quiz-q">
+          <span class="q-number">1</span>
+          Transform: <em>"Sarah wrote this poem."</em> — focus on SARAH.
+          <span class="type-hint">It-Cleft</span>
+        </div>
+        <button class="show-btn" onclick="reveal(this)">Show Answer 👀</button>
+        <div class="quiz-answer">
+          ✅ It was <strong>Sarah</strong> who wrote this poem.
+          <span class="ans-ua">🇺🇦 Саме Сара написала цей вірш.</span>
+        </div>
+      </div>
+
+      <div class="quiz-item">
+        <div class="quiz-q">
+          <span class="q-number">2</span>
+          Transform: <em>"I hate waking up early."</em> — use a Wh-cleft.
+          <span class="type-hint">Wh-Cleft</span>
+        </div>
+        <button class="show-btn" onclick="reveal(this)">Show Answer 👀</button>
+        <div class="quiz-answer">
+          ✅ What I hate is <strong>waking up early</strong>.
+          <span class="ans-ua">🇺🇦 Те, що я ненавиджу — це рано вставати.</span>
+        </div>
+      </div>
+
+      <div class="quiz-item">
+        <div class="quiz-q">
+          <span class="q-number">3</span>
+          Make it emotional: <em>"I just want your support."</em>
+          <span class="type-hint">All-Cleft</span>
+        </div>
+        <button class="show-btn" onclick="reveal(this)">Show Answer 👀</button>
+        <div class="quiz-answer">
+          ✅ All I want is <strong>your support</strong>. 💙
+          <span class="ans-ua">🇺🇦 Все, чого я хочу — це твоя підтримка.</span>
+        </div>
+      </div>
+
+      <div class="quiz-item">
+        <div class="quiz-q">
+          <span class="q-number">4</span>
+          Create contrast: <em>"Grades don't define you. Character defines you."</em>
+          <span class="type-hint">Reversed Wh-Cleft</span>
+        </div>
+        <button class="show-btn" onclick="reveal(this)">Show Answer 👀</button>
+        <div class="quiz-answer">
+          ✅ Grades aren't what defines you. <strong>Character</strong> is what defines you.
+          <span class="ans-ua">🇺🇦 Оцінки — не те, що тебе визначає. Характер — ось що тебе визначає.</span>
+        </div>
+      </div>
+
+      <div class="quiz-item">
+        <div class="quiz-q">
+          <span class="q-number">5</span>
+          Introduce a key idea: <em>"I want to say something important to you."</em>
+          <span class="type-hint">There-Cleft</span>
+        </div>
+        <button class="show-btn" onclick="reveal(this)">Show Answer 👀</button>
+        <div class="quiz-answer">
+          ✅ There's <strong>something important</strong> I want to say to you.
+          <span class="ans-ua">🇺🇦 Є щось важливе, що я хочу тобі сказати.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════ SUMMARY TABLE -->
+<section class="summary-section">
+  <div class="container">
+    <div class="section-label">Quick Reference • Швидка довідка</div>
+    <h2 class="section-title">Summary Table 📊</h2>
+    <div class="section-ua">Збережи цю таблицю — вона завжди стане в пригоді!</div>
+
+    <div class="summary-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Type / Тип</th>
+            <th>Formula / Формула</th>
+            <th>Use For / Для чого</th>
+            <th>Quick Example</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="t-badge t1">IT-CLEFT</span></td>
+            <td><span class="formula-inline">It + BE + X + that/who + clause</span></td>
+            <td>Emphasize any element<span class="td-ua">🇺🇦 Виділити будь-який елемент</span></td>
+            <td>It was <strong>Emma</strong> who won.</td>
+          </tr>
+          <tr>
+            <td><span class="t-badge t2">WH-CLEFT</span></td>
+            <td><span class="formula-inline">What/Why + clause + BE + X</span></td>
+            <td>Explain / define clearly<span class="td-ua">🇺🇦 Пояснити / дати визначення</span></td>
+            <td>What I need is <strong>rest</strong>.</td>
+          </tr>
+          <tr>
+            <td><span class="t-badge t3">REVERSED WH</span></td>
+            <td><span class="formula-inline">X + BE + wh-clause</span></td>
+            <td>Create contrast / punch<span class="td-ua">🇺🇦 Контраст / акцент</span></td>
+            <td><strong>Rest</strong> is what I need.</td>
+          </tr>
+          <tr>
+            <td><span class="t-badge t4">ALL-CLEFT</span></td>
+            <td><span class="formula-inline">All + clause + BE + X</span></td>
+            <td>Emotional / dramatic<span class="td-ua">🇺🇦 Емоції / драматичний ефект</span></td>
+            <td>All I want is <strong>peace</strong>.</td>
+          </tr>
+          <tr>
+            <td><span class="t-badge t5">THERE-CLEFT</span></td>
+            <td><span class="formula-inline">There + BE + intro + clause</span></td>
+            <td>Introduce a key idea<span class="td-ua">🇺🇦 Ввести ключову думку</span></td>
+            <td>There's <strong>one thing</strong> I know.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tip-box" style="margin-top: 24px;">
+      <div class="tip-icon">🎓</div>
+      <div class="tip-text">
+        Cleft sentences are used in <strong>academic essays, debates, TED talks, storytelling, and persuasive writing</strong>. They make your English sound more advanced, structured, and powerful!
+        <span class="ua">🇺🇦 Cleft sentences використовуються в наукових есе, дебатах, TED-виступах, розповідях і переконливих текстах. Вони роблять твою англійську більш просунутою, структурованою та потужною!</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════ FOOTER -->
+<footer>
+  Made with ❤️ for English learners everywhere · 
+  Створено з <span>💛</span> для всіх, хто вчить англійську 🇺🇦
+</footer>
+
+<script>
+function reveal(btn) {
+  const answer = btn.nextElementSibling;
+  answer.style.display = 'block';
+  btn.style.display = 'none';
+}
+</script>
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+</body>
+</html>

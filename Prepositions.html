@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prepositions — English Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sky: #4FC3F7;
+    --sun: #FFD54F;
+    --grass: #81C784;
+    --coral: #FF8A65;
+    --purple: #CE93D8;
+    --mint: #80CBC4;
+    --pink: #F48FB1;
+    --navy: #1a2340;
+    --cream: #FFFBF0;
+    --card-radius: 24px;
+    --shadow: 0 8px 32px rgba(26,35,64,0.12);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--cream);
+    color: var(--navy);
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #1a2340 0%, #2d3a6b 60%, #4a3580 100%);
+    min-height: 320px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: 60px 24px 80px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 110%, rgba(79,195,247,0.18) 0%, transparent 70%);
+  }
+  .hero-stars { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
+  .star {
+    position: absolute; background: white; border-radius: 50%;
+    animation: twinkle 3s infinite;
+  }
+  @keyframes twinkle { 0%,100%{opacity:.3} 50%{opacity:1} }
+  .hero-badge {
+    background: var(--sun); color: var(--navy);
+    font-family: 'Fredoka One', cursive; font-size: 14px;
+    padding: 6px 20px; border-radius: 50px; margin-bottom: 18px;
+    display: inline-block; letter-spacing: 1px;
+  }
+  .hero h1 {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(2.8rem, 8vw, 5rem);
+    color: white; line-height: 1.1;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    margin-bottom: 12px;
+  }
+  .hero h1 span { color: var(--sun); }
+  .hero-sub {
+    color: rgba(255,255,255,0.75); font-size: 1.15rem;
+    max-width: 520px; line-height: 1.6;
+  }
+  .hero-emoji { font-size: 3rem; margin-bottom: 10px; }
+
+  /* WAVE */
+  .wave { display: block; margin-top: -2px; }
+
+  /* LAYOUT */
+  .container { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+  .section { padding: 56px 0; }
+
+  /* SECTION HEADER */
+  .section-header {
+    display: flex; align-items: center; gap: 14px; margin-bottom: 32px;
+  }
+  .section-icon {
+    width: 56px; height: 56px; border-radius: 16px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.6rem; flex-shrink: 0;
+    box-shadow: var(--shadow);
+  }
+  .section-header h2 {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    line-height: 1.15;
+  }
+  .section-header h2 span { display: block; font-family: 'Nunito', sans-serif; font-size: 0.85rem; font-weight: 600; opacity: .55; margin-top: 2px; }
+
+  /* DEFINITION CARD */
+  .def-card {
+    background: white; border-radius: var(--card-radius);
+    padding: 32px 36px; box-shadow: var(--shadow);
+    border-left: 8px solid var(--sky);
+    margin-bottom: 24px;
+  }
+  .def-card p { font-size: 1.05rem; line-height: 1.7; margin-bottom: 10px; }
+  .def-card p:last-child { margin-bottom: 0; }
+  .def-card .ua { color: #5c6e91; font-size: .97rem; }
+  .formula-box {
+    background: linear-gradient(135deg, #1a2340, #2d3a6b);
+    color: white; border-radius: 16px; padding: 20px 28px;
+    font-size: 1.15rem; font-weight: 800; text-align: center;
+    margin: 20px 0; letter-spacing: .5px;
+    box-shadow: 0 6px 24px rgba(26,35,64,.25);
+  }
+  .formula-box .formula-label { font-size: .75rem; font-weight: 600; opacity: .6; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+  .formula-box .highlight { color: var(--sun); }
+
+  /* UNIVERSAL SENTENCE BOX */
+  .universal-box {
+    background: linear-gradient(135deg, #FF8A65, #FFB74D);
+    border-radius: var(--card-radius);
+    padding: 28px 32px;
+    color: white;
+    box-shadow: 0 8px 32px rgba(255,138,101,0.35);
+    margin-bottom: 32px;
+  }
+  .universal-box .ub-label {
+    font-size: .8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px;
+    background: rgba(255,255,255,.25); display: inline-block; padding: 4px 12px; border-radius: 50px; margin-bottom: 14px;
+  }
+  .universal-box .ub-sentence {
+    font-family: 'Fredoka One', cursive; font-size: clamp(1.4rem, 4vw, 2rem);
+    line-height: 1.3; margin-bottom: 8px;
+  }
+  .universal-box .ub-prep { 
+    background: rgba(255,255,255,.3); border-radius: 8px; padding: 2px 10px;
+    border: 2px solid rgba(255,255,255,.6);
+    transition: all .2s;
+  }
+  .universal-box .ub-note { font-size: .95rem; opacity: .9; }
+
+  /* CATEGORY TABS NAV */
+  .tab-nav {
+    display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 28px;
+  }
+  .tab-btn {
+    padding: 10px 22px; border-radius: 50px; border: 2.5px solid transparent;
+    font-family: 'Nunito', sans-serif; font-size: .95rem; font-weight: 800;
+    cursor: pointer; transition: all .2s; background: white; color: var(--navy);
+    box-shadow: 0 2px 10px rgba(0,0,0,.08);
+  }
+  .tab-btn:hover, .tab-btn.active { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.15); }
+
+  /* PREPOSITION CARDS GRID */
+  .prep-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+  .prep-card {
+    background: white; border-radius: var(--card-radius); padding: 24px;
+    box-shadow: var(--shadow); border-top: 6px solid var(--sky);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .prep-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(26,35,64,.18); }
+  .prep-card .pc-prep {
+    font-family: 'Fredoka One', cursive; font-size: 2rem; color: var(--navy);
+    background: var(--cream); display: inline-block; padding: 8px 18px; border-radius: 12px;
+    margin-bottom: 12px; border: 3px solid;
+  }
+  .prep-card .pc-title { font-weight: 800; font-size: 1rem; margin-bottom: 4px; }
+  .prep-card .pc-ua { font-size: .85rem; color: #7a8aaa; margin-bottom: 14px; }
+  .prep-card .pc-rule { font-size: .9rem; background: #f5f7ff; border-radius: 10px; padding: 10px 14px; margin-bottom: 12px; line-height: 1.5; }
+  .prep-card .pc-examples { list-style: none; }
+  .prep-card .pc-examples li {
+    font-size: .88rem; padding: 6px 0; border-bottom: 1px dashed #e8ecf5;
+    display: flex; gap: 8px;
+  }
+  .prep-card .pc-examples li:last-child { border-bottom: none; }
+  .prep-card .pc-examples li .en { font-weight: 700; color: var(--navy); }
+  .prep-card .pc-examples li .ua { color: #6b7fa0; font-size: .83rem; }
+  .prep-card .pc-examples li::before { content: '→'; color: var(--coral); font-weight: 800; flex-shrink: 0; }
+
+  /* INFOGRAPHIC VISUAL */
+  .infograph {
+    background: white; border-radius: var(--card-radius); padding: 32px;
+    box-shadow: var(--shadow); margin-bottom: 24px;
+  }
+  .infograph h3 { font-family: 'Fredoka One', cursive; font-size: 1.4rem; margin-bottom: 24px; color: var(--navy); }
+
+  /* TIME VISUAL */
+  .time-visual {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+  }
+  .tv-col {
+    border-radius: 18px; padding: 20px 16px; text-align: center;
+  }
+  .tv-col .tv-prep { font-family: 'Fredoka One', cursive; font-size: 2.5rem; margin-bottom: 8px; }
+  .tv-col .tv-subtitle { font-weight: 800; font-size: .95rem; margin-bottom: 12px; }
+  .tv-col .tv-items { list-style: none; text-align: left; }
+  .tv-col .tv-items li { font-size: .85rem; padding: 5px 0; border-bottom: 1px solid rgba(0,0,0,.06); display: flex; gap: 6px; align-items: flex-start; }
+  .tv-col .tv-items li span.dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; margin-top: 5px; }
+
+  /* PLACE VISUAL */
+  .place-scene {
+    position: relative; background: linear-gradient(180deg, #87CEEB 0%, #87CEEB 55%, #81C784 55%, #6db36f 100%);
+    border-radius: 18px; height: 260px; overflow: hidden; margin-bottom: 20px;
+  }
+  .scene-house {
+    position: absolute; bottom: 35px; left: 50%; transform: translateX(-50%);
+    width: 110px; text-align: center;
+  }
+  .scene-house .house-body {
+    width: 90px; height: 60px; background: #E8D5B7; border: 3px solid #c4a97a; margin: 0 auto;
+    border-radius: 4px 4px 0 0; position: relative;
+  }
+  .scene-house .house-door { width: 22px; height: 32px; background: #8B6914; border-radius: 4px 4px 0 0; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
+  .scene-house .house-window { width: 18px; height: 16px; background: #87CEEB; border: 2px solid #c4a97a; border-radius: 3px; position: absolute; top: 12px; left: 12px; }
+  .scene-house .house-window2 { width: 18px; height: 16px; background: #87CEEB; border: 2px solid #c4a97a; border-radius: 3px; position: absolute; top: 12px; right: 12px; }
+  .scene-house .house-roof {
+    width: 0; height: 0; border-left: 54px solid transparent; border-right: 54px solid transparent;
+    border-bottom: 40px solid #e05b3a; margin: 0 auto; margin-bottom: 0; position: relative; top: 0;
+  }
+  .scene-label {
+    position: absolute; background: rgba(255,255,255,.92); border-radius: 20px;
+    padding: 5px 12px; font-size: .78rem; font-weight: 800; color: var(--navy);
+    box-shadow: 0 2px 8px rgba(0,0,0,.15);
+    white-space: nowrap;
+  }
+  .scene-sun {
+    position: absolute; top: 20px; right: 30px;
+    width: 48px; height: 48px; background: #FFD54F; border-radius: 50%;
+    box-shadow: 0 0 0 8px rgba(255,213,79,.25);
+  }
+  .scene-cloud {
+    position: absolute; background: white; border-radius: 50px;
+    box-shadow: inset 0 0 0 2px rgba(0,0,0,.04);
+  }
+  .place-labels { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .place-tag {
+    background: white; border-radius: 12px; padding: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,.08); text-align: center;
+  }
+  .place-tag .pt-prep { font-family: 'Fredoka One', cursive; font-size: 1.3rem; }
+  .place-tag .pt-text { font-size: .8rem; font-weight: 600; color: #6b7fa0; }
+
+  /* MOVEMENT ARROWS */
+  .movement-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+  .mv-card {
+    background: white; border-radius: 16px; padding: 18px;
+    box-shadow: var(--shadow); display: flex; gap: 14px; align-items: flex-start;
+    border-left: 5px solid;
+  }
+  .mv-card .mv-icon { font-size: 2rem; flex-shrink: 0; }
+  .mv-card .mv-prep { font-family: 'Fredoka One', cursive; font-size: 1.3rem; margin-bottom: 2px; }
+  .mv-card .mv-ua { font-size: .8rem; color: #7a8aaa; margin-bottom: 6px; }
+  .mv-card .mv-ex { font-size: .85rem; line-height: 1.5; }
+  .mv-card .mv-ex strong { color: var(--navy); }
+
+  /* PHRASES TABLE */
+  .phrases-table { width: 100%; border-collapse: collapse; }
+  .phrases-table th {
+    background: var(--navy); color: white; padding: 14px 18px;
+    font-family: 'Fredoka One', cursive; font-size: 1rem; text-align: left;
+  }
+  .phrases-table th:first-child { border-radius: 12px 0 0 0; }
+  .phrases-table th:last-child { border-radius: 0 12px 0 0; }
+  .phrases-table td { padding: 12px 18px; border-bottom: 1px solid #e8ecf5; font-size: .9rem; vertical-align: top; }
+  .phrases-table tr:last-child td { border-bottom: none; }
+  .phrases-table tr:nth-child(even) td { background: #f9faff; }
+  .phrases-table .td-phrase { font-weight: 800; color: var(--navy); }
+  .phrases-table .td-ua { color: #6b7fa0; font-size: .83rem; }
+  .phrases-table-wrap { background: white; border-radius: var(--card-radius); overflow: hidden; box-shadow: var(--shadow); }
+
+  /* DEPENDENT PREPOSITIONS */
+  .dep-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+  .dep-card {
+    background: white; border-radius: 18px; padding: 20px;
+    box-shadow: var(--shadow); border-top: 5px solid;
+  }
+  .dep-card .dc-type { font-family: 'Fredoka One', cursive; font-size: 1.1rem; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+  .dep-card .dc-type .dc-icon { font-size: 1.4rem; }
+  .dep-card ul { list-style: none; }
+  .dep-card ul li { font-size: .88rem; padding: 7px 0; border-bottom: 1px dashed #e8ecf5; line-height: 1.5; }
+  .dep-card ul li:last-child { border-bottom: none; }
+  .dep-card ul li strong { color: var(--navy); }
+  .dep-card ul li .li-ua { color: #7a8aaa; font-size: .8rem; display: block; }
+
+  /* UNIVERSAL SENTENCE SHOWCASE */
+  .showcase-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+  .showcase-card {
+    background: white; border-radius: 18px; padding: 20px;
+    box-shadow: var(--shadow); position: relative; overflow: hidden;
+  }
+  .showcase-card::before {
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 5px;
+  }
+  .showcase-card .sc-category {
+    font-size: .75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;
+    padding: 4px 12px; border-radius: 50px; display: inline-block; margin-bottom: 14px;
+  }
+  .showcase-card .sc-sentence {
+    font-size: 1rem; font-weight: 700; color: var(--navy); line-height: 1.5; margin-bottom: 6px;
+  }
+  .showcase-card .sc-prep { font-family: 'Fredoka One', cursive; font-size: 1.3rem; }
+  .showcase-card .sc-ua { font-size: .85rem; color: #7a8aaa; line-height: 1.5; }
+
+  /* QUICK TIPS */
+  .tips-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+  .tip-card {
+    border-radius: 18px; padding: 22px; color: white;
+    box-shadow: var(--shadow);
+  }
+  .tip-card .tc-icon { font-size: 2.2rem; margin-bottom: 12px; }
+  .tip-card .tc-title { font-family: 'Fredoka One', cursive; font-size: 1.15rem; margin-bottom: 8px; }
+  .tip-card .tc-text { font-size: .9rem; line-height: 1.6; opacity: .92; }
+
+  /* QUIZ TEASER */
+  .quiz-box {
+    background: linear-gradient(135deg, #CE93D8, #9C27B0);
+    border-radius: var(--card-radius); padding: 36px; text-align: center;
+    color: white; box-shadow: 0 10px 40px rgba(156,39,176,.3);
+  }
+  .quiz-box h3 { font-family: 'Fredoka One', cursive; font-size: 2rem; margin-bottom: 10px; }
+  .quiz-box p { opacity: .9; margin-bottom: 24px; font-size: 1.05rem; line-height: 1.6; }
+  .quiz-items { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+  .quiz-item {
+    background: rgba(255,255,255,.15); border-radius: 14px; padding: 16px;
+    font-size: .9rem; text-align: left; cursor: pointer; transition: all .2s;
+    border: 2px solid rgba(255,255,255,.2);
+  }
+  .quiz-item:hover { background: rgba(255,255,255,.28); transform: translateY(-2px); }
+  .quiz-item .qi-q { font-weight: 700; margin-bottom: 4px; }
+  .quiz-item .qi-choices { font-size: .83rem; opacity: .85; }
+  .quiz-item.revealed { background: rgba(255,255,255,.3); border-color: rgba(255,255,255,.7); }
+  .quiz-item .qi-answer { 
+    display: none; font-size: .88rem; font-weight: 800; color: var(--sun);
+    margin-top: 8px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,.3);
+  }
+  .quiz-item.revealed .qi-answer { display: block; }
+
+  /* FOOTER */
+  .footer {
+    background: var(--navy); color: rgba(255,255,255,.6);
+    text-align: center; padding: 32px 20px;
+    font-size: .9rem;
+  }
+  .footer strong { color: var(--sun); }
+
+  /* COLORS */
+  .c-sky { color: #1a7baa; }
+  .c-coral { color: #d45a2e; }
+  .c-grass { color: #3d8a40; }
+  .c-purple { color: #7b2faf; }
+  .c-mint { color: #2e8a83; }
+  .c-pink { color: #c62a60; }
+
+  .bg-sky { background: #E3F6FD; border-color: #4FC3F7; }
+  .bg-coral { background: #FFF0EA; border-color: #FF8A65; }
+  .bg-grass { background: #EBF9EB; border-color: #81C784; }
+  .bg-purple { background: #F8EFFF; border-color: #CE93D8; }
+  .bg-mint { background: #E5F7F6; border-color: #80CBC4; }
+  .bg-pink { background: #FFE8F1; border-color: #F48FB1; }
+  .bg-sun { background: #FFF9E3; border-color: #FFD54F; }
+
+  .tv-in { background: #FFF9E3; }
+  .tv-on { background: #E3F6FD; }
+  .tv-at { background: #EBF9EB; }
+  .tv-in .dot { background: #FFB300; }
+  .tv-on .dot { background: #0288D1; }
+  .tv-at .dot { background: #43A047; }
+
+  #scroll-top-btn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #1a1208;
+  border: 1.5px solid rgba(200,150,62,0.4);
+  color: #f5f0e8;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+  pointer-events: none;
+  z-index: 9998;
+}
+#scroll-top-btn.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+#scroll-top-btn:hover {
+  background: #c8963e;
+  border-color: #c8963e;
+  color: #1a1208;
+}
+
+  /* ── TABLET ── */
+  @media (max-width: 768px) {
+    .container { padding: 0 16px; }
+    .section { padding: 40px 0; }
+    .prep-grid { grid-template-columns: 1fr; }
+    .showcase-grid { grid-template-columns: 1fr; }
+    .tips-grid { grid-template-columns: 1fr; }
+    .dep-grid { grid-template-columns: 1fr; }
+    .movement-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .quiz-items { grid-template-columns: 1fr 1fr; }
+    .time-visual { grid-template-columns: 1fr; gap: 12px; }
+    .place-labels { grid-template-columns: repeat(3, 1fr); }
+    .phrases-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .phrases-table { min-width: 520px; }
+    .def-card { padding: 22px 20px; }
+    .formula-box { font-size: 1rem; padding: 16px 18px; }
+    .universal-box { padding: 22px 20px; }
+    .universal-box .ub-sentence { font-size: 1.3rem; }
+    .infograph { padding: 22px 18px; }
+    .place-scene { height: 220px; }
+    .section-header h2 { font-size: 1.5rem; }
+    .section-icon { width: 46px; height: 46px; font-size: 1.3rem; }
+    .hero { padding: 48px 20px 68px; min-height: 260px; }
+    .hero h1 { font-size: 2.8rem; }
+    .hero-sub { font-size: 1rem; }
+    .quiz-box { padding: 26px 18px; }
+    .quiz-box h3 { font-size: 1.6rem; }
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 480px) {
+    .container { padding: 0 12px; }
+    .section { padding: 32px 0; }
+    .prep-grid,
+    .showcase-grid,
+    .tips-grid,
+    .dep-grid,
+    .movement-grid,
+    .quiz-items { grid-template-columns: 1fr; gap: 12px; }
+    .time-visual { grid-template-columns: 1fr; gap: 10px; }
+    .place-labels { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+    .two-col-grid { grid-template-columns: 1fr !important; gap: 12px !important; }
+    .prep-card[style*="grid-column"] { grid-column: unset !important; }
+    .phrases-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 16px; }
+    .phrases-table { min-width: 480px; font-size: .82rem; }
+    .phrases-table th, .phrases-table td { padding: 10px 12px; }
+    .hero { padding: 40px 16px 56px; min-height: auto; }
+    .hero h1 { font-size: 2.2rem; }
+    .hero-sub { font-size: .92rem; }
+    .hero-emoji { font-size: 2.2rem; }
+    .hero-badge { font-size: 12px; padding: 5px 14px; }
+    .def-card { padding: 18px 16px; border-left-width: 5px; border-radius: 16px; }
+    .def-card p { font-size: .95rem; }
+    .def-card .ua { font-size: .88rem; }
+    .formula-box { font-size: .9rem; padding: 14px 16px; border-radius: 14px; word-break: break-word; }
+    .formula-box .formula-label { font-size: .7rem; }
+    .universal-box { padding: 18px 16px; border-radius: 18px; }
+    .universal-box .ub-sentence { font-size: 1.15rem; }
+    .universal-box .ub-note { font-size: .85rem; }
+    .prep-card { padding: 18px 16px; border-radius: 18px; }
+    .prep-card .pc-prep { font-size: 1.6rem; padding: 6px 14px; }
+    .prep-card .pc-examples li { font-size: .82rem; }
+    .prep-card .pc-rule { font-size: .83rem; }
+    .showcase-card { padding: 16px; border-radius: 14px; }
+    .showcase-card .sc-sentence { font-size: .95rem; }
+    .showcase-card .sc-prep { font-size: 1.15rem; }
+    .showcase-card .sc-ua { font-size: .8rem; }
+    .mv-card { padding: 14px; border-radius: 14px; }
+    .mv-card .mv-icon { font-size: 1.6rem; }
+    .mv-card .mv-prep { font-size: 1.1rem; }
+    .mv-card .mv-ex { font-size: .82rem; }
+    .tip-card { padding: 18px 16px; border-radius: 16px; }
+    .tip-card .tc-icon { font-size: 1.8rem; }
+    .tip-card .tc-text { font-size: .85rem; }
+    .dep-card { padding: 16px; border-radius: 14px; }
+    .dep-card ul li { font-size: .83rem; }
+    .section-header { gap: 10px; margin-bottom: 22px; }
+    .section-header h2 { font-size: 1.3rem; }
+    .section-icon { width: 40px; height: 40px; font-size: 1.1rem; border-radius: 12px; }
+    .infograph { padding: 18px 14px; border-radius: 18px; }
+    .infograph h3 { font-size: 1.1rem; margin-bottom: 16px; }
+    .place-scene { height: 190px; }
+    .scene-label { font-size: .68rem; padding: 4px 9px; }
+    .place-tag .pt-prep { font-size: 1.1rem; }
+    .place-tag .pt-text { font-size: .72rem; }
+    .place-tag { padding: 10px 8px; border-radius: 10px; }
+    .tv-col .tv-prep { font-size: 2rem; }
+    .tv-col .tv-items li { font-size: .8rem; }
+    .quiz-box { padding: 22px 14px; border-radius: 18px; }
+    .quiz-box h3 { font-size: 1.4rem; }
+    .quiz-box p { font-size: .9rem; }
+    .quiz-item { padding: 13px; border-radius: 12px; font-size: .85rem; }
+    .quiz-item .qi-q { font-size: .88rem; }
+    #scroll-top-btn { bottom: 18px; right: 18px; width: 40px; height: 40px; font-size: 16px; }
+    .footer { padding: 24px 16px; font-size: .82rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-stars" id="stars"></div>
+  <div class="hero-emoji">📍</div>
+  <div class="hero-badge">✨ English Grammar for Beginners</div>
+  <h1>Prepositions<br><span>Прийменники</span></h1>
+  <p class="hero-sub">The tiny words that tell us WHERE, WHEN & HOW things happen — маленькі слова, що все пов'язують!</p>
+</header>
+<svg class="wave" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="display:block;background:#1a2340"><path d="M0,40 C360,80 1080,0 1440,40 L1440,60 L0,60 Z" fill="#FFFBF0"/></svg>
+
+<!-- WHAT IS A PREPOSITION -->
+<section class="section" style="background:var(--cream)">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon" style="background:#E3F6FD">🔗</div>
+      <h2 class="c-sky">What is a Preposition?<span>Що таке прийменник?</span></h2>
+    </div>
+    <div class="def-card">
+      <p>A <strong>preposition</strong> is a small word (or phrase) that shows the <strong>relationship</strong> between a noun/pronoun and other words in a sentence. It tells us <strong>WHERE</strong> something is, <strong>WHEN</strong> something happens, or <strong>HOW</strong> things are connected.</p>
+      <p class="ua">🇺🇦 <strong>Прийменник</strong> — це маленьке слово (або словосполучення), яке показує <strong>зв'язок</strong> між іменником/займенником та іншими словами. Він вказує <strong>ДЕ</strong> щось знаходиться, <strong>КОЛИ</strong> щось відбувається, або <strong>ЯК</strong> речі пов'язані.</p>
+    </div>
+
+    <div class="formula-box">
+      <div class="formula-label">⚡ Main Formula / Головна формула</div>
+      <span class="highlight">[ Noun/Pronoun ]</span> + <span style="color:#80CBC4">[ Preposition ]</span> + <span class="highlight">[ Noun/Pronoun ]</span>
+      <div style="font-size:.85rem;opacity:.7;margin-top:8px;">Example: The cat is <span style="color:var(--sun)">on</span> the table. / Кіт є НА столі.</div>
+    </div>
+
+    <!-- UNIVERSAL SENTENCE BOX -->
+    <div class="universal-box">
+      <div class="ub-label">🌟 Universal Sentence / Універсальне речення</div>
+      <div class="ub-sentence">I met my friend <span class="ub-prep" id="universal-prep">at</span> the café.</div>
+      <div class="ub-note">👀 Watch how the preposition changes the whole meaning! / Дивись, як змінюється значення залежно від прийменника!</div>
+    </div>
+  </div>
+</section>
+
+<!-- TIME PREPOSITIONS -->
+<section class="section" style="background:white">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon" style="background:#FFF9E3">⏰</div>
+      <h2 class="c-coral">Time Prepositions<span>Прийменники часу: IN / ON / AT</span></h2>
+    </div>
+
+    <div class="infograph" style="background:#FFFDF5">
+      <h3>⏰ The Time Triangle / Трикутник часу</h3>
+      <div class="time-visual">
+        <!-- IN -->
+        <div class="tv-col tv-in" style="border-radius:18px;">
+          <div class="tv-prep">IN</div>
+          <div class="tv-subtitle" style="color:#E65100">🗓 Longer periods<br><span style="font-family:Nunito;font-weight:600;font-size:.8rem">Довші проміжки</span></div>
+          <ul class="tv-items">
+            <li><span class="dot tv-in" style="background:#FFB300"></span><div><strong>Months:</strong> in January<br><small style="color:#888">у січні</small></div></li>
+            <li><span class="dot" style="background:#FFB300"></span><div><strong>Seasons:</strong> in summer<br><small style="color:#888">влітку</small></div></li>
+            <li><span class="dot" style="background:#FFB300"></span><div><strong>Years:</strong> in 2024<br><small style="color:#888">у 2024 році</small></div></li>
+            <li><span class="dot" style="background:#FFB300"></span><div><strong>Centuries:</strong> in the 21st century</div></li>
+            <li><span class="dot" style="background:#FFB300"></span><div><strong>Decades:</strong> in the 90s</div></li>
+            <li><span class="dot" style="background:#FFB300"></span><div><strong>Parts of day:</strong> in the morning<br><small style="color:#888">вранці</small></div></li>
+          </ul>
+        </div>
+        <!-- ON -->
+        <div class="tv-col tv-on" style="border-radius:18px;">
+          <div class="tv-prep">ON</div>
+          <div class="tv-subtitle" style="color:#01579B">📅 Specific days<br><span style="font-family:Nunito;font-weight:600;font-size:.8rem">Конкретні дні</span></div>
+          <ul class="tv-items">
+            <li><span class="dot" style="background:#0288D1"></span><div><strong>Days:</strong> on Monday<br><small style="color:#888">у понеділок</small></div></li>
+            <li><span class="dot" style="background:#0288D1"></span><div><strong>Dates:</strong> on March 5th<br><small style="color:#888">5 березня</small></div></li>
+            <li><span class="dot" style="background:#0288D1"></span><div><strong>Specific day+time:</strong> on Monday morning</div></li>
+            <li><span class="dot" style="background:#0288D1"></span><div><strong>Holidays:</strong> on Christmas<br><small style="color:#888">на Різдво</small></div></li>
+            <li><span class="dot" style="background:#0288D1"></span><div><strong>Anniversaries:</strong> on my birthday</div></li>
+          </ul>
+        </div>
+        <!-- AT -->
+        <div class="tv-col tv-at" style="border-radius:18px;">
+          <div class="tv-prep">AT</div>
+          <div class="tv-subtitle" style="color:#1B5E20">🕐 Exact time<br><span style="font-family:Nunito;font-weight:600;font-size:.8rem">Точний час</span></div>
+          <ul class="tv-items">
+            <li><span class="dot" style="background:#43A047"></span><div><strong>Clock time:</strong> at 7 pm<br><small style="color:#888">о 7 вечора</small></div></li>
+            <li><span class="dot" style="background:#43A047"></span><div><strong>Meals:</strong> at lunch, at dinner<br><small style="color:#888">за обідом</small></div></li>
+            <li><span class="dot" style="background:#43A047"></span><div><strong>Fixed points:</strong> at sunrise<br><small style="color:#888">на світанку</small></div></li>
+            <li><span class="dot" style="background:#43A047"></span><div><strong>Night:</strong> at night<br><small style="color:#888">вночі</small></div></li>
+            <li><span class="dot" style="background:#43A047"></span><div><strong>Weekends:</strong> at the weekend (BE)</div></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- UNIVERSAL SENTENCE EXAMPLES - TIME -->
+    <div style="background:white;border-radius:var(--card-radius);padding:28px;box-shadow:var(--shadow);margin-bottom:24px;">
+      <h3 style="font-family:'Fredoka One',cursive;font-size:1.3rem;margin-bottom:18px;">🌟 Universal Sentence — Time / Час</h3>
+      <div class="showcase-grid">
+        <div class="showcase-card" style="border-top-color:#FFD54F">
+          <div class="sc-category" style="background:#FFF9E3;color:#E65100">IN — longer period</div>
+          <div class="sc-sentence">I met my friend <span class="sc-prep" style="color:#E65100">in</span> the morning.</div>
+          <div class="sc-ua">🇺🇦 Я зустрів свого друга <strong>вранці</strong>.</div>
+        </div>
+        <div class="showcase-card" style="border-top-color:#4FC3F7">
+          <div class="sc-category" style="background:#E3F6FD;color:#01579B">ON — specific day</div>
+          <div class="sc-sentence">I met my friend <span class="sc-prep" style="color:#01579B">on</span> Monday.</div>
+          <div class="sc-ua">🇺🇦 Я зустрів свого друга <strong>у понеділок</strong>.</div>
+        </div>
+        <div class="showcase-card" style="border-top-color:#81C784">
+          <div class="sc-category" style="background:#EBF9EB;color:#1B5E20">AT — exact time</div>
+          <div class="sc-sentence">I met my friend <span class="sc-prep" style="color:#1B5E20">at</span> 3 o'clock.</div>
+          <div class="sc-ua">🇺🇦 Я зустрів свого друга <strong>о 3 годині</strong>.</div>
+        </div>
+        <div class="showcase-card" style="border-top-color:#CE93D8">
+          <div class="sc-category" style="background:#F8EFFF;color:#6A1B9A">IN — month</div>
+          <div class="sc-sentence">I met my friend <span class="sc-prep" style="color:#6A1B9A">in</span> January.</div>
+          <div class="sc-ua">🇺🇦 Я зустрів свого друга <strong>у січні</strong>.</div>
+        </div>
+        <div class="showcase-card" style="border-top-color:#FF8A65">
+          <div class="sc-category" style="background:#FFF0EA;color:#BF360C">ON — date</div>
+          <div class="sc-sentence">I met my friend <span class="sc-prep" style="color:#BF360C">on</span> March 5th.</div>
+          <div class="sc-ua">🇺🇦 Я зустрів свого друга <strong>5 березня</strong>.</div>
+        </div>
+        <div class="showcase-card" style="border-top-color:#80CBC4">
+          <div class="sc-category" style="background:#E5F7F6;color:#00695C">AT — night</div>
+          <div class="sc-sentence">I met my friend <span class="sc-prep" style="color:#00695C">at</span> night.</div>
+          <div class="sc-ua">🇺🇦 Я зустрів свого друга <strong>вночі</strong>.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TIME PREP CARDS -->
+    <div class="prep-grid">
+      <div class="prep-card bg-sun">
+        <div class="pc-prep" style="border-color:#FFD54F">IN</div>
+        <div class="pc-title">📅 Periods of time</div>
+        <div class="pc-ua">Тривалі проміжки часу</div>
+        <div class="pc-rule">Use for months, seasons, years, decades, centuries, and parts of the day.</div>
+        <ul class="pc-examples">
+          <li><div><div class="en">We moved here in 2019.</div><div class="ua">Ми переїхали сюди у 2019 році.</div></div></li>
+          <li><div><div class="en">She was born in autumn.</div><div class="ua">Вона народилась восени.</div></div></li>
+          <li><div><div class="en">I study in the evening.</div><div class="ua">Я навчаюся ввечері.</div></div></li>
+        </ul>
+      </div>
+      <div class="prep-card bg-sky">
+        <div class="pc-prep" style="border-color:#4FC3F7">ON</div>
+        <div class="pc-title">🗓 Specific days & dates</div>
+        <div class="pc-ua">Конкретні дні та дати</div>
+        <div class="pc-rule">Use for days of the week, specific calendar dates, and special days/holidays.</div>
+        <ul class="pc-examples">
+          <li><div><div class="en">School starts on September 1st.</div><div class="ua">Школа починається 1 вересня.</div></div></li>
+          <li><div><div class="en">We rest on Sundays.</div><div class="ua">Ми відпочиваємо по неділях.</div></div></li>
+          <li><div><div class="en">Gifts are given on Christmas.</div><div class="ua">Подарунки дарують на Різдво.</div></div></li>
+        </ul>
+      </div>
+      <div class="prep-card bg-grass">
+        <div class="pc-prep" style="border-color:#81C784">AT</div>
+        <div class="pc-title">🕐 Exact time points</div>
+        <div class="pc-ua">Точний час та моменти</div>
+        <div class="pc-rule">Use for clock times, mealtimes, and specific time expressions like "at night".</div>
+        <ul class="pc-examples">
+          <li><div><div class="en">The train leaves at 8:15 am.</div><div class="ua">Потяг відходить о 8:15 ранку.</div></div></li>
+          <li><div><div class="en">We talk at dinner.</div><div class="ua">Ми розмовляємо за вечерею.</div></div></li>
+          <li><div><div class="en">I can't sleep at night.</div><div class="ua">Я не можу спати вночі.</div></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLACE PREPOSITIONS -->
+<section class="section" style="background:var(--cream)">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon" style="background:#EBF9EB">📍</div>
+      <h2 class="c-grass">Place Prepositions<span>Прийменники місця</span></h2>
+    </div>
+
+    <!-- Scene -->
+    <div class="infograph" style="margin-bottom:24px">
+      <h3>🏠 Picture this / Уяви собі</h3>
+      <div class="place-scene">
+        <div class="scene-sun"></div>
+        <div class="scene-cloud" style="width:80px;height:28px;top:30px;left:60px;"></div>
+        <div class="scene-cloud" style="width:55px;height:20px;top:40px;left:120px;"></div>
+        <!-- Labels floating around the house -->
+        <div class="scene-label" style="top:85px;left:20px">📦 above / над</div>
+        <div class="scene-label" style="top:155px;left:8px">👈 beside / поруч</div>
+        <div class="scene-label" style="top:155px;right:8px">👉 next to / поруч</div>
+        <div class="scene-label" style="bottom:10px;left:15px">⬇️ below / під</div>
+        <div class="scene-label" style="bottom:10px;right:15px">↕️ between / між</div>
+        <div class="scene-label" style="top:50px;left:50%;transform:translateX(-50%)">⬆️ over / над</div>
+        <!-- House -->
+        <div class="scene-house">
+          <div class="house-roof"></div>
+          <div class="house-body">
+            <div class="house-window"></div>
+            <div class="house-window2"></div>
+            <div class="house-door"></div>
+          </div>
+        </div>
+        <div class="scene-label" style="bottom:78px;left:50%;transform:translateX(-50%)">🏠 in front of / перед</div>
+      </div>
+      <div class="place-labels">
+        <div class="place-tag"><div class="pt-prep" style="color:#E65100">in</div><div class="pt-text">inside / всередині</div></div>
+        <div class="place-tag"><div class="pt-prep" style="color:#01579B">on</div><div class="pt-text">surface / на поверхні</div></div>
+        <div class="place-tag"><div class="pt-prep" style="color:#1B5E20">at</div><div class="pt-text">point / у точці</div></div>
+        <div class="place-tag"><div class="pt-prep" style="color:#4A148C">under</div><div class="pt-text">beneath / під</div></div>
+        <div class="place-tag"><div class="pt-prep" style="color:#880E4F">above</div><div class="pt-text">higher / вище</div></div>
+        <div class="place-tag"><div class="pt-prep" style="color:#BF360C">behind</div><div class="pt-text">at the back / позаду</div></div>
+      </div>
+    </div>
+
+    <!-- Place cards -->
+    <div class="prep-grid">
+      <div class="prep-card bg-sky">
+        <div class="pc-prep" style="border-color:#4FC3F7">IN</div>
+        <div class="pc-title">📦 Inside / enclosed space</div>
+        <div class="pc-ua">Всередині / замкнутий простір</div>
+        <div class="pc-rule">Use for enclosed spaces: rooms, buildings, cities, countries, boxes.</div>
+        <ul class="pc-examples">
+          <li><div><div class="en">The keys are in my bag.</div><div class="ua">Ключі у моїй сумці.</div></div></li>
+          <li><div><div class="en">She lives in Kyiv.</div><div class="ua">Вона живе у Києві.</div></div></li>
+          <li><div><div class="en">We are in the classroom.</div><div class="ua">Ми в класній кімнаті.</div></div></li>
+        </ul>
+      </div>
+      <div class="prep-card bg-coral">
+        <div class="pc-prep" style="border-color:#FF8A65">ON</div>
+        <div class="pc-title">🏔 On a surface</div>
+        <div class="pc-ua">На поверхні</div>
+        <div class="pc-rule">Use for surfaces (table, floor, wall), also: on the left/right, on a bus/train/plane.</div>
+        <ul class="pc-examples">
+          <li><div><div class="en">The book is on the shelf.</div><div class="ua">Книга на полиці.</div></div></li>
+          <li><div><div class="en">There's a fly on the wall.</div><div class="ua">На стіні є муха.</div></div></li>
+          <li><div><div class="en">We are on the second floor.</div><div class="ua">Ми на другому поверсі.</div></div></li>
+        </ul>
+      </div>
+      <div class="prep-card bg-grass">
+        <div class="pc-prep" style="border-color:#81C784">AT</div>
+        <div class="pc-title">📍 Specific point/location</div>
+        <div class="pc-ua">Конкретне місце / точка</div>
+        <div class="pc-rule">Use for specific points: at the door, at the bus stop, at school, at work.</div>
+        <ul class="pc-examples">
+          <li><div><div class="en">She's waiting at the bus stop.</div><div class="ua">Вона чекає на зупинці.</div></div></li>
+          <li><div><div class="en">He works at a hospital.</div><div class="ua">Він працює у лікарні.</div></div></li>
+          <li><div><div class="en">I'll see you at the airport.</div><div class="ua">Я побачу тебе в аеропорту.</div></div></li>
+        </ul>
+      </div>
+      <div class="prep-card bg-purple">
+        <div class="pc-prep" style="border-color:#CE93D8">UNDER / BELOW</div>
+        <div class="pc-title">⬇️ Lower position</div>
+        <div class="pc-ua">Нижче / під</div>
+        <div class="pc-rule">UNDER = directly beneath. BELOW = lower level (not necessarily directly under).</div>
+        <ul class="pc-examples">
+          <li><div><div class="en">The cat is under the table.</div><div class="ua">Кіт під столом.</div></div></li>
+          <li><div><div class="en">The village is below the mountain.</div><div class="ua">Село нижче за гору.</div></div></li>
+        </ul>
+      </div>
+      <div class="prep-card bg-sun">
+        <div class="pc-prep" style="border-color:#FFD54F">ABOVE / OVER</div>
+        <div class="pc-title">⬆️ Higher position</div>
+        <div class="pc-ua">Вище / над</div>
+        <div class="pc-rule">ABOVE = higher than. OVER = directly above or covering.</div>
+        <ul class="pc-examples">
+          <li><div><div class="en">The plane flew above the clouds.</div><div class="ua">Літак летів над хмарами.</div></div></li>
+          <li><div><div class="en">She put a blanket over him.</div><div class="ua">Вона накрила його ковдрою.</div></div></li>
+        </ul>
+      </div>
+      <div class="prep-card bg-mint">
+        <div class="pc-prep" style="border-color:#80CBC4">BEHIND / IN FRONT OF</div>
+        <div class="pc-title">↔️ Front & back</div>
+        <div class="pc-ua">Попереду і позаду</div>
+        <div class="pc-rule">BEHIND = at the back. IN FRONT OF = at the front, facing something.</div>
+        <ul class="pc-examples">
+          <li><div><div class="en">There's a park behind our house.</div><div class="ua">За нашим будинком є парк.</div></div></li>
+          <li><div><div class="en">The car is in front of the shop.</div><div class="ua">Машина перед магазином.</div></div></li>
+        </ul>
+      </div>
+      <div class="prep-card bg-pink">
+        <div class="pc-prep" style="border-color:#F48FB1">NEXT TO / BESIDE / NEAR</div>
+        <div class="pc-title">🤝 Beside / Close to</div>
+        <div class="pc-ua">Поруч / близько</div>
+        <div class="pc-rule">All mean close to, but NEXT TO/BESIDE = immediately at the side; NEAR = close but not touching.</div>
+        <ul class="pc-examples">
+          <li><div><div class="en">Sit next to me!</div><div class="ua">Сядь поруч зі мною!</div></div></li>
+          <li><div><div class="en">There's a café near the school.</div><div class="ua">Поруч зі школою є кафе.</div></div></li>
+        </ul>
+      </div>
+      <div class="prep-card bg-sky">
+        <div class="pc-prep" style="border-color:#4FC3F7">BETWEEN / AMONG</div>
+        <div class="pc-title">🔀 Between things</div>
+        <div class="pc-ua">Між речами / серед</div>
+        <div class="pc-rule">BETWEEN = in the middle of two things. AMONG = in the middle of a group.</div>
+        <ul class="pc-examples">
+          <li><div><div class="en">The bank is between the school and the park.</div><div class="ua">Банк між школою та парком.</div></div></li>
+          <li><div><div class="en">She found the ring among her jewellery.</div><div class="ua">Вона знайшла каблучку серед прикрас.</div></div></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Universal place showcase -->
+    <div style="background:white;border-radius:var(--card-radius);padding:28px;box-shadow:var(--shadow);margin-top:24px;">
+      <h3 style="font-family:'Fredoka One',cursive;font-size:1.3rem;margin-bottom:18px;">🌟 Universal Sentence — Place / Місце</h3>
+      <div class="showcase-grid">
+        <div class="showcase-card" style="border-top-color:#4FC3F7">
+          <div class="sc-category" style="background:#E3F6FD;color:#01579B">IN — inside</div>
+          <div class="sc-sentence">I met my friend <span class="sc-prep" style="color:#01579B">in</span> the café.</div>
+          <div class="sc-ua">🇺🇦 Я зустрів друга <strong>в кафе</strong>. (всередині)</div>
+        </div>
+        <div class="showcase-card" style="border-top-color:#FF8A65">
+          <div class="sc-category" style="background:#FFF0EA;color:#BF360C">AT — specific point</div>
+          <div class="sc-sentence">I met my friend <span class="sc-prep" style="color:#BF360C">at</span> the café.</div>
+          <div class="sc-ua">🇺🇦 Я зустрів друга <strong>біля кафе</strong>. (загалом у тому місці)</div>
+        </div>
+        <div class="showcase-card" style="border-top-color:#CE93D8">
+          <div class="sc-category" style="background:#F8EFFF;color:#6A1B9A">NEAR — close by</div>
+          <div class="sc-sentence">I met my friend <span class="sc-prep" style="color:#6A1B9A">near</span> the café.</div>
+          <div class="sc-ua">🇺🇦 Я зустрів друга <strong>поруч з кафе</strong>.</div>
+        </div>
+        <div class="showcase-card" style="border-top-color:#81C784">
+          <div class="sc-category" style="background:#EBF9EB;color:#1B5E20">BEHIND — at the back</div>
+          <div class="sc-sentence">I met my friend <span class="sc-prep" style="color:#1B5E20">behind</span> the café.</div>
+          <div class="sc-ua">🇺🇦 Я зустрів друга <strong>за кафе</strong>. (позаду)</div>
+        </div>
+        <div class="showcase-card" style="border-top-color:#FFD54F">
+          <div class="sc-category" style="background:#FFF9E3;color:#E65100">IN FRONT OF</div>
+          <div class="sc-sentence">I met my friend <span class="sc-prep" style="color:#E65100">in front of</span> the café.</div>
+          <div class="sc-ua">🇺🇦 Я зустрів друга <strong>перед кафе</strong>.</div>
+        </div>
+        <div class="showcase-card" style="border-top-color:#80CBC4">
+          <div class="sc-category" style="background:#E5F7F6;color:#00695C">NEXT TO — beside</div>
+          <div class="sc-sentence">I met my friend <span class="sc-prep" style="color:#00695C">next to</span> the café.</div>
+          <div class="sc-ua">🇺🇦 Я зустрів друга <strong>поруч з кафе</strong>. (впритул)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MOVEMENT PREPOSITIONS -->
+<section class="section" style="background:white">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon" style="background:#FFE8F1">🏃</div>
+      <h2 class="c-pink">Movement Prepositions<span>Прийменники руху</span></h2>
+    </div>
+
+    <div class="def-card" style="border-left-color:#F48FB1;margin-bottom:24px">
+      <p>Movement prepositions describe the <strong>direction or path</strong> of movement — where something or someone goes.</p>
+      <p class="ua">🇺🇦 Прийменники руху описують <strong>напрямок або шлях</strong> руху — куди хтось або щось рухається.</p>
+    </div>
+    <div class="formula-box" style="margin-bottom:24px">
+      <div class="formula-label">⚡ Movement Formula</div>
+      <span class="highlight">[ Subject ]</span> + <span style="color:#80CBC4">[ Verb of motion ]</span> + <span style="color:#F48FB1">[ Movement Preposition ]</span> + <span class="highlight">[ Place ]</span>
+      <div style="font-size:.85rem;opacity:.7;margin-top:8px;">She walked <span style="color:var(--sun)">into</span> the room. / Вона зайшла В кімнату.</div>
+    </div>
+
+    <div class="movement-grid">
+      <div class="mv-card" style="border-color:#FF8A65">
+        <div class="mv-icon">➡️</div>
+        <div>
+          <div class="mv-prep">TO</div>
+          <div class="mv-ua">До / у напрямку</div>
+          <div class="mv-ex"><strong>She's going to school.</strong><br>Вона йде до школи.<br><strong>We flew to Paris.</strong><br>Ми полетіли до Парижа.</div>
+        </div>
+      </div>
+      <div class="mv-card" style="border-color:#4FC3F7">
+        <div class="mv-icon">🚪</div>
+        <div>
+          <div class="mv-prep">INTO / OUT OF</div>
+          <div class="mv-ua">В (всередину) / З (назовні)</div>
+          <div class="mv-ex"><strong>He walked into the café.</strong><br>Він зайшов у кафе.<br><strong>She ran out of the house.</strong><br>Вона вибігла з будинку.</div>
+        </div>
+      </div>
+      <div class="mv-card" style="border-color:#81C784">
+        <div class="mv-icon">🔙</div>
+        <div>
+          <div class="mv-prep">FROM</div>
+          <div class="mv-ua">З / від (звідки)</div>
+          <div class="mv-ex"><strong>I came from Ukraine.</strong><br>Я приїхав з України.<br><strong>She got a message from him.</strong><br>Вона отримала повідомлення від нього.</div>
+        </div>
+      </div>
+      <div class="mv-card" style="border-color:#CE93D8">
+        <div class="mv-icon">⬆️</div>
+        <div>
+          <div class="mv-prep">UP / DOWN</div>
+          <div class="mv-ua">Вгору / вниз</div>
+          <div class="mv-ex"><strong>The cat climbed up the tree.</strong><br>Кіт заліз на дерево.<br><strong>Roll down the hill!</strong><br>Котись вниз з пагорба!</div>
+        </div>
+      </div>
+      <div class="mv-card" style="border-color:#FFD54F">
+        <div class="mv-icon">🌉</div>
+        <div>
+          <div class="mv-prep">ACROSS / THROUGH</div>
+          <div class="mv-ua">Через (ширину) / крізь</div>
+          <div class="mv-ex"><strong>We swam across the river.</strong><br>Ми переплили річку.<br><strong>Light passes through glass.</strong><br>Світло проходить крізь скло.</div>
+        </div>
+      </div>
+      <div class="mv-card" style="border-color:#80CBC4">
+        <div class="mv-icon">🔄</div>
+        <div>
+          <div class="mv-prep">AROUND</div>
+          <div class="mv-ua">Навколо / довкола</div>
+          <div class="mv-ex"><strong>They walked around the lake.</strong><br>Вони обійшли озеро навколо.<br><strong>The Earth moves around the Sun.</strong><br>Земля рухається навколо Сонця.</div>
+        </div>
+      </div>
+      <div class="mv-card" style="border-color:#F48FB1">
+        <div class="mv-icon">🏃</div>
+        <div>
+          <div class="mv-prep">PAST</div>
+          <div class="mv-ua">Повз / мимо</div>
+          <div class="mv-ex"><strong>She ran past the café.</strong><br>Вона пробігла повз кафе.<br><strong>Drive past the school.</strong><br>Проїдь мимо школи.</div>
+        </div>
+      </div>
+      <div class="mv-card" style="border-color:#FFAB40">
+        <div class="mv-icon">↗️</div>
+        <div>
+          <div class="mv-prep">TOWARDS / AWAY FROM</div>
+          <div class="mv-ua">До / від (напрямок)</div>
+          <div class="mv-ex"><strong>He walked towards me.</strong><br>Він пішов до мене.<br><strong>Run away from danger!</strong><br>Тікай від небезпеки!</div>
+        </div>
+      </div>
+      <div class="mv-card" style="border-color:#9C27B0">
+        <div class="mv-icon">⬇️</div>
+        <div>
+          <div class="mv-prep">ALONG</div>
+          <div class="mv-ua">Вздовж</div>
+          <div class="mv-ex"><strong>We walked along the river.</strong><br>Ми пройшли вздовж річки.<br><strong>Drive along this road.</strong><br>Їдь вздовж цієї дороги.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Universal movement showcase -->
+    <div style="background:white;border-radius:var(--card-radius);padding:28px;box-shadow:var(--shadow);margin-top:24px;border:2.5px solid #FFE8F1">
+      <h3 style="font-family:'Fredoka One',cursive;font-size:1.3rem;margin-bottom:18px;">🌟 Universal Sentence — Movement / Рух</h3>
+      <div class="showcase-grid">
+        <div class="showcase-card" style="border-top-color:#FF8A65">
+          <div class="sc-category" style="background:#FFF0EA;color:#BF360C">TO — direction</div>
+          <div class="sc-sentence">I walked <span class="sc-prep" style="color:#BF360C">to</span> the café.</div>
+          <div class="sc-ua">🇺🇦 Я пішов <strong>до кафе</strong>.</div>
+        </div>
+        <div class="showcase-card" style="border-top-color:#4FC3F7">
+          <div class="sc-category" style="background:#E3F6FD;color:#01579B">INTO — entering</div>
+          <div class="sc-sentence">I walked <span class="sc-prep" style="color:#01579B">into</span> the café.</div>
+          <div class="sc-ua">🇺🇦 Я зайшов <strong>у кафе</strong>. (всередину)</div>
+        </div>
+        <div class="showcase-card" style="border-top-color:#81C784">
+          <div class="sc-category" style="background:#EBF9EB;color:#1B5E20">PAST — passing</div>
+          <div class="sc-sentence">I walked <span class="sc-prep" style="color:#1B5E20">past</span> the café.</div>
+          <div class="sc-ua">🇺🇦 Я пройшов <strong>повз кафе</strong>.</div>
+        </div>
+        <div class="showcase-card" style="border-top-color:#CE93D8">
+          <div class="sc-category" style="background:#F8EFFF;color:#6A1B9A">AWAY FROM</div>
+          <div class="sc-sentence">I walked <span class="sc-prep" style="color:#6A1B9A">away from</span> the café.</div>
+          <div class="sc-ua">🇺🇦 Я відійшов <strong>від кафе</strong>.</div>
+        </div>
+        <div class="showcase-card" style="border-top-color:#FFD54F">
+          <div class="sc-category" style="background:#FFF9E3;color:#E65100">AROUND</div>
+          <div class="sc-sentence">I walked <span class="sc-prep" style="color:#E65100">around</span> the café.</div>
+          <div class="sc-ua">🇺🇦 Я обійшов <strong>навколо кафе</strong>.</div>
+        </div>
+        <div class="showcase-card" style="border-top-color:#80CBC4">
+          <div class="sc-category" style="background:#E5F7F6;color:#00695C">TOWARDS</div>
+          <div class="sc-sentence">I walked <span class="sc-prep" style="color:#00695C">towards</span> the café.</div>
+          <div class="sc-ua">🇺🇦 Я йшов <strong>у напрямку кафе</strong>.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PREPOSITIONAL PHRASES -->
+<section class="section" style="background:var(--cream)">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon" style="background:#E5F7F6">💬</div>
+      <h2 class="c-mint">Prepositional Phrases<span>Прийменникові фрази</span></h2>
+    </div>
+
+    <div class="def-card" style="border-left-color:#80CBC4;margin-bottom:24px">
+      <p>A <strong>prepositional phrase</strong> is a group of words that starts with a preposition and ends with a noun (or pronoun). It acts like an adjective or adverb in a sentence.</p>
+      <p class="ua">🇺🇦 <strong>Прийменникова фраза</strong> — це група слів, що починається з прийменника і закінчується іменником. Вона виконує роль прикметника або прислівника в реченні.</p>
+    </div>
+
+    <div class="formula-box" style="margin-bottom:28px">
+      <div class="formula-label">⚡ Prepositional Phrase Formula</div>
+      <span style="color:#80CBC4">[ Preposition ]</span> + <span style="color:#FFD54F">(article/adjective)</span> + <span class="highlight">[ Noun ]</span>
+      <div style="font-size:.85rem;opacity:.7;margin-top:8px;">"<span style="color:var(--sun)">at the end of the street</span>" / "в кінці вулиці"</div>
+    </div>
+
+    <div class="phrases-table-wrap">
+      <table class="phrases-table">
+        <thead>
+          <tr>
+            <th>Phrase / Фраза</th>
+            <th>Meaning / Значення 🇺🇦</th>
+            <th>Example sentence / Приклад</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="td-phrase">at the beginning of</span></td><td class="td-ua">на початку</td><td>At the beginning of the year, I set new goals.</td></tr>
+          <tr><td><span class="td-phrase">at the end of</span></td><td class="td-ua">в кінці, наприкінці</td><td>At the end of the film, everyone cried.</td></tr>
+          <tr><td><span class="td-phrase">in the middle of</span></td><td class="td-ua">посередині, у середині</td><td>She called me in the middle of the night.</td></tr>
+          <tr><td><span class="td-phrase">on the way to</span></td><td class="td-ua">по дорозі до</td><td>I stopped for coffee on the way to school.</td></tr>
+          <tr><td><span class="td-phrase">by the side of</span></td><td class="td-ua">збоку від, поруч</td><td>She sat by the side of the road.</td></tr>
+          <tr><td><span class="td-phrase">in front of</span></td><td class="td-ua">перед, попереду</td><td>There's a bike in front of the shop.</td></tr>
+          <tr><td><span class="td-phrase">at the top of</span></td><td class="td-ua">на вершині, нагорі</td><td>Write your name at the top of the page.</td></tr>
+          <tr><td><span class="td-phrase">at the bottom of</span></td><td class="td-ua">внизу, в основі</td><td>The answer is at the bottom of the page.</td></tr>
+          <tr><td><span class="td-phrase">out of</span></td><td class="td-ua">з, за межами</td><td>This is out of my control. / Це поза моїм контролем.</td></tr>
+          <tr><td><span class="td-phrase">in spite of</span></td><td class="td-ua">незважаючи на</td><td>In spite of the rain, we had fun.</td></tr>
+          <tr><td><span class="td-phrase">as a result of</span></td><td class="td-ua">як результат</td><td>As a result of practice, she improved.</td></tr>
+          <tr><td><span class="td-phrase">instead of</span></td><td class="td-ua">замість</td><td>I had tea instead of coffee today.</td></tr>
+          <tr><td><span class="td-phrase">because of</span></td><td class="td-ua">через, тому що</td><td>The match was cancelled because of rain.</td></tr>
+          <tr><td><span class="td-phrase">in addition to</span></td><td class="td-ua">на додаток до</td><td>In addition to French, she speaks German.</td></tr>
+          <tr><td><span class="td-phrase">according to</span></td><td class="td-ua">відповідно до, за словами</td><td>According to the news, it will snow tonight.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- DEPENDENT PREPOSITIONS -->
+<section class="section" style="background:white">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon" style="background:#FFF0EA">🔑</div>
+      <h2 class="c-coral">Dependent Prepositions<span>Залежні прийменники</span></h2>
+    </div>
+
+    <div class="def-card" style="border-left-color:#FF8A65;margin-bottom:24px">
+      <p><strong>Dependent prepositions</strong> are fixed prepositions that always go with certain verbs, adjectives, or nouns. You must learn them by heart — there's no rule, just practice! 🧠</p>
+      <p class="ua">🇺🇦 <strong>Залежні прийменники</strong> — це фіксовані прийменники, що завжди вживаються з певними дієсловами, прикметниками або іменниками. Їх потрібно вивчити напам'ять — правила немає, тільки практика!</p>
+    </div>
+
+    <div class="dep-grid">
+      <!-- VERBS + prepositions -->
+      <div class="dep-card" style="border-color:#4FC3F7">
+        <div class="dc-type"><span class="dc-icon">🏃</span> Verbs + Prepositions<br><small style="font-weight:600;color:#888">Дієслова + прийменники</small></div>
+        <ul>
+          <li><strong>listen to</strong> music <span class="li-ua">слухати музику</span></li>
+          <li><strong>wait for</strong> a bus <span class="li-ua">чекати на автобус</span></li>
+          <li><strong>look at</strong> the sky <span class="li-ua">дивитися на небо</span></li>
+          <li><strong>think about</strong> it <span class="li-ua">думати про це</span></li>
+          <li><strong>talk to / with</strong> sb <span class="li-ua">розмовляти з кимось</span></li>
+          <li><strong>agree with</strong> sb <span class="li-ua">погоджуватися з кимось</span></li>
+          <li><strong>belong to</strong> sb <span class="li-ua">належати комусь</span></li>
+          <li><strong>depend on</strong> sth <span class="li-ua">залежати від чогось</span></li>
+          <li><strong>apologise for</strong> sth <span class="li-ua">вибачатись за щось</span></li>
+          <li><strong>believe in</strong> sth <span class="li-ua">вірити у щось</span></li>
+          <li><strong>complain about</strong> sth <span class="li-ua">скаржитись на щось</span></li>
+          <li><strong>dream of / about</strong> sth <span class="li-ua">мріяти про щось</span></li>
+        </ul>
+      </div>
+
+      <!-- ADJECTIVES + prepositions -->
+      <div class="dep-card" style="border-color:#81C784">
+        <div class="dc-type"><span class="dc-icon">🎨</span> Adjectives + Prepositions<br><small style="font-weight:600;color:#888">Прикметники + прийменники</small></div>
+        <ul>
+          <li><strong>good / bad at</strong> sth <span class="li-ua">гарно / погано в чомусь</span></li>
+          <li><strong>interested in</strong> sth <span class="li-ua">зацікавлений чимось</span></li>
+          <li><strong>afraid of</strong> sth <span class="li-ua">боятися чогось</span></li>
+          <li><strong>proud of</strong> sb/sth <span class="li-ua">пишатися кимось/чимось</span></li>
+          <li><strong>happy with / about</strong> sth <span class="li-ua">задоволений чимось</span></li>
+          <li><strong>angry with / at</strong> sb <span class="li-ua">злий на когось</span></li>
+          <li><strong>worried about</strong> sth <span class="li-ua">хвилюватися про щось</span></li>
+          <li><strong>bored with</strong> sth <span class="li-ua">нудьгувати від чогось</span></li>
+          <li><strong>excited about</strong> sth <span class="li-ua">захоплений чимось</span></li>
+          <li><strong>surprised at / by</strong> sth <span class="li-ua">здивований чимось</span></li>
+          <li><strong>responsible for</strong> sth <span class="li-ua">відповідальний за щось</span></li>
+          <li><strong>similar to</strong> sth <span class="li-ua">схожий на щось</span></li>
+        </ul>
+      </div>
+
+      <!-- NOUNS + prepositions -->
+      <div class="dep-card" style="border-color:#CE93D8">
+        <div class="dc-type"><span class="dc-icon">📚</span> Nouns + Prepositions<br><small style="font-weight:600;color:#888">Іменники + прийменники</small></div>
+        <ul>
+          <li><strong>reason for</strong> sth <span class="li-ua">причина для чогось</span></li>
+          <li><strong>solution to</strong> a problem <span class="li-ua">вирішення проблеми</span></li>
+          <li><strong>interest in</strong> sth <span class="li-ua">інтерес до чогось</span></li>
+          <li><strong>advantage of</strong> sth <span class="li-ua">перевага чогось</span></li>
+          <li><strong>choice between</strong> things <span class="li-ua">вибір між речами</span></li>
+          <li><strong>difference between</strong> <span class="li-ua">різниця між</span></li>
+          <li><strong>effect on</strong> sth <span class="li-ua">вплив на щось</span></li>
+          <li><strong>demand for</strong> sth <span class="li-ua">попит на щось</span></li>
+          <li><strong>attitude towards</strong> <span class="li-ua">ставлення до</span></li>
+          <li><strong>problem with</strong> sth <span class="li-ua">проблема з чимось</span></li>
+          <li><strong>relationship with</strong> <span class="li-ua">стосунки з</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Examples of dependent prepositions in sentences -->
+    <div style="background:var(--cream);border-radius:var(--card-radius);padding:28px;margin-top:24px;">
+      <h3 style="font-family:'Fredoka One',cursive;font-size:1.3rem;margin-bottom:18px;color:var(--navy)">📝 Dependent Prepositions in Sentences</h3>
+      <div class="showcase-grid">
+        <div class="showcase-card" style="border-top-color:#FF8A65;background:white">
+          <div class="sc-category" style="background:#FFF0EA;color:#BF360C">afraid of</div>
+          <div class="sc-sentence">Are you afraid <span class="sc-prep" style="color:#BF360C">of</span> spiders?</div>
+          <div class="sc-ua">🇺🇦 Ти боїшся павуків?</div>
+        </div>
+        <div class="showcase-card" style="border-top-color:#81C784;background:white">
+          <div class="sc-category" style="background:#EBF9EB;color:#1B5E20">good at</div>
+          <div class="sc-sentence">She's really good <span class="sc-prep" style="color:#1B5E20">at</span> math.</div>
+          <div class="sc-ua">🇺🇦 Вона дуже гарна в математиці.</div>
+        </div>
+        <div class="showcase-card" style="border-top-color:#4FC3F7;background:white">
+          <div class="sc-category" style="background:#E3F6FD;color:#01579B">wait for</div>
+          <div class="sc-sentence">I'm waiting <span class="sc-prep" style="color:#01579B">for</span> the bus.</div>
+          <div class="sc-ua">🇺🇦 Я чекаю на автобус.</div>
+        </div>
+        <div class="showcase-card" style="border-top-color:#CE93D8;background:white">
+          <div class="sc-category" style="background:#F8EFFF;color:#6A1B9A">interested in</div>
+          <div class="sc-sentence">He's interested <span class="sc-prep" style="color:#6A1B9A">in</span> music.</div>
+          <div class="sc-ua">🇺🇦 Він зацікавлений у музиці.</div>
+        </div>
+        <div class="showcase-card" style="border-top-color:#FFD54F;background:white">
+          <div class="sc-category" style="background:#FFF9E3;color:#E65100">depend on</div>
+          <div class="sc-sentence">It depends <span class="sc-prep" style="color:#E65100">on</span> the weather.</div>
+          <div class="sc-ua">🇺🇦 Це залежить від погоди.</div>
+        </div>
+        <div class="showcase-card" style="border-top-color:#80CBC4;background:white">
+          <div class="sc-category" style="background:#E5F7F6;color:#00695C">proud of</div>
+          <div class="sc-sentence">I'm so proud <span class="sc-prep" style="color:#00695C">of</span> you!</div>
+          <div class="sc-ua">🇺🇦 Я так пишаюся тобою!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OTHER PREPOSITIONS -->
+<section class="section" style="background:var(--cream)">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon" style="background:#FFF9E3">✨</div>
+      <h2 style="color:#8B6914">Other Important Prepositions<span>Інші важливі прийменники</span></h2>
+    </div>
+    <div class="prep-grid">
+      <div class="prep-card bg-sun">
+        <div class="pc-prep" style="border-color:#FFD54F">BY</div>
+        <div class="pc-title">🚌 Method / Agent / Deadline</div>
+        <div class="pc-ua">Спосіб / автор / до (дедлайн)</div>
+        <div class="pc-rule">Travel method, who did something, or a deadline.</div>
+        <ul class="pc-examples">
+          <li><div><div class="en">I travel by train every day.</div><div class="ua">Я їжджу потягом щодня.</div></div></li>
+          <li><div><div class="en">This song was written by Adele.</div><div class="ua">Ця пісня написана Аделью.</div></div></li>
+          <li><div><div class="en">Finish it by Friday.</div><div class="ua">Закінч це до п'ятниці.</div></div></li>
+        </ul>
+      </div>
+      <div class="prep-card bg-coral">
+        <div class="pc-prep" style="border-color:#FF8A65">WITH / WITHOUT</div>
+        <div class="pc-title">🤝 Together / Alone</div>
+        <div class="pc-ua">Разом з / без</div>
+        <div class="pc-rule">WITH = in company or using something. WITHOUT = absence of something.</div>
+        <ul class="pc-examples">
+          <li><div><div class="en">She came with her sister.</div><div class="ua">Вона прийшла зі своєю сестрою.</div></div></li>
+          <li><div><div class="en">I can't live without music.</div><div class="ua">Я не можу жити без музики.</div></div></li>
+        </ul>
+      </div>
+      <div class="prep-card bg-purple">
+        <div class="pc-prep" style="border-color:#CE93D8">FOR</div>
+        <div class="pc-title">🎯 Purpose / Duration / Recipient</div>
+        <div class="pc-ua">Мета / тривалість / одержувач</div>
+        <div class="pc-rule">Purpose: why. Duration: how long. Recipient: for whom.</div>
+        <ul class="pc-examples">
+          <li><div><div class="en">I bought flowers for my mum.</div><div class="ua">Я купив квіти для мами.</div></div></li>
+          <li><div><div class="en">We've lived here for 5 years.</div><div class="ua">Ми живемо тут 5 років.</div></div></li>
+        </ul>
+      </div>
+      <div class="prep-card bg-sky">
+        <div class="pc-prep" style="border-color:#4FC3F7">SINCE</div>
+        <div class="pc-title">⏳ From a point in the past</div>
+        <div class="pc-ua">З (певного моменту в минулому)</div>
+        <div class="pc-rule">Use with present perfect to say when something started.</div>
+        <ul class="pc-examples">
+          <li><div><div class="en">I've known her since 2010.</div><div class="ua">Я знаю її з 2010 року.</div></div></li>
+          <li><div><div class="en">He's been sick since Monday.</div><div class="ua">Він хворий з понеділка.</div></div></li>
+        </ul>
+      </div>
+      <div class="prep-card bg-mint">
+        <div class="pc-prep" style="border-color:#80CBC4">ABOUT</div>
+        <div class="pc-title">💭 Topic / Approximately</div>
+        <div class="pc-ua">Про / приблизно</div>
+        <div class="pc-rule">ABOUT = concerning a topic, or approximately (a number).</div>
+        <ul class="pc-examples">
+          <li><div><div class="en">Tell me about your day!</div><div class="ua">Розкажи мені про свій день!</div></div></li>
+          <li><div><div class="en">There were about 50 people.</div><div class="ua">Там було приблизно 50 людей.</div></div></li>
+        </ul>
+      </div>
+      <div class="prep-card bg-pink">
+        <div class="pc-prep" style="border-color:#F48FB1">DURING</div>
+        <div class="pc-title">📆 Throughout a period</div>
+        <div class="pc-ua">Протягом / під час</div>
+        <div class="pc-rule">DURING = at some point within a period (not how long — use FOR for that).</div>
+        <ul class="pc-examples">
+          <li><div><div class="en">Don't talk during the film.</div><div class="ua">Не розмовляй під час фільму.</div></div></li>
+          <li><div><div class="en">I fell asleep during the class.</div><div class="ua">Я заснув на уроці.</div></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUICK TIPS -->
+<section class="section" style="background:white">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon" style="background:#F8EFFF">🧠</div>
+      <h2 class="c-purple">Memory Tips & Tricks<span>Поради для запам'ятовування</span></h2>
+    </div>
+    <div class="tips-grid">
+      <div class="tip-card" style="background:linear-gradient(135deg,#FF8A65,#FF5722)">
+        <div class="tc-icon">🎯</div>
+        <div class="tc-title">IN > ON > AT (Time)</div>
+        <div class="tc-text">Think of a funnel! Big period → smaller → exact point. IN year → ON day → AT time.<br><br>🇺🇦 Уяви лійку: великий → менший → точний момент.</div>
+      </div>
+      <div class="tip-card" style="background:linear-gradient(135deg,#4FC3F7,#0288D1)">
+        <div class="tc-icon">📦</div>
+        <div class="tc-title">IN = Inside</div>
+        <div class="tc-text">If you can be "inside" it — a box, room, city, country — use IN! Think: in a box.<br><br>🇺🇦 Якщо ти можеш бути "всередині" чогось — використовуй IN!</div>
+      </div>
+      <div class="tip-card" style="background:linear-gradient(135deg,#81C784,#388E3C)">
+        <div class="tc-icon">🍽️</div>
+        <div class="tc-title">ON = Surface</div>
+        <div class="tc-text">If it's on top of or touching a surface — on the table, on the wall, on the bus — use ON!<br><br>🇺🇦 Якщо на поверхні — використовуй ON!</div>
+      </div>
+      <div class="tip-card" style="background:linear-gradient(135deg,#CE93D8,#7B1FA2)">
+        <div class="tc-icon">📍</div>
+        <div class="tc-title">AT = A Point</div>
+        <div class="tc-text">AT marks a specific point on a map or in time. "I'm AT the door" — a single spot!<br><br>🇺🇦 AT позначає конкретну точку на карті або в часі!</div>
+      </div>
+      <div class="tip-card" style="background:linear-gradient(135deg,#FFD54F,#F9A825)">
+        <div class="tc-icon">❌</div>
+        <div class="tc-title">No article after preposition</div>
+        <div class="tc-text">Some fixed phrases have NO "the": at home, at school, by car, on foot, in bed.<br><br>🇺🇦 В деяких стійких фразах артикля немає!</div>
+      </div>
+      <div class="tip-card" style="background:linear-gradient(135deg,#80CBC4,#00897B)">
+        <div class="tc-icon">🎵</div>
+        <div class="tc-title">Learn in phrases!</div>
+        <div class="tc-text">Don't just learn "interested". Learn "interested IN". Always learn the full phrase!<br><br>🇺🇦 Завжди вчи прийменник разом з усією фразою!</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOR vs SINCE -->
+<section class="section" style="background:var(--cream);padding-top:0">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon" style="background:#E3F6FD">⏳</div>
+      <h2 class="c-sky">FOR vs SINCE<span>Як не переплутати</span></h2>
+    </div>
+    <div class="two-col-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+      <div class="prep-card bg-sky" style="grid-column:1">
+        <div class="pc-prep" style="border-color:#4FC3F7;font-size:1.5rem">FOR</div>
+        <div class="pc-title">📏 Duration — how long</div>
+        <div class="pc-ua">Тривалість — скільки часу</div>
+        <div class="pc-rule">Use FOR + a period of time (hours, days, years...)</div>
+        <ul class="pc-examples">
+          <li><div><div class="en">I've studied English for 3 years.</div><div class="ua">Я вивчаю англійську 3 роки.</div></div></li>
+          <li><div><div class="en">She waited for two hours.</div><div class="ua">Вона чекала дві години.</div></div></li>
+        </ul>
+      </div>
+      <div class="prep-card bg-coral" style="grid-column:2">
+        <div class="pc-prep" style="border-color:#FF8A65;font-size:1.5rem">SINCE</div>
+        <div class="pc-title">📅 Starting point — when it began</div>
+        <div class="pc-ua">Початковий момент — коли почалось</div>
+        <div class="pc-rule">Use SINCE + a point in time (year, day, event...)</div>
+        <ul class="pc-examples">
+          <li><div><div class="en">I've studied English since 2021.</div><div class="ua">Я вивчаю англійську з 2021 року.</div></div></li>
+          <li><div><div class="en">She's been sad since yesterday.</div><div class="ua">Вона сумує з вчорашнього дня.</div></div></li>
+        </ul>
+      </div>
+    </div>
+    <div class="formula-box" style="margin-top:20px">
+      <div class="formula-label">✅ Quick Trick / Швидка підказка</div>
+      <span class="highlight">FOR</span> + <span style="color:#80CBC4">period</span> &nbsp;|&nbsp; <span class="highlight">SINCE</span> + <span style="color:#80CBC4">point in time</span>
+      <div style="font-size:.85rem;opacity:.7;margin-top:8px;">for 3 years ✅ &nbsp;&nbsp;&nbsp; since 2021 ✅ &nbsp;&nbsp;&nbsp; since 3 years ❌ &nbsp;&nbsp;&nbsp; for 2021 ❌</div>
+    </div>
+  </div>
+</section>
+
+<!-- MINI QUIZ -->
+<section class="section" style="background:white">
+  <div class="container">
+    <div class="quiz-box">
+      <h3>🧩 Quick Quiz!</h3>
+      <p>Click any card to reveal the answer. / Натисни на картку, щоб побачити відповідь!</p>
+      <div class="quiz-items" id="quizItems">
+        <div class="quiz-item" onclick="this.classList.toggle('revealed')">
+          <div class="qi-q">She was born ___ 1999.</div>
+          <div class="qi-choices">in / on / at</div>
+          <div class="qi-answer">✅ IN 1999 (year = IN)</div>
+        </div>
+        <div class="quiz-item" onclick="this.classList.toggle('revealed')">
+          <div class="qi-q">The cat is ___ the box.</div>
+          <div class="qi-choices">in / on / at</div>
+          <div class="qi-answer">✅ IN the box (enclosed space)</div>
+        </div>
+        <div class="quiz-item" onclick="this.classList.toggle('revealed')">
+          <div class="qi-q">I go to school ___ foot.</div>
+          <div class="qi-choices">by / on / with</div>
+          <div class="qi-answer">✅ ON foot (fixed phrase!)</div>
+        </div>
+        <div class="quiz-item" onclick="this.classList.toggle('revealed')">
+          <div class="qi-q">I've lived here ___ 2018.</div>
+          <div class="qi-choices">for / since / during</div>
+          <div class="qi-answer">✅ SINCE 2018 (point in time)</div>
+        </div>
+        <div class="quiz-item" onclick="this.classList.toggle('revealed')">
+          <div class="qi-q">She's interested ___ art.</div>
+          <div class="qi-choices">in / on / for</div>
+          <div class="qi-answer">✅ interested IN (fixed phrase!)</div>
+        </div>
+        <div class="quiz-item" onclick="this.classList.toggle('revealed')">
+          <div class="qi-q">The party is ___ Friday.</div>
+          <div class="qi-choices">in / on / at</div>
+          <div class="qi-answer">✅ ON Friday (specific day)</div>
+        </div>
+        <div class="quiz-item" onclick="this.classList.toggle('revealed')">
+          <div class="qi-q">He walked ___ the door.</div>
+          <div class="qi-choices">into / to / in</div>
+          <div class="qi-answer">✅ INTO (entering a space)</div>
+        </div>
+        <div class="quiz-item" onclick="this.classList.toggle('revealed')">
+          <div class="qi-q">The meeting is ___ 3 pm.</div>
+          <div class="qi-choices">in / on / at</div>
+          <div class="qi-answer">✅ AT 3 pm (exact time)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>Made with ❤️ for English learners · <strong>Prepositions Guide</strong> · Practice every day! 🚀</p>
+  <p style="margin-top:8px;font-size:.8rem">🇺🇦 Практикуй щодня і прийменники стануть твоїми друзями!</p>
+</footer>
+
+<script>
+  // Generate stars
+  const starsContainer = document.getElementById('stars');
+  for (let i = 0; i < 40; i++) {
+    const star = document.createElement('div');
+    star.className = 'star';
+    const size = Math.random() * 3 + 1;
+    star.style.cssText = `
+      width: ${size}px; height: ${size}px;
+      top: ${Math.random() * 100}%; left: ${Math.random() * 100}%;
+      animation-delay: ${Math.random() * 3}s;
+      animation-duration: ${2 + Math.random() * 3}s;
+    `;
+    starsContainer.appendChild(star);
+  }
+
+  // Animate universal sentence preposition
+  const preps = ['at', 'near', 'behind', 'in front of', 'inside', 'next to', 'before', 'after', 'on the way to'];
+  const colors = ['#FF8A65','#4FC3F7','#81C784','#CE93D8','#FFD54F','#80CBC4','#F48FB1','#FFAB40','#9C27B0'];
+  let current = 0;
+  const prepEl = document.getElementById('universal-prep');
+  setInterval(() => {
+    current = (current + 1) % preps.length;
+    prepEl.style.opacity = '0';
+    prepEl.style.transform = 'translateY(-4px)';
+    setTimeout(() => {
+      prepEl.textContent = preps[current];
+      prepEl.style.background = colors[current] + '55';
+      prepEl.style.borderColor = colors[current];
+      prepEl.style.opacity = '1';
+      prepEl.style.transform = 'translateY(0)';
+    }, 200);
+  }, 2200);
+  
+  // Smooth transitions for prep
+  prepEl.style.transition = 'all 0.2s ease';
+</script>
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+</body>
+</html>

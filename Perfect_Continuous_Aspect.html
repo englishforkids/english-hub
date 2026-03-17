@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Perfect Continuous Aspect 🌊</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal: #00bfa6;
+    --teal-light: #e0f7f4;
+    --teal-dark: #007a6a;
+    --blue: #2979ff;
+    --blue-light: #e3edff;
+    --purple: #8b5cf6;
+    --purple-light: #ede9fe;
+    --orange: #ff6f00;
+    --orange-light: #fff3e0;
+    --pink: #e91e8c;
+    --pink-light: #fce4f0;
+    --yellow: #ffc107;
+    --yellow-light: #fffde7;
+    --green: #22c55e;
+    --green-light: #dcfce7;
+    --red: #ef4444;
+    --red-light: #fee2e2;
+    --bg: #f0faf8;
+    --card: #ffffff;
+    --text: #1a2e2b;
+    --muted: #5a7a74;
+    --radius: 20px;
+    --shadow: 0 8px 32px rgba(0,191,166,0.13);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, #00bfa6 0%, #2979ff 60%, #8b5cf6 100%);
+    color: white;
+    text-align: center;
+    padding: 70px 20px 90px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 70% 30%, rgba(255,255,255,.12) 0%, transparent 60%),
+                radial-gradient(ellipse at 20% 80%, rgba(255,255,255,.08) 0%, transparent 50%);
+  }
+  .hero-waves {
+    position: absolute; bottom: -2px; left: 0; width: 100%;
+  }
+  .hero-emoji { font-size: 4.5rem; display: block; margin-bottom: 12px; animation: bounce 2s ease-in-out infinite; }
+  @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
+  .hero h1 {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 800;
+    text-shadow: 0 4px 20px rgba(0,0,0,.25);
+    position: relative;
+  }
+  .hero .subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    opacity: .92;
+    margin-top: 10px;
+    position: relative;
+    font-weight: 600;
+  }
+  .hero .ua { opacity: .80; font-size: .95em; }
+  .hero-tags { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 22px; position: relative; }
+  .hero-tag {
+    background: rgba(255,255,255,.22);
+    border: 2px solid rgba(255,255,255,.4);
+    border-radius: 50px;
+    padding: 6px 18px;
+    font-size: .9rem;
+    font-weight: 700;
+    backdrop-filter: blur(4px);
+  }
+
+  /* ── LAYOUT ── */
+  .container { max-width: 960px; margin: 0 auto; padding: 0 18px; }
+  section { padding: 50px 0 20px; }
+  h2.section-title {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(1.5rem, 3.5vw, 2.1rem);
+    font-weight: 800;
+    color: var(--teal-dark);
+    margin-bottom: 6px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .ua-title { font-size: .72em; color: var(--muted); font-family: 'Nunito', sans-serif; font-weight: 600; display: block; margin-bottom: 22px; }
+
+  /* ── CARD ── */
+  .card {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 26px 28px;
+    margin-bottom: 20px;
+  }
+  .card-accent { border-left: 6px solid var(--teal); }
+
+  /* ── WHAT IS IT ── */
+  .what-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media(max-width:580px){ .what-grid{grid-template-columns:1fr;} }
+  .what-box {
+    border-radius: 16px;
+    padding: 22px 20px;
+    text-align: center;
+  }
+  .what-box .icon { font-size: 2.8rem; display: block; margin-bottom: 8px; }
+  .what-box h3 { font-weight: 800; font-size: 1.05rem; margin-bottom: 6px; }
+  .what-box p { font-size: .9rem; color: #444; }
+
+  /* ── MAGIC SENTENCE ── */
+  .magic-banner {
+    background: linear-gradient(135deg, #00bfa6, #2979ff);
+    border-radius: 22px;
+    padding: 32px 28px;
+    color: white;
+    text-align: center;
+    margin-bottom: 28px;
+    box-shadow: 0 8px 30px rgba(0,191,166,.3);
+  }
+  .magic-banner .label {
+    font-size: .85rem; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; opacity: .85; margin-bottom: 8px;
+  }
+  .magic-banner .sentence {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(1.1rem, 3vw, 1.6rem);
+    font-weight: 800;
+    background: rgba(255,255,255,.18);
+    border-radius: 12px;
+    padding: 12px 20px;
+    display: inline-block;
+    margin: 6px 0;
+  }
+  .magic-banner .ua { opacity: .88; font-size: .95rem; margin-top: 6px; }
+
+  /* ── TENSES GRID ── */
+  .tenses-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 20px; }
+  .tense-card {
+    border-radius: 20px;
+    padding: 24px 22px;
+    position: relative;
+    overflow: hidden;
+  }
+  .tense-card::before {
+    content: attr(data-emoji);
+    position: absolute;
+    right: -8px; top: -8px;
+    font-size: 5rem;
+    opacity: .12;
+    line-height: 1;
+  }
+  .tense-card .tense-badge {
+    display: inline-block;
+    border-radius: 50px;
+    padding: 4px 14px;
+    font-size: .75rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .tense-card h3 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-bottom: 4px;
+  }
+  .tense-card .ua-h { font-size: .82rem; color: #666; margin-bottom: 14px; }
+
+  /* ── FORMULA BOX ── */
+  .formula-box {
+    border-radius: 12px;
+    padding: 12px 16px;
+    font-family: 'Baloo 2', cursive;
+    font-size: .92rem;
+    font-weight: 700;
+    margin: 10px 0;
+    line-height: 1.5;
+  }
+  .formula-part { display: inline-block; padding: 2px 7px; border-radius: 6px; margin: 1px; }
+
+  /* ── EXAMPLES ── */
+  .ex-list { list-style: none; margin-top: 12px; }
+  .ex-list li {
+    background: rgba(255,255,255,.55);
+    border-radius: 10px;
+    padding: 9px 14px;
+    margin-bottom: 8px;
+    border-left: 4px solid;
+    font-size: .9rem;
+  }
+  .ex-list li .en { font-weight: 700; display: block; }
+  .ex-list li .ua-ex { color: #555; font-size: .85rem; }
+
+  /* ── MAGIC TRANSFORMS ── */
+  .transform-table { width: 100%; border-collapse: separate; border-spacing: 0 8px; }
+  .transform-table th {
+    font-size: .8rem; text-transform: uppercase; letter-spacing: 1px;
+    color: var(--muted); padding: 4px 14px; text-align: left;
+  }
+  .transform-table td {
+    padding: 12px 14px;
+    background: white;
+    font-size: .92rem;
+  }
+  .transform-table td:first-child { border-radius: 12px 0 0 12px; }
+  .transform-table td:last-child { border-radius: 0 12px 12px 0; }
+  .transform-table tr td { border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
+  .transform-table tr td:first-child { border-left: 1px solid #eee; }
+  .transform-table tr td:last-child { border-right: 1px solid #eee; }
+  .t-tense { font-weight: 800; font-size: .85rem; }
+  .t-formula { font-family: 'Baloo 2', cursive; font-weight: 700; }
+  .t-sentence { font-weight: 600; }
+  .t-ua { color: #666; font-size: .82rem; }
+
+  /* ── SIGNAL WORDS ── */
+  .signals-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+  .signal-chip {
+    display: flex; align-items: center; gap: 6px;
+    border-radius: 50px; padding: 8px 16px;
+    font-weight: 700; font-size: .88rem;
+  }
+
+  /* ── COMPARISON ── */
+  .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media(max-width:540px){ .compare-grid{grid-template-columns:1fr;} }
+  .compare-box { border-radius: 16px; padding: 20px; }
+  .compare-box h4 { font-weight: 800; font-size: 1rem; margin-bottom: 8px; }
+  .compare-box ul { padding-left: 18px; font-size: .88rem; }
+  .compare-box ul li { margin-bottom: 6px; }
+
+  /* ── QUIZ ── */
+  .quiz-card {
+    background: linear-gradient(135deg, #fff9e6, #fffde7);
+    border: 2px solid var(--yellow);
+    border-radius: 20px;
+    padding: 28px;
+    margin-bottom: 20px;
+  }
+  .quiz-card h3 { font-family: 'Baloo 2', cursive; font-weight: 800; margin-bottom: 16px; font-size: 1.2rem; color: #7c4a00; }
+  .q-item { margin-bottom: 20px; }
+  .q-item p { font-weight: 700; margin-bottom: 8px; font-size: .95rem; }
+  .q-options { display: flex; flex-wrap: wrap; gap: 8px; }
+  .q-btn {
+    padding: 8px 18px; border-radius: 50px; border: 2px solid #e0c060;
+    background: white; font-family: 'Nunito', sans-serif; font-weight: 700;
+    font-size: .88rem; cursor: pointer; transition: all .2s;
+  }
+  .q-btn:hover { background: var(--yellow); border-color: var(--yellow); }
+  .q-btn.correct { background: #22c55e; border-color: #22c55e; color: white; }
+  .q-btn.wrong { background: #ef4444; border-color: #ef4444; color: white; }
+  .q-feedback { margin-top: 6px; font-size: .85rem; font-weight: 700; min-height: 20px; }
+
+  /* ── TIMELINE VISUAL ── */
+  .timeline-vis {
+    position: relative;
+    display: flex; align-items: center;
+    padding: 18px 0;
+    overflow-x: auto;
+    gap: 0;
+  }
+  .tl-line {
+    position: absolute; top: 50%; left: 5%;
+    width: 90%; height: 4px;
+    background: linear-gradient(90deg, #ccc, var(--teal), #ccc);
+    transform: translateY(-50%); border-radius: 4px;
+  }
+  .tl-point {
+    position: relative; z-index: 2;
+    text-align: center; flex: 1; min-width: 80px;
+  }
+  .tl-dot {
+    width: 18px; height: 18px; border-radius: 50%;
+    margin: 0 auto 6px; border: 3px solid white;
+    box-shadow: 0 0 0 3px currentColor;
+  }
+  .tl-label { font-size: .75rem; font-weight: 700; }
+  .tl-action {
+    position: absolute; top: -32px; left: 50%; transform: translateX(-50%);
+    white-space: nowrap; background: var(--teal); color: white;
+    border-radius: 20px; padding: 3px 10px; font-size: .72rem; font-weight: 700;
+  }
+
+  /* ── ALL EXAMPLES BIG SECTION ── */
+  .big-examples { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+  .ex-card {
+    border-radius: 16px; padding: 18px 20px;
+    border-left: 5px solid;
+  }
+  .ex-card .ex-topic { font-size: .72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; opacity: .7; }
+  .ex-card .ex-en { font-weight: 700; font-size: .95rem; margin-bottom: 4px; }
+  .ex-card .ex-ua { font-size: .83rem; color: #555; }
+  .ex-card .ex-note { font-size: .78rem; margin-top: 6px; font-style: italic; opacity: .75; }
+
+  /* ── NEGATIVE / QUESTION ── */
+  .neg-q-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+  @media(max-width:600px){ .neg-q-grid{grid-template-columns:1fr;} }
+
+  /* ── TIPS ── */
+  .tip-box {
+    display: flex; gap: 14px; align-items: flex-start;
+    background: var(--green-light); border-radius: 14px;
+    padding: 16px 18px; margin-bottom: 12px;
+    border-left: 5px solid var(--green);
+  }
+  .tip-box .tip-icon { font-size: 1.6rem; flex-shrink: 0; }
+  .tip-box p { font-size: .9rem; }
+  .tip-box strong { color: var(--teal-dark); }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center; padding: 36px 20px;
+    background: linear-gradient(135deg, #00bfa6, #2979ff);
+    color: white; margin-top: 50px;
+    font-size: .9rem;
+  }
+  footer strong { font-family: 'Baloo 2', cursive; font-size: 1.1rem; }
+
+  /* ── SCROLL ANIMATION ── */
+  .fade-in { opacity: 0; transform: translateY(28px); transition: opacity .5s ease, transform .5s ease; }
+  .fade-in.visible { opacity: 1; transform: none; }
+
+  #scroll-top-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #1a1208;
+    border: 1.5px solid rgba(200,150,62,0.4);
+    color: #f5f0e8;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+    pointer-events: none;
+    z-index: 9998;
+  }
+  #scroll-top-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  #scroll-top-btn:hover {
+    background: #c8963e;
+    border-color: #c8963e;
+    color: #1a1208;
+  }
+
+  /* ══════════════════════════════════════
+     MOBILE RESPONSIVE — max-width: 768px
+  ══════════════════════════════════════ */
+  @media (max-width: 768px) {
+
+    /* Hero */
+    .hero { padding: 48px 16px 72px; }
+    .hero-emoji { font-size: 3.2rem; }
+    .hero-tag { font-size: .78rem; padding: 5px 13px; }
+
+    /* Container & sections */
+    .container { padding: 0 14px; }
+    section { padding: 36px 0 14px; }
+
+    /* Cards */
+    .card { padding: 18px 16px; }
+
+    /* Section title */
+    h2.section-title { font-size: 1.35rem; gap: 7px; flex-wrap: wrap; }
+    .ua-title { font-size: .78rem; margin-bottom: 16px; }
+
+    /* What-grid: 1 column */
+    .what-grid { grid-template-columns: 1fr; }
+    .what-box { padding: 18px 16px; }
+    .what-box .icon { font-size: 2.2rem; }
+
+    /* Magic banner */
+    .magic-banner { padding: 22px 16px; }
+    .magic-banner .sentence { font-size: 1rem; padding: 10px 14px; }
+
+    /* Magic transforms table — scroll horizontally */
+    .table-scroll-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      margin-bottom: 20px;
+    }
+    .table-scroll-wrap::after {
+      content: '← свайп →';
+      display: block;
+      text-align: center;
+      font-size: .72rem;
+      color: var(--muted);
+      padding: 5px 0 8px;
+      font-weight: 700;
+      letter-spacing: .5px;
+    }
+    .transform-table { min-width: 600px; font-size: .82rem; }
+    .transform-table th { font-size: .72rem; padding: 4px 10px; }
+    .transform-table td { padding: 10px 10px; font-size: .82rem; }
+
+    /* Tenses grid */
+    .tenses-grid { grid-template-columns: 1fr; gap: 14px; }
+    .tense-card { padding: 18px 16px; }
+    .tense-card h3 { font-size: 1.1rem; }
+
+    /* Formula parts — wrap nicely */
+    .formula-box { font-size: .83rem; padding: 10px 12px; line-height: 1.8; }
+    .formula-part { padding: 2px 6px; font-size: .82rem; }
+
+    /* Timeline — scroll horizontally */
+    .timeline-vis { min-width: 380px; padding: 28px 0 12px; }
+    .timeline-vis-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 4px;
+    }
+    .timeline-vis-wrap::after {
+      content: '← свайп →';
+      display: block;
+      text-align: center;
+      font-size: .72rem;
+      color: var(--muted);
+      padding: 4px 0 6px;
+      font-weight: 700;
+    }
+    .tl-label { font-size: .68rem; }
+    .tl-action { font-size: .65rem; padding: 2px 7px; top: -26px; }
+
+    /* Example lists */
+    .ex-list li { font-size: .85rem; padding: 8px 12px; }
+    .ex-list li .ua-ex { font-size: .8rem; }
+
+    /* Big examples grid */
+    .big-examples { grid-template-columns: 1fr; gap: 12px; }
+    .ex-card { padding: 14px 16px; }
+    .ex-card .ex-en { font-size: .9rem; }
+    .ex-card .ex-ua { font-size: .8rem; }
+
+    /* Signals */
+    .signal-chip { font-size: .82rem; padding: 7px 13px; }
+
+    /* Compare grid: 1 column on mobile */
+    .compare-grid { grid-template-columns: 1fr; gap: 12px; }
+
+    /* Comparison table — scroll */
+    .compare-table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 12px;
+      margin-top: 8px;
+    }
+    .compare-table-wrap::after {
+      content: '← свайп →';
+      display: block;
+      text-align: center;
+      font-size: .72rem;
+      color: var(--muted);
+      padding: 4px 0 6px;
+      font-weight: 700;
+    }
+    .compare-table-wrap table { min-width: 520px; }
+
+    /* Quiz */
+    .quiz-card { padding: 20px 16px; }
+    .q-item p { font-size: .88rem; }
+    .q-btn { padding: 7px 14px; font-size: .82rem; }
+
+    /* Tip boxes */
+    .tip-box { padding: 14px 14px; gap: 10px; }
+    .tip-box .tip-icon { font-size: 1.3rem; }
+    .tip-box p { font-size: .85rem; }
+
+    /* Summary infographic grid */
+    .summary-grid { grid-template-columns: 1fr !important; }
+
+    /* Footer */
+    footer { padding: 28px 16px; font-size: .85rem; }
+
+    /* Stative verbs grid */
+    .stative-grid { grid-template-columns: 1fr !important; gap: 10px !important; }
+
+    /* Scroll-top button — smaller on mobile */
+    #scroll-top-btn { width: 40px; height: 40px; font-size: 16px; bottom: 18px; right: 16px; }
+  }
+
+  /* Extra small phones */
+  @media (max-width: 400px) {
+    .hero h1 { font-size: 1.6rem; }
+    h2.section-title { font-size: 1.2rem; }
+    .magic-banner .sentence { font-size: .92rem; }
+    .container { padding: 0 10px; }
+    .card { padding: 14px 12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════ HERO ════════ -->
+<div class="hero">
+  <span class="hero-emoji">🌊</span>
+  <h1>Perfect Continuous Aspect</h1>
+  <p class="subtitle">The "still happening" superpower in English!</p>
+  <p class="subtitle ua">Аспект «тривалої дії, що вже має результат» в англійській мові</p>
+  <div class="hero-tags">
+    <span class="hero-tag">🕐 Present Perfect Continuous</span>
+    <span class="hero-tag">📜 Past Perfect Continuous</span>
+    <span class="hero-tag">🔮 Future Perfect Continuous</span>
+  </div>
+  <svg class="hero-waves" viewBox="0 0 1200 80" preserveAspectRatio="none">
+    <path d="M0,40 C300,80 600,0 900,40 C1050,60 1150,30 1200,40 L1200,80 L0,80 Z" fill="#f0faf8"/>
+  </svg>
+</div>
+
+<div class="container">
+
+<!-- ════════ WHAT IS IT? ════════ -->
+<section class="fade-in">
+  <h2 class="section-title">🤔 What is the Perfect Continuous Aspect?</h2>
+  <span class="ua-title">Що таке Perfect Continuous Aspect? (Тривало-завершений аспект)</span>
+
+  <div class="what-grid">
+    <div class="what-box" style="background:var(--teal-light); border: 2px solid #b2dfdb;">
+      <span class="icon">⏳</span>
+      <h3 style="color:var(--teal-dark)">The "still going on" tense</h3>
+      <p>It shows that an action <strong>started in the past</strong> and <strong>is still continuing</strong> — or <strong>just finished</strong> with visible results.</p>
+      <p style="margin-top:8px;font-size:.82rem;color:#666;">Показує, що дія <strong>почалася раніше</strong> і <strong>ще триває</strong> — або <strong>щойно завершилася</strong> і ми бачимо її результат.</p>
+    </div>
+    <div class="what-box" style="background:var(--blue-light); border: 2px solid #bbdefb;">
+      <span class="icon">🎯</span>
+      <h3 style="color:var(--blue)">Two key ideas in one!</h3>
+      <p><strong>Perfect</strong> = connection to another time point<br><strong>Continuous</strong> = the action was/is in progress, not finished</p>
+      <p style="margin-top:8px;font-size:.82rem;color:#666;"><strong>Perfect</strong> = зв'язок з іншим моментом часу<br><strong>Continuous</strong> = дія тривала, була в процесі</p>
+    </div>
+    <div class="what-box" style="background:var(--orange-light); border: 2px solid #ffe0b2;">
+      <span class="icon">💡</span>
+      <h3 style="color:var(--orange)">The main "flavour"</h3>
+      <p>Emphasises <strong>how long</strong> something has been happening. Always answers: <em>"For how long?"</em> or <em>"Since when?"</em></p>
+      <p style="margin-top:8px;font-size:.82rem;color:#666;">Підкреслює <strong>тривалість</strong> дії. Завжди відповідає: <em>«Як довго?»</em> або <em>«З якого часу?»</em></p>
+    </div>
+    <div class="what-box" style="background:var(--purple-light); border: 2px solid #d1c4e9;">
+      <span class="icon">🔍</span>
+      <h3 style="color:var(--purple)">Visible evidence!</h3>
+      <p>You can often <strong>see, smell, or feel</strong> the result. "You're sweating! Have you been running?"</p>
+      <p style="margin-top:8px;font-size:.82rem;color:#666;">Часто є <strong>видимий слід</strong> дії. «Ти спітнів! Ти бігав?»</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ MAGIC SENTENCE ════════ -->
+<section class="fade-in">
+  <h2 class="section-title">✨ The Magic Sentence</h2>
+  <span class="ua-title">Чарівне речення — одне для всіх часів!</span>
+
+  <div class="magic-banner">
+    <div class="label">🌟 Our universal example sentence</div>
+    <div class="sentence">She study English</div>
+    <div class="ua">Вона вивчає англійську — дивись, як воно змінюється в кожному часі! 👇</div>
+  </div>
+
+  <div class="card" style="padding: 16px 10px;">
+    <div class="table-scroll-wrap">
+    <table class="transform-table">
+      <thead>
+        <tr>
+          <th>Tense / Час</th>
+          <th>Formula / Формула</th>
+          <th>Magic Sentence / Чарівне речення</th>
+          <th>Ukrainian / Українською</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="t-tense" style="color:var(--teal)">✅ Present Perfect Continuous</span></td>
+          <td class="t-formula"><span style="color:var(--teal)">have/has been + V-ing</span></td>
+          <td class="t-sentence">She <strong>has been studying</strong> English for 2 years.</td>
+          <td class="t-ua">Вона <strong>вивчає</strong> англійську <strong>вже 2 роки</strong> (і досі).</td>
+        </tr>
+        <tr>
+          <td><span class="t-tense" style="color:var(--blue)">📜 Past Perfect Continuous</span></td>
+          <td class="t-formula"><span style="color:var(--blue)">had been + V-ing</span></td>
+          <td class="t-sentence">She <strong>had been studying</strong> English for 2 years before she moved.</td>
+          <td class="t-ua">Вона <strong>вивчала</strong> англійську 2 роки, <strong>перш ніж переїхала</strong>.</td>
+        </tr>
+        <tr>
+          <td><span class="t-tense" style="color:var(--purple)">🔮 Future Perfect Continuous</span></td>
+          <td class="t-formula"><span style="color:var(--purple)">will have been + V-ing</span></td>
+          <td class="t-sentence">She <strong>will have been studying</strong> English for 2 years by June.</td>
+          <td class="t-ua">До червня вона <strong>вивчатиме</strong> англійську <strong>вже 2 роки</strong>.</td>
+        </tr>
+      </tbody>
+    </table>
+    </div><!-- /table-scroll-wrap -->
+  </div>
+</section>: PRESENT PERFECT CONTINUOUS ════════ -->
+<section class="fade-in">
+  <h2 class="section-title">✅ Present Perfect Continuous</h2>
+  <span class="ua-title">Теперішній доконано-тривалий час</span>
+
+  <div class="tenses-grid">
+    <!-- Meaning -->
+    <div class="tense-card" style="background:var(--teal-light);" data-emoji="✅">
+      <span class="tense-badge" style="background:var(--teal);color:white;">Meaning / Значення</span>
+      <h3 style="color:var(--teal-dark)">Action that started in the past → still NOW</h3>
+      <p class="ua-h">Дія почалася в минулому → триває ДО СИХ ПІР</p>
+      <p style="font-size:.9rem;">🎯 Emphasis on <strong>duration</strong> + <strong>present connection</strong>. You can see, feel, smell the result right now!</p>
+      <p style="font-size:.82rem;color:#555;margin-top:6px;">🎯 Наголос на <strong>тривалості</strong> + зв'язку з теперішнім. Результат видно ЗАРАЗ!</p>
+    </div>
+
+    <!-- Formula -->
+    <div class="tense-card" style="background:white;border:2px solid var(--teal);" data-emoji="📐">
+      <span class="tense-badge" style="background:var(--teal-light);color:var(--teal-dark);">Formula / Формула</span>
+      <h3 style="color:var(--teal-dark)">How to build it</h3>
+      <p class="ua-h">Як будувати речення</p>
+
+      <div class="formula-box" style="background:var(--teal-light);">
+        ➕ <strong>Positive:</strong><br>
+        <span class="formula-part" style="background:#b2dfdb;">Subject</span> +
+        <span class="formula-part" style="background:#80cbc4;color:white;">have / has</span> +
+        <span class="formula-part" style="background:#26a69a;color:white;">been</span> +
+        <span class="formula-part" style="background:#00897b;color:white;">Verb-ing</span>
+      </div>
+      <div class="formula-box" style="background:#fce4ec;">
+        ➖ <strong>Negative:</strong><br>
+        <span class="formula-part" style="background:#f8bbd0;">Subject</span> +
+        <span class="formula-part" style="background:#f06292;color:white;">haven't / hasn't</span> +
+        <span class="formula-part" style="background:#e91e63;color:white;">been</span> +
+        <span class="formula-part" style="background:#c2185b;color:white;">Verb-ing</span>
+      </div>
+      <div class="formula-box" style="background:#e3f2fd;">
+        ❓ <strong>Question:</strong><br>
+        <span class="formula-part" style="background:#90caf9;">Have / Has</span> +
+        <span class="formula-part" style="background:#42a5f5;color:white;">Subject</span> +
+        <span class="formula-part" style="background:#1565c0;color:white;">been</span> +
+        <span class="formula-part" style="background:#0d47a1;color:white;">Verb-ing</span> +<span>?</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Timeline visual -->
+  <div class="card" style="margin-top:16px;">
+    <p style="font-weight:800;margin-bottom:16px;font-size:.95rem;">📊 Timeline / Шкала часу:</p>
+    <div class="timeline-vis">
+      <div class="tl-line"></div>
+      <div class="tl-point">
+        <div class="tl-dot" style="background:var(--blue);color:var(--blue);"></div>
+        <div class="tl-label">PAST<br>Минуле</div>
+      </div>
+      <div class="tl-point" style="flex:3;">
+        <div style="position:relative;">
+          <div style="height:8px;background:linear-gradient(90deg,var(--teal),#80cbc4);border-radius:4px;margin:5px 0 16px;"></div>
+          <div style="text-align:center;font-size:.78rem;font-weight:700;color:var(--teal-dark);">🌊 action in progress / дія тривала</div>
+        </div>
+      </div>
+      <div class="tl-point" style="position:relative;">
+        <div class="tl-action" style="background:var(--teal);">still now! ↓</div>
+        <div class="tl-dot" style="background:var(--teal);color:var(--teal);width:26px;height:26px;"></div>
+        <div class="tl-label">NOW ★<br>Зараз</div>
+      </div>
+      <div class="tl-point">
+        <div class="tl-dot" style="background:#ccc;color:#ccc;"></div>
+        <div class="tl-label">FUTURE<br>Майбутнє</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Examples -->
+  <div class="card card-accent" style="margin-top:10px;">
+    <p style="font-weight:800;margin-bottom:12px;">📝 Examples / Приклади:</p>
+    <ul class="ex-list">
+      <li style="border-color:var(--teal);">
+        <span class="en">She <strong>has been studying</strong> English for two years.</span>
+        <span class="ua-ex">Вона вивчає англійську вже два роки (і ще вивчає).</span>
+      </li>
+      <li style="border-color:var(--teal);">
+        <span class="en">I <strong>have been waiting</strong> for you since 9 o'clock!</span>
+        <span class="ua-ex">Я чекаю на тебе з 9-ї години! (і досі чекаю)</span>
+      </li>
+      <li style="border-color:var(--teal);">
+        <span class="en">They <strong>have been playing</strong> football for an hour.</span>
+        <span class="ua-ex">Вони грають у футбол вже годину.</span>
+      </li>
+      <li style="border-color:var(--teal);">
+        <span class="en">You look tired. <strong>Have you been running?</strong></span>
+        <span class="ua-ex">Ти виглядаєш втомленим. Ти бігав?</span>
+      </li>
+      <li style="border-color:var(--teal);">
+        <span class="en">It <strong>has been raining</strong> all day.</span>
+        <span class="ua-ex">Дощить цілий день.</span>
+      </li>
+      <li style="border-color:var(--teal);">
+        <span class="en">She <strong>hasn't been sleeping</strong> well lately.</span>
+        <span class="ua-ex">Останнім часом вона погано спить.</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ════════ TENSE 2: PAST PERFECT CONTINUOUS ════════ -->
+<section class="fade-in">
+  <h2 class="section-title">📜 Past Perfect Continuous</h2>
+  <span class="ua-title">Минулий доконано-тривалий час</span>
+
+  <div class="tenses-grid">
+    <div class="tense-card" style="background:var(--blue-light);" data-emoji="📜">
+      <span class="tense-badge" style="background:var(--blue);color:white;">Meaning / Значення</span>
+      <h3 style="color:var(--blue)">Action before another past action</h3>
+      <p class="ua-h">Дія, що тривала ДО іншої минулої дії</p>
+      <p style="font-size:.9rem;">Like a "flashback within a flashback". Something had been going on for a while, then something else happened.</p>
+      <p style="font-size:.82rem;color:#555;margin-top:6px;">Немов «спогад у спогаді». Щось тривало деякий час, потім відбулась інша подія.</p>
+    </div>
+
+    <div class="tense-card" style="background:white;border:2px solid var(--blue);" data-emoji="📐">
+      <span class="tense-badge" style="background:var(--blue-light);color:var(--blue);">Formula / Формула</span>
+      <h3 style="color:var(--blue)">How to build it</h3>
+      <p class="ua-h">Як будувати речення</p>
+      <div class="formula-box" style="background:var(--blue-light);">
+        ➕ <strong>Positive:</strong><br>
+        <span class="formula-part" style="background:#bbdefb;">Subject</span> +
+        <span class="formula-part" style="background:#42a5f5;color:white;">had</span> +
+        <span class="formula-part" style="background:#1976d2;color:white;">been</span> +
+        <span class="formula-part" style="background:#0d47a1;color:white;">Verb-ing</span>
+      </div>
+      <div class="formula-box" style="background:#fce4ec;">
+        ➖ <strong>Negative:</strong><br>
+        <span class="formula-part" style="background:#f8bbd0;">Subject</span> +
+        <span class="formula-part" style="background:#e91e63;color:white;">hadn't</span> +
+        <span class="formula-part" style="background:#c2185b;color:white;">been</span> +
+        <span class="formula-part" style="background:#880e4f;color:white;">Verb-ing</span>
+      </div>
+      <div class="formula-box" style="background:#e8f5e9;">
+        ❓ <strong>Question:</strong><br>
+        <span class="formula-part" style="background:#a5d6a7;">Had</span> +
+        <span class="formula-part" style="background:#4caf50;color:white;">Subject</span> +
+        <span class="formula-part" style="background:#2e7d32;color:white;">been</span> +
+        <span class="formula-part" style="background:#1b5e20;color:white;">Verb-ing</span> +<span>?</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Timeline visual -->
+  <div class="card" style="margin-top:16px;">
+    <p style="font-weight:800;margin-bottom:16px;font-size:.95rem;">📊 Timeline / Шкала часу:</p>
+    <div class="timeline-vis">
+      <div class="tl-line"></div>
+      <div class="tl-point">
+        <div class="tl-dot" style="background:#aaa;color:#aaa;"></div>
+        <div class="tl-label">FAR PAST<br>Давніше</div>
+      </div>
+      <div class="tl-point" style="flex:2;">
+        <div style="height:8px;background:linear-gradient(90deg,var(--blue),#90caf9);border-radius:4px;margin:5px 0 16px;"></div>
+        <div style="text-align:center;font-size:.78rem;font-weight:700;color:var(--blue);">action in progress</div>
+      </div>
+      <div class="tl-point" style="position:relative;">
+        <div class="tl-action" style="background:var(--blue);">other past event ↓</div>
+        <div class="tl-dot" style="background:var(--blue);color:var(--blue);width:26px;height:26px;"></div>
+        <div class="tl-label">PAST★<br>Минуле</div>
+      </div>
+      <div class="tl-point" style="flex:1.5;"></div>
+      <div class="tl-point">
+        <div class="tl-dot" style="background:#ccc;color:#ccc;"></div>
+        <div class="tl-label">NOW<br>Зараз</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card card-accent" style="border-left-color:var(--blue);margin-top:10px;">
+    <p style="font-weight:800;margin-bottom:12px;">📝 Examples / Приклади:</p>
+    <ul class="ex-list">
+      <li style="border-color:var(--blue);">
+        <span class="en">She <strong>had been studying</strong> English for two years before she moved to London.</span>
+        <span class="ua-ex">Вона вивчала англійську два роки, перш ніж переїхала до Лондона.</span>
+      </li>
+      <li style="border-color:var(--blue);">
+        <span class="en">He was tired because he <strong>had been working</strong> all night.</span>
+        <span class="ua-ex">Він був втомлений, бо працював усю ніч (до того моменту).</span>
+      </li>
+      <li style="border-color:var(--blue);">
+        <span class="en">When I arrived, they <strong>had been waiting</strong> for an hour.</span>
+        <span class="ua-ex">Коли я прийшов, вони вже годину чекали.</span>
+      </li>
+      <li style="border-color:var(--blue);">
+        <span class="en">The ground was wet because it <strong>had been raining</strong>.</span>
+        <span class="ua-ex">Земля була мокрою, бо дощило (до цього).</span>
+      </li>
+      <li style="border-color:var(--blue);">
+        <span class="en">She was happy because she <strong>had been practising</strong> piano for weeks.</span>
+        <span class="ua-ex">Вона була рада, бо тижнями практикувала фортепіано.</span>
+      </li>
+      <li style="border-color:var(--blue);">
+        <span class="en"><strong>Had</strong> you <strong>been sleeping</strong> when I called?</span>
+        <span class="ua-ex">Ти спав, коли я зателефонував?</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ════════ TENSE 3: FUTURE PERFECT CONTINUOUS ════════ -->
+<section class="fade-in">
+  <h2 class="section-title">🔮 Future Perfect Continuous</h2>
+  <span class="ua-title">Майбутній доконано-тривалий час</span>
+
+  <div class="tenses-grid">
+    <div class="tense-card" style="background:var(--purple-light);" data-emoji="🔮">
+      <span class="tense-badge" style="background:var(--purple);color:white;">Meaning / Значення</span>
+      <h3 style="color:var(--purple)">Action still going at a future point</h3>
+      <p class="ua-h">Дія буде ще тривати в певний момент у майбутньому</p>
+      <p style="font-size:.9rem;">Imagine you're in the future looking back. The action will still be in progress at that future moment.</p>
+      <p style="font-size:.82rem;color:#555;margin-top:6px;">Уяви, що ти в майбутньому і дивишся назад. Дія ще буде тривати в той момент.</p>
+    </div>
+
+    <div class="tense-card" style="background:white;border:2px solid var(--purple);" data-emoji="📐">
+      <span class="tense-badge" style="background:var(--purple-light);color:var(--purple);">Formula / Формула</span>
+      <h3 style="color:var(--purple)">How to build it</h3>
+      <p class="ua-h">Як будувати речення</p>
+      <div class="formula-box" style="background:var(--purple-light);">
+        ➕ <strong>Positive:</strong><br>
+        <span class="formula-part" style="background:#d1c4e9;">Subject</span> +
+        <span class="formula-part" style="background:#9575cd;color:white;">will</span> +
+        <span class="formula-part" style="background:#7c43bd;color:white;">have been</span> +
+        <span class="formula-part" style="background:#4a148c;color:white;">Verb-ing</span>
+      </div>
+      <div class="formula-box" style="background:#fce4ec;">
+        ➖ <strong>Negative:</strong><br>
+        <span class="formula-part" style="background:#f8bbd0;">Subject</span> +
+        <span class="formula-part" style="background:#e91e63;color:white;">won't</span> +
+        <span class="formula-part" style="background:#c2185b;color:white;">have been</span> +
+        <span class="formula-part" style="background:#880e4f;color:white;">Verb-ing</span>
+      </div>
+      <div class="formula-box" style="background:#fff3e0;">
+        ❓ <strong>Question:</strong><br>
+        <span class="formula-part" style="background:#ffcc80;">Will</span> +
+        <span class="formula-part" style="background:#ffa726;color:white;">Subject</span> +
+        <span class="formula-part" style="background:#e65100;color:white;">have been</span> +
+        <span class="formula-part" style="background:#bf360c;color:white;">Verb-ing</span> +<span>?</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Timeline visual -->
+  <div class="card" style="margin-top:16px;">
+    <p style="font-weight:800;margin-bottom:16px;font-size:.95rem;">📊 Timeline / Шкала часу:</p>
+    <div class="timeline-vis">
+      <div class="tl-line"></div>
+      <div class="tl-point">
+        <div class="tl-dot" style="background:#aaa;color:#aaa;"></div>
+        <div class="tl-label">NOW<br>Зараз</div>
+      </div>
+      <div class="tl-point" style="flex:2;">
+        <div style="height:8px;background:linear-gradient(90deg,var(--purple),#ce93d8);border-radius:4px;margin:5px 0 16px;"></div>
+        <div style="text-align:center;font-size:.78rem;font-weight:700;color:var(--purple);">action continues...</div>
+      </div>
+      <div class="tl-point" style="position:relative;">
+        <div class="tl-action" style="background:var(--purple);">future deadline ↓</div>
+        <div class="tl-dot" style="background:var(--purple);color:var(--purple);width:26px;height:26px;"></div>
+        <div class="tl-label">FUTURE ★<br>Майбутнє</div>
+      </div>
+      <div class="tl-point" style="flex:1.5;"></div>
+    </div>
+  </div>
+
+  <div class="card card-accent" style="border-left-color:var(--purple);margin-top:10px;">
+    <p style="font-weight:800;margin-bottom:12px;">📝 Examples / Приклади:</p>
+    <ul class="ex-list">
+      <li style="border-color:var(--purple);">
+        <span class="en">By June, she <strong>will have been studying</strong> English for two years.</span>
+        <span class="ua-ex">До червня вона вже два роки вивчатиме англійську.</span>
+      </li>
+      <li style="border-color:var(--purple);">
+        <span class="en">By 2030, he <strong>will have been working</strong> here for 10 years.</span>
+        <span class="ua-ex">До 2030 року він вже 10 років працюватиме тут.</span>
+      </li>
+      <li style="border-color:var(--purple);">
+        <span class="en">By the time you arrive, I <strong>will have been cooking</strong> for three hours.</span>
+        <span class="ua-ex">До того, як ти приїдеш, я вже три години готуватиму.</span>
+      </li>
+      <li style="border-color:var(--purple);">
+        <span class="en">Next year, they <strong>will have been living</strong> in Kyiv for five years.</span>
+        <span class="ua-ex">Наступного року вони вже п'ять років житимуть у Києві.</span>
+      </li>
+      <li style="border-color:var(--purple);">
+        <span class="en"><strong>Will</strong> you <strong>have been teaching</strong> for 20 years by then?</span>
+        <span class="ua-ex">До того часу ти вже 20 років викладатимеш?</span>
+      </li>
+      <li style="border-color:var(--purple);">
+        <span class="en">She <strong>won't have been sleeping</strong> long when the alarm goes off.</span>
+        <span class="ua-ex">Вона недовго спатиме, коли задзвенить будильник.</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ════════ SIGNAL WORDS ════════ -->
+<section class="fade-in">
+  <h2 class="section-title">🚦 Signal Words</h2>
+  <span class="ua-title">Слова-маяки — вони підказують, який час використовувати</span>
+
+  <div class="card">
+    <p style="font-weight:700;margin-bottom:14px;font-size:.95rem;">These words almost always go with Perfect Continuous / Ці слова майже завжди йдуть з Perfect Continuous:</p>
+    <div class="signals-grid">
+      <div class="signal-chip" style="background:var(--teal-light);color:var(--teal-dark);">⏱️ for (протягом)</div>
+      <div class="signal-chip" style="background:var(--blue-light);color:var(--blue);">📅 since (з ... часу)</div>
+      <div class="signal-chip" style="background:var(--orange-light);color:var(--orange);">🕐 all day / all week (цілий день/тиждень)</div>
+      <div class="signal-chip" style="background:var(--purple-light);color:var(--purple);">📆 by (до певного моменту)</div>
+      <div class="signal-chip" style="background:var(--green-light);color:#166534;">🌙 lately / recently (останнім часом)</div>
+      <div class="signal-chip" style="background:var(--pink-light);color:var(--pink);">⏰ how long (як довго)</div>
+      <div class="signal-chip" style="background:var(--yellow-light);color:#7c4a00;">📍 when (коли — for past)</div>
+      <div class="signal-chip" style="background:var(--teal-light);color:var(--teal-dark);">🔁 still (все ще)</div>
+    </div>
+    <div style="margin-top:16px;background:#f5f5f5;border-radius:12px;padding:14px;">
+      <p style="font-weight:800;font-size:.9rem;margin-bottom:8px;">📌 Real examples with signal words / Приклади зі словами-маяками:</p>
+      <p style="font-size:.88rem;">• I have been waiting <strong style="color:var(--teal)">for</strong> 20 minutes. (Я чекаю <strong>20 хвилин</strong>.)</p>
+      <p style="font-size:.88rem;">• She has been studying <strong style="color:var(--blue)">since</strong> morning. (Вона навчається <strong>з ранку</strong>.)</p>
+      <p style="font-size:.88rem;">• It has been raining <strong style="color:var(--orange)">all day</strong>. (Дощить <strong>цілий день</strong>.)</p>
+      <p style="font-size:.88rem;">• <strong style="color:var(--pink)">How long</strong> have you been learning? (<strong>Як довго</strong> ти вчишся?)</p>
+      <p style="font-size:.88rem;">• He has been acting strange <strong style="color:var(--green)">lately</strong>. (Останнім часом він дивно поводиться.)</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ BIG EXAMPLES — ALL SITUATIONS ════════ -->
+<section class="fade-in">
+  <h2 class="section-title">🌍 Real-Life Examples — Every Situation!</h2>
+  <span class="ua-title">Приклади з реального життя — всі ситуації! (в основному Present Perfect Continuous)</span>
+
+  <div class="big-examples">
+
+    <div class="ex-card" style="background:#e0f7f4;border-color:var(--teal);">
+      <div class="ex-topic" style="color:var(--teal-dark);">🏫 School / Школа</div>
+      <div class="ex-en">I <strong>have been studying</strong> maths for 3 hours.</div>
+      <div class="ex-ua">Я займаюся математикою вже 3 години.</div>
+      <div class="ex-note">Still studying right now! / Ще продовжую!</div>
+    </div>
+
+    <div class="ex-card" style="background:#e3edff;border-color:var(--blue);">
+      <div class="ex-topic" style="color:var(--blue);">⚽ Sport / Спорт</div>
+      <div class="ex-en">They <strong>have been playing</strong> football since 3 pm.</div>
+      <div class="ex-ua">Вони грають у футбол з 15:00.</div>
+      <div class="ex-note">Game is still on! / Гра ще триває!</div>
+    </div>
+
+    <div class="ex-card" style="background:#fff3e0;border-color:var(--orange);">
+      <div class="ex-topic" style="color:var(--orange);">🍕 Food / Їжа</div>
+      <div class="ex-en">Mum <strong>has been cooking</strong> dinner for an hour.</div>
+      <div class="ex-ua">Мама готує вечерю вже годину.</div>
+      <div class="ex-note">Still in the kitchen! / Ще готує!</div>
+    </div>
+
+    <div class="ex-card" style="background:#ede9fe;border-color:var(--purple);">
+      <div class="ex-topic" style="color:var(--purple);">🎵 Music / Музика</div>
+      <div class="ex-en">He <strong>has been practising</strong> guitar all afternoon.</div>
+      <div class="ex-ua">Він весь вечір грає на гітарі.</div>
+      <div class="ex-note">Neighbours can still hear! / Сусіди чують!</div>
+    </div>
+
+    <div class="ex-card" style="background:#fce4f0;border-color:var(--pink);">
+      <div class="ex-topic" style="color:var(--pink);">😴 Sleep / Сон</div>
+      <div class="ex-en">The baby <strong>has been sleeping</strong> for two hours.</div>
+      <div class="ex-ua">Малюк спить вже дві години.</div>
+    </div>
+
+    <div class="ex-card" style="background:#fffde7;border-color:var(--yellow);">
+      <div class="ex-topic" style="color:#7c4a00;">📱 Tech / Технології</div>
+      <div class="ex-en">She <strong>has been watching</strong> TikTok for hours!</div>
+      <div class="ex-ua">Вона годинами дивиться TikTok!</div>
+    </div>
+
+    <div class="ex-card" style="background:#dcfce7;border-color:var(--green);">
+      <div class="ex-topic" style="color:#166534;">🌧️ Weather / Погода</div>
+      <div class="ex-en">It <strong>has been snowing</strong> since yesterday.</div>
+      <div class="ex-ua">Іде сніг з учорашнього дня.</div>
+    </div>
+
+    <div class="ex-card" style="background:#fee2e2;border-color:var(--red);">
+      <div class="ex-topic" style="color:var(--red);">😤 Complaints / Скарги</div>
+      <div class="ex-en">He <strong>has been talking</strong> on the phone for an hour!</div>
+      <div class="ex-ua">Він вже годину розмовляє по телефону!</div>
+    </div>
+
+    <div class="ex-card" style="background:#e0f7f4;border-color:var(--teal);">
+      <div class="ex-topic" style="color:var(--teal-dark);">💼 Work / Робота</div>
+      <div class="ex-en">Dad <strong>has been working</strong> from home all week.</div>
+      <div class="ex-ua">Тато працює вдома весь тиждень.</div>
+    </div>
+
+    <div class="ex-card" style="background:#e3edff;border-color:var(--blue);">
+      <div class="ex-topic" style="color:var(--blue);">📚 Reading / Читання</div>
+      <div class="ex-en">I <strong>have been reading</strong> this book for a month.</div>
+      <div class="ex-ua">Я читаю цю книгу вже місяць.</div>
+    </div>
+
+    <div class="ex-card" style="background:#fff3e0;border-color:var(--orange);">
+      <div class="ex-topic" style="color:var(--orange);">🏃 Exercise / Фізкультура</div>
+      <div class="ex-en">We <strong>have been jogging</strong> in the park every morning.</div>
+      <div class="ex-ua">Ми щоранку бігаємо в парку.</div>
+    </div>
+
+    <div class="ex-card" style="background:#ede9fe;border-color:var(--purple);">
+      <div class="ex-topic" style="color:var(--purple);">🐶 Pets / Тварини</div>
+      <div class="ex-en">The dog <strong>has been barking</strong> all night!</div>
+      <div class="ex-ua">Собака гавкає всю ніч!</div>
+    </div>
+
+    <div class="ex-card" style="background:#dcfce7;border-color:var(--green);">
+      <div class="ex-topic" style="color:#166534;">🌱 Environment / Природа</div>
+      <div class="ex-en">Temperatures <strong>have been rising</strong> for decades.</div>
+      <div class="ex-ua">Температури ростуть вже десятиліттями.</div>
+    </div>
+
+    <div class="ex-card" style="background:#fce4f0;border-color:var(--pink);">
+      <div class="ex-topic" style="color:var(--pink);">💪 Health / Здоров'я</div>
+      <div class="ex-en">I <strong>have been feeling</strong> sick for three days.</div>
+      <div class="ex-ua">Я відчуваю себе погано вже три дні.</div>
+    </div>
+
+    <div class="ex-card" style="background:#fffde7;border-color:var(--yellow);">
+      <div class="ex-topic" style="color:#7c4a00);">🚗 Travel / Подорожі</div>
+      <div class="ex-en">We <strong>have been driving</strong> for 5 hours straight.</div>
+      <div class="ex-ua">Ми їдемо без зупинки вже 5 годин.</div>
+    </div>
+
+    <div class="ex-card" style="background:#e0f7f4;border-color:var(--teal);">
+      <div class="ex-topic" style="color:var(--teal-dark);">🎨 Art / Мистецтво</div>
+      <div class="ex-en">She <strong>has been painting</strong> that portrait for weeks.</div>
+      <div class="ex-ua">Вона малює той портрет вже тижнями.</div>
+    </div>
+
+    <div class="ex-card" style="background:#e3edff;border-color:var(--blue);">
+      <div class="ex-topic" style="color:var(--blue);">🤝 Friendship / Дружба</div>
+      <div class="ex-en">They <strong>have been friends</strong>... (use "have been" here! no -ing for stative)</div>
+      <div class="ex-ua">Вони дружать... (з "be" — без -ing! це стан)</div>
+      <div class="ex-note">⚠️ Stative verbs don't use -ing / Дієслова стану не вживають -ing</div>
+    </div>
+
+    <div class="ex-card" style="background:#fee2e2;border-color:var(--red);">
+      <div class="ex-topic" style="color:var(--red);">😡 Argument / Сварка</div>
+      <div class="ex-en">They <strong>have been arguing</strong> since this morning.</div>
+      <div class="ex-ua">Вони сваряться з самого ранку.</div>
+    </div>
+
+    <!-- Past Perfect Continuous examples -->
+    <div class="ex-card" style="background:var(--blue-light);border-color:var(--blue);">
+      <div class="ex-topic" style="color:var(--blue);">📜 PAST PERF. CONT. — Tired</div>
+      <div class="ex-en">He was exhausted because he <strong>had been running</strong> all day.</div>
+      <div class="ex-ua">Він знесилів, бо бігав весь день (до того).</div>
+    </div>
+
+    <div class="ex-card" style="background:var(--blue-light);border-color:var(--blue);">
+      <div class="ex-topic" style="color:var(--blue);">📜 PAST PERF. CONT. — Crying</div>
+      <div class="ex-en">Her eyes were red. She <strong>had been crying</strong>.</div>
+      <div class="ex-ua">Її очі були червоні. Вона плакала (до цього).</div>
+    </div>
+
+    <!-- Future Perfect Continuous -->
+    <div class="ex-card" style="background:var(--purple-light);border-color:var(--purple);">
+      <div class="ex-topic" style="color:var(--purple);">🔮 FUTURE PERF. CONT. — Job</div>
+      <div class="ex-en">By next year, I <strong>will have been teaching</strong> for 5 years.</div>
+      <div class="ex-ua">Наступного року я вже 5 років викладатиму.</div>
+    </div>
+
+    <div class="ex-card" style="background:var(--purple-light);border-color:var(--purple);">
+      <div class="ex-topic" style="color:var(--purple);">🔮 FUTURE PERF. CONT. — Waiting</div>
+      <div class="ex-en">By 6 pm, I <strong>will have been waiting</strong> for 2 hours.</div>
+      <div class="ex-ua">До 18:00 я вже дві години чекатиму.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════ COMPARISON ════════ -->
+<section class="fade-in">
+  <h2 class="section-title">⚖️ Perfect Continuous vs. Others</h2>
+  <span class="ua-title">Порівняння з іншими часами — у чому різниця?</span>
+
+  <div class="compare-grid">
+    <div class="compare-box" style="background:var(--teal-light);border:2px solid var(--teal);">
+      <h4 style="color:var(--teal-dark);">✅ Present Perfect Continuous<br><small>have been doing</small></h4>
+      <ul>
+        <li>Focus on <strong>duration</strong> and ongoing process</li>
+        <li>"I <strong>have been reading</strong> this book." (still reading, or just stopped)</li>
+        <li>Наголос на <strong>тривалості</strong> процесу</li>
+      </ul>
+    </div>
+    <div class="compare-box" style="background:var(--orange-light);border:2px solid var(--orange);">
+      <h4 style="color:var(--orange);">✅ Present Perfect Simple<br><small>have done</small></h4>
+      <ul>
+        <li>Focus on <strong>completed result</strong></li>
+        <li>"I <strong>have read</strong> this book." (finished! done!)</li>
+        <li>Наголос на <strong>завершеності</strong> та результаті</li>
+      </ul>
+    </div>
+    <div class="compare-box" style="background:var(--blue-light);border:2px solid var(--blue);">
+      <h4 style="color:var(--blue);">✅ Past Continuous<br><small>was doing</small></h4>
+      <ul>
+        <li>Action <strong>in progress at a specific past moment</strong></li>
+        <li>"I <strong>was reading</strong> at 8 pm." (at that moment)</li>
+        <li>Дія тривала <strong>у конкретний минулий момент</strong></li>
+      </ul>
+    </div>
+    <div class="compare-box" style="background:var(--green-light);border:2px solid var(--green);">
+      <h4 style="color:#166534;">✅ Present Continuous<br><small>am/is/are doing</small></h4>
+      <ul>
+        <li>Action happening <strong>right now, at this moment</strong></li>
+        <li>"I <strong>am reading</strong> now." (this very second)</li>
+        <li>Дія відбувається <strong>прямо зараз</strong></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:16px;background:var(--yellow-light);border:2px solid var(--yellow);">
+    <p style="font-weight:800;font-size:1rem;margin-bottom:14px;">🎯 Side-by-side comparison / Порівняння пліч-о-пліч:</p>
+    <div class="compare-table-wrap">
+    <table class="compare-table-inner" style="width:100%;min-width:460px;font-size:.88rem;border-collapse:collapse;">
+      <tr style="background:var(--yellow);color:white;">
+        <th style="padding:8px 10px;border-radius:8px 0 0 0;text-align:left;">Sentence</th>
+        <th style="padding:8px 10px;text-align:left;">Tense</th>
+        <th style="padding:8px 10px;border-radius:0 8px 0 0;text-align:left;">Meaning / Значення</th>
+      </tr>
+      <tr style="background:white;">
+        <td style="padding:8px 10px;font-weight:700;">I <strong>read</strong> this book.</td>
+        <td style="padding:8px 10px;">Past Simple</td>
+        <td style="padding:8px 10px;color:#666;">I read it (some time ago). / Читав колись.</td>
+      </tr>
+      <tr style="background:#f9f9f9;">
+        <td style="padding:8px 10px;font-weight:700;">I <strong>have read</strong> this book.</td>
+        <td style="padding:8px 10px;">Present Perfect</td>
+        <td style="padding:8px 10px;color:#666;">I've finished it. Experience. / Прочитав, маю досвід.</td>
+      </tr>
+      <tr style="background:white;">
+        <td style="padding:8px 10px;font-weight:700;">I <strong>am reading</strong> this book.</td>
+        <td style="padding:8px 10px;">Present Continuous</td>
+        <td style="padding:8px 10px;color:#666;">Right now! / Прямо зараз читаю!</td>
+      </tr>
+      <tr style="background:var(--teal-light);">
+        <td style="padding:8px 10px;font-weight:700;">I <strong>have been reading</strong> for 2 hrs.</td>
+        <td style="padding:8px 10px;font-weight:800;color:var(--teal-dark);">Present Perf. Cont. ⭐</td>
+        <td style="padding:8px 10px;color:var(--teal-dark);font-weight:700;">Started 2 hrs ago, still reading! / 2 год. читаю і ще читаю!</td>
+      </tr>
+    </table>
+    </div><!-- /compare-table-wrap -->
+  </div>
+</section> WARNING ════════ -->
+<section class="fade-in">
+  <h2 class="section-title">⚠️ Watch Out! Stative Verbs</h2>
+  <span class="ua-title">Обережно! Дієслова стану — вони НЕ вживаються з -ing</span>
+
+  <div class="card" style="background:#fff8f0;border:2px solid var(--orange);">
+    <p style="font-size:.95rem;font-weight:700;margin-bottom:14px;">Some verbs describe <strong>states</strong>, not actions. They don't like -ing! / Деякі дієслова описують <strong>стан</strong>, а не дію. Вони не дружать з -ing!</p>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;">
+      <span style="background:var(--orange-light);border-radius:8px;padding:5px 12px;font-weight:700;font-size:.85rem;">know (знати)</span>
+      <span style="background:var(--orange-light);border-radius:8px;padding:5px 12px;font-weight:700;font-size:.85rem;">love (любити)</span>
+      <span style="background:var(--orange-light);border-radius:8px;padding:5px 12px;font-weight:700;font-size:.85rem;">hate (ненавидіти)</span>
+      <span style="background:var(--orange-light);border-radius:8px;padding:5px 12px;font-weight:700;font-size:.85rem;">want (хотіти)</span>
+      <span style="background:var(--orange-light);border-radius:8px;padding:5px 12px;font-weight:700;font-size:.85rem;">need (потребувати)</span>
+      <span style="background:var(--orange-light);border-radius:8px;padding:5px 12px;font-weight:700;font-size:.85rem;">believe (вірити)</span>
+      <span style="background:var(--orange-light);border-radius:8px;padding:5px 12px;font-weight:700;font-size:.85rem;">understand (розуміти)</span>
+      <span style="background:var(--orange-light);border-radius:8px;padding:5px 12px;font-weight:700;font-size:.85rem;">seem (здаватися)</span>
+      <span style="background:var(--orange-light);border-radius:8px;padding:5px 12px;font-weight:700;font-size:.85rem;">belong (належати)</span>
+    </div>
+    <div class="stative-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+      <div style="background:#fee2e2;border-radius:12px;padding:12px;border-left:4px solid var(--red);">
+        <p style="font-weight:800;color:var(--red);margin-bottom:6px;">❌ WRONG:</p>
+        <p style="font-size:.9rem;">I have been knowing her for years.</p>
+        <p style="font-size:.9rem;">She has been loving cats all her life.</p>
+      </div>
+      <div style="background:#dcfce7;border-radius:12px;padding:12px;border-left:4px solid var(--green);">
+        <p style="font-weight:800;color:#166534;margin-bottom:6px;">✅ CORRECT:</p>
+        <p style="font-size:.9rem;">I have known her for years.</p>
+        <p style="font-size:.9rem;">She has loved cats all her life.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ TIPS ════════ -->
+<section class="fade-in">
+  <h2 class="section-title">💡 Tips & Tricks</h2>
+  <span class="ua-title">Підказки та хитрощі для запам'ятовування</span>
+
+  <div class="tip-box">
+    <span class="tip-icon">🌊</span>
+    <p><strong>Think of a wave!</strong> The action started somewhere in the past and is STILL FLOWING towards now. That's Present Perfect Continuous!<br><span style="color:#555;font-size:.88rem;">Уявляй хвилю! Дія почалася колись і ЩЕ КОТИТЬСЯ до теперішнього.</span></p>
+  </div>
+  <div class="tip-box" style="background:var(--blue-light);border-color:var(--blue);">
+    <span class="tip-icon">🔎</span>
+    <p><strong>Look for evidence!</strong> Wet ground → it has been raining. Red eyes → she has been crying. Tired face → he has been working hard.<br><span style="color:#555;font-size:.88rem;">Шукай сліди! Мокра земля → дощило. Червоні очі → плакала. Втомлений вигляд → важко працював.</span></p>
+  </div>
+  <div class="tip-box" style="background:var(--purple-light);border-color:var(--purple);">
+    <span class="tip-icon">⏳</span>
+    <p><strong>FOR vs SINCE:</strong> Use <strong>for</strong> + a period of time (for 2 hours, for a week). Use <strong>since</strong> + a point in time (since 9 am, since Monday, since 2020).<br><span style="color:#555;font-size:.88rem;"><strong>for</strong> + відрізок часу (for 2 hours). <strong>since</strong> + точний момент (since 9 am, since Monday).</span></p>
+  </div>
+  <div class="tip-box" style="background:var(--orange-light);border-color:var(--orange);">
+    <span class="tip-icon">📐</span>
+    <p><strong>The formula never changes!</strong> Always: <strong>have/has/had/will have + been + Verb-ing</strong>. Just swap the helper verb!<br><span style="color:#555;font-size:.88rem;">Формула не змінюється! Завжди: <strong>have/has/had/will have + been + дієслово-ing</strong>. Просто міняй допоміжне дієслово!</span></p>
+  </div>
+  <div class="tip-box" style="background:var(--yellow-light);border-color:var(--yellow);">
+    <span class="tip-icon">🎭</span>
+    <p><strong>Perfect Continuous = emotion + duration.</strong> "I've been waiting and I'm ANNOYED!" It often carries an emotional punch!<br><span style="color:#555;font-size:.88rem;">Perfect Continuous = емоція + тривалість. Часто виражає роздратування, здивування або радість від того, як довго щось відбувається!</span></p>
+  </div>
+</section>
+
+<!-- ════════ QUIZ ════════ -->
+<section class="fade-in">
+  <h2 class="section-title">🎮 Quick Quiz!</h2>
+  <span class="ua-title">Швидкий тест — перевір себе!</span>
+
+  <div class="quiz-card">
+    <h3>🧠 Choose the correct form / Обери правильну форму:</h3>
+
+    <div class="q-item" id="q1">
+      <p>1. She ___ English for two years. (right now, still going!) / (зараз, ще продовжує!)</p>
+      <div class="q-options">
+        <button class="q-btn" onclick="answer(this,'wrong','q1')">studies</button>
+        <button class="q-btn" onclick="answer(this,'correct','q1')">has been studying</button>
+        <button class="q-btn" onclick="answer(this,'wrong','q1')">had studied</button>
+        <button class="q-btn" onclick="answer(this,'wrong','q1')">was studying</button>
+      </div>
+      <div class="q-feedback" id="q1-fb"></div>
+    </div>
+
+    <div class="q-item" id="q2">
+      <p>2. He was tired because he ___ all day. (explains reason in past) / (пояснює причину в минулому)</p>
+      <div class="q-options">
+        <button class="q-btn" onclick="answer(this,'wrong','q2')">has been working</button>
+        <button class="q-btn" onclick="answer(this,'wrong','q2')">will have been working</button>
+        <button class="q-btn" onclick="answer(this,'correct','q2')">had been working</button>
+        <button class="q-btn" onclick="answer(this,'wrong','q2')">is working</button>
+      </div>
+      <div class="q-feedback" id="q2-fb"></div>
+    </div>
+
+    <div class="q-item" id="q3">
+      <p>3. By next year, I ___ here for 5 years. (future deadline) / (дедлайн у майбутньому)</p>
+      <div class="q-options">
+        <button class="q-btn" onclick="answer(this,'wrong','q3')">have been working</button>
+        <button class="q-btn" onclick="answer(this,'correct','q3')">will have been working</button>
+        <button class="q-btn" onclick="answer(this,'wrong','q3')">had been working</button>
+        <button class="q-btn" onclick="answer(this,'wrong','q3')">work</button>
+      </div>
+      <div class="q-feedback" id="q3-fb"></div>
+    </div>
+
+    <div class="q-item" id="q4">
+      <p>4. It ___ since morning. (still raining now!) / (досі іде!)</p>
+      <div class="q-options">
+        <button class="q-btn" onclick="answer(this,'wrong','q4')">rained</button>
+        <button class="q-btn" onclick="answer(this,'correct','q4')">has been raining</button>
+        <button class="q-btn" onclick="answer(this,'wrong','q4')">had been raining</button>
+        <button class="q-btn" onclick="answer(this,'wrong','q4')">will rain</button>
+      </div>
+      <div class="q-feedback" id="q4-fb"></div>
+    </div>
+
+    <div class="q-item" id="q5">
+      <p>5. ___ you ___ for me long? (question, present) / (питання, теперішній час)</p>
+      <div class="q-options">
+        <button class="q-btn" onclick="answer(this,'wrong','q5')">Did / wait</button>
+        <button class="q-btn" onclick="answer(this,'correct','q5')">Have / been waiting</button>
+        <button class="q-btn" onclick="answer(this,'wrong','q5')">Had / been waiting</button>
+        <button class="q-btn" onclick="answer(this,'wrong','q5')">Will / have been waiting</button>
+      </div>
+      <div class="q-feedback" id="q5-fb"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ SUMMARY INFOGRAPHIC ════════ -->
+<section class="fade-in">
+  <h2 class="section-title">📊 Summary Infographic</h2>
+  <span class="ua-title">Підсумкова інфографіка — всі три часи на одному аркуші</span>
+
+  <div class="summary-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;">
+
+    <div style="background:linear-gradient(135deg,#e0f7f4,#b2dfdb);border-radius:20px;padding:24px;text-align:center;border:2px solid var(--teal);">
+      <div style="font-size:3rem;margin-bottom:8px;">⏰</div>
+      <h3 style="font-family:'Baloo 2',cursive;font-weight:800;color:var(--teal-dark);font-size:1.1rem;">Present Perfect Continuous</h3>
+      <div style="background:white;border-radius:10px;padding:10px;margin:10px 0;font-family:'Baloo 2',cursive;font-weight:700;font-size:.88rem;color:var(--teal-dark);">have/has + been + V-ing</div>
+      <p style="font-size:.85rem;color:#333;font-weight:600;">Started in the past → still NOW<br>Почалося → ще ЗАРАЗ</p>
+      <p style="font-size:.82rem;color:#555;margin-top:8px;font-style:italic;">"She <strong>has been studying</strong> for 2 hrs."</p>
+      <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:4px;justify-content:center;">
+        <span style="background:var(--teal);color:white;border-radius:20px;padding:2px 10px;font-size:.75rem;font-weight:700;">for</span>
+        <span style="background:var(--teal);color:white;border-radius:20px;padding:2px 10px;font-size:.75rem;font-weight:700;">since</span>
+        <span style="background:var(--teal);color:white;border-radius:20px;padding:2px 10px;font-size:.75rem;font-weight:700;">all day</span>
+        <span style="background:var(--teal);color:white;border-radius:20px;padding:2px 10px;font-size:.75rem;font-weight:700;">lately</span>
+      </div>
+    </div>
+
+    <div style="background:linear-gradient(135deg,#e3edff,#bbdefb);border-radius:20px;padding:24px;text-align:center;border:2px solid var(--blue);">
+      <div style="font-size:3rem;margin-bottom:8px;">📜</div>
+      <h3 style="font-family:'Baloo 2',cursive;font-weight:800;color:var(--blue);font-size:1.1rem;">Past Perfect Continuous</h3>
+      <div style="background:white;border-radius:10px;padding:10px;margin:10px 0;font-family:'Baloo 2',cursive;font-weight:700;font-size:.88rem;color:var(--blue);">had + been + V-ing</div>
+      <p style="font-size:.85rem;color:#333;font-weight:600;">Action before another PAST event<br>Дія ДО іншої минулої події</p>
+      <p style="font-size:.82rem;color:#555;margin-top:8px;font-style:italic;">"She <strong>had been studying</strong> before she moved."</p>
+      <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:4px;justify-content:center;">
+        <span style="background:var(--blue);color:white;border-radius:20px;padding:2px 10px;font-size:.75rem;font-weight:700;">before</span>
+        <span style="background:var(--blue);color:white;border-radius:20px;padding:2px 10px;font-size:.75rem;font-weight:700;">when</span>
+        <span style="background:var(--blue);color:white;border-radius:20px;padding:2px 10px;font-size:.75rem;font-weight:700;">because</span>
+        <span style="background:var(--blue);color:white;border-radius:20px;padding:2px 10px;font-size:.75rem;font-weight:700;">by the time</span>
+      </div>
+    </div>
+
+    <div style="background:linear-gradient(135deg,#ede9fe,#d1c4e9);border-radius:20px;padding:24px;text-align:center;border:2px solid var(--purple);">
+      <div style="font-size:3rem;margin-bottom:8px;">🔮</div>
+      <h3 style="font-family:'Baloo 2',cursive;font-weight:800;color:var(--purple);font-size:1.1rem;">Future Perfect Continuous</h3>
+      <div style="background:white;border-radius:10px;padding:10px;margin:10px 0;font-family:'Baloo 2',cursive;font-weight:700;font-size:.88rem;color:var(--purple);">will + have been + V-ing</div>
+      <p style="font-size:.85rem;color:#333;font-weight:600;">Still going at a FUTURE point<br>Ще триватиме в майбутньому</p>
+      <p style="font-size:.82rem;color:#555;margin-top:8px;font-style:italic;">"She <strong>will have been studying</strong> for 2 yrs by June."</p>
+      <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:4px;justify-content:center;">
+        <span style="background:var(--purple);color:white;border-radius:20px;padding:2px 10px;font-size:.75rem;font-weight:700;">by</span>
+        <span style="background:var(--purple);color:white;border-radius:20px;padding:2px 10px;font-size:.75rem;font-weight:700;">by the time</span>
+        <span style="background:var(--purple);color:white;border-radius:20px;padding:2px 10px;font-size:.75rem;font-weight:700;">by next year</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</div><!-- /container -->
+
+<footer>
+  <strong>🌊 Perfect Continuous Aspect</strong><br>
+  <span style="opacity:.85;">English Grammar for Beginners & Young Learners • Граматика англійської для початківців 🇬🇧🇺🇦</span>
+</footer>
+
+<script>
+  // ── Quiz Logic ──
+  function answer(btn, result, qId) {
+    const item = document.getElementById(qId);
+    const btns = item.querySelectorAll('.q-btn');
+    const fb = document.getElementById(qId + '-fb');
+    btns.forEach(b => b.disabled = true);
+    if (result === 'correct') {
+      btn.classList.add('correct');
+      fb.innerHTML = '✅ <span style="color:#166534;font-weight:800;">Correct! / Правильно! 🎉</span>';
+    } else {
+      btn.classList.add('wrong');
+      fb.innerHTML = '❌ <span style="color:#dc2626;font-weight:800;">Try again next time! / Спробуй ще раз! 💪</span>';
+      // Highlight correct
+      btns.forEach(b => {
+        if (b.getAttribute('onclick').includes("'correct'")) b.classList.add('correct');
+      });
+    }
+  }
+
+  // ── Scroll Fade-in ──
+  const faders = document.querySelectorAll('.fade-in');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.08 });
+  faders.forEach(f => observer.observe(f));
+
+  // ── Wrap timeline-vis in scroll wrappers ──
+  document.querySelectorAll('.timeline-vis').forEach(function(tl) {
+    if (tl.parentElement.classList.contains('timeline-vis-wrap')) return;
+    var wrap = document.createElement('div');
+    wrap.className = 'timeline-vis-wrap';
+    tl.parentNode.insertBefore(wrap, tl);
+    wrap.appendChild(tl);
+  });
+
+  // ── Wrap inline comparison table in scroll wrapper ──
+  document.querySelectorAll('.compare-table-inner').forEach(function(t) {
+    if (t.parentElement.classList.contains('compare-table-wrap')) return;
+    var wrap = document.createElement('div');
+    wrap.className = 'compare-table-wrap';
+    t.parentNode.insertBefore(wrap, t);
+    wrap.appendChild(t);
+  });
+
+</script>
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+</body>
+</html>

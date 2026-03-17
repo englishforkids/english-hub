@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Infinitive & Gerund – Learn English! 🚀</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue: #3B82F6;
+    --blue-light: #DBEAFE;
+    --green: #10B981;
+    --green-light: #D1FAE5;
+    --yellow: #F59E0B;
+    --yellow-light: #FEF3C7;
+    --pink: #EC4899;
+    --pink-light: #FCE7F3;
+    --purple: #8B5CF6;
+    --purple-light: #EDE9FE;
+    --orange: #F97316;
+    --orange-light: #FFEDD5;
+    --red: #EF4444;
+    --bg: #F8FAFF;
+    --text: #1E293B;
+    --text-muted: #64748B;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    padding: 60px 20px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.08) 0%, transparent 40%);
+  }
+  .hero-emoji {
+    font-size: 72px;
+    animation: float 3s ease-in-out infinite;
+    display: block;
+    margin-bottom: 16px;
+  }
+  @keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+  .hero h1 {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(36px, 6vw, 72px);
+    color: white;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    letter-spacing: 2px;
+    position: relative;
+  }
+  .hero p {
+    color: rgba(255,255,255,0.9);
+    font-size: clamp(14px, 2.5vw, 20px);
+    margin-top: 12px;
+    font-weight: 600;
+    position: relative;
+  }
+  .hero-bubbles {
+    display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+    margin-top: 28px; position: relative;
+  }
+  .bubble {
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.4);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 15px;
+    animation: popIn 0.5s ease backwards;
+  }
+  .bubble:nth-child(2) { animation-delay: 0.1s; }
+  .bubble:nth-child(3) { animation-delay: 0.2s; }
+  @keyframes popIn {
+    from { transform: scale(0); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  /* WAVE */
+  .wave {
+    height: 60px;
+    background: var(--bg);
+    clip-path: ellipse(55% 100% at 50% 100%);
+    margin-top: -2px;
+  }
+
+  /* CONTAINER */
+  .container { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+
+  /* SECTION TITLE */
+  .section-title {
+    text-align: center;
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(26px, 4vw, 42px);
+    margin-bottom: 8px;
+  }
+  .section-sub {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 15px;
+    margin-bottom: 36px;
+    font-weight: 600;
+  }
+
+  /* FORMULA BOX */
+  .formula-row {
+    display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+    margin: 24px 0;
+  }
+  .formula-card {
+    border-radius: 20px;
+    padding: 20px 28px;
+    text-align: center;
+    flex: 1; min-width: 200px; max-width: 300px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+    transition: transform 0.2s;
+  }
+  .formula-card:hover { transform: translateY(-4px); }
+  .formula-card .label {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .formula-card .formula {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(18px, 3vw, 28px);
+  }
+  .formula-card .meaning {
+    font-size: 13px;
+    margin-top: 8px;
+    font-weight: 600;
+    opacity: 0.8;
+  }
+  .card-blue { background: var(--blue-light); color: var(--blue); }
+  .card-green { background: var(--green-light); color: var(--green); }
+
+  /* BIG CARDS */
+  .big-cards { display: flex; gap: 24px; flex-wrap: wrap; margin: 40px 0; }
+  .big-card {
+    flex: 1; min-width: 280px;
+    border-radius: 24px;
+    padding: 32px 28px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+  }
+  .big-card::after {
+    content: attr(data-emoji);
+    position: absolute;
+    right: -10px; top: -10px;
+    font-size: 90px;
+    opacity: 0.12;
+    transform: rotate(15deg);
+  }
+  .big-card.blue-card { background: linear-gradient(135deg, #EFF6FF, #DBEAFE); border: 3px solid #BFDBFE; }
+  .big-card.green-card { background: linear-gradient(135deg, #ECFDF5, #D1FAE5); border: 3px solid #A7F3D0; }
+  .big-card h2 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 28px;
+    margin-bottom: 6px;
+  }
+  .blue-card h2 { color: var(--blue); }
+  .green-card h2 { color: var(--green); }
+  .big-card .en { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+  .big-card .ua { font-size: 13px; color: var(--text-muted); font-weight: 600; margin-bottom: 16px; }
+  .big-card ul { list-style: none; padding: 0; }
+  .big-card ul li {
+    padding: 8px 0;
+    border-bottom: 1px dashed rgba(0,0,0,0.1);
+    font-size: 14px;
+    font-weight: 600;
+    display: flex; align-items: flex-start; gap: 8px;
+  }
+  .big-card ul li:last-child { border-bottom: none; }
+  .big-card ul li .icon { font-size: 18px; flex-shrink: 0; }
+
+  /* EXAMPLE SENTENCE BOX */
+  .sentence-showcase {
+    background: linear-gradient(135deg, #FFF7ED, #FFEDD5);
+    border: 3px solid #FED7AA;
+    border-radius: 24px;
+    padding: 36px 32px;
+    margin: 40px 0;
+    text-align: center;
+  }
+  .sentence-showcase .badge {
+    display: inline-block;
+    background: var(--orange);
+    color: white;
+    font-weight: 800;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 50px;
+    margin-bottom: 16px;
+  }
+  .sentence-showcase h3 {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(20px, 3vw, 30px);
+    color: var(--orange);
+    margin-bottom: 8px;
+  }
+  .sentence-showcase .base {
+    font-size: 16px; color: var(--text-muted); font-weight: 600;
+    margin-bottom: 24px;
+  }
+  .sent-grid { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+  .sent-box {
+    background: white;
+    border-radius: 16px;
+    padding: 20px 22px;
+    flex: 1; min-width: 220px; max-width: 300px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+    text-align: left;
+  }
+  .sent-box .tag {
+    font-size: 11px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 3px 10px; border-radius: 50px; display: inline-block; margin-bottom: 10px;
+  }
+  .tag-inf { background: var(--blue-light); color: var(--blue); }
+  .tag-ger { background: var(--green-light); color: var(--green); }
+  .sent-box .sentence {
+    font-size: 15px; font-weight: 700; margin-bottom: 6px; line-height: 1.4;
+  }
+  .sent-box .sentence .highlight-inf { color: var(--blue); font-weight: 900; }
+  .sent-box .sentence .highlight-ger { color: var(--green); font-weight: 900; }
+  .sent-box .translation { font-size: 12px; color: var(--text-muted); font-weight: 600; }
+  .sent-box .why {
+    font-size: 12px; margin-top: 8px; padding-top: 8px;
+    border-top: 1px dashed rgba(0,0,0,0.1);
+    color: var(--text-muted); font-weight: 600;
+  }
+
+  /* VERBS LIST */
+  .verb-columns { display: flex; gap: 20px; flex-wrap: wrap; margin: 20px 0; }
+  .verb-col {
+    flex: 1; min-width: 200px;
+    background: white;
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+  }
+  .verb-col h4 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+  .verb-col.inf-col h4 { color: var(--blue); }
+  .verb-col.ger-col h4 { color: var(--green); }
+  .verb-tag {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 700;
+    margin: 4px;
+  }
+  .inf-tag { background: var(--blue-light); color: var(--blue); }
+  .ger-tag { background: var(--green-light); color: var(--green); }
+
+  /* TRICKY VERBS TABLE */
+  .tricky-section { margin: 48px 0; }
+  .tricky-grid { display: flex; flex-direction: column; gap: 16px; }
+  .tricky-row {
+    background: white;
+    border-radius: 20px;
+    padding: 20px 24px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+    display: grid;
+    grid-template-columns: 80px 1fr 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+  .tricky-row .verb-name {
+    font-family: 'Fredoka One', cursive;
+    font-size: 22px;
+    color: var(--purple);
+    display: flex; align-items: center; justify-content: center;
+    background: var(--purple-light);
+    border-radius: 12px;
+    padding: 8px;
+    text-align: center;
+    line-height: 1.2;
+  }
+  .tricky-row .half { }
+  .tricky-row .half .tag { font-size: 11px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 50px; display: inline-block; margin-bottom: 8px; }
+  .tricky-row .example { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+  .tricky-row .example .h { font-weight: 900; }
+  .tricky-row .expl { font-size: 12px; color: var(--text-muted); font-weight: 600; }
+  .tricky-row .ua-ex { font-size: 11px; color: var(--text-muted); font-style: italic; margin-top: 2px; }
+
+  /* RULE CARDS */
+  .rules-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; margin: 20px 0; }
+  .rule-card {
+    border-radius: 20px;
+    padding: 20px;
+    font-size: 14px;
+    font-weight: 700;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+    position: relative;
+    overflow: hidden;
+  }
+  .rule-card .icon { font-size: 32px; margin-bottom: 10px; display: block; }
+  .rule-card .rule-en { font-size: 15px; font-weight: 800; margin-bottom: 4px; }
+  .rule-card .rule-ua { font-size: 12px; color: var(--text-muted); }
+  .rule-card .eg { font-size: 13px; margin-top: 10px; padding-top: 10px; border-top: 2px dashed rgba(0,0,0,0.1); }
+
+  /* MEMORY TIP */
+  .memory-tip {
+    background: linear-gradient(135deg, #FDF4FF, #EDE9FE);
+    border: 3px solid #DDD6FE;
+    border-radius: 24px;
+    padding: 32px;
+    margin: 32px 0;
+    text-align: center;
+  }
+  .memory-tip h3 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 26px;
+    color: var(--purple);
+    margin-bottom: 16px;
+  }
+  .tip-grid { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+  .tip-item {
+    background: white;
+    border-radius: 16px;
+    padding: 18px 24px;
+    flex: 1; min-width: 200px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+  }
+  .tip-item .emoji { font-size: 36px; margin-bottom: 8px; display: block; }
+  .tip-item .tip-en { font-weight: 800; font-size: 15px; margin-bottom: 4px; }
+  .tip-item .tip-ua { font-size: 12px; color: var(--text-muted); font-weight: 600; }
+
+  /* SECTION WRAPPER */
+  .section { padding: 48px 0; }
+  .section + .section { border-top: 2px dashed #E2E8F0; }
+
+  /* RESPONSIVE — MOBILE */
+  @media (max-width: 700px) {
+    body { overflow-x: hidden; }
+
+    .hero { padding: 40px 16px 60px; }
+    .hero-emoji { font-size: 52px; }
+    .hero-bubbles { gap: 8px; }
+    .bubble { font-size: 12px; padding: 6px 14px; }
+
+    .container { padding: 0 14px; }
+    .section { padding: 32px 0; }
+    .section-title { font-size: 24px; }
+    .section-sub { font-size: 13px; margin-bottom: 24px; }
+
+    .formula-row { flex-direction: column; align-items: center; }
+    .formula-card { min-width: unset; width: 100%; max-width: 100%; }
+
+    .big-cards { flex-direction: column; gap: 16px; }
+    .big-card { min-width: unset; padding: 22px 18px; }
+    .big-card::after { font-size: 60px; }
+    .big-card h2 { font-size: 22px; }
+    .big-card ul li { font-size: 13px; }
+
+    .sentence-showcase { padding: 24px 14px; }
+    .sent-grid { flex-direction: column; }
+    .sent-box { min-width: unset; max-width: 100%; }
+
+    .verb-columns { flex-direction: column; gap: 14px; }
+    .verb-col { min-width: unset; }
+
+    .tricky-grid { gap: 12px; }
+    .tricky-row {
+      grid-template-columns: 1fr;
+      gap: 10px;
+      padding: 16px 14px;
+    }
+    .tricky-row .verb-name {
+      width: fit-content;
+      font-size: 18px;
+      padding: 6px 14px;
+    }
+    .tricky-row .example { font-size: 13px; }
+
+    .rules-grid { grid-template-columns: 1fr; }
+    .rule-card { padding: 16px; }
+
+    .memory-tip { padding: 22px 14px; }
+    .tip-grid { flex-direction: column; }
+    .tip-item { min-width: unset; }
+
+    #scroll-top-btn { bottom: 16px; right: 16px; width: 40px; height: 40px; font-size: 16px; }
+  }
+
+  /* SCROLL ANIMATIONS */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* FOOTER */
+  footer {
+    background: #1E293B;
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 24px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  footer span { color: white; }
+
+#scroll-top-btn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #1a1208;
+  border: 1.5px solid rgba(200,150,62,0.4);
+  color: #f5f0e8;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+  pointer-events: none;
+  z-index: 9998;
+}
+#scroll-top-btn.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+#scroll-top-btn:hover {
+  background: #c8963e;
+  border-color: #c8963e;
+  color: #1a1208;
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <span class="hero-emoji">🎓</span>
+  <h1>Infinitive & Gerund</h1>
+  <p>Інфінітив та Герундій — просто і зрозуміло!</p>
+  <div class="hero-bubbles">
+    <div class="bubble">📘 Infinitive = to + V</div>
+    <div class="bubble">🌿 Gerund = V + ing</div>
+    <div class="bubble">🤔 Some verbs = both!</div>
+  </div>
+</div>
+<div class="wave"></div>
+
+<div class="container">
+
+  <!-- INTRO -->
+  <div class="section fade-in">
+    <div class="section-title">🧩 What's the difference? / Яка різниця?</div>
+    <div class="section-sub">Both are verb forms that work as nouns — but they feel different! / Обидві форми схожі на іменники, але відчуваються по-різному!</div>
+
+    <div class="formula-row">
+      <div class="formula-card card-blue">
+        <div class="label">Infinitive</div>
+        <div class="formula">to + verb 🔵</div>
+        <div class="meaning">to eat, to run, to read<br>їсти, бігти, читати</div>
+      </div>
+      <div class="formula-card card-green">
+        <div class="label">Gerund</div>
+        <div class="formula">verb + ing 🟢</div>
+        <div class="meaning">eating, running, reading<br>їжа, біг, читання</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BIG CARDS -->
+  <div class="section fade-in">
+    <div class="big-cards">
+      <div class="big-card blue-card" data-emoji="🔵">
+        <h2>Infinitive (to + V)</h2>
+        <div class="en">🎯 Expresses a goal, wish, or future action</div>
+        <div class="ua">🎯 Виражає мету, бажання або майбутню дію</div>
+        <ul>
+          <li><span class="icon">🎯</span><span><b>Purpose / Мета:</b> I go to school <b>to learn</b>. (щоб вчитись)</span></li>
+          <li><span class="icon">💭</span><span><b>After adjectives / Після прикметників:</b> I'm happy <b>to see you</b>.</span></li>
+          <li><span class="icon">❤️</span><span><b>Want/wish/hope:</b> She wants <b>to travel</b>. She hopes <b>to win</b>.</span></li>
+          <li><span class="icon">🔮</span><span><b>Intention / Намір:</b> He decided <b>to study</b> harder.</span></li>
+        </ul>
+      </div>
+
+      <div class="big-card green-card" data-emoji="🟢">
+        <h2>Gerund (V + ing)</h2>
+        <div class="en">🏃 Expresses an activity, habit, or fact</div>
+        <div class="ua">🏃 Виражає діяльність, звичку або факт</div>
+        <ul>
+          <li><span class="icon">📝</span><span><b>Subject / Підмет:</b> <b>Reading</b> is fun. (Читання — це весело)</span></li>
+          <li><span class="icon">🎭</span><span><b>After prepositions / Після прийменників:</b> good at <b>drawing</b></span></li>
+          <li><span class="icon">🔁</span><span><b>Habits / Звички:</b> She enjoys <b>cooking</b>. (Вона любить готувати)</span></li>
+          <li><span class="icon">🚫</span><span><b>Avoid/finish/mind:</b> Stop <b>talking</b>! Avoid <b>eating</b> sugar.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ONE SENTENCE SHOWCASE -->
+  <div class="section fade-in">
+    <div class="sentence-showcase">
+      <div class="badge">✨ One Universal Sentence / Одне речення — два сенси</div>
+      <h3>🌟 The magic verb: "LIKE" (подобатись)</h3>
+      <div class="base">Watch how meaning shifts when you change the form / Подивіться, як змінюється зміст залежно від форми</div>
+
+      <div class="sent-grid">
+        <div class="sent-box">
+          <span class="tag tag-ger">🟢 Gerund</span>
+          <div class="sentence">I like <span class="highlight-ger">swimming</span>.</div>
+          <div class="translation">Мені подобається плавати (загалом, як хобі)</div>
+          <div class="why">💡 General habit / звичка — it's something I always enjoy</div>
+        </div>
+        <div class="sent-box">
+          <span class="tag tag-inf">🔵 Infinitive</span>
+          <div class="sentence">I like <span class="highlight-inf">to swim</span> in the morning.</div>
+          <div class="translation">Мені подобається плавати зранку (конкретно)</div>
+          <div class="why">💡 Specific action / конкретна дія — a specific context or time</div>
+        </div>
+        <div class="sent-box">
+          <span class="tag tag-ger">🟢 Gerund</span>
+          <div class="sentence">I don't like <span class="highlight-ger">waking</span> up early.</div>
+          <div class="translation">Мені не подобається прокидатись рано</div>
+          <div class="why">💡 General dislike / відраза до процесу загалом</div>
+        </div>
+        <div class="sent-box">
+          <span class="tag tag-inf">🔵 Infinitive</span>
+          <div class="sentence">I don't like <span class="highlight-inf">to wake</span> up before 7 AM.</div>
+          <div class="translation">Мені не подобається прокидатись до 7</div>
+          <div class="why">💡 Specific preference / конкретна умова</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VERB LISTS -->
+  <div class="section fade-in">
+    <div class="section-title">📋 Verb Lists / Списки дієслів</div>
+    <div class="section-sub">Some verbs always take infinitive, others always take gerund / Одні дієслова вимагають інфінітиву, інші — герундія</div>
+
+    <div class="verb-columns">
+      <div class="verb-col inf-col">
+        <h4>🔵 + Infinitive (to + V)</h4>
+        <div>
+          <span class="verb-tag inf-tag">want — хотіти</span>
+          <span class="verb-tag inf-tag">decide — вирішувати</span>
+          <span class="verb-tag inf-tag">plan — планувати</span>
+          <span class="verb-tag inf-tag">hope — сподіватися</span>
+          <span class="verb-tag inf-tag">agree — погоджуватися</span>
+          <span class="verb-tag inf-tag">refuse — відмовляти</span>
+          <span class="verb-tag inf-tag">need — потребувати</span>
+          <span class="verb-tag inf-tag">learn — навчатись</span>
+          <span class="verb-tag inf-tag">promise — обіцяти</span>
+          <span class="verb-tag inf-tag">offer — пропонувати</span>
+        </div>
+        <div style="margin-top:16px; font-size:13px; background:var(--blue-light); border-radius:12px; padding:12px;">
+          💡 <b>Rule:</b> These verbs usually express <b>future intention</b> or <b>wish</b>.<br>
+          <span style="color:var(--text-muted)">Ці дієслова виражають намір або бажання у майбутньому.</span>
+        </div>
+      </div>
+
+      <div class="verb-col ger-col">
+        <h4>🟢 + Gerund (V + ing)</h4>
+        <div>
+          <span class="verb-tag ger-tag">enjoy — насолоджуватись</span>
+          <span class="verb-tag ger-tag">avoid — уникати</span>
+          <span class="verb-tag ger-tag">finish — завершувати</span>
+          <span class="verb-tag ger-tag">mind — заперечувати</span>
+          <span class="verb-tag ger-tag">suggest — пропонувати</span>
+          <span class="verb-tag ger-tag">deny — заперечувати</span>
+          <span class="verb-tag ger-tag">miss — скучати</span>
+          <span class="verb-tag ger-tag">keep — продовжувати</span>
+          <span class="verb-tag ger-tag">consider — розглядати</span>
+          <span class="verb-tag ger-tag">practice — практикувати</span>
+        </div>
+        <div style="margin-top:16px; font-size:13px; background:var(--green-light); border-radius:12px; padding:12px;">
+          💡 <b>Rule:</b> After <b>prepositions</b>, ALWAYS use gerund!<br>
+          <span style="color:var(--text-muted)">Після прийменників ЗАВЖДИ герундій: interested <b>in learning</b>, good <b>at drawing</b>.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRICKY VERBS -->
+  <div class="section tricky-section fade-in">
+    <div class="section-title">🤯 Tricky Verbs / Підступні дієслова</div>
+    <div class="section-sub">These verbs change meaning! / Ці дієслова змінюють значення залежно від форми!</div>
+
+    <div class="tricky-grid">
+
+      <div class="tricky-row">
+        <div class="verb-name">STOP ✋</div>
+        <div class="half">
+          <span class="tag tag-ger">🟢 Gerund</span>
+          <div class="example">He stopped <span class="h" style="color:var(--green)">smoking</span>.</div>
+          <div class="expl">🚭 Quit the habit forever / Кинув назавжди</div>
+          <div class="ua-ex">Він кинув палити (повністю)</div>
+        </div>
+        <div class="half">
+          <span class="tag tag-inf">🔵 Infinitive</span>
+          <div class="example">He stopped <span class="h" style="color:var(--blue)">to smoke</span>.</div>
+          <div class="expl">🚬 Paused to do it / Зупинився, щоб покурити</div>
+          <div class="ua-ex">Він зупинився (щоб) покурити</div>
+        </div>
+      </div>
+
+      <div class="tricky-row">
+        <div class="verb-name">REMEMBER 🧠</div>
+        <div class="half">
+          <span class="tag tag-ger">🟢 Gerund</span>
+          <div class="example">I remember <span class="h" style="color:var(--green)">meeting</span> him.</div>
+          <div class="expl">📸 A memory from the past / Спогад з минулого</div>
+          <div class="ua-ex">Я пам'ятаю, як познайомився з ним</div>
+        </div>
+        <div class="half">
+          <span class="tag tag-inf">🔵 Infinitive</span>
+          <div class="example">Remember <span class="h" style="color:var(--blue)">to lock</span> the door.</div>
+          <div class="expl">📅 Don't forget! Future task / Не забудь! Майбутня задача</div>
+          <div class="ua-ex">Не забудь замкнути двері</div>
+        </div>
+      </div>
+
+      <div class="tricky-row">
+        <div class="verb-name">TRY 🧪</div>
+        <div class="half">
+          <span class="tag tag-ger">🟢 Gerund</span>
+          <div class="example">Try <span class="h" style="color:var(--green)">adding</span> salt.</div>
+          <div class="expl">🧂 Experiment / спробуй як варіант</div>
+          <div class="ua-ex">Спробуй додати сіль (це може допомогти)</div>
+        </div>
+        <div class="half">
+          <span class="tag tag-inf">🔵 Infinitive</span>
+          <div class="example">I tried <span class="h" style="color:var(--blue)">to lift</span> the box.</div>
+          <div class="expl">💪 Make effort / Докладати зусиль</div>
+          <div class="ua-ex">Я намагався підняти коробку (але важко)</div>
+        </div>
+      </div>
+
+      <div class="tricky-row">
+        <div class="verb-name">FORGET 😶</div>
+        <div class="half">
+          <span class="tag tag-ger">🟢 Gerund</span>
+          <div class="example">I'll never forget <span class="h" style="color:var(--green)">taking</span> my exam.</div>
+          <div class="expl">🎞️ Memory of past event / Спогад про подію</div>
+          <div class="ua-ex">Я ніколи не забуду, як складав іспит</div>
+        </div>
+        <div class="half">
+          <span class="tag tag-inf">🔵 Infinitive</span>
+          <div class="example">I forgot <span class="h" style="color:var(--blue)">to call</span> mom.</div>
+          <div class="expl">📞 Forgot a task / Забув виконати завдання</div>
+          <div class="ua-ex">Я забув подзвонити мамі</div>
+        </div>
+      </div>
+
+      <div class="tricky-row">
+        <div class="verb-name">REGRET 😔</div>
+        <div class="half">
+          <span class="tag tag-ger">🟢 Gerund</span>
+          <div class="example">I regret <span class="h" style="color:var(--green)">leaving</span> my job.</div>
+          <div class="expl">😞 Sorry about the past / Шкода за минуле</div>
+          <div class="ua-ex">Я шкодую, що пішов з роботи</div>
+        </div>
+        <div class="half">
+          <span class="tag tag-inf">🔵 Infinitive</span>
+          <div class="example">We regret <span class="h" style="color:var(--blue)">to inform</span> you...</div>
+          <div class="expl">📨 Formal bad news / Офіційне повідомлення</div>
+          <div class="ua-ex">Нам прикро повідомити вас... (формально)</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MEMORY TIP -->
+  <div class="section fade-in">
+    <div class="memory-tip">
+      <h3>🧠 Easy Memory Trick / Легкий спосіб запам'ятати</h3>
+      <div class="tip-grid">
+        <div class="tip-item">
+          <span class="emoji">🟢</span>
+          <div class="tip-en">Gerund = real action, already happening or habitual</div>
+          <div class="tip-ua">Герундій = реальна дія, що вже відбувається або є звичкою</div>
+        </div>
+        <div class="tip-item">
+          <span class="emoji">🔵</span>
+          <div class="tip-en">Infinitive = future, purpose, intention, wish</div>
+          <div class="tip-ua">Інфінітив = майбутнє, мета, намір, бажання</div>
+        </div>
+        <div class="tip-item">
+          <span class="emoji">🔗</span>
+          <div class="tip-en">After prepositions (in, at, for, about, without…) ALWAYS use Gerund!</div>
+          <div class="tip-ua">Після прийменників ЗАВЖДИ герундій! Це найважливіше правило!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUICK RULES -->
+  <div class="section fade-in">
+    <div class="section-title">⚡ Quick Rules / Швидкі правила</div>
+    <div class="rules-grid">
+      <div class="rule-card" style="background:var(--blue-light); border:2px solid #BFDBFE;">
+        <span class="icon">🏁</span>
+        <div class="rule-en">Use Infinitive after: want, need, decide, plan, hope, agree...</div>
+        <div class="rule-ua">Інфінітив після: want, need, decide, plan...</div>
+        <div class="eg" style="color:var(--blue)">✅ She <b>wants to dance</b>.</div>
+      </div>
+      <div class="rule-card" style="background:var(--green-light); border:2px solid #A7F3D0;">
+        <span class="icon">🔗</span>
+        <div class="rule-en">Use Gerund after ANY preposition!</div>
+        <div class="rule-ua">Герундій після будь-якого прийменника!</div>
+        <div class="eg" style="color:var(--green)">✅ Good <b>at drawing</b>. Interested <b>in learning</b>.</div>
+      </div>
+      <div class="rule-card" style="background:var(--yellow-light); border:2px solid #FDE68A;">
+        <span class="icon">📌</span>
+        <div class="rule-en">Gerund as the SUBJECT of a sentence</div>
+        <div class="rule-ua">Герундій як підмет речення</div>
+        <div class="eg" style="color:var(--yellow)">✅ <b>Swimming</b> is healthy.</div>
+      </div>
+      <div class="rule-card" style="background:var(--pink-light); border:2px solid #FBCFE8;">
+        <span class="icon">⚠️</span>
+        <div class="rule-en">Some verbs change meaning — check the context!</div>
+        <div class="rule-ua">Деякі дієслова змінюють значення — перевірте контекст!</div>
+        <div class="eg" style="color:var(--pink)">⚡ stop smoking ≠ stop to smoke</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end container -->
+
+<footer>
+  Made with 💙 for English learners &nbsp;|&nbsp; <span>Infinitive & Gerund Guide</span> &nbsp;|&nbsp; Вчи англійську із задоволенням! 🚀
+</footer>
+
+<script>
+  // Scroll fade-in
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+</body>
+</html>

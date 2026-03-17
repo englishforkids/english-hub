@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>💰 Money Talk in English</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #FFD700;
+    --green: #2ECC71;
+    --dark-green: #1a7a45;
+    --blue: #3498DB;
+    --purple: #9B59B6;
+    --orange: #E67E22;
+    --red: #E74C3C;
+    --bg: #FFF9EE;
+    --card-bg: #FFFFFF;
+    --text: #2C3E50;
+    --muted: #7f8c8d;
+    --shadow: 0 8px 32px rgba(44,62,80,0.10);
+    --radius: 20px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* HEADER */
+  header {
+    background: linear-gradient(135deg, #1a7a45 0%, #27ae60 50%, #2ecc71 100%);
+    padding: 60px 20px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .coin-float {
+    position: absolute;
+    font-size: 2rem;
+    animation: floatCoin 4s ease-in-out infinite;
+    opacity: 0.4;
+  }
+  @keyframes floatCoin {
+    0%,100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-18px) rotate(15deg); }
+  }
+  .c1 { top: 10%; left: 5%; animation-delay: 0s; }
+  .c2 { top: 20%; right: 8%; animation-delay: 1s; }
+  .c3 { top: 60%; left: 12%; animation-delay: 2s; }
+  .c4 { top: 55%; right: 5%; animation-delay: 0.5s; }
+  .c5 { top: 80%; left: 30%; animation-delay: 1.5s; }
+  .c6 { top: 30%; left: 50%; animation-delay: 2.5s; }
+
+  header h1 {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(2.2rem, 6vw, 4.5rem);
+    color: #fff;
+    text-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    position: relative;
+  }
+  header .subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    color: rgba(255,255,255,0.92);
+    margin-top: 12px;
+    position: relative;
+  }
+  .badge-row {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 24px;
+    position: relative;
+  }
+  .badge {
+    background: rgba(255,255,255,0.22);
+    color: #fff;
+    border: 2px solid rgba(255,255,255,0.4);
+    border-radius: 50px;
+    padding: 8px 20px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    backdrop-filter: blur(8px);
+  }
+
+  /* MAIN */
+  main { max-width: 960px; margin: 0 auto; padding: 40px 16px 80px; }
+
+  /* SECTION TITLES */
+  .section-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-title .emoji-icon {
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.6rem;
+    flex-shrink: 0;
+  }
+
+  /* CARDS */
+  .card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin-bottom: 28px;
+    border: 2px solid transparent;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(44,62,80,0.13);
+  }
+
+  /* VOCAB GRID */
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .vocab-card {
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    border: 2px solid transparent;
+    transition: transform 0.2s;
+  }
+  .vocab-card:hover { transform: scale(1.03); }
+  .vocab-icon { font-size: 2.2rem; margin-bottom: 4px; }
+  .vocab-en {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.25rem;
+    line-height: 1.2;
+  }
+  .vocab-transcr {
+    font-size: 0.82rem;
+    color: var(--muted);
+    font-style: italic;
+  }
+  .vocab-ua {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-top: 2px;
+  }
+  .vocab-example {
+    font-size: 0.82rem;
+    margin-top: 6px;
+    padding: 8px 10px;
+    background: rgba(255,255,255,0.6);
+    border-radius: 10px;
+    line-height: 1.5;
+  }
+  .vocab-example em { color: var(--muted); display: block; font-size: 0.78rem; margin-top: 3px; font-style: italic; }
+
+  /* COLOR VARIANTS */
+  .green-card  { background: #E8F8F0; border-color: #2ECC71; }
+  .blue-card   { background: #EAF3FB; border-color: #3498DB; }
+  .purple-card { background: #F4ECF7; border-color: #9B59B6; }
+  .orange-card { background: #FEF5E7; border-color: #E67E22; }
+  .red-card    { background: #FDEDEC; border-color: #E74C3C; }
+  .gold-card   { background: #FEFDE7; border-color: #FFD700; border-width: 2px; }
+  .teal-card   { background: #E8F8F5; border-color: #1ABC9C; }
+
+  .green-card  .vocab-en { color: var(--dark-green); }
+  .blue-card   .vocab-en { color: #1a6fa3; }
+  .purple-card .vocab-en { color: #7d3c98; }
+  .orange-card .vocab-en { color: #b9770e; }
+  .red-card    .vocab-en { color: #cb4335; }
+  .gold-card   .vocab-en { color: #b7950b; }
+  .teal-card   .vocab-en { color: #148f77; }
+
+  .green-card  .vocab-ua { color: var(--dark-green); }
+  .blue-card   .vocab-ua { color: #1a6fa3; }
+  .purple-card .vocab-ua { color: #7d3c98; }
+  .orange-card .vocab-ua { color: #b9770e; }
+  .red-card    .vocab-ua { color: #cb4335; }
+  .gold-card   .vocab-ua { color: #b7950b; }
+  .teal-card   .vocab-ua { color: #148f77; }
+
+  /* PHRASE TABLE */
+  .phrase-block {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    margin-bottom: 28px;
+  }
+  .phrase-header {
+    padding: 18px 24px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.2rem;
+    color: #fff;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .phrase-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border-top: 1px solid #f0f0f0;
+  }
+  .phrase-row:nth-child(even) { background: #fafafa; }
+  .phrase-en, .phrase-ua {
+    padding: 14px 20px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  .phrase-en {
+    border-right: 2px solid #f0f0f0;
+    font-weight: 700;
+    color: #2c3e50;
+  }
+  .phrase-ua { color: var(--muted); font-style: italic; }
+
+  /* DIALOGUE */
+  .dialogue-box {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin-bottom: 28px;
+  }
+  .dialogue-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .bubble-wrap { display: flex; flex-direction: column; gap: 14px; }
+  .bubble { display: flex; gap: 12px; align-items: flex-start; }
+  .bubble.right { flex-direction: row-reverse; }
+  .avatar {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem;
+    flex-shrink: 0;
+    border: 3px solid #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  }
+  .bubble-content { max-width: 78%; }
+  .bubble-name { font-size: 0.78rem; font-weight: 800; margin-bottom: 4px; color: var(--muted); }
+  .bubble.right .bubble-name { text-align: right; }
+  .speech {
+    padding: 12px 16px;
+    border-radius: 18px;
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+  .speech strong { display: block; margin-bottom: 3px; }
+  .speech em { font-size: 0.82rem; color: var(--muted); font-style: italic; }
+  .speech-a { background: #E8F8F0; border-radius: 18px 18px 18px 4px; }
+  .speech-b { background: #EAF3FB; border-radius: 18px 18px 4px 18px; }
+
+  /* INFOGRAPHIC / TIPS */
+  .tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .tip-card {
+    border-radius: 16px;
+    padding: 22px 16px;
+    text-align: center;
+    color: #fff;
+    font-weight: 700;
+  }
+  .tip-icon { font-size: 2.5rem; margin-bottom: 10px; }
+  .tip-title { font-family: 'Fredoka One', cursive; font-size: 1.1rem; margin-bottom: 6px; }
+  .tip-text { font-size: 0.82rem; opacity: 0.92; line-height: 1.5; }
+  .tip-ua { font-size: 0.78rem; margin-top: 6px; opacity: 0.8; font-style: italic; }
+
+  /* INFOGRAPHIC SCALE */
+  .scale-card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin-bottom: 28px;
+  }
+  .scale-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+  }
+  .scale-item {
+    display: flex; align-items: center; gap: 16px;
+    margin-bottom: 14px;
+  }
+  .scale-emoji { font-size: 1.8rem; width: 44px; text-align: center; flex-shrink: 0; }
+  .scale-bar-wrap { flex: 1; }
+  .scale-label {
+    font-size: 0.85rem;
+    font-weight: 800;
+    margin-bottom: 5px;
+    display: flex; justify-content: space-between;
+  }
+  .scale-bar-bg {
+    background: #ecf0f1;
+    border-radius: 50px;
+    height: 14px;
+    overflow: hidden;
+  }
+  .scale-bar {
+    height: 100%;
+    border-radius: 50px;
+    animation: growBar 1.2s ease forwards;
+  }
+  @keyframes growBar { from { width: 0; } }
+
+  /* QUIZ */
+  .quiz-block {
+    background: linear-gradient(135deg, #1a7a45, #27ae60);
+    border-radius: var(--radius);
+    padding: 28px;
+    margin-bottom: 28px;
+    color: #fff;
+  }
+  .quiz-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .quiz-q { margin-bottom: 20px; }
+  .quiz-q p { font-size: 1rem; font-weight: 700; margin-bottom: 10px; }
+  .quiz-q small { opacity: 0.8; font-style: italic; font-size: 0.82rem; display: block; margin-bottom: 10px; }
+  .options { display: flex; flex-wrap: wrap; gap: 10px; }
+  .opt-btn {
+    background: rgba(255,255,255,0.18);
+    border: 2px solid rgba(255,255,255,0.5);
+    color: #fff;
+    border-radius: 50px;
+    padding: 8px 20px;
+    font-size: 0.9rem;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+  }
+  .opt-btn:hover { background: rgba(255,255,255,0.35); transform: scale(1.05); }
+  .opt-btn.correct { background: #2ecc71; border-color: #27ae60; }
+  .opt-btn.wrong   { background: #e74c3c; border-color: #c0392b; }
+  .quiz-feedback { margin-top: 10px; font-size: 0.9rem; font-weight: 700; min-height: 22px; }
+
+  /* DIVIDER */
+  .divider {
+    text-align: center;
+    margin: 36px 0;
+    font-size: 1.8rem;
+    opacity: 0.3;
+    letter-spacing: 8px;
+  }
+
+  /* FOOTER */
+  footer {
+    background: linear-gradient(135deg, #1a7a45, #27ae60);
+    color: rgba(255,255,255,0.9);
+    text-align: center;
+    padding: 32px 20px;
+    font-size: 0.95rem;
+  }
+  footer strong { color: #fff; }
+
+  /* RESPONSIVE */
+
+  /* Prevent any horizontal overflow globally */
+  html, body { max-width: 100%; overflow-x: hidden; }
+
+  /* Phrase tables: allow horizontal scroll on small screens */
+  .phrase-block { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+  @media (max-width: 640px) {
+
+    /* HEADER */
+    header { padding: 36px 16px 52px; }
+    .badge-row { gap: 8px; }
+    .badge { padding: 6px 14px; font-size: 0.8rem; }
+    .coin-float { font-size: 1.4rem; }
+
+    /* MAIN */
+    main { padding: 24px 12px 60px; }
+
+    /* SECTION TITLES */
+    .section-title { font-size: 1.25rem; gap: 8px; }
+    .section-title .emoji-icon { width: 40px; height: 40px; font-size: 1.2rem; border-radius: 10px; }
+
+    /* CARDS */
+    .card { padding: 18px 14px; }
+
+    /* VOCAB GRID — 2 columns on mobile */
+    .vocab-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .vocab-card { padding: 14px 10px; }
+    .vocab-icon { font-size: 1.7rem; }
+    .vocab-en { font-size: 1.05rem; }
+    .vocab-transcr { font-size: 0.75rem; }
+    .vocab-ua { font-size: 0.85rem; }
+    .vocab-example { font-size: 0.75rem; padding: 6px 8px; }
+    .vocab-example em { font-size: 0.72rem; }
+
+    /* PHRASE TABLES — stack EN/UA vertically */
+    .phrase-row { grid-template-columns: 1fr; }
+    .phrase-en {
+      border-right: none;
+      border-bottom: 1px solid #f0f0f0;
+      padding: 10px 14px 6px;
+    }
+    .phrase-ua { padding: 6px 14px 12px; }
+    .phrase-header { font-size: 1rem; padding: 14px 16px; }
+
+    /* DIALOGUE */
+    .dialogue-box { padding: 18px 12px; }
+    .dialogue-title { font-size: 1.1rem; }
+    .avatar { width: 36px; height: 36px; font-size: 1.1rem; }
+    .speech { font-size: 0.85rem; padding: 10px 12px; }
+    .speech em { font-size: 0.76rem; }
+    .bubble-content { max-width: 88%; }
+
+    /* TIPS GRID — 2 columns */
+    .tips-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .tip-card { padding: 16px 10px; }
+    .tip-icon { font-size: 2rem; margin-bottom: 6px; }
+    .tip-title { font-size: 0.95rem; }
+    .tip-text { font-size: 0.75rem; }
+    .tip-ua { font-size: 0.7rem; }
+
+    /* SCALE CARD */
+    .scale-card { padding: 18px 14px; }
+    .scale-title { font-size: 1.1rem; }
+    .scale-item { gap: 10px; }
+    .scale-emoji { font-size: 1.3rem; width: 32px; }
+    .scale-label { font-size: 0.75rem; flex-direction: column; gap: 1px; }
+    .scale-bar-bg { height: 11px; }
+
+    /* QUIZ */
+    .quiz-block { padding: 20px 14px; }
+    .quiz-title { font-size: 1.2rem; }
+    .quiz-q p { font-size: 0.92rem; }
+    .quiz-q small { font-size: 0.78rem; }
+    .options { gap: 8px; }
+    .opt-btn { font-size: 0.82rem; padding: 7px 14px; }
+
+    /* BORROW vs LEND box */
+    .card > div[style*="grid-template-columns:1fr 1fr"] {
+      grid-template-columns: 1fr !important;
+    }
+
+    /* CHEAT SHEET */
+    .card div[style*="grid-template-columns:1fr 1fr"] {
+      grid-template-columns: 1fr !important;
+      font-size: 0.82rem;
+    }
+
+    /* IDIOMS */
+    .card > div > div { padding: 12px 10px; }
+
+    /* FOOTER */
+    footer { padding: 24px 14px; font-size: 0.85rem; }
+
+    /* SCROLL TOP BTN */
+    #scroll-top-btn { bottom: 16px; right: 16px; width: 40px; height: 40px; font-size: 16px; }
+  }
+
+  @media (max-width: 400px) {
+    .vocab-grid { grid-template-columns: 1fr; }
+    .tips-grid { grid-template-columns: 1fr; }
+  }
+
+  /* SCROLL REVEAL */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  #scroll-top-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #1a1208;
+    border: 1.5px solid rgba(200,150,62,0.4);
+    color: #f5f0e8;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+    pointer-events: none;
+    z-index: 9998;
+  }
+  #scroll-top-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  #scroll-top-btn:hover {
+    background: #c8963e;
+    border-color: #c8963e;
+    color: #1a1208;
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="coin-float c1">🪙</div>
+  <div class="coin-float c2">💵</div>
+  <div class="coin-float c3">💳</div>
+  <div class="coin-float c4">🏦</div>
+  <div class="coin-float c5">💰</div>
+  <div class="coin-float c6">📈</div>
+  <h1>💰 Money Talk in English</h1>
+  <p class="subtitle">Як говорити про гроші та фінанси англійською мовою<br><small>How to talk about money & finances in English</small></p>
+  <div class="badge-row">
+    <span class="badge">🟢 Beginner Friendly</span>
+    <span class="badge">🇬🇧 English + 🇺🇦 Ukrainian</span>
+    <span class="badge">💡 Examples Included</span>
+  </div>
+</header>
+
+<main>
+
+  <!-- SECTION 1: KEY VOCABULARY -->
+  <div class="section-title reveal" style="color:#1a7a45;">
+    <div class="emoji-icon" style="background:#E8F8F0;">📖</div>
+    1. Key Vocabulary / Основні слова
+  </div>
+
+  <div class="vocab-grid reveal">
+    <div class="vocab-card green-card">
+      <div class="vocab-icon">💵</div>
+      <div class="vocab-en">Money</div>
+      <div class="vocab-transcr">/ˈmʌni/</div>
+      <div class="vocab-ua">🇺🇦 Гроші</div>
+      <div class="vocab-example">"I need more money." <em>— Мені потрібно більше грошей.</em></div>
+    </div>
+    <div class="vocab-card blue-card">
+      <div class="vocab-icon">💳</div>
+      <div class="vocab-en">Credit Card</div>
+      <div class="vocab-transcr">/ˈkrɛdɪt kɑːrd/</div>
+      <div class="vocab-ua">🇺🇦 Кредитна картка</div>
+      <div class="vocab-example">"Can I pay by credit card?" <em>— Я можу платити карткою?</em></div>
+    </div>
+    <div class="vocab-card purple-card">
+      <div class="vocab-icon">🏦</div>
+      <div class="vocab-en">Bank Account</div>
+      <div class="vocab-transcr">/bæŋk əˈkaʊnt/</div>
+      <div class="vocab-ua">🇺🇦 Банківський рахунок</div>
+      <div class="vocab-example">"I opened a bank account." <em>— Я відкрив рахунок у банку.</em></div>
+    </div>
+    <div class="vocab-card orange-card">
+      <div class="vocab-icon">💰</div>
+      <div class="vocab-en">Budget</div>
+      <div class="vocab-transcr">/ˈbʌdʒɪt/</div>
+      <div class="vocab-ua">🇺🇦 Бюджет</div>
+      <div class="vocab-example">"We have a tight budget." <em>— У нас обмежений бюджет.</em></div>
+    </div>
+    <div class="vocab-card teal-card">
+      <div class="vocab-icon">🪙</div>
+      <div class="vocab-en">Coin / Cash</div>
+      <div class="vocab-transcr">/kɔɪn/ /kæʃ/</div>
+      <div class="vocab-ua">🇺🇦 Монета / Готівка</div>
+      <div class="vocab-example">"Do you have cash?" <em>— У вас є готівка?</em></div>
+    </div>
+    <div class="vocab-card gold-card">
+      <div class="vocab-icon">🧾</div>
+      <div class="vocab-en">Receipt</div>
+      <div class="vocab-transcr">/rɪˈsiːt/</div>
+      <div class="vocab-ua">🇺🇦 Чек / Квитанція</div>
+      <div class="vocab-example">"Can I have a receipt?" <em>— Можу отримати чек?</em></div>
+    </div>
+    <div class="vocab-card red-card">
+      <div class="vocab-icon">📉</div>
+      <div class="vocab-en">Debt</div>
+      <div class="vocab-transcr">/dɛt/</div>
+      <div class="vocab-ua">🇺🇦 Борг</div>
+      <div class="vocab-example">"He has a lot of debt." <em>— У нього багато боргів.</em></div>
+    </div>
+    <div class="vocab-card green-card">
+      <div class="vocab-icon">📈</div>
+      <div class="vocab-en">Investment</div>
+      <div class="vocab-transcr">/ɪnˈvɛstmənt/</div>
+      <div class="vocab-ua">🇺🇦 Інвестиція</div>
+      <div class="vocab-example">"It's a good investment." <em>— Це хороша інвестиція.</em></div>
+    </div>
+    <div class="vocab-card blue-card">
+      <div class="vocab-icon">💸</div>
+      <div class="vocab-en">Salary / Wage</div>
+      <div class="vocab-transcr">/ˈsæləri/ /weɪdʒ/</div>
+      <div class="vocab-ua">🇺🇦 Зарплата</div>
+      <div class="vocab-example">"My salary is paid monthly." <em>— Мою зарплату виплачують щомісяця.</em></div>
+    </div>
+    <div class="vocab-card purple-card">
+      <div class="vocab-icon">🏷️</div>
+      <div class="vocab-en">Price / Cost</div>
+      <div class="vocab-transcr">/praɪs/ /kɒst/</div>
+      <div class="vocab-ua">🇺🇦 Ціна / Вартість</div>
+      <div class="vocab-example">"What's the price?" <em>— Яка ціна?</em></div>
+    </div>
+    <div class="vocab-card orange-card">
+      <div class="vocab-icon">🎁</div>
+      <div class="vocab-en">Discount / Sale</div>
+      <div class="vocab-transcr">/ˈdɪskaʊnt/</div>
+      <div class="vocab-ua">🇺🇦 Знижка / Розпродаж</div>
+      <div class="vocab-example">"Is there a discount?" <em>— Є якась знижка?</em></div>
+    </div>
+    <div class="vocab-card teal-card">
+      <div class="vocab-icon">💼</div>
+      <div class="vocab-en">Loan / Borrow</div>
+      <div class="vocab-transcr">/ləʊn/ /ˈbɒrəʊ/</div>
+      <div class="vocab-ua">🇺🇦 Позика / Позичати</div>
+      <div class="vocab-example">"Can I borrow £10?" <em>— Можу позичити 10 фунтів?</em></div>
+    </div>
+  </div>
+
+  <div class="divider">• • •</div>
+
+  <!-- SECTION 2: USEFUL PHRASES -->
+  <div class="section-title reveal" style="color:#1a6fa3;">
+    <div class="emoji-icon" style="background:#EAF3FB;">💬</div>
+    2. Useful Phrases / Корисні фрази
+  </div>
+
+  <!-- SHOPPING -->
+  <div class="phrase-block reveal">
+    <div class="phrase-header" style="background:linear-gradient(90deg,#27ae60,#2ecc71);">
+      🛍️ Shopping & Paying / Покупки та оплата
+    </div>
+    <div class="phrase-row">
+      <div class="phrase-en">How much does this cost?</div>
+      <div class="phrase-ua">Скільки це коштує?</div>
+    </div>
+    <div class="phrase-row">
+      <div class="phrase-en">That's too expensive.</div>
+      <div class="phrase-ua">Це занадто дорого.</div>
+    </div>
+    <div class="phrase-row">
+      <div class="phrase-en">Can I pay by card / in cash?</div>
+      <div class="phrase-ua">Я можу платити карткою / готівкою?</div>
+    </div>
+    <div class="phrase-row">
+      <div class="phrase-en">Do you accept contactless payments?</div>
+      <div class="phrase-ua">Ви приймаєте безконтактну оплату?</div>
+    </div>
+    <div class="phrase-row">
+      <div class="phrase-en">I'd like a refund, please.</div>
+      <div class="phrase-ua">Я хотів би повернення грошей.</div>
+    </div>
+    <div class="phrase-row">
+      <div class="phrase-en">Is there a discount available?</div>
+      <div class="phrase-ua">Чи є доступна знижка?</div>
+    </div>
+    <div class="phrase-row">
+      <div class="phrase-en">Can you give me the receipt?</div>
+      <div class="phrase-ua">Можете дати мені чек?</div>
+    </div>
+    <div class="phrase-row">
+      <div class="phrase-en">Keep the change.</div>
+      <div class="phrase-ua">Залиште решту собі.</div>
+    </div>
+  </div>
+
+  <!-- BANK -->
+  <div class="phrase-block reveal">
+    <div class="phrase-header" style="background:linear-gradient(90deg,#2980b9,#3498db);">
+      🏦 At the Bank / У банку
+    </div>
+    <div class="phrase-row">
+      <div class="phrase-en">I'd like to open a bank account.</div>
+      <div class="phrase-ua">Я хотів би відкрити рахунок.</div>
+    </div>
+    <div class="phrase-row">
+      <div class="phrase-en">I need to transfer some money.</div>
+      <div class="phrase-ua">Мені потрібно переказати гроші.</div>
+    </div>
+    <div class="phrase-row">
+      <div class="phrase-en">What's the exchange rate?</div>
+      <div class="phrase-ua">Який курс обміну?</div>
+    </div>
+    <div class="phrase-row">
+      <div class="phrase-en">I'd like to withdraw £200.</div>
+      <div class="phrase-ua">Я хочу зняти 200 фунтів.</div>
+    </div>
+    <div class="phrase-row">
+      <div class="phrase-en">What's my current balance?</div>
+      <div class="phrase-ua">Який мій поточний баланс?</div>
+    </div>
+    <div class="phrase-row">
+      <div class="phrase-en">I'd like to apply for a loan.</div>
+      <div class="phrase-ua">Я хочу подати заявку на кредит.</div>
+    </div>
+  </div>
+
+  <!-- EVERYDAY MONEY TALK -->
+  <div class="phrase-block reveal">
+    <div class="phrase-header" style="background:linear-gradient(90deg,#8e44ad,#9b59b6);">
+      🗣️ Everyday Money Talk / Щоденні розмови про гроші
+    </div>
+    <div class="phrase-row">
+      <div class="phrase-en">I'm saving up for a new phone.</div>
+      <div class="phrase-ua">Я збираю гроші на новий телефон.</div>
+    </div>
+    <div class="phrase-row">
+      <div class="phrase-en">I'm a bit short on cash right now.</div>
+      <div class="phrase-ua">Зараз у мене трохи мало готівки.</div>
+    </div>
+    <div class="phrase-row">
+      <div class="phrase-en">Can you split the bill?</div>
+      <div class="phrase-ua">Можемо розділити рахунок?</div>
+    </div>
+    <div class="phrase-row">
+      <div class="phrase-en">I'll treat you! / It's on me!</div>
+      <div class="phrase-ua">Я пригощаю! / Я плачу!</div>
+    </div>
+    <div class="phrase-row">
+      <div class="phrase-en">Money doesn't grow on trees!</div>
+      <div class="phrase-ua">Гроші не ростуть на деревах! (прислів'я)</div>
+    </div>
+    <div class="phrase-row">
+      <div class="phrase-en">I can't afford it.</div>
+      <div class="phrase-ua">Я не можу собі це дозволити.</div>
+    </div>
+    <div class="phrase-row">
+      <div class="phrase-en">It's worth every penny.</div>
+      <div class="phrase-ua">Воно коштує кожного пенні / Цілком варте.</div>
+    </div>
+  </div>
+
+  <div class="divider">• • •</div>
+
+  <!-- SECTION 3: VERBS -->
+  <div class="section-title reveal" style="color:#8e44ad;">
+    <div class="emoji-icon" style="background:#F4ECF7;">⚡</div>
+    3. Key Verbs / Ключові дієслова
+  </div>
+
+  <div class="vocab-grid reveal">
+    <div class="vocab-card purple-card">
+      <div class="vocab-icon">💳</div>
+      <div class="vocab-en">to pay</div>
+      <div class="vocab-ua">🇺🇦 платити</div>
+      <div class="vocab-example">"I pay by card." <em>— Я плачу карткою.</em></div>
+    </div>
+    <div class="vocab-card green-card">
+      <div class="vocab-icon">🏦</div>
+      <div class="vocab-en">to save</div>
+      <div class="vocab-ua">🇺🇦 заощаджувати</div>
+      <div class="vocab-example">"Save money every month." <em>— Заощаджуй щомісяця.</em></div>
+    </div>
+    <div class="vocab-card blue-card">
+      <div class="vocab-icon">📤</div>
+      <div class="vocab-en">to spend</div>
+      <div class="vocab-ua">🇺🇦 витрачати</div>
+      <div class="vocab-example">"Don't spend too much." <em>— Не витрачай забагато.</em></div>
+    </div>
+    <div class="vocab-card orange-card">
+      <div class="vocab-icon">💼</div>
+      <div class="vocab-en">to borrow</div>
+      <div class="vocab-ua">🇺🇦 позичати (брати)</div>
+      <div class="vocab-example">"Can I borrow some cash?" <em>— Можна позичити готівку?</em></div>
+    </div>
+    <div class="vocab-card teal-card">
+      <div class="vocab-icon">🤝</div>
+      <div class="vocab-en">to lend</div>
+      <div class="vocab-ua">🇺🇦 позичати (давати)</div>
+      <div class="vocab-example">"She lent me €20." <em>— Вона позичила мені 20 євро.</em></div>
+    </div>
+    <div class="vocab-card red-card">
+      <div class="vocab-icon">💸</div>
+      <div class="vocab-en">to earn</div>
+      <div class="vocab-ua">🇺🇦 заробляти</div>
+      <div class="vocab-example">"He earns $3000/month." <em>— Він заробляє $3000 на місяць.</em></div>
+    </div>
+    <div class="vocab-card gold-card">
+      <div class="vocab-icon">📈</div>
+      <div class="vocab-en">to invest</div>
+      <div class="vocab-ua">🇺🇦 інвестувати</div>
+      <div class="vocab-example">"Invest in your education!" <em>— Інвестуй у свою освіту!</em></div>
+    </div>
+    <div class="vocab-card green-card">
+      <div class="vocab-icon">🏧</div>
+      <div class="vocab-en">to withdraw</div>
+      <div class="vocab-ua">🇺🇦 знімати (гроші)</div>
+      <div class="vocab-example">"Withdraw cash from ATM." <em>— Зняти гроші з банкомату.</em></div>
+    </div>
+  </div>
+
+  <!-- BORROW vs LEND TIP -->
+  <div class="card reveal" style="border:2.5px solid #e67e22; background:#FEF5E7;">
+    <div style="font-family:'Fredoka One',cursive;font-size:1.15rem;color:#b9770e;margin-bottom:14px;">⚠️ Borrow vs Lend — частa помилка!</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+      <div style="background:#fff3cd;border-radius:12px;padding:14px;">
+        <div style="font-weight:800;color:#b9770e;margin-bottom:6px;">🙋 BORROW = брати</div>
+        <div style="font-size:0.9rem;">"Can I <strong>borrow</strong> your pen?"</div>
+        <div style="font-size:0.82rem;color:#7f8c8d;margin-top:4px;font-style:italic;">— Можу взяти твою ручку?</div>
+        <div style="font-size:0.78rem;margin-top:6px;color:#b9770e;">👆 You receive something from someone</div>
+      </div>
+      <div style="background:#fff3cd;border-radius:12px;padding:14px;">
+        <div style="font-weight:800;color:#b9770e;margin-bottom:6px;">🙎 LEND = давати</div>
+        <div style="font-size:0.9rem;">"Can you <strong>lend</strong> me your pen?"</div>
+        <div style="font-size:0.82rem;color:#7f8c8d;margin-top:4px;font-style:italic;">— Можеш позичити мені ручку?</div>
+        <div style="font-size:0.78rem;margin-top:6px;color:#b9770e;">👆 You give something to someone</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider">• • •</div>
+
+  <!-- SECTION 4: DIALOGUE -->
+  <div class="section-title reveal" style="color:#2980b9;">
+    <div class="emoji-icon" style="background:#EAF3FB;">🎭</div>
+    4. Real Dialogues / Реальні діалоги
+  </div>
+
+  <!-- DIALOGUE 1 -->
+  <div class="dialogue-box reveal">
+    <div class="dialogue-title">🛒 At the Shop / У магазині</div>
+    <div class="bubble-wrap">
+      <div class="bubble">
+        <div class="avatar" style="background:#2ecc71;">🧑</div>
+        <div class="bubble-content">
+          <div class="bubble-name">Alex (Customer / Покупець)</div>
+          <div class="speech speech-a">
+            <strong>Excuse me, how much is this jacket?</strong>
+            <em>Вибачте, скільки коштує ця куртка?</em>
+          </div>
+        </div>
+      </div>
+      <div class="bubble right">
+        <div class="avatar" style="background:#3498db;">👩‍💼</div>
+        <div class="bubble-content">
+          <div class="bubble-name">Sara (Shop Assistant / Продавець)</div>
+          <div class="speech speech-b">
+            <strong>It's £79.99, but it's on sale — 20% off today!</strong>
+            <em>Це 79.99 фунтів, але сьогодні розпродаж — знижка 20%!</em>
+          </div>
+        </div>
+      </div>
+      <div class="bubble">
+        <div class="avatar" style="background:#2ecc71;">🧑</div>
+        <div class="bubble-content">
+          <div class="bubble-name">Alex</div>
+          <div class="speech speech-a">
+            <strong>Great! Can I pay by card?</strong>
+            <em>Чудово! Я можу платити карткою?</em>
+          </div>
+        </div>
+      </div>
+      <div class="bubble right">
+        <div class="avatar" style="background:#3498db;">👩‍💼</div>
+        <div class="bubble-content">
+          <div class="bubble-name">Sara</div>
+          <div class="speech speech-b">
+            <strong>Of course! We accept all major cards. Do you need a receipt?</strong>
+            <em>Звичайно! Ми приймаємо всі основні картки. Вам потрібен чек?</em>
+          </div>
+        </div>
+      </div>
+      <div class="bubble">
+        <div class="avatar" style="background:#2ecc71;">🧑</div>
+        <div class="bubble-content">
+          <div class="bubble-name">Alex</div>
+          <div class="speech speech-a">
+            <strong>Yes, please. Thanks a lot!</strong>
+            <em>Так, будь ласка. Дуже дякую!</em>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIALOGUE 2 -->
+  <div class="dialogue-box reveal">
+    <div class="dialogue-title">🍕 Splitting the Bill / Розділяємо рахунок</div>
+    <div class="bubble-wrap">
+      <div class="bubble">
+        <div class="avatar" style="background:#9b59b6;">😄</div>
+        <div class="bubble-content">
+          <div class="bubble-name">Tom</div>
+          <div class="speech speech-a">
+            <strong>The bill came to $48. Shall we split it?</strong>
+            <em>Рахунок вийшов $48. Розділимо?</em>
+          </div>
+        </div>
+      </div>
+      <div class="bubble right">
+        <div class="avatar" style="background:#e67e22;">😊</div>
+        <div class="bubble-content">
+          <div class="bubble-name">Mia</div>
+          <div class="speech speech-b">
+            <strong>Sure! That's $24 each. I'll pay by phone — I have Apple Pay.</strong>
+            <em>Звичайно! Це по $24. Я заплачу телефоном — у мене Apple Pay.</em>
+          </div>
+        </div>
+      </div>
+      <div class="bubble">
+        <div class="avatar" style="background:#9b59b6;">😄</div>
+        <div class="bubble-content">
+          <div class="bubble-name">Tom</div>
+          <div class="speech speech-a">
+            <strong>Cool. I'm a bit short on cash — I'll transfer you my share later.</strong>
+            <em>Добре. У мене трохи мало готівки — я переведу тобі свою частину пізніше.</em>
+          </div>
+        </div>
+      </div>
+      <div class="bubble right">
+        <div class="avatar" style="background:#e67e22;">😊</div>
+        <div class="bubble-content">
+          <div class="bubble-name">Mia</div>
+          <div class="speech speech-b">
+            <strong>No worries! Next time, it's on me!</strong>
+            <em>Не переймайся! Наступного разу я пригощаю!</em>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider">• • •</div>
+
+  <!-- SECTION 5: INFOGRAPHIC — SPENDING SCALE -->
+  <div class="section-title reveal" style="color:#e67e22;">
+    <div class="emoji-icon" style="background:#FEF5E7;">💡</div>
+    5. How to Describe Prices / Як описувати ціни
+  </div>
+
+  <div class="scale-card reveal">
+    <div class="scale-title">📊 Price Scale — від дешевого до дорогого</div>
+    <div class="scale-item">
+      <div class="scale-emoji">🤩</div>
+      <div class="scale-bar-wrap">
+        <div class="scale-label">
+          <span style="color:#27ae60;font-weight:800;">Free / For free</span>
+          <span style="color:#7f8c8d;font-size:0.8rem;">Безкоштовно</span>
+        </div>
+        <div class="scale-bar-bg"><div class="scale-bar" style="width:10%;background:#2ecc71;"></div></div>
+      </div>
+    </div>
+    <div class="scale-item">
+      <div class="scale-emoji">😄</div>
+      <div class="scale-bar-wrap">
+        <div class="scale-label">
+          <span style="color:#27ae60;">Cheap / Inexpensive / Affordable</span>
+          <span style="color:#7f8c8d;font-size:0.8rem;">Дешево / Доступно</span>
+        </div>
+        <div class="scale-bar-bg"><div class="scale-bar" style="width:28%;background:#2ecc71;"></div></div>
+      </div>
+    </div>
+    <div class="scale-item">
+      <div class="scale-emoji">🙂</div>
+      <div class="scale-bar-wrap">
+        <div class="scale-label">
+          <span style="color:#1abc9c;">Reasonable / Fair price</span>
+          <span style="color:#7f8c8d;font-size:0.8rem;">Нормальна ціна</span>
+        </div>
+        <div class="scale-bar-bg"><div class="scale-bar" style="width:46%;background:#1abc9c;"></div></div>
+      </div>
+    </div>
+    <div class="scale-item">
+      <div class="scale-emoji">😐</div>
+      <div class="scale-bar-wrap">
+        <div class="scale-label">
+          <span style="color:#e67e22;">Pricey / A bit expensive</span>
+          <span style="color:#7f8c8d;font-size:0.8rem;">Дорогувато</span>
+        </div>
+        <div class="scale-bar-bg"><div class="scale-bar" style="width:64%;background:#e67e22;"></div></div>
+      </div>
+    </div>
+    <div class="scale-item">
+      <div class="scale-emoji">😬</div>
+      <div class="scale-bar-wrap">
+        <div class="scale-label">
+          <span style="color:#e74c3c;">Expensive / Costly</span>
+          <span style="color:#7f8c8d;font-size:0.8rem;">Дорого</span>
+        </div>
+        <div class="scale-bar-bg"><div class="scale-bar" style="width:80%;background:#e74c3c;"></div></div>
+      </div>
+    </div>
+    <div class="scale-item">
+      <div class="scale-emoji">😱</div>
+      <div class="scale-bar-wrap">
+        <div class="scale-label">
+          <span style="color:#8e44ad;">Outrageous / Way too expensive / Rip-off!</span>
+          <span style="color:#7f8c8d;font-size:0.8rem;">Грабіж / Ціна шокує</span>
+        </div>
+        <div class="scale-bar-bg"><div class="scale-bar" style="width:100%;background:linear-gradient(90deg,#9b59b6,#e74c3c);"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider">• • •</div>
+
+  <!-- SECTION 6: TIPS GRID -->
+  <div class="section-title reveal" style="color:#1a7a45;">
+    <div class="emoji-icon" style="background:#E8F8F0;">🌟</div>
+    6. Smart Tips / Корисні поради
+  </div>
+
+  <div class="tips-grid reveal">
+    <div class="tip-card" style="background:linear-gradient(135deg,#27ae60,#2ecc71);">
+      <div class="tip-icon">💱</div>
+      <div class="tip-title">Currencies</div>
+      <div class="tip-text">$ = dollar, £ = pound, € = euro, ₴ = hryvnia</div>
+      <div class="tip-ua">Валюти: долар, фунт, євро, гривня</div>
+    </div>
+    <div class="tip-card" style="background:linear-gradient(135deg,#2980b9,#3498db);">
+      <div class="tip-icon">🔢</div>
+      <div class="tip-title">Say Prices</div>
+      <div class="tip-text">$3.50 → "three fifty" or "three dollars fifty"</div>
+      <div class="tip-ua">Як вимовляти ціни по-англійськи</div>
+    </div>
+    <div class="tip-card" style="background:linear-gradient(135deg,#8e44ad,#9b59b6);">
+      <div class="tip-icon">🤝</div>
+      <div class="tip-title">Dutch Treat</div>
+      <div class="tip-text">"Going Dutch" = everyone pays for themselves</div>
+      <div class="tip-ua">Кожен платить за себе</div>
+    </div>
+    <div class="tip-card" style="background:linear-gradient(135deg,#c0392b,#e74c3c);">
+      <div class="tip-icon">💡</div>
+      <div class="tip-title">Tip Culture</div>
+      <div class="tip-text">In USA: tip 15–20%! In UK: 10–15% is common</div>
+      <div class="tip-ua">Чайові в США: 15-20%, у Великобританії: 10-15%</div>
+    </div>
+    <div class="tip-card" style="background:linear-gradient(135deg,#e67e22,#f39c12);">
+      <div class="tip-icon">📱</div>
+      <div class="tip-title">Contactless</div>
+      <div class="tip-text">"Tap to pay" = безконтактна оплата</div>
+      <div class="tip-ua">Дотик для оплати — дуже популярно!</div>
+    </div>
+    <div class="tip-card" style="background:linear-gradient(135deg,#16a085,#1abc9c);">
+      <div class="tip-icon">🏷️</div>
+      <div class="tip-title">Bargaining</div>
+      <div class="tip-text">"Can you do any better on the price?" = прошу знижку</div>
+      <div class="tip-ua">Як торгуватися ввічливо!</div>
+    </div>
+  </div>
+
+  <div class="divider">• • •</div>
+
+  <!-- SECTION 7: IDIOMS -->
+  <div class="section-title reveal" style="color:#b9770e;">
+    <div class="emoji-icon" style="background:#FEFDE7;">🎓</div>
+    7. Money Idioms / Ідіоми про гроші
+  </div>
+
+  <div class="card reveal" style="border:2px solid #FFD700;">
+    <div style="display:grid;gap:14px;">
+      <div style="background:#FEFDE7;border-radius:12px;padding:16px;border-left:5px solid #FFD700;">
+        <div style="font-weight:800;color:#b7950b;font-size:1rem;">💰 "Break the bank"</div>
+        <div style="font-size:0.88rem;margin-top:4px;">It doesn't have to break the bank!</div>
+        <div style="font-size:0.82rem;color:#7f8c8d;font-style:italic;margin-top:3px;">🇺🇦 "Розорити банк" — витратити дуже багато грошей. <br>Це не обов'язково має коштувати цілий статок!</div>
+      </div>
+      <div style="background:#FEFDE7;border-radius:12px;padding:16px;border-left:5px solid #FFD700;">
+        <div style="font-weight:800;color:#b7950b;font-size:1rem;">💰 "On a shoestring (budget)"</div>
+        <div style="font-size:0.88rem;margin-top:4px;">We travelled Europe on a shoestring.</div>
+        <div style="font-size:0.82rem;color:#7f8c8d;font-style:italic;margin-top:3px;">🇺🇦 "На мізерний бюджет" — подорожувати з дуже малими грошима.</div>
+      </div>
+      <div style="background:#FEFDE7;border-radius:12px;padding:16px;border-left:5px solid #FFD700;">
+        <div style="font-weight:800;color:#b7950b;font-size:1rem;">💰 "In the red / In the black"</div>
+        <div style="font-size:0.88rem;margin-top:4px;">We're finally in the black this year!</div>
+        <div style="font-size:0.82rem;color:#7f8c8d;font-style:italic;margin-top:3px;">🇺🇦 "У мінусі / у плюсі" — витрачати більше ніж заробляти / навпаки.</div>
+      </div>
+      <div style="background:#FEFDE7;border-radius:12px;padding:16px;border-left:5px solid #FFD700;">
+        <div style="font-weight:800;color:#b7950b;font-size:1rem;">💰 "Cost an arm and a leg"</div>
+        <div style="font-size:0.88rem;margin-top:4px;">That car cost an arm and a leg!</div>
+        <div style="font-size:0.82rem;color:#7f8c8d;font-style:italic;margin-top:3px;">🇺🇦 "Коштувати руку і ногу" — страшенно дорого!</div>
+      </div>
+      <div style="background:#FEFDE7;border-radius:12px;padding:16px;border-left:5px solid #FFD700;">
+        <div style="font-weight:800;color:#b7950b;font-size:1rem;">💰 "Time is money"</div>
+        <div style="font-size:0.88rem;margin-top:4px;">Stop chatting — time is money!</div>
+        <div style="font-size:0.82rem;color:#7f8c8d;font-style:italic;margin-top:3px;">🇺🇦 "Час — гроші" — не витрачай час даремно.</div>
+      </div>
+      <div style="background:#FEFDE7;border-radius:12px;padding:16px;border-left:5px solid #FFD700;">
+        <div style="font-weight:800;color:#b7950b;font-size:1rem;">💰 "Penny-wise, pound-foolish"</div>
+        <div style="font-size:0.88rem;margin-top:4px;">Don't be penny-wise, pound-foolish.</div>
+        <div style="font-size:0.82rem;color:#7f8c8d;font-style:italic;margin-top:3px;">🇺🇦 Економити на дрібницях, але витрачати зайве на великому — нерозумно.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider">• • •</div>
+
+  <!-- SECTION 8: QUIZ -->
+  <div class="quiz-block reveal">
+    <div class="quiz-title">🧠 Quick Quiz / Міні-тест</div>
+
+    <div class="quiz-q" id="q1">
+      <p>1. How do you say "Скільки це коштує?" in English?</p>
+      <small>Як перекласти це запитання?</small>
+      <div class="options">
+        <button class="opt-btn" onclick="checkQ(this,'q1',false)">Where is this?</button>
+        <button class="opt-btn" onclick="checkQ(this,'q1',true)">How much does this cost?</button>
+        <button class="opt-btn" onclick="checkQ(this,'q1',false)">What is your name?</button>
+      </div>
+      <div class="quiz-feedback" id="q1-fb"></div>
+    </div>
+
+    <div class="quiz-q" id="q2">
+      <p>2. "Can I <strong>___</strong> your umbrella?" — You want someone to give it to you.</p>
+      <small>Ви хочете взяти парасолю. Яке слово пропущено?</small>
+      <div class="options">
+        <button class="opt-btn" onclick="checkQ(this,'q2',false)">lend</button>
+        <button class="opt-btn" onclick="checkQ(this,'q2',true)">borrow</button>
+        <button class="opt-btn" onclick="checkQ(this,'q2',false)">spend</button>
+      </div>
+      <div class="quiz-feedback" id="q2-fb"></div>
+    </div>
+
+    <div class="quiz-q" id="q3">
+      <p>3. What does "It's on me!" mean? / Що означає "It's on me!"?</p>
+      <div class="options">
+        <button class="opt-btn" onclick="checkQ(this,'q3',false)">Something fell on me</button>
+        <button class="opt-btn" onclick="checkQ(this,'q3',false)">Let's split the bill</button>
+        <button class="opt-btn" onclick="checkQ(this,'q3',true)">I'll pay for everyone</button>
+      </div>
+      <div class="quiz-feedback" id="q3-fb"></div>
+    </div>
+
+    <div class="quiz-q" id="q4">
+      <p>4. What does "in the red" mean?</p>
+      <small>Що означає ця фінансова ідіома?</small>
+      <div class="options">
+        <button class="opt-btn" onclick="checkQ(this,'q4',false)">Profitable / Прибутковий</button>
+        <button class="opt-btn" onclick="checkQ(this,'q4',true)">In debt / У боргах</button>
+        <button class="opt-btn" onclick="checkQ(this,'q4',false)">Very expensive</button>
+      </div>
+      <div class="quiz-feedback" id="q4-fb"></div>
+    </div>
+  </div>
+
+  <!-- CHEAT SHEET -->
+  <div class="card reveal" style="border:2px solid #2ecc71;background:linear-gradient(135deg,#f0fff4,#e8f8f0);">
+    <div style="font-family:'Fredoka One',cursive;font-size:1.3rem;color:#1a7a45;margin-bottom:16px;">📋 Quick Cheat Sheet / Шпаргалка</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:0.88rem;">
+      <div><span style="font-weight:800;">How much?</span> → Скільки?</div>
+      <div><span style="font-weight:800;">Too expensive</span> → Занадто дорого</div>
+      <div><span style="font-weight:800;">Pay by card</span> → Платити карткою</div>
+      <div><span style="font-weight:800;">Keep the change</span> → Залиш решту</div>
+      <div><span style="font-weight:800;">Split the bill</span> → Поділити рахунок</div>
+      <div><span style="font-weight:800;">It's on me!</span> → Я пригощаю!</div>
+      <div><span style="font-weight:800;">I can't afford it</span> → Не можу собі дозволити</div>
+      <div><span style="font-weight:800;">Great deal!</span> → Вигідна угода!</div>
+      <div><span style="font-weight:800;">Any discount?</span> → Є знижка?</div>
+      <div><span style="font-weight:800;">Cash or card?</span> → Готівкою чи карткою?</div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div style="font-size:2rem;margin-bottom:12px;">💰🎓💪</div>
+  <strong>Money Talk in English</strong> — навчальна сторінка для початківців<br>
+  <span style="opacity:0.75;font-size:0.85rem;">Keep practising and soon you'll be a money expert in English! 🌟<br>Продовжуй практикуватись і скоро ти будеш експертом з фінансової англійської!</span>
+</footer>
+
+<script>
+  // QUIZ LOGIC
+  function checkQ(btn, qId, isCorrect) {
+    const qEl = document.getElementById(qId);
+    const buttons = qEl.querySelectorAll('.opt-btn');
+    const fb = document.getElementById(qId + '-fb');
+    buttons.forEach(b => b.disabled = true);
+    if (isCorrect) {
+      btn.classList.add('correct');
+      fb.textContent = '✅ Correct! / Правильно!';
+      fb.style.color = '#2ecc71';
+    } else {
+      btn.classList.add('wrong');
+      fb.textContent = '❌ Try again next time! / Спробуй наступного разу!';
+      fb.style.color = '#e74c3c';
+    }
+  }
+
+  // SCROLL REVEAL
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  reveals.forEach(r => observer.observe(r));
+</script>
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+</body>
+</html>

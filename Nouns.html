@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English Nouns — Іменники в англійській мові</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sky: #4FC3F7;
+    --sun: #FFD54F;
+    --grass: #81C784;
+    --coral: #FF7043;
+    --lavender: #CE93D8;
+    --mint: #80CBC4;
+    --peach: #FFAB91;
+    --ink: #1A1A2E;
+    --soft: #F8FBFF;
+    --card: #FFFFFF;
+    --shadow: 0 8px 32px rgba(79,195,247,0.15);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: linear-gradient(135deg, #E3F2FD 0%, #F3E5F5 50%, #E8F5E9 100%);
+    color: var(--ink);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(160deg, #0D47A1 0%, #1565C0 40%, #1976D2 70%, #42A5F5 100%);
+    padding: 60px 20px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 30% 50%, rgba(255,255,255,0.08) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(255,213,79,0.12) 0%, transparent 50%);
+  }
+  .hero-emoji-row {
+    font-size: 2.8rem;
+    margin-bottom: 16px;
+    animation: float 3s ease-in-out infinite;
+    position: relative;
+  }
+  @keyframes float {
+    0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)}
+  }
+  .hero h1 {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(2rem, 6vw, 3.8rem);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.1;
+    position: relative;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+  .hero h1 span { color: var(--sun); }
+  .hero p {
+    color: rgba(255,255,255,0.85);
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    margin-top: 16px;
+    position: relative;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-wave {
+    position: absolute; bottom: -2px; left: 0; width: 100%;
+  }
+
+  /* ── NAV PILLS ── */
+  .nav-pills {
+    display: flex; flex-wrap: wrap; gap: 10px;
+    justify-content: center;
+    padding: 30px 20px 10px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .nav-pill {
+    background: #fff;
+    border: 2.5px solid transparent;
+    border-radius: 50px;
+    padding: 8px 20px;
+    font-family: 'Baloo 2', cursive;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all .25s;
+    text-decoration: none;
+    color: var(--ink);
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+  }
+  .nav-pill:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
+  .nav-pill.c1 { border-color: var(--sky); } .nav-pill.c1:hover { background: var(--sky); color:#fff; }
+  .nav-pill.c2 { border-color: var(--coral); } .nav-pill.c2:hover { background: var(--coral); color:#fff; }
+  .nav-pill.c3 { border-color: var(--grass); } .nav-pill.c3:hover { background: var(--grass); color:#fff; }
+  .nav-pill.c4 { border-color: var(--lavender); } .nav-pill.c4:hover { background: var(--lavender); color:#fff; }
+  .nav-pill.c5 { border-color: var(--sun); } .nav-pill.c5:hover { background: var(--sun); color:#fff; }
+  .nav-pill.c6 { border-color: var(--mint); } .nav-pill.c6:hover { background: var(--mint); color:#fff; }
+
+  /* ── MAIN WRAP ── */
+  main { max-width: 960px; margin: 0 auto; padding: 20px 16px 80px; }
+
+  /* ── SECTION CARD ── */
+  .section-card {
+    background: var(--card);
+    border-radius: 28px;
+    padding: 36px;
+    margin-bottom: 40px;
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+    border: 2px solid rgba(255,255,255,0.8);
+  }
+  .section-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 6px;
+  }
+  .section-card.blue::before   { background: linear-gradient(90deg,#4FC3F7,#0288D1); }
+  .section-card.red::before    { background: linear-gradient(90deg,#FF7043,#E53935); }
+  .section-card.green::before  { background: linear-gradient(90deg,#81C784,#2E7D32); }
+  .section-card.purple::before { background: linear-gradient(90deg,#CE93D8,#7B1FA2); }
+  .section-card.yellow::before { background: linear-gradient(90deg,#FFD54F,#F57F17); }
+  .section-card.teal::before   { background: linear-gradient(90deg,#80CBC4,#00796B); }
+
+  .section-icon {
+    width: 64px; height: 64px;
+    border-radius: 18px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2rem;
+    margin-bottom: 16px;
+    flex-shrink: 0;
+  }
+  .bg-blue   { background: linear-gradient(135deg,#E3F2FD,#B3E5FC); }
+  .bg-red    { background: linear-gradient(135deg,#FBE9E7,#FFCCBC); }
+  .bg-green  { background: linear-gradient(135deg,#E8F5E9,#C8E6C9); }
+  .bg-purple { background: linear-gradient(135deg,#F3E5F5,#E1BEE7); }
+  .bg-yellow { background: linear-gradient(135deg,#FFFDE7,#FFF9C4); }
+  .bg-teal   { background: linear-gradient(135deg,#E0F2F1,#B2DFDB); }
+
+  .section-header { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 20px; }
+  .section-titles h2 {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    font-weight: 800;
+    line-height: 1.2;
+  }
+  .section-titles .subtitle {
+    font-size: 0.95rem;
+    color: #666;
+    margin-top: 2px;
+    font-weight: 600;
+  }
+
+  /* ── FORMULA BOX ── */
+  .formula-box {
+    background: linear-gradient(135deg, #1A1A2E, #16213E);
+    color: #fff;
+    border-radius: 16px;
+    padding: 18px 22px;
+    margin: 18px 0;
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.05rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .formula-box .label {
+    background: var(--sun);
+    color: #1A1A2E;
+    border-radius: 8px;
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .formula-text { color: #64DFDF; font-size: 1.1rem; }
+  .formula-note { color: #ccc; font-size: 0.88rem; margin-top: 4px; }
+
+  /* ── EXAMPLE SENTENCES ── */
+  .examples { display: flex; flex-direction: column; gap: 12px; margin-top: 16px; }
+  .example {
+    border-radius: 14px;
+    padding: 14px 18px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .example.ex-a { background: #EFF8FF; border-left: 4px solid #4FC3F7; }
+  .example.ex-b { background: #FFF4F2; border-left: 4px solid #FF7043; }
+  .example.ex-c { background: #F1FBF4; border-left: 4px solid #81C784; }
+  .example.ex-d { background: #F7F0FF; border-left: 4px solid #CE93D8; }
+  .example.ex-e { background: #FFFBEE; border-left: 4px solid #FFD54F; }
+  .example-num {
+    font-family: 'Baloo 2', cursive;
+    font-weight: 800;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .example-content {}
+  .example-en {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: #1A1A2E;
+  }
+  .example-en .highlight {
+    background: var(--sun);
+    border-radius: 4px;
+    padding: 0 4px;
+    color: #1A1A2E;
+  }
+  .example-uk {
+    font-size: 0.88rem;
+    color: #666;
+    margin-top: 3px;
+  }
+
+  /* ── INFO GRID ── */
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 14px;
+    margin: 18px 0;
+  }
+  .info-tile {
+    border-radius: 16px;
+    padding: 16px;
+    text-align: center;
+  }
+  .info-tile .tile-emoji { font-size: 2rem; margin-bottom: 8px; }
+  .info-tile .tile-word { font-family: 'Baloo 2', cursive; font-weight: 800; font-size: 1.15rem; color: #1A1A2E; }
+  .info-tile .tile-note { font-size: 0.82rem; color: #555; margin-top: 3px; }
+
+  /* ── TABLE ── */
+  .styled-table {
+    width: 100%; border-collapse: collapse; margin: 18px 0;
+    border-radius: 16px; overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+  }
+  .styled-table thead { background: #1A1A2E; color: #fff; }
+  .styled-table th { padding: 12px 16px; text-align: left; font-family: 'Baloo 2', cursive; font-size: 0.95rem; }
+  .styled-table td { padding: 11px 16px; font-size: 0.95rem; border-bottom: 1px solid #EEF2FF; }
+  .styled-table tr:last-child td { border-bottom: none; }
+  .styled-table tr:nth-child(even) td { background: #F8FAFF; }
+  .styled-table .word-en { font-weight: 700; color: #1565C0; }
+  .styled-table .word-pl { font-weight: 700; color: #E53935; }
+  .styled-table .rule-badge {
+    display: inline-block;
+    background: #E8EAF6;
+    border-radius: 6px;
+    padding: 2px 8px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #3949AB;
+  }
+
+  /* ── COMPARE BOX ── */
+  .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+  .compare-side {
+    border-radius: 16px;
+    padding: 18px;
+    text-align: center;
+  }
+  .compare-side .cs-icon { font-size: 2.5rem; margin-bottom: 8px; }
+  .compare-side .cs-label { font-family: 'Baloo 2', cursive; font-weight: 800; font-size: 1.1rem; margin-bottom: 6px; }
+  .compare-side ul { list-style: none; text-align: left; font-size: 0.92rem; line-height: 1.9; }
+  .compare-side ul li::before { content: '→ '; color: inherit; font-weight: 700; }
+  .compare-side.left { background: #EFF8FF; color: #0277BD; }
+  .compare-side.right { background: #FFF4F2; color: #BF360C; }
+
+  /* ── HIGHLIGHT EXPLAINER ── */
+  .explainer {
+    background: linear-gradient(135deg, #FFFDE7, #FFF9C4);
+    border: 2px dashed #F9A825;
+    border-radius: 16px;
+    padding: 18px 22px;
+    margin: 16px 0;
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+  .explainer strong { color: #E65100; }
+
+  /* ── BIG WORD SHOWCASE ── */
+  .word-showcase {
+    display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0;
+  }
+  .ws-item {
+    border-radius: 50px;
+    padding: 8px 18px;
+    font-family: 'Baloo 2', cursive;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: default;
+    transition: transform .2s;
+  }
+  .ws-item:hover { transform: scale(1.06); }
+
+  /* ── SENTENCE TRANSFORMER ── */
+  .transformer {
+    background: linear-gradient(135deg, #1A1A2E, #0D47A1);
+    border-radius: 24px;
+    padding: 30px;
+    margin: 20px 0;
+    color: #fff;
+  }
+  .transformer h3 { font-family: 'Baloo 2', cursive; font-size: 1.3rem; margin-bottom: 16px; color: var(--sun); }
+  .transform-grid { display: flex; flex-direction: column; gap: 12px; }
+  .transform-row {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .transform-card {
+    border-radius: 14px;
+    padding: 14px 16px;
+    font-size: 0.92rem;
+  }
+  .transform-card.from { background: rgba(255,255,255,0.1); }
+  .transform-card.to   { background: rgba(79,195,247,0.2); }
+  .transform-card .tc-label { font-size: 0.72rem; font-weight: 700; opacity: 0.7; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px; }
+  .transform-card .tc-sentence { font-weight: 700; line-height: 1.5; }
+  .transform-card .tc-sentence .noun { color: var(--sun); }
+  .transform-card .tc-ua { font-size: 0.82rem; opacity: 0.7; margin-top: 4px; }
+
+  /* ── GERUND VISUAL ── */
+  .gerund-vis {
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+    margin: 16px 0;
+  }
+  .gv-box {
+    border-radius: 14px;
+    padding: 12px 18px;
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.1rem;
+    font-weight: 800;
+    text-align: center;
+    flex: 1; min-width: 120px;
+  }
+  .gv-arrow {
+    font-size: 1.8rem;
+    color: #888;
+    flex-shrink: 0;
+  }
+
+  /* ── SECTION DIVIDER ── */
+  .section-number {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    font-family: 'Baloo 2', cursive;
+    font-weight: 800;
+    font-size: 1rem;
+    color: #fff;
+    flex-shrink: 0;
+    margin-right: 10px;
+  }
+
+  /* ── RESPONSIVE ── */
+
+  /* Таблиці — горизонтальний скрол на мобільних */
+  .table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 16px;
+    margin: 18px 0;
+  }
+  .table-wrap .styled-table { margin: 0; min-width: 480px; }
+
+  @media (max-width: 768px) {
+    .hero { padding: 40px 16px 60px; }
+    .hero-emoji-row { font-size: 2rem; }
+    .nav-pills {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      justify-content: flex-start;
+      padding: 20px 16px 8px;
+      gap: 8px;
+      scrollbar-width: none;
+    }
+    .nav-pills::-webkit-scrollbar { display: none; }
+    .nav-pill { flex-shrink: 0; font-size: 0.82rem; padding: 7px 14px; white-space: nowrap; }
+    main { padding: 12px 12px 70px; }
+    .section-card { padding: 20px 14px; border-radius: 20px; margin-bottom: 24px; }
+    .section-header { flex-direction: column; gap: 10px; margin-bottom: 14px; }
+    .section-icon { width: 52px; height: 52px; font-size: 1.6rem; border-radius: 14px; margin-bottom: 4px; }
+    .section-titles h2 { font-size: 1.25rem; }
+    .section-titles .subtitle { font-size: 0.85rem; }
+    .formula-box { flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px 16px; border-radius: 12px; }
+    .formula-box .label { font-size: 0.7rem; }
+    .formula-text { font-size: 0.95rem; }
+    .formula-note { font-size: 0.82rem; }
+    .compare { grid-template-columns: 1fr; gap: 10px; }
+    .compare-side { padding: 14px; }
+    .compare-side .cs-icon { font-size: 2rem; }
+    .compare-side ul { font-size: 0.88rem; }
+    .info-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .info-tile { padding: 12px 8px; border-radius: 12px; }
+    .info-tile .tile-emoji { font-size: 1.6rem; }
+    .info-tile .tile-word { font-size: 1rem; }
+    .info-tile .tile-note { font-size: 0.75rem; }
+    .transformer { padding: 20px 14px; border-radius: 18px; }
+    .transformer h3 { font-size: 1.1rem; }
+    .transform-grid { gap: 8px; }
+    .transform-row { grid-template-columns: 1fr; gap: 8px; }
+    .transform-card { padding: 12px 14px; border-radius: 12px; }
+    .transform-card .tc-label { font-size: 0.68rem; }
+    .transform-card .tc-sentence { font-size: 0.9rem; }
+    .transform-card .tc-ua { font-size: 0.78rem; }
+    .examples { gap: 10px; }
+    .example { padding: 12px 14px; border-radius: 12px; }
+    .example-en { font-size: 0.97rem; }
+    .example-uk { font-size: 0.82rem; }
+    .example-num { font-size: 1rem; }
+    .explainer { padding: 14px 16px; font-size: 0.88rem; border-radius: 12px; }
+    .gerund-vis { gap: 8px; }
+    .gv-box { font-size: 0.95rem; padding: 10px 12px; border-radius: 12px; }
+    .gv-arrow { font-size: 1.4rem; }
+    .ws-item { font-size: 0.88rem; padding: 6px 14px; }
+    footer { padding: 20px 16px; font-size: 0.82rem; }
+    #scroll-top-btn { width: 40px; height: 40px; font-size: 16px; bottom: 20px; right: 16px; }
+  }
+
+  @media (max-width: 400px) {
+    .info-grid { grid-template-columns: repeat(2, 1fr); }
+    .section-titles h2 { font-size: 1.1rem; }
+    .hero h1 { font-size: 1.7rem; }
+    .hero p { font-size: 0.9rem; }
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center;
+    padding: 30px;
+    color: #888;
+    font-size: 0.88rem;
+  }
+  footer strong { color: #1565C0; }
+
+  /* ── SCROLL ANIMATIONS ── */
+  .section-card {
+    opacity: 0; transform: translateY(30px);
+    animation: slideUp .6s forwards;
+  }
+  @keyframes slideUp { to { opacity:1; transform:translateY(0); } }
+  .section-card:nth-child(1) { animation-delay:.05s }
+  .section-card:nth-child(2) { animation-delay:.1s }
+  .section-card:nth-child(3) { animation-delay:.15s }
+  .section-card:nth-child(4) { animation-delay:.2s }
+  .section-card:nth-child(5) { animation-delay:.25s }
+  .section-card:nth-child(6) { animation-delay:.3s }
+  .section-card:nth-child(7) { animation-delay:.35s }
+
+  #scroll-top-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #1a1208;
+    border: 1.5px solid rgba(200,150,62,0.4);
+    color: #f5f0e8;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+    pointer-events: none;
+    z-index: 9998;
+  }
+  #scroll-top-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  #scroll-top-btn:hover {
+    background: #c8963e;
+    border-color: #c8963e;
+    color: #1a1208;
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-emoji-row">🐱 🍎 🏠 🌍 📚 🎸 ✨</div>
+  <h1>English <span>Nouns</span><br>Іменники в англійській</h1>
+  <p>Все про іменники — просто, зрозуміло і з купою прикладів! Everything about nouns — simple, fun & with tons of examples!</p>
+  <svg class="hero-wave" viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 60L60 50C120 40 240 20 360 15C480 10 600 20 720 28C840 36 960 42 1080 40C1200 38 1320 28 1380 23L1440 18V60H0Z" fill="#E3F2FD"/>
+  </svg>
+</header>
+
+<!-- NAV PILLS -->
+<nav class="nav-pills">
+  <a href="#what" class="nav-pill c1">🔤 What is a Noun?</a>
+  <a href="#countable" class="nav-pill c2">🔢 Countable / Uncountable</a>
+  <a href="#plural" class="nav-pill c3">📦 Singular / Plural</a>
+  <a href="#irregular" class="nav-pill c4">🦷 Irregular Plurals</a>
+  <a href="#possessive" class="nav-pill c5">👑 Possessive 's</a>
+  <a href="#phrases" class="nav-pill c6">🔗 Noun Phrases</a>
+  <a href="#gerunds" class="nav-pill c1">🏃 Gerunds as Nouns</a>
+</nav>
+
+<main>
+
+<!-- ══════════════════════════════════════════════════
+     1. WHAT IS A NOUN?
+══════════════════════════════════════════════════ -->
+<section class="section-card blue" id="what">
+  <div class="section-header">
+    <div class="section-icon bg-blue">🔤</div>
+    <div class="section-titles">
+      <h2><span class="section-number" style="background:#1565C0">1</span>What is a Noun? — Що таке іменник?</h2>
+      <div class="subtitle">The name of a thing, person, place, idea · Назва речі, людини, місця або ідеї</div>
+    </div>
+  </div>
+
+  <div class="explainer">
+    <strong>🇬🇧 English:</strong> A noun is a word that names something. It can be a <strong>person</strong> (teacher), a <strong>place</strong> (school), a <strong>thing</strong> (book), or an <strong>idea</strong> (freedom).<br><br>
+    <strong>🇺🇦 Українською:</strong> Іменник — це слово, яке <strong>називає</strong> когось або щось. Це може бути <strong>людина</strong> (вчитель), <strong>місце</strong> (школа), <strong>річ</strong> (книга) або <strong>ідея</strong> (свобода).
+  </div>
+
+  <div class="formula-box">
+    <span class="label">FORMULA</span>
+    <div>
+      <div class="formula-text">Noun = Person 👤 / Place 🏙️ / Thing 📦 / Idea 💡</div>
+      <div class="formula-note">Ask yourself: "Can I point at it or think about it?" → It's probably a noun!</div>
+    </div>
+  </div>
+
+  <div class="info-grid">
+    <div class="info-tile bg-blue">
+      <div class="tile-emoji">👩‍🏫</div>
+      <div class="tile-word">teacher</div>
+      <div class="tile-note">PERSON · Людина</div>
+    </div>
+    <div class="info-tile bg-red">
+      <div class="tile-emoji">🏙️</div>
+      <div class="tile-word">city</div>
+      <div class="tile-note">PLACE · Місце</div>
+    </div>
+    <div class="info-tile bg-green">
+      <div class="tile-emoji">🎸</div>
+      <div class="tile-word">guitar</div>
+      <div class="tile-note">THING · Річ</div>
+    </div>
+    <div class="info-tile bg-purple">
+      <div class="tile-emoji">💡</div>
+      <div class="tile-word">freedom</div>
+      <div class="tile-note">IDEA · Ідея</div>
+    </div>
+  </div>
+
+  <!-- UNIVERSAL SENTENCE INTRODUCED -->
+  <div class="transformer">
+    <h3>🌟 Universal Sentence — Базове речення</h3>
+    <p style="color:rgba(255,255,255,0.8); font-size:0.9rem; margin-bottom:18px;">
+      We'll use one base structure throughout this page to show how nouns change it:<br>
+      <em>Ми будемо використовувати одне базове речення, щоб показати, як іменники змінюють його:</em>
+    </p>
+    <div style="background:rgba(255,213,79,0.2); border-radius:14px; padding:20px; text-align:center;">
+      <div style="font-family:'Baloo 2',cursive; font-size:1.5rem; font-weight:800; color:#FFD54F;">
+        "I love <span style="color:#80CBC4">___</span>."
+      </div>
+      <div style="color:rgba(255,255,255,0.7); font-size:0.9rem; margin-top:8px;">"Я люблю ___."</div>
+      <div style="color:rgba(255,255,255,0.6); font-size:0.82rem; margin-top:6px;">Watch this sentence transform as we learn each noun rule! · Спостерігай, як це речення змінюється з кожним правилом!</div>
+    </div>
+  </div>
+
+  <div class="examples">
+    <div class="example ex-a">
+      <div class="example-num" style="color:#0288D1">1</div>
+      <div class="example-content">
+        <div class="example-en">I love <span class="highlight">music</span>.</div>
+        <div class="example-uk">Я люблю музику. (music = noun/іменник)</div>
+      </div>
+    </div>
+    <div class="example ex-b">
+      <div class="example-num" style="color:#E53935">2</div>
+      <div class="example-content">
+        <div class="example-en">My <span class="highlight">dog</span> is sleeping on the <span class="highlight">sofa</span>.</div>
+        <div class="example-uk">Мій пес спить на дивані. (dog, sofa = nouns/іменники)</div>
+      </div>
+    </div>
+    <div class="example ex-c">
+      <div class="example-num" style="color:#2E7D32">3</div>
+      <div class="example-content">
+        <div class="example-en"><span class="highlight">Happiness</span> is the best <span class="highlight">gift</span>.</div>
+        <div class="example-uk">Щастя — найкращий подарунок.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     2. COUNTABLE / UNCOUNTABLE
+══════════════════════════════════════════════════ -->
+<section class="section-card red" id="countable">
+  <div class="section-header">
+    <div class="section-icon bg-red">🔢</div>
+    <div class="section-titles">
+      <h2><span class="section-number" style="background:#E53935">2</span>Countable & Uncountable — Злічувані та незлічувані</h2>
+      <div class="subtitle">Can you count it? · Це можна порахувати?</div>
+    </div>
+  </div>
+
+  <div class="explainer">
+    <strong>🇬🇧 English:</strong> <strong>Countable nouns</strong> = things you can count: 1 apple, 2 apples, 3 apples. <strong>Uncountable nouns</strong> = things you cannot count individually: water, music, love.<br><br>
+    <strong>🇺🇦 Українською:</strong> <strong>Злічувані іменники</strong> — це те, що можна порахувати: 1 яблуко, 2 яблука, 3 яблука. <strong>Незлічувані іменники</strong> — те, що не можна порахувати: вода, музика, любов.
+  </div>
+
+  <div class="compare">
+    <div class="compare-side left">
+      <div class="cs-icon">🍎🍎🍎</div>
+      <div class="cs-label">✅ Countable · Злічувані</div>
+      <ul>
+        <li>apple → apples</li>
+        <li>dog → dogs</li>
+        <li>car → cars</li>
+        <li>friend → friends</li>
+        <li>book → books</li>
+        <li>chair → chairs</li>
+        <li>cookie → cookies</li>
+        <li>star → stars</li>
+      </ul>
+    </div>
+    <div class="compare-side right">
+      <div class="cs-icon">💧</div>
+      <div class="cs-label">❌ Uncountable · Незлічувані</div>
+      <ul>
+        <li>water (вода)</li>
+        <li>music (музика)</li>
+        <li>love (любов)</li>
+        <li>rice (рис)</li>
+        <li>air (повітря)</li>
+        <li>happiness (щастя)</li>
+        <li>money (гроші загалом)</li>
+        <li>information (інформація)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="formula-box">
+    <span class="label">FORMULA</span>
+    <div>
+      <div class="formula-text">Countable → a/an + noun | some/many + nouns</div>
+      <div class="formula-note">Uncountable → some/much + noun (NO article "a/an", NO plural!)</div>
+    </div>
+  </div>
+
+  <div class="transformer">
+    <h3>🌟 "I love ___." — з різними типами іменників</h3>
+    <div class="transform-grid">
+      <div class="transform-row">
+        <div class="transform-card from">
+          <div class="tc-label">Countable (singular)</div>
+          <div class="tc-sentence">I love <span class="noun">a cookie</span>.</div>
+          <div class="tc-ua">Я люблю (одне) печиво.</div>
+        </div>
+        <div class="transform-card to">
+          <div class="tc-label">Countable (plural)</div>
+          <div class="tc-sentence">I love <span class="noun">cookies</span>.</div>
+          <div class="tc-ua">Я люблю печиво (взагалі).</div>
+        </div>
+      </div>
+      <div class="transform-row">
+        <div class="transform-card from">
+          <div class="tc-label">Uncountable ❌ NO "a"</div>
+          <div class="tc-sentence">I love <span class="noun">music</span>. ✅</div>
+          <div class="tc-ua">Я люблю музику.</div>
+        </div>
+        <div class="transform-card to">
+          <div class="tc-label">Uncountable with "some"</div>
+          <div class="tc-sentence">I want <span class="noun">some water</span>. ✅</div>
+          <div class="tc-ua">Я хочу трохи води.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="examples">
+    <div class="example ex-a">
+      <div class="example-num" style="color:#0288D1">1</div>
+      <div class="example-content">
+        <div class="example-en">Can I have <span class="highlight">a glass</span> of <span class="highlight">water</span>, please?</div>
+        <div class="example-uk">Можна мені склянку води, будь ласка? (glass = countable, water = uncountable)</div>
+      </div>
+    </div>
+    <div class="example ex-b">
+      <div class="example-num" style="color:#E53935">2</div>
+      <div class="example-content">
+        <div class="example-en">I bought <span class="highlight">three books</span> and <span class="highlight">some milk</span>.</div>
+        <div class="example-uk">Я купив три книжки та трохи молока.</div>
+      </div>
+    </div>
+    <div class="example ex-c">
+      <div class="example-num" style="color:#2E7D32">3</div>
+      <div class="example-content">
+        <div class="example-en">She has <span class="highlight">many friends</span> but not much <span class="highlight">free time</span>.</div>
+        <div class="example-uk">У неї багато друзів, але мало вільного часу.</div>
+      </div>
+    </div>
+    <div class="example ex-d">
+      <div class="example-num" style="color:#7B1FA2">4</div>
+      <div class="example-content">
+        <div class="example-en">There is <span class="highlight">too much noise</span> in this <span class="highlight">room</span>.</div>
+        <div class="example-uk">У цій кімнаті дуже багато шуму. (noise = uncountable, room = countable)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     3. SINGULAR / PLURAL
+══════════════════════════════════════════════════ -->
+<section class="section-card green" id="plural">
+  <div class="section-header">
+    <div class="section-icon bg-green">📦</div>
+    <div class="section-titles">
+      <h2><span class="section-number" style="background:#2E7D32">3</span>Singular & Plural — Однина та множина</h2>
+      <div class="subtitle">One thing or many things · Одна річ чи кілька речей</div>
+    </div>
+  </div>
+
+  <div class="explainer">
+    <strong>🇬🇧 English:</strong> Singular = one thing. Plural = more than one. We usually add <strong>-s</strong> or <strong>-es</strong> to make a plural.<br><br>
+    <strong>🇺🇦 Українською:</strong> Однина = одна річ. Множина = більше однієї. Зазвичай ми додаємо <strong>-s</strong> або <strong>-es</strong> до іменника.
+  </div>
+
+  <div class="table-wrap"><table class="styled-table">
+    <thead>
+      <tr><th>Rule · Правило</th><th>Singular · Однина</th><th>Plural · Множина</th><th>Note</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><span class="rule-badge">+ s</span> Most nouns</td><td class="word-en">cat</td><td class="word-pl">cats</td><td>Більшість іменників</td></tr>
+      <tr><td><span class="rule-badge">+ es</span> -s/-x/-z/-ch/-sh</td><td class="word-en">bus</td><td class="word-pl">buses</td><td>bus, box, buzz, church, dish</td></tr>
+      <tr><td><span class="rule-badge">+ es</span> -s/-x/-z/-ch/-sh</td><td class="word-en">box</td><td class="word-pl">boxes</td><td></td></tr>
+      <tr><td><span class="rule-badge">y → ies</span> consonant + y</td><td class="word-en">city</td><td class="word-pl">cities</td><td>baby→babies, party→parties</td></tr>
+      <tr><td><span class="rule-badge">+ s</span> vowel + y</td><td class="word-en">day</td><td class="word-pl">days</td><td>key→keys, toy→toys</td></tr>
+      <tr><td><span class="rule-badge">f → ves</span> -f/-fe</td><td class="word-en">leaf</td><td class="word-pl">leaves</td><td>wolf→wolves, knife→knives</td></tr>
+      <tr><td><span class="rule-badge">+ es</span> some -o nouns</td><td class="word-en">potato</td><td class="word-pl">potatoes</td><td>tomato→tomatoes</td></tr>
+      <tr><td><span class="rule-badge">+ s</span> other -o nouns</td><td class="word-en">photo</td><td class="word-pl">photos</td><td>piano→pianos, video→videos</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="formula-box">
+    <span class="label">FORMULA</span>
+    <div>
+      <div class="formula-text">singular + s/es/ies/ves = plural</div>
+      <div class="formula-note">Однина + закінчення = Множина</div>
+    </div>
+  </div>
+
+  <div class="transformer">
+    <h3>🌟 "I love ___." — singular vs plural</h3>
+    <div class="transform-grid">
+      <div class="transform-row">
+        <div class="transform-card from">
+          <div class="tc-label">Singular · Однина</div>
+          <div class="tc-sentence">I love <span class="noun">that dog</span>.</div>
+          <div class="tc-ua">Я люблю того пса.</div>
+        </div>
+        <div class="transform-card to">
+          <div class="tc-label">Plural · Множина</div>
+          <div class="tc-sentence">I love <span class="noun">dogs</span>.</div>
+          <div class="tc-ua">Я люблю собак.</div>
+        </div>
+      </div>
+      <div class="transform-row">
+        <div class="transform-card from">
+          <div class="tc-label">Singular · Однина</div>
+          <div class="tc-sentence">I love <span class="noun">this city</span>.</div>
+          <div class="tc-ua">Я люблю це місто.</div>
+        </div>
+        <div class="transform-card to">
+          <div class="tc-label">Plural · Множина</div>
+          <div class="tc-sentence">I love big <span class="noun">cities</span>.</div>
+          <div class="tc-ua">Я люблю великі міста.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="examples">
+    <div class="example ex-a">
+      <div class="example-num" style="color:#0288D1">1</div>
+      <div class="example-content">
+        <div class="example-en">There are five <span class="highlight">boxes</span> on the <span class="highlight">shelf</span>.</div>
+        <div class="example-uk">На полиці є п'ять коробок. (boxes = множина від box)</div>
+      </div>
+    </div>
+    <div class="example ex-b">
+      <div class="example-num" style="color:#E53935">2</div>
+      <div class="example-content">
+        <div class="example-en">The <span class="highlight">leaves</span> fall off the <span class="highlight">trees</span> in autumn.</div>
+        <div class="example-uk">Восени листя опадає з дерев. (leaves = множина від leaf)</div>
+      </div>
+    </div>
+    <div class="example ex-c">
+      <div class="example-num" style="color:#2E7D32">3</div>
+      <div class="example-content">
+        <div class="example-en">My little <span class="highlight">sister</span> loves watching <span class="highlight">videos</span> of <span class="highlight">baby animals</span>.</div>
+        <div class="example-uk">Моя маленька сестра любить дивитися відео про малят тварин.</div>
+      </div>
+    </div>
+    <div class="example ex-d">
+      <div class="example-num" style="color:#7B1FA2">4</div>
+      <div class="example-content">
+        <div class="example-en">Two <span class="highlight">buses</span> and three <span class="highlight">taxis</span> stopped at the <span class="highlight">corner</span>.</div>
+        <div class="example-uk">На розі зупинились два автобуси і три таксі.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     4. IRREGULAR PLURALS
+══════════════════════════════════════════════════ -->
+<section class="section-card purple" id="irregular">
+  <div class="section-header">
+    <div class="section-icon bg-purple">🦷</div>
+    <div class="section-titles">
+      <h2><span class="section-number" style="background:#7B1FA2">4</span>Irregular Plurals — Неправильна множина</h2>
+      <div class="subtitle">No -s rules here! Just memorise · Тут немає правила -s! Просто запам'ятай</div>
+    </div>
+  </div>
+
+  <div class="explainer">
+    <strong>🇬🇧 English:</strong> Some nouns do NOT follow the normal rules. They change completely! You need to memorise these.<br><br>
+    <strong>🇺🇦 Українською:</strong> Деякі іменники <strong>взагалі не підпорядковуються</strong> звичайним правилам. Вони повністю змінюються! Їх потрібно просто запам'ятати.
+  </div>
+
+  <div class="table-wrap"><table class="styled-table">
+    <thead>
+      <tr><th>Singular · Однина</th><th>Plural · Множина</th><th>Emoji</th><th>Ukrainian · Українською</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="word-en">man</td><td class="word-pl">men</td><td>👨👨</td><td>чоловік → чоловіки</td></tr>
+      <tr><td class="word-en">woman</td><td class="word-pl">women</td><td>👩👩</td><td>жінка → жінки</td></tr>
+      <tr><td class="word-en">child</td><td class="word-pl">children</td><td>👧👦</td><td>дитина → діти</td></tr>
+      <tr><td class="word-en">tooth</td><td class="word-pl">teeth</td><td>🦷🦷</td><td>зуб → зуби</td></tr>
+      <tr><td class="word-en">foot</td><td class="word-pl">feet</td><td>🦶🦶</td><td>нога/ступня → ступні</td></tr>
+      <tr><td class="word-en">mouse</td><td class="word-pl">mice</td><td>🐭🐭</td><td>миша → миші</td></tr>
+      <tr><td class="word-en">goose</td><td class="word-pl">geese</td><td>🪿🪿</td><td>гуска → гуси</td></tr>
+      <tr><td class="word-en">ox</td><td class="word-pl">oxen</td><td>🐂🐂</td><td>бик → воли</td></tr>
+      <tr><td class="word-en">person</td><td class="word-pl">people</td><td>🧑‍🤝‍🧑</td><td>людина → люди</td></tr>
+      <tr><td class="word-en">fish</td><td class="word-pl">fish</td><td>🐟🐟</td><td>риба → риби (не змінюється!)</td></tr>
+      <tr><td class="word-en">sheep</td><td class="word-pl">sheep</td><td>🐑🐑</td><td>вівця → вівці (не змінюється!)</td></tr>
+      <tr><td class="word-en">deer</td><td class="word-pl">deer</td><td>🦌🦌</td><td>олень → олені (не змінюється!)</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="transformer">
+    <h3>🌟 "I love ___." — irregular plural</h3>
+    <div class="transform-grid">
+      <div class="transform-row">
+        <div class="transform-card from">
+          <div class="tc-label">Singular · Однина</div>
+          <div class="tc-sentence">I love that little <span class="noun">child</span>.</div>
+          <div class="tc-ua">Я люблю тієї маленьку дитину.</div>
+        </div>
+        <div class="transform-card to">
+          <div class="tc-label">Irregular Plural · Неправильна множина</div>
+          <div class="tc-sentence">I love <span class="noun">children</span>!</div>
+          <div class="tc-ua">Я люблю дітей! (НЕ "childs"!)</div>
+        </div>
+      </div>
+      <div class="transform-row">
+        <div class="transform-card from">
+          <div class="tc-label">Singular · Однина</div>
+          <div class="tc-sentence">I love that <span class="noun">mouse</span>.</div>
+          <div class="tc-ua">Мені подобається та миша.</div>
+        </div>
+        <div class="transform-card to">
+          <div class="tc-label">Irregular Plural · Неправильна множина</div>
+          <div class="tc-sentence">I love <span class="noun">mice</span>.</div>
+          <div class="tc-ua">Я люблю мишей. (НЕ "mouses"!)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="examples">
+    <div class="example ex-a">
+      <div class="example-num" style="color:#0288D1">1</div>
+      <div class="example-content">
+        <div class="example-en">All the <span class="highlight">children</span> are playing in the park. The <span class="highlight">men</span> are watching.</div>
+        <div class="example-uk">Усі діти грають у парку. Чоловіки спостерігають.</div>
+      </div>
+    </div>
+    <div class="example ex-b">
+      <div class="example-num" style="color:#E53935">2</div>
+      <div class="example-content">
+        <div class="example-en">I brushed my <span class="highlight">teeth</span> and washed my <span class="highlight">feet</span>.</div>
+        <div class="example-uk">Я почистив зуби і помив ноги. (teeth, feet — неправильна множина!)</div>
+      </div>
+    </div>
+    <div class="example ex-c">
+      <div class="example-num" style="color:#2E7D32">3</div>
+      <div class="example-content">
+        <div class="example-en">Three <span class="highlight">sheep</span> and two <span class="highlight">deer</span> stood in the field.</div>
+        <div class="example-uk">Троє овець і двоє оленів стояли на полі. (sheep/deer не змінюються!)</div>
+      </div>
+    </div>
+    <div class="example ex-d">
+      <div class="example-num" style="color:#7B1FA2">4</div>
+      <div class="example-content">
+        <div class="example-en">How many <span class="highlight">people</span> live in your house?</div>
+        <div class="example-uk">Скільки людей живе у твоєму домі? (people — множина від person)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     5. POSSESSIVE 's
+══════════════════════════════════════════════════ -->
+<section class="section-card yellow" id="possessive">
+  <div class="section-header">
+    <div class="section-icon bg-yellow">👑</div>
+    <div class="section-titles">
+      <h2><span class="section-number" style="background:#F57F17">5</span>Possessive 's — Присвійний відмінок</h2>
+      <div class="subtitle">Showing ownership · Показуємо, що щось комусь належить</div>
+    </div>
+  </div>
+
+  <div class="explainer">
+    <strong>🇬🇧 English:</strong> We add <strong>'s</strong> to a noun to show that something <em>belongs</em> to it. It's like saying "belonging to".<br><br>
+    <strong>🇺🇦 Українською:</strong> Ми додаємо <strong>'s</strong> до іменника, щоб показати, що щось <em>належить</em> цій людині або речі. Це як сказати "що належить..."
+  </div>
+
+  <div class="formula-box">
+    <span class="label">FORMULA</span>
+    <div>
+      <div class="formula-text">Owner + 's + thing owned</div>
+      <div class="formula-note">Власник + 's + річ, яка належить = Tom's car · Anna's book · the dog's tail</div>
+    </div>
+  </div>
+
+  <div class="table-wrap"><table class="styled-table">
+    <thead>
+      <tr><th>Rule · Правило</th><th>Example · Приклад</th><th>Ukrainian · Переклад</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Singular noun → add 's</td><td class="word-en">the cat's food</td><td>їжа кота</td></tr>
+      <tr><td>Singular noun → add 's</td><td class="word-en">Emma's phone</td><td>телефон Емми</td></tr>
+      <tr><td>Singular noun → add 's</td><td class="word-en">my brother's room</td><td>кімната мого брата</td></tr>
+      <tr><td>Plural noun (ends in -s) → add '</td><td class="word-en">the students' books</td><td>книжки студентів</td></tr>
+      <tr><td>Plural noun (ends in -s) → add '</td><td class="word-en">the dogs' bowls</td><td>миски собак</td></tr>
+      <tr><td>Irregular plural → add 's</td><td class="word-en">the children's toys</td><td>іграшки дітей</td></tr>
+      <tr><td>Irregular plural → add 's</td><td class="word-en">the men's team</td><td>чоловіча команда</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="transformer">
+    <h3>🌟 "I love ___'s ___." — присвійний відмінок</h3>
+    <div class="transform-grid">
+      <div class="transform-row">
+        <div class="transform-card from">
+          <div class="tc-label">Without possessive</div>
+          <div class="tc-sentence">I love the <span class="noun">songs of my mom</span>.</div>
+          <div class="tc-ua">(довго і незручно)</div>
+        </div>
+        <div class="transform-card to">
+          <div class="tc-label">With 's (natural!)</div>
+          <div class="tc-sentence">I love my <span class="noun">mom's songs</span>.</div>
+          <div class="tc-ua">Я люблю пісні моєї мами.</div>
+        </div>
+      </div>
+      <div class="transform-row">
+        <div class="transform-card from">
+          <div class="tc-label">Without possessive</div>
+          <div class="tc-sentence">I love the <span class="noun">voice of the singer</span>.</div>
+          <div class="tc-ua">(офіційно, довго)</div>
+        </div>
+        <div class="transform-card to">
+          <div class="tc-label">With 's (natural!)</div>
+          <div class="tc-sentence">I love the <span class="noun">singer's voice</span>.</div>
+          <div class="tc-ua">Я люблю голос співака.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="examples">
+    <div class="example ex-a">
+      <div class="example-num" style="color:#0288D1">1</div>
+      <div class="example-content">
+        <div class="example-en">I love <span class="highlight">Sarah's</span> cooking — it's amazing!</div>
+        <div class="example-uk">Мені подобається, як готує Сара — це чудово! (Sarah's = що належить Сарі)</div>
+      </div>
+    </div>
+    <div class="example ex-b">
+      <div class="example-num" style="color:#E53935">2</div>
+      <div class="example-content">
+        <div class="example-en">The <span class="highlight">dog's</span> tail is wagging.</div>
+        <div class="example-uk">Хвіст собаки виляє.</div>
+      </div>
+    </div>
+    <div class="example ex-c">
+      <div class="example-num" style="color:#2E7D32">3</div>
+      <div class="example-content">
+        <div class="example-en">All the <span class="highlight">children's</span> bags are on the floor.</div>
+        <div class="example-uk">Усі дитячі сумки на підлозі. (children's = що належить дітям)</div>
+      </div>
+    </div>
+    <div class="example ex-d">
+      <div class="example-num" style="color:#7B1FA2">4</div>
+      <div class="example-content">
+        <div class="example-en">I borrowed my <span class="highlight">sister's</span> jacket for the party.</div>
+        <div class="example-uk">Я позичив куртку своєї сестри на вечірку.</div>
+      </div>
+    </div>
+    <div class="example ex-e">
+      <div class="example-num" style="color:#E65100">5</div>
+      <div class="example-content">
+        <div class="example-en">The <span class="highlight">students'</span> exam results were excellent.</div>
+        <div class="example-uk">Результати іспитів студентів були відмінними. (students' — множина: апостроф після s)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     6. NOUN PHRASES
+══════════════════════════════════════════════════ -->
+<section class="section-card teal" id="phrases">
+  <div class="section-header">
+    <div class="section-icon bg-teal">🔗</div>
+    <div class="section-titles">
+      <h2><span class="section-number" style="background:#00796B">6</span>Noun Phrases — Іменникові словосполучення</h2>
+      <div class="subtitle">Groups of words that act like one noun · Група слів, що діє як один іменник</div>
+    </div>
+  </div>
+
+  <div class="explainer">
+    <strong>🇬🇧 English:</strong> A noun phrase is a group of words built around a noun. It can include articles, adjectives, and other describing words. The whole group acts as a single noun in the sentence.<br><br>
+    <strong>🇺🇦 Українською:</strong> Іменникове словосполучення — це група слів навколо іменника. Вона може включати артиклі, прикметники та інші описові слова. Уся група діє як <strong>один іменник</strong> у реченні.
+  </div>
+
+  <div class="formula-box">
+    <span class="label">FORMULA</span>
+    <div>
+      <div class="formula-text">[article] + [adjective(s)] + NOUN + [prepositional phrase]</div>
+      <div class="formula-note">Наприклад: a + big + dog | the + old + man + on the bench</div>
+    </div>
+  </div>
+
+  <div class="info-grid">
+    <div class="info-tile" style="background:#E0F2F1;">
+      <div class="tile-emoji">🐕</div>
+      <div class="tile-word" style="color:#00695C;">a big dog</div>
+      <div class="tile-note">article + adj + noun</div>
+    </div>
+    <div class="info-tile" style="background:#E0F7FA;">
+      <div class="tile-emoji">🚗</div>
+      <div class="tile-word" style="color:#0097A7;">the red sports car</div>
+      <div class="tile-note">article + adj + adj + noun</div>
+    </div>
+    <div class="info-tile" style="background:#F1F8E9;">
+      <div class="tile-emoji">👴</div>
+      <div class="tile-word" style="color:#558B2F;">the old man on the bench</div>
+      <div class="tile-note">article + adj + noun + prep.phrase</div>
+    </div>
+    <div class="info-tile" style="background:#E8F5E9;">
+      <div class="tile-emoji">📚</div>
+      <div class="tile-word" style="color:#2E7D32;">three interesting books</div>
+      <div class="tile-note">number + adj + noun</div>
+    </div>
+    <div class="info-tile" style="background:#FAFFF0;">
+      <div class="tile-emoji">🌸</div>
+      <div class="tile-word" style="color:#558B2F;">a beautiful flower garden</div>
+      <div class="tile-note">article + adj + noun + noun</div>
+    </div>
+    <div class="info-tile" style="background:#E0F2F1;">
+      <div class="tile-emoji">🎂</div>
+      <div class="tile-word" style="color:#00796B;">my mom's chocolate cake</div>
+      <div class="tile-note">possessive + adj + noun</div>
+    </div>
+  </div>
+
+  <div class="transformer">
+    <h3>🌟 "I love ___." — expanding with noun phrases</h3>
+    <div class="transform-grid">
+      <div class="transform-row">
+        <div class="transform-card from">
+          <div class="tc-label">Simple noun</div>
+          <div class="tc-sentence">I love <span class="noun">dogs</span>.</div>
+          <div class="tc-ua">Я люблю собак.</div>
+        </div>
+        <div class="transform-card to">
+          <div class="tc-label">Noun phrase</div>
+          <div class="tc-sentence">I love <span class="noun">big, fluffy golden dogs</span>.</div>
+          <div class="tc-ua">Я люблю великих, пухнастих золотистих собак.</div>
+        </div>
+      </div>
+      <div class="transform-row">
+        <div class="transform-card from">
+          <div class="tc-label">Simple noun</div>
+          <div class="tc-sentence">I love <span class="noun">coffee</span>.</div>
+          <div class="tc-ua">Я люблю каву.</div>
+        </div>
+        <div class="transform-card to">
+          <div class="tc-label">Expanded noun phrase</div>
+          <div class="tc-sentence">I love <span class="noun">a hot cup of coffee in the morning</span>.</div>
+          <div class="tc-ua">Я люблю чашку гарячої кави зранку.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MEGA TABLE: Noun Phrases for all occasions -->
+  <div style="margin-top:24px;">
+    <div style="font-family:'Baloo 2',cursive; font-size:1.1rem; font-weight:800; margin-bottom:12px; color:#00796B;">📋 Noun Phrases for Every Situation · На всі випадки життя</div>
+    <div class="table-wrap"><table class="styled-table">
+      <thead>
+        <tr><th>Noun Phrase · Словосполучення</th><th>Situation · Ситуація</th><th>Ukrainian · Переклад</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="word-en">a cold glass of water</td><td>🥤 At a cafe</td><td>холодна склянка води</td></tr>
+        <tr><td class="word-en">the next bus to the city</td><td>🚌 Transport</td><td>наступний автобус до міста</td></tr>
+        <tr><td class="word-en">a warm sunny day</td><td>☀️ Weather</td><td>теплий сонячний день</td></tr>
+        <tr><td class="word-en">my best friend's birthday party</td><td>🎉 Social</td><td>вечірка на день народження мого найкращого друга</td></tr>
+        <tr><td class="word-en">an important English test</td><td>📝 School</td><td>важливий тест з англійської</td></tr>
+        <tr><td class="word-en">the tall young woman in the red dress</td><td>👗 Description</td><td>висока молода жінка в червоній сукні</td></tr>
+        <tr><td class="word-en">a brand new smartphone</td><td>📱 Shopping</td><td>абсолютно новий смартфон</td></tr>
+        <tr><td class="word-en">three large cheese pizzas</td><td>🍕 Food</td><td>три великих піци з сиром</td></tr>
+        <tr><td class="word-en">the most beautiful sunset ever</td><td>🌅 Nature</td><td>найгарніший захід сонця ever</td></tr>
+        <tr><td class="word-en">an old wooden house near the lake</td><td>🏡 Home</td><td>старий дерев'яний будинок біля озера</td></tr>
+        <tr><td class="word-en">a serious health problem</td><td>🏥 Health</td><td>серйозна проблема зі здоров'ям</td></tr>
+        <tr><td class="word-en">the latest news from Ukraine</td><td>📰 News</td><td>останні новини з України</td></tr>
+        <tr><td class="word-en">a two-hour long journey</td><td>✈️ Travel</td><td>двогодинна подорож</td></tr>
+        <tr><td class="word-en">the hardest level in the game</td><td>🎮 Gaming</td><td>найважчий рівень у грі</td></tr>
+        <tr><td class="word-en">my favourite Ukrainian dish</td><td>🥗 Culture</td><td>моя улюблена українська страва</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div class="examples">
+    <div class="example ex-a">
+      <div class="example-num" style="color:#0288D1">1</div>
+      <div class="example-content">
+        <div class="example-en">I saw <span class="highlight">a tall man in a black coat</span> standing outside.</div>
+        <div class="example-uk">Я побачив високого чоловіка в чорному пальті, що стояв надворі.</div>
+      </div>
+    </div>
+    <div class="example ex-b">
+      <div class="example-num" style="color:#E53935">2</div>
+      <div class="example-content">
+        <div class="example-en">She ordered <span class="highlight">a large hot chocolate with extra cream</span>.</div>
+        <div class="example-uk">Вона замовила великий гарячий шоколад з додатковими вершками.</div>
+      </div>
+    </div>
+    <div class="example ex-c">
+      <div class="example-num" style="color:#2E7D32">3</div>
+      <div class="example-content">
+        <div class="example-en"><span class="highlight">The little girl with the yellow umbrella</span> ran past us.</div>
+        <div class="example-uk">Маленька дівчинка з жовтою парасолею пробігла повз нас.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     7. GERUNDS AS NOUNS
+══════════════════════════════════════════════════ -->
+<section class="section-card blue" id="gerunds">
+  <div class="section-header">
+    <div class="section-icon bg-blue">🏃</div>
+    <div class="section-titles">
+      <h2><span class="section-number" style="background:#1565C0">7</span>Gerunds as Nouns — Герундій як іменник</h2>
+      <div class="subtitle">Verb + -ing used as a noun · Дієслово + -ing, яке стає іменником</div>
+    </div>
+  </div>
+
+  <div class="explainer">
+    <strong>🇬🇧 English:</strong> A gerund is a verb that ends in <strong>-ing</strong> and is used AS a noun. It names an <em>activity</em> or <em>action</em>. You can use it as the subject or object of a sentence, just like a regular noun!<br><br>
+    <strong>🇺🇦 Українською:</strong> Герундій — це дієслово з закінченням <strong>-ing</strong>, яке вживається ЯК іменник. Воно називає <em>дію або заняття</em>. Його можна вживати як підмет або додаток — так само, як звичайний іменник!
+  </div>
+
+  <div class="gerund-vis">
+    <div class="gv-box" style="background:#E3F2FD; color:#1565C0;">swim<br><small>дієслово</small></div>
+    <div class="gv-arrow">+ing →</div>
+    <div class="gv-box" style="background:#1565C0; color:#fff;">swim<strong>ming</strong><br><small>іменник!</small></div>
+    <div class="gv-arrow">&nbsp;</div>
+    <div class="gv-box" style="background:#E3F2FD; color:#1565C0;">dance<br><small>дієслово</small></div>
+    <div class="gv-arrow">+ing →</div>
+    <div class="gv-box" style="background:#1565C0; color:#fff;">danc<strong>ing</strong><br><small>іменник!</small></div>
+  </div>
+
+  <div class="formula-box">
+    <span class="label">FORMULA</span>
+    <div>
+      <div class="formula-text">verb + -ing = gerund (acts like a noun)</div>
+      <div class="formula-note">Can be: subject ("Swimming is fun") | object ("I love swimming") | after preposition ("She's good at swimming")</div>
+    </div>
+  </div>
+
+  <div class="table-wrap"><table class="styled-table">
+    <thead>
+      <tr><th>Verb · Дієслово</th><th>Gerund · Герундій</th><th>Example sentence · Приклад</th><th>Ukrainian</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>swim</td><td class="word-en">swimming</td><td>Swimming is healthy.</td><td>Плавання корисне.</td></tr>
+      <tr><td>run</td><td class="word-en">running</td><td>I love running.</td><td>Я люблю бігати.</td></tr>
+      <tr><td>read</td><td class="word-en">reading</td><td>Reading is my hobby.</td><td>Читання — моє хобі.</td></tr>
+      <tr><td>cook</td><td class="word-en">cooking</td><td>Cooking takes time.</td><td>Приготування їжі займає час.</td></tr>
+      <tr><td>learn</td><td class="word-en">learning</td><td>Learning is fun!</td><td>Вчитися цікаво!</td></tr>
+      <tr><td>sleep</td><td class="word-en">sleeping</td><td>I love sleeping late.</td><td>Я люблю спати до пізна.</td></tr>
+      <tr><td>dance</td><td class="word-en">dancing</td><td>Dancing makes me happy.</td><td>Танці роблять мене щасливим.</td></tr>
+      <tr><td>travel</td><td class="word-en">travelling</td><td>Travelling opens your mind.</td><td>Подорожі розширюють кругозір.</td></tr>
+      <tr><td>sing</td><td class="word-en">singing</td><td>She's great at singing.</td><td>Вона чудово співає.</td></tr>
+      <tr><td>draw</td><td class="word-en">drawing</td><td>Drawing is relaxing.</td><td>Малювання розслаблює.</td></tr>
+      <tr><td>play</td><td class="word-en">playing</td><td>Playing games is fun.</td><td>Грати в ігри — весело.</td></tr>
+      <tr><td>watch</td><td class="word-en">watching</td><td>I enjoy watching films.</td><td>Мені подобається дивитися фільми.</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="transformer">
+    <h3>🌟 "I love ___." — with gerunds!</h3>
+    <div class="transform-grid">
+      <div class="transform-row">
+        <div class="transform-card from">
+          <div class="tc-label">Regular noun</div>
+          <div class="tc-sentence">I love <span class="noun">music</span>.</div>
+          <div class="tc-ua">Я люблю музику.</div>
+        </div>
+        <div class="transform-card to">
+          <div class="tc-label">Gerund as noun</div>
+          <div class="tc-sentence">I love <span class="noun">singing</span>.</div>
+          <div class="tc-ua">Я люблю співати / спів.</div>
+        </div>
+      </div>
+      <div class="transform-row">
+        <div class="transform-card from">
+          <div class="tc-label">Regular noun</div>
+          <div class="tc-sentence">I love <span class="noun">sport</span>.</div>
+          <div class="tc-ua">Я люблю спорт.</div>
+        </div>
+        <div class="transform-card to">
+          <div class="tc-label">Gerund as noun</div>
+          <div class="tc-sentence">I love <span class="noun">running and swimming</span>.</div>
+          <div class="tc-ua">Я люблю бігати та плавати.</div>
+        </div>
+      </div>
+      <div class="transform-row">
+        <div class="transform-card from">
+          <div class="tc-label">As subject · Як підмет</div>
+          <div class="tc-sentence"><span class="noun">Travelling</span> is my passion.</div>
+          <div class="tc-ua">Подорожі — моя пристрасть.</div>
+        </div>
+        <div class="transform-card to">
+          <div class="tc-label">After preposition</div>
+          <div class="tc-sentence">She's talented at <span class="noun">drawing</span>.</div>
+          <div class="tc-ua">Вона талановита в малюванні.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="examples">
+    <div class="example ex-a">
+      <div class="example-num" style="color:#0288D1">1</div>
+      <div class="example-content">
+        <div class="example-en">I love <span class="highlight">swimming</span> in the sea in summer.</div>
+        <div class="example-uk">Я люблю плавати в морі влітку. (swimming = іменник, додаток)</div>
+      </div>
+    </div>
+    <div class="example ex-b">
+      <div class="example-num" style="color:#E53935">2</div>
+      <div class="example-content">
+        <div class="example-en"><span class="highlight">Learning</span> a new language is difficult but worth it.</div>
+        <div class="example-uk">Вивчати нову мову важко, але варто. (learning = підмет речення)</div>
+      </div>
+    </div>
+    <div class="example ex-c">
+      <div class="example-num" style="color:#2E7D32">3</div>
+      <div class="example-content">
+        <div class="example-en">She is afraid of <span class="highlight">flying</span>.</div>
+        <div class="example-uk">Вона боїться літати. (flying = герундій після прийменника "of")</div>
+      </div>
+    </div>
+    <div class="example ex-d">
+      <div class="example-num" style="color:#7B1FA2">4</div>
+      <div class="example-content">
+        <div class="example-en">Stop <span class="highlight">talking</span> and start <span class="highlight">working</span>!</div>
+        <div class="example-uk">Припини говорити і почни працювати! (talking, working = герундії після дієслів stop/start)</div>
+      </div>
+    </div>
+    <div class="example ex-e">
+      <div class="example-num" style="color:#E65100">5</div>
+      <div class="example-content">
+        <div class="example-en">His favourite hobby is <span class="highlight">collecting</span> old stamps.</div>
+        <div class="example-uk">Його улюблене хобі — колекціонувати старі марки.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     MEGA CHEAT SHEET
+══════════════════════════════════════════════════ -->
+<section class="section-card" style="background: linear-gradient(135deg,#1A1A2E,#16213E,#0F3460); border:none;">
+  <div style="color:#fff; text-align:center;">
+    <div style="font-size:2.5rem; margin-bottom:12px;">📋</div>
+    <h2 style="font-family:'Baloo 2',cursive; font-size:1.8rem; font-weight:800; color:var(--sun); margin-bottom:8px;">Quick Cheat Sheet · Шпаргалка</h2>
+    <p style="color:rgba(255,255,255,0.7); margin-bottom:24px;">Everything at a glance · Все одним поглядом</p>
+  </div>
+  <div class="table-wrap"><table class="styled-table" style="background:rgba(255,255,255,0.05);">
+    <thead style="background:rgba(255,213,79,0.2);">
+      <tr>
+        <th style="color:#FFD54F;">Topic · Тема</th>
+        <th style="color:#FFD54F;">Formula · Формула</th>
+        <th style="color:#FFD54F;">Quick Example</th>
+        <th style="color:#FFD54F;">Watch out! ⚠️</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="color:#80CBC4; font-weight:700;">Countable</td>
+        <td style="color:#fff;">a/an + noun | nouns (plural)</td>
+        <td style="color:#FFD54F;">a cat, two cats</td>
+        <td style="color:#FFAB91;">Can say "two cats" ✅</td>
+      </tr>
+      <tr>
+        <td style="color:#80CBC4; font-weight:700;">Uncountable</td>
+        <td style="color:#fff;">some/much + noun (no -s!)</td>
+        <td style="color:#FFD54F;">some water, much love</td>
+        <td style="color:#FFAB91;">Never "a water" ❌</td>
+      </tr>
+      <tr>
+        <td style="color:#80CBC4; font-weight:700;">Regular Plural</td>
+        <td style="color:#fff;">noun + s / es / ies / ves</td>
+        <td style="color:#FFD54F;">dogs, buses, cities</td>
+        <td style="color:#FFAB91;">city → cities (not "citys")</td>
+      </tr>
+      <tr>
+        <td style="color:#80CBC4; font-weight:700;">Irregular Plural</td>
+        <td style="color:#fff;">MEMORISE each one!</td>
+        <td style="color:#FFD54F;">child→children, man→men</td>
+        <td style="color:#FFAB91;">Never "childs" ❌</td>
+      </tr>
+      <tr>
+        <td style="color:#80CBC4; font-weight:700;">Possessive 's</td>
+        <td style="color:#fff;">owner + 's + thing</td>
+        <td style="color:#FFD54F;">Tom's car</td>
+        <td style="color:#FFAB91;">Plural: students' books</td>
+      </tr>
+      <tr>
+        <td style="color:#80CBC4; font-weight:700;">Noun Phrase</td>
+        <td style="color:#fff;">[art]+[adj]+NOUN+[prep.ph.]</td>
+        <td style="color:#FFD54F;">the big red car</td>
+        <td style="color:#FFAB91;">Adjective BEFORE noun!</td>
+      </tr>
+      <tr>
+        <td style="color:#80CBC4; font-weight:700;">Gerund</td>
+        <td style="color:#fff;">verb + -ing = noun</td>
+        <td style="color:#FFD54F;">I love swimming.</td>
+        <td style="color:#FFAB91;">Subject or object ✅</td>
+      </tr>
+    </tbody>
+  </table></div>
+</section>
+
+</main>
+
+<footer>
+  Made with ❤️ for English learners · Зроблено із ❤️ для тих, хто вивчає англійську<br>
+  <strong>Nouns · Іменники</strong> — the building blocks of every sentence!
+</footer>
+
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+
+</body>
+</html>

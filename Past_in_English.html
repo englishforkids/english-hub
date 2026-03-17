@@ -1,0 +1,1515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Past Tenses in English 🕰️</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a2e;
+    --cream: #fef9f0;
+    --gold: #f4a523;
+    --rose: #e8526a;
+    --teal: #2ec4b6;
+    --violet: #7b5ea7;
+    --sky: #4cc9f0;
+    --green: #52b788;
+    --orange: #ff6b35;
+    --pink: #ff9de2;
+    --card-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    overflow-x: hidden;
+    word-break: break-word;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    padding: 60px 20px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 30% 50%, rgba(244,165,35,0.15) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 50%, rgba(78,75,255,0.15) 0%, transparent 60%);
+  }
+  .hero-emoji {
+    font-size: 80px;
+    display: block;
+    animation: float 3s ease-in-out infinite;
+    margin-bottom: 16px;
+  }
+  @keyframes float {
+    0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)}
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 6vw, 4.5rem);
+    color: white;
+    line-height: 1.1;
+    position: relative;
+  }
+  .hero h1 span { color: var(--gold); }
+  .hero-sub {
+    color: rgba(255,255,255,0.75);
+    font-size: 1.15rem;
+    margin-top: 14px;
+    position: relative;
+  }
+  .hero-sub em { color: var(--pink); font-style: normal; font-weight: 700; }
+
+  /* UNIVERSAL SENTENCE BOX */
+  .universal {
+    background: linear-gradient(135deg, #fff0d4, #ffe4b2);
+    border: 3px solid var(--gold);
+    border-radius: 24px;
+    padding: 32px;
+    margin: 40px auto;
+    max-width: 860px;
+    text-align: center;
+    box-shadow: 0 8px 40px rgba(244,165,35,0.25);
+  }
+  .universal .badge {
+    background: var(--gold);
+    color: white;
+    font-weight: 900;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    padding: 6px 16px;
+    border-radius: 50px;
+    display: inline-block;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+  .universal h2 {
+    font-size: 1.1rem;
+    color: #6b4c00;
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+  .universal .sentence {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.3rem, 3vw, 2rem);
+    color: var(--ink);
+    font-weight: 700;
+    background: white;
+    padding: 16px 28px;
+    border-radius: 14px;
+    margin: 12px 0;
+    display: inline-block;
+    border-left: 5px solid var(--gold);
+  }
+  .universal .ua {
+    color: #7a5500;
+    font-size: 1rem;
+    margin-top: 8px;
+    font-style: italic;
+  }
+
+  /* MAIN CONTAINER */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+  }
+
+  /* SECTION HEADERS */
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 56px 0 28px;
+  }
+  .section-title .icon {
+    width: 56px; height: 56px;
+    border-radius: 18px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.8rem;
+    flex-shrink: 0;
+  }
+  .section-title h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    line-height: 1.2;
+  }
+  .section-title h2 small {
+    display: block;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    opacity: 0.6;
+    margin-top: 2px;
+  }
+
+  /* TENSE CARDS */
+  .tense-card {
+    border-radius: 24px;
+    padding: 32px;
+    margin-bottom: 24px;
+    box-shadow: var(--card-shadow);
+    position: relative;
+    overflow: hidden;
+  }
+  .tense-card::before {
+    content: attr(data-emoji);
+    position: absolute;
+    right: 24px; top: 16px;
+    font-size: 4rem;
+    opacity: 0.12;
+    line-height: 1;
+  }
+  .tense-card h3 {
+    font-size: 1.4rem;
+    font-weight: 900;
+    margin-bottom: 6px;
+  }
+  .tense-card .ua-title {
+    font-size: 0.95rem;
+    opacity: 0.7;
+    margin-bottom: 20px;
+    font-style: italic;
+  }
+
+  .formula-box {
+    background: rgba(255,255,255,0.6);
+    border-radius: 14px;
+    padding: 16px 20px;
+    margin: 14px 0;
+    font-family: monospace;
+    font-size: 1rem;
+  }
+  .formula-box .label {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.6;
+    margin-bottom: 6px;
+  }
+  .formula-box .formula {
+    font-size: 1.05rem;
+    font-weight: 700;
+  }
+  .formula-box .f-pos { color: var(--green); }
+  .formula-box .f-neg { color: var(--rose); }
+  .formula-box .f-que { color: var(--violet); }
+
+  .examples-grid {
+    display: grid;
+    gap: 10px;
+    margin-top: 16px;
+  }
+  .example-row {
+    background: rgba(255,255,255,0.7);
+    border-radius: 12px;
+    padding: 12px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .example-row .en {
+    font-weight: 700;
+    font-size: 1rem;
+  }
+  .example-row .ua {
+    font-size: 0.88rem;
+    opacity: 0.65;
+    font-style: italic;
+  }
+  .highlight-word {
+    background: rgba(0,0,0,0.15);
+    border-radius: 6px;
+    padding: 1px 6px;
+    font-style: normal;
+  }
+
+  /* WHEN TO USE */
+  .when-box {
+    background: rgba(255,255,255,0.5);
+    border-radius: 14px;
+    padding: 16px 20px;
+    margin-top: 14px;
+  }
+  .when-box .when-label {
+    font-size: 0.75rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    opacity: 0.7;
+  }
+  .when-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .when-item {
+    background: rgba(0,0,0,0.12);
+    border-radius: 50px;
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+
+  /* COLOR THEMES */
+  .c-blue   { background: linear-gradient(135deg, #e8f4fd, #c8e6f8); }
+  .c-green  { background: linear-gradient(135deg, #e8f8f0, #c0edda); }
+  .c-purple { background: linear-gradient(135deg, #f0ebff, #ddd0ff); }
+  .c-orange { background: linear-gradient(135deg, #fff3e8, #ffe0c0); }
+  .c-pink   { background: linear-gradient(135deg, #ffebf5, #ffd0eb); }
+  .c-teal   { background: linear-gradient(135deg, #e0faf8, #b8f0ec); }
+  .c-red    { background: linear-gradient(135deg, #ffeaea, #ffd0d0); }
+  .c-yellow { background: linear-gradient(135deg, #fffbe0, #fff0b0); }
+  .c-indigo { background: linear-gradient(135deg, #e8ecff, #ccd4ff); }
+  .c-sage   { background: linear-gradient(135deg, #eaf5ec, #cce8d0); }
+
+  /* TIMELINE INFOGRAPHIC */
+  .timeline {
+    background: white;
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 32px;
+    overflow-x: auto;
+  }
+  .timeline h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+  .tl-track {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    gap: 0;
+    min-width: 600px;
+    padding: 20px 0 60px;
+  }
+  .tl-line {
+    position: absolute;
+    bottom: 32px; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #ddd 0%, var(--ink) 100%);
+    border-radius: 4px;
+  }
+  .tl-line::after {
+    content: '▶';
+    position: absolute;
+    right: -4px;
+    top: -10px;
+    font-size: 0.9rem;
+    color: var(--ink);
+  }
+  .tl-point {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding-bottom: 50px;
+  }
+  .tl-dot {
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 0 0 3px currentColor;
+    position: absolute;
+    bottom: 23px;
+    z-index: 2;
+  }
+  .tl-label {
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-align: center;
+    position: absolute;
+    bottom: 46px;
+    white-space: nowrap;
+  }
+  .tl-pill {
+    border-radius: 50px;
+    padding: 8px 14px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-align: center;
+    color: white;
+    line-height: 1.3;
+    min-width: 90px;
+    margin-bottom: 10px;
+  }
+
+  /* COMPARISON TABLE */
+  .compare-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 8px;
+    margin-top: 16px;
+  }
+  .compare-table th {
+    padding: 10px 16px;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 900;
+    opacity: 0.6;
+    text-align: left;
+  }
+  .compare-table td {
+    padding: 12px 16px;
+    background: rgba(255,255,255,0.6);
+    font-size: 0.92rem;
+  }
+  .compare-table tr td:first-child { border-radius: 12px 0 0 12px; font-weight: 800; }
+  .compare-table tr td:last-child { border-radius: 0 12px 12px 0; }
+
+  /* NARRATIVE DIAGRAM */
+  .narrative-diagram {
+    background: white;
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 24px;
+  }
+  .narrative-layers {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+  }
+  .narrative-layer {
+    border-radius: 16px;
+    padding: 18px 22px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .nl-icon { font-size: 2rem; flex-shrink: 0; }
+  .nl-content h4 { font-size: 1rem; font-weight: 900; margin-bottom: 4px; }
+  .nl-content p { font-size: 0.88rem; opacity: 0.75; margin-bottom: 6px; }
+  .nl-content .ex { font-size: 0.92rem; font-weight: 700; font-style: italic; }
+
+  /* CONDITIONAL */
+  .conditional-box {
+    background: white;
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 24px;
+  }
+  .cond-formula {
+    background: linear-gradient(135deg, #f0ebff, #e0d5ff);
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin: 16px 0;
+    font-family: monospace;
+  }
+
+  /* TIME EXPRESSIONS */
+  .time-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 14px;
+  }
+  .time-tag {
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 0.9rem;
+    color: white;
+  }
+
+  /* USED TO / WOULD */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 16px;
+  }
+  @media(max-width:600px) { .two-col { grid-template-columns: 1fr; } }
+
+  /* MODAL CARDS */
+  .modal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .modal-card {
+    border-radius: 18px;
+    padding: 20px;
+    text-align: center;
+  }
+  .modal-card .modal-name {
+    font-size: 1.3rem;
+    font-weight: 900;
+    margin-bottom: 6px;
+  }
+  .modal-card .modal-meaning {
+    font-size: 0.8rem;
+    opacity: 0.7;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+  }
+  .modal-card .modal-formula {
+    background: rgba(255,255,255,0.5);
+    border-radius: 10px;
+    padding: 8px 12px;
+    font-family: monospace;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .modal-card .modal-ex {
+    font-size: 0.85rem;
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  /* PASSIVE TABLE */
+  .passive-box {
+    background: white;
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 24px;
+  }
+  .passive-compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 16px;
+  }
+  @media(max-width:560px) { .passive-compare { grid-template-columns: 1fr; } }
+  .pc-box {
+    border-radius: 16px;
+    padding: 20px;
+  }
+  .pc-box h4 { font-size: 0.8rem; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; opacity: 0.7; }
+
+  /* WISH BOX */
+  .wish-box {
+    border-radius: 20px;
+    padding: 24px;
+    margin-bottom: 16px;
+  }
+  .wish-box h4 { font-weight: 900; font-size: 1.05rem; margin-bottom: 12px; }
+
+  /* HISTORICAL PRESENT */
+  .historical-box {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    color: white;
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 24px;
+  }
+  .historical-box h3 { color: var(--gold); }
+  .historical-box .ua-title { color: rgba(255,255,255,0.55); }
+  .historical-box .formula-box { background: rgba(255,255,255,0.08); }
+  .historical-box .example-row { background: rgba(255,255,255,0.08); }
+  .historical-box .example-row .en { color: white; }
+  .historical-box .example-row .ua { color: rgba(255,255,255,0.5); }
+  .historical-box .when-box { background: rgba(255,255,255,0.06); }
+  .historical-box .when-item { background: rgba(255,255,255,0.15); color: white; }
+
+  /* SEQUENCE OF TENSES */
+  .seq-box {
+    background: white;
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 24px;
+  }
+  .seq-row {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 14px;
+    padding: 14px;
+    border-radius: 14px;
+    background: #f8f8f8;
+  }
+  .seq-row .arrow { font-size: 1.5rem; text-align: center; }
+  .seq-cell { padding: 10px 14px; border-radius: 10px; font-size: 0.88rem; font-weight: 700; }
+
+  /* TOP NAV */
+  .nav-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    padding: 24px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .nav-pill {
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 0.82rem;
+    text-decoration: none;
+    color: var(--ink);
+    background: white;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    transition: all 0.2s;
+    border: 2px solid transparent;
+  }
+  .nav-pill:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+
+  /* SCROLL TO TOP */
+  #scroll-top-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #1a1208;
+    border: 1.5px solid rgba(200,150,62,0.4);
+    color: #f5f0e8;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+    pointer-events: none;
+    z-index: 9998;
+  }
+  #scroll-top-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  #scroll-top-btn:hover {
+    background: #c8963e;
+    border-color: #c8963e;
+    color: #1a1208;
+  }
+
+  /* ══════════════════════════════════════
+     MOBILE RESPONSIVE
+  ══════════════════════════════════════ */
+
+  .table-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 14px;
+  }
+  .table-scroll-hint {
+    display: none;
+    text-align: center;
+    font-size: 0.72rem;
+    color: #aaa;
+    font-weight: 700;
+    padding: 4px 0 2px;
+    letter-spacing: 1px;
+  }
+
+  @media (max-width: 480px) {
+    .hero { padding: 40px 16px 56px; }
+    .hero-emoji { font-size: 56px; }
+    .hero-sub { font-size: 0.92rem; }
+
+    .nav-pills {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      justify-content: flex-start;
+      padding: 14px 12px;
+      gap: 8px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .nav-pills::-webkit-scrollbar { display: none; }
+    .nav-pill { white-space: nowrap; flex-shrink: 0; font-size: 0.76rem; padding: 7px 13px; }
+
+    .universal { padding: 18px 14px; margin: 20px 10px; }
+    .universal .sentence { font-size: 1.05rem; padding: 11px 14px; display: block; }
+    .universal h2 { font-size: 0.92rem; }
+    .universal .ua { font-size: 0.82rem; }
+
+    .container { padding: 0 12px 44px; }
+
+    .section-title { margin: 36px 0 16px; gap: 10px; }
+    .section-title .icon { width: 42px; height: 42px; font-size: 1.3rem; border-radius: 13px; flex-shrink: 0; }
+
+    .tense-card { padding: 18px 14px; border-radius: 16px; }
+    .tense-card::before { font-size: 2.2rem; right: 10px; top: 8px; }
+    .tense-card h3 { font-size: 1.1rem; }
+    .tense-card .ua-title { font-size: 0.8rem; margin-bottom: 12px; }
+
+    .formula-box { padding: 11px 13px; }
+    .formula-box .formula { font-size: 0.85rem; line-height: 1.9; }
+
+    .example-row { padding: 9px 11px; }
+    .example-row .en { font-size: 0.88rem; line-height: 1.5; }
+    .example-row .ua { font-size: 0.78rem; }
+
+    .when-item { font-size: 0.76rem; padding: 5px 10px; }
+
+    .timeline { padding: 18px 14px; border-radius: 16px; }
+    .timeline h3 { font-size: 1.05rem; margin-bottom: 12px; }
+
+    .table-scroll-hint { display: block; }
+    .compare-table th { font-size: 0.68rem; padding: 7px 9px; }
+    .compare-table td { font-size: 0.8rem; padding: 9px 9px; }
+
+    .modal-grid { grid-template-columns: 1fr; }
+    .modal-card { padding: 15px; }
+    .modal-card .modal-name { font-size: 1.05rem; }
+    .modal-card .modal-ex { font-size: 0.78rem; }
+
+    .passive-box { padding: 18px 14px; border-radius: 16px; }
+
+    .seq-box { padding: 18px 14px; border-radius: 16px; }
+    .seq-row { grid-template-columns: 1fr; gap: 6px; padding: 11px; }
+    .seq-row .arrow { text-align: left; font-size: 1.1rem; }
+    .seq-cell { font-size: 0.8rem; padding: 8px 11px; }
+
+    .conditional-box { padding: 18px 14px; border-radius: 16px; }
+    .cond-formula { font-size: 0.84rem; padding: 13px 11px; word-break: break-word; line-height: 1.6; }
+
+    .narrative-diagram { padding: 18px 14px; border-radius: 16px; }
+    .narrative-layer { padding: 12px 13px; gap: 10px; }
+    .nl-icon { font-size: 1.4rem; }
+    .nl-content h4 { font-size: 0.88rem; }
+    .nl-content .ex { font-size: 0.82rem; }
+
+    .historical-box { padding: 18px 14px; border-radius: 16px; }
+
+    .wish-box { padding: 15px 13px; }
+
+    #scroll-top-btn { bottom: 14px; right: 14px; width: 38px; height: 38px; font-size: 15px; }
+  }
+
+  @media (min-width: 481px) and (max-width: 768px) {
+    .container { padding: 0 16px 52px; }
+    .tense-card { padding: 22px 18px; }
+    .modal-grid { grid-template-columns: 1fr 1fr; }
+    .seq-row { grid-template-columns: 1fr; gap: 8px; }
+    .seq-row .arrow { text-align: left; }
+    .universal { padding: 22px 18px; }
+    .cond-formula { font-size: 0.94rem; }
+    .table-scroll-hint { display: block; }
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+    padding: 32px 20px;
+    font-size: 0.9rem;
+  }
+  footer span { color: var(--gold); font-weight: 900; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <span class="hero-emoji">🕰️</span>
+  <h1>The <span>Past</span> in English</h1>
+  <p class="hero-sub">All past tenses explained simply! &nbsp;|&nbsp; <em>Усі часи минулого — просто!</em></p>
+</div>
+
+<!-- NAV PILLS -->
+<div class="nav-pills">
+  <a class="nav-pill" href="#universal">⭐ Universal Sentence</a>
+  <a class="nav-pill" href="#simple">Past Simple</a>
+  <a class="nav-pill" href="#continuous">Past Continuous</a>
+  <a class="nav-pill" href="#perfect">Past Perfect</a>
+  <a class="nav-pill" href="#perfectcont">Past Perfect Cont.</a>
+  <a class="nav-pill" href="#time">Time Expressions</a>
+  <a class="nav-pill" href="#usedto">Used to / Would</a>
+  <a class="nav-pill" href="#sequence">Sequence of Tenses</a>
+  <a class="nav-pill" href="#modals">Past Modals</a>
+  <a class="nav-pill" href="#passive">Passive Voice</a>
+  <a class="nav-pill" href="#narrative">Narrative Tenses</a>
+  <a class="nav-pill" href="#timeclauses">Time Clauses</a>
+  <a class="nav-pill" href="#unreal">Unreal Past</a>
+  <a class="nav-pill" href="#historical">Historical Present</a>
+</div>
+
+<div class="container">
+
+  <!-- UNIVERSAL SENTENCE -->
+  <div class="universal" id="universal">
+    <div class="badge">⭐ Universal Sentence • Універсальне речення</div>
+    <h2>One sentence — all tenses! &nbsp; Одне речення — всі часи!</h2>
+    <div class="sentence">She called her friend.</div>
+    <p class="ua">Вона зателефонувала подрузі. — Дивись, як воно змінюється нижче ⬇️</p>
+  </div>
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- 1. PAST SIMPLE -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="section-title" id="simple">
+    <div class="icon" style="background:#c8e6f8;">📌</div>
+    <h2>Past Simple<small>Простий минулий час</small></h2>
+  </div>
+
+  <div class="tense-card c-blue" data-emoji="📌">
+    <h3>Past Simple</h3>
+    <p class="ua-title">Для дій, що завершились у минулому / For completed past actions</p>
+
+    <div class="formula-box">
+      <div class="label">Formula / Формула</div>
+      <div class="formula">
+        <div class="f-pos">✅ Subject + V2 / V+ed</div>
+        <div class="f-neg">❌ Subject + did not (didn't) + V1</div>
+        <div class="f-que">❓ Did + Subject + V1 + ?</div>
+      </div>
+    </div>
+
+    <div class="examples-grid">
+      <div class="example-row">
+        <div class="en">✅ She <span class="highlight-word">called</span> her friend. &nbsp;👍</div>
+        <div class="ua">Вона зателефонувала подрузі.</div>
+      </div>
+      <div class="example-row">
+        <div class="en">❌ She <span class="highlight-word">didn't call</span> her friend.</div>
+        <div class="ua">Вона не телефонувала подрузі.</div>
+      </div>
+      <div class="example-row">
+        <div class="en">❓ <span class="highlight-word">Did</span> she <span class="highlight-word">call</span> her friend?</div>
+        <div class="ua">Вона телефонувала подрузі?</div>
+      </div>
+    </div>
+
+    <div class="when-box">
+      <div class="when-label">When to use / Коли вживати</div>
+      <div class="when-items">
+        <span class="when-item">✅ Completed action</span>
+        <span class="when-item">📅 Specific time in the past</span>
+        <span class="when-item">📖 Story events</span>
+        <span class="when-item">🔁 Repeated past habits</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- 2. PAST CONTINUOUS -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="section-title" id="continuous">
+    <div class="icon" style="background:#c0edda;">🎞️</div>
+    <h2>Past Continuous<small>Минулий тривалий час</small></h2>
+  </div>
+
+  <div class="tense-card c-green" data-emoji="🎞️">
+    <h3>Past Continuous</h3>
+    <p class="ua-title">Action was IN PROGRESS at a moment in the past / Дія тривала в якийсь момент минулого</p>
+
+    <div class="formula-box">
+      <div class="label">Formula / Формула</div>
+      <div class="formula">
+        <div class="f-pos">✅ Subject + was/were + V+ing</div>
+        <div class="f-neg">❌ Subject + was/were + not + V+ing</div>
+        <div class="f-que">❓ Was/Were + Subject + V+ing + ?</div>
+      </div>
+    </div>
+
+    <div class="examples-grid">
+      <div class="example-row">
+        <div class="en">✅ She <span class="highlight-word">was calling</span> her friend at 8 pm.</div>
+        <div class="ua">Вона телефонувала подрузі о 8 вечора (саме в той момент).</div>
+      </div>
+      <div class="example-row">
+        <div class="en">✅ She <span class="highlight-word">was calling</span> her friend <b>when</b> I came in.</div>
+        <div class="ua">Вона телефонувала подрузі, коли я зайшов.</div>
+      </div>
+      <div class="example-row">
+        <div class="en">❌ She <span class="highlight-word">wasn't calling</span> her friend.</div>
+        <div class="ua">Вона не телефонувала подрузі.</div>
+      </div>
+    </div>
+
+    <div class="when-box">
+      <div class="when-label">When to use / Коли вживати</div>
+      <div class="when-items">
+        <span class="when-item">⏳ Action in progress at a past moment</span>
+        <span class="when-item">🎨 Background in a story</span>
+        <span class="when-item">⚡ Interrupted by another action</span>
+        <span class="when-item">🔄 Two parallel past actions</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- 3. PAST PERFECT -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="section-title" id="perfect">
+    <div class="icon" style="background:#ddd0ff;">🔙</div>
+    <h2>Past Perfect<small>Минулий доконаний час</small></h2>
+  </div>
+
+  <div class="tense-card c-purple" data-emoji="🔙">
+    <h3>Past Perfect</h3>
+    <p class="ua-title">Action happened BEFORE another past action / Дія сталася ДО іншої минулої дії</p>
+
+    <div class="formula-box">
+      <div class="label">Formula / Формула</div>
+      <div class="formula">
+        <div class="f-pos">✅ Subject + had + V3 (past participle)</div>
+        <div class="f-neg">❌ Subject + had not (hadn't) + V3</div>
+        <div class="f-que">❓ Had + Subject + V3 + ?</div>
+      </div>
+    </div>
+
+    <div class="examples-grid">
+      <div class="example-row">
+        <div class="en">✅ She <span class="highlight-word">had called</span> her friend before dinner.</div>
+        <div class="ua">Вона зателефонувала подрузі ще до вечері. (спочатку — дзвінок, потім — вечеря)</div>
+      </div>
+      <div class="example-row">
+        <div class="en">✅ When I arrived, she <span class="highlight-word">had already called</span>.</div>
+        <div class="ua">Коли я прийшов, вона вже подзвонила.</div>
+      </div>
+      <div class="example-row">
+        <div class="en">❌ She <span class="highlight-word">hadn't called</span> yet.</div>
+        <div class="ua">Вона ще не дзвонила.</div>
+      </div>
+    </div>
+
+    <div class="when-box">
+      <div class="when-label">Think of it as... / Уявляй це як...</div>
+      <div class="when-items">
+        <span class="when-item">🥇 The EARLIER action of two past actions</span>
+        <span class="when-item">✅ Keywords: already, yet, by the time, before</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- 4. PAST PERFECT CONTINUOUS -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="section-title" id="perfectcont">
+    <div class="icon" style="background:#ffe0c0;">⏱️</div>
+    <h2>Past Perfect Continuous<small>Минулий доконаний тривалий час</small></h2>
+  </div>
+
+  <div class="tense-card c-orange" data-emoji="⏱️">
+    <h3>Past Perfect Continuous</h3>
+    <p class="ua-title">Action had been going on for some time before another past event / Дія тривала певний час до іншої події</p>
+
+    <div class="formula-box">
+      <div class="label">Formula / Формула</div>
+      <div class="formula">
+        <div class="f-pos">✅ Subject + had been + V+ing</div>
+        <div class="f-neg">❌ Subject + had not been + V+ing</div>
+        <div class="f-que">❓ Had + Subject + been + V+ing + ?</div>
+      </div>
+    </div>
+
+    <div class="examples-grid">
+      <div class="example-row">
+        <div class="en">✅ She <span class="highlight-word">had been calling</span> her friend for 20 minutes when I arrived.</div>
+        <div class="ua">Вона телефонувала подрузі 20 хвилин, коли я прийшов. (почала до мого приходу — і ще тривало)</div>
+      </div>
+      <div class="example-row">
+        <div class="en">✅ She was tired because she <span class="highlight-word">had been calling</span> all morning.</div>
+        <div class="ua">Вона втомилась, бо телефонувала весь ранок.</div>
+      </div>
+    </div>
+
+    <div class="when-box">
+      <div class="when-label">When to use / Коли вживати</div>
+      <div class="when-items">
+        <span class="when-item">⏱️ Duration before past event (for, since)</span>
+        <span class="when-item">💡 Cause of past result</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIMELINE INFOGRAPHIC -->
+  <div class="timeline">
+    <h3>🗓️ Visual Timeline of All 4 Past Tenses</h3>
+    <div class="tl-track">
+      <div class="tl-line"></div>
+
+      <div class="tl-point">
+        <div class="tl-pill" style="background:#7b5ea7;">Past Perfect<br><small>had called</small></div>
+        <div class="tl-dot" style="color:#7b5ea7; bottom:23px;"></div>
+        <div class="tl-label" style="color:#7b5ea7; bottom:46px;">Earlier ⏪</div>
+      </div>
+
+      <div class="tl-point">
+        <div class="tl-pill" style="background:#ff6b35;">Past Perfect Cont.<br><small>had been calling</small></div>
+        <div class="tl-dot" style="color:#ff6b35; bottom:23px;"></div>
+        <div class="tl-label" style="color:#ff6b35; bottom:46px;">Duration ⏱️</div>
+      </div>
+
+      <div class="tl-point">
+        <div class="tl-pill" style="background:#2ec4b6;">Past Continuous<br><small>was calling</small></div>
+        <div class="tl-dot" style="color:#2ec4b6; bottom:23px;"></div>
+        <div class="tl-label" style="color:#2ec4b6; bottom:46px;">Background 🎞️</div>
+      </div>
+
+      <div class="tl-point">
+        <div class="tl-pill" style="background:#4cc9f0;">Past Simple<br><small>called</small></div>
+        <div class="tl-dot" style="color:#4cc9f0; bottom:23px;"></div>
+        <div class="tl-label" style="color:#4cc9f0; bottom:46px;">Completed ✅</div>
+      </div>
+
+      <div class="tl-point">
+        <div class="tl-pill" style="background:#aaa;">NOW<br><small>present</small></div>
+        <div class="tl-dot" style="color:#aaa; bottom:23px;"></div>
+        <div class="tl-label" style="color:#aaa; bottom:46px;">Now ➡️</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- 5. TIME EXPRESSIONS -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="section-title" id="time">
+    <div class="icon" style="background:#ffd0eb;">🗝️</div>
+    <h2>Past Time Expressions<small>Слова-підказки минулого часу</small></h2>
+  </div>
+
+  <div class="tense-card c-pink" data-emoji="🗝️">
+    <h3>Time Expressions — your clues! 🔍</h3>
+    <p class="ua-title">Ці слова підказують, який час вживати / These words hint which tense to use</p>
+
+    <div class="table-scroll">
+    <span class="table-scroll-hint">← прокрути →</span>
+    <table class="compare-table">
+      <tr><th>Tense</th><th>Keywords / Слова-підказки</th></tr>
+      <tr>
+        <td style="color:#4a90e2;">Past Simple</td>
+        <td><span style="background:#e8f4fd; border-radius:8px; padding:3px 8px; margin:3px; display:inline-block;">yesterday</span>
+        <span style="background:#e8f4fd; border-radius:8px; padding:3px 8px; margin:3px; display:inline-block;">last week/year</span>
+        <span style="background:#e8f4fd; border-radius:8px; padding:3px 8px; margin:3px; display:inline-block;">ago</span>
+        <span style="background:#e8f4fd; border-radius:8px; padding:3px 8px; margin:3px; display:inline-block;">in 2020</span>
+        <span style="background:#e8f4fd; border-radius:8px; padding:3px 8px; margin:3px; display:inline-block;">once / twice</span>
+        </td>
+      </tr>
+      <tr>
+        <td style="color:#2ec4b6;">Past Continuous</td>
+        <td><span style="background:#e0faf8; border-radius:8px; padding:3px 8px; margin:3px; display:inline-block;">at that moment</span>
+        <span style="background:#e0faf8; border-radius:8px; padding:3px 8px; margin:3px; display:inline-block;">while</span>
+        <span style="background:#e0faf8; border-radius:8px; padding:3px 8px; margin:3px; display:inline-block;">when (+ Simple)</span>
+        <span style="background:#e0faf8; border-radius:8px; padding:3px 8px; margin:3px; display:inline-block;">all day/evening</span>
+        </td>
+      </tr>
+      <tr>
+        <td style="color:#7b5ea7;">Past Perfect</td>
+        <td><span style="background:#f0ebff; border-radius:8px; padding:3px 8px; margin:3px; display:inline-block;">already</span>
+        <span style="background:#f0ebff; border-radius:8px; padding:3px 8px; margin:3px; display:inline-block;">yet</span>
+        <span style="background:#f0ebff; border-radius:8px; padding:3px 8px; margin:3px; display:inline-block;">by the time</span>
+        <span style="background:#f0ebff; border-radius:8px; padding:3px 8px; margin:3px; display:inline-block;">before</span>
+        <span style="background:#f0ebff; border-radius:8px; padding:3px 8px; margin:3px; display:inline-block;">after</span>
+        <span style="background:#f0ebff; border-radius:8px; padding:3px 8px; margin:3px; display:inline-block;">just</span>
+        </td>
+      </tr>
+      <tr>
+        <td style="color:#ff6b35;">Past Perf. Cont.</td>
+        <td><span style="background:#fff3e8; border-radius:8px; padding:3px 8px; margin:3px; display:inline-block;">for + time</span>
+        <span style="background:#fff3e8; border-radius:8px; padding:3px 8px; margin:3px; display:inline-block;">since</span>
+        <span style="background:#fff3e8; border-radius:8px; padding:3px 8px; margin:3px; display:inline-block;">how long</span>
+        </td>
+      </tr>
+    </table>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- 6. USED TO / WOULD -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="section-title" id="usedto">
+    <div class="icon" style="background:#b8f0ec;">🔁</div>
+    <h2>Used to / Would<small>Звичні дії в минулому</small></h2>
+  </div>
+
+  <div class="tense-card c-teal" data-emoji="🔁">
+    <h3>Used to / Would — past habits</h3>
+    <p class="ua-title">Для повторюваних дій у минулому, які більше не відбуваються / Past routines no longer happening</p>
+
+    <div class="two-col">
+      <div>
+        <div class="formula-box">
+          <div class="label">used to</div>
+          <div class="formula f-pos">Subject + used to + V1</div>
+        </div>
+        <div class="example-row" style="background:rgba(255,255,255,0.6); border-radius:12px; padding:12px 16px;">
+          <div class="en">She <span class="highlight-word">used to call</span> her friend every day.</div>
+          <div class="ua">Вона раніше щодня дзвонила подрузі.</div>
+        </div>
+        <div style="margin-top:10px; font-size:0.85rem; padding:10px; background:rgba(255,255,255,0.4); border-radius:10px;">
+          ✅ Habits AND states in the past<br>
+          <em>Звички ТА стани в минулому</em>
+        </div>
+      </div>
+      <div>
+        <div class="formula-box">
+          <div class="label">would</div>
+          <div class="formula f-pos">Subject + would + V1</div>
+        </div>
+        <div class="example-row" style="background:rgba(255,255,255,0.6); border-radius:12px; padding:12px 16px;">
+          <div class="en">She <span class="highlight-word">would call</span> her friend every Sunday.</div>
+          <div class="ua">Вона дзвонила подрузі щонеділі (регулярно, в минулому).</div>
+        </div>
+        <div style="margin-top:10px; font-size:0.85rem; padding:10px; background:rgba(255,255,255,0.4); border-radius:10px;">
+          ✅ Only habits (NOT states like know, love)<br>
+          <em>Тільки звички (не стани: знати, любити)</em>
+        </div>
+      </div>
+    </div>
+
+    <div class="when-box" style="margin-top:16px;">
+      <div class="when-label">Key difference / Різниця</div>
+      <div class="when-items">
+        <span class="when-item">❌ She would know the answer. (WRONG for state)</span>
+        <span class="when-item">✅ She used to know the answer. (CORRECT)</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- 7. SEQUENCE OF TENSES -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="section-title" id="sequence">
+    <div class="icon" style="background:#ffd0d0;">🔗</div>
+    <h2>Sequence of Tenses<small>Узгодження часів</small></h2>
+  </div>
+
+  <div class="seq-box">
+    <h3 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin-bottom:8px;">When the main verb is in the past, other verbs shift back ⬅️</h3>
+    <p style="color:#666; margin-bottom:20px; font-size:0.9rem;"><em>Коли головне дієслово в минулому — залежні дієслова теж «відходять назад»</em></p>
+
+    <div class="seq-row">
+      <div class="seq-cell" style="background:#e8f4fd; color:#1a6fa8;">Direct speech:<br><b>"I am calling."</b><br><small>(теперішній)</small></div>
+      <div class="arrow">→</div>
+      <div class="seq-cell" style="background:#f0ebff; color:#5a3a8a;">Reported speech:<br><b>She said she <u>was calling</u>.</b><br><small>(минулий тривалий)</small></div>
+    </div>
+    <div class="seq-row">
+      <div class="seq-cell" style="background:#e8f4fd; color:#1a6fa8;">Direct:<br><b>"I called my friend."</b></div>
+      <div class="arrow">→</div>
+      <div class="seq-cell" style="background:#f0ebff; color:#5a3a8a;">Reported:<br><b>She said she <u>had called</u> her friend.</b></div>
+    </div>
+    <div class="seq-row">
+      <div class="seq-cell" style="background:#e8f4fd; color:#1a6fa8;">Direct:<br><b>"I will call you."</b></div>
+      <div class="arrow">→</div>
+      <div class="seq-cell" style="background:#f0ebff; color:#5a3a8a;">Reported:<br><b>She said she <u>would call</u> me.</b></div>
+    </div>
+
+    <div style="background:#fffbe0; border-radius:14px; padding:14px 18px; margin-top:14px; font-size:0.88rem;">
+      <b>💡 Rule / Правило:</b> Present → Past, Past Simple → Past Perfect, will → would<br>
+      <em>Теперішній → Минулий, Минулий → Past Perfect, will → would</em>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- 8. PAST MODALS -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="section-title" id="modals">
+    <div class="icon" style="background:#ccd4ff;">🎯</div>
+    <h2>Past Modals<small>Модальні дієслова в минулому</small></h2>
+  </div>
+
+  <div class="tense-card c-indigo" data-emoji="🎯">
+    <h3>Modal + have + V3</h3>
+    <p class="ua-title">Говоримо про минулі можливості, помилки, здогадки / Talking about past possibilities and mistakes</p>
+
+    <div class="modal-grid">
+      <div class="modal-card" style="background:linear-gradient(135deg,#e8f4fd,#c8e6f8);">
+        <div class="modal-name" style="color:#1a6fa8;">could have</div>
+        <div class="modal-meaning">Past ability / можливість</div>
+        <div class="modal-formula">could have + V3</div>
+        <div class="modal-ex">She <b>could have called</b> — but she didn't.<br><em>Вона могла зателефонувати, але не зателефонувала.</em></div>
+      </div>
+      <div class="modal-card" style="background:linear-gradient(135deg,#ffeaea,#ffd0d0);">
+        <div class="modal-name" style="color:#c0392b;">should have</div>
+        <div class="modal-meaning">Regret / жаль, докір</div>
+        <div class="modal-formula">should have + V3</div>
+        <div class="modal-ex">She <b>should have called</b>. (But she didn't — mistake!)<br><em>Вона мала зателефонувати. (Помилка!)</em></div>
+      </div>
+      <div class="modal-card" style="background:linear-gradient(135deg,#e8f8f0,#c0edda);">
+        <div class="modal-name" style="color:#1e7a50;">must have</div>
+        <div class="modal-meaning">Certainty / впевненість</div>
+        <div class="modal-formula">must have + V3</div>
+        <div class="modal-ex">She <b>must have called</b> — the phone was warm!<br><em>Вона точно телефонувала — телефон був теплий!</em></div>
+      </div>
+      <div class="modal-card" style="background:linear-gradient(135deg,#fff3e8,#ffe0c0);">
+        <div class="modal-name" style="color:#c0612b;">might have</div>
+        <div class="modal-meaning">Possibility / можливо</div>
+        <div class="modal-formula">might have + V3</div>
+        <div class="modal-ex">She <b>might have called</b> while I was sleeping.<br><em>Можливо, вона телефонувала, поки я спав.</em></div>
+      </div>
+      <div class="modal-card" style="background:linear-gradient(135deg,#f0ebff,#ddd0ff);">
+        <div class="modal-name" style="color:#5a3a8a;">needn't have</div>
+        <div class="modal-meaning">Unnecessary / непотрібно</div>
+        <div class="modal-formula">needn't have + V3</div>
+        <div class="modal-ex">She <b>needn't have called</b> — I already knew.<br><em>Їй не треба було дзвонити — я вже знав.</em></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- 9. PASSIVE VOICE -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="section-title" id="passive">
+    <div class="icon" style="background:#cce8d0;">🔄</div>
+    <h2>Passive Voice in the Past<small>Пасивний стан у минулому</small></h2>
+  </div>
+
+  <div class="passive-box">
+    <h3 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin-bottom:8px;">Active vs Passive 🔄</h3>
+    <p style="color:#666; margin-bottom:20px; font-size:0.9rem;"><em>Пасив = важливо ЩО відбулось, а не ХТО це зробив</em></p>
+
+    <div class="passive-compare">
+      <div class="pc-box" style="background:linear-gradient(135deg,#e8f4fd,#c8e6f8);">
+        <h4>Active / Активний</h4>
+        <p style="font-size:0.9rem; margin-bottom:8px;">Subject + V2</p>
+        <div style="background:white; border-radius:10px; padding:10px 14px; font-weight:700;">She called her friend.</div>
+        <p style="font-size:0.82rem; color:#666; margin-top:8px;"><em>Вона (сама) зателефонувала.</em></p>
+      </div>
+      <div class="pc-box" style="background:linear-gradient(135deg,#eaf5ec,#cce8d0);">
+        <h4>Passive / Пасивний</h4>
+        <p style="font-size:0.9rem; margin-bottom:8px;">Subject + was/were + V3</p>
+        <div style="background:white; border-radius:10px; padding:10px 14px; font-weight:700;">Her friend <b>was called</b>.</div>
+        <p style="font-size:0.82rem; color:#666; margin-top:8px;"><em>Подрузі зателефонували. (хтось)</em></p>
+      </div>
+    </div>
+
+    <div class="table-scroll">
+    <span class="table-scroll-hint">← прокрути →</span>
+    <table class="compare-table" style="margin-top:20px;">
+      <tr><th>Tense</th><th>Passive Formula</th><th>Example</th></tr>
+      <tr>
+        <td>Past Simple</td>
+        <td style="font-family:monospace; font-weight:700;">was/were + V3</td>
+        <td>Her friend <b>was called</b>.</td>
+      </tr>
+      <tr>
+        <td>Past Continuous</td>
+        <td style="font-family:monospace; font-weight:700;">was/were + being + V3</td>
+        <td>She <b>was being called</b>.</td>
+      </tr>
+      <tr>
+        <td>Past Perfect</td>
+        <td style="font-family:monospace; font-weight:700;">had been + V3</td>
+        <td>She <b>had been called</b> before dinner.</td>
+      </tr>
+    </table>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- 10. NARRATIVE TENSES -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="section-title" id="narrative">
+    <div class="icon" style="background:#ffe0c0;">📚</div>
+    <h2>Narrative Tenses<small>Часи для розповіді</small></h2>
+  </div>
+
+  <div class="narrative-diagram">
+    <h3 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin-bottom:4px;">Telling a Story 📖</h3>
+    <p style="color:#666; font-size:0.9rem; margin-bottom:6px;"><em>Як розповідати про минуле так, щоб було цікаво</em></p>
+    <div class="narrative-layers">
+      <div class="narrative-layer" style="background:linear-gradient(135deg,#fff3e8,#ffe0c0);">
+        <div class="nl-icon">🎬</div>
+        <div class="nl-content">
+          <h4>Past Perfect — What happened BEFORE ⏪</h4>
+          <p>The background backstory / Що відбулось ще раніше</p>
+          <div class="ex">She <b>had forgotten</b> to charge her phone. &nbsp;| <em>Вона забула зарядити телефон.</em></div>
+        </div>
+      </div>
+      <div class="narrative-layer" style="background:linear-gradient(135deg,#e0faf8,#b8f0ec);">
+        <div class="nl-icon">🖼️</div>
+        <div class="nl-content">
+          <h4>Past Continuous — The SCENE / Background 🎨</h4>
+          <p>Sets the atmosphere / Створює атмосферу</p>
+          <div class="ex">It <b>was raining</b>. She <b>was sitting</b> alone. &nbsp;| <em>Йшов дощ. Вона сиділа сама.</em></div>
+        </div>
+      </div>
+      <div class="narrative-layer" style="background:linear-gradient(135deg,#e8f4fd,#c8e6f8);">
+        <div class="nl-icon">⚡</div>
+        <div class="nl-content">
+          <h4>Past Simple — The MAIN EVENTS ➡️</h4>
+          <p>The plot, the action! / Основні події сюжету</p>
+          <div class="ex">Suddenly she <b>remembered</b> and <b>called</b> her friend. &nbsp;| <em>Раптом вона пригадала і зателефонувала.</em></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#fffbe0; border-radius:16px; padding:20px; margin-top:20px;">
+      <div style="font-weight:900; font-size:0.9rem; letter-spacing:1px; text-transform:uppercase; margin-bottom:10px;">📖 Full Story Example</div>
+      <p style="line-height:2; font-size:0.95rem;">
+        It <b style="color:#2ec4b6;">was raining</b> and she <b style="color:#2ec4b6;">was sitting</b> by the window. She <b style="color:#7b5ea7;">had forgotten</b> to call her friend that morning.
+        Suddenly she <b style="color:#4a90e2;">grabbed</b> her phone and <b style="color:#4a90e2;">called</b> her.
+      </p>
+      <p style="font-size:0.85rem; color:#666; margin-top:8px; line-height:1.8;"><em>
+        Йшов дощ, і вона сиділа біля вікна. Вона забула зателефонувати подрузі зранку.
+        Раптом вона схопила телефон і зателефонувала їй.
+      </em></p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- 11. TIME CLAUSES -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="section-title" id="timeclauses">
+    <div class="icon" style="background:#ffd0eb;">⏰</div>
+    <h2>Time Clauses in the Past<small>Часові підрядні речення в минулому</small></h2>
+  </div>
+
+  <div class="tense-card c-pink" data-emoji="⏰">
+    <h3>Time Clauses — connecting past events</h3>
+    <p class="ua-title">Поєднуємо минулі події за допомогою сполучників часу</p>
+
+    <div class="examples-grid">
+      <div class="example-row">
+        <div class="en">⚡ <b>when</b> — She <span class="highlight-word">was calling</span> her friend <b>when</b> I <span class="highlight-word">arrived</span>.</div>
+        <div class="ua">Вона телефонувала, коли я прийшов. (тривала дія + раптова)</div>
+      </div>
+      <div class="example-row">
+        <div class="en">⬅️ <b>before</b> — She <span class="highlight-word">had called</span> her friend <b>before</b> she <span class="highlight-word">left</span>.</div>
+        <div class="ua">Вона зателефонувала подрузі до того, як пішла.</div>
+      </div>
+      <div class="example-row">
+        <div class="en">➡️ <b>after</b> — <b>After</b> she <span class="highlight-word">had called</span>, she <span class="highlight-word">went</span> to bed.</div>
+        <div class="ua">Після того як зателефонувала, пішла спати.</div>
+      </div>
+      <div class="example-row">
+        <div class="en">🔄 <b>while</b> — She <span class="highlight-word">called</span> while I <span class="highlight-word">was sleeping</span>.</div>
+        <div class="ua">Вона зателефонувала, поки я спав.</div>
+      </div>
+      <div class="example-row">
+        <div class="en">⏰ <b>by the time</b> — <b>By the time</b> I <span class="highlight-word">woke up</span>, she <span class="highlight-word">had already called</span>.</div>
+        <div class="ua">На той час, коли я прокинувся, вона вже зателефонувала.</div>
+      </div>
+      <div class="example-row">
+        <div class="en">⬛ <b>as soon as</b> — <b>As soon as</b> she <span class="highlight-word">arrived</span>, she <span class="highlight-word">called</span>.</div>
+        <div class="ua">Щойно вона прийшла, одразу зателефонувала.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- 12. UNREAL PAST -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="section-title" id="unreal">
+    <div class="icon" style="background:#ddd0ff;">🌀</div>
+    <h2>Unreal Past<small>Нереальне минуле</small></h2>
+  </div>
+
+  <div class="conditional-box">
+    <h3 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin-bottom:6px;">3rd Conditional & I wish / If only</h3>
+    <p style="color:#666; font-size:0.9rem; margin-bottom:20px;"><em>Говоримо про те, що могло б бути, але не сталося / Imagining a different past</em></p>
+
+    <div style="background:linear-gradient(135deg,#f0ebff,#e0d5ff); border-radius:18px; padding:24px; margin-bottom:20px;">
+      <div style="font-weight:900; font-size:1rem; margin-bottom:4px;">🌀 Third Conditional</div>
+      <div style="font-size:0.82rem; color:#5a3a8a; margin-bottom:16px;"><em>Якби раніше... — то зараз... (але цього не сталось)</em></div>
+      <div class="cond-formula">If + had + V3, &nbsp; ... would have + V3</div>
+      <div class="examples-grid">
+        <div class="example-row">
+          <div class="en">✨ If she <span class="highlight-word">had called</span> her friend, she <span class="highlight-word">would have felt</span> better.</div>
+          <div class="ua">Якби вона зателефонувала подрузі, їй було б краще. (але вона не зателефонувала)</div>
+        </div>
+        <div class="example-row">
+          <div class="en">✨ If she <span class="highlight-word">hadn't forgotten</span>, everything <span class="highlight-word">would have been</span> fine.</div>
+          <div class="ua">Якби вона не забула, все було б добре.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wish-box" style="background:linear-gradient(135deg,#fff0d4,#ffe4b2);">
+      <h4>🌟 I wish / If only — wishing the past was different</h4>
+      <div style="font-size:0.82rem; color:#7a5500; margin-bottom:12px;"><em>Бажання змінити минуле / Хотіла б, щоб усе було по-іншому</em></div>
+      <div class="examples-grid">
+        <div class="example-row">
+          <div class="en">💭 I wish she <span class="highlight-word">had called</span> me.</div>
+          <div class="ua">Жаль, що вона мені не зателефонувала. (але не зателефонувала)</div>
+        </div>
+        <div class="example-row">
+          <div class="en">💭 If only she <span class="highlight-word">hadn't forgotten</span>!</div>
+          <div class="ua">Якби тільки вона не забула! (але забула)</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#f8f8f8; border-radius:14px; padding:16px 20px; margin-top:16px;">
+      <b>📌 Key rule / Головне правило:</b><br>
+      After <b>I wish / If only</b> → use <b>Past Perfect</b> (had + V3) for past situations<br>
+      <em>Після "I wish / If only" → Past Perfect (had + V3) для минулого</em>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- 13. HISTORICAL PRESENT -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="section-title" id="historical">
+    <div class="icon" style="background:#f4d03f; color:white;">🎙️</div>
+    <h2>Historical Present<small>Теперішній час для жвавого опису минулого</small></h2>
+  </div>
+
+  <div class="historical-box">
+    <h3>Historical Present 🎙️</h3>
+    <p class="ua-title">Граматично теперішній час, але розповідаємо про минуле — для живості та драми!</p>
+
+    <div class="formula-box">
+      <div class="label">Formula / Формула</div>
+      <div class="formula" style="color:#f4a523;">✅ Present Simple (V1 / V+s) — but talking about the PAST!</div>
+    </div>
+
+    <div class="examples-grid">
+      <div class="example-row">
+        <div class="en">🎬 So she <span class="highlight-word">picks up</span> the phone and <span class="highlight-word">calls</span> her friend — and guess what?</div>
+        <div class="ua">Вона бере слухавку і дзвонить подрузі — і що ти думаєш? (розповідь «як живе»)</div>
+      </div>
+      <div class="example-row">
+        <div class="en">📺 Caesar <span class="highlight-word">crosses</span> the Rubicon in 49 BC and <span class="highlight-word">changes</span> history.</div>
+        <div class="ua">Цезар перетинає Рубікон у 49 р. до н.е. і змінює хід історії.</div>
+      </div>
+      <div class="example-row">
+        <div class="en">🗣️ And then she <span class="highlight-word">says</span> to me: "Why didn't you call earlier?"</div>
+        <div class="ua">І тут вона каже мені: «Чому ти не зателефонував раніше?»</div>
+      </div>
+    </div>
+
+    <div class="when-box">
+      <div class="when-label">When to use / Коли вживати</div>
+      <div class="when-items">
+        <span class="when-item">🗣️ Dramatic storytelling</span>
+        <span class="when-item">📜 History textbooks</span>
+        <span class="when-item">🎭 Making past feel alive</span>
+        <span class="when-item">💬 Casual stories between friends</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- FINAL SUMMARY TABLE -->
+  <!-- ══════════════════════════════════════ -->
+  <div style="background:white; border-radius:24px; padding:32px; box-shadow:var(--card-shadow); margin-top:40px;">
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.6rem; margin-bottom:6px; text-align:center;">⭐ Quick Reference Table</h2>
+    <p style="text-align:center; color:#666; font-size:0.9rem; margin-bottom:24px;"><em>Таблиця швидкого порівняння — усі часи одним поглядом</em></p>
+
+    <div style="overflow-x:auto; -webkit-overflow-scrolling:touch;">
+    <span class="table-scroll-hint" style="display:block;">← прокрути →</span>
+      <table style="width:100%; min-width:520px; border-collapse:separate; border-spacing:0 6px; font-size:0.88rem;">
+        <thead>
+          <tr>
+            <th style="padding:10px 14px; text-align:left; font-size:0.75rem; letter-spacing:1px; text-transform:uppercase; opacity:0.5;">Tense</th>
+            <th style="padding:10px 14px; text-align:left; font-size:0.75rem; letter-spacing:1px; text-transform:uppercase; opacity:0.5;">Formula</th>
+            <th style="padding:10px 14px; text-align:left; font-size:0.75rem; letter-spacing:1px; text-transform:uppercase; opacity:0.5;">Meaning</th>
+            <th style="padding:10px 14px; text-align:left; font-size:0.75rem; letter-spacing:1px; text-transform:uppercase; opacity:0.5;">Example</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background:#e8f4fd;">
+            <td style="padding:12px 14px; border-radius:12px 0 0 12px; font-weight:900; color:#1a6fa8;">Past Simple</td>
+            <td style="padding:12px 14px; font-family:monospace; font-weight:700;">V2 / V+ed</td>
+            <td style="padding:12px 14px;">Completed action / Завершена дія</td>
+            <td style="padding:12px 14px; border-radius:0 12px 12px 0; font-style:italic;">She <b>called</b>.</td>
+          </tr>
+          <tr style="background:#e0faf8;">
+            <td style="padding:12px 14px; border-radius:12px 0 0 12px; font-weight:900; color:#1a8a82;">Past Continuous</td>
+            <td style="padding:12px 14px; font-family:monospace; font-weight:700;">was/were + V+ing</td>
+            <td style="padding:12px 14px;">In progress / Тривала</td>
+            <td style="padding:12px 14px; border-radius:0 12px 12px 0; font-style:italic;">She <b>was calling</b>.</td>
+          </tr>
+          <tr style="background:#f0ebff;">
+            <td style="padding:12px 14px; border-radius:12px 0 0 12px; font-weight:900; color:#5a3a8a;">Past Perfect</td>
+            <td style="padding:12px 14px; font-family:monospace; font-weight:700;">had + V3</td>
+            <td style="padding:12px 14px;">Before another past / До іншого минулого</td>
+            <td style="padding:12px 14px; border-radius:0 12px 12px 0; font-style:italic;">She <b>had called</b>.</td>
+          </tr>
+          <tr style="background:#fff3e8;">
+            <td style="padding:12px 14px; border-radius:12px 0 0 12px; font-weight:900; color:#c0612b;">Past Perf. Cont.</td>
+            <td style="padding:12px 14px; font-family:monospace; font-weight:700;">had been + V+ing</td>
+            <td style="padding:12px 14px;">Duration before past / Тривала до події</td>
+            <td style="padding:12px 14px; border-radius:0 12px 12px 0; font-style:italic;">She <b>had been calling</b>.</td>
+          </tr>
+          <tr style="background:#e0faf8;">
+            <td style="padding:12px 14px; border-radius:12px 0 0 12px; font-weight:900; color:#1a7a6a;">used to / would</td>
+            <td style="padding:12px 14px; font-family:monospace; font-weight:700;">used to/would + V1</td>
+            <td style="padding:12px 14px;">Past habit / Минула звичка</td>
+            <td style="padding:12px 14px; border-radius:0 12px 12px 0; font-style:italic;">She <b>used to call</b> every day.</td>
+          </tr>
+          <tr style="background:#eaf5ec;">
+            <td style="padding:12px 14px; border-radius:12px 0 0 12px; font-weight:900; color:#1e7a50;">Passive (Past)</td>
+            <td style="padding:12px 14px; font-family:monospace; font-weight:700;">was/were + V3</td>
+            <td style="padding:12px 14px;">Action received / Дія сталась з кимось</td>
+            <td style="padding:12px 14px; border-radius:0 12px 12px 0; font-style:italic;">She <b>was called</b>.</td>
+          </tr>
+          <tr style="background:#f0ebff;">
+            <td style="padding:12px 14px; border-radius:12px 0 0 12px; font-weight:900; color:#5a3a8a;">3rd Conditional</td>
+            <td style="padding:12px 14px; font-family:monospace; font-weight:700;">If had V3, would have V3</td>
+            <td style="padding:12px 14px;">Unreal past / Нереальне минуле</td>
+            <td style="padding:12px 14px; border-radius:0 12px 12px 0; font-style:italic;">If she <b>had called</b>, I would have come.</td>
+          </tr>
+          <tr style="background:#fff0d4;">
+            <td style="padding:12px 14px; border-radius:12px 0 0 12px; font-weight:900; color:#8a6000;">I wish / If only</td>
+            <td style="padding:12px 14px; font-family:monospace; font-weight:700;">wish/if only + had V3</td>
+            <td style="padding:12px 14px;">Regret / Жаль про минуле</td>
+            <td style="padding:12px 14px; border-radius:0 12px 12px 0; font-style:italic;">I wish she <b>had called</b> me.</td>
+          </tr>
+          <tr style="background:#1a1a2e; color:white;">
+            <td style="padding:12px 14px; border-radius:12px 0 0 12px; font-weight:900; color:#f4a523;">Historical Present</td>
+            <td style="padding:12px 14px; font-family:monospace; font-weight:700; color:rgba(255,255,255,0.8);">Present Simple V1</td>
+            <td style="padding:12px 14px; color:rgba(255,255,255,0.7);">Vivid past storytelling</td>
+            <td style="padding:12px 14px; border-radius:0 12px 12px 0; font-style:italic; color:rgba(255,255,255,0.85);">She <b>picks up</b> the phone and calls!</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  Made with ❤️ for English learners &nbsp;|&nbsp; <span>🕰️ The Past</span> — all tenses in one place &nbsp;|&nbsp; Вивчай англійську з задоволенням!
+</footer>
+
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+
+<script>
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const el = document.querySelector(a.getAttribute('href'));
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+</body>
+</html>

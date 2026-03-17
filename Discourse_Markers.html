@@ -1,0 +1,2098 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Discourse Markers — Learn English 🌟</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --yellow: #FFD93D;
+    --orange: #FF6B35;
+    --pink: #FF6B9D;
+    --purple: #9B5DE5;
+    --blue: #4CC9F0;
+    --green: #06D6A0;
+    --mint: #B7F5D8;
+    --lavender: #E8D5FF;
+    --bg: #FFF8F0;
+    --dark: #1A1A2E;
+    --card: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--dark);
+    overflow-x: hidden;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    background: linear-gradient(135deg, #1A1A2E 0%, #16213E 50%, #0F3460 100%);
+    padding: 60px 20px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 40%, rgba(156,93,229,0.2) 0%, transparent 50%),
+                radial-gradient(circle at 70% 60%, rgba(76,201,240,0.2) 0%, transparent 50%);
+    animation: pulse 6s ease-in-out infinite alternate;
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1) rotate(0deg); }
+    100% { transform: scale(1.1) rotate(5deg); }
+  }
+
+  .stars {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+  }
+
+  .star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 3s ease-in-out infinite;
+  }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.5); }
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: var(--yellow);
+    color: var(--dark);
+    font-weight: 800;
+    font-size: 0.85rem;
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    position: relative;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .hero h1 {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    color: white;
+    position: relative;
+    line-height: 1.1;
+    margin-bottom: 12px;
+  }
+
+  .hero h1 span { color: var(--yellow); }
+
+  .hero-sub {
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    color: rgba(255,255,255,0.75);
+    max-width: 600px;
+    margin: 0 auto 30px;
+    position: relative;
+  }
+
+  .hero-ua {
+    font-size: 1rem;
+    color: var(--blue);
+    position: relative;
+    font-style: italic;
+    font-weight: 600;
+  }
+
+  /* ===== CONTAINERS ===== */
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* ===== SECTION TITLES ===== */
+  .section-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
+  .section-ua {
+    text-align: center;
+    font-size: 1rem;
+    color: #888;
+    margin-bottom: 40px;
+    font-style: italic;
+  }
+
+  /* ===== WHAT IS IT SECTION ===== */
+  .what-section {
+    padding: 70px 20px;
+    background: white;
+  }
+
+  .what-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: center;
+    margin-top: 40px;
+  }
+
+  @media (max-width: 640px) {
+    .what-grid { grid-template-columns: 1fr; }
+  }
+
+  .what-visual {
+    background: linear-gradient(135deg, var(--purple), var(--blue));
+    border-radius: 24px;
+    padding: 30px;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .speech-bubbles {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .bubble {
+    background: rgba(255,255,255,0.2);
+    border-radius: 20px;
+    padding: 12px 18px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.3);
+    text-align: left;
+    position: relative;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .bubble:nth-child(2) { animation-delay: 0.5s; margin-left: 20px; }
+  .bubble:nth-child(3) { animation-delay: 1s; }
+  .bubble:nth-child(4) { animation-delay: 1.5s; margin-left: 20px; }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+
+  .bubble .marker {
+    background: var(--yellow);
+    color: var(--dark);
+    padding: 2px 8px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    margin-right: 4px;
+  }
+
+  .what-text h3 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+    color: var(--purple);
+  }
+
+  .what-text p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 12px;
+    color: #444;
+  }
+
+  .highlight-box {
+    background: var(--lavender);
+    border-left: 5px solid var(--purple);
+    border-radius: 12px;
+    padding: 14px 18px;
+    font-size: 0.95rem;
+    color: var(--dark);
+    font-weight: 600;
+  }
+
+  /* ===== FORMULA SECTION ===== */
+  .formula-section {
+    padding: 70px 20px;
+    background: linear-gradient(180deg, var(--bg) 0%, #FFF0F8 100%);
+  }
+
+  .formula-box {
+    background: white;
+    border-radius: 24px;
+    padding: 30px;
+    box-shadow: 0 10px 40px rgba(155,93,229,0.15);
+    margin-bottom: 30px;
+    border: 2px solid transparent;
+    transition: all 0.3s;
+  }
+
+  .formula-box:hover {
+    border-color: var(--purple);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 50px rgba(155,93,229,0.25);
+  }
+
+  .formula-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+
+  .formula-icon {
+    font-size: 2.5rem;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    flex-shrink: 0;
+  }
+
+  .formula-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.4rem;
+  }
+
+  .formula-title span {
+    display: block;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #888;
+  }
+
+  .formula-display {
+    background: #F7F3FF;
+    border-radius: 16px;
+    padding: 18px 22px;
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--dark);
+    margin-bottom: 14px;
+    font-family: 'Fredoka One', cursive;
+    letter-spacing: 0.5px;
+  }
+
+  .formula-display .part {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 8px;
+    margin: 3px;
+  }
+
+  .part-marker { background: var(--yellow); color: var(--dark); }
+  .part-comma { background: #FFE4E4; color: var(--orange); }
+  .part-subject { background: var(--mint); color: #1A6B4A; }
+  .part-verb { background: #E4F0FF; color: #1A4A8B; }
+  .part-object { background: #FFE8F5; color: #8B1A5E; }
+
+  /* ===== THE MAGIC SENTENCE ===== */
+  .magic-section {
+    padding: 70px 20px;
+    background: linear-gradient(135deg, #1A1A2E, #0F3460);
+    color: white;
+  }
+
+  .magic-section .section-title { color: white; }
+  .magic-section .section-ua { color: rgba(255,255,255,0.6); }
+
+  .base-sentence {
+    background: rgba(255,255,255,0.1);
+    border: 2px solid var(--yellow);
+    border-radius: 20px;
+    padding: 24px 30px;
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--yellow);
+    margin-bottom: 40px;
+    backdrop-filter: blur(10px);
+    font-family: 'Fredoka One', cursive;
+  }
+
+  .base-sentence .ua { display: block; font-size: 0.9rem; color: rgba(255,255,255,0.7); font-family: 'Nunito', sans-serif; font-weight: 600; margin-top: 6px; }
+
+  .transformations {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .transform-card {
+    background: rgba(255,255,255,0.07);
+    border-radius: 20px;
+    padding: 22px;
+    border: 1px solid rgba(255,255,255,0.15);
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .transform-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+  }
+
+  .transform-card:hover {
+    transform: translateY(-6px);
+    background: rgba(255,255,255,0.12);
+  }
+
+  .tc-1::before { background: var(--green); }
+  .tc-2::before { background: var(--orange); }
+  .tc-3::before { background: var(--pink); }
+  .tc-4::before { background: var(--blue); }
+  .tc-5::before { background: var(--yellow); }
+  .tc-6::before { background: var(--purple); }
+
+  .tc-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 800;
+    margin-bottom: 10px;
+    opacity: 0.7;
+  }
+
+  .tc-sentence {
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: 8px;
+  }
+
+  .tc-sentence .dm {
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-weight: 900;
+  }
+
+  .tc-ua {
+    font-size: 0.85rem;
+    opacity: 0.65;
+    line-height: 1.4;
+    font-style: italic;
+  }
+
+  /* ===== CATEGORIES SECTION ===== */
+  .categories-section {
+    padding: 70px 20px;
+    background: white;
+  }
+
+  .cat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+
+  .cat-card {
+    border-radius: 24px;
+    padding: 26px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s;
+  }
+
+  .cat-card:hover { transform: translateY(-6px); }
+
+  .cat-card::after {
+    content: attr(data-emoji);
+    position: absolute;
+    right: -10px;
+    bottom: -10px;
+    font-size: 5rem;
+    opacity: 0.12;
+    pointer-events: none;
+  }
+
+  .cat-1 { background: linear-gradient(135deg, #FFF3CD, #FFE4A0); }
+  .cat-2 { background: linear-gradient(135deg, #D4EDDA, #A8E6CF); }
+  .cat-3 { background: linear-gradient(135deg, #F8D7DA, #FFC0CB); }
+  .cat-4 { background: linear-gradient(135deg, #D1ECF1, #AEE6F0); }
+  .cat-5 { background: linear-gradient(135deg, #E2D9F3, #D0B8F5); }
+  .cat-6 { background: linear-gradient(135deg, #FFE5CC, #FFD0A0); }
+  .cat-7 { background: linear-gradient(135deg, #F0E6FF, #E0CCFF); }
+
+  .cat-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.3rem;
+    margin-bottom: 4px;
+    color: var(--dark);
+  }
+
+  .cat-ua {
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 14px;
+    font-style: italic;
+  }
+
+  .cat-when {
+    font-size: 0.85rem;
+    color: #555;
+    margin-bottom: 14px;
+    line-height: 1.5;
+  }
+
+  .markers-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 14px;
+  }
+
+  .marker-pill {
+    background: rgba(255,255,255,0.7);
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 0.82rem;
+    font-weight: 800;
+    color: var(--dark);
+    border: 2px solid rgba(0,0,0,0.08);
+  }
+
+  .cat-example {
+    background: rgba(255,255,255,0.6);
+    border-radius: 12px;
+    padding: 12px 14px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    line-height: 1.5;
+    color: var(--dark);
+  }
+
+  .cat-example .dm { font-weight: 900; text-decoration: underline; text-decoration-style: wavy; }
+  .cat-example .ua { display: block; font-size: 0.78rem; color: #666; font-style: italic; font-weight: 600; margin-top: 4px; }
+
+  /* ===== FILLERS SECTION ===== */
+  .fillers-section {
+    padding: 70px 20px;
+    background: linear-gradient(180deg, #FFF8F0 0%, #FFF0F8 100%);
+  }
+
+  .filler-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 40px;
+  }
+
+  @media (max-width: 640px) {
+    .filler-grid { grid-template-columns: 1fr; }
+  }
+
+  .filler-card {
+    background: white;
+    border-radius: 24px;
+    padding: 28px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    border: 2px solid transparent;
+    transition: all 0.3s;
+  }
+
+  .filler-card:hover { border-color: var(--pink); transform: translateY(-4px); }
+
+  .filler-card h3 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.5rem;
+    margin-bottom: 4px;
+  }
+
+  .filler-card .ua-label {
+    font-size: 0.82rem;
+    color: #888;
+    margin-bottom: 16px;
+    font-style: italic;
+  }
+
+  .filler-desc {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .speech-example {
+    background: #F9F5FF;
+    border-radius: 16px;
+    padding: 16px 20px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1.8;
+    color: var(--dark);
+    border-left: 4px solid var(--purple);
+  }
+
+  .speech-example .filler-word {
+    background: var(--lavender);
+    color: var(--purple);
+    padding: 1px 7px;
+    border-radius: 6px;
+    font-weight: 900;
+  }
+
+  .speech-example .ua-note {
+    display: block;
+    font-size: 0.8rem;
+    color: #888;
+    font-style: italic;
+    font-weight: 600;
+  }
+
+  /* ===== INDIVIDUAL FILLER CARDS ===== */
+  .filler-word-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 22px;
+    margin-top: 44px;
+  }
+
+  .fw-card {
+    background: white;
+    border-radius: 22px;
+    padding: 26px 24px 22px;
+    box-shadow: 0 6px 28px rgba(0,0,0,0.07);
+    border-top: 5px solid;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .fw-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 44px rgba(0,0,0,0.13);
+  }
+
+  .fw-card::after {
+    content: attr(data-word);
+    position: absolute;
+    right: -8px; bottom: -12px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 4.5rem;
+    opacity: 0.06;
+    pointer-events: none;
+    line-height: 1;
+    color: #000;
+  }
+
+  .fw-top {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+
+  .fw-emoji {
+    font-size: 2.2rem;
+    width: 52px; height: 52px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 14px;
+    flex-shrink: 0;
+  }
+
+  .fw-word {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.6rem;
+    line-height: 1.1;
+  }
+
+  .fw-pronunciation {
+    font-size: 0.8rem;
+    color: #999;
+    font-style: italic;
+    margin-top: 2px;
+  }
+
+  .fw-ua-meaning {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 800;
+    padding: 3px 10px;
+    border-radius: 10px;
+    background: #F3F0FF;
+    color: #7B4FD0;
+    margin-top: 4px;
+  }
+
+  .fw-when {
+    font-size: 0.88rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 14px;
+    padding: 10px 14px;
+    background: #FAFAFA;
+    border-radius: 12px;
+  }
+
+  .fw-when strong { color: var(--dark); }
+
+  .fw-examples {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+
+  .fw-ex {
+    background: #F8F5FF;
+    border-radius: 12px;
+    padding: 10px 14px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--dark);
+    line-height: 1.5;
+    border-left: 3px solid;
+  }
+
+  .fw-ex .fw {
+    font-weight: 900;
+    padding: 1px 6px;
+    border-radius: 5px;
+  }
+
+  .fw-ex .tr {
+    display: block;
+    font-size: 0.78rem;
+    color: #888;
+    font-style: italic;
+    font-weight: 600;
+    margin-top: 3px;
+  }
+
+  .fw-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+  }
+
+  .convo-block {
+    background: linear-gradient(135deg, #1A1A2E, #16213E);
+    border-radius: 24px;
+    padding: 32px;
+    margin-top: 44px;
+    color: white;
+  }
+
+  .convo-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.5rem;
+    color: var(--yellow);
+    margin-bottom: 6px;
+  }
+
+  .convo-ua {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 22px;
+    font-style: italic;
+  }
+
+  .convo-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .convo-line {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .convo-avatar {
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    border: 2px solid rgba(255,255,255,0.2);
+  }
+
+  .convo-bubble {
+    background: rgba(255,255,255,0.1);
+    border-radius: 16px 16px 16px 4px;
+    padding: 12px 16px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    line-height: 1.5;
+    max-width: calc(100% - 54px);
+  }
+
+  .convo-bubble.right {
+    border-radius: 16px 16px 4px 16px;
+    background: rgba(155,93,229,0.3);
+  }
+
+  .convo-bubble .fw {
+    padding: 1px 6px;
+    border-radius: 5px;
+    font-weight: 900;
+  }
+
+  .convo-bubble .ua-sub {
+    display: block;
+    font-size: 0.75rem;
+    opacity: 0.6;
+    font-style: italic;
+    font-weight: 600;
+    margin-top: 3px;
+  }
+
+  .filler-right { margin-left: auto; }
+    margin-top: 6px;
+  }
+
+  /* ===== HEDGE WORDS SECTION ===== */
+  .hedge-section {
+    padding: 70px 20px;
+    background: white;
+  }
+
+  .hedge-intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 40px;
+    align-items: center;
+  }
+
+  @media (max-width: 640px) {
+    .hedge-intro { grid-template-columns: 1fr; }
+    .transformations { grid-template-columns: 1fr; }
+  }
+
+  .hedge-visual {
+    background: linear-gradient(135deg, #06D6A0, #4CC9F0);
+    border-radius: 24px;
+    padding: 30px;
+    color: white;
+  }
+
+  .certainty-scale {
+    margin-top: 10px;
+  }
+
+  .scale-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+
+  .scale-bar {
+    height: 14px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.9);
+    flex: 1;
+  }
+
+  .scale-label {
+    font-weight: 800;
+    font-size: 0.9rem;
+    min-width: 80px;
+  }
+
+  .scale-percent {
+    font-size: 0.8rem;
+    opacity: 0.8;
+    min-width: 40px;
+    text-align: right;
+  }
+
+  .hedge-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+  }
+
+  .hedge-table th {
+    text-align: left;
+    padding: 10px 16px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #888;
+    font-weight: 800;
+  }
+
+  .hedge-table td {
+    padding: 14px 16px;
+    background: #F7F9FF;
+    font-size: 0.95rem;
+  }
+
+  .hedge-table td:first-child {
+    border-radius: 12px 0 0 12px;
+    font-weight: 900;
+    color: var(--purple);
+  }
+
+  .hedge-table td:last-child {
+    border-radius: 0 12px 12px 0;
+    color: #666;
+    font-style: italic;
+  }
+
+  /* ===== TIPS SECTION ===== */
+  .tips-section {
+    padding: 70px 20px;
+    background: linear-gradient(135deg, #FFD93D22, #FF6B3522);
+  }
+
+  .tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+  }
+
+  .tip-card {
+    background: white;
+    border-radius: 20px;
+    padding: 24px 20px;
+    text-align: center;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.07);
+    transition: transform 0.3s;
+  }
+
+  .tip-card:hover { transform: translateY(-6px) rotate(1deg); }
+
+  .tip-icon { font-size: 3rem; margin-bottom: 14px; display: block; }
+  .tip-title { font-family: 'Fredoka One', cursive; font-size: 1.2rem; margin-bottom: 6px; }
+  .tip-ua { font-size: 0.75rem; color: #888; margin-bottom: 10px; font-style: italic; }
+  .tip-text { font-size: 0.9rem; color: #555; line-height: 1.5; }
+
+  /* ===== QUICK REFERENCE ===== */
+  .reference-section {
+    padding: 70px 20px;
+    background: linear-gradient(135deg, #1A1A2E, #16213E);
+    color: white;
+  }
+
+  .reference-section .section-title { color: white; }
+  .reference-section .section-ua { color: rgba(255,255,255,0.5); }
+
+  .ref-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+  }
+
+  .ref-card {
+    background: rgba(255,255,255,0.07);
+    border-radius: 18px;
+    padding: 20px;
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: all 0.3s;
+  }
+
+  .ref-card:hover {
+    background: rgba(255,255,255,0.12);
+    transform: translateY(-4px);
+  }
+
+  .ref-emoji { font-size: 1.8rem; margin-bottom: 8px; }
+  .ref-cat { font-family: 'Fredoka One', cursive; font-size: 1rem; color: var(--yellow); margin-bottom: 8px; }
+  .ref-words { font-size: 0.82rem; line-height: 1.8; color: rgba(255,255,255,0.75); }
+  .ref-words strong { color: white; }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: #0D0D1A;
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 0.9rem;
+  }
+
+  footer span { color: var(--yellow); }
+
+  /* ===== SCROLL ANIMATION ===== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ===== NAV ===== */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(26,26,46,0.95);
+    backdrop-filter: blur(20px);
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  nav::-webkit-scrollbar { display: none; }
+
+  .nav-logo {
+    font-family: 'Fredoka One', cursive;
+    color: var(--yellow);
+    font-size: 1.1rem;
+    white-space: nowrap;
+    margin-right: 8px;
+  }
+
+  .nav-link {
+    background: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.8);
+    border: none;
+    padding: 7px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    font-family: 'Nunito', sans-serif;
+    transition: all 0.2s;
+  }
+
+  .nav-link:hover {
+    background: var(--purple);
+    color: white;
+  }
+
+  /* Divider */
+  .wave-divider {
+    overflow: hidden;
+    line-height: 0;
+  }
+
+  .wave-divider svg {
+    display: block;
+    width: 100%;
+  }
+
+  /* ===== MOBILE RESPONSIVE ===== */
+  @media (max-width: 768px) {
+
+    /* General spacing */
+    .what-section,
+    .formula-section,
+    .fillers-section,
+    .hedge-section,
+    .tips-section,
+    .reference-section,
+    .categories-section {
+      padding: 44px 14px;
+    }
+
+    .magic-section { padding: 44px 14px; }
+
+    .container { padding: 0 14px; }
+
+    /* Section titles */
+    .section-title { font-size: 1.7rem; margin-bottom: 6px; }
+    .section-ua { margin-bottom: 24px; font-size: 0.9rem; }
+
+    /* Hero */
+    .hero { padding: 44px 16px 56px; }
+    .hero h1 { font-size: 2.2rem; }
+    .hero-sub { font-size: 0.95rem; }
+    .hero-ua { font-size: 0.88rem; }
+
+    /* Nav — already scrolls horizontally, just reduce padding */
+    nav { padding: 10px 12px; gap: 6px; }
+    .nav-logo { font-size: 0.95rem; margin-right: 4px; }
+    .nav-link { padding: 6px 11px; font-size: 0.75rem; }
+
+    /* What grid → single column */
+    .what-grid { grid-template-columns: 1fr; gap: 20px; }
+    .what-text h3 { font-size: 1.3rem; }
+    .what-text p { font-size: 0.95rem; }
+
+    /* Formula boxes */
+    .formula-box { padding: 20px 16px; }
+    .formula-display { font-size: 0.9rem; padding: 14px 14px; }
+    .formula-display .part { font-size: 0.82rem; padding: 3px 7px; margin: 2px; }
+    .formula-header { gap: 10px; }
+    .formula-icon { width: 48px; height: 48px; font-size: 2rem; }
+    .formula-title { font-size: 1.15rem; }
+
+    /* Formula example mini-grid → stack */
+    .formula-box > div[style*="grid-template-columns"] {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 10px !important;
+    }
+
+    /* Magic sentence */
+    .base-sentence { font-size: 1.1rem; padding: 18px 16px; }
+    .base-sentence .ua { font-size: 0.82rem; }
+    .transformations { grid-template-columns: 1fr; gap: 14px; }
+    .transform-card { padding: 16px; }
+    .tc-sentence { font-size: 0.92rem; }
+    .tc-ua { font-size: 0.8rem; }
+
+    /* Categories */
+    .cat-grid { grid-template-columns: 1fr; gap: 16px; }
+    .cat-card { padding: 20px 18px; }
+    .cat-title { font-size: 1.15rem; }
+
+    /* Filler word cards */
+    .filler-word-grid { grid-template-columns: 1fr; gap: 16px; }
+    .fw-card { padding: 20px 18px; }
+    .fw-word { font-size: 1.35rem; }
+    .fw-emoji { width: 44px; height: 44px; font-size: 1.8rem; }
+    .fw-when { font-size: 0.82rem; }
+    .fw-ex { font-size: 0.82rem; }
+
+    /* Conversation block */
+    .convo-block { padding: 20px 16px; }
+    .convo-title { font-size: 1.2rem; }
+    .convo-bubble { font-size: 0.82rem; padding: 10px 13px; }
+    .convo-avatar { width: 32px; height: 32px; font-size: 1rem; }
+
+    /* Hedge section */
+    .hedge-intro { grid-template-columns: 1fr; gap: 20px; }
+    .scale-label { font-size: 0.75rem; min-width: 64px; }
+    .scale-percent { font-size: 0.72rem; min-width: 32px; }
+    .scale-bar { height: 11px; }
+
+    /* Hedge table — horizontal scroll */
+    .hedge-table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 14px;
+    }
+    .hedge-table { min-width: 480px; font-size: 0.85rem; }
+    .hedge-table th { font-size: 0.75rem; padding: 8px 12px; }
+    .hedge-table td { padding: 11px 12px; font-size: 0.85rem; }
+
+    /* Tips grid */
+    .tips-grid { grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 24px; }
+    .tip-card { padding: 18px 14px; }
+    .tip-icon { font-size: 2.2rem; margin-bottom: 10px; }
+    .tip-title { font-size: 1rem; }
+    .tip-text { font-size: 0.82rem; }
+
+    /* Reference grid */
+    .ref-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .ref-card { padding: 16px 14px; }
+    .ref-words { font-size: 0.78rem; line-height: 1.7; }
+
+    /* Filler grid (old 2-col cards) */
+    .filler-grid { grid-template-columns: 1fr; gap: 16px; margin-top: 24px; }
+    .filler-card { padding: 20px 16px; }
+
+    /* Formula parts — allow wrap */
+    .formula-display { word-break: break-word; white-space: normal; }
+  }
+
+  @media (max-width: 400px) {
+    .tips-grid { grid-template-columns: 1fr; }
+    .ref-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 1.9rem; }
+    .section-title { font-size: 1.45rem; }
+    .base-sentence { font-size: 1rem; }
+    .fw-top { flex-direction: column; gap: 8px; }
+  }
+
+#scroll-top-btn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #1a1208;
+  border: 1.5px solid rgba(200,150,62,0.4);
+  color: #f5f0e8;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+  pointer-events: none;
+  z-index: 9998;
+}
+#scroll-top-btn.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+#scroll-top-btn:hover {
+  background: #c8963e;
+  border-color: #c8963e;
+  color: #1a1208;
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-logo">🗣️ DM Guide</span>
+  <button class="nav-link" onclick="document.getElementById('what').scrollIntoView({behavior:'smooth'})">What is it?</button>
+  <button class="nav-link" onclick="document.getElementById('formula').scrollIntoView({behavior:'smooth'})">Formula</button>
+  <button class="nav-link" onclick="document.getElementById('magic').scrollIntoView({behavior:'smooth'})">Magic Sentence ✨</button>
+  <button class="nav-link" onclick="document.getElementById('categories').scrollIntoView({behavior:'smooth'})">Categories</button>
+  <button class="nav-link" onclick="document.getElementById('fillers').scrollIntoView({behavior:'smooth'})">Fillers</button>
+  <button class="nav-link" onclick="document.getElementById('hedge').scrollIntoView({behavior:'smooth'})">Hedge Words</button>
+  <button class="nav-link" onclick="document.getElementById('tips').scrollIntoView({behavior:'smooth'})">Tips</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="stars" id="stars"></div>
+  <div style="position:relative">
+    <div class="hero-badge">✨ English Grammar Made Fun</div>
+    <h1>Discourse <span>Markers</span></h1>
+    <p class="hero-sub">The secret glue that makes your English sound fluent and natural</p>
+    <p class="hero-ua">🇺🇦 Сигнальні слова — секретний клей, що робить твою англійську плавною та природною</p>
+  </div>
+</section>
+
+<!-- WHAT IS IT -->
+<section class="what-section" id="what">
+  <div class="container">
+    <h2 class="section-title reveal">🤔 What Are Discourse Markers?</h2>
+    <p class="section-ua reveal">Що таке дискурсивні маркери?</p>
+    <div class="what-grid">
+      <div class="what-visual reveal">
+        <div class="speech-bubbles">
+          <div class="bubble"><span class="marker">First</span> I woke up late.</div>
+          <div class="bubble"><span class="marker">Then</span> I missed the bus.</div>
+          <div class="bubble"><span class="marker">However</span> my friend gave me a ride.</div>
+          <div class="bubble"><span class="marker">In the end</span> everything was fine! 😊</div>
+        </div>
+      </div>
+      <div class="what-text reveal">
+        <h3>Think of them as road signs! 🛣️</h3>
+        <p>Discourse markers are special words and phrases that connect sentences and show how ideas are related. They tell your listener what's coming next — like a GPS for conversation!</p>
+        <p style="color:#888; font-size:0.9rem; font-style:italic; margin-bottom:12px">Дискурсивні маркери — це спеціальні слова та фрази, які з'єднують речення і показують зв'язок між ідеями. Вони як дорожні знаки — показують, що буде далі!</p>
+        <div class="highlight-box">
+          📌 Without markers: sentences sound choppy and robotic.<br>
+          📌 With markers: speech flows naturally like a river!<br>
+          <span style="font-size:0.82rem; color:#888; font-style:italic">Без маркерів: речення звучать уривчасто. З маркерами: мова тече природно!</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULA SECTION -->
+<section class="formula-section" id="formula">
+  <div class="container">
+    <h2 class="section-title reveal">📐 How To Build Them</h2>
+    <p class="section-ua reveal">Як їх будувати — формули</p>
+
+    <div class="formula-box reveal">
+      <div class="formula-header">
+        <div class="formula-icon" style="background:#FFF3CD">🔗</div>
+        <div>
+          <div class="formula-title">At the START of a sentence <span>На початку речення</span></div>
+        </div>
+      </div>
+      <div class="formula-display">
+        <span class="part part-marker">Discourse Marker</span> + <span class="part part-comma">,</span> + <span class="part part-subject">Subject</span> + <span class="part part-verb">Verb</span> + <span class="part part-object">the rest...</span>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; font-size:0.92rem;">
+        <div style="background:#FFFDE7; border-radius:12px; padding:12px"><strong>However, she didn't give up.</strong><br><span style="color:#888; font-size:0.8rem">Однак вона не здалась.</span></div>
+        <div style="background:#FFFDE7; border-radius:12px; padding:12px"><strong>First of all, let me explain.</strong><br><span style="color:#888; font-size:0.8rem">Перш за все, дозвольте пояснити.</span></div>
+      </div>
+    </div>
+
+    <div class="formula-box reveal">
+      <div class="formula-header">
+        <div class="formula-icon" style="background:#D4EDDA">🔀</div>
+        <div>
+          <div class="formula-title">In the MIDDLE of a sentence <span>В середині речення</span></div>
+        </div>
+      </div>
+      <div class="formula-display">
+        <span class="part part-subject">Sentence 1</span> + <span class="part part-marker">Discourse Marker</span> + <span class="part part-object">Sentence 2</span>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; font-size:0.92rem;">
+        <div style="background:#D4EDDA; border-radius:12px; padding:12px"><strong>I was tired, <u>but</u> I kept studying.</strong><br><span style="color:#888; font-size:0.8rem">Я втомився, але продовжував вчитись.</span></div>
+        <div style="background:#D4EDDA; border-radius:12px; padding:12px"><strong>She sang <u>and then</u> danced.</strong><br><span style="color:#888; font-size:0.8rem">Вона заспівала, а потім потанцювала.</span></div>
+      </div>
+    </div>
+
+    <div class="formula-box reveal">
+      <div class="formula-header">
+        <div class="formula-icon" style="background:#D1ECF1">💬</div>
+        <div>
+          <div class="formula-title">As a FILLER (thinking out loud) <span>Як заповнювач паузи (думаємо вголос)</span></div>
+        </div>
+      </div>
+      <div class="formula-display">
+        <span class="part part-marker">Filler</span> + <span class="part part-comma">...</span> + <span class="part part-object">your idea (when ready!)</span>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; font-size:0.92rem;">
+        <div style="background:#D1ECF1; border-radius:12px; padding:12px"><strong>"Well… I think it's blue."</strong><br><span style="color:#888; font-size:0.8rem">«Ну… я думаю, це синій.»</span></div>
+        <div style="background:#D1ECF1; border-radius:12px; padding:12px"><strong>"You know, it's kind of hard."</strong><br><span style="color:#888; font-size:0.8rem">«Знаєш, це досить складно.»</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAGIC SENTENCE SECTION -->
+<section class="magic-section" id="magic">
+  <div class="container">
+    <h2 class="section-title reveal">✨ The Magic Sentence</h2>
+    <p class="section-ua reveal">Одне чарівне речення — дивись, як воно змінюється!</p>
+    <div class="base-sentence reveal">
+      🌟 "I studied hard. I passed the exam."
+      <span>🇺🇦 «Я наполегливо вчився. Я склав іспит.»</span>
+    </div>
+    <div class="transformations">
+      <div class="transform-card tc-1 reveal">
+        <div class="tc-label" style="color: #06D6A0">➕ Adding / Додавання</div>
+        <div class="tc-sentence"><span class="dm" style="background:#06D6A0; color:#000; border-radius:6px; padding:2px 8px">Moreover</span>, I studied hard and passed the exam.</div>
+        <div class="tc-ua">«Більше того, я наполегливо вчився і склав іспит.»</div>
+      </div>
+      <div class="transform-card tc-2 reveal">
+        <div class="tc-label" style="color: #FF6B35">⚡ Contrast / Протиставлення</div>
+        <div class="tc-sentence">I studied hard. <span class="dm" style="background:#FF6B35; color:#fff; border-radius:6px; padding:2px 8px">However</span>, passing the exam wasn't easy.</div>
+        <div class="tc-ua">«Я наполегливо вчився. Однак скласти іспит було нелегко.»</div>
+      </div>
+      <div class="transform-card tc-3 reveal">
+        <div class="tc-label" style="color: #FF6B9D">📋 Sequencing / Послідовність</div>
+        <div class="tc-sentence"><span class="dm" style="background:#FF6B9D; color:#fff; border-radius:6px; padding:2px 8px">First</span>, I studied hard. <span class="dm" style="background:#FF6B9D; color:#fff; border-radius:6px; padding:2px 8px">Then</span>, I passed the exam.</div>
+        <div class="tc-ua">«Спочатку я вчився. Потім я склав іспит.»</div>
+      </div>
+      <div class="transform-card tc-4 reveal">
+        <div class="tc-label" style="color: #4CC9F0">🎯 Result / Результат</div>
+        <div class="tc-sentence">I studied hard. <span class="dm" style="background:#4CC9F0; color:#000; border-radius:6px; padding:2px 8px">As a result</span>, I passed the exam.</div>
+        <div class="tc-ua">«Я вчився. Як результат, я склав іспит.»</div>
+      </div>
+      <div class="transform-card tc-5 reveal">
+        <div class="tc-label" style="color: #FFD93D">💡 Reason / Причина</div>
+        <div class="tc-sentence">I passed the exam <span class="dm" style="background:#FFD93D; color:#000; border-radius:6px; padding:2px 8px">because</span> I studied hard.</div>
+        <div class="tc-ua">«Я склав іспит, тому що наполегливо вчився.»</div>
+      </div>
+      <div class="transform-card tc-6 reveal">
+        <div class="tc-label" style="color: #9B5DE5">🏁 Summarizing / Підсумовування</div>
+        <div class="tc-sentence"><span class="dm" style="background:#9B5DE5; color:#fff; border-radius:6px; padding:2px 8px">In conclusion</span>, studying hard helped me pass the exam.</div>
+        <div class="tc-ua">«На закінчення, наполеглива праця допомогла мені скласти іспит.»</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="categories-section" id="categories">
+  <div class="container">
+    <h2 class="section-title reveal">🗂️ Types of Discourse Markers</h2>
+    <p class="section-ua reveal">Типи дискурсивних маркерів — коли що вживати?</p>
+    <div class="cat-grid">
+
+      <div class="cat-card cat-1 reveal" data-emoji="📋">
+        <div class="cat-title">📋 Sequencing</div>
+        <div class="cat-ua">Послідовність / Порядок</div>
+        <div class="cat-when">Use when: telling a story, listing steps<br><span style="font-size:0.8rem; color:#888">Коли: розповідаєш історію, перелічуєш кроки</span></div>
+        <div class="markers-list">
+          <span class="marker-pill">First</span><span class="marker-pill">Then</span><span class="marker-pill">Next</span><span class="marker-pill">After that</span><span class="marker-pill">Finally</span><span class="marker-pill">Last</span>
+        </div>
+        <div class="cat-example">
+          <dm class="dm">First</dm>, I made pancakes. <dm class="dm">Then</dm> I ate them all. 🥞
+          <span class="ua">Спочатку я зробив млинці. Потім з'їв їх усі.</span>
+        </div>
+      </div>
+
+      <div class="cat-card cat-2 reveal" data-emoji="⚡">
+        <div class="cat-title">⚡ Contrast</div>
+        <div class="cat-ua">Протиставлення</div>
+        <div class="cat-when">Use when: showing two opposite ideas<br><span style="font-size:0.8rem; color:#888">Коли: показуєш дві протилежні ідеї</span></div>
+        <div class="markers-list">
+          <span class="marker-pill">However</span><span class="marker-pill">But</span><span class="marker-pill">Although</span><span class="marker-pill">On the other hand</span><span class="marker-pill">Nevertheless</span><span class="marker-pill">Yet</span>
+        </div>
+        <div class="cat-example">
+          It was raining. <dm class="dm">However</dm>, we went for a walk.
+          <span class="ua">Йшов дощ. Однак ми пішли на прогулянку.</span>
+        </div>
+      </div>
+
+      <div class="cat-card cat-3 reveal" data-emoji="➕">
+        <div class="cat-title">➕ Adding Ideas</div>
+        <div class="cat-ua">Додавання інформації</div>
+        <div class="cat-when">Use when: giving more info, more examples<br><span style="font-size:0.8rem; color:#888">Коли: додаєш більше інформації або прикладів</span></div>
+        <div class="markers-list">
+          <span class="marker-pill">Also</span><span class="marker-pill">Moreover</span><span class="marker-pill">Furthermore</span><span class="marker-pill">In addition</span><span class="marker-pill">Besides</span><span class="marker-pill">What's more</span>
+        </div>
+        <div class="cat-example">
+          She can dance. <dm class="dm">Furthermore</dm>, she can sing! 🎤
+          <span class="ua">Вона вміє танцювати. Більше того, вона вміє співати!</span>
+        </div>
+      </div>
+
+      <div class="cat-card cat-4 reveal" data-emoji="🎯">
+        <div class="cat-title">🎯 Cause & Result</div>
+        <div class="cat-ua">Причина та Результат</div>
+        <div class="cat-when">Use when: explaining WHY or WHAT HAPPENED<br><span style="font-size:0.8rem; color:#888">Коли: пояснюєш ЧОМУ або ЩО СТАЛОСЯ</span></div>
+        <div class="markers-list">
+          <span class="marker-pill">Because</span><span class="marker-pill">So</span><span class="marker-pill">Therefore</span><span class="marker-pill">As a result</span><span class="marker-pill">Due to</span><span class="marker-pill">That's why</span>
+        </div>
+        <div class="cat-example">
+          I was hungry, <dm class="dm">so</dm> I ordered pizza. 🍕
+          <span class="ua">Я був голодний, тому замовив піцу.</span>
+        </div>
+      </div>
+
+      <div class="cat-card cat-5 reveal" data-emoji="💡">
+        <div class="cat-title">💡 Examples & Clarity</div>
+        <div class="cat-ua">Приклади та Уточнення</div>
+        <div class="cat-when">Use when: giving examples, explaining more<br><span style="font-size:0.8rem; color:#888">Коли: наводиш приклади, пояснюєш детальніше</span></div>
+        <div class="markers-list">
+          <span class="marker-pill">For example</span><span class="marker-pill">For instance</span><span class="marker-pill">Such as</span><span class="marker-pill">In other words</span><span class="marker-pill">That is</span>
+        </div>
+        <div class="cat-example">
+          I like sports, <dm class="dm">for example</dm>, football and tennis.
+          <span class="ua">Я люблю спорт, наприклад, футбол і теніс.</span>
+        </div>
+      </div>
+
+      <div class="cat-card cat-6 reveal" data-emoji="🏁">
+        <div class="cat-title">🏁 Summarizing</div>
+        <div class="cat-ua">Підсумовування / Висновок</div>
+        <div class="cat-when">Use when: ending a speech, essay conclusion<br><span style="font-size:0.8rem; color:#888">Коли: завершуєш промову або есе</span></div>
+        <div class="markers-list">
+          <span class="marker-pill">In conclusion</span><span class="marker-pill">To sum up</span><span class="marker-pill">Overall</span><span class="marker-pill">In short</span><span class="marker-pill">All in all</span>
+        </div>
+        <div class="cat-example">
+          <dm class="dm">In conclusion</dm>, exercise is good for everyone. 🏃
+          <span class="ua">На закінчення, фізичні вправи корисні для всіх.</span>
+        </div>
+      </div>
+
+      <div class="cat-card cat-7 reveal" data-emoji="🎙️">
+        <div class="cat-title">🎙️ Showing Opinion</div>
+        <div class="cat-ua">Вираження думки</div>
+        <div class="cat-when">Use when: sharing your personal view<br><span style="font-size:0.8rem; color:#888">Коли: ділишся особистою думкою</span></div>
+        <div class="markers-list">
+          <span class="marker-pill">In my opinion</span><span class="marker-pill">I think</span><span class="marker-pill">Personally</span><span class="marker-pill">As far as I know</span><span class="marker-pill">I believe</span>
+        </div>
+        <div class="cat-example">
+          <dm class="dm">In my opinion</dm>, cats are better than dogs. 🐱
+          <span class="ua">На мою думку, коти кращі за собак.</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FILLERS SECTION -->
+<section class="fillers-section" id="fillers">
+  <div class="container">
+    <h2 class="section-title reveal">⏳ Fillers</h2>
+    <p class="section-ua reveal">Слова-заповнювачі — що казати, поки думаєш</p>
+    <p style="text-align:center; font-size:1rem; color:#666; max-width:660px; margin:0 auto 10px; line-height:1.7" class="reveal">
+      Fillers are small words or phrases that we say while thinking or searching for the right word. They sound natural and help keep the conversation flowing — native speakers use them <em>constantly</em>!<br>
+      <span style="font-size:0.85rem; color:#aaa; font-style:italic">Слова-заповнювачі — це слова або фрази, які ми кажемо, поки думаємо або шукаємо потрібне слово. Вони звучать природньо та допомагають підтримати розмову — носії мови вживають їх весь час!</span>
+    </p>
+    <p style="text-align:center; margin-bottom:44px" class="reveal">
+      <span style="display:inline-block; background:#FFD93D22; border:2px solid var(--yellow); border-radius:14px; padding:10px 22px; font-size:0.92rem; font-weight:700; color:#7A5800">
+        ⚠️ Fillers are for SPEAKING, not writing! / Філери — для розмови, не для письма!
+      </span>
+    </p>
+
+    <!-- INDIVIDUAL FILLER WORD CARDS -->
+    <div class="filler-word-grid">
+
+      <!-- UM / UH -->
+      <div class="fw-card reveal" style="border-top-color:#9B5DE5" data-word="Um">
+        <div class="fw-top">
+          <div class="fw-emoji" style="background:#F3EEFF">🤔</div>
+          <div>
+            <div class="fw-word" style="color:#9B5DE5">Um / Uh</div>
+            <div class="fw-pronunciation">[ ʌm ] / [ ʌ ]</div>
+            <span class="fw-ua-meaning">«е-е» / «м-м»</span>
+          </div>
+        </div>
+        <span class="fw-tag" style="background:#F3EEFF; color:#9B5DE5">⏸ Thinking pause / Пауза для роздумів</span>
+        <div class="fw-when">
+          <strong>When to use:</strong> You need a second to think before answering. Your brain is searching for the word!<br>
+          <span style="font-size:0.8rem; color:#aaa">Коли вживати: потрібна секунда, щоб подумати. Мозок шукає слово!</span>
+        </div>
+        <div class="fw-examples">
+          <div class="fw-ex" style="background:#F3EEFF; border-left-color:#9B5DE5">
+            "What's the capital of Australia? — <span class="fw" style="background:#9B5DE5; color:#fff">Um</span>… is it Sydney? No wait — Canberra!"
+            <span class="tr">«Яка столиця Австралії? — М-м… це Сідней? Ні, зачекай — Канберра!»</span>
+          </div>
+          <div class="fw-ex" style="background:#F3EEFF; border-left-color:#9B5DE5">
+            "So <span class="fw" style="background:#9B5DE5; color:#fff">uh</span>… I was thinking we could go to the cinema?"
+            <span class="tr">«Ну, е-е… я думав, ми могли б сходити в кіно?»</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- WELL -->
+      <div class="fw-card reveal" style="border-top-color:#FF6B9D" data-word="Well">
+        <div class="fw-top">
+          <div class="fw-emoji" style="background:#FFF0F6">💭</div>
+          <div>
+            <div class="fw-word" style="color:#FF6B9D">Well…</div>
+            <div class="fw-pronunciation">[ wɛl ]</div>
+            <span class="fw-ua-meaning">«Ну…» / «Що ж…»</span>
+          </div>
+        </div>
+        <span class="fw-tag" style="background:#FFF0F6; color:#FF6B9D">🌀 Softener + Starter / М'який початок</span>
+        <div class="fw-when">
+          <strong>When to use:</strong> Starting an answer, especially a tricky or unexpected one. Also softens bad news!<br>
+          <span style="font-size:0.8rem; color:#aaa">Коли вживати: починаючи відповідь, особливо складну. Також пом'якшує погані новини!</span>
+        </div>
+        <div class="fw-examples">
+          <div class="fw-ex" style="background:#FFF0F6; border-left-color:#FF6B9D">
+            "Did you finish your homework? — <span class="fw" style="background:#FF6B9D; color:#fff">Well</span>… I tried, but the dog ate it."
+            <span class="tr">«Ти зробив домашнє завдання? — Ну… я намагався, але собака з'їв його.»</span>
+          </div>
+          <div class="fw-ex" style="background:#FFF0F6; border-left-color:#FF6B9D">
+            "<span class="fw" style="background:#FF6B9D; color:#fff">Well</span>, that's not exactly what I expected to hear."
+            <span class="tr">«Що ж, це не зовсім те, що я очікував почути.»</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- YOU KNOW -->
+      <div class="fw-card reveal" style="border-top-color:#4CC9F0" data-word="Know">
+        <div class="fw-top">
+          <div class="fw-emoji" style="background:#E8F9FF">🤝</div>
+          <div>
+            <div class="fw-word" style="color:#4CC9F0">You know</div>
+            <div class="fw-pronunciation">[ juː nəʊ ]</div>
+            <span class="fw-ua-meaning">«Знаєш» / «Розумієш»</span>
+          </div>
+        </div>
+        <span class="fw-tag" style="background:#E8F9FF; color:#0099CC">🤗 Connection / Зв'язок зі слухачем</span>
+        <div class="fw-when">
+          <strong>When to use:</strong> When you expect the listener to understand or agree. Creates a "we're on the same page" feeling.<br>
+          <span style="font-size:0.8rem; color:#aaa">Коли вживати: коли очікуєш, що слухач зрозуміє або погодиться. Створює відчуття спільного розуміння.</span>
+        </div>
+        <div class="fw-examples">
+          <div class="fw-ex" style="background:#E8F9FF; border-left-color:#4CC9F0">
+            "It was <span class="fw" style="background:#4CC9F0; color:#000">you know</span>, that awkward moment when everyone looks at you."
+            <span class="tr">«Це був, знаєш, той незручний момент, коли всі дивляться на тебе.»</span>
+          </div>
+          <div class="fw-ex" style="background:#E8F9FF; border-left-color:#4CC9F0">
+            "I just felt, <span class="fw" style="background:#4CC9F0; color:#000">you know</span>, like something was wrong."
+            <span class="tr">«Я просто відчував, розумієш, що щось не так.»</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- LIKE -->
+      <div class="fw-card reveal" style="border-top-color:#06D6A0" data-word="Like">
+        <div class="fw-top">
+          <div class="fw-emoji" style="background:#EAFFF8">😎</div>
+          <div>
+            <div class="fw-word" style="color:#06D6A0">Like</div>
+            <div class="fw-pronunciation">[ laɪk ]</div>
+            <span class="fw-ua-meaning">«Типу» / «Ну»</span>
+          </div>
+        </div>
+        <span class="fw-tag" style="background:#EAFFF8; color:#06D6A0">🧒 Very casual / Неформальне</span>
+        <div class="fw-when">
+          <strong>When to use:</strong> Super casual speech — very popular with young people! Used to give examples, quote someone, or fill a pause. Avoid in formal situations!<br>
+          <span style="font-size:0.8rem; color:#aaa">Коли вживати: дуже неформально — популярно серед молоді! Уникай у формальних ситуаціях!</span>
+        </div>
+        <div class="fw-examples">
+          <div class="fw-ex" style="background:#EAFFF8; border-left-color:#06D6A0">
+            "She was <span class="fw" style="background:#06D6A0; color:#000">like</span>, totally shocked when she heard the news."
+            <span class="tr">«Вона була типу, повністю шокована, коли почула новини.»</span>
+          </div>
+          <div class="fw-ex" style="background:#EAFFF8; border-left-color:#06D6A0">
+            "It's <span class="fw" style="background:#06D6A0; color:#000">like</span>… I don't even know how to explain it."
+            <span class="tr">«Це типу… я навіть не знаю, як це пояснити.»</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- I MEAN -->
+      <div class="fw-card reveal" style="border-top-color:#FF6B35" data-word="Mean">
+        <div class="fw-top">
+          <div class="fw-emoji" style="background:#FFF2EC">🔁</div>
+          <div>
+            <div class="fw-word" style="color:#FF6B35">I mean</div>
+            <div class="fw-pronunciation">[ aɪ miːn ]</div>
+            <span class="fw-ua-meaning">«Тобто» / «Я маю на увазі»</span>
+          </div>
+        </div>
+        <span class="fw-tag" style="background:#FFF2EC; color:#FF6B35">✏️ Clarifying / Уточнення</span>
+        <div class="fw-when">
+          <strong>When to use:</strong> Correcting yourself, adding more detail, or clarifying what you said. Also used to add emphasis!<br>
+          <span style="font-size:0.8rem; color:#aaa">Коли вживати: виправляєш себе, додаєш деталі або уточнюєш сказане.</span>
+        </div>
+        <div class="fw-examples">
+          <div class="fw-ex" style="background:#FFF2EC; border-left-color:#FF6B35">
+            "It was okay. <span class="fw" style="background:#FF6B35; color:#fff">I mean</span>, not perfect, but definitely okay."
+            <span class="tr">«Все було нормально. Тобто, не ідеально, але точно нормально.»</span>
+          </div>
+          <div class="fw-ex" style="background:#FFF2EC; border-left-color:#FF6B35">
+            "He's smart. <span class="fw" style="background:#FF6B35; color:#fff">I mean</span>, like, REALLY smart."
+            <span class="tr">«Він розумний. Тобто, типу, ДУЖЕ розумний.»</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SO -->
+      <div class="fw-card reveal" style="border-top-color:#FFD93D" data-word="So">
+        <div class="fw-top">
+          <div class="fw-emoji" style="background:#FFFDE7">➡️</div>
+          <div>
+            <div class="fw-word" style="color:#B8960C">So…</div>
+            <div class="fw-pronunciation">[ səʊ ]</div>
+            <span class="fw-ua-meaning">«Отже…» / «Ну то…»</span>
+          </div>
+        </div>
+        <span class="fw-tag" style="background:#FFFDE7; color:#B8960C">🚀 Launcher / Запуск теми</span>
+        <div class="fw-when">
+          <strong>When to use:</strong> Starting a new thought, topic, or conversation. Also used as a transition after thinking.<br>
+          <span style="font-size:0.8rem; color:#aaa">Коли вживати: починаючи нову думку, тему або розмову. Також — перехід після роздумів.</span>
+        </div>
+        <div class="fw-examples">
+          <div class="fw-ex" style="background:#FFFDE7; border-left-color:#FFD93D">
+            "<span class="fw" style="background:#FFD93D; color:#1A1A2E">So</span>… what are we doing this weekend?"
+            <span class="tr">«Отже… що ми робимо цими вихідними?»</span>
+          </div>
+          <div class="fw-ex" style="background:#FFFDE7; border-left-color:#FFD93D">
+            "<span class="fw" style="background:#FFD93D; color:#1A1A2E">So</span> yeah, that's basically my whole story."
+            <span class="tr">«Ну то й ось, це власне вся моя історія.»</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ACTUALLY -->
+      <div class="fw-card reveal" style="border-top-color:#C770F0" data-word="Act...">
+        <div class="fw-top">
+          <div class="fw-emoji" style="background:#F9EEFF">💡</div>
+          <div>
+            <div class="fw-word" style="color:#C770F0">Actually</div>
+            <div class="fw-pronunciation">[ ˈæktʃuəli ]</div>
+            <span class="fw-ua-meaning">«Насправді» / «Взагалі-то»</span>
+          </div>
+        </div>
+        <span class="fw-tag" style="background:#F9EEFF; color:#C770F0">🔄 Surprising contrast / Несподіваний поворот</span>
+        <div class="fw-when">
+          <strong>When to use:</strong> Introducing something surprising, correcting a wrong assumption, or changing the subject slightly.<br>
+          <span style="font-size:0.8rem; color:#aaa">Коли вживати: коли щось несподіване, виправляєш хибне припущення, або злегка змінюєш тему.</span>
+        </div>
+        <div class="fw-examples">
+          <div class="fw-ex" style="background:#F9EEFF; border-left-color:#C770F0">
+            "You think I'm busy? <span class="fw" style="background:#C770F0; color:#fff">Actually</span>, I have nothing to do today!"
+            <span class="tr">«Ти думаєш, я зайнятий? Насправді, мені нічого робити сьогодні!»</span>
+          </div>
+          <div class="fw-ex" style="background:#F9EEFF; border-left-color:#C770F0">
+            "I don't like coffee. <span class="fw" style="background:#C770F0; color:#fff">Actually</span>, I've never tried it."
+            <span class="tr">«Мені не подобається кава. Взагалі-то, я ніколи її не пробував.»</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- BASICALLY -->
+      <div class="fw-card reveal" style="border-top-color:#2EC4B6" data-word="Basi...">
+        <div class="fw-top">
+          <div class="fw-emoji" style="background:#E8FAF9">📦</div>
+          <div>
+            <div class="fw-word" style="color:#2EC4B6">Basically</div>
+            <div class="fw-pronunciation">[ ˈbeɪsɪkli ]</div>
+            <span class="fw-ua-meaning">«По суті» / «Загалом»</span>
+          </div>
+        </div>
+        <span class="fw-tag" style="background:#E8FAF9; color:#2EC4B6">📝 Simplifying / Спрощення</span>
+        <div class="fw-when">
+          <strong>When to use:</strong> Summing up a complex idea in simple words. Like saying "the short version is…"<br>
+          <span style="font-size:0.8rem; color:#aaa">Коли вживати: підсумовуєш складну ідею просто. Наче кажеш «коротко кажучи…»</span>
+        </div>
+        <div class="fw-examples">
+          <div class="fw-ex" style="background:#E8FAF9; border-left-color:#2EC4B6">
+            "<span class="fw" style="background:#2EC4B6; color:#fff">Basically</span>, I was late because I forgot to set my alarm."
+            <span class="tr">«По суті, я запізнився, бо забув поставити будильник.»</span>
+          </div>
+          <div class="fw-ex" style="background:#E8FAF9; border-left-color:#2EC4B6">
+            "The movie was long, confusing, and a bit boring. <span class="fw" style="background:#2EC4B6; color:#fff">Basically</span>, I didn't enjoy it."
+            <span class="tr">«Фільм був довгим, заплутаним і трохи нудним. По суті, мені не сподобалось.»</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ANYWAY -->
+      <div class="fw-card reveal" style="border-top-color:#F77F00" data-word="Way">
+        <div class="fw-top">
+          <div class="fw-emoji" style="background:#FFF5E6">🔀</div>
+          <div>
+            <div class="fw-word" style="color:#F77F00">Anyway</div>
+            <div class="fw-pronunciation">[ ˈɛniweɪ ]</div>
+            <span class="fw-ua-meaning">«Та до речі» / «Ладно»</span>
+          </div>
+        </div>
+        <span class="fw-tag" style="background:#FFF5E6; color:#F77F00">🔃 Topic shift / Зміна теми</span>
+        <div class="fw-when">
+          <strong>When to use:</strong> Moving on to a new topic or getting back on track after a digression.<br>
+          <span style="font-size:0.8rem; color:#aaa">Коли вживати: переходиш до нової теми або повертаєшся після відступу.</span>
+        </div>
+        <div class="fw-examples">
+          <div class="fw-ex" style="background:#FFF5E6; border-left-color:#F77F00">
+            "…and then the cat jumped on the table. <span class="fw" style="background:#F77F00; color:#fff">Anyway</span>, what were we talking about?"
+            <span class="tr">«…і тоді кіт заскочив на стіл. Та до речі, про що ми говорили?»</span>
+          </div>
+          <div class="fw-ex" style="background:#FFF5E6; border-left-color:#F77F00">
+            "<span class="fw" style="background:#F77F00; color:#fff">Anyway</span>, I gotta go. Talk to you later!"
+            <span class="tr">«Ладно, мені треба йти. Поговоримо пізніше!»</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- I GUESS -->
+      <div class="fw-card reveal" style="border-top-color:#6A8DFF" data-word="Guess">
+        <div class="fw-top">
+          <div class="fw-emoji" style="background:#EEF2FF">🤷</div>
+          <div>
+            <div class="fw-word" style="color:#6A8DFF">I guess</div>
+            <div class="fw-pronunciation">[ aɪ ɡɛs ]</div>
+            <span class="fw-ua-meaning">«Мабуть» / «Наверно»</span>
+          </div>
+        </div>
+        <span class="fw-tag" style="background:#EEF2FF; color:#6A8DFF">😐 Mild uncertainty / Легка невпевненість</span>
+        <div class="fw-when">
+          <strong>When to use:</strong> When you're not 100% sure, or agreeing reluctantly — without much enthusiasm.<br>
+          <span style="font-size:0.8rem; color:#aaa">Коли вживати: коли не впевнений на 100%, або погоджуєшся без великого ентузіазму.</span>
+        </div>
+        <div class="fw-examples">
+          <div class="fw-ex" style="background:#EEF2FF; border-left-color:#6A8DFF">
+            "Are you coming to the party? — <span class="fw" style="background:#6A8DFF; color:#fff">I guess</span>… if there's nothing better to do."
+            <span class="tr">«Ти йдеш на вечірку? — Мабуть… якщо не буде нічого кращого.»</span>
+          </div>
+          <div class="fw-ex" style="background:#EEF2FF; border-left-color:#6A8DFF">
+            "<span class="fw" style="background:#6A8DFF; color:#fff">I guess</span> you're right. I hadn't thought of it that way."
+            <span class="tr">«Напевно ти маєш рацію. Я не думав про це таким чином.»</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT SO -->
+      <div class="fw-card reveal" style="border-top-color:#E040FB" data-word="Right">
+        <div class="fw-top">
+          <div class="fw-emoji" style="background:#FDF0FF">📢</div>
+          <div>
+            <div class="fw-word" style="color:#E040FB">Right, so…</div>
+            <div class="fw-pronunciation">[ raɪt səʊ ]</div>
+            <span class="fw-ua-meaning">«Отже», «Ну що ж» (впевнено)</span>
+          </div>
+        </div>
+        <span class="fw-tag" style="background:#FDF0FF; color:#E040FB">🎬 Confident start / Впевнений початок</span>
+        <div class="fw-when">
+          <strong>When to use:</strong> Starting a presentation, explanation, or class. Very British! Shows you're organised and ready.<br>
+          <span style="font-size:0.8rem; color:#aaa">Коли вживати: починаючи презентацію, пояснення або урок. Типово британське! Показує, що ти готовий.</span>
+        </div>
+        <div class="fw-examples">
+          <div class="fw-ex" style="background:#FDF0FF; border-left-color:#E040FB">
+            "<span class="fw" style="background:#E040FB; color:#fff">Right, so</span> today we're going to learn about volcanoes."
+            <span class="tr">«Отже, сьогодні ми вивчимо вулкани.»</span>
+          </div>
+          <div class="fw-ex" style="background:#FDF0FF; border-left-color:#E040FB">
+            "<span class="fw" style="background:#E040FB; color:#fff">Right</span>, let me explain this one more time."
+            <span class="tr">«Ну що ж, дозволь пояснити ще раз.»</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- HONESTLY -->
+      <div class="fw-card reveal" style="border-top-color:#FF4081" data-word="Honest">
+        <div class="fw-top">
+          <div class="fw-emoji" style="background:#FFF0F4">❤️‍🔥</div>
+          <div>
+            <div class="fw-word" style="color:#FF4081">Honestly</div>
+            <div class="fw-pronunciation">[ ˈɒnɪstli ]</div>
+            <span class="fw-ua-meaning">«Чесно кажучи» / «Щиро»</span>
+          </div>
+        </div>
+        <span class="fw-tag" style="background:#FFF0F4; color:#FF4081">💬 Sincerity signal / Сигнал щирості</span>
+        <div class="fw-when">
+          <strong>When to use:</strong> When you want to sound genuine, share a real opinion, or say something slightly surprising.<br>
+          <span style="font-size:0.8rem; color:#aaa">Коли вживати: хочеш звучати щиро, поділитись справжньою думкою або сказати дещо несподіване.</span>
+        </div>
+        <div class="fw-examples">
+          <div class="fw-ex" style="background:#FFF0F4; border-left-color:#FF4081">
+            "<span class="fw" style="background:#FF4081; color:#fff">Honestly</span>, I didn't like the movie at all."
+            <span class="tr">«Чесно кажучи, фільм мені зовсім не сподобався.»</span>
+          </div>
+          <div class="fw-ex" style="background:#FFF0F4; border-left-color:#FF4081">
+            "<span class="fw" style="background:#FF4081; color:#fff">Honestly</span>? I think you should just tell her the truth."
+            <span class="tr">«Щиро? Я думаю, тобі просто треба сказати їй правду.»</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- FULL CONVERSATION EXAMPLE -->
+    <div class="convo-block reveal">
+      <div class="convo-title">💬 Real Conversation with Fillers</div>
+      <div class="convo-ua">Справжня розмова з філерами — дивись, як природньо вони звучать!</div>
+      <div class="convo-lines">
+        <div class="convo-line">
+          <div class="convo-avatar" style="background:#9B5DE544">🧒</div>
+          <div class="convo-bubble">
+            <span class="fw" style="background:#FFD93D; color:#1A1A2E">So</span>, did you watch that new show last night?
+            <span class="ua-sub">«Отже, ти дивився той новий серіал учора ввечері?»</span>
+          </div>
+        </div>
+        <div class="convo-line filler-right">
+          <div class="convo-bubble right">
+            <span class="fw" style="background:#FF6B9D; color:#fff">Well</span>… <span class="fw" style="background:#9B5DE5; color:#fff">um</span>… I started it, but <span class="fw" style="background:#06D6A0; color:#000">basically</span> I fell asleep after ten minutes.
+            <span class="ua-sub">«Ну… е-е… я почав, але по суті заснув після десяти хвилин.»</span>
+          </div>
+          <div class="convo-avatar" style="background:#06D6A044">🧑</div>
+        </div>
+        <div class="convo-line">
+          <div class="convo-avatar" style="background:#9B5DE544">🧒</div>
+          <div class="convo-bubble">
+            Ha! <span class="fw" style="background:#C770F0; color:#fff">Actually</span>, <span class="fw" style="background:#4CC9F0; color:#000">you know</span>, the first episode is <span class="fw" style="background:#06D6A0; color:#000">like</span> really slow.
+            <span class="ua-sub">«Ха! Насправді, знаєш, перший епізод типу дуже повільний.»</span>
+          </div>
+        </div>
+        <div class="convo-line filler-right">
+          <div class="convo-bubble right">
+            <span class="fw" style="background:#F77F00; color:#fff">Anyway</span>, should we watch it together on Friday? <span class="fw" style="background:#6A8DFF; color:#fff">I guess</span> it gets better?
+            <span class="ua-sub">«Та до речі, може подивимося разом у п'ятницю? Мабуть, стає краще?»</span>
+          </div>
+          <div class="convo-avatar" style="background:#06D6A044">🧑</div>
+        </div>
+        <div class="convo-line">
+          <div class="convo-avatar" style="background:#9B5DE544">🧒</div>
+          <div class="convo-bubble">
+            <span class="fw" style="background:#FF4081; color:#fff">Honestly</span>? Yes — episode 3 is amazing. <span class="fw" style="background:#FF6B35; color:#fff">I mean</span>, totally worth it!
+            <span class="ua-sub">«Щиро? Так — третій епізод дивовижний. Тобто, цілком варте!»</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- HEDGE WORDS SECTION -->
+<section class="hedge-section" id="hedge">
+  <div class="container">
+    <h2 class="section-title reveal">🌿 Hedge Words</h2>
+    <p class="section-ua reveal">Слова-«пом'якшувачі» — коли не впевнений або хочеш бути ввічливим</p>
+    <div class="hedge-intro">
+      <div class="hedge-visual reveal">
+        <h3 style="font-family:'Fredoka One'; font-size:1.4rem; margin-bottom:6px">Certainty Scale 📊</h3>
+        <p style="font-size:0.85rem; opacity:0.9; margin-bottom:20px">Шкала впевненості</p>
+        <div class="certainty-scale">
+          <div class="scale-item">
+            <span class="scale-label" style="font-size:0.82rem">Definitely</span>
+            <div class="scale-bar" style="width:100%"></div>
+            <span class="scale-percent">100%</span>
+          </div>
+          <div class="scale-item">
+            <span class="scale-label" style="font-size:0.82rem">Certainly</span>
+            <div class="scale-bar" style="width:90%; opacity:0.9"></div>
+            <span class="scale-percent">90%</span>
+          </div>
+          <div class="scale-item">
+            <span class="scale-label" style="font-size:0.82rem">Probably</span>
+            <div class="scale-bar" style="width:75%; opacity:0.75"></div>
+            <span class="scale-percent">75%</span>
+          </div>
+          <div class="scale-item">
+            <span class="scale-label" style="font-size:0.82rem">Likely</span>
+            <div class="scale-bar" style="width:65%; opacity:0.65"></div>
+            <span class="scale-percent">65%</span>
+          </div>
+          <div class="scale-item">
+            <span class="scale-label" style="font-size:0.82rem">Perhaps</span>
+            <div class="scale-bar" style="width:50%; opacity:0.5"></div>
+            <span class="scale-percent">50%</span>
+          </div>
+          <div class="scale-item">
+            <span class="scale-label" style="font-size:0.82rem">Maybe</span>
+            <div class="scale-bar" style="width:40%; opacity:0.4"></div>
+            <span class="scale-percent">40%</span>
+          </div>
+          <div class="scale-item">
+            <span class="scale-label" style="font-size:0.82rem">Possibly</span>
+            <div class="scale-bar" style="width:30%; opacity:0.3"></div>
+            <span class="scale-percent">30%</span>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <p style="font-size:1rem; color:#555; line-height:1.7; margin-bottom:16px">
+          Hedge words make your statements SOFTER. You use them when you're not 100% sure, or when you want to be polite and not sound too direct.
+        </p>
+        <p style="font-size:0.88rem; color:#999; font-style:italic; line-height:1.6; margin-bottom:20px">
+          Слова-«пом'якшувачі» роблять твої висловлювання м'якшими. Вживаєш їх, коли не на 100% впевнений, або хочеш звучати ввічливо.
+        </p>
+        <div style="background:#F7F9FF; border-radius:16px; padding:18px; margin-bottom:12px">
+          <div style="font-weight:800; margin-bottom:8px; color: var(--dark)">❌ Too direct:</div>
+          <div style="color: var(--orange); font-weight:700">"This idea is wrong."</div>
+          <div style="font-size:0.8rem; color:#999; font-style:italic">Занадто прямо і грубо</div>
+        </div>
+        <div style="background:#F0FFF8; border-radius:16px; padding:18px">
+          <div style="font-weight:800; margin-bottom:8px; color: var(--dark)">✅ With hedge words:</div>
+          <div style="color: var(--green); font-weight:700">"This idea <u>might</u> not be <u>quite</u> right."</div>
+          <div style="font-size:0.8rem; color:#999; font-style:italic">М'яко і ввічливо!</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <div class="hedge-table-wrap">
+      <table class="hedge-table">
+        <tr>
+          <th>Hedge Word / Phrase</th>
+          <th>Ukrainian 🇺🇦</th>
+          <th>Example Sentence</th>
+        </tr>
+        <tr>
+          <td>Maybe / Perhaps</td>
+          <td>Можливо</td>
+          <td>Maybe she forgot about it.</td>
+        </tr>
+        <tr>
+          <td>I think / I believe</td>
+          <td>Я думаю / Вважаю</td>
+          <td>I think it starts at 8.</td>
+        </tr>
+        <tr>
+          <td>It seems (that)</td>
+          <td>Здається, що</td>
+          <td>It seems that nobody is home.</td>
+        </tr>
+        <tr>
+          <td>Apparently</td>
+          <td>Мабуть / Схоже</td>
+          <td>Apparently, they moved away.</td>
+        </tr>
+        <tr>
+          <td>Tend to</td>
+          <td>Як правило / Зазвичай</td>
+          <td>Cats tend to sleep a lot.</td>
+        </tr>
+        <tr>
+          <td>Kind of / Sort of</td>
+          <td>Начебто / Трохи</td>
+          <td>It's kind of difficult for me.</td>
+        </tr>
+        <tr>
+          <td>Roughly / Around</td>
+          <td>Приблизно</td>
+          <td>There were roughly 50 people.</td>
+        </tr>
+      </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIPS SECTION -->
+<section class="tips-section" id="tips">
+  <div class="container">
+    <h2 class="section-title reveal">🏆 Pro Tips</h2>
+    <p class="section-ua reveal">Корисні поради для початківців</p>
+    <div class="tips-grid">
+      <div class="tip-card reveal">
+        <span class="tip-icon">🎯</span>
+        <div class="tip-title">Start Small</div>
+        <div class="tip-ua">Починай з малого</div>
+        <div class="tip-text">Don't try to use ALL markers at once. Pick 3-4 and practice them every day until they feel natural.<br><span style="font-size:0.8rem; color:#aaa">Не намагайся вживати ВСІ маркери одразу.</span></div>
+      </div>
+      <div class="tip-card reveal">
+        <span class="tip-icon">📺</span>
+        <div class="tip-title">Watch & Listen</div>
+        <div class="tip-ua">Дивись і слухай</div>
+        <div class="tip-text">Watch English shows or YouTube videos. Notice when people use discourse markers in real speech!<br><span style="font-size:0.8rem; color:#aaa">Помічай маркери в реальній мові!</span></div>
+      </div>
+      <div class="tip-card reveal">
+        <span class="tip-icon">✍️</span>
+        <div class="tip-title">Write It First</div>
+        <div class="tip-ua">Спочатку пиши</div>
+        <div class="tip-text">Practice writing short paragraphs using markers. Writing helps your brain remember patterns faster!<br><span style="font-size:0.8rem; color:#aaa">Письмо допомагає мозку запам'ятати зразки!</span></div>
+      </div>
+      <div class="tip-card reveal">
+        <span class="tip-icon">🚫</span>
+        <div class="tip-title">Don't Overuse!</div>
+        <div class="tip-ua">Не перестарайся!</div>
+        <div class="tip-text">Using too many markers makes speech sound unnatural. One or two per idea is perfect.<br><span style="font-size:0.8rem; color:#aaa">Один-два на ідею — ідеально!</span></div>
+      </div>
+      <div class="tip-card reveal">
+        <span class="tip-icon">💬</span>
+        <div class="tip-title">Fillers = OK!</div>
+        <div class="tip-ua">Фiлери — це нормально!</div>
+        <div class="tip-text">Native speakers say "um", "well", "you know" all the time. It's completely natural in conversation!<br><span style="font-size:0.8rem; color:#aaa">Навіть носії мови вживають «um» та «well»!</span></div>
+      </div>
+      <div class="tip-card reveal">
+        <span class="tip-icon">🎓</span>
+        <div class="tip-title">Formal vs Casual</div>
+        <div class="tip-ua">Офіційно vs Неформально</div>
+        <div class="tip-text">"However" is formal. "But" is casual. Match your markers to the situation!<br><span style="font-size:0.8rem; color:#aaa">«However» — офіційно. «But» — повсякденно.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUICK REFERENCE -->
+<section class="reference-section">
+  <div class="container">
+    <h2 class="section-title reveal">📖 Quick Reference Card</h2>
+    <p class="section-ua reveal">Шпаргалка — збережи та вчи!</p>
+    <div class="ref-grid">
+      <div class="ref-card reveal">
+        <div class="ref-emoji">📋</div>
+        <div class="ref-cat">Sequence</div>
+        <div class="ref-words">
+          <strong>First</strong> • <strong>Then</strong> • <strong>Next</strong><br>
+          <strong>After that</strong> • <strong>Finally</strong><br>
+          <strong>To begin with</strong>
+        </div>
+      </div>
+      <div class="ref-card reveal">
+        <div class="ref-emoji">⚡</div>
+        <div class="ref-cat">Contrast</div>
+        <div class="ref-words">
+          <strong>However</strong> • <strong>But</strong><br>
+          <strong>Although</strong> • <strong>Yet</strong><br>
+          <strong>On the other hand</strong>
+        </div>
+      </div>
+      <div class="ref-card reveal">
+        <div class="ref-emoji">➕</div>
+        <div class="ref-cat">Adding</div>
+        <div class="ref-words">
+          <strong>Also</strong> • <strong>Moreover</strong><br>
+          <strong>Furthermore</strong><br>
+          <strong>In addition</strong> • <strong>Plus</strong>
+        </div>
+      </div>
+      <div class="ref-card reveal">
+        <div class="ref-emoji">🎯</div>
+        <div class="ref-cat">Result</div>
+        <div class="ref-words">
+          <strong>So</strong> • <strong>Therefore</strong><br>
+          <strong>As a result</strong><br>
+          <strong>That's why</strong> • <strong>Thus</strong>
+        </div>
+      </div>
+      <div class="ref-card reveal">
+        <div class="ref-emoji">💡</div>
+        <div class="ref-cat">Examples</div>
+        <div class="ref-words">
+          <strong>For example</strong><br>
+          <strong>For instance</strong><br>
+          <strong>Such as</strong> • <strong>Like</strong>
+        </div>
+      </div>
+      <div class="ref-card reveal">
+        <div class="ref-emoji">🏁</div>
+        <div class="ref-cat">Conclude</div>
+        <div class="ref-words">
+          <strong>In conclusion</strong><br>
+          <strong>To sum up</strong> • <strong>Overall</strong><br>
+          <strong>All in all</strong> • <strong>In short</strong>
+        </div>
+      </div>
+      <div class="ref-card reveal">
+        <div class="ref-emoji">⏳</div>
+        <div class="ref-cat">Fillers</div>
+        <div class="ref-words">
+          <strong>Um / Uh</strong> • <strong>Well</strong><br>
+          <strong>You know</strong> • <strong>Like</strong><br>
+          <strong>I mean</strong> • <strong>So</strong>
+        </div>
+      </div>
+      <div class="ref-card reveal">
+        <div class="ref-emoji">🌿</div>
+        <div class="ref-cat">Hedging</div>
+        <div class="ref-words">
+          <strong>Maybe</strong> • <strong>Perhaps</strong><br>
+          <strong>I think</strong> • <strong>Seems</strong><br>
+          <strong>Kind of</strong> • <strong>Probably</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  Made with <span>♥</span> for English learners everywhere 🌍<br>
+  <span style="font-size:0.8rem; opacity:0.6">Створено з любов'ю для тих, хто вчить англійську</span>
+</footer>
+
+<script>
+  // Generate stars
+  const starsContainer = document.getElementById('stars');
+  for (let i = 0; i < 80; i++) {
+    const star = document.createElement('div');
+    star.className = 'star';
+    const size = Math.random() * 3 + 1;
+    star.style.cssText = `
+      width: ${size}px;
+      height: ${size}px;
+      top: ${Math.random() * 100}%;
+      left: ${Math.random() * 100}%;
+      animation-delay: ${Math.random() * 4}s;
+      animation-duration: ${2 + Math.random() * 3}s;
+    `;
+    starsContainer.appendChild(star);
+  }
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+</body>
+</html>

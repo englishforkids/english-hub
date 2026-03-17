@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Participle Clauses – Future Plans</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sky: #5bc8f5;
+    --sun: #FFD93D;
+    --coral: #FF6B6B;
+    --mint: #6BCB77;
+    --lavender: #c9b8ff;
+    --navy: #1a2340;
+    --card: #ffffff;
+    --bg: #f0f8ff;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--navy);
+    overflow-x: hidden;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    background: linear-gradient(135deg, #1a2340 0%, #2d3a6e 60%, #4a5aab 100%);
+    padding: 60px 20px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 70% 30%, rgba(91,200,245,.25) 0%, transparent 60%),
+                radial-gradient(ellipse at 20% 80%, rgba(201,184,255,.2) 0%, transparent 50%);
+  }
+  .hero-stars {
+    position: absolute; inset: 0; pointer-events: none;
+  }
+  .star {
+    position: absolute;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #fff;
+    animation: twinkle 3s infinite;
+  }
+  @keyframes twinkle {
+    0%,100% { opacity: .3; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.4); }
+  }
+  .hero-badge {
+    display: inline-block;
+    background: var(--sun);
+    color: var(--navy);
+    font-weight: 800;
+    font-size: .8rem;
+    padding: 4px 14px;
+    border-radius: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    position: relative;
+  }
+  .hero h1 {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(2rem, 7vw, 4rem);
+    color: #fff;
+    line-height: 1.1;
+    position: relative;
+  }
+  .hero h1 span { color: var(--sun); }
+  .hero-sub {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,.8);
+    margin-top: 10px;
+    position: relative;
+  }
+  .hero-rocket {
+    font-size: 5rem;
+    margin-bottom: 10px;
+    display: block;
+    animation: float 3s ease-in-out infinite;
+    position: relative;
+  }
+  @keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+
+  /* ===== MAIN WRAPPER ===== */
+  .container { max-width: 860px; margin: 0 auto; padding: 0 20px 60px; }
+
+  /* ===== SECTION TITLE ===== */
+  .section-title {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.6rem;
+    margin: 50px 0 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-title .icon {
+    font-size: 1.8rem;
+    background: var(--sun);
+    border-radius: 12px;
+    padding: 4px 10px;
+  }
+
+  /* ===== WHAT IS IT CARD ===== */
+  .what-card {
+    background: linear-gradient(135deg, #2d3a6e, #4a5aab);
+    border-radius: 24px;
+    padding: 32px;
+    color: #fff;
+    margin-top: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .what-card::after {
+    content: '📚';
+    position: absolute;
+    right: 20px; top: 20px;
+    font-size: 5rem;
+    opacity: .15;
+  }
+  .what-card h2 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.5rem;
+    margin-bottom: 14px;
+    color: var(--sun);
+  }
+  .what-card p { line-height: 1.7; font-size: 1rem; margin-bottom: 10px; }
+  .what-card .ua { opacity: .75; font-style: italic; font-size: .95rem; }
+
+  /* ===== FORMULA ===== */
+  .formula-wrap {
+    background: var(--navy);
+    border-radius: 20px;
+    padding: 28px 24px;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  .formula-wrap h3 {
+    font-family: 'Baloo 2', cursive;
+    color: var(--sun);
+    font-size: 1.2rem;
+    margin-bottom: 16px;
+  }
+  .formula {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+  }
+  .pill {
+    padding: 8px 16px;
+    border-radius: 30px;
+    white-space: nowrap;
+    font-weight: 800;
+    font-size: .95rem;
+  }
+  .pill-blue  { background: var(--sky);      color: var(--navy); }
+  .pill-coral { background: var(--coral);    color: #fff; }
+  .pill-mint  { background: var(--mint);     color: var(--navy); }
+  .pill-lav   { background: var(--lavender); color: var(--navy); }
+  .plus { color: #fff; font-size: 1.4rem; }
+  .formula-note {
+    margin-top: 14px;
+    color: rgba(255,255,255,.6);
+    font-size: .88rem;
+    font-style: italic;
+  }
+
+  /* ===== TYPES GRID ===== */
+  .types-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  @media(max-width:560px){ .types-grid { grid-template-columns: 1fr; } }
+
+  .type-card {
+    border-radius: 20px;
+    padding: 24px 20px;
+    position: relative;
+    overflow: hidden;
+    transition: transform .25s;
+  }
+  .type-card:hover { transform: translateY(-4px); }
+  .type-card .big-emoji {
+    font-size: 3.5rem;
+    display: block;
+    margin-bottom: 8px;
+  }
+  .type-card h4 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.15rem;
+    margin-bottom: 6px;
+  }
+  .type-card p { font-size: .9rem; line-height: 1.6; }
+  .type-card .ua { font-style: italic; opacity: .75; font-size: .85rem; margin-top: 4px; }
+
+  .card-blue   { background: #dff3fe; border: 2px solid var(--sky); }
+  .card-coral  { background: #ffe5e5; border: 2px solid var(--coral); }
+  .card-mint   { background: #e0f7e4; border: 2px solid var(--mint); }
+  .card-yellow { background: #fff9d6; border: 2px solid var(--sun); }
+
+  /* ===== SENTENCE PLAYGROUND ===== */
+  .sentence-base {
+    background: linear-gradient(120deg, #fff9d6, #fff3b0);
+    border: 3px dashed var(--sun);
+    border-radius: 20px;
+    padding: 24px;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  .sentence-base .label {
+    font-size: .8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--coral);
+    margin-bottom: 8px;
+  }
+  .sentence-base .base-text {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--navy);
+  }
+  .sentence-base .base-ua {
+    font-size: .95rem;
+    color: #666;
+    font-style: italic;
+    margin-top: 6px;
+  }
+
+  /* ===== EXAMPLES ===== */
+  .example-cards { display: flex; flex-direction: column; gap: 22px; }
+
+  .example-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 4px 20px rgba(0,0,0,.07);
+    border-left: 6px solid;
+    position: relative;
+    overflow: hidden;
+  }
+  .example-card.ex1 { border-color: var(--sky); }
+  .example-card.ex2 { border-color: var(--mint); }
+
+  .example-card .ex-tag {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 20px;
+    font-size: .75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    margin-bottom: 12px;
+  }
+  .ex1 .ex-tag { background: #dff3fe; color: #1a7ab0; }
+  .ex2 .ex-tag { background: #e0f7e4; color: #2e7d32; }
+  .ex3 .ex-tag { background: #f3e8ff; color: #6a1fb5; }
+  .example-card.ex3 { border-color: var(--lavender); }
+
+  .sentence-display {
+    font-size: 1.2rem;
+    font-weight: 800;
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+  .part-clause { color: var(--coral); }
+  .main-clause { color: var(--navy); }
+
+  .breakdown {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 6px 12px;
+    margin: 14px 0;
+    font-size: .9rem;
+  }
+  .bk-label {
+    font-weight: 800;
+    color: var(--coral);
+    white-space: nowrap;
+  }
+  .bk-content { color: var(--navy); }
+
+  .translation {
+    background: #f8f4ff;
+    border-radius: 12px;
+    padding: 12px 16px;
+    font-style: italic;
+    font-size: .95rem;
+    color: #5a4a8a;
+    margin-top: 10px;
+  }
+  .translation strong { font-style: normal; display: block; margin-bottom: 2px; font-size: .8rem; color: #9b8bc4; text-transform: uppercase; }
+
+  /* arrow */
+  .arrow-divider {
+    text-align: center;
+    font-size: 2rem;
+    margin: 8px 0;
+    animation: pulse 1.5s infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:.4} 50%{opacity:1} }
+
+  /* ===== COMPARISON TABLE ===== */
+  .compare-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,.08);
+  }
+  .compare-table th {
+    background: var(--navy);
+    color: #fff;
+    padding: 14px 16px;
+    font-family: 'Baloo 2', cursive;
+    font-size: 1rem;
+    text-align: left;
+  }
+  .compare-table tr:nth-child(even) td { background: #f0f4ff; }
+  .compare-table tr:nth-child(odd) td { background: #fff; }
+  .compare-table td {
+    padding: 14px 16px;
+    font-size: .95rem;
+    line-height: 1.5;
+    border-bottom: 1px solid #eee;
+  }
+  .compare-table td.eng { font-weight: 700; }
+  .compare-table td.ua  { color: #666; font-style: italic; }
+
+  /* ===== TIP BOX ===== */
+  .tip-box {
+    background: linear-gradient(135deg, #fff9d6, #fff3b0);
+    border: 2px solid var(--sun);
+    border-radius: 18px;
+    padding: 22px 24px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    margin-top: 24px;
+  }
+  .tip-icon { font-size: 2.2rem; flex-shrink: 0; }
+  .tip-box h4 { font-family: 'Baloo 2', cursive; font-size: 1.1rem; color: #b36200; margin-bottom: 6px; }
+  .tip-box p { font-size: .92rem; line-height: 1.6; color: #5a4200; }
+  .tip-box .ua { font-style: italic; margin-top: 4px; opacity: .8; }
+
+  /* ===== MEMORY CARD ===== */
+  .memory-card {
+    background: linear-gradient(135deg, var(--coral) 0%, #ff8e53 100%);
+    border-radius: 24px;
+    padding: 32px;
+    text-align: center;
+    color: #fff;
+    margin-top: 40px;
+  }
+  .memory-card h3 { font-family: 'Baloo 2', cursive; font-size: 1.6rem; margin-bottom: 14px; }
+  .memory-card p { font-size: 1rem; line-height: 1.7; max-width: 580px; margin: 0 auto; }
+  .memory-card .ua { margin-top: 10px; opacity: .85; font-style: italic; }
+
+  /* ===== FOOTER ===== */
+  footer {
+    text-align: center;
+    padding: 30px;
+    background: var(--navy);
+    color: rgba(255,255,255,.5);
+    font-size: .85rem;
+    margin-top: 60px;
+  }
+  footer span { color: var(--sun); }
+
+  /* ===== MOBILE RESPONSIVE ===== */
+
+  /* Table wrapper — horizontal scroll on small screens */
+  .table-scroll {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 16px;
+  }
+
+  @media (max-width: 640px) {
+
+    /* Hero */
+    .hero {
+      padding: 40px 16px 56px;
+    }
+    .hero-rocket { font-size: 3.5rem; }
+
+    /* Container */
+    .container {
+      padding: 0 14px 48px;
+    }
+
+    /* Section titles */
+    .section-title {
+      font-size: 1.25rem;
+      margin: 36px 0 14px;
+    }
+
+    /* What card */
+    .what-card {
+      padding: 22px 18px;
+    }
+    .what-card h2 { font-size: 1.2rem; }
+    .what-card p  { font-size: .9rem; }
+
+    /* Formula */
+    .formula-wrap { padding: 20px 14px; }
+    .formula { gap: 6px; }
+    .pill { font-size: .82rem; padding: 6px 12px; }
+
+    /* Types grid — single column on mobile */
+    .types-grid {
+      grid-template-columns: 1fr;
+    }
+    .type-card { padding: 18px 16px; }
+    .type-card .big-emoji { font-size: 2.6rem; }
+    .type-card h4 { font-size: 1rem; }
+    .type-card p  { font-size: .85rem; }
+
+    /* Base sentence */
+    .sentence-base { padding: 18px 14px; }
+    .sentence-base .base-text { font-size: 1.05rem; }
+
+    /* Example cards */
+    .example-card { padding: 18px 14px; }
+    .sentence-display { font-size: 1rem; }
+    .breakdown { font-size: .82rem; gap: 4px 8px; }
+
+    /* Table — force horizontal scroll */
+    .compare-table {
+      min-width: 520px;
+    }
+    .compare-table th,
+    .compare-table td {
+      padding: 10px 12px;
+      font-size: .82rem;
+    }
+
+    /* Tip box */
+    .tip-box {
+      flex-direction: column;
+      gap: 10px;
+      padding: 18px 14px;
+    }
+    .tip-icon { font-size: 1.8rem; }
+    .tip-box p { font-size: .85rem; }
+
+    /* Timeline blocks inside visual summary */
+    .timeline-label-row {
+      flex-wrap: wrap;
+    }
+
+    /* Memory card */
+    .memory-card { padding: 22px 16px; }
+    .memory-card h3 { font-size: 1.25rem; }
+    .memory-card p  { font-size: .9rem; }
+
+    /* Scroll-to-top btn — slightly smaller */
+    #scroll-top-btn {
+      width: 38px;
+      height: 38px;
+      font-size: 16px;
+      bottom: 18px;
+      right: 16px;
+    }
+
+    /* Footer */
+    footer { font-size: .78rem; padding: 20px 14px; }
+  }
+
+  @media (max-width: 400px) {
+    .sentence-display { font-size: .92rem; }
+    .pill { font-size: .76rem; padding: 5px 10px; }
+    .what-card p, .type-card p, .tip-box p { font-size: .82rem; }
+  }
+
+  /* ===== SCROLL TO TOP ===== */
+  #scroll-top-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #1a1208;
+    border: 1.5px solid rgba(200,150,62,0.4);
+    color: #f5f0e8;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+    pointer-events: none;
+    z-index: 9998;
+  }
+  #scroll-top-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  #scroll-top-btn:hover {
+    background: #c8963e;
+    border-color: #c8963e;
+    color: #1a1208;
+  }
+
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-stars" id="stars"></div>
+  <div class="hero-badge">Grammar Lesson</div>
+  <span class="hero-rocket">🚀</span>
+  <h1>Participle Clauses<br><span>for the Future</span></h1>
+  <p class="hero-sub">Simple English + Ukrainian explanation for beginners 🇬🇧🇺🇦</p>
+</div>
+
+<div class="container">
+
+  <!-- WHAT IS IT -->
+  <div class="what-card">
+    <h2>💡 What is a Participle Clause?</h2>
+    <p>A participle clause is a <strong>shorter way to say two things at once</strong>. Instead of using two full sentences, we join them using a special verb form (the participle). It sounds smarter and more natural in English!</p>
+    <p class="ua">🇺🇦 Діє­слівний зворот — це <strong>короткий спосіб сказати дві речі одночасно</strong>. Замість двох повних речень ми об'єднуємо їх за допомогою особливої форми дієслова. Це звучить розумніше і природніше англійською!</p>
+  </div>
+
+  <!-- FORMULA -->
+  <div class="section-title"><span class="icon">🔢</span> The Formula / Формула</div>
+  <div class="formula-wrap">
+    <h3>✨ How to build a Participle Clause</h3>
+    <div class="formula">
+      <span class="pill pill-coral">Verb + -ing /<br>Having + Past Participle</span>
+      <span class="plus">+</span>
+      <span class="pill pill-blue">comma (,)</span>
+      <span class="plus">+</span>
+      <span class="pill pill-mint">Main Sentence</span>
+    </div>
+    <p class="formula-note">The subject of both parts must be the SAME person or thing! / Підмет обох частин має бути ОДНАКОВИМ!</p>
+  </div>
+
+  <!-- THREE TYPES -->
+  <div class="section-title"><span class="icon">3️⃣</span> Three Types / Три типи</div>
+  <div class="types-grid">
+    <div class="type-card card-blue">
+      <span class="big-emoji">⏱️</span>
+      <h4>Present Participle (-ing)<br><small>Теперішній дієприкметник</small></h4>
+      <p><strong>Actions happening AT THE SAME TIME</strong> as the main action, OR reason/cause.</p>
+      <p class="ua">🇺🇦 Дії, що відбуваються <strong>одночасно</strong> з головною дією, або причина.</p>
+    </div>
+    <div class="type-card card-coral">
+      <span class="big-emoji">✅</span>
+      <h4>Having + Past Participle<br><small>Завершена дія (активна)</small></h4>
+      <p><strong>Action completed BEFORE</strong> the main action. The subject <strong>did</strong> the action.</p>
+      <p class="ua">🇺🇦 Дія, яка <strong>вже завершилась</strong> до початку головної. Підмет <strong>сам виконав</strong> дію.</p>
+    </div>
+    <div class="type-card" style="background:#f3e8ff; border:2px solid #c9b8ff; border-radius:20px; padding:24px 20px; transition:transform .25s;">
+      <span class="big-emoji">🔄</span>
+      <h4 style="font-family:'Baloo 2',cursive; font-size:1.15rem; margin-bottom:6px;">Past Participle (passive)<br><small style="font-weight:400;">Минулий дієприкметник (пасивний)</small></h4>
+      <p style="font-size:.9rem; line-height:1.6;"><strong>Something is DONE TO the subject</strong> — the subject receives the action, it doesn't do it!</p>
+      <p style="font-style:italic; opacity:.75; font-size:.85rem; margin-top:4px;">🇺🇦 <strong>Щось робиться з підметом</strong> — підмет отримує дію, а не виконує її!</p>
+    </div>
+    <div class="type-card card-yellow">
+      <span class="big-emoji">🎯</span>
+      <h4>Key Rule<br><small>Ключове правило</small></h4>
+      <p>The <strong>subject</strong> (who does the action) must be the <strong>same</strong> in both parts!</p>
+      <p class="ua">🇺🇦 <strong>Підмет</strong> (хто виконує дію) має бути <strong>однаковим</strong> в обох частинах!</p>
+    </div>
+  </div>
+
+  <!-- BASE SENTENCE -->
+  <div class="section-title"><span class="icon">🧩</span> Our Base Sentence / Наше базове речення</div>
+  <div class="sentence-base">
+    <div class="label">🌟 Universal sentence we'll transform</div>
+    <div class="base-text">👩‍🎓 "She will finish her homework. Then she will watch a movie."</div>
+    <div class="base-ua">🇺🇦 «Вона закінчить домашнє завдання. Потім вона подивиться фільм.»</div>
+  </div>
+
+  <div class="arrow-divider">⬇️</div>
+  <p style="text-align:center; font-size:.95rem; color:#666; font-style:italic; margin-bottom:24px;">Watch how we change this sentence to show different meanings! / Дивись, як ми змінюємо це речення, щоб передати різний зміст!</p>
+
+  <!-- EXAMPLES -->
+  <div class="example-cards">
+
+    <!-- EXAMPLE 1 -->
+    <div class="example-card ex1">
+      <span class="ex-tag">⏱️ Example 1 — Same Time / Одночасно</span>
+      <div class="sentence-display">
+        <span class="part-clause">Finishing her homework,</span>
+        <span class="main-clause"> she will watch a movie.</span>
+      </div>
+
+      <div class="breakdown">
+        <span class="bk-label">🔴 Participle Clause:</span>
+        <span class="bk-content"><em>"Finishing her homework"</em> = action happening as she transitions to the movie</span>
+        <span class="bk-label">🔵 Main Clause:</span>
+        <span class="bk-content"><em>"she will watch a movie"</em> = the main plan</span>
+        <span class="bk-label">📝 How it's built:</span>
+        <span class="bk-content">finish → <strong>finishing</strong> (drop 'will' and add -ing)</span>
+      </div>
+
+      <div class="translation">
+        <strong>🇺🇦 Ukrainian / Переклад</strong>
+        «Закінчивши (закінчуючи) домашнє завдання, вона подивиться фільм.»<br>
+        <em>The -ing form shows the two actions are very close in time — one leads directly to the next.</em><br>
+        Форма на -ing показує, що дві дії дуже близькі в часі — одна одразу веде до наступної.
+      </div>
+    </div>
+
+    <!-- EXAMPLE 2 -->
+    <div class="example-card ex2">
+      <span class="ex-tag">✅ Example 2 — Action Completed First / Спочатку завершена дія</span>
+      <div class="sentence-display">
+        <span class="part-clause">Having finished her homework,</span>
+        <span class="main-clause"> she will watch a movie.</span>
+      </div>
+
+      <div class="breakdown">
+        <span class="bk-label">🔴 Participle Clause:</span>
+        <span class="bk-content"><em>"Having finished her homework"</em> = she finishes it FIRST, completely</span>
+        <span class="bk-label">🔵 Main Clause:</span>
+        <span class="bk-content"><em>"she will watch a movie"</em> = happens AFTER homework is done</span>
+        <span class="bk-label">📝 How it's built:</span>
+        <span class="bk-content"><strong>Having</strong> + <strong>finished</strong> (past participle of 'finish')</span>
+      </div>
+
+      <div class="translation">
+        <strong>🇺🇦 Ukrainian / Переклад</strong>
+        «Закінчивши домашнє завдання, вона подивиться фільм.»<br>
+        <em>"Having + past participle" clearly means the first action is 100% complete before the second begins.</em><br>
+        «Having + дієприкметник минулого часу» чітко означає, що перша дія повністю завершена, перш ніж починається друга.
+      </div>
+    </div>
+    <!-- EXAMPLE 3 -->
+    <div class="example-card ex3">
+      <span class="ex-tag">🔄 Example 3 — Passive / Пасивний стан</span>
+      <div class="sentence-display">
+        <span class="part-clause" style="color:#8b5cf6;">Given enough time,</span>
+        <span class="main-clause"> she will finish her homework and watch a movie.</span>
+      </div>
+
+      <div class="breakdown">
+        <span class="bk-label" style="color:#8b5cf6;">🟣 Participle Clause:</span>
+        <span class="bk-content"><em>"Given enough time"</em> = she <strong>receives</strong> time (someone or something gives it to her)</span>
+        <span class="bk-label" style="color:#8b5cf6;">🔵 Main Clause:</span>
+        <span class="bk-content"><em>"she will finish her homework and watch a movie"</em> = what will happen as a result</span>
+        <span class="bk-label">📝 How it's built:</span>
+        <span class="bk-content">give → <strong>given</strong> (past participle — passive form, no subject doing the giving!)</span>
+      </div>
+
+      <div style="background:#ede9fe; border-radius:12px; padding:12px 16px; margin: 10px 0; font-size:.9rem; border-left:4px solid #8b5cf6;">
+        <strong style="color:#6a1fb5;">⚡ Key difference! / Ключова різниця!</strong><br>
+        <strong>Active (Having done):</strong> <em>She</em> did something herself. → "Having finished her homework, she will watch a movie."<br>
+        <strong>Passive (Past Participle):</strong> Something was done <em>to her / for her</em>. → "Given enough time, she will finish."<br>
+        <span style="color:#6a1fb5; font-style:italic; font-size:.85rem;">Активний: <em>Вона</em> сама щось зробила. | Пасивний: щось зробили <em>для неї / з нею</em>.</span>
+      </div>
+
+      <div class="translation" style="background:#f3e8ff;">
+        <strong style="color:#9b8bc4;">🇺🇦 Ukrainian / Переклад</strong>
+        «Якщо їй дадуть достатньо часу, вона закінчить домашнє завдання і подивиться фільм.»<br>
+        <em>The past participle "Given" = she didn't give herself time — someone/something else did. This is the PASSIVE meaning.</em><br>
+        Дієприкметник "Given" = вона не давала собі час — хтось або щось інше зробило це. Це ПАСИВНЕ значення.
+      </div>
+    </div>
+  
+  <div class="section-title"><span class="icon">📊</span> Quick Comparison / Швидке порівняння</div>
+  <div class="table-scroll">
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th>Type / Тип</th>
+        <th>Form / Форма</th>
+        <th>Meaning / Значення</th>
+        <th>Example / Приклад</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>⏱️ Present</strong><br>Теперішній</td>
+        <td class="eng">verb + <strong>-ing</strong></td>
+        <td class="ua">At the same time / Одночасно</td>
+        <td class="eng">Finishing her homework, she will watch a movie.</td>
+      </tr>
+      <tr>
+        <td><strong>✅ Perfect</strong><br>Завершений</td>
+        <td class="eng"><strong>Having</strong> + past participle</td>
+        <td class="ua">Done before / Спочатку завершена дія</td>
+        <td class="eng">Having finished her homework, she will watch a movie.</td>
+      </tr>
+      <tr>
+        <td><strong>🔄 Past Part.</strong><br>Пасивний</td>
+        <td class="eng"><strong>Past participle</strong> (alone, no "Having")</td>
+        <td class="ua">Action done TO the subject / Дія виконана над підметом</td>
+        <td class="eng">Given enough time, she will finish her homework.</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <!-- TIP BOX -->
+  <div class="tip-box">
+    <div class="tip-icon">🧠</div>
+    <div>
+      <h4>Super Memory Trick! / Підказка для пам'яті!</h4>
+      <p><strong>-ing</strong> = imagine two things happening together, like two friends walking side by side. 🚶‍♀️🚶<br>
+      <strong>Having + done</strong> = the first action is already in a backpack 🎒 — packed away and finished — before the second action starts!<br>
+      <strong>Past Participle alone</strong> = you are the one receiving something 🎁 — like getting a gift, not giving it. That's passive!</p>
+      <p class="ua">🇺🇦 <strong>-ing</strong> = уявіть, що дві дії відбуваються разом, як два друга, що йдуть поруч.<br>
+      <strong>Having + done</strong> = перша дія вже в рюкзаку 🎒 — запакована і завершена — перш ніж починається друга!<br>
+      <strong>Дієприкметник сам по собі</strong> = ти отримуєш щось 🎁 — як подарунок, а не даєш. Це пасивний стан!</p>
+    </div>
+  </div>
+
+  <!-- INFOGRAPHIC -->
+  <div class="section-title"><span class="icon">🗺️</span> Visual Summary / Візуальне резюме</div>
+
+  <div style="background:#fff; border-radius:24px; padding:24px 18px; box-shadow:0 4px 20px rgba(0,0,0,.07);">
+    <p style="font-family:'Baloo 2',cursive; font-size:1.1rem; text-align:center; margin-bottom:20px;">📅 Timeline of Actions / Хронологія дій</p>
+
+    <!-- -ing timeline -->
+    <div style="margin-bottom:22px;">
+      <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px; flex-wrap:wrap;">
+        <span style="background:#dff3fe; border:2px solid var(--sky); padding:4px 12px; border-radius:20px; font-weight:800; font-size:.82rem;">-ing form</span>
+        <span style="font-size:.82rem; color:#666; font-style:italic;">Close / sequential actions</span>
+      </div>
+      <div style="display:flex; align-items:stretch; border-radius:12px; overflow:hidden; font-size:.88rem; font-weight:700;">
+        <div style="flex:1; background:#dff3fe; padding:12px 14px; min-width:0;">
+          ⏰ Finish homework<br>
+          <span style="font-size:.72rem; font-weight:400; color:#555;">Закінчити домашнє завдання</span>
+        </div>
+        <div style="background:#b0ddf7; padding:12px 8px; font-size:1.1rem; display:flex; align-items:center;">➡️</div>
+        <div style="flex:1; background:#5bc8f5; padding:12px 14px; color:#fff; min-width:0;">
+          🎬 Watch movie<br>
+          <span style="font-size:.72rem; font-weight:400; opacity:.8;">Дивитися фільм</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Having timeline -->
+    <div style="margin-bottom:22px;">
+      <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px; flex-wrap:wrap;">
+        <span style="background:#e0f7e4; border:2px solid var(--mint); padding:4px 12px; border-radius:20px; font-weight:800; font-size:.82rem;">Having + past p.</span>
+        <span style="font-size:.82rem; color:#666; font-style:italic;">Clearly finished first / Спочатку повністю завершена</span>
+      </div>
+      <div style="display:flex; align-items:stretch; border-radius:12px; overflow:hidden; font-size:.88rem; font-weight:700;">
+        <div style="flex:1; background:#e0f7e4; padding:12px 14px; min-width:0;">
+          ✅ Homework 100% done!<br>
+          <span style="font-size:.72rem; font-weight:400; color:#555;">Домашнє завдання на 100% готове!</span>
+        </div>
+        <div style="background:#a0d4a8; padding:12px 8px; font-size:1.1rem; display:flex; align-items:center;">⏭️</div>
+        <div style="flex:1; background:#6BCB77; padding:12px 14px; color:#fff; min-width:0;">
+          🎬 NOW watch movie<br>
+          <span style="font-size:.72rem; font-weight:400; opacity:.8;">ТЕПЕР дивимося фільм</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Past Participle (passive) timeline -->
+    <div>
+      <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px; flex-wrap:wrap;">
+        <span style="background:#f3e8ff; border:2px solid #c9b8ff; padding:4px 12px; border-radius:20px; font-weight:800; font-size:.82rem;">Past Participle (passive)</span>
+        <span style="font-size:.82rem; color:#666; font-style:italic;">Something done TO the subject / Щось зробили з підметом</span>
+      </div>
+      <div style="display:flex; align-items:stretch; border-radius:12px; overflow:hidden; font-size:.88rem; font-weight:700;">
+        <div style="flex:1; background:#f3e8ff; padding:12px 14px; min-width:0;">
+          🎁 Someone gives her time<br>
+          <span style="font-size:.72rem; font-weight:400; color:#555;">Хтось дає їй час (вона отримує дію)</span>
+        </div>
+        <div style="background:#d8b4fe; padding:12px 8px; font-size:1.1rem; display:flex; align-items:center;">⚡</div>
+        <div style="flex:1; background:#8b5cf6; padding:12px 14px; color:#fff; min-width:0;">
+          📝 She will finish + 🎬 watch<br>
+          <span style="font-size:.72rem; font-weight:400; opacity:.8;">Вона закінчить + подивиться</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="memory-card">
+    <h3>🎓 Remember All Three! / Пам'ятай усі три!</h3>
+    <p>
+      ⏱️ <strong>-ing</strong> = two things at the same time or close together<br>
+      ✅ <strong>Having + done</strong> = YOU did it first, then something else happens<br>
+      🔄 <strong>Past participle alone</strong> = something was done TO you (passive!)<br><br>
+      Participle clauses make your English sound <strong>more fluent and advanced</strong>. Practice all three!
+    </p>
+    <p class="ua">🇺🇦 ⏱️ <strong>-ing</strong> = дві дії одночасно або одна за одною<br>
+    ✅ <strong>Having + done</strong> = ТИ сам(а) зробив(ла) щось спочатку<br>
+    🔄 <strong>Дієприкметник без "having"</strong> = щось зробили з тобою (пасив!)</p>
+  </div>
+
+</div>
+
+<footer>
+  Made with ❤️ for English learners &nbsp;|&nbsp; <span>Participle Clauses – Future</span> &nbsp;|&nbsp; Keep learning! 🌟
+</footer>
+
+<script>
+  // Generate random stars
+  const starsEl = document.getElementById('stars');
+  for (let i = 0; i < 40; i++) {
+    const s = document.createElement('div');
+    s.className = 'star';
+    s.style.left = Math.random() * 100 + '%';
+    s.style.top = Math.random() * 100 + '%';
+    s.style.animationDelay = Math.random() * 3 + 's';
+    s.style.width = s.style.height = (Math.random() * 5 + 3) + 'px';
+    starsEl.appendChild(s);
+  }
+</script>
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+
+</body>
+</html>

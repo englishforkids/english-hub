@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hedging in English 🌿</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #2ecc71;
+    --dark-green: #1a7a45;
+    --lime: #a8e063;
+    --yellow: #f9ca24;
+    --orange: #f0932b;
+    --red: #eb4d4b;
+    --blue: #686de0;
+    --purple: #be2edd;
+    --teal: #22a6b3;
+    --pink: #fd79a8;
+    --cream: #fffde7;
+    --dark: #1e1e2e;
+    --card-bg: #ffffff;
+    --text: #2d3436;
+    --light-bg: #f0fdf4;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: linear-gradient(135deg, #e8f5e9 0%, #f3e5f5 50%, #e3f2fd 100%);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #1a7a45, #2ecc71, #a8e063);
+    padding: 60px 20px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    width: 400px; height: 400px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 50%;
+    top: -100px; left: -100px;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    width: 300px; height: 300px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 50%;
+    bottom: -80px; right: -60px;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+  .hero h1 {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(2.5rem, 7vw, 5rem);
+    color: white;
+    font-weight: 800;
+    line-height: 1.1;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    margin-bottom: 10px;
+  }
+  .hero h1 span { color: var(--yellow); }
+  .hero-sub {
+    color: rgba(255,255,255,0.9);
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .hero-sub-ua {
+    color: rgba(255,255,255,0.75);
+    font-size: 1rem;
+    font-style: italic;
+  }
+  .floating-emojis {
+    position: absolute;
+    width: 100%; height: 100%;
+    top: 0; left: 0;
+    pointer-events: none;
+  }
+  .float-emoji {
+    position: absolute;
+    font-size: 2rem;
+    animation: floatAnim 6s ease-in-out infinite;
+    opacity: 0.6;
+  }
+  @keyframes floatAnim {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(10deg); }
+  }
+
+  /* CONTAINER */
+  .container { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+
+  /* SECTION */
+  section { padding: 50px 0 30px; }
+
+  /* SECTION TITLE */
+  .section-title {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-subtitle {
+    color: #636e72;
+    font-size: 0.95rem;
+    margin-bottom: 30px;
+    font-style: italic;
+  }
+
+  /* CARDS */
+  .card {
+    background: white;
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    margin-bottom: 20px;
+    border: 2px solid transparent;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+  }
+  .card.green { border-color: #2ecc71; background: linear-gradient(135deg, #f0fff4, #ffffff); }
+  .card.yellow { border-color: #f9ca24; background: linear-gradient(135deg, #fffde7, #ffffff); }
+  .card.blue { border-color: #686de0; background: linear-gradient(135deg, #f0f0ff, #ffffff); }
+  .card.orange { border-color: #f0932b; background: linear-gradient(135deg, #fff8f0, #ffffff); }
+  .card.pink { border-color: #fd79a8; background: linear-gradient(135deg, #fff0f7, #ffffff); }
+  .card.teal { border-color: #22a6b3; background: linear-gradient(135deg, #f0fafa, #ffffff); }
+
+  /* WHAT IS HEDGING - BIG DEFINITION */
+  .definition-box {
+    background: linear-gradient(135deg, #1a7a45, #2ecc71);
+    border-radius: 24px;
+    padding: 36px;
+    color: white;
+    text-align: center;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .definition-box::before {
+    content: '🌿';
+    position: absolute;
+    font-size: 120px;
+    opacity: 0.1;
+    right: -10px;
+    top: -20px;
+  }
+  .definition-box h2 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+  }
+  .definition-box p { font-size: 1.1rem; line-height: 1.7; opacity: 0.95; }
+  .definition-box .ua-text {
+    margin-top: 14px;
+    font-style: italic;
+    opacity: 0.85;
+    font-size: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.3);
+    padding-top: 14px;
+  }
+
+  /* ANALOGY BOX */
+  .analogy {
+    background: var(--yellow);
+    border-radius: 20px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  .analogy-icon { font-size: 3rem; flex-shrink: 0; }
+  .analogy h3 { font-size: 1.2rem; font-weight: 800; margin-bottom: 6px; }
+  .analogy p { font-size: 0.95rem; line-height: 1.6; }
+  .analogy .ua { font-style: italic; color: #5a4a00; margin-top: 6px; font-size: 0.9rem; }
+
+  /* FORMULA */
+  .formula-box {
+    background: linear-gradient(135deg, #686de0, #be2edd);
+    border-radius: 20px;
+    padding: 30px;
+    color: white;
+    margin-bottom: 20px;
+  }
+  .formula-box h3 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.4rem;
+    margin-bottom: 18px;
+    font-weight: 800;
+  }
+  .formula {
+    background: rgba(255,255,255,0.15);
+    border-radius: 12px;
+    padding: 16px 22px;
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    border-left: 4px solid var(--yellow);
+  }
+  .formula .parts {
+    display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px;
+  }
+  .formula .part {
+    background: rgba(255,255,255,0.2);
+    border-radius: 8px;
+    padding: 4px 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  /* UNIVERSAL SENTENCE */
+  .universal-box {
+    background: linear-gradient(135deg, #f9ca24, #f0932b);
+    border-radius: 24px;
+    padding: 32px;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+  .universal-box h3 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+    color: #2d3436;
+  }
+  .universal-box .base-sentence {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #1a7a45;
+    background: white;
+    border-radius: 12px;
+    padding: 14px 22px;
+    margin: 14px 0;
+    display: inline-block;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  }
+  .universal-box .ua { font-style: italic; color: #5a4a00; font-size: 0.95rem; }
+
+  /* TRANSFORMATION TABLE */
+  .transform-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 14px;
+  }
+  @media (max-width: 600px) { .transform-grid { grid-template-columns: 1fr; } }
+  .transform-item {
+    background: white;
+    border-radius: 16px;
+    padding: 16px 18px;
+    border-left: 5px solid;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+  }
+  .transform-item .label {
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+    opacity: 0.7;
+  }
+  .transform-item .en { font-size: 1rem; font-weight: 700; margin-bottom: 4px; }
+  .transform-item .ua { font-size: 0.85rem; color: #636e72; font-style: italic; }
+  .transform-item.certainty { border-color: #2ecc71; }
+  .transform-item.prob { border-color: #686de0; }
+  .transform-item.doubt { border-color: #f0932b; }
+  .transform-item.suggest { border-color: #fd79a8; }
+  .transform-item.past { border-color: #22a6b3; }
+  .transform-item.question { border-color: #be2edd; }
+  .transform-item.negative { border-color: #eb4d4b; }
+  .transform-item.research { border-color: #f9ca24; }
+
+  /* CATEGORIES */
+  .category-title {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.3rem;
+    font-weight: 800;
+    padding: 10px 18px;
+    border-radius: 12px;
+    margin: 24px 0 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+  }
+  .cat-green { background: linear-gradient(90deg, #1a7a45, #2ecc71); }
+  .cat-blue { background: linear-gradient(90deg, #3d3d9e, #686de0); }
+  .cat-orange { background: linear-gradient(90deg, #c45000, #f0932b); }
+  .cat-pink { background: linear-gradient(90deg, #b54070, #fd79a8); }
+  .cat-teal { background: linear-gradient(90deg, #157080, #22a6b3); }
+  .cat-purple { background: linear-gradient(90deg, #8e1eaa, #be2edd); }
+  .cat-yellow { background: linear-gradient(90deg, #b89000, #f9ca24); color: #333; }
+  .cat-red { background: linear-gradient(90deg, #a01010, #eb4d4b); }
+
+  /* PHRASE TABLE */
+  .phrase-table {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+    margin-bottom: 14px;
+  }
+  .phrase-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.5fr;
+    gap: 0;
+    border-bottom: 1px solid #f1f2f6;
+    transition: background 0.15s;
+  }
+  .phrase-row:last-child { border-bottom: none; }
+  .phrase-row:hover { background: #f8f9fa; }
+  .phrase-row.header {
+    background: #2d3436;
+    color: white;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .phrase-cell {
+    padding: 12px 16px;
+    font-size: 0.92rem;
+    border-right: 1px solid #f1f2f6;
+  }
+  .phrase-cell:last-child { border-right: none; }
+  .phrase-cell .en { font-weight: 700; color: #2d3436; }
+  .phrase-cell .ua { color: #636e72; font-style: italic; font-size: 0.82rem; margin-top: 2px; }
+  @media (max-width: 600px) {
+    .phrase-row { grid-template-columns: 1fr; }
+    .phrase-cell { border-right: none; border-bottom: 1px solid #f1f2f6; }
+    .phrase-row.header .phrase-cell:not(:first-child) { display: none; }
+  }
+
+  /* EXAMPLE SENTENCES */
+  .example-sentence {
+    background: white;
+    border-radius: 16px;
+    padding: 18px 22px;
+    margin-bottom: 12px;
+    border-left: 5px solid;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+  }
+  .example-sentence .en {
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: 6px;
+  }
+  .example-sentence .ua {
+    font-size: 0.9rem;
+    color: #636e72;
+    font-style: italic;
+    margin-bottom: 6px;
+  }
+  .example-sentence .note {
+    display: inline-block;
+    background: #f1f2f6;
+    border-radius: 8px;
+    padding: 3px 10px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #636e72;
+  }
+  .highlight {
+    background: linear-gradient(90deg, rgba(46,204,113,0.2), transparent);
+    border-radius: 4px;
+    padding: 1px 4px;
+    font-style: normal;
+    color: #1a7a45;
+  }
+
+  /* INFOGRAPHIC - SCALE */
+  .scale-box {
+    background: white;
+    border-radius: 20px;
+    padding: 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 6px 25px rgba(0,0,0,0.08);
+  }
+  .scale-title {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.3rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .scale-bar {
+    height: 24px;
+    border-radius: 12px;
+    background: linear-gradient(90deg, #eb4d4b, #f0932b, #f9ca24, #a8e063, #2ecc71);
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .scale-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  .scale-labels span:nth-child(1) { color: #eb4d4b; }
+  .scale-labels span:nth-child(2) { color: #f0932b; }
+  .scale-labels span:nth-child(3) { color: #b8a000; }
+  .scale-labels span:nth-child(4) { color: #2ecc71; }
+  .certainty-levels {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+  @media (max-width: 600px) { .certainty-levels { grid-template-columns: repeat(2, 1fr); } }
+  .level-card {
+    border-radius: 14px;
+    padding: 14px;
+    text-align: center;
+  }
+  .level-card.l1 { background: #ffeaea; border: 2px solid #eb4d4b; }
+  .level-card.l2 { background: #fff4e8; border: 2px solid #f0932b; }
+  .level-card.l3 { background: #fffde7; border: 2px solid #f9ca24; }
+  .level-card.l4 { background: #f0fff4; border: 2px solid #2ecc71; }
+  .level-card .pct { font-size: 1.6rem; font-weight: 900; }
+  .level-card.l1 .pct { color: #eb4d4b; }
+  .level-card.l2 .pct { color: #f0932b; }
+  .level-card.l3 .pct { color: #b8a000; }
+  .level-card.l4 .pct { color: #1a7a45; }
+  .level-card .word { font-weight: 800; font-size: 0.9rem; margin: 4px 0; }
+  .level-card .example-w { font-size: 0.75rem; color: #636e72; font-style: italic; }
+
+  /* WHEN TO USE */
+  .when-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  @media (max-width: 700px) { .when-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 450px) { .when-grid { grid-template-columns: 1fr; } }
+  .when-card {
+    border-radius: 16px;
+    padding: 20px 16px;
+    text-align: center;
+    transition: transform 0.2s;
+  }
+  .when-card:hover { transform: scale(1.03); }
+  .when-card .emoji { font-size: 2.2rem; margin-bottom: 10px; }
+  .when-card h4 { font-weight: 800; font-size: 1rem; margin-bottom: 6px; }
+  .when-card p { font-size: 0.82rem; color: #636e72; line-height: 1.5; }
+  .when-card .ua-note { font-style: italic; color: #888; font-size: 0.78rem; margin-top: 4px; }
+
+
+  /* TIPS BOX */
+  .tips-box {
+    background: linear-gradient(135deg, #22a6b3, #686de0);
+    border-radius: 20px;
+    padding: 30px;
+    color: white;
+    margin-bottom: 20px;
+  }
+  .tips-box h3 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+  }
+  .tip-item {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 14px;
+    align-items: flex-start;
+  }
+  .tip-num {
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    width: 32px; height: 32px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+  .tip-text { font-size: 0.95rem; line-height: 1.5; }
+  .tip-text .ua { opacity: 0.8; font-style: italic; font-size: 0.88rem; }
+
+  /* FOOTER */
+  footer {
+    background: #2d3436;
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 0.9rem;
+    margin-top: 40px;
+  }
+  footer span { color: var(--green); font-weight: 700; }
+
+  /* DIVIDER */
+  .divider {
+    height: 4px;
+    background: linear-gradient(90deg, #2ecc71, #686de0, #f9ca24, #fd79a8);
+    border-radius: 2px;
+    margin: 30px 0;
+  }
+
+  /* TAG PILL */
+  .tag {
+    display: inline-block;
+    border-radius: 50px;
+    padding: 4px 12px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin: 3px;
+  }
+  .tag-green { background: #d4edda; color: #1a7a45; }
+  .tag-blue { background: #e8e8ff; color: #3d3d9e; }
+  .tag-orange { background: #fde9d0; color: #c45000; }
+
+  /* STICKY NAV */
+  .sticky-nav {
+    position: sticky;
+    top: 0;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    padding: 10px 20px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .sticky-nav::-webkit-scrollbar { display: none; }
+  .nav-btn {
+    background: none;
+    border: 2px solid #e0e0e0;
+    border-radius: 50px;
+    padding: 6px 14px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+    font-family: 'Nunito', sans-serif;
+    color: #2d3436;
+  }
+  .nav-btn:hover { border-color: #2ecc71; color: #1a7a45; background: #f0fff4; }
+  .nav-btn.active { background: #2ecc71; border-color: #2ecc71; color: white; }
+  /* COMPARE GRID */
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 10px;
+  }
+  @media (max-width: 480px) { .compare-grid { grid-template-columns: 1fr; } }
+
+  /* =====================
+     MOBILE RESPONSIVE
+  ===================== */
+  @media (max-width: 480px) {
+
+    /* General */
+    body { font-size: 15px; }
+    .container { padding: 0 14px; }
+    section { padding: 36px 0 20px; }
+
+    /* Hero */
+    .hero { padding: 40px 16px 60px; }
+    .hero-badge { font-size: 11px; padding: 6px 14px; letter-spacing: 1px; }
+    .hero h1 { font-size: 2.2rem; }
+    .hero-sub { font-size: 1rem; }
+    .hero-sub-ua { font-size: 0.88rem; }
+    .float-emoji { font-size: 1.4rem; }
+
+    /* Section titles */
+    .section-title { font-size: 1.4rem; }
+    .section-subtitle { font-size: 0.85rem; }
+
+    /* Definition box */
+    .definition-box { padding: 24px 18px; }
+    .definition-box h2 { font-size: 1.5rem; }
+    .definition-box p { font-size: 0.95rem; }
+    .definition-box .ua-text { font-size: 0.88rem; }
+
+    /* Analogy */
+    .analogy { flex-direction: column; gap: 10px; padding: 18px; }
+    .analogy-icon { font-size: 2.2rem; }
+    .analogy h3 { font-size: 1rem; }
+    .analogy p { font-size: 0.88rem; }
+
+    /* Scale box */
+    .scale-box { padding: 18px 14px; }
+    .scale-title { font-size: 1.1rem; }
+    .scale-labels { font-size: 0.7rem; gap: 4px; }
+    .level-card { padding: 10px 8px; }
+    .level-card .pct { font-size: 1.3rem; }
+    .level-card .word { font-size: 0.8rem; }
+    .level-card .example-w { font-size: 0.68rem; }
+
+    /* Formula box */
+    .formula-box { padding: 20px 16px; }
+    .formula-box h3 { font-size: 1.2rem; }
+    .formula { padding: 12px 14px; font-size: 0.95rem; }
+    .formula .parts { gap: 6px; }
+    .formula .part { font-size: 0.78rem; padding: 3px 9px; }
+
+    /* Universal box */
+    .universal-box { padding: 22px 16px; }
+    .universal-box h3 { font-size: 1.2rem; }
+    .universal-box .base-sentence { font-size: 1.1rem; padding: 10px 14px; }
+
+    /* Transform grid — already 1col at 600px, just tighten */
+    .transform-item { padding: 12px 14px; }
+    .transform-item .en { font-size: 0.92rem; }
+    .transform-item .ua { font-size: 0.8rem; }
+
+    /* Category title */
+    .category-title { font-size: 1.1rem; padding: 8px 14px; }
+
+    /* Phrase table — scrollable wrapper */
+    .phrase-table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 16px;
+      margin-bottom: 14px;
+    }
+    .phrase-table { margin-bottom: 0; min-width: 520px; border-radius: 0; }
+
+    /* Example sentences */
+    .example-sentence { padding: 14px 16px; }
+    .example-sentence .en { font-size: 0.95rem; }
+    .example-sentence .ua { font-size: 0.83rem; }
+    .example-sentence .note { font-size: 0.73rem; }
+
+    /* When grid — already 1col at 450px */
+    .when-card { padding: 16px 14px; }
+    .when-card .emoji { font-size: 1.8rem; }
+    .when-card h4 { font-size: 0.95rem; }
+    .when-card p, .when-card .ua-note { font-size: 0.8rem; }
+
+    /* Tips */
+    .tips-box { padding: 20px 16px; }
+    .tips-box h3 { font-size: 1.2rem; }
+    .tip-text { font-size: 0.88rem; }
+    .tip-text .ua { font-size: 0.82rem; }
+
+    /* Compare grid inside card */
+    .card > div[style*="grid-template-columns"] {
+      grid-template-columns: 1fr !important;
+    }
+
+    /* Cards */
+    .card { padding: 18px 16px; }
+
+    /* Nav buttons smaller */
+    .nav-btn { font-size: 0.75rem; padding: 5px 10px; }
+
+    /* Scroll-top button position */
+    #scroll-top-btn { bottom: 16px; right: 16px; width: 40px; height: 40px; font-size: 16px; }
+
+    /* Footer */
+    footer { font-size: 0.82rem; padding: 24px 16px; }
+  }
+
+#scroll-top-btn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #1a1208;
+  border: 1.5px solid rgba(200,150,62,0.4);
+  color: #f5f0e8;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+  pointer-events: none;
+  z-index: 9998;
+}
+#scroll-top-btn.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+#scroll-top-btn:hover {
+  background: #c8963e;
+  border-color: #c8963e;
+  color: #1a1208;
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="floating-emojis">
+    <div class="float-emoji" style="left:5%;top:15%;animation-delay:0s">🌿</div>
+    <div class="float-emoji" style="left:90%;top:20%;animation-delay:1s">💬</div>
+    <div class="float-emoji" style="left:15%;top:70%;animation-delay:2s">🤔</div>
+    <div class="float-emoji" style="left:80%;top:65%;animation-delay:0.5s">✨</div>
+    <div class="float-emoji" style="left:50%;top:5%;animation-delay:1.5s">📝</div>
+    <div class="float-emoji" style="left:40%;top:80%;animation-delay:3s">🎯</div>
+  </div>
+  <div class="hero-badge">🌱 English Grammar Guide</div>
+  <h1>🌿 <span>Hedging</span><br>in English</h1>
+  <p class="hero-sub">The Art of Speaking with Care & Precision</p>
+  <p class="hero-sub-ua">Мистецтво говорити обережно та точно</p>
+</div>
+
+<!-- NAV -->
+<nav class="sticky-nav">
+  <button class="nav-btn active" onclick="scrollToSection('what')">🤔 What is it?</button>
+  <button class="nav-btn" onclick="scrollToSection('formula')">🧮 Formulas</button>
+  <button class="nav-btn" onclick="scrollToSection('universal')">🎯 Universal</button>
+  <button class="nav-btn" onclick="scrollToSection('phrases')">📚 Phrases</button>
+  <button class="nav-btn" onclick="scrollToSection('examples')">💬 Examples</button>
+  <button class="nav-btn" onclick="scrollToSection('when')">⏰ When?</button>
+  <button class="nav-btn" onclick="scrollToSection('tips')">💡 Tips</button>
+</nav>
+
+<div class="container">
+
+  <!-- WHAT IS HEDGING -->
+  <section id="what">
+    <div class="section-title">🤔 What is Hedging?</div>
+    <p class="section-subtitle">Що таке хеджування? | Understanding the concept</p>
+
+    <div class="definition-box">
+      <h2>🌿 Hedging = Careful Language</h2>
+      <p><strong>Hedging</strong> is when you say something <em>carefully</em> — you're not 100% sure, or you don't want to sound too direct or rude. You "soften" your words so they don't sound too strong or overconfident.</p>
+      <div class="ua-text">
+        <strong>Хеджування</strong> — це коли ти говориш <em>обережно</em>: ти не на 100% впевнений, або не хочеш звучати надто прямо чи грубо. Ти "пом'якшуєш" свої слова, щоб вони не звучали занадто категорично або самовпевнено.
+      </div>
+    </div>
+
+    <div class="analogy">
+      <div class="analogy-icon">🔵</div>
+      <div>
+        <h3>Think of it like a cushion! / Уяви це як подушку!</h3>
+        <p>Imagine throwing a ball at someone. Without hedging, you throw it HARD directly at their face. With hedging, you gently place it in their hands. It's the same ball, but delivered much more softly! 🎾</p>
+        <p class="ua">Уяви, що кидаєш м'яч у когось. Без хеджування — ти кидаєш СИЛЬНО прямо в обличчя. З хеджуванням — ти обережно вкладаєш його в руки. Це той самий м'яч, але поданий набагато м'якше!</p>
+      </div>
+    </div>
+
+    <div class="analogy">
+      <div class="analogy-icon">🌡️</div>
+      <div>
+        <h3>Real life example / Приклад із реального життя:</h3>
+        <p><strong>Without hedging:</strong> "It will rain tomorrow." (You sound like a weather god!)<br>
+        <strong>With hedging:</strong> "It <em>might</em> rain tomorrow." (You're just being honest — you don't know for sure!)</p>
+        <p class="ua"><strong>Без хеджування:</strong> "Завтра буде дощ." (Звучиш як бог погоди!)<br>
+        <strong>З хеджуванням:</strong> "Завтра <em>може</em> піти дощ." (Ти просто чесний — ти не знаєш напевне!)</p>
+      </div>
+    </div>
+
+    <!-- CERTAINTY SCALE -->
+    <div class="scale-box">
+      <div class="scale-title">🎚️ The Certainty Scale / Шкала впевненості</div>
+      <div class="scale-bar"></div>
+      <div class="scale-labels">
+        <span>❌ Not sure at all</span>
+        <span>🤔 Maybe</span>
+        <span>🙂 Probably</span>
+        <span>✅ Certain</span>
+      </div>
+      <div class="certainty-levels">
+        <div class="level-card l1">
+          <div class="pct">10%</div>
+          <div class="word">Could / Might</div>
+          <div class="example-w">"It could work" / "може спрацювати"</div>
+        </div>
+        <div class="level-card l2">
+          <div class="pct">40%</div>
+          <div class="word">May / Possibly</div>
+          <div class="example-w">"May be right" / "можливо правий"</div>
+        </div>
+        <div class="level-card l3">
+          <div class="pct">70%</div>
+          <div class="word">Should / Likely</div>
+          <div class="example-w">"Should work" / "мабуть працює"</div>
+        </div>
+        <div class="level-card l4">
+          <div class="pct">90%</div>
+          <div class="word">Probably / Must</div>
+          <div class="example-w">"Probably true" / "напевно правда"</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- FORMULAS -->
+  <section id="formula">
+    <div class="section-title">🧮 How to Build Hedging</div>
+    <p class="section-subtitle">Як будувати речення з хеджуванням | Формули</p>
+
+    <div class="formula-box">
+      <h3>📐 Basic Formulas / Базові формули</h3>
+
+      <div class="formula">
+        <strong>Formula 1: Modal Verb + Base Verb</strong>
+        <div class="parts">
+          <span class="part">Subject</span>
+          <span class="part">+ might/may/could/should/would</span>
+          <span class="part">+ base verb</span>
+          <span class="part">+ rest of sentence</span>
+        </div>
+        <div style="margin-top:10px;opacity:0.85;font-size:0.9rem">🇺🇦 Підмет + модальне дієслово + основне дієслово</div>
+        <div style="margin-top:6px;font-size:0.95rem">✅ Example: "She <em>might go</em> to the party."</div>
+      </div>
+
+      <div class="formula">
+        <strong>Formula 2: Hedging Phrase + Full Sentence</strong>
+        <div class="parts">
+          <span class="part">I think / I believe / It seems</span>
+          <span class="part">+ that</span>
+          <span class="part">+ full sentence</span>
+        </div>
+        <div style="margin-top:10px;opacity:0.85;font-size:0.9rem">🇺🇦 Вступна фраза + що + речення</div>
+        <div style="margin-top:6px;font-size:0.95rem">✅ Example: "I think <em>that</em> she went to the party."</div>
+      </div>
+
+      <div class="formula">
+        <strong>Formula 3: Adverb + Statement</strong>
+        <div class="parts">
+          <span class="part">Probably / Possibly / Apparently</span>
+          <span class="part">+ full sentence</span>
+        </div>
+        <div style="margin-top:10px;opacity:0.85;font-size:0.9rem">🇺🇦 Прислівник + речення</div>
+        <div style="margin-top:6px;font-size:0.95rem">✅ Example: "Probably she <em>went</em> home early."</div>
+      </div>
+
+      <div class="formula">
+        <strong>Formula 4: Approximate Quantities</strong>
+        <div class="parts">
+          <span class="part">About / Around / Roughly</span>
+          <span class="part">+ number/amount</span>
+        </div>
+        <div style="margin-top:10px;opacity:0.85;font-size:0.9rem">🇺🇦 Приблизно + кількість</div>
+        <div style="margin-top:6px;font-size:0.95rem">✅ Example: "It costs <em>about</em> $50."</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- UNIVERSAL SENTENCE -->
+  <section id="universal">
+    <div class="section-title">🎯 Universal Sentence Transformations</div>
+    <p class="section-subtitle">Одне речення — різні варіанти | One base sentence, many hedging styles</p>
+
+    <div class="universal-box">
+      <h3>⭐ Our Base Sentence:</h3>
+      <div class="base-sentence">🏃 "She runs every day."</div>
+      <p class="ua">Базове речення: "Вона бігає щодня."</p>
+      <p style="margin-top:10px;font-size:0.85rem;color:#5a4a00">👇 Watch how it changes with hedging! / Дивись, як воно змінюється з хеджуванням!</p>
+    </div>
+
+    <div class="transform-grid">
+      <div class="transform-item certainty">
+        <div class="label">✅ High certainty / Висока впевненість</div>
+        <div class="en">"She <strong>must run</strong> every day." / "She <strong>definitely runs</strong> every day."</div>
+        <div class="ua">🇺🇦 "Вона напевно бігає щодня." (ти майже певний)</div>
+      </div>
+      <div class="transform-item prob">
+        <div class="label">🟣 Probability / Ймовірність</div>
+        <div class="en">"She <strong>probably runs</strong> every day." / "She <strong>likely runs</strong> every day."</div>
+        <div class="ua">🇺🇦 "Вона мабуть бігає щодня."</div>
+      </div>
+      <div class="transform-item doubt">
+        <div class="label">🟠 Low certainty / Мала впевненість</div>
+        <div class="en">"She <strong>might run</strong> every day." / "She <strong>could run</strong> every day."</div>
+        <div class="ua">🇺🇦 "Вона може бігає щодня."</div>
+      </div>
+      <div class="transform-item suggest">
+        <div class="label">💗 Opinion / Думка</div>
+        <div class="en">"<strong>I think</strong> she runs every day." / "<strong>I believe</strong> she runs every day."</div>
+        <div class="ua">🇺🇦 "Я думаю/вважаю, вона бігає щодня."</div>
+      </div>
+      <div class="transform-item past">
+        <div class="label">🩵 Seems / Виглядає так</div>
+        <div class="en">"It <strong>seems</strong> (that) she runs every day." / "It <strong>appears</strong> she runs every day."</div>
+        <div class="ua">🇺🇦 "Здається, вона бігає щодня."</div>
+      </div>
+      <div class="transform-item question">
+        <div class="label">🟣 Approximation / Приблизно</div>
+        <div class="en">"She runs every day, <strong>or so</strong> I've heard." / "She runs <strong>most days</strong>, it seems."</div>
+        <div class="ua">🇺🇦 "Наскільки я чув, вона бігає щодня."</div>
+      </div>
+      <div class="transform-item negative">
+        <div class="label">🔴 Doubt / Сумнів</div>
+        <div class="en">"I'm <strong>not sure</strong> if she runs every day." / "She <strong>may not</strong> run every day."</div>
+        <div class="ua">🇺🇦 "Я не певен, чи вона бігає щодня."</div>
+      </div>
+      <div class="transform-item research">
+        <div class="label">🟡 Academic / Науковий</div>
+        <div class="en">"<strong>Research suggests</strong> people like her tend to run every day."</div>
+        <div class="ua">🇺🇦 "Дослідження вказують, що такі люди зазвичай бігають щодня."</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ALL HEDGING PHRASES -->
+  <section id="phrases">
+    <div class="section-title">📚 All Hedging Phrases</div>
+    <p class="section-subtitle">Всі фрази хеджування | Organized by category</p>
+
+    <div class="category-title cat-green">🟢 Modal Verbs / Модальні дієслова</div>
+    <div class="phrase-table-wrap"><div class="phrase-table">
+      <div class="phrase-row header">
+        <div class="phrase-cell">English</div>
+        <div class="phrase-cell">Ukrainian / Переклад</div>
+        <div class="phrase-cell">Example / Приклад</div>
+      </div>
+      <div class="phrase-row">
+        <div class="phrase-cell"><div class="en">might</div></div>
+        <div class="phrase-cell"><div class="ua">може (малоймовірно)</div></div>
+        <div class="phrase-cell"><div class="ua">"It <strong>might</strong> be true." / "Це може бути правдою."</div></div>
+      </div>
+      <div class="phrase-row">
+        <div class="phrase-cell"><div class="en">may</div></div>
+        <div class="phrase-cell"><div class="ua">може (нейтрально)</div></div>
+        <div class="phrase-cell"><div class="ua">"She <strong>may</strong> come later." / "Вона може прийти пізніше."</div></div>
+      </div>
+      <div class="phrase-row">
+        <div class="phrase-cell"><div class="en">could</div></div>
+        <div class="phrase-cell"><div class="ua">міг би, можливо</div></div>
+        <div class="phrase-cell"><div class="ua">"That <strong>could</strong> work." / "Це могло б спрацювати."</div></div>
+      </div>
+      <div class="phrase-row">
+        <div class="phrase-cell"><div class="en">should</div></div>
+        <div class="phrase-cell"><div class="ua">мабуть (очікуваний)</div></div>
+        <div class="phrase-cell"><div class="ua">"He <strong>should</strong> be home by now." / "Він вже мабуть вдома."</div></div>
+      </div>
+      <div class="phrase-row">
+        <div class="phrase-cell"><div class="en">would</div></div>
+        <div class="phrase-cell"><div class="ua">б, міг би</div></div>
+        <div class="phrase-cell"><div class="ua">"I <strong>would</strong> say it's fine." / "Я б сказав — нормально."</div></div>
+      </div>
+      <div class="phrase-row">
+        <div class="phrase-cell"><div class="en">must</div></div>
+        <div class="phrase-cell"><div class="ua">напевно (дедукція)</div></div>
+        <div class="phrase-cell"><div class="ua">"She <strong>must</strong> be tired." / "Вона напевно втомилась."</div></div>
+      </div>
+    </div>
+
+    <div class="category-title cat-blue">🔵 Verbs of Thinking / Дієслова думання</div>
+    <div class="phrase-table-wrap"><div class="phrase-table">
+      <div class="phrase-row header">
+        <div class="phrase-cell">English</div>
+        <div class="phrase-cell">Ukrainian / Переклад</div>
+        <div class="phrase-cell">Example / Приклад</div>
+      </div>
+      <div class="phrase-row">
+        <div class="phrase-cell"><div class="en">I think (that)...</div></div>
+        <div class="phrase-cell"><div class="ua">Я думаю, що...</div></div>
+        <div class="phrase-cell"><div class="ua">"<strong>I think</strong> he's wrong." / "Я думаю, він не правий."</div></div>
+      </div>
+      <div class="phrase-row">
+        <div class="phrase-cell"><div class="en">I believe (that)...</div></div>
+        <div class="phrase-cell"><div class="ua">Я вважаю/вірю, що...</div></div>
+        <div class="phrase-cell"><div class="ua">"<strong>I believe</strong> this is correct." / "Я вважаю, це правильно."</div></div>
+      </div>
+      <div class="phrase-row">
+        <div class="phrase-cell"><div class="en">I suppose...</div></div>
+        <div class="phrase-cell"><div class="ua">Я припускаю...</div></div>
+        <div class="phrase-cell"><div class="ua">"<strong>I suppose</strong> we could try." / "Припускаю, ми могли б спробувати."</div></div>
+      </div>
+      <div class="phrase-row">
+        <div class="phrase-cell"><div class="en">I assume...</div></div>
+        <div class="phrase-cell"><div class="ua">Я гадаю / Я виходжу з того...</div></div>
+        <div class="phrase-cell"><div class="ua">"<strong>I assume</strong> you know her." / "Гадаю, ти її знаєш."</div></div>
+      </div>
+      <div class="phrase-row">
+        <div class="phrase-cell"><div class="en">I guess...</div></div>
+        <div class="phrase-cell"><div class="ua">Здається / Мабуть (неформально)</div></div>
+        <div class="phrase-cell"><div class="ua">"<strong>I guess</strong> it's okay." / "Мабуть, окей."</div></div>
+      </div>
+      <div class="phrase-row">
+        <div class="phrase-cell"><div class="en">I reckon... (informal)</div></div>
+        <div class="phrase-cell"><div class="ua">Я вважаю (розм.)</div></div>
+        <div class="phrase-cell"><div class="ua">"<strong>I reckon</strong> he likes you." / "Здається, ти йому подобаєшся."</div></div>
+      </div>
+      <div class="phrase-row">
+        <div class="phrase-cell"><div class="en">I suspect...</div></div>
+        <div class="phrase-cell"><div class="ua">Я підозрюю / Маю відчуття...</div></div>
+        <div class="phrase-cell"><div class="ua">"<strong>I suspect</strong> something's wrong." / "Підозрюю, щось не так."</div></div>
+      </div>
+      <div class="phrase-row">
+        <div class="phrase-cell"><div class="en">I imagine...</div></div>
+        <div class="phrase-cell"><div class="ua">Уявляю / Думаю...</div></div>
+        <div class="phrase-cell"><div class="ua">"<strong>I imagine</strong> it was hard." / "Уявляю, це було важко."</div></div>
+      </div>
+    </div>
+
+    <div class="category-title cat-orange">🟠 Impersonal Structures / Безособові конструкції</div>
+    <div class="phrase-table-wrap"><div class="phrase-table">
+      <div class="phrase-row header">
+        <div class="phrase-cell">English</div>
+        <div class="phrase-cell">Ukrainian / Переклад</div>
+        <div class="phrase-cell">Example / Приклад</div>
+      </div>
+      <div class="phrase-row">
+        <div class="phrase-cell"><div class="en">It seems (that)...</div></div>
+        <div class="phrase-cell"><div class="ua">Здається, що...</div></div>
+        <div class="phrase-cell"><div class="ua">"<strong>It seems</strong> she left." / "Здається, вона пішла."</div></div>
+      </div>
+      <div class="phrase-row">
+        <div class="phrase-cell"><div class="en">It appears (that)...</div></div>
+        <div class="phrase-cell"><div class="ua">Виглядає так, що...</div></div>
+        <div class="phrase-cell"><div class="ua">"<strong>It appears</strong> the plan failed." / "Схоже, план провалився."</div></div>
+      </div>
+      <div class="phrase-row">
+        <div class="phrase-cell"><div class="en">It looks like...</div></div>
+        <div class="phrase-cell"><div class="ua">Схоже на те, що...</div></div>
+        <div class="phrase-cell"><div class="ua">"<strong>It looks like</strong> rain." / "Схоже на дощ."</div></div>
+      </div>
+      <div class="phrase-row">
+        <div class="phrase-cell"><div class="en">It is said that...</div></div>
+        <div class="phrase-cell"><div class="ua">Кажуть, що...</div></div>
+        <div class="phrase-cell"><div class="ua">"<strong>It is said</strong> he's brilliant." / "Кажуть, він геніальний."</div></div>
+      </div>
+      <div class="phrase-row">
+        <div class="phrase-cell"><div class="en">It would seem (that)...</div></div>
+        <div class="phrase-cell"><div class="ua">Схоже / Здається (більш формально)</div></div>
+        <div class="phrase-cell"><div class="ua">"<strong>It would seem</strong> we're lost." / "Схоже, ми заблукали."</div></div>
+      </div>
+    </div>
+
+    <div class="category-title cat-pink">💗 Hedging Adverbs / Прислівники-хеджери</div>
+    <div class="phrase-table-wrap"><div class="phrase-table">
+      <div class="phrase-row header">
+        <div class="phrase-cell">English</div>
+        <div class="phrase-cell">Ukrainian / Переклад</div>
+        <div class="phrase-cell">Example / Приклад</div>
+      </div>
+      <div class="phrase-row">
+        <div class="phrase-cell"><div class="en">probably</div></div>
+        <div class="phrase-cell"><div class="ua">мабуть, напевно (~70%)</div></div>
+        <div class="phrase-cell"><div class="ua">"She's <strong>probably</strong> right." / "Вона мабуть права."</div></div>
+      </div>
+      <div class="phrase-row">
+        <div class="phrase-cell"><div class="en">possibly</div></div>
+        <div class="phrase-cell"><div class="ua">можливо (~40%)</div></div>
+        <div class="phrase-cell"><div class="ua">"This is <strong>possibly</strong> the answer." / "Це, можливо, відповідь."</div></div>
+      </div>
+      <div class="phrase-row">
+        <div class="phrase-cell"><div class="en">perhaps / maybe</div></div>
+        <div class="phrase-cell"><div class="ua">можливо, мабуть</div></div>
+        <div class="phrase-cell"><div class="ua">"<strong>Perhaps</strong> we should wait." / "Можливо, варто почекати."</div></div>
+      </div>
+      <div class="phrase-row">
+        <div class="phrase-cell"><div class="en">likely</div></div>
+        <div class="phrase-cell"><div class="ua">схоже / ймовірно</div></div>
+        <div class="phrase-cell"><div class="ua">"He's <strong>likely</strong> to agree." / "Він, ймовірно, погодиться."</div></div>
+      </div>
+      <div class="phrase-row">
+        <div class="phrase-cell"><div class="en">apparently</div></div>
+        <div class="phrase-cell"><div class="ua">мабуть, судячи з усього</div></div>
+        <div class="phrase-cell"><div class="ua">"<strong>Apparently</strong> she moved." / "Мабуть, вона переїхала."</div></div>
+      </div>
+      <div class="phrase-row">
+        <div class="phrase-cell"><div class="en">supposedly</div></div>
+        <div class="phrase-cell"><div class="ua">нібито, як кажуть</div></div>
+        <div class="phrase-cell"><div class="ua">"<strong>Supposedly</strong> it's fixed." / "Нібито це виправили."</div></div>
+      </div>
+      <div class="phrase-row">
+        <div class="phrase-cell"><div class="en">roughly / approximately / about</div></div>
+        <div class="phrase-cell"><div class="ua">приблизно, близько</div></div>
+        <div class="phrase-cell"><div class="ua">"It takes <strong>about</strong> 2 hours." / "Це займає приблизно 2 години."</div></div>
+      </div>
+    </div>
+
+    <div class="category-title cat-teal">🩵 Academic & Research Hedges / Наукові хеджери</div>
+    <div class="phrase-table-wrap"><div class="phrase-table">
+      <div class="phrase-row header">
+        <div class="phrase-cell">English</div>
+        <div class="phrase-cell">Ukrainian / Переклад</div>
+        <div class="phrase-cell">Example / Приклад</div>
+      </div>
+      <div class="phrase-row">
+        <div class="phrase-cell"><div class="en">Research suggests...</div></div>
+        <div class="phrase-cell"><div class="ua">Дослідження вказують...</div></div>
+        <div class="phrase-cell"><div class="ua">"<strong>Research suggests</strong> this is effective."</div></div>
+      </div>
+      <div class="phrase-row">
+        <div class="phrase-cell"><div class="en">Studies indicate...</div></div>
+        <div class="phrase-cell"><div class="ua">Дослідження свідчать...</div></div>
+        <div class="phrase-cell"><div class="ua">"<strong>Studies indicate</strong> exercise helps."</div></div>
+      </div>
+      <div class="phrase-row">
+        <div class="phrase-cell"><div class="en">There is evidence that...</div></div>
+        <div class="phrase-cell"><div class="ua">Є докази того, що...</div></div>
+        <div class="phrase-cell"><div class="ua">"<strong>There is evidence that</strong> diet matters."</div></div>
+      </div>
+      <div class="phrase-row">
+        <div class="phrase-cell"><div class="en">tends to...</div></div>
+        <div class="phrase-cell"><div class="ua">зазвичай / як правило...</div></div>
+        <div class="phrase-cell"><div class="ua">"This <strong>tends to</strong> cause problems."</div></div>
+      </div>
+      <div class="phrase-row">
+        <div class="phrase-cell"><div class="en">In general / generally</div></div>
+        <div class="phrase-cell"><div class="ua">Загалом / як правило</div></div>
+        <div class="phrase-cell"><div class="ua">"<strong>In general</strong>, this approach works."</div></div>
+      </div>
+    </div>
+
+    <div class="category-title cat-purple">🟣 Softening Phrases / Фрази для пом'якшення</div>
+    <div class="phrase-table-wrap"><div class="phrase-table">
+      <div class="phrase-row header">
+        <div class="phrase-cell">English</div>
+        <div class="phrase-cell">Ukrainian / Переклад</div>
+        <div class="phrase-cell">Example / Приклад</div>
+      </div>
+      <div class="phrase-row">
+        <div class="phrase-cell"><div class="en">kind of / sort of</div></div>
+        <div class="phrase-cell"><div class="ua">якось / немов (розм.)</div></div>
+        <div class="phrase-cell"><div class="ua">"It's <strong>kind of</strong> weird." / "Це якось дивно."</div></div>
+      </div>
+      <div class="phrase-row">
+        <div class="phrase-cell"><div class="en">a bit / a little</div></div>
+        <div class="phrase-cell"><div class="ua">трохи, трішки</div></div>
+        <div class="phrase-cell"><div class="ua">"It's <strong>a bit</strong> too cold." / "Трохи холодно."</div></div>
+      </div>
+      <div class="phrase-row">
+        <div class="phrase-cell"><div class="en">fairly / quite / rather</div></div>
+        <div class="phrase-cell"><div class="ua">досить / доволі</div></div>
+        <div class="phrase-cell"><div class="ua">"It's <strong>quite</strong> good." / "Це досить добре."</div></div>
+      </div>
+      <div class="phrase-row">
+        <div class="phrase-cell"><div class="en">more or less</div></div>
+        <div class="phrase-cell"><div class="ua">більш-менш</div></div>
+        <div class="phrase-cell"><div class="ua">"It's <strong>more or less</strong> done." / "Це більш-менш готово."</div></div>
+      </div>
+      <div class="phrase-row">
+        <div class="phrase-cell"><div class="en">to some extent</div></div>
+        <div class="phrase-cell"><div class="ua">певною мірою</div></div>
+        <div class="phrase-cell"><div class="ua">"<strong>To some extent</strong>, you're right." / "Певною мірою, ти правий."</div></div>
+      </div>
+      <div class="phrase-row">
+        <div class="phrase-cell"><div class="en">in a way / in some ways</div></div>
+        <div class="phrase-cell"><div class="ua">в певному сенсі / в якомусь плані</div></div>
+        <div class="phrase-cell"><div class="ua">"<strong>In a way</strong>, it makes sense." / "В певному сенсі, це має сенс."</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- EXAMPLE SENTENCES BY SITUATION -->
+  <section id="examples">
+    <div class="section-title">💬 Example Sentences by Situation</div>
+    <p class="section-subtitle">Приклади речень за ситуаціями | Real-life contexts</p>
+
+    <div class="category-title cat-blue">🏫 At School / В школі</div>
+    <div class="example-sentence" style="border-color:#686de0">
+      <div class="en">Teacher: "<span class="highlight">I think</span> the answer <span class="highlight">might be</span> B, but let's check together."</div>
+      <div class="ua">🇺🇦 "Я думаю, відповідь <em>може</em> бути B, але давайте перевіримо разом."</div>
+      <span class="note">🤔 Shows humility + invites cooperation</span>
+    </div>
+    <div class="example-sentence" style="border-color:#686de0">
+      <div class="en">Student: "The essay <span class="highlight">seems to suggest</span> that the author <span class="highlight">may have been</span> influenced by war."</div>
+      <div class="ua">🇺🇦 "Есе, <em>здається, натякає</em>, що автор <em>міг</em> бути під впливом війни."</div>
+      <span class="note">📝 Academic hedging for essays</span>
+    </div>
+
+    <div class="category-title cat-orange">🌤️ Weather / Погода</div>
+    <div class="example-sentence" style="border-color:#f0932b">
+      <div class="en">"It <span class="highlight">looks like</span> it <span class="highlight">might</span> rain this afternoon."</div>
+      <div class="ua">🇺🇦 "Схоже, після обіду <em>може</em> піти дощ."</div>
+      <span class="note">🌧️ Nobody knows the weather 100%!</span>
+    </div>
+    <div class="example-sentence" style="border-color:#f0932b">
+      <div class="en">"The weather <span class="highlight">should</span> be nicer tomorrow, <span class="highlight">apparently</span>."</div>
+      <div class="ua">🇺🇦 "Завтра <em>мабуть</em> буде кращаً погода, <em>судячи з усього</em>."</div>
+      <span class="note">📱 Based on forecast, not 100% sure</span>
+    </div>
+
+    <div class="category-title cat-green">🍕 Food & Preferences / Їжа та вподобання</div>
+    <div class="example-sentence" style="border-color:#2ecc71">
+      <div class="en">"I <span class="highlight">think</span> the pizza here is <span class="highlight">probably</span> the best in town."</div>
+      <div class="ua">🇺🇦 "Я <em>думаю</em>, піца тут <em>мабуть</em> найкраща в місті."</div>
+      <span class="note">🍕 This is your opinion, not a fact!</span>
+    </div>
+    <div class="example-sentence" style="border-color:#2ecc71">
+      <div class="en">"This <span class="highlight">sort of</span> tastes like chicken, <span class="highlight">I suppose</span>."</div>
+      <div class="ua">🇺🇦 "Це <em>якось</em> схоже на смак курки, <em>мабуть</em>."</div>
+      <span class="note">🐔 You're not totally sure!</span>
+    </div>
+
+    <div class="category-title cat-pink">💼 Work & Business / Робота та бізнес</div>
+    <div class="example-sentence" style="border-color:#fd79a8">
+      <div class="en">"<span class="highlight">I believe</span> this strategy <span class="highlight">could</span> improve our results by <span class="highlight">roughly</span> 20%."</div>
+      <div class="ua">🇺🇦 "<em>Я вважаю</em>, ця стратегія <em>може</em> покращити наші результати <em>приблизно</em> на 20%."</div>
+      <span class="note">📊 Professional, careful prediction</span>
+    </div>
+    <div class="example-sentence" style="border-color:#fd79a8">
+      <div class="en">"<span class="highlight">It seems like</span> we <span class="highlight">might</span> need to reconsider the budget."</div>
+      <div class="ua">🇺🇦 "<em>Схоже</em>, нам <em>може</em> знадобитися переглянути бюджет."</div>
+      <span class="note">💰 Soft suggestion, not a command</span>
+    </div>
+
+    <div class="category-title cat-teal">🏥 Health / Здоров'я</div>
+    <div class="example-sentence" style="border-color:#22a6b3">
+      <div class="en">Doctor: "This <span class="highlight">could be</span> a viral infection, but we <span class="highlight">should</span> run some tests to be sure."</div>
+      <div class="ua">🇺🇦 "Це <em>може бути</em> вірусна інфекція, але нам <em>варто</em> зробити аналізи, щоб бути впевненими."</div>
+      <span class="note">🔬 Doctors use hedging a lot!</span>
+    </div>
+
+    <div class="category-title cat-purple">🤝 Everyday Conversation / Щоденне спілкування</div>
+    <div class="example-sentence" style="border-color:#be2edd">
+      <div class="en">"<span class="highlight">Maybe</span> we <span class="highlight">could</span> go to the cinema tonight, if you want."</div>
+      <div class="ua">🇺🇦 "<em>Може</em>, <em>можна</em> сьогодні піти в кіно, якщо хочеш."</div>
+      <span class="note">🎬 Polite suggestion, giving the other person a choice</span>
+    </div>
+    <div class="example-sentence" style="border-color:#be2edd">
+      <div class="en">"<span class="highlight">I think</span> you <span class="highlight">might</span> want to check that again — <span class="highlight">it seems</span> there's a mistake."</div>
+      <div class="ua">🇺🇦 "<em>Я думаю</em>, тобі <em>може</em> варто перевірити це ще раз — <em>здається</em>, є помилка."</div>
+      <span class="note">😊 Polite way to say "you're wrong"!</span>
+    </div>
+    <div class="example-sentence" style="border-color:#be2edd">
+      <div class="en">"<span class="highlight">I'm not sure</span>, but <span class="highlight">I believe</span> the meeting starts at 3."</div>
+      <div class="ua">🇺🇦 "<em>Я не впевнений</em>, але <em>думаю</em>, зустріч починається о 3."</div>
+      <span class="note">🕐 Honest about uncertainty</span>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- WHEN TO USE -->
+  <section id="when">
+    <div class="section-title">⏰ When Do We Use Hedging?</div>
+    <p class="section-subtitle">Коли використовується хеджування? | 6 key situations</p>
+
+    <div class="when-grid">
+      <div class="when-card" style="background:#f0fff4;border:2px solid #2ecc71">
+        <div class="emoji">🔬</div>
+        <h4>Science & Research</h4>
+        <p>When results aren't 100% proven yet. Scientists always hedge!</p>
+        <p class="ua-note">🇺🇦 Науковці завжди хеджують, бо результати ніколи не 100%</p>
+      </div>
+      <div class="when-card" style="background:#f0f0ff;border:2px solid #686de0">
+        <div class="emoji">🤝</div>
+        <h4>Being Polite</h4>
+        <p>To soften criticism or make requests less demanding.</p>
+        <p class="ua-note">🇺🇦 Щоб критика звучала м'якше або запит — ввічливіше</p>
+      </div>
+      <div class="when-card" style="background:#fff8f0;border:2px solid #f0932b">
+        <div class="emoji">📊</div>
+        <h4>Business & Predictions</h4>
+        <p>When you make forecasts or estimates that aren't certain.</p>
+        <p class="ua-note">🇺🇦 Прогнози та оцінки в бізнесі — ніколи не точні</p>
+      </div>
+      <div class="when-card" style="background:#fff0f7;border:2px solid #fd79a8">
+        <div class="emoji">💬</div>
+        <h4>Sharing Opinions</h4>
+        <p>To show this is YOUR view, not an absolute truth.</p>
+        <p class="ua-note">🇺🇦 Показати, що це твоя думка, а не абсолютна правда</p>
+      </div>
+      <div class="when-card" style="background:#f0fafa;border:2px solid #22a6b3">
+        <div class="emoji">😬</div>
+        <h4>Saying Something Negative</h4>
+        <p>To be less blunt when delivering bad news or feedback.</p>
+        <p class="ua-note">🇺🇦 Щоб погані новини чи критика звучали менш різко</p>
+      </div>
+      <div class="when-card" style="background:#f8f0ff;border:2px solid #be2edd">
+        <div class="emoji">🎓</div>
+        <h4>Academic Writing</h4>
+        <p>Essays and reports must show uncertainty and careful thinking.</p>
+        <p class="ua-note">🇺🇦 У наукових текстах обов'язково треба показувати невпевненість</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- TIPS -->
+  <section id="tips">
+    <div class="tips-box">
+      <h3>💡 Top Tips for Hedging / Найважливіші поради</h3>
+      <div class="tip-item">
+        <div class="tip-num">1</div>
+        <div class="tip-text">
+          <strong>Don't overuse it!</strong> If every sentence has hedging, you sound unsure about everything.
+          <div class="ua">🇺🇦 Не перестарайся! Якщо в кожному реченні є хеджування, ти звучиш невпевнено в усьому.</div>
+        </div>
+      </div>
+      <div class="tip-item">
+        <div class="tip-num">2</div>
+        <div class="tip-text">
+          <strong>Match the level to the situation.</strong> Academic writing needs more hedging. Casual chat needs less.
+          <div class="ua">🇺🇦 Підбирай рівень під ситуацію. Науковий текст — більше хеджування. Звичайна розмова — менше.</div>
+        </div>
+      </div>
+      <div class="tip-item">
+        <div class="tip-num">3</div>
+        <div class="tip-text">
+          <strong>Combine hedges for stronger effect:</strong> "I <em>think</em> this <em>might possibly</em> work" = very uncertain!
+          <div class="ua">🇺🇦 Поєднуй хеджери для сильнішого ефекту — "можливо, це, здається, може спрацювати" = дуже невпевнено!</div>
+        </div>
+      </div>
+      <div class="tip-item">
+        <div class="tip-num">4</div>
+        <div class="tip-text">
+          <strong>Use "I think" to soften ANY opinion</strong> — it's the most useful hedging phrase ever!
+          <div class="ua">🇺🇦 Використовуй "I think" для пом'якшення будь-якої думки — це найкорисніша фраза хеджування!</div>
+        </div>
+      </div>
+      <div class="tip-item">
+        <div class="tip-num">5</div>
+        <div class="tip-text">
+          <strong>British English loves hedging more</strong> than American English. "That's <em>a bit</em> wrong" vs "That's wrong."
+          <div class="ua">🇺🇦 Британська англійська любить хеджування більше ніж американська. "Це <em>трохи</em> неправильно" проти "Це неправильно."</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card green">
+      <div class="section-title" style="font-size:1.3rem">🆚 Hedging vs. No Hedging</div>
+      <div class="compare-grid">
+        <div style="background:#ffeaea;border-radius:12px;padding:16px">
+          <div style="font-weight:800;color:#eb4d4b;margin-bottom:8px">❌ Too Direct / Занадто прямо</div>
+          <div style="font-size:0.9rem;line-height:1.6">
+            "You are wrong."<br>
+            "This will fail."<br>
+            "She is bad at math."<br>
+            "It costs $100."<br>
+            "The plan is terrible."
+          </div>
+        </div>
+        <div style="background:#f0fff4;border-radius:12px;padding:16px">
+          <div style="font-weight:800;color:#1a7a45;margin-bottom:8px">✅ With Hedging / З хеджуванням</div>
+          <div style="font-size:0.9rem;line-height:1.6">
+            "I think you <em>might be</em> wrong."<br>
+            "This <em>could</em> fail."<br>
+            "She <em>seems to struggle</em> a bit with math."<br>
+            "It costs <em>about</em> $100."<br>
+            "The plan <em>might need</em> some changes."
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div>🌿 <span>Hedging in English</span> — Speak carefully, sound smart! / Говори обережно, звучи розумно!</div>
+  <div style="margin-top:8px;font-size:0.8rem">Made with 💚 for English learners everywhere 🌍</div>
+</footer>
+
+<script>
+function scrollToSection(id) {
+  document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+}
+
+// Highlight active nav on scroll
+const sections = ['what','formula','universal','phrases','examples','when','tips'];
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY + 150;
+  sections.forEach((id, i) => {
+    const el = document.getElementById(id);
+    if (el && el.offsetTop <= scrollY && (sections[i+1] ? document.getElementById(sections[i+1]).offsetTop > scrollY : true)) {
+      document.querySelectorAll('.nav-btn').forEach((b, j) => {
+        b.classList.toggle('active', j === i);
+      });
+    }
+  });
+});
+</script>
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+</body>
+</html>

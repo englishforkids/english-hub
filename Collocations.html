@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English Collocations 🧩</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --yellow: #FFD93D;
+    --orange: #FF6B35;
+    --pink: #FF6B9D;
+    --blue: #4ECDC4;
+    --purple: #A855F7;
+    --green: #6BCB77;
+    --dark: #1a1a2e;
+    --card: #ffffff;
+    --bg: #f0f4ff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--dark);
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    padding: 60px 20px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 20% 50%, rgba(78,205,196,.15) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(168,85,247,.15) 0%, transparent 60%);
+  }
+  .hero-emoji-row {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    animation: float 3s ease-in-out infinite;
+  }
+  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+
+  .hero h1 {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    color: var(--yellow);
+    text-shadow: 4px 4px 0 rgba(0,0,0,.3);
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .hero-sub {
+    font-size: 1.2rem;
+    color: #a0aec0;
+    margin-bottom: 8px;
+    position: relative;
+  }
+  .hero-sub-ua {
+    font-size: 1rem;
+    color: #718096;
+    position: relative;
+  }
+
+  /* ── SECTIONS ── */
+  .section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 50px 20px;
+  }
+  .section-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: 2.2rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  .ua-label {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+    color: #718096;
+    font-weight: 600;
+    margin-bottom: 30px;
+    padding-left: 4px;
+  }
+
+  /* ── WHAT IS BOX ── */
+  .what-box {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 24px;
+    padding: 40px;
+    color: white;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+  }
+  .what-box::after {
+    content: '🧩';
+    position: absolute;
+    right: 30px; top: 20px;
+    font-size: 5rem;
+    opacity: .2;
+  }
+  .what-box h2 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+  }
+  .what-box p { font-size: 1.1rem; line-height: 1.7; margin-bottom: 10px; }
+  .what-box .ua { color: #d4c5f9; font-size: 1rem; }
+
+  /* ── FORMULA CARD ── */
+  .formula-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 30px;
+  }
+  .formula-card {
+    background: white;
+    border-radius: 20px;
+    padding: 24px 28px;
+    flex: 1;
+    min-width: 240px;
+    border: 3px solid transparent;
+    box-shadow: 0 4px 20px rgba(0,0,0,.08);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .formula-card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,.12); }
+  .formula-card.yellow { border-color: var(--yellow); }
+  .formula-card.blue   { border-color: var(--blue); }
+  .formula-card.pink   { border-color: var(--pink); }
+  .formula-card.green  { border-color: var(--green); }
+  .formula-tag {
+    font-size: .75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    opacity: .5;
+  }
+  .formula { font-family: 'Fredoka One', cursive; font-size: 1.4rem; margin-bottom: 6px; }
+  .formula span { color: var(--orange); }
+  .formula-ex { font-size: .9rem; color: #718096; }
+  .formula-ua { font-size: .85rem; color: #a0aec0; margin-top: 4px; }
+
+  /* ── MAGIC SENTENCE ── */
+  .magic-box {
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+    border-radius: 24px;
+    padding: 40px;
+    color: white;
+    margin-bottom: 40px;
+  }
+  .magic-box h2 { font-family: 'Fredoka One', cursive; font-size: 1.8rem; margin-bottom: 6px; }
+  .magic-box .ua { color: #fce4ec; font-size: 1rem; margin-bottom: 20px; }
+  .magic-sentence-core {
+    background: rgba(255,255,255,.2);
+    border-radius: 16px;
+    padding: 20px 24px;
+    font-size: 1.3rem;
+    font-weight: 800;
+    letter-spacing: .5px;
+    margin-bottom: 20px;
+  }
+  .magic-sentence-core .slot {
+    background: rgba(255,255,255,.4);
+    border-radius: 8px;
+    padding: 2px 10px;
+    display: inline-block;
+    margin: 2px;
+  }
+  .magic-examples { display: flex; flex-wrap: wrap; gap: 12px; }
+  .magic-pill {
+    background: rgba(255,255,255,.2);
+    border-radius: 50px;
+    padding: 10px 20px;
+    font-size: .95rem;
+    border: 2px solid rgba(255,255,255,.4);
+  }
+  .magic-pill strong { color: #fff; }
+  .magic-pill .ua-tiny { display: block; font-size: .75rem; color: rgba(255,255,255,.7); margin-top: 2px; }
+
+  /* ── CATEGORY GRID ── */
+  .cat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+  .cat-card {
+    background: white;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,.08);
+    transition: transform .2s;
+  }
+  .cat-card:hover { transform: translateY(-5px); }
+  .cat-header {
+    padding: 18px 22px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: white;
+  }
+  .cat-header .icon { font-size: 1.8rem; }
+  .cat-header h3 { font-family: 'Fredoka One', cursive; font-size: 1.3rem; }
+  .cat-header .sub { font-size: .8rem; opacity: .85; }
+  .cat-body { padding: 16px 22px; }
+  .collocations-list { list-style: none; }
+  .collocations-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 9px 0;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: .92rem;
+    gap: 10px;
+  }
+  .collocations-list li:last-child { border-bottom: none; }
+  .coll-en { font-weight: 700; color: var(--dark); }
+  .coll-ua { color: #718096; font-size: .85rem; text-align: right; flex-shrink: 0; }
+  .badge {
+    display: inline-block;
+    font-size: .65rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    border-radius: 6px;
+    padding: 2px 7px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+  .badge-v  { background: #fef3c7; color: #92400e; }
+  .badge-n  { background: #dbeafe; color: #1e40af; }
+  .badge-adj{ background: #fce7f3; color: #9d174d; }
+  .badge-adv{ background: #d1fae5; color: #065f46; }
+
+  /* colours per category */
+  .c1 .cat-header { background: linear-gradient(135deg,#FF6B35,#FF8E53); }
+  .c2 .cat-header { background: linear-gradient(135deg,#4ECDC4,#45B7D1); }
+  .c3 .cat-header { background: linear-gradient(135deg,#A855F7,#EC4899); }
+  .c4 .cat-header { background: linear-gradient(135deg,#6BCB77,#4D9F54); }
+  .c5 .cat-header { background: linear-gradient(135deg,#FFD93D,#FF6B35); }
+  .c6 .cat-header { background: linear-gradient(135deg,#667eea,#764ba2); }
+  .c7 .cat-header { background: linear-gradient(135deg,#f093fb,#f5576c); }
+  .c8 .cat-header { background: linear-gradient(135deg,#4facfe,#00f2fe); }
+  .c9 .cat-header { background: linear-gradient(135deg,#43e97b,#38f9d7); }
+  .c10 .cat-header{ background: linear-gradient(135deg,#fa709a,#fee140); }
+  .c11 .cat-header{ background: linear-gradient(135deg,#30cfd0,#330867); }
+  .c12 .cat-header{ background: linear-gradient(135deg,#a18cd1,#fbc2eb); }
+
+
+
+  /* ── SENTENCE EXAMPLES STRIP ── */
+  .example-strip {
+    background: linear-gradient(135deg, #0f3460, #16213e);
+    padding: 50px 20px;
+  }
+  .example-inner { max-width: 1100px; margin: 0 auto; }
+  .example-inner .section-title { color: var(--blue); }
+  .example-inner .ua-label { color: #718096; }
+  .example-cards { display: flex; flex-wrap: wrap; gap: 20px; }
+  .ex-card {
+    background: rgba(255,255,255,.06);
+    border-left: 5px solid var(--yellow);
+    border-radius: 0 16px 16px 0;
+    padding: 18px 22px;
+    flex: 1;
+    min-width: 260px;
+  }
+  .ex-card.blue-border   { border-color: var(--blue); }
+  .ex-card.pink-border   { border-color: var(--pink); }
+  .ex-card.green-border  { border-color: var(--green); }
+  .ex-card.purple-border { border-color: var(--purple); }
+  .ex-en { color: white; font-weight: 700; font-size: 1rem; margin-bottom: 6px; }
+  .ex-en mark { background: rgba(255,217,61,.3); color: var(--yellow); border-radius: 4px; padding: 0 4px; }
+  .ex-ua { color: #718096; font-size: .88rem; }
+  .ex-ua mark { background: transparent; color: #a0aec0; font-style: italic; }
+
+  /* ── TIPS BOX ── */
+  .tips-section { background: var(--bg); }
+  .tips-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; }
+  .tip-card {
+    background: white;
+    border-radius: 20px;
+    padding: 28px 24px;
+    box-shadow: 0 4px 20px rgba(0,0,0,.06);
+    text-align: center;
+    transition: transform .2s;
+  }
+  .tip-card:hover { transform: translateY(-4px); }
+  .tip-icon { font-size: 2.5rem; margin-bottom: 14px; }
+  .tip-title { font-family: 'Fredoka One', cursive; font-size: 1.2rem; margin-bottom: 6px; }
+  .tip-text { font-size: .88rem; color: #718096; line-height: 1.6; }
+
+  /* ── INFOGRAPHIC TYPES ── */
+  .types-visual {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 30px;
+    justify-content: center;
+  }
+  .type-bubble {
+    border-radius: 100px;
+    padding: 14px 28px;
+    font-weight: 800;
+    font-size: .95rem;
+    text-align: center;
+    cursor: default;
+    transition: transform .15s;
+  }
+  .type-bubble:hover { transform: scale(1.06); }
+  .type-bubble .en-part { display: block; }
+  .type-bubble .ua-part { display: block; font-size: .75rem; font-weight: 600; opacity: .75; }
+  .tb1 { background: #fef3c7; color: #78350f; }
+  .tb2 { background: #dbeafe; color: #1e3a8a; }
+  .tb3 { background: #fce7f3; color: #831843; }
+  .tb4 { background: #d1fae5; color: #064e3b; }
+  .tb5 { background: #ede9fe; color: #4c1d95; }
+  .tb6 { background: #fee2e2; color: #7f1d1d; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #1a1a2e;
+    color: #718096;
+    text-align: center;
+    padding: 30px 20px;
+    font-size: .9rem;
+  }
+
+  /* ── SCROLL HINT ── */
+  .hero-scroll {
+    margin-top: 40px;
+    animation: bounce 2s infinite;
+    font-size: 1.5rem;
+  }
+  @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(8px)} }
+
+  /* ── RESPONSIVE / MOBILE ── */
+  @media(max-width: 768px) {
+
+    /* Global */
+    body { font-size: 15px; }
+
+    .section { padding: 32px 16px; }
+
+    /* Hero */
+    .hero { padding: 40px 16px 56px; }
+    .hero-emoji-row { font-size: 1.8rem; }
+    .hero-sub { font-size: 1rem; }
+    .hero-sub-ua { font-size: .9rem; }
+
+    /* Section titles */
+    .section-title { font-size: 1.6rem; gap: 8px; flex-wrap: wrap; }
+    .ua-label { font-size: .9rem; margin-bottom: 20px; }
+
+    /* What box */
+    .what-box { padding: 24px 18px; }
+    .what-box::after { display: none; }
+    .what-box h2 { font-size: 1.3rem; }
+    .what-box p { font-size: 1rem; }
+
+    /* Types bubbles */
+    .types-visual { gap: 8px; }
+    .type-bubble { padding: 10px 16px; font-size: .85rem; }
+
+    /* Formula row — stack vertically */
+    .formula-row { flex-direction: column; gap: 12px; }
+    .formula-card { min-width: 100%; padding: 18px 20px; }
+    .formula { font-size: 1.2rem; }
+
+    /* Magic box */
+    .magic-box { padding: 24px 18px; }
+    .magic-box h2 { font-size: 1.4rem; }
+    .magic-sentence-core { font-size: 1rem; padding: 14px 16px; }
+    .magic-examples { flex-direction: column; gap: 10px; }
+    .magic-pill { font-size: .88rem; padding: 10px 14px; }
+
+    /* Category grid — single column */
+    .cat-grid { grid-template-columns: 1fr; gap: 16px; }
+    .cat-header { padding: 14px 18px; }
+    .cat-header h3 { font-size: 1.1rem; }
+    .cat-body { padding: 12px 16px; }
+    .collocations-list li { font-size: .88rem; padding: 8px 0; }
+    .coll-ua { font-size: .8rem; }
+
+    /* Example strip */
+    .example-strip { padding: 36px 16px; }
+    .example-cards { flex-direction: column; gap: 14px; }
+    .ex-card { min-width: 100%; padding: 16px 18px; }
+    .ex-en { font-size: .92rem; }
+    .ex-ua { font-size: .82rem; }
+
+    /* Tips grid — 2 col on tablet, 1 col on phone */
+    .tips-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+    .tip-card { padding: 20px 16px; }
+    .tip-icon { font-size: 2rem; margin-bottom: 10px; }
+    .tip-title { font-size: 1rem; }
+    .tip-text { font-size: .82rem; }
+
+    /* Footer */
+    footer { padding: 24px 16px; font-size: .85rem; }
+  }
+
+  @media(max-width: 480px) {
+    /* Phone-specific overrides */
+    .hero h1 { font-size: 2.2rem; }
+    .section-title { font-size: 1.35rem; }
+    .magic-sentence-core { font-size: .9rem; }
+    .magic-pill { font-size: .82rem; }
+    .type-bubble { padding: 8px 12px; font-size: .78rem; }
+    .tips-grid { grid-template-columns: 1fr; }
+    .collocations-list li { flex-direction: column; gap: 2px; align-items: flex-start; }
+    .coll-ua { text-align: left; }
+  }
+
+  #scroll-top-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #1a1208;
+    border: 1.5px solid rgba(200,150,62,0.4);
+    color: #f5f0e8;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+    pointer-events: none;
+    z-index: 9998;
+  }
+  #scroll-top-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  #scroll-top-btn:hover {
+    background: #c8963e;
+    border-color: #c8963e;
+    color: #1a1208;
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════ HERO ═══════════════════════════════ -->
+<div class="hero">
+  <div class="hero-emoji-row">🧩 📚 🗣️ ✨ 🎯</div>
+  <h1>English Collocations</h1>
+  <p class="hero-sub">Words that love being together — like best friends!</p>
+  <p class="hero-sub-ua">Слова, які люблять бути разом — як найкращі друзі!</p>
+  <div class="hero-scroll">↓</div>
+</div>
+
+<!-- ═══════════════════════════════ WHAT IS ═══════════════════════════ -->
+<div class="section">
+  <div class="section-title" style="color:#764ba2">🤔 What is a Collocation?</div>
+  <p class="ua-label">Що таке колокація?</p>
+
+  <div class="what-box">
+    <h2>Think of it like puzzle pieces 🧩</h2>
+    <p>A <strong>collocation</strong> is a pair (or group) of words that naturally go together in English. Native speakers use them automatically — they just "sound right"!</p>
+    <p class="ua">Колокація — це пара (або група) слів, які природно поєднуються в англійській мові. Носії мови використовують їх автоматично — вони просто "звучать правильно"!</p>
+    <p style="margin-top:16px">❌ "make homework" — <strong>WRONG!</strong> / <strong>НЕПРАВИЛЬНО!</strong><br>
+    ✅ "do homework" — <strong>RIGHT!</strong> / <strong>ПРАВИЛЬНО!</strong></p>
+    <p class="ua" style="margin-top:8px">Even if "make homework" makes logical sense, English speakers say "do homework" — that's the collocation!</p>
+  </div>
+
+  <!-- Types visual -->
+  <div class="section-title" style="color:#e53e3e; font-size:1.6rem; margin-top:10px">🎨 Types of Collocations / Типи колокацій</div>
+  <p class="ua-label" style="margin-bottom:16px">Як вони будуються — формули:</p>
+  <div class="types-visual">
+    <div class="type-bubble tb1"><span class="en-part">Verb + Noun</span><span class="ua-part">Дієслово + Іменник</span></div>
+    <div class="type-bubble tb2"><span class="en-part">Adjective + Noun</span><span class="ua-part">Прикметник + Іменник</span></div>
+    <div class="type-bubble tb3"><span class="en-part">Adverb + Adjective</span><span class="ua-part">Прислівник + Прикметник</span></div>
+    <div class="type-bubble tb4"><span class="en-part">Noun + Noun</span><span class="ua-part">Іменник + Іменник</span></div>
+    <div class="type-bubble tb5"><span class="en-part">Verb + Adverb</span><span class="ua-part">Дієслово + Прислівник</span></div>
+    <div class="type-bubble tb6"><span class="en-part">Noun + Verb</span><span class="ua-part">Іменник + Дієслово</span></div>
+  </div>
+
+  <!-- Formulas -->
+  <div class="formula-row">
+    <div class="formula-card yellow">
+      <div class="formula-tag">Formula 1 / Формула 1</div>
+      <div class="formula">VERB + <span>NOUN</span></div>
+      <div class="formula-ex">make a decision, take a break, do the dishes</div>
+      <div class="formula-ua">приймати рішення, зробити перерву, мити посуд</div>
+    </div>
+    <div class="formula-card blue">
+      <div class="formula-tag">Formula 2 / Формула 2</div>
+      <div class="formula">ADJ + <span>NOUN</span></div>
+      <div class="formula-ex">heavy rain, strong coffee, fast food</div>
+      <div class="formula-ua">сильний дощ, міцна кава, фаст-фуд</div>
+    </div>
+    <div class="formula-card pink">
+      <div class="formula-tag">Formula 3 / Формула 3</div>
+      <div class="formula">ADV + <span>ADJ</span></div>
+      <div class="formula-ex">deeply sorry, highly likely, totally wrong</div>
+      <div class="formula-ua">дуже шкодую, дуже ймовірно, абсолютно неправильно</div>
+    </div>
+    <div class="formula-card green">
+      <div class="formula-tag">Formula 4 / Формула 4</div>
+      <div class="formula">NOUN + <span>VERB</span></div>
+      <div class="formula-ex">the alarm went off, the sun rises, prices fall</div>
+      <div class="formula-ua">будильник задзвонив, сонце сходить, ціни падають</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ MAGIC SENTENCE ══════════════════ -->
+<div class="section" style="padding-top:0">
+  <div class="section-title" style="color:#e91e63">✨ The Magic Sentence</div>
+  <p class="ua-label">Чарівне речення — одне речення, що змінюється для всіх ситуацій!</p>
+
+  <div class="magic-box">
+    <h2>🌟 Universal Template Sentence</h2>
+    <p class="ua">Одне речення-шаблон, яке можна застосувати до будь-яких колокацій!</p>
+
+    <div class="magic-sentence-core">
+      Yesterday I <span class="slot">VERB</span> a <span class="slot">ADJ</span> <span class="slot">NOUN</span> and it made me feel <span class="slot">ADV+ADJ</span>.
+    </div>
+
+    <p style="margin-bottom:14px; font-size:.95rem; opacity:.9">👇 See how it changes — but the structure stays the same! / Дивись, як воно змінюється, але структура залишається тією самою!</p>
+
+    <div class="magic-examples">
+      <div class="magic-pill">
+        <strong>Yesterday I <u>made</u> a <u>tough</u> <u>decision</u> and it made me feel <u>deeply worried</u>.</strong>
+        <span class="ua-tiny">Вчора я прийняв важке рішення і відчув глибоке занепокоєння.</span>
+      </div>
+      <div class="magic-pill">
+        <strong>Yesterday I <u>took</u> a <u>long</u> <u>walk</u> and it made me feel <u>completely relaxed</u>.</strong>
+        <span class="ua-tiny">Вчора я довго гуляв і відчував себе абсолютно розслабленим.</span>
+      </div>
+      <div class="magic-pill">
+        <strong>Yesterday I <u>had</u> a <u>strong</u> <u>coffee</u> and it made me feel <u>fully awake</u>.</strong>
+        <span class="ua-tiny">Вчора я випив міцну каву і відчув себе повністю бадьорим.</span>
+      </div>
+      <div class="magic-pill">
+        <strong>Yesterday I <u>gave</u> a <u>brilliant</u> <u>speech</u> and it made me feel <u>incredibly proud</u>.</strong>
+        <span class="ua-tiny">Вчора я виголосив блискучу промову і відчув неймовірну гордість.</span>
+      </div>
+      <div class="magic-pill">
+        <strong>Yesterday I <u>got</u> a <u>serious</u> <u>headache</u> and it made me feel <u>totally exhausted</u>.</strong>
+        <span class="ua-tiny">Вчора у мене був сильний головний біль і я відчував себе повністю виснаженим.</span>
+      </div>
+      <div class="magic-pill">
+        <strong>Yesterday I <u>broke</u> a <u>bad</u> <u>habit</u> and it made me feel <u>truly happy</u>.</strong>
+        <span class="ua-tiny">Вчора я позбувся поганої звички і відчув справжнє щастя.</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════ COLLOCATIONS BY CATEGORY ════════════════ -->
+<div class="section">
+  <div class="section-title" style="color:#0f3460">📦 Collocations by Category</div>
+  <p class="ua-label">Колокації по темах — якомога більше прикладів!</p>
+
+  <div class="cat-grid">
+
+    <!-- 1. DO / MAKE -->
+    <div class="cat-card c1">
+      <div class="cat-header">
+        <span class="icon">⚡</span>
+        <div>
+          <h3>DO vs MAKE</h3>
+          <div class="sub">Найпоширеніша помилка! / Most common mistake!</div>
+        </div>
+      </div>
+      <div class="cat-body">
+        <ul class="collocations-list">
+          <li><span class="coll-en">do homework <span class="badge badge-v">V+N</span></span><span class="coll-ua">робити домашнє завдання</span></li>
+          <li><span class="coll-en">do the dishes</span><span class="coll-ua">мити посуд</span></li>
+          <li><span class="coll-en">do the laundry</span><span class="coll-ua">прати білизну</span></li>
+          <li><span class="coll-en">do business</span><span class="coll-ua">займатися бізнесом</span></li>
+          <li><span class="coll-en">do your best</span><span class="coll-ua">намагатися якнайкраще</span></li>
+          <li><span class="coll-en">do exercise</span><span class="coll-ua">займатися фізкультурою</span></li>
+          <li><span class="coll-en">do a favour</span><span class="coll-ua">зробити послугу</span></li>
+          <li><span class="coll-en">make a decision <span class="badge badge-v">V+N</span></span><span class="coll-ua">приймати рішення</span></li>
+          <li><span class="coll-en">make a mistake</span><span class="coll-ua">робити помилку</span></li>
+          <li><span class="coll-en">make a suggestion</span><span class="coll-ua">пропонувати</span></li>
+          <li><span class="coll-en">make progress</span><span class="coll-ua">прогресувати</span></li>
+          <li><span class="coll-en">make money</span><span class="coll-ua">заробляти гроші</span></li>
+          <li><span class="coll-en">make friends</span><span class="coll-ua">заводити друзів</span></li>
+          <li><span class="coll-en">make noise</span><span class="coll-ua">шуміти</span></li>
+          <li><span class="coll-en">make a phone call</span><span class="coll-ua">зателефонувати</span></li>
+          <li><span class="coll-en">make a plan</span><span class="coll-ua">скласти план</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 2. HAVE / TAKE -->
+    <div class="cat-card c2">
+      <div class="cat-header">
+        <span class="icon">☕</span>
+        <div>
+          <h3>HAVE / TAKE</h3>
+          <div class="sub">Everyday actions / Щоденні дії</div>
+        </div>
+      </div>
+      <div class="cat-body">
+        <ul class="collocations-list">
+          <li><span class="coll-en">have a meal <span class="badge badge-v">V+N</span></span><span class="coll-ua">поїсти</span></li>
+          <li><span class="coll-en">have a drink</span><span class="coll-ua">випити</span></li>
+          <li><span class="coll-en">have a conversation</span><span class="coll-ua">поговорити</span></li>
+          <li><span class="coll-en">have a shower</span><span class="coll-ua">прийняти душ</span></li>
+          <li><span class="coll-en">have a baby</span><span class="coll-ua">народити дитину</span></li>
+          <li><span class="coll-en">have a headache</span><span class="coll-ua">боліти голова</span></li>
+          <li><span class="coll-en">have fun</span><span class="coll-ua">весело проводити час</span></li>
+          <li><span class="coll-en">have a good time</span><span class="coll-ua">гарно провести час</span></li>
+          <li><span class="coll-en">take a break <span class="badge badge-v">V+N</span></span><span class="coll-ua">зробити перерву</span></li>
+          <li><span class="coll-en">take a photo</span><span class="coll-ua">зробити фото</span></li>
+          <li><span class="coll-en">take a taxi</span><span class="coll-ua">взяти таксі</span></li>
+          <li><span class="coll-en">take an exam</span><span class="coll-ua">скласти іспит</span></li>
+          <li><span class="coll-en">take a risk</span><span class="coll-ua">ризикувати</span></li>
+          <li><span class="coll-en">take notes</span><span class="coll-ua">робити нотатки</span></li>
+          <li><span class="coll-en">take care of</span><span class="coll-ua">піклуватися про</span></li>
+          <li><span class="coll-en">take part in</span><span class="coll-ua">брати участь у</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 3. FEELINGS & EMOTIONS -->
+    <div class="cat-card c3">
+      <div class="cat-header">
+        <span class="icon">💖</span>
+        <div>
+          <h3>Feelings & Emotions</h3>
+          <div class="sub">Почуття та емоції</div>
+        </div>
+      </div>
+      <div class="cat-body">
+        <ul class="collocations-list">
+          <li><span class="coll-en">deeply sorry <span class="badge badge-adv">ADV+ADJ</span></span><span class="coll-ua">дуже шкодую</span></li>
+          <li><span class="coll-en">completely happy</span><span class="coll-ua">абсолютно щасливий</span></li>
+          <li><span class="coll-en">bitterly disappointed</span><span class="coll-ua">гірко розчарований</span></li>
+          <li><span class="coll-en">madly in love</span><span class="coll-ua">шалено закоханий</span></li>
+          <li><span class="coll-en">absolutely terrified</span><span class="coll-ua">абсолютно жахливий страх</span></li>
+          <li><span class="coll-en">feel proud of</span><span class="coll-ua">пишатися кимось</span></li>
+          <li><span class="coll-en">burst into tears</span><span class="coll-ua">розплакатися</span></li>
+          <li><span class="coll-en">break someone's heart</span><span class="coll-ua">розбити комусь серце</span></li>
+          <li><span class="coll-en">fall in love</span><span class="coll-ua">закохатися</span></li>
+          <li><span class="coll-en">lose your temper</span><span class="coll-ua">втратити терпець</span></li>
+          <li><span class="coll-en">get angry</span><span class="coll-ua">розсердитися</span></li>
+          <li><span class="coll-en">be over the moon</span><span class="coll-ua">бути на сьомому небі</span></li>
+          <li><span class="coll-en">feel blue</span><span class="coll-ua">бути сумним</span></li>
+          <li><span class="coll-en">scared to death</span><span class="coll-ua">до смерті наляканий</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 4. TIME & SCHEDULE -->
+    <div class="cat-card c4">
+      <div class="cat-header">
+        <span class="icon">⏰</span>
+        <div>
+          <h3>Time & Schedule</h3>
+          <div class="sub">Час і розклад</div>
+        </div>
+      </div>
+      <div class="cat-body">
+        <ul class="collocations-list">
+          <li><span class="coll-en">waste time <span class="badge badge-v">V+N</span></span><span class="coll-ua">витрачати час</span></li>
+          <li><span class="coll-en">save time</span><span class="coll-ua">заощаджувати час</span></li>
+          <li><span class="coll-en">spend time</span><span class="coll-ua">проводити час</span></li>
+          <li><span class="coll-en">kill time</span><span class="coll-ua">вбивати час</span></li>
+          <li><span class="coll-en">run out of time</span><span class="coll-ua">закінчується час</span></li>
+          <li><span class="coll-en">on time</span><span class="coll-ua">вчасно</span></li>
+          <li><span class="coll-en">in time</span><span class="coll-ua">своєчасно</span></li>
+          <li><span class="coll-en">free time</span><span class="coll-ua">вільний час</span></li>
+          <li><span class="coll-en">free time activity</span><span class="coll-ua">заняття у вільний час</span></li>
+          <li><span class="coll-en">set the alarm</span><span class="coll-ua">поставити будильник</span></li>
+          <li><span class="coll-en">make an appointment</span><span class="coll-ua">призначити зустріч</span></li>
+          <li><span class="coll-en">cancel a meeting</span><span class="coll-ua">скасувати зустріч</span></li>
+          <li><span class="coll-en">postpone a deadline</span><span class="coll-ua">перенести дедлайн</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 5. WEATHER -->
+    <div class="cat-card c5">
+      <div class="cat-header">
+        <span class="icon">🌦️</span>
+        <div>
+          <h3>Weather</h3>
+          <div class="sub">Погода</div>
+        </div>
+      </div>
+      <div class="cat-body">
+        <ul class="collocations-list">
+          <li><span class="coll-en">heavy rain <span class="badge badge-adj">ADJ+N</span></span><span class="coll-ua">сильний дощ</span></li>
+          <li><span class="coll-en">strong wind</span><span class="coll-ua">сильний вітер</span></li>
+          <li><span class="coll-en">bright sunshine</span><span class="coll-ua">яскраве сонце</span></li>
+          <li><span class="coll-en">thick fog</span><span class="coll-ua">густий туман</span></li>
+          <li><span class="coll-en">light breeze</span><span class="coll-ua">легкий вітерець</span></li>
+          <li><span class="coll-en">biting cold</span><span class="coll-ua">пронизливий холод</span></li>
+          <li><span class="coll-en">scorching heat</span><span class="coll-ua">пекельна спека</span></li>
+          <li><span class="coll-en">freezing temperatures</span><span class="coll-ua">морозна температура</span></li>
+          <li><span class="coll-en">cloudy skies</span><span class="coll-ua">хмарне небо</span></li>
+          <li><span class="coll-en">thunder and lightning</span><span class="coll-ua">грім і блискавка</span></li>
+          <li><span class="coll-en">the weather clears up</span><span class="coll-ua">погода прояснюється</span></li>
+          <li><span class="coll-en">it's pouring with rain</span><span class="coll-ua">ллє як із відра</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 6. MONEY & WORK -->
+    <div class="cat-card c6">
+      <div class="cat-header">
+        <span class="icon">💼</span>
+        <div>
+          <h3>Money & Work</h3>
+          <div class="sub">Гроші та робота</div>
+        </div>
+      </div>
+      <div class="cat-body">
+        <ul class="collocations-list">
+          <li><span class="coll-en">earn a living <span class="badge badge-v">V+N</span></span><span class="coll-ua">заробляти на життя</span></li>
+          <li><span class="coll-en">earn a salary</span><span class="coll-ua">отримувати зарплату</span></li>
+          <li><span class="coll-en">apply for a job</span><span class="coll-ua">подаватися на роботу</span></li>
+          <li><span class="coll-en">lose your job</span><span class="coll-ua">втратити роботу</span></li>
+          <li><span class="coll-en">get a promotion</span><span class="coll-ua">отримати підвищення</span></li>
+          <li><span class="coll-en">run a business</span><span class="coll-ua">вести бізнес</span></li>
+          <li><span class="coll-en">go bankrupt</span><span class="coll-ua">збанкрутіти</span></li>
+          <li><span class="coll-en">pay the bills</span><span class="coll-ua">оплачувати рахунки</span></li>
+          <li><span class="coll-en">open a bank account</span><span class="coll-ua">відкрити банківський рахунок</span></li>
+          <li><span class="coll-en">save up money</span><span class="coll-ua">збирати гроші</span></li>
+          <li><span class="coll-en">raise money</span><span class="coll-ua">збирати кошти</span></li>
+          <li><span class="coll-en">spend money on</span><span class="coll-ua">витрачати гроші на</span></li>
+          <li><span class="coll-en">waste money</span><span class="coll-ua">витрачати гроші намарно</span></li>
+          <li><span class="coll-en">heavy workload</span><span class="coll-ua">велике навантаження</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 7. HEALTH & BODY -->
+    <div class="cat-card c7">
+      <div class="cat-header">
+        <span class="icon">💪</span>
+        <div>
+          <h3>Health & Body</h3>
+          <div class="sub">Здоров'я та тіло</div>
+        </div>
+      </div>
+      <div class="cat-body">
+        <ul class="collocations-list">
+          <li><span class="coll-en">catch a cold <span class="badge badge-v">V+N</span></span><span class="coll-ua">застудитися</span></li>
+          <li><span class="coll-en">break a bone</span><span class="coll-ua">зламати кістку</span></li>
+          <li><span class="coll-en">get better</span><span class="coll-ua">одужати</span></li>
+          <li><span class="coll-en">feel sick</span><span class="coll-ua">почуватися погано</span></li>
+          <li><span class="coll-en">have a temperature</span><span class="coll-ua">мати температуру</span></li>
+          <li><span class="coll-en">take medicine</span><span class="coll-ua">приймати ліки</span></li>
+          <li><span class="coll-en">get enough sleep</span><span class="coll-ua">висипатися</span></li>
+          <li><span class="coll-en">stay in shape</span><span class="coll-ua">бути у формі</span></li>
+          <li><span class="coll-en">lose weight</span><span class="coll-ua">худнути</span></li>
+          <li><span class="coll-en">gain weight</span><span class="coll-ua">набирати вагу</span></li>
+          <li><span class="coll-en">give blood</span><span class="coll-ua">здати кров</span></li>
+          <li><span class="coll-en">pull a muscle</span><span class="coll-ua">потягнути м'яз</span></li>
+          <li><span class="coll-en">healthy lifestyle</span><span class="coll-ua">здоровий спосіб життя</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 8. FOOD -->
+    <div class="cat-card c8">
+      <div class="cat-header">
+        <span class="icon">🍕</span>
+        <div>
+          <h3>Food & Eating</h3>
+          <div class="sub">Їжа та харчування</div>
+        </div>
+      </div>
+      <div class="cat-body">
+        <ul class="collocations-list">
+          <li><span class="coll-en">have breakfast <span class="badge badge-v">V+N</span></span><span class="coll-ua">снідати</span></li>
+          <li><span class="coll-en">skip a meal</span><span class="coll-ua">пропустити їжу</span></li>
+          <li><span class="coll-en">fast food <span class="badge badge-adj">ADJ+N</span></span><span class="coll-ua">швидка їжа</span></li>
+          <li><span class="coll-en">junk food</span><span class="coll-ua">шкідлива їжа</span></li>
+          <li><span class="coll-en">eat out</span><span class="coll-ua">їсти в ресторані</span></li>
+          <li><span class="coll-en">order food</span><span class="coll-ua">замовляти їжу</span></li>
+          <li><span class="coll-en">cook a meal</span><span class="coll-ua">готувати їжу</span></li>
+          <li><span class="coll-en">strong coffee</span><span class="coll-ua">міцна кава</span></li>
+          <li><span class="coll-en">mild taste</span><span class="coll-ua">м'який смак</span></li>
+          <li><span class="coll-en">spicy food</span><span class="coll-ua">гостра їжа</span></li>
+          <li><span class="coll-en">balanced diet</span><span class="coll-ua">збалансоване харчування</span></li>
+          <li><span class="coll-en">grab a bite</span><span class="coll-ua">перекусити</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 9. TRAVEL -->
+    <div class="cat-card c9">
+      <div class="cat-header">
+        <span class="icon">✈️</span>
+        <div>
+          <h3>Travel & Transport</h3>
+          <div class="sub">Подорожі та транспорт</div>
+        </div>
+      </div>
+      <div class="cat-body">
+        <ul class="collocations-list">
+          <li><span class="coll-en">book a flight <span class="badge badge-v">V+N</span></span><span class="coll-ua">заброньовувати рейс</span></li>
+          <li><span class="coll-en">go on a trip</span><span class="coll-ua">вирушати у подорож</span></li>
+          <li><span class="coll-en">pack your bags</span><span class="coll-ua">пакувати валізи</span></li>
+          <li><span class="coll-en">catch a bus / train</span><span class="coll-ua">сісти на автобус/потяг</span></li>
+          <li><span class="coll-en">miss the bus</span><span class="coll-ua">спізнитися на автобус</span></li>
+          <li><span class="coll-en">check in</span><span class="coll-ua">реєструватися (в готелі/аеропорту)</span></li>
+          <li><span class="coll-en">check out</span><span class="coll-ua">виїздити з готелю</span></li>
+          <li><span class="coll-en">get lost</span><span class="coll-ua">заблукати</span></li>
+          <li><span class="coll-en">take a detour</span><span class="coll-ua">зробити об'їзд</span></li>
+          <li><span class="coll-en">heavy traffic</span><span class="coll-ua">щільний рух</span></li>
+          <li><span class="coll-en">a round trip</span><span class="coll-ua">поїздка туди й назад</span></li>
+          <li><span class="coll-en">long-haul flight</span><span class="coll-ua">далекий рейс</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 10. STUDY / SCHOOL -->
+    <div class="cat-card c10">
+      <div class="cat-header">
+        <span class="icon">🎓</span>
+        <div>
+          <h3>Study & School</h3>
+          <div class="sub">Навчання та школа</div>
+        </div>
+      </div>
+      <div class="cat-body">
+        <ul class="collocations-list">
+          <li><span class="coll-en">pass an exam <span class="badge badge-v">V+N</span></span><span class="coll-ua">скласти іспит</span></li>
+          <li><span class="coll-en">fail an exam</span><span class="coll-ua">завалити іспит</span></li>
+          <li><span class="coll-en">study hard</span><span class="coll-ua">наполегливо навчатися</span></li>
+          <li><span class="coll-en">take notes</span><span class="coll-ua">занотовувати</span></li>
+          <li><span class="coll-en">give a presentation</span><span class="coll-ua">виступати з презентацією</span></li>
+          <li><span class="coll-en">meet a deadline</span><span class="coll-ua">дотриматися дедлайну</span></li>
+          <li><span class="coll-en">read widely</span><span class="coll-ua">багато читати</span></li>
+          <li><span class="coll-en">do research</span><span class="coll-ua">проводити дослідження</span></li>
+          <li><span class="coll-en">learn by heart</span><span class="coll-ua">вивчати напам'ять</span></li>
+          <li><span class="coll-en">attend a lecture</span><span class="coll-ua">відвідати лекцію</span></li>
+          <li><span class="coll-en">get a degree</span><span class="coll-ua">отримати ступінь</span></li>
+          <li><span class="coll-en">broaden your horizons</span><span class="coll-ua">розширити горизонти</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 11. TECH & SOCIAL -->
+    <div class="cat-card c11">
+      <div class="cat-header">
+        <span class="icon">📱</span>
+        <div>
+          <h3>Technology & Social Media</h3>
+          <div class="sub">Технології та соцмережі</div>
+        </div>
+      </div>
+      <div class="cat-body">
+        <ul class="collocations-list">
+          <li><span class="coll-en">scroll through <span class="badge badge-v">V+N</span></span><span class="coll-ua">гортати (стрічку)</span></li>
+          <li><span class="coll-en">post a photo</span><span class="coll-ua">опублікувати фото</span></li>
+          <li><span class="coll-en">go viral</span><span class="coll-ua">стати вірусним</span></li>
+          <li><span class="coll-en">lose signal</span><span class="coll-ua">втратити сигнал</span></li>
+          <li><span class="coll-en">charge your phone</span><span class="coll-ua">зарядити телефон</span></li>
+          <li><span class="coll-en">send a message</span><span class="coll-ua">надіслати повідомлення</span></li>
+          <li><span class="coll-en">follow an account</span><span class="coll-ua">підписатися на акаунт</span></li>
+          <li><span class="coll-en">update software</span><span class="coll-ua">оновити програмне забезпечення</span></li>
+          <li><span class="coll-en">crash a system</span><span class="coll-ua">зламати систему</span></li>
+          <li><span class="coll-en">stream content</span><span class="coll-ua">стрімити контент</span></li>
+          <li><span class="coll-en">hack a password</span><span class="coll-ua">зламати пароль</span></li>
+          <li><span class="coll-en">go offline</span><span class="coll-ua">відключитися від інтернету</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 12. SPORT -->
+    <div class="cat-card c12">
+      <div class="cat-header">
+        <span class="icon">⚽</span>
+        <div>
+          <h3>Sport & Fitness</h3>
+          <div class="sub">Спорт та фітнес</div>
+        </div>
+      </div>
+      <div class="cat-body">
+        <ul class="collocations-list">
+          <li><span class="coll-en">win a match <span class="badge badge-v">V+N</span></span><span class="coll-ua">виграти матч</span></li>
+          <li><span class="coll-en">lose a game</span><span class="coll-ua">програти гру</span></li>
+          <li><span class="coll-en">score a goal</span><span class="coll-ua">забити гол</span></li>
+          <li><span class="coll-en">break a record</span><span class="coll-ua">побити рекорд</span></li>
+          <li><span class="coll-en">set a record</span><span class="coll-ua">встановити рекорд</span></li>
+          <li><span class="coll-en">go for a run</span><span class="coll-ua">вийти на пробіжку</span></li>
+          <li><span class="coll-en">train hard</span><span class="coll-ua">наполегливо тренуватися</span></li>
+          <li><span class="coll-en">join a gym</span><span class="coll-ua">записатися до спортзалу</span></li>
+          <li><span class="coll-en">warm up</span><span class="coll-ua">розігрітися</span></li>
+          <li><span class="coll-en">play fair</span><span class="coll-ua">грати чесно</span></li>
+          <li><span class="coll-en">give 100%</span><span class="coll-ua">віддаватися повністю</span></li>
+          <li><span class="coll-en">be in peak condition</span><span class="coll-ua">бути у пікові формі</span></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- PHRASAL VERBS REMOVED -->
+<div class="pv-section" style="display:none">
+  <div class="pv-inner">
+    <div class="section-title" style="color:var(--yellow)">🚀 Phrasal Verbs</div>
+    <p class="ua-label"></p>
+
+    <div class="pv-grid">
+
+      <div class="pv-cat-title">☀️ Daily Routine / Щоденна рутина</div>
+      <div class="pv-card"><div class="pv-verb">wake up</div><div class="pv-mean">прокинутися</div><div class="pv-ex">"I wake up at 7 every morning."</div></div>
+      <div class="pv-card"><div class="pv-verb">get up</div><div class="pv-mean">вставати з ліжка</div><div class="pv-ex">"She got up and made coffee."</div></div>
+      <div class="pv-card"><div class="pv-verb">get dressed</div><div class="pv-mean">одягатися</div><div class="pv-ex">"Get dressed, we're late!"</div></div>
+      <div class="pv-card"><div class="pv-verb">turn on / off</div><div class="pv-mean">вмикати / вимикати</div><div class="pv-ex">"Turn off the lights, please."</div></div>
+      <div class="pv-card"><div class="pv-verb">tidy up</div><div class="pv-mean">прибирати</div><div class="pv-ex">"Tidy up your room before dinner!"</div></div>
+      <div class="pv-card"><div class="pv-verb">stay up</div><div class="pv-mean">не лягати спати</div><div class="pv-ex">"I stayed up until midnight."</div></div>
+
+      <div class="pv-cat-title">🚶 Movement & Travel / Рух та подорожі</div>
+      <div class="pv-card"><div class="pv-verb">set off</div><div class="pv-mean">вирушати в дорогу</div><div class="pv-ex">"We set off early to avoid traffic."</div></div>
+      <div class="pv-card"><div class="pv-verb">get on / off</div><div class="pv-mean">сідати / виходити (транспорт)</div><div class="pv-ex">"Get on the bus at stop 5."</div></div>
+      <div class="pv-card"><div class="pv-verb">check in</div><div class="pv-mean">реєструватися</div><div class="pv-ex">"Check in at the hotel by 3 PM."</div></div>
+      <div class="pv-card"><div class="pv-verb">check out</div><div class="pv-mean">виїздити</div><div class="pv-ex">"We checked out at noon."</div></div>
+      <div class="pv-card"><div class="pv-verb">drop off</div><div class="pv-mean">підвезти/залишити</div><div class="pv-ex">"Can you drop me off at school?"</div></div>
+      <div class="pv-card"><div class="pv-verb">pick up</div><div class="pv-mean">забрати</div><div class="pv-ex">"I'll pick you up at 6."</div></div>
+      <div class="pv-card"><div class="pv-verb">run into</div><span class="pv-mean">випадково зустріти</span><div class="pv-ex">"I ran into my teacher at the mall."</div></div>
+      <div class="pv-card"><div class="pv-verb">get around</div><div class="pv-mean">пересуватися</div><div class="pv-ex">"It's easy to get around by bike."</div></div>
+
+      <div class="pv-cat-title">💬 Communication / Спілкування</div>
+      <div class="pv-card"><div class="pv-verb">bring up</div><div class="pv-mean">порушити тему</div><div class="pv-ex">"She brought up an interesting point."</div></div>
+      <div class="pv-card"><div class="pv-verb">point out</div><div class="pv-mean">звернути увагу</div><div class="pv-ex">"He pointed out the mistake."</div></div>
+      <div class="pv-card"><div class="pv-verb">speak up</div><div class="pv-mean">говорити голосніше / висловитися</div><div class="pv-ex">"Speak up! I can't hear you."</div></div>
+      <div class="pv-card"><div class="pv-verb">talk back</div><div class="pv-mean">відповідати грубо</div><div class="pv-ex">"Don't talk back to your teacher!"</div></div>
+      <div class="pv-card"><div class="pv-verb">catch up</div><div class="pv-mean">надолужити / поговорити після паузи</div><div class="pv-ex">"Let's catch up over coffee!"</div></div>
+      <div class="pv-card"><div class="pv-verb">hang up</div><div class="pv-mean">покласти слухавку</div><div class="pv-ex">"She hung up before I could explain."</div></div>
+
+      <div class="pv-cat-title">📚 Learning & Thinking / Навчання та мислення</div>
+      <div class="pv-card"><div class="pv-verb">figure out</div><div class="pv-mean">розібратися, зрозуміти</div><div class="pv-ex">"Can you figure out this puzzle?"</div></div>
+      <div class="pv-card"><div class="pv-verb">look up</div><div class="pv-mean">знайти інформацію</div><div class="pv-ex">"Look up the word in a dictionary."</div></div>
+      <div class="pv-card"><div class="pv-verb">come up with</div><div class="pv-mean">придумати</div><div class="pv-ex">"She came up with a great idea."</div></div>
+      <div class="pv-card"><div class="pv-verb">write down</div><div class="pv-mean">записати</div><div class="pv-ex">"Write down the homework."</div></div>
+      <div class="pv-card"><div class="pv-verb">go over</div><div class="pv-mean">переглянути / повторити</div><div class="pv-ex">"Let's go over the lesson again."</div></div>
+      <div class="pv-card"><div class="pv-verb">pick up</div><div class="pv-mean">швидко засвоїти</div><div class="pv-ex">"She picks up languages very fast."</div></div>
+      <div class="pv-card"><div class="pv-verb">keep up with</div><div class="pv-mean">встигати за</div><div class="pv-ex">"I can't keep up with the class."</div></div>
+      <div class="pv-card"><div class="pv-verb">fall behind</div><div class="pv-mean">відставати</div><div class="pv-ex">"Don't fall behind in your studies."</div></div>
+
+      <div class="pv-cat-title">💪 Motivation & Goals / Мотивація та цілі</div>
+      <div class="pv-card"><div class="pv-verb">give up</div><div class="pv-mean">здаватися</div><div class="pv-ex">"Never give up on your dreams!"</div></div>
+      <div class="pv-card"><div class="pv-verb">carry on</div><div class="pv-mean">продовжувати</div><div class="pv-ex">"Carry on despite difficulties."</div></div>
+      <div class="pv-card"><div class="pv-verb">go ahead</div><div class="pv-mean">продовжуй / давай</div><div class="pv-ex">"Go ahead with your plan."</div></div>
+      <div class="pv-card"><div class="pv-verb">set out</div><div class="pv-mean">розпочати щось</div><div class="pv-ex">"She set out to change the world."</div></div>
+      <div class="pv-card"><div class="pv-verb">keep going</div><div class="pv-mean">продовжувати рухатися</div><div class="pv-ex">"Keep going — you're almost there!"</div></div>
+      <div class="pv-card"><div class="pv-verb">push through</div><div class="pv-mean">пробитися через труднощі</div><div class="pv-ex">"Push through the hard part."</div></div>
+      <div class="pv-card"><div class="pv-verb">work out</div><div class="pv-mean">вирішитися / спрацювати</div><div class="pv-ex">"Everything will work out fine."</div></div>
+
+      <div class="pv-cat-title">😤 Problems & Solutions / Проблеми та рішення</div>
+      <div class="pv-card"><div class="pv-verb">deal with</div><div class="pv-mean">справлятися з</div><div class="pv-ex">"How do you deal with stress?"</div></div>
+      <div class="pv-card"><div class="pv-verb">sort out</div><div class="pv-mean">вирішити проблему</div><div class="pv-ex">"We need to sort out this mess."</div></div>
+      <div class="pv-card"><div class="pv-verb">break down</div><div class="pv-mean">зламатися / впасти духом</div><div class="pv-ex">"The car broke down on the way."</div></div>
+      <div class="pv-card"><div class="pv-verb">get over</div><div class="pv-mean">пережити, подолати</div><div class="pv-ex">"It took months to get over it."</div></div>
+      <div class="pv-card"><div class="pv-verb">run out of</div><div class="pv-mean">вичерпати</div><div class="pv-ex">"We ran out of milk again!"</div></div>
+      <div class="pv-card"><div class="pv-verb">put off</div><div class="pv-mean">відкладати</div><div class="pv-ex">"Stop putting off your homework."</div></div>
+      <div class="pv-card"><div class="pv-verb">put up with</div><div class="pv-mean">терпіти</div><div class="pv-ex">"I can't put up with the noise."</div></div>
+      <div class="pv-card"><div class="pv-verb">fall apart</div><div class="pv-mean">розвалюватися</div><div class="pv-ex">"The plan fell apart at the end."</div></div>
+
+      <div class="pv-cat-title">🤝 Relationships / Стосунки</div>
+      <div class="pv-card"><div class="pv-verb">get along with</div><div class="pv-mean">ладити з кимось</div><div class="pv-ex">"Do you get along with your siblings?"</div></div>
+      <div class="pv-card"><div class="pv-verb">fall out with</div><div class="pv-mean">посваритися</div><div class="pv-ex">"I fell out with my best friend."</div></div>
+      <div class="pv-card"><div class="pv-verb">make up with</div><div class="pv-mean">помиритися</div><div class="pv-ex">"They made up after the argument."</div></div>
+      <div class="pv-card"><div class="pv-verb">look after</div><div class="pv-mean">піклуватися про</div><div class="pv-ex">"Can you look after my cat?"</div></div>
+      <div class="pv-card"><div class="pv-verb">grow apart</div><div class="pv-mean">віддалятися (стосунки)</div><div class="pv-ex">"Old friends can grow apart."</div></div>
+      <div class="pv-card"><div class="pv-verb">reach out</div><div class="pv-mean">зв'язатися, простягнути руку</div><div class="pv-ex">"Reach out if you need help."</div></div>
+
+      <div class="pv-cat-title">💼 Work & Business / Робота та бізнес</div>
+      <div class="pv-card"><div class="pv-verb">take on</div><div class="pv-mean">взяти на себе (роботу)</div><div class="pv-ex">"She took on too many projects."</div></div>
+      <div class="pv-card"><div class="pv-verb">hand in</div><div class="pv-mean">здати (роботу)</div><div class="pv-ex">"Hand in your report by Friday."</div></div>
+      <div class="pv-card"><div class="pv-verb">call off</div><div class="pv-mean">скасувати</div><div class="pv-ex">"The meeting was called off."</div></div>
+      <div class="pv-card"><div class="pv-verb">back up</div><div class="pv-mean">підтримати / зробити копію</div><div class="pv-ex">"Always back up your files!"</div></div>
+      <div class="pv-card"><div class="pv-verb">step down</div><div class="pv-mean">піти у відставку</div><div class="pv-ex">"The CEO stepped down last year."</div></div>
+      <div class="pv-card"><div class="pv-verb">start up</div><div class="pv-mean">запустити (бізнес)</div><div class="pv-ex">"He started up his own company."</div></div>
+
+      <div class="pv-cat-title">🏡 Home & Household / Дім та побут</div>
+      <div class="pv-card"><div class="pv-verb">put away</div><div class="pv-mean">прибрати на місце</div><div class="pv-ex">"Put away your toys, please."</div></div>
+      <div class="pv-card"><div class="pv-verb">throw away / out</div><div class="pv-mean">викинути</div><div class="pv-ex">"Throw away that old food."</div></div>
+      <div class="pv-card"><div class="pv-verb">fix up</div><div class="pv-mean">відремонтувати</div><div class="pv-ex">"We need to fix up the kitchen."</div></div>
+      <div class="pv-card"><div class="pv-verb">move in / out</div><div class="pv-mean">в'їхати / виїхати</div><div class="pv-ex">"They moved in last week."</div></div>
+      <div class="pv-card"><div class="pv-verb">lock up</div><div class="pv-mean">замкнути на ключ</div><div class="pv-ex">"Lock up when you leave."</div></div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════ EXAMPLE SENTENCES ════════════════ -->
+<div class="example-strip">
+  <div class="example-inner">
+    <div class="section-title">📖 Full Sentence Examples</div>
+    <p class="ua-label">Приклади повних речень — зверни увагу на підкреслені колокації!</p>
+    <div class="example-cards">
+      <div class="ex-card">
+        <div class="ex-en">I had to <mark>skip breakfast</mark> and <mark>catch the bus</mark> because I was <mark>running late</mark>.</div>
+        <div class="ex-ua">Мені довелося <mark>пропустити сніданок</mark> і <mark>сісти на автобус</mark>, бо я <mark>запізнювався</mark>.</div>
+      </div>
+      <div class="ex-card blue-border">
+        <div class="ex-en">She <mark>made a tough decision</mark> to <mark>eat healthy food</mark> and <mark>join a gym</mark> to <mark>stay in shape</mark>.</div>
+        <div class="ex-ua">Вона <mark>прийняла важке рішення</mark> — <mark>їсти здорову їжу</mark> і <mark>записатися до спортзалу</mark>, щоб <mark>бути у формі</mark>.</div>
+      </div>
+      <div class="ex-card pink-border">
+        <div class="ex-en">He <mark>applied for a new job</mark>, <mark>earned a good salary</mark>, and finally <mark>paid the bills</mark> on time.</div>
+        <div class="ex-ua">Він <mark>подав заявку на нову роботу</mark>, <mark>отримував гарну зарплату</mark> і нарешті <mark>сплачував рахунки</mark> вчасно.</div>
+      </div>
+      <div class="ex-card green-border">
+        <div class="ex-en">The weather was <mark>bitterly cold</mark> with <mark>heavy rain</mark>, so we stayed home and had <mark>strong coffee</mark>.</div>
+        <div class="ex-ua">Погода була <mark>пронизливо холодною</mark> з <mark>сильним дощем</mark>, тому ми залишилися вдома і пили <mark>міцну каву</mark>.</div>
+      </div>
+      <div class="ex-card purple-border">
+        <div class="ex-en">I <mark>wasted time</mark> instead of <mark>doing my homework</mark>, so I failed to <mark>meet the deadline</mark>.</div>
+        <div class="ex-ua">Я <mark>витрачав час</mark> замість того, щоб <mark>робити домашнє завдання</mark>, і не зміг <mark>дотриматися дедлайну</mark>.</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">He <mark>gave a brilliant speech</mark>, <mark>made a great impression</mark>, and <mark>got a promotion</mark> at work!</div>
+        <div class="ex-ua">Він <mark>виголосив блискучу промову</mark>, <mark>справив чудове враження</mark> і <mark>отримав підвищення</mark> на роботі!</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════ TIPS ════════════════ -->
+<div class="tips-section">
+  <div class="section">
+    <div class="section-title" style="color:#0f3460">💡 How to Learn Collocations</div>
+    <p class="ua-label">Як вивчати колокації — поради для початківців!</p>
+    <div class="tips-grid">
+      <div class="tip-card">
+        <div class="tip-icon">📓</div>
+        <div class="tip-title" style="color:#FF6B35">Keep a Notebook</div>
+        <div class="tip-text">Write new collocations in groups (e.g., all "make/do" ones together).<br><br>Веди зошит і записуй нові колокації групами.</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">🎬</div>
+        <div class="tip-title" style="color:#4ECDC4">Watch Movies & Series</div>
+        <div class="tip-text">Notice how native speakers group words naturally in films.<br><br>Звертай увагу на те, як носії мови поєднують слова у фільмах.</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">🃏</div>
+        <div class="tip-title" style="color:#A855F7">Use Flashcards</div>
+        <div class="tip-text">Write the verb on one side, the noun on the other. Quiz yourself!<br><br>Пиши дієслово на одній стороні, іменник на іншій. Тестуй себе!</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">✍️</div>
+        <div class="tip-title" style="color:#FF6B9D">Write Your Own Sentences</div>
+        <div class="tip-text">Don't just memorise — use each collocation in a real sentence.<br><br>Не просто запам'ятовуй — використовуй у власних реченнях.</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">🔍</div>
+        <div class="tip-title" style="color:#6BCB77">Notice Patterns</div>
+        <div class="tip-text">Ask: "Which verb goes with this noun?" Not "Can I say this?"<br><br>Запитуй: "Яке дієслово підходить до цього іменника?"</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">🗣️</div>
+        <div class="tip-title" style="color:#FFD93D">Speak, Speak, Speak!</div>
+        <div class="tip-text">The more you use collocations out loud, the faster you'll remember them!<br><br>Чим більше вживаєш вголос — тим швидше запам'ятаєш!</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════ FOOTER ════════════════ -->
+<footer>
+  <div style="font-size:2rem; margin-bottom:10px">🧩📚✨</div>
+  <p>Collocations make your English sound <strong style="color:var(--yellow)">natural and fluent</strong>!</p>
+  <p style="margin-top:4px; color:#4a5568">Колокації роблять твою англійську <strong>природною та вільною</strong>! Практикуйся щодня 🚀</p>
+</footer>
+
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+</body>
+</html>

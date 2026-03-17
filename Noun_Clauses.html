@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Noun Clauses – Learn English!</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fff9f0;
+    --card: #ffffff;
+    --yellow: #FFD93D;
+    --orange: #FF6B35;
+    --pink: #FF6B9D;
+    --blue: #4ECDC4;
+    --purple: #9B59B6;
+    --green: #2ECC71;
+    --dark: #2D3436;
+    --text: #3d3d3d;
+    --light-yellow: #FFF8DC;
+    --light-blue: #E8F9F8;
+    --light-pink: #FFF0F7;
+    --light-purple: #F5EEFF;
+    --light-orange: #FFF3EE;
+    --light-green: #EAFAF1;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f64f59 100%);
+    padding: 60px 20px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    width: 600px; height: 600px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 50%;
+    top: -200px; left: -150px;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    width: 400px; height: 400px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 50%;
+    bottom: -150px; right: -100px;
+  }
+  .hero-emoji {
+    font-size: 80px;
+    animation: bounce 2s infinite;
+    display: inline-block;
+  }
+  @keyframes bounce {
+    0%,100%{transform:translateY(0)} 50%{transform:translateY(-15px)}
+  }
+  .hero h1 {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    color: white;
+    text-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+    margin: 10px 0 5px;
+    position: relative; z-index: 1;
+  }
+  .hero .subtitle {
+    color: rgba(255,255,255,0.9);
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    position: relative; z-index: 1;
+  }
+  .hero .subtitle-ua {
+    color: rgba(255,255,255,0.75);
+    font-size: 1rem;
+    position: relative; z-index: 1;
+  }
+  .hero-badges {
+    display: flex; flex-wrap: wrap; gap: 10px;
+    justify-content: center; margin-top: 25px;
+    position: relative; z-index: 1;
+  }
+  .badge {
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.4);
+    color: white;
+    padding: 6px 18px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    backdrop-filter: blur(4px);
+  }
+
+  /* SECTIONS */
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .section {
+    padding: 50px 20px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    display: flex; align-items: center; gap: 14px;
+    margin-bottom: 30px;
+  }
+  .section-icon {
+    width: 56px; height: 56px;
+    border-radius: 16px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.8rem;
+    flex-shrink: 0;
+  }
+  .section-title h2 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.8rem;
+    line-height: 1.2;
+  }
+  .section-title p {
+    font-size: 0.9rem; color: #888; font-weight: 600; margin-top: 2px;
+  }
+
+  /* CARD */
+  .card {
+    background: var(--card);
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+    margin-bottom: 20px;
+    border: 2px solid transparent;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+  }
+
+  /* WHAT IS A NOUN CLAUSE */
+  .what-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+  }
+  @media(max-width:600px){ .what-grid{grid-template-columns:1fr} }
+
+  .what-card {
+    border-radius: 18px;
+    padding: 24px;
+    text-align: center;
+  }
+  .what-card .big-emoji { font-size: 3rem; margin-bottom: 10px; }
+  .what-card h3 { font-family: 'Baloo 2'; font-size: 1.2rem; margin-bottom: 6px; }
+  .what-card p { font-size: 0.95rem; line-height: 1.6; }
+  .what-card .ua { font-size: 0.85rem; color: #888; margin-top: 5px; font-style: italic; }
+
+  /* FORMULA BOX */
+  .formula-box {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    border-radius: 20px;
+    padding: 30px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  .formula-box::before {
+    content: '{ }';
+    position: absolute;
+    font-size: 8rem;
+    color: rgba(255,255,255,0.03);
+    right: -20px; top: -20px;
+    font-family: monospace;
+  }
+  .formula-box h3 {
+    font-family: 'Baloo 2'; font-size: 1.3rem;
+    color: var(--yellow); margin-bottom: 8px;
+  }
+  .formula-box .formula-ua { color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-bottom: 18px; }
+  .formula {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 10px;
+    margin-bottom: 16px;
+  }
+  .formula-part {
+    padding: 8px 18px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1rem;
+  }
+  .fp-main { background: var(--yellow); color: #1a1a2e; }
+  .fp-connector { background: var(--orange); color: white; font-size: 1.2rem; padding: 6px 14px; }
+  .fp-sub { background: rgba(255,255,255,0.12); color: white; border: 2px solid rgba(255,255,255,0.25); }
+  .fp-plus { color: rgba(255,255,255,0.5); font-size: 1.5rem; font-weight: 900; }
+
+  /* UNIVERSAL SENTENCE */
+  .universal-wrapper {
+    background: linear-gradient(135deg, #f6d365, #fda085);
+    border-radius: 24px;
+    padding: 36px 30px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .universal-wrapper::after {
+    content: '⭐';
+    position: absolute;
+    font-size: 6rem;
+    opacity: 0.08;
+    right: -10px; bottom: -15px;
+  }
+  .universal-wrapper h3 {
+    font-family: 'Baloo 2'; font-size: 1.5rem; color: white;
+    text-shadow: 1px 1px 0 rgba(0,0,0,0.15);
+    margin-bottom: 6px;
+  }
+  .universal-wrapper .ua-label { color: rgba(255,255,255,0.8); font-size: 0.9rem; margin-bottom: 20px; }
+  .universal-sentence {
+    background: white;
+    border-radius: 14px;
+    padding: 18px 24px;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--dark);
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    display: inline-block;
+  }
+  .universal-sentence .highlight { color: var(--orange); }
+  .universal-note { color: rgba(255,255,255,0.9); font-size: 0.95rem; margin-top: 14px; font-weight: 600; }
+
+  /* TYPE CARDS */
+  .type-card {
+    border-radius: 22px;
+    overflow: hidden;
+    margin-bottom: 28px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+  }
+  .type-header {
+    padding: 22px 28px;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .type-header-icon { font-size: 2.5rem; }
+  .type-header h3 { font-family: 'Baloo 2'; font-size: 1.5rem; color: white; margin-bottom: 2px; }
+  .type-header .when { color: rgba(255,255,255,0.8); font-size: 0.9rem; font-weight: 600; }
+  .type-body { background: white; padding: 24px 28px; }
+
+  .connector-tag {
+    display: inline-block;
+    padding: 5px 16px;
+    border-radius: 20px;
+    font-weight: 800;
+    font-size: 1rem;
+    margin-bottom: 16px;
+  }
+
+  .examples-title { font-weight: 700; font-size: 0.85rem; color: #aaa; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+
+  .example-row {
+    border-left: 4px solid;
+    padding: 12px 16px;
+    border-radius: 0 12px 12px 0;
+    margin-bottom: 12px;
+    background: #fafafa;
+  }
+  .example-row .en { font-size: 1rem; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
+  .example-row .ua { font-size: 0.88rem; color: #777; font-style: italic; }
+  .example-row .tag { 
+    display: inline-block; font-size: 0.72rem; font-weight: 800;
+    padding: 2px 10px; border-radius: 10px; color: white; margin-bottom: 6px; 
+  }
+
+  .role-badge {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 10px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+
+  /* UNIVERSAL TRANSFORM TABLE */
+  .transform-section {
+    background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
+    border-radius: 24px;
+    padding: 36px 30px;
+    color: white;
+  }
+  .transform-section h3 {
+    font-family: 'Baloo 2'; font-size: 1.5rem; color: var(--yellow);
+    margin-bottom: 6px;
+  }
+  .transform-section .ua-sub { color: rgba(255,255,255,0.6); font-size: 0.9rem; margin-bottom: 28px; }
+
+  .transform-grid {
+    display: grid; gap: 16px;
+  }
+  .transform-row {
+    display: grid; grid-template-columns: 100px 1fr 1fr; gap: 12px; align-items: center;
+  }
+  @media(max-width:600px){ .transform-row{grid-template-columns:1fr; gap:6px;} }
+
+  .tr-type {
+    padding: 8px 12px;
+    border-radius: 10px;
+    font-weight: 800;
+    font-size: 0.85rem;
+    text-align: center;
+  }
+  .tr-sentence {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+    padding: 12px 16px;
+  }
+  .tr-sentence .en { font-weight: 700; font-size: 0.95rem; }
+  .tr-sentence .ua { color: rgba(255,255,255,0.55); font-size: 0.8rem; margin-top: 3px; font-style: italic; }
+  .tr-sentence .connector { color: var(--yellow); }
+  .tr-arrow { text-align: center; font-size: 1.2rem; color: rgba(255,255,255,0.3); }
+
+  /* ROLES */
+  .roles-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;
+  }
+  .role-card {
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+  }
+  .role-card .role-emoji { font-size: 2.5rem; margin-bottom: 10px; }
+  .role-card h4 { font-family: 'Baloo 2'; font-size: 1.1rem; margin-bottom: 6px; }
+  .role-card .role-def { font-size: 0.85rem; color: #666; margin-bottom: 8px; line-height: 1.4; }
+  .role-card .role-ex { font-size: 0.88rem; font-weight: 700; color: var(--dark); background: rgba(0,0,0,0.04); padding: 8px 12px; border-radius: 8px; }
+  .role-card .role-ex-ua { font-size: 0.78rem; color: #999; font-style: italic; margin-top: 4px; }
+
+  /* TIPS */
+  .tips-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media(max-width:560px){ .tips-grid{grid-template-columns:1fr} }
+  .tip-card {
+    border-radius: 16px;
+    padding: 20px;
+    display: flex; gap: 14px; align-items: flex-start;
+  }
+  .tip-icon { font-size: 2rem; flex-shrink: 0; }
+  .tip-card h4 { font-weight: 800; font-size: 0.95rem; margin-bottom: 5px; }
+  .tip-card p { font-size: 0.87rem; line-height: 1.5; }
+  .tip-card .tip-ua { font-size: 0.8rem; color: #888; margin-top: 4px; font-style: italic; }
+
+  /* WAVE DIVIDER */
+  .wave {
+    width: 100%; overflow: hidden; line-height: 0;
+    margin: -2px 0;
+  }
+  .wave svg { display: block; }
+
+  /* FOOTER */
+  footer {
+    text-align: center; padding: 40px 20px;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    color: rgba(255,255,255,0.5);
+    font-size: 0.9rem;
+  }
+  footer .big { color: white; font-family: 'Baloo 2'; font-size: 1.5rem; font-weight: 800; margin-bottom: 8px; }
+
+  /* STRIPE DIVIDER */
+  .stripe-divider { height: 6px; background: repeating-linear-gradient(90deg, var(--yellow) 0, var(--yellow) 20%, var(--orange) 20%, var(--orange) 40%, var(--pink) 40%, var(--pink) 60%, var(--blue) 60%, var(--blue) 80%, var(--purple) 80%, var(--purple) 100%); }
+
+  /* SCROLL REVEAL */
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.6s, transform 0.6s; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* HIGHLIGHT WORD */
+  .hl-yellow { background: #FFF3CD; color: #b8860b; padding: 1px 5px; border-radius: 4px; font-weight: 700; }
+  .hl-blue { background: #d1f3f2; color: #0f7c79; padding: 1px 5px; border-radius: 4px; font-weight: 700; }
+  .hl-pink { background: #ffe0ee; color: #c0306a; padding: 1px 5px; border-radius: 4px; font-weight: 700; }
+  .hl-purple { background: #ede0ff; color: #6a1fa0; padding: 1px 5px; border-radius: 4px; font-weight: 700; }
+
+  /* =====================
+     MOBILE RESPONSIVE
+  ===================== */
+  @media (max-width: 480px) {
+    .hero { padding: 40px 16px 60px; }
+    .hero-emoji { font-size: 56px; }
+    .hero .subtitle { font-size: 1rem; }
+    .hero .subtitle-ua { font-size: 0.88rem; }
+    .badge { font-size: 0.8rem; padding: 5px 12px; }
+    .section { padding: 32px 16px; }
+    .section-title h2 { font-size: 1.4rem; }
+    .section-icon { width: 44px; height: 44px; font-size: 1.4rem; border-radius: 12px; }
+    .card { padding: 18px 16px; border-radius: 16px; }
+    .formula-box { padding: 20px 16px; }
+    .formula { gap: 8px; }
+    .formula-part { font-size: 0.85rem; padding: 6px 12px; }
+    .fp-plus { font-size: 1.1rem; }
+    .fp-connector { font-size: 1rem; }
+    .universal-wrapper { padding: 24px 16px; }
+    .universal-wrapper h3 { font-size: 1.2rem; }
+    .universal-sentence { font-size: 1.1rem; padding: 14px 16px; }
+    .universal-note { font-size: 0.88rem; }
+    .transform-section { padding: 24px 16px; border-radius: 18px; }
+    .transform-section h3 { font-size: 1.2rem; }
+    .transform-row { grid-template-columns: 1fr !important; gap: 8px !important; }
+    .tr-type { display: inline-block; margin-bottom: 4px; }
+    .tr-sentence .en { font-size: 0.88rem; }
+    .tr-sentence .ua { font-size: 0.76rem; }
+    .type-header { padding: 16px 18px; gap: 12px; }
+    .type-header-icon { font-size: 2rem; }
+    .type-header h3 { font-size: 1.2rem; }
+    .type-header .when { font-size: 0.8rem; }
+    .type-body { padding: 18px 16px; }
+    .connector-tag { font-size: 0.85rem; padding: 4px 12px; }
+    .example-row .en { font-size: 0.9rem; }
+    .example-row .ua { font-size: 0.82rem; }
+    .roles-grid { grid-template-columns: 1fr 1fr !important; }
+    .role-card { padding: 16px 12px; }
+    .role-card .role-emoji { font-size: 2rem; }
+    .role-card h4 { font-size: 1rem; }
+    .role-card .role-def { font-size: 0.78rem; }
+    .role-card .role-ex { font-size: 0.82rem; }
+    .tips-grid { grid-template-columns: 1fr !important; }
+    .tip-card { padding: 16px; }
+    .tip-icon { font-size: 1.6rem; }
+    footer { padding: 30px 16px; }
+    footer .big { font-size: 1.2rem; }
+  }
+  @media (min-width: 481px) and (max-width: 768px) {
+    .section { padding: 40px 20px; }
+    .transform-row { grid-template-columns: 80px 1fr !important; }
+    .transform-row > .tr-sentence:last-child { grid-column: 1 / -1; }
+    .roles-grid { grid-template-columns: 1fr 1fr !important; }
+  }
+  img, iframe, video, pre, table { max-width: 100%; }
+  table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+  #scroll-top-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #1a1208;
+    border: 1.5px solid rgba(200,150,62,0.4);
+    color: #f5f0e8;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+    pointer-events: none;
+    z-index: 9998;
+  }
+  #scroll-top-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  #scroll-top-btn:hover {
+    background: #c8963e;
+    border-color: #c8963e;
+    color: #1a1208;
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-emoji">📚</div>
+  <h1>Noun Clauses</h1>
+  <p class="subtitle">The clause that acts like a noun! / Речення, яке поводиться як іменник!</p>
+  <p class="subtitle-ua">Урок з прикладами, формулами та ілюстраціями 🎉</p>
+  <div class="hero-badges">
+    <span class="badge">📌 That clauses</span>
+    <span class="badge">❓ Whether / If</span>
+    <span class="badge">🔍 Wh- clauses</span>
+    <span class="badge">🎯 Roles in sentence</span>
+  </div>
+</div>
+
+<div class="stripe-divider"></div>
+
+<!-- WHAT IS A NOUN CLAUSE -->
+<div class="section reveal">
+  <div class="section-title">
+    <div class="section-icon" style="background:#FFF3CD;">🧩</div>
+    <div>
+      <h2 style="color:#e67e22;">What is a Noun Clause?</h2>
+      <p>Що таке Noun Clause?</p>
+    </div>
+  </div>
+
+  <div class="what-grid" style="margin-bottom:24px;">
+    <div class="what-card" style="background:#FFF9E6; border:2px solid #FFD93D;">
+      <div class="big-emoji">🧱</div>
+      <h3>A regular noun</h3>
+      <p>A <strong>noun</strong> is a word that names a person, place, thing, or idea.<br>
+      <em>e.g. "the answer", "music", "her name"</em></p>
+      <p class="ua">Іменник — слово, що називає людину, місце, річ або ідею.</p>
+    </div>
+    <div class="what-card" style="background:#E8F9F8; border:2px solid #4ECDC4;">
+      <div class="big-emoji">🔗</div>
+      <h3>A noun clause</h3>
+      <p>A <strong>noun clause</strong> is a whole <em>sentence</em> that works like a noun! It has a subject + verb inside.</p>
+      <p class="ua">Noun clause — це ціле <em>підрядне речення</em>, яке виконує роль іменника. Воно має свій підмет та дієслово.</p>
+    </div>
+  </div>
+
+  <div class="card" style="background: linear-gradient(135deg,#fff9e6,#fff0e6); border:2px dashed #fda085;">
+    <div style="display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap;">
+      <div style="font-size:3rem;">💡</div>
+      <div>
+        <p style="font-size:1.05rem;font-weight:700;margin-bottom:8px;">Think of it like a <span class="hl-yellow">LEGO brick</span> that looks like a small sentence but fits perfectly in the place where a noun would go!</p>
+        <p style="color:#888;font-size:0.9rem;font-style:italic;">Уяви собі, що це «маленьке речення в реченні», яке замінює іменник. Замість слова — ціла думка!</p>
+        <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;">
+          <div style="background:#FFD93D;padding:8px 16px;border-radius:10px;font-weight:800;color:#333;">I know <span style="color:#e74c3c;">the answer</span>.</div>
+          <div style="font-size:1.4rem;align-self:center;">→</div>
+          <div style="background:#4ECDC4;padding:8px 16px;border-radius:10px;font-weight:800;color:white;">I know <span style="color:#fff700; text-shadow:0 0 4px rgba(0,0,0,0.3);">what the answer is</span>.</div>
+        </div>
+        <p style="font-size:0.82rem;color:#999;margin-top:6px;font-style:italic;">«the answer» (іменник) → «what the answer is» (noun clause) — та сама роль у реченні!</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FORMULA -->
+<div style="background:#1a1a2e; padding:50px 20px;">
+<div class="container reveal">
+  <div class="section-title">
+    <div class="section-icon" style="background:rgba(255,217,61,0.15);">⚙️</div>
+    <div>
+      <h2 style="color:#FFD93D;">The Formula / Формула</h2>
+      <p style="color:rgba(255,255,255,0.5);">How to build a noun clause</p>
+    </div>
+  </div>
+
+  <div class="formula-box" style="margin-bottom:20px;">
+    <h3>🔑 General structure</h3>
+    <p class="formula-ua">Загальна структура noun clause</p>
+    <div class="formula">
+      <div class="formula-part fp-main">Main clause</div>
+      <div class="formula-part fp-plus">+</div>
+      <div class="formula-part fp-connector">CONNECTOR</div>
+      <div class="formula-part fp-plus">+</div>
+      <div class="formula-part fp-sub">Subject + Verb (+ rest)</div>
+    </div>
+    <div style="color:rgba(255,255,255,0.6);font-size:0.9rem;line-height:1.7;">
+      <p>⚠️ <strong style="color:white;">Important:</strong> After the connector, use <span style="color:var(--yellow);">normal word order</span> (Subject → Verb), NOT question order!</p>
+      <p style="font-style:italic;color:rgba(255,255,255,0.45);font-size:0.82rem;">⚠️ Важливо: після сполучника — звичайний порядок слів (підмет → дієслово), а НЕ питальний!</p>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+    <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:16px;">
+      <p style="color:#ff6b6b;font-weight:800;font-size:0.85rem;margin-bottom:8px;">❌ WRONG (question order)</p>
+      <p style="color:white;font-size:0.95rem;font-weight:700;">I wonder <span style="color:#ff6b6b;">where is she.</span></p>
+      <p style="color:rgba(255,255,255,0.4);font-size:0.8rem;font-style:italic;">Неправильно: порядок слів як у питанні</p>
+    </div>
+    <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(78,205,196,0.3);border-radius:14px;padding:16px;">
+      <p style="color:#4ECDC4;font-weight:800;font-size:0.85rem;margin-bottom:8px;">✅ CORRECT (normal order)</p>
+      <p style="color:white;font-size:0.95rem;font-weight:700;">I wonder <span style="color:#4ECDC4;">where she is.</span></p>
+      <p style="color:rgba(255,255,255,0.4);font-size:0.8rem;font-style:italic;">Правильно: підмет потім дієслово</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- UNIVERSAL SENTENCE -->
+<div class="section reveal">
+  <div class="section-title">
+    <div class="section-icon" style="background:#FFF0F7;">⭐</div>
+    <div>
+      <h2 style="color:#FF6B9D;">Universal Sentence / Універсальне речення</h2>
+      <p>One sentence that changes with every type of clause</p>
+    </div>
+  </div>
+
+  <div class="universal-wrapper" style="margin-bottom:24px;">
+    <h3>Our base sentence</h3>
+    <p class="ua-label">Наше базове речення (основне)</p>
+    <div class="universal-sentence">
+      <span class="highlight">She</span> told me _____.
+    </div>
+    <p class="universal-note">👇 Watch how the blank changes with each type of noun clause!</p>
+    <p style="color:rgba(255,255,255,0.7);font-size:0.82rem;margin-top:4px;font-style:italic;">👇 Дивись, як змінюється пропуск залежно від типу noun clause!</p>
+  </div>
+
+  <!-- Transform table -->
+  <div class="transform-section reveal">
+    <h3>🔄 The Transformation / Трансформація</h3>
+    <p class="ua-sub">Те саме речення — три різних типи</p>
+    <div class="transform-grid">
+
+      <div class="transform-row">
+        <div class="tr-type" style="background:#FF6B35;color:white;">THAT</div>
+        <div class="tr-sentence">
+          <div class="en">She told me <span class="connector">that</span> she was happy.</div>
+          <div class="ua">Вона сказала мені, що вона щаслива.</div>
+        </div>
+        <div class="tr-sentence">
+          <div class="en" style="color:rgba(255,255,255,0.45);font-size:0.8rem;font-style:italic;">→ states a fact or opinion</div>
+          <div class="ua" style="color:rgba(255,255,255,0.35);font-size:0.75rem;">→ стверджує факт або думку</div>
+        </div>
+      </div>
+
+      <div class="transform-row">
+        <div class="tr-type" style="background:#9B59B6;color:white;">WHETHER</div>
+        <div class="tr-sentence">
+          <div class="en">She told me <span class="connector">whether</span> she was happy.</div>
+          <div class="ua">Вона сказала мені, чи була вона щасливою.</div>
+        </div>
+        <div class="tr-sentence">
+          <div class="en" style="color:rgba(255,255,255,0.45);font-size:0.8rem;font-style:italic;">→ yes/no question embedded</div>
+          <div class="ua" style="color:rgba(255,255,255,0.35);font-size:0.75rem;">→ вбудоване питання так/ні</div>
+        </div>
+      </div>
+
+      <div class="transform-row">
+        <div class="tr-type" style="background:#4ECDC4;color:white;">WHY</div>
+        <div class="tr-sentence">
+          <div class="en">She told me <span class="connector">why</span> she was happy.</div>
+          <div class="ua">Вона сказала мені, чому вона була щаслива.</div>
+        </div>
+        <div class="tr-sentence">
+          <div class="en" style="color:rgba(255,255,255,0.45);font-size:0.8rem;font-style:italic;">→ wh- question embedded</div>
+          <div class="ua" style="color:rgba(255,255,255,0.35);font-size:0.75rem;">→ вбудоване wh- питання</div>
+        </div>
+      </div>
+
+      <div class="transform-row">
+        <div class="tr-type" style="background:#2ECC71;color:white;">WHAT</div>
+        <div class="tr-sentence">
+          <div class="en">She told me <span class="connector">what</span> she wanted.</div>
+          <div class="ua">Вона сказала мені, чого вона хотіла.</div>
+        </div>
+        <div class="tr-sentence">
+          <div class="en" style="color:rgba(255,255,255,0.45);font-size:0.8rem;font-style:italic;">→ wh- about the object</div>
+          <div class="ua" style="color:rgba(255,255,255,0.35);font-size:0.75rem;">→ питання про об'єкт</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- TYPE 1: THAT -->
+<div class="section reveal">
+  <div class="section-title">
+    <div class="section-icon" style="background:#FFF3EE;">📣</div>
+    <div>
+      <h2 style="color:#FF6B35;">Type 1 — That Clauses</h2>
+      <p>Тип 1 — речення зі сполучником "that"</p>
+    </div>
+  </div>
+
+  <div class="type-card">
+    <div class="type-header" style="background:linear-gradient(135deg,#FF6B35,#FF8E53);">
+      <div class="type-header-icon">📢</div>
+      <div>
+        <h3>"that" clause</h3>
+        <p class="when">When: stating facts, beliefs, thoughts, feelings / Коли: факти, думки, переконання, почуття</p>
+      </div>
+    </div>
+    <div class="type-body">
+      <span class="connector-tag" style="background:#FF6B35;color:white;">Connector: THAT (можна опустити!)</span>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px;">
+        <div style="background:#FFF3EE;border-radius:12px;padding:14px;">
+          <p style="font-weight:800;font-size:0.85rem;color:#FF6B35;margin-bottom:6px;">📐 FORMULA</p>
+          <p style="font-family:monospace;font-weight:700;font-size:0.9rem;">Subject + verb + <span style="color:#FF6B35;">that</span> + S + V</p>
+          <p style="font-size:0.78rem;color:#999;margin-top:4px;font-style:italic;">Підмет + дієслово + that + підмет + дієслово</p>
+        </div>
+        <div style="background:#FFF3EE;border-radius:12px;padding:14px;">
+          <p style="font-weight:800;font-size:0.85rem;color:#FF6B35;margin-bottom:6px;">💬 Common verbs before it</p>
+          <p style="font-size:0.88rem;font-weight:600;">know, think, believe, say, hope, hear, feel, understand, wish…</p>
+          <p style="font-size:0.78rem;color:#999;font-style:italic;margin-top:4px;">знати, думати, вірити, казати, сподіватись…</p>
+        </div>
+      </div>
+
+      <div class="examples-title">✏️ Examples / Приклади</div>
+
+      <div class="example-row" style="border-color:#FF6B35;">
+        <span class="tag" style="background:#FF6B35;">Subject / Підмет</span>
+        <div class="en"><span class="hl-yellow">That she passed the exam</span> surprised everyone.</div>
+        <div class="ua">Те, що вона склала іспит, здивувало всіх.</div>
+      </div>
+
+      <div class="example-row" style="border-color:#FF8E53;">
+        <span class="tag" style="background:#FF8E53;">Object / Додаток</span>
+        <div class="en">I believe <span class="hl-yellow">that kindness is powerful</span>.</div>
+        <div class="ua">Я вірю, що доброта — це сила. <em style="color:#bbb;">("that" can be dropped here)</em></div>
+      </div>
+
+      <div class="example-row" style="border-color:#fda085;">
+        <span class="tag" style="background:#fda085;">Object / Додаток</span>
+        <div class="en">She told me <span class="hl-yellow">that she was happy</span>.</div>
+        <div class="ua">Вона сказала мені, що вона щаслива. ⭐ <em style="color:#bbb;">(universal sentence)</em></div>
+      </div>
+
+      <div class="example-row" style="border-color:#f39c12;">
+        <span class="tag" style="background:#f39c12;">After adj. / Після прикм.</span>
+        <div class="en">I'm glad <span class="hl-yellow">that you came</span>.</div>
+        <div class="ua">Я радий, що ти прийшов.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TYPE 2: WHETHER / IF -->
+<div class="section reveal" style="padding-top:0;">
+  <div class="section-title">
+    <div class="section-icon" style="background:#F5EEFF;">🤔</div>
+    <div>
+      <h2 style="color:#9B59B6;">Type 2 — Whether / If Clauses</h2>
+      <p>Тип 2 — речення з "whether" або "if"</p>
+    </div>
+  </div>
+
+  <div class="type-card">
+    <div class="type-header" style="background:linear-gradient(135deg,#9B59B6,#8E44AD);">
+      <div class="type-header-icon">🎲</div>
+      <div>
+        <h3>"whether / if" clause</h3>
+        <p class="when">When: yes/no questions turned into clauses / Коли: питання "чи" вбудовані в речення</p>
+      </div>
+    </div>
+    <div class="type-body">
+      <span class="connector-tag" style="background:#9B59B6;color:white;">Connectors: WHETHER · IF</span>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px;">
+        <div style="background:#F5EEFF;border-radius:12px;padding:14px;">
+          <p style="font-weight:800;font-size:0.85rem;color:#9B59B6;margin-bottom:6px;">📐 FORMULA</p>
+          <p style="font-family:monospace;font-weight:700;font-size:0.9rem;">Subject + verb + <span style="color:#9B59B6;">whether/if</span> + S + V</p>
+          <p style="font-size:0.78rem;color:#999;margin-top:4px;font-style:italic;">Підмет + дієслово + чи + підмет + дієслово</p>
+        </div>
+        <div style="background:#F5EEFF;border-radius:12px;padding:14px;">
+          <p style="font-weight:800;font-size:0.85rem;color:#9B59B6;margin-bottom:6px;">⚠️ Whether vs If</p>
+          <p style="font-size:0.85rem;font-weight:600;line-height:1.5;"><strong>whether</strong> = in all positions<br><strong>if</strong> = mainly as object only</p>
+          <p style="font-size:0.78rem;color:#999;font-style:italic;margin-top:4px;">whether — скрізь; if — переважно як додаток</p>
+        </div>
+      </div>
+
+      <div style="background:linear-gradient(90deg,#f3e5ff,#e8d5ff);border-radius:12px;padding:14px;margin-bottom:18px;">
+        <p style="font-weight:800;margin-bottom:8px;">🔄 From question to clause / Від питання до підрядного</p>
+        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+          <div style="background:white;padding:8px 14px;border-radius:8px;font-weight:700;font-size:0.9rem;box-shadow:0 2px 6px rgba(0,0,0,0.08);">Is she happy? ❓</div>
+          <span style="font-size:1.3rem;color:#9B59B6;">→</span>
+          <div style="background:#9B59B6;color:white;padding:8px 14px;border-radius:8px;font-weight:700;font-size:0.9rem;">…whether she is happy ✅</div>
+        </div>
+        <p style="font-size:0.78rem;color:#888;margin-top:6px;font-style:italic;">Питальний порядок слів зникає! "Is she" → "she is"</p>
+      </div>
+
+      <div class="examples-title">✏️ Examples / Приклади</div>
+
+      <div class="example-row" style="border-color:#9B59B6;">
+        <span class="tag" style="background:#9B59B6;">Object / Додаток</span>
+        <div class="en">I don't know <span class="hl-purple">whether she is home</span>.</div>
+        <div class="ua">Я не знаю, чи вона вдома.</div>
+      </div>
+
+      <div class="example-row" style="border-color:#8E44AD;">
+        <span class="tag" style="background:#8E44AD;">Object / Додаток</span>
+        <div class="en">She told me <span class="hl-purple">whether she was happy</span>.</div>
+        <div class="ua">Вона сказала мені, чи вона була щаслива. ⭐</div>
+      </div>
+
+      <div class="example-row" style="border-color:#BDC3C7;">
+        <span class="tag" style="background:#BDC3C7;">Subject / Підмет</span>
+        <div class="en"><span class="hl-purple">Whether we go or not</span> is your decision.</div>
+        <div class="ua">Чи підемо ми чи ні — твоє рішення. <em style="color:#bbb;">(if ❌ here)</em></div>
+      </div>
+
+      <div class="example-row" style="border-color:#a29bfe;">
+        <span class="tag" style="background:#a29bfe;">With "or not"</span>
+        <div class="en">He asked <span class="hl-purple">whether or not</span> she was coming.</div>
+        <div class="ua">Він запитав, чи вона прийде чи ні.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TYPE 3: WH- CLAUSES -->
+<div class="section reveal" style="padding-top:0;">
+  <div class="section-title">
+    <div class="section-icon" style="background:#E8F9F8;">🔍</div>
+    <div>
+      <h2 style="color:#4ECDC4;">Type 3 — Wh- Clauses</h2>
+      <p>Тип 3 — речення з питальними словами</p>
+    </div>
+  </div>
+
+  <!-- WH- words grid -->
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin-bottom:28px;">
+    <div style="background:#E8F9F8;border:2px solid #4ECDC4;border-radius:14px;padding:14px;text-align:center;">
+      <div style="font-size:1.8rem;">❓</div>
+      <div style="font-weight:800;font-size:1.1rem;color:#0f7c79;">what</div>
+      <div style="font-size:0.75rem;color:#888;">що / який</div>
+    </div>
+    <div style="background:#E8F9F8;border:2px solid #4ECDC4;border-radius:14px;padding:14px;text-align:center;">
+      <div style="font-size:1.8rem;">👤</div>
+      <div style="font-weight:800;font-size:1.1rem;color:#0f7c79;">who / whom</div>
+      <div style="font-size:0.75rem;color:#888;">хто / кого</div>
+    </div>
+    <div style="background:#E8F9F8;border:2px solid #4ECDC4;border-radius:14px;padding:14px;text-align:center;">
+      <div style="font-size:1.8rem;">📍</div>
+      <div style="font-weight:800;font-size:1.1rem;color:#0f7c79;">where</div>
+      <div style="font-size:0.75rem;color:#888;">де / куди</div>
+    </div>
+    <div style="background:#E8F9F8;border:2px solid #4ECDC4;border-radius:14px;padding:14px;text-align:center;">
+      <div style="font-size:1.8rem;">🕐</div>
+      <div style="font-weight:800;font-size:1.1rem;color:#0f7c79;">when</div>
+      <div style="font-size:0.75rem;color:#888;">коли</div>
+    </div>
+    <div style="background:#E8F9F8;border:2px solid #4ECDC4;border-radius:14px;padding:14px;text-align:center;">
+      <div style="font-size:1.8rem;">🤷</div>
+      <div style="font-weight:800;font-size:1.1rem;color:#0f7c79;">why</div>
+      <div style="font-size:0.75rem;color:#888;">чому</div>
+    </div>
+    <div style="background:#E8F9F8;border:2px solid #4ECDC4;border-radius:14px;padding:14px;text-align:center;">
+      <div style="font-size:1.8rem;">⚙️</div>
+      <div style="font-weight:800;font-size:1.1rem;color:#0f7c79;">how</div>
+      <div style="font-size:0.75rem;color:#888;">як</div>
+    </div>
+    <div style="background:#E8F9F8;border:2px solid #4ECDC4;border-radius:14px;padding:14px;text-align:center;">
+      <div style="font-size:1.8rem;">🔎</div>
+      <div style="font-weight:800;font-size:1.1rem;color:#0f7c79;">which</div>
+      <div style="font-size:0.75rem;color:#888;">який</div>
+    </div>
+    <div style="background:#E8F9F8;border:2px solid #4ECDC4;border-radius:14px;padding:14px;text-align:center;">
+      <div style="font-size:1.8rem;">👥</div>
+      <div style="font-weight:800;font-size:1.1rem;color:#0f7c79;">whose</div>
+      <div style="font-size:0.75rem;color:#888;">чий</div>
+    </div>
+  </div>
+
+  <div class="type-card">
+    <div class="type-header" style="background:linear-gradient(135deg,#4ECDC4,#44A08D);">
+      <div class="type-header-icon">🔭</div>
+      <div>
+        <h3>Wh- clause</h3>
+        <p class="when">When: open questions embedded in a sentence / Коли: відкриті питання всередині речення</p>
+      </div>
+    </div>
+    <div class="type-body">
+      <span class="connector-tag" style="background:#4ECDC4;color:white;">Connectors: what, where, when, why, who, how, which, whose</span>
+
+      <div style="background:linear-gradient(90deg,#e0f9f8,#d1f3f2);border-radius:12px;padding:14px;margin-bottom:18px;">
+        <p style="font-weight:800;margin-bottom:8px;">🔄 From question to clause / Від питання до підрядного</p>
+        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:8px;">
+          <div style="background:white;padding:8px 14px;border-radius:8px;font-weight:700;font-size:0.9rem;box-shadow:0 2px 6px rgba(0,0,0,0.08);">Where does she live? ❓</div>
+          <span style="font-size:1.3rem;color:#4ECDC4;">→</span>
+          <div style="background:#4ECDC4;color:white;padding:8px 14px;border-radius:8px;font-weight:700;font-size:0.9rem;">…where she lives ✅</div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+          <div style="background:white;padding:8px 14px;border-radius:8px;font-weight:700;font-size:0.9rem;box-shadow:0 2px 6px rgba(0,0,0,0.08);">Why is she happy? ❓</div>
+          <span style="font-size:1.3rem;color:#4ECDC4;">→</span>
+          <div style="background:#4ECDC4;color:white;padding:8px 14px;border-radius:8px;font-weight:700;font-size:0.9rem;">…why she is happy ✅</div>
+        </div>
+        <p style="font-size:0.78rem;color:#888;margin-top:6px;font-style:italic;">Питальна форма → звичайний порядок слів. Does she → she does / is she → she is</p>
+      </div>
+
+      <div class="examples-title">✏️ Examples / Приклади</div>
+
+      <div class="example-row" style="border-color:#4ECDC4;">
+        <span class="tag" style="background:#4ECDC4;">what</span>
+        <div class="en">She told me <span class="hl-blue">what she wanted</span>.</div>
+        <div class="ua">Вона сказала мені, чого вона хотіла. ⭐</div>
+      </div>
+
+      <div class="example-row" style="border-color:#44A08D;">
+        <span class="tag" style="background:#44A08D;">why</span>
+        <div class="en">She told me <span class="hl-blue">why she was happy</span>.</div>
+        <div class="ua">Вона сказала мені, чому вона була щасливою. ⭐</div>
+      </div>
+
+      <div class="example-row" style="border-color:#48c9b0;">
+        <span class="tag" style="background:#48c9b0;">where</span>
+        <div class="en">Do you know <span class="hl-blue">where the library is</span>?</div>
+        <div class="ua">Ти знаєш, де знаходиться бібліотека?</div>
+      </div>
+
+      <div class="example-row" style="border-color:#1abc9c;">
+        <span class="tag" style="background:#1abc9c;">who</span>
+        <div class="en">I can't remember <span class="hl-blue">who sent me that message</span>.</div>
+        <div class="ua">Я не можу згадати, хто надіслав мені те повідомлення.</div>
+      </div>
+
+      <div class="example-row" style="border-color:#16a085;">
+        <span class="tag" style="background:#16a085;">how</span>
+        <div class="en">Please show me <span class="hl-blue">how this works</span>.</div>
+        <div class="ua">Покажи мені, будь ласка, як це працює.</div>
+      </div>
+
+      <div class="example-row" style="border-color:#27ae60;">
+        <span class="tag" style="background:#27ae60;">Subject / Підмет</span>
+        <div class="en"><span class="hl-blue">What you said</span> really hurt me.</div>
+        <div class="ua">Те, що ти сказав, справді образило мене.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ROLES IN THE SENTENCE -->
+<div style="background:linear-gradient(135deg,#f8f9fa,#e9ecef);padding:50px 20px;">
+<div class="container reveal">
+  <div class="section-title">
+    <div class="section-icon" style="background:white;">🎭</div>
+    <div>
+      <h2>Roles of Noun Clauses / Ролі у реченні</h2>
+      <p>Where exactly can a noun clause appear?</p>
+    </div>
+  </div>
+
+  <div class="roles-grid">
+    <div class="role-card" style="background:white;border:2px solid #FFD93D;box-shadow:0 4px 15px rgba(255,217,61,0.15);">
+      <div class="role-emoji">🏁</div>
+      <h4>Subject / Підмет</h4>
+      <p class="role-def">The noun clause IS the subject of the sentence.<br><em style="font-size:0.78rem;">Noun clause є підметом речення.</em></p>
+      <div class="role-ex"><span class="hl-yellow">What she wants</span> is unknown.</div>
+      <p class="role-ex-ua">Те, чого вона хоче, невідомо.</p>
+    </div>
+
+    <div class="role-card" style="background:white;border:2px solid #4ECDC4;box-shadow:0 4px 15px rgba(78,205,196,0.15);">
+      <div class="role-emoji">🎯</div>
+      <h4>Object / Прямий додаток</h4>
+      <p class="role-def">The noun clause is the direct object of the verb.<br><em style="font-size:0.78rem;">Виконує роль прямого додатка.</em></p>
+      <div class="role-ex">I know <span class="hl-blue">where she lives</span>.</div>
+      <p class="role-ex-ua">Я знаю, де вона живе.</p>
+    </div>
+
+    <div class="role-card" style="background:white;border:2px solid #FF6B9D;box-shadow:0 4px 15px rgba(255,107,157,0.15);">
+      <div class="role-emoji">🔗</div>
+      <h4>Subject Complement</h4>
+      <p class="role-def">After "be" verb — it describes the subject.<br><em style="font-size:0.78rem;">Після дієслова "бути" — іменна частина присудка.</em></p>
+      <div class="role-ex">The truth is <span class="hl-pink">that she lied</span>.</div>
+      <p class="role-ex-ua">Правда в тому, що вона збрехала.</p>
+    </div>
+
+    <div class="role-card" style="background:white;border:2px solid #9B59B6;box-shadow:0 4px 15px rgba(155,89,182,0.15);">
+      <div class="role-emoji">📦</div>
+      <h4>Object of Preposition</h4>
+      <p class="role-def">After a preposition (usually "about", "of").<br><em style="font-size:0.78rem;">Після прийменника.</em></p>
+      <div class="role-ex">I'm worried about <span class="hl-purple">what will happen</span>.</div>
+      <p class="role-ex-ua">Я хвилююся, що станеться.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- TIPS & COMMON MISTAKES -->
+<div class="section reveal">
+  <div class="section-title">
+    <div class="section-icon" style="background:#EAFAF1;">⚡</div>
+    <div>
+      <h2 style="color:#2ECC71;">Tips & Common Mistakes / Поради і помилки</h2>
+      <p>Things to remember / Що треба пам'ятати</p>
+    </div>
+  </div>
+
+  <div class="tips-grid">
+    <div class="tip-card" style="background:#EAFAF1;border:2px solid #2ECC71;">
+      <div class="tip-icon">🔄</div>
+      <div>
+        <h4>Normal word order!</h4>
+        <p>Inside a noun clause, always use <strong>Subject → Verb</strong>, never question order.</p>
+        <p class="tip-ua">Всередині noun clause завжди підмет потім дієслово — не питальний порядок!</p>
+      </div>
+    </div>
+
+    <div class="tip-card" style="background:#FFF0F7;border:2px solid #FF6B9D;">
+      <div class="tip-icon">👻</div>
+      <div>
+        <h4>"that" is often invisible!</h4>
+        <p>You can often drop "that" in object clauses: <em>I think (that) it's true.</em></p>
+        <p class="tip-ua">"that" часто можна прибрати в ролі додатка. Але в ролі підмета — не можна!</p>
+      </div>
+    </div>
+
+    <div class="tip-card" style="background:#FFF9E6;border:2px solid #FFD93D;">
+      <div class="tip-icon">🆚</div>
+      <div>
+        <h4>whether vs if</h4>
+        <p><strong>whether</strong> can go anywhere. <strong>if</strong> only works as an object, not a subject.</p>
+        <p class="tip-ua">whether — скрізь. if — лише як додаток, не підмет. Перед "or not" — тільки whether!</p>
+      </div>
+    </div>
+
+    <div class="tip-card" style="background:#E8F9F8;border:2px solid #4ECDC4;">
+      <div class="tip-icon">🔗</div>
+      <div>
+        <h4>Connector stays!</h4>
+        <p>The wh- word is part of the clause — it's the connector AND sometimes the subject/object!</p>
+        <p class="tip-ua">Wh- слово залишається перед підрядним і може само бути підметом або додатком.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MINI VISUAL SUMMARY -->
+  <div style="margin-top:28px;background:linear-gradient(135deg,#667eea,#764ba2);border-radius:22px;padding:30px;color:white;">
+    <h3 style="font-family:'Baloo 2';font-size:1.4rem;margin-bottom:20px;text-align:center;">🗺️ Quick Reference Map / Швидкий довідник</h3>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;">
+      <div style="background:rgba(255,255,255,0.12);border-radius:14px;padding:16px;">
+        <p style="font-weight:800;color:#FFD93D;margin-bottom:8px;font-size:0.9rem;">THAT ➡️</p>
+        <p style="font-size:0.88rem;line-height:1.6;">Use after: know, think, believe, say, hope, feel<br>
+        <span style="color:rgba(255,255,255,0.6);font-size:0.78rem;">Після: знати, думати, вірити, казати</span></p>
+      </div>
+      <div style="background:rgba(255,255,255,0.12);border-radius:14px;padding:16px;">
+        <p style="font-weight:800;color:#9B59B6;margin-bottom:8px;font-size:0.9rem;">WHETHER/IF ➡️</p>
+        <p style="font-size:0.88rem;line-height:1.6;">Yes/No questions embedded<br>
+        <span style="color:rgba(255,255,255,0.6);font-size:0.78rem;">Питання так/ні вбудоване в речення</span></p>
+      </div>
+      <div style="background:rgba(255,255,255,0.12);border-radius:14px;padding:16px;">
+        <p style="font-weight:800;color:#4ECDC4;margin-bottom:8px;font-size:0.9rem;">WH- WORDS ➡️</p>
+        <p style="font-size:0.88rem;line-height:1.6;">Open questions embedded<br>
+        <span style="color:rgba(255,255,255,0.6);font-size:0.78rem;">Відкриті питання вбудовані в речення</span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="big">🎓 Keep learning! Продовжуй вчитись!</div>
+  <p>Noun Clauses are your superpower for expressing complex ideas in English.</p>
+  <p style="font-style:italic;font-size:0.85rem;margin-top:4px;">Noun Clauses — твій суперзасіб для складних думок англійською.</p>
+  <div style="margin-top:20px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+    <span style="background:rgba(255,255,255,0.08);padding:6px 18px;border-radius:20px;">📣 that</span>
+    <span style="background:rgba(255,255,255,0.08);padding:6px 18px;border-radius:20px;">🤔 whether / if</span>
+    <span style="background:rgba(255,255,255,0.08);padding:6px 18px;border-radius:20px;">🔍 what · where · when · why · who · how</span>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(r => observer.observe(r));
+
+  // Mobile: collapse inline-style 2-col grids on small screens
+  function applyMobileGridFix() {
+    if (window.innerWidth > 480) return;
+    document.querySelectorAll('[style]').forEach(el => {
+      const s = el.getAttribute('style') || '';
+      if (/grid-template-columns\s*:\s*1fr\s+1fr/.test(s)) el.style.gridTemplateColumns = '1fr';
+      if (/grid-template-columns\s*:\s*repeat\(auto-fit/.test(s)) el.style.gridTemplateColumns = '1fr';
+    });
+  }
+  applyMobileGridFix();
+  window.addEventListener('resize', applyMobileGridFix);
+
+  // Stagger delay for type cards
+  document.querySelectorAll('.type-card').forEach((c, i) => {
+    c.style.animationDelay = `${i * 0.1}s`;
+  });
+</script>
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+</body>
+</html>

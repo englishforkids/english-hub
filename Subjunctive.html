@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Subjunctive Mood — English Magic ✨</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --yellow: #FFD93D;
+    --pink: #FF6B9D;
+    --blue: #4ECDC4;
+    --purple: #A78BFA;
+    --orange: #FF8B42;
+    --green: #6BCB77;
+    --dark: #1a1a2e;
+    --darker: #16213e;
+    --card: #0f3460;
+    --text: #e8f4f8;
+    --soft: #b0c4de;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--dark);
+    color: var(--text);
+    overflow-x: hidden;
+    word-break: break-word;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center; padding: 2rem;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(78,205,196,.18) 0%, transparent 70%),
+                radial-gradient(ellipse 60% 40% at 80% 100%, rgba(167,139,250,.15) 0%, transparent 60%);
+  }
+  .stars {
+    position: absolute; inset: 0; pointer-events: none;
+  }
+  .star {
+    position: absolute; border-radius: 50%;
+    background: white; animation: twinkle 3s infinite alternate;
+  }
+  @keyframes twinkle { 0%{opacity:.2;transform:scale(1)} 100%{opacity:1;transform:scale(1.4)} }
+
+  .hero-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--yellow), var(--orange));
+    color: var(--dark); font-weight: 900; font-size: .85rem;
+    padding: .35rem 1.1rem; border-radius: 50px; letter-spacing: .08em;
+    text-transform: uppercase; margin-bottom: 1.2rem;
+    animation: float 3s ease-in-out infinite;
+  }
+  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+
+  .hero h1 {
+    font-family: 'Baloo 2', cursive; font-size: clamp(2.8rem, 8vw, 5.5rem);
+    font-weight: 800; line-height: 1.05;
+    background: linear-gradient(135deg, var(--yellow) 0%, var(--pink) 50%, var(--purple) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    margin-bottom: .6rem;
+  }
+  .hero h2 {
+    font-size: clamp(1rem, 3vw, 1.4rem); color: var(--soft);
+    font-weight: 600; margin-bottom: 2rem; max-width: 600px;
+  }
+  .hero-emoji { font-size: 5rem; margin-bottom: 1rem; display: block; }
+
+  /* ── SCROLL CTA ── */
+  .scroll-down {
+    position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+    font-size: 1.8rem; animation: bounce 1.5s infinite;
+  }
+  @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(10px)} }
+
+  /* ── SECTIONS ── */
+  section { padding: 5rem 1.5rem; max-width: 1100px; margin: 0 auto; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+
+  .section-title {
+    font-family: 'Baloo 2', cursive; font-size: clamp(1.8rem,5vw,2.8rem);
+    font-weight: 800; margin-bottom: .4rem;
+  }
+  .section-sub { color: var(--soft); font-size: 1rem; margin-bottom: 2.5rem; }
+  .accent-yellow { color: var(--yellow); }
+  .accent-pink   { color: var(--pink); }
+  .accent-blue   { color: var(--blue); }
+  .accent-purple { color: var(--purple); }
+  .accent-orange { color: var(--orange); }
+  .accent-green  { color: var(--green); }
+
+  /* ── DIVIDER ── */
+  .wave-divider { width: 100%; overflow: hidden; line-height: 0; }
+  .wave-divider svg { display: block; }
+
+  /* ── WHAT IS ── */
+  .what-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+  }
+  @media(max-width:640px){ .what-grid { grid-template-columns: 1fr; } }
+
+  .what-card {
+    background: var(--card); border-radius: 20px; padding: 1.8rem;
+    border: 2px solid transparent; transition: transform .25s, border-color .25s;
+    position: relative; overflow: hidden;
+  }
+  .what-card:hover { transform: translateY(-4px); border-color: var(--blue); }
+  .what-card .icon { font-size: 2.8rem; margin-bottom: .8rem; display: block; }
+  .what-card h3 { font-size: 1.2rem; font-weight: 800; margin-bottom: .5rem; }
+  .what-card p { font-size: .95rem; color: var(--soft); line-height: 1.7; }
+  .what-card .uk { font-size: .85rem; color: var(--yellow); margin-top: .5rem; font-style: italic; }
+
+  /* ── FORMULA ── */
+  .formula-wrap {
+    background: linear-gradient(135deg, #0f3460, #16213e);
+    border: 2px solid var(--purple); border-radius: 24px;
+    padding: 2.5rem; margin-bottom: 2rem;
+  }
+  .formula-title { font-weight: 800; color: var(--purple); font-size: 1rem; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 1.2rem; }
+  .formula-row {
+    display: flex; flex-wrap: wrap; gap: .6rem; align-items: center;
+    font-family: 'Baloo 2', cursive; font-size: clamp(1rem, 3vw, 1.5rem);
+    font-weight: 700;
+  }
+  .f-box {
+    padding: .4rem 1rem; border-radius: 10px; white-space: nowrap;
+  }
+  .f-subj  { background: rgba(167,139,250,.25); color: var(--purple); border: 2px solid var(--purple); }
+  .f-verb  { background: rgba(255,107,157,.25); color: var(--pink);   border: 2px solid var(--pink); }
+  .f-base  { background: rgba(78,205,196,.25);  color: var(--blue);   border: 2px solid var(--blue); }
+  .f-plus  { color: var(--soft); font-size: 1.4rem; }
+  .f-note  { font-size: .8rem; color: var(--soft); margin-top: .8rem; font-family: 'Nunito', sans-serif; }
+
+  /* ── MAGIC SENTENCE ── */
+  .magic-box {
+    background: linear-gradient(135deg, rgba(255,217,61,.12), rgba(255,107,157,.12));
+    border: 3px solid var(--yellow); border-radius: 24px; padding: 2rem;
+    text-align: center; margin-bottom: 2rem;
+  }
+  .magic-label { font-size: .8rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--yellow); margin-bottom: .8rem; }
+  .magic-sentence {
+    font-family: 'Baloo 2', cursive; font-size: clamp(1.3rem, 4vw, 2rem);
+    font-weight: 800; color: white; margin-bottom: .6rem;
+  }
+  .magic-sentence span { color: var(--yellow); }
+  .magic-uk { color: var(--soft); font-size: .95rem; }
+
+  /* ── TYPES ── */
+  .types-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  .type-card {
+    border-radius: 22px; padding: 2rem;
+    position: relative; overflow: hidden;
+    transition: transform .25s;
+  }
+  .type-card:hover { transform: scale(1.02); }
+  .type-card.wish   { background: linear-gradient(135deg, #1a0533, #3b0764); border: 2px solid var(--purple); }
+  .type-card.cond   { background: linear-gradient(135deg, #0d2545, #1a4a8a); border: 2px solid var(--blue); }
+  .type-card.demand { background: linear-gradient(135deg, #4a1218, #8b1a2a); border: 2px solid var(--pink); }
+  .type-card.formal { background: linear-gradient(135deg, #1a3300, #2d5500); border: 2px solid var(--green); }
+
+  .type-emoji { font-size: 3rem; margin-bottom: .8rem; display: block; }
+  .type-card h3 { font-family: 'Baloo 2', cursive; font-size: 1.5rem; font-weight: 800; margin-bottom: .3rem; }
+  .type-card .tag {
+    display: inline-block; font-size: .75rem; font-weight: 800; letter-spacing: .08em;
+    text-transform: uppercase; padding: .2rem .7rem; border-radius: 50px;
+    margin-bottom: 1rem;
+  }
+  .type-card.wish   .tag { background: var(--purple); color: white; }
+  .type-card.cond   .tag { background: var(--blue);   color: var(--dark); }
+  .type-card.demand .tag { background: var(--pink);   color: white; }
+  .type-card.formal .tag { background: var(--green);  color: var(--dark); }
+  .type-card p { color: var(--soft); font-size: .92rem; line-height: 1.6; margin-bottom: 1rem; }
+  .type-card .uk-note { font-size: .82rem; color: rgba(255,255,255,.5); font-style: italic; }
+
+  /* ── EXAMPLE CARDS ── */
+  .ex-card {
+    background: var(--card); border-radius: 16px; padding: 1.3rem 1.6rem;
+    margin-bottom: .8rem; border-left: 4px solid;
+    transition: transform .2s;
+  }
+  .ex-card:hover { transform: translateX(4px); }
+  .ex-card.purple { border-color: var(--purple); }
+  .ex-card.blue   { border-color: var(--blue); }
+  .ex-card.pink   { border-color: var(--pink); }
+  .ex-card.yellow { border-color: var(--yellow); }
+  .ex-card.green  { border-color: var(--green); }
+  .ex-card.orange { border-color: var(--orange); }
+
+  .ex-en { font-weight: 700; font-size: 1rem; margin-bottom: .3rem; }
+  .ex-uk { font-size: .87rem; color: var(--soft); }
+  .ex-note { font-size: .78rem; color: var(--yellow); margin-top: .3rem; font-style: italic; }
+
+  /* ── BIG EXAMPLE TABLE ── */
+  .table-wrap { overflow-x: auto; border-radius: 18px; }
+  table {
+    width: 100%; border-collapse: collapse; font-size: .9rem;
+    background: var(--card); border-radius: 18px; overflow: hidden;
+  }
+  thead tr { background: linear-gradient(135deg, var(--purple), var(--pink)); }
+  thead th { padding: .9rem 1.2rem; text-align: left; font-weight: 800; color: white; white-space: nowrap; }
+  tbody tr { border-bottom: 1px solid rgba(255,255,255,.07); transition: background .2s; }
+  tbody tr:hover { background: rgba(255,255,255,.05); }
+  tbody td { padding: .85rem 1.2rem; vertical-align: top; }
+  .td-cat { font-weight: 700; font-size: .8rem; letter-spacing: .06em; text-transform: uppercase; }
+  .td-en  { font-weight: 600; }
+  .td-uk  { color: var(--soft); font-size: .85rem; }
+
+  /* ── INFOGRAPHIC TIMELINE ── */
+  .timeline { position: relative; padding-left: 2.5rem; }
+  .timeline::before {
+    content: ''; position: absolute; left: .9rem; top: 0; bottom: 0;
+    width: 3px; background: linear-gradient(to bottom, var(--purple), var(--pink), var(--blue), var(--green));
+    border-radius: 2px;
+  }
+  .tl-item { position: relative; margin-bottom: 2rem; }
+  .tl-dot {
+    position: absolute; left: -1.65rem; top: .2rem;
+    width: 1.1rem; height: 1.1rem; border-radius: 50%;
+    border: 3px solid var(--dark);
+  }
+  .tl-item h4 { font-weight: 800; font-size: 1.05rem; margin-bottom: .3rem; }
+  .tl-item p  { color: var(--soft); font-size: .88rem; line-height: 1.6; }
+
+  /* ── QUICK COMPARE ── */
+  .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  @media(max-width:580px){ .compare-grid { grid-template-columns: 1fr; } }
+
+  .compare-col { background: var(--card); border-radius: 18px; padding: 1.6rem; }
+  .compare-col h4 { font-weight: 800; font-size: 1rem; margin-bottom: 1rem; padding-bottom: .6rem; border-bottom: 2px solid; }
+  .compare-col.real h4 { color: var(--blue);   border-color: var(--blue); }
+  .compare-col.unreal h4 { color: var(--pink); border-color: var(--pink); }
+  .compare-col ul { list-style: none; }
+  .compare-col li { padding: .5rem 0; border-bottom: 1px solid rgba(255,255,255,.07); font-size: .9rem; }
+  .compare-col li:last-child { border: none; }
+  .compare-col li span { display: block; font-size: .8rem; color: var(--soft); margin-top: .2rem; }
+
+  /* ── PHRASAL VERBS ── */
+  .pv-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.2rem;
+  }
+  .pv-card {
+    background: var(--card); border-radius: 16px; padding: 1.4rem;
+    border-top: 4px solid; transition: transform .2s, box-shadow .2s;
+  }
+  .pv-card:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,0,0,.3); }
+  .pv-card:nth-child(6n+1) { border-color: var(--purple); }
+  .pv-card:nth-child(6n+2) { border-color: var(--blue); }
+  .pv-card:nth-child(6n+3) { border-color: var(--pink); }
+  .pv-card:nth-child(6n+4) { border-color: var(--yellow); }
+  .pv-card:nth-child(6n+5) { border-color: var(--green); }
+  .pv-card:nth-child(6n+6) { border-color: var(--orange); }
+
+  .pv-verb { font-family: 'Baloo 2', cursive; font-size: 1.2rem; font-weight: 800; margin-bottom: .3rem; }
+  .pv-meaning { font-size: .8rem; color: var(--soft); margin-bottom: .7rem; }
+  .pv-ex { font-size: .87rem; font-weight: 600; margin-bottom: .2rem; }
+  .pv-uk { font-size: .8rem; color: var(--soft); font-style: italic; }
+
+  /* ── TIPS ── */
+  .tips-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.2rem;
+  }
+  .tip-card {
+    background: linear-gradient(135deg, var(--card), #1a2a4a);
+    border-radius: 16px; padding: 1.4rem; text-align: center;
+    border: 1px solid rgba(255,255,255,.08);
+    transition: transform .25s;
+  }
+  .tip-card:hover { transform: scale(1.03); }
+  .tip-icon { font-size: 2.5rem; margin-bottom: .7rem; display: block; }
+  .tip-card h4 { font-weight: 800; margin-bottom: .4rem; font-size: .95rem; }
+  .tip-card p  { font-size: .82rem; color: var(--soft); line-height: 1.6; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--darker); text-align: center; padding: 3rem 1rem;
+    color: var(--soft); font-size: .9rem; border-top: 1px solid rgba(255,255,255,.06);
+  }
+  footer .big { font-size: 3rem; margin-bottom: .8rem; display: block; }
+
+  /* ── PILL BADGES ── */
+  .pill {
+    display: inline-block; padding: .25rem .8rem; border-radius: 50px;
+    font-size: .78rem; font-weight: 800; margin: .2rem; letter-spacing: .05em;
+  }
+  .pill-purple { background: rgba(167,139,250,.2); color: var(--purple); }
+  .pill-blue   { background: rgba(78,205,196,.2);  color: var(--blue); }
+  .pill-pink   { background: rgba(255,107,157,.2); color: var(--pink); }
+  .pill-yellow { background: rgba(255,217,61,.2);  color: var(--yellow); }
+  .pill-green  { background: rgba(107,203,119,.2); color: var(--green); }
+
+  /* ── TOC ── */
+  .toc {
+    background: var(--card); border-radius: 20px; padding: 1.8rem;
+    border: 1px solid rgba(255,255,255,.1); margin-bottom: 3rem;
+  }
+  .toc h3 { font-weight: 800; margin-bottom: 1rem; color: var(--yellow); }
+  .toc-list { display: flex; flex-wrap: wrap; gap: .6rem; }
+  .toc-list a {
+    background: rgba(255,255,255,.07); color: var(--text); text-decoration: none;
+    padding: .4rem 1rem; border-radius: 50px; font-size: .85rem; font-weight: 700;
+    transition: background .2s, color .2s;
+    border: 1px solid rgba(255,255,255,.1);
+  }
+  .toc-list a:hover { background: var(--yellow); color: var(--dark); }
+
+  /* Horizontal rule */
+  .hr { border: none; border-top: 1px solid rgba(255,255,255,.08); margin: 2rem 0; }
+
+  /* ── MOBILE RESPONSIVE ── */
+  @media(max-width:768px) {
+    section { padding: 2.5rem 1rem; }
+    .formula-row { font-size: .88rem; gap: .4rem; }
+    .f-box { padding: .3rem .7rem; font-size: .85rem; }
+    .hero { min-height: auto; padding: 4rem 1.2rem 3rem; }
+    .hero-emoji { font-size: 3.5rem; }
+    .hero h2 { font-size: .95rem; }
+    .what-grid { grid-template-columns: 1fr; }
+    .types-grid { grid-template-columns: 1fr; }
+    .compare-grid { grid-template-columns: 1fr; }
+    .tips-grid { grid-template-columns: 1fr 1fr; }
+    .pv-grid { grid-template-columns: 1fr; }
+    .toc-list { gap: .4rem; }
+    .toc-list a { font-size: .8rem; padding: .35rem .8rem; }
+    .magic-sentence { font-size: 1.1rem; }
+    .magic-box { padding: 1.4rem 1rem; }
+    .formula-wrap { padding: 1.4rem 1rem; }
+    .table-wrap { border-radius: 12px; -webkit-overflow-scrolling: touch; }
+    table { font-size: .8rem; min-width: 500px; }
+    thead th { padding: .7rem .8rem; }
+    tbody td { padding: .65rem .8rem; }
+    .section-title { font-size: 1.6rem; }
+    .type-card { padding: 1.4rem; }
+    .what-card { padding: 1.4rem; }
+    .pv-card { padding: 1.2rem; }
+    .tip-card { padding: 1.2rem; }
+    .timeline { padding-left: 2rem; }
+    #scroll-top-btn { bottom: 18px; right: 18px; width: 40px; height: 40px; font-size: 16px; }
+  }
+
+  @media(max-width:480px) {
+    .tips-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 2rem; }
+    .f-box { font-size: .78rem; padding: .25rem .55rem; }
+    .formula-row { font-size: .8rem; }
+    table { font-size: .75rem; min-width: 420px; }
+    .magic-sentence { font-size: .98rem; }
+    .section-title { font-size: 1.3rem; }
+    .ex-card { padding: 1rem 1.1rem; }
+    .ex-en { font-size: .9rem; }
+    .ex-uk { font-size: .8rem; }
+    .pv-verb { font-size: 1.05rem; }
+    .type-card h3 { font-size: 1.25rem; }
+    .what-card h3 { font-size: 1.05rem; }
+    .formula-wrap { padding: 1.1rem .9rem; }
+    .toc { padding: 1.2rem; }
+    footer { padding: 2rem 1rem; }
+  }
+
+#scroll-top-btn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #1a1208;
+  border: 1.5px solid rgba(200,150,62,0.4);
+  color: #f5f0e8;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+  pointer-events: none;
+  z-index: 9998;
+}
+#scroll-top-btn.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+#scroll-top-btn:hover {
+  background: #c8963e;
+  border-color: #c8963e;
+  color: #1a1208;
+}
+</style>
+</head>
+<body>
+
+<!-- STARS -->
+<div class="stars" id="stars"></div>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<div class="hero">
+  <span class="hero-emoji">🌟</span>
+  <div class="hero-badge">✨ English Grammar Magic ✨</div>
+  <h1>Subjunctive Mood</h1>
+  <h2>The Grammar of Wishes, Dreams & Impossible Things<br>
+  <span style="color:var(--yellow)">Граматика бажань, мрій та нереального</span></h2>
+  <div style="display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center;margin-top:1rem;">
+    <span class="pill pill-purple">Wishes 🌙</span>
+    <span class="pill pill-blue">Conditions 🌀</span>
+    <span class="pill pill-pink">Demands 📢</span>
+    <span class="pill pill-yellow">Suggestions 💡</span>
+    <span class="pill pill-green">Formal 🎓</span>
+  </div>
+  <div class="scroll-down">👇</div>
+</div>
+
+<!-- ═══════════════ MAIN ═══════════════ -->
+<main style="background:var(--dark);">
+
+<!-- TABLE OF CONTENTS -->
+<section>
+  <div class="toc">
+    <h3>📚 What's inside? / Що всередині?</h3>
+    <div class="toc-list">
+      <a href="#what">What is Subjunctive?</a>
+      <a href="#formula">Formula</a>
+      <a href="#magic">Magic Sentence</a>
+      <a href="#types">4 Types</a>
+      <a href="#examples">Big Examples Table</a>
+      <a href="#real-vs-unreal">Real vs Unreal</a>
+      <a href="#phrasal">Phrasal Verbs</a>
+      <a href="#tips">Tips & Tricks</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WHAT IS SUBJUNCTIVE ═══ -->
+<section id="what">
+  <div class="section-title accent-yellow">🤔 What is the Subjunctive?</div>
+  <div class="section-sub">Що таке умовний спосіб?</div>
+  <div class="what-grid">
+    <div class="what-card">
+      <span class="icon">🌍</span>
+      <h3>Real world vs. Imaginary world</h3>
+      <p>We use the <strong>Indicative</strong> mood to talk about facts and reality. We use the <strong>Subjunctive</strong> mood to talk about things that are <em>NOT real</em> — wishes, hypothetical situations, imagination, recommendations, and formal demands.</p>
+      <div class="uk">👉 Ми використовуємо Subjunctive, щоб говорити про те, чого немає насправді — мрії, умови, побажання, вимоги. Це "уявний" режим мови!</div>
+    </div>
+    <div class="what-card">
+      <span class="icon">💭</span>
+      <h3>When do we use it?</h3>
+      <p>When you <strong>wish</strong> something were different. When you imagine <strong>"what if?"</strong>. When someone <strong>suggests or demands</strong> something. When you give <strong>formal</strong> commands or requests.</p>
+      <div class="uk">👉 Коли бажаєш щось змінити. Коли уявляєш "що якби?". Коли хтось пропонує або вимагає щось. У формальних вимогах і наказах.</div>
+    </div>
+    <div class="what-card">
+      <span class="icon">🕰️</span>
+      <h3>Past tense = Present meaning?!</h3>
+      <p>Here's the magic trick: in Subjunctive, we use <strong>past tense forms</strong> to talk about <strong>present or future</strong> situations. "If I <em>were</em> you" — I'm not you NOW, but I use "were"!</p>
+      <div class="uk">👉 Хитрість: в Subjunctive ми вживаємо форму минулого часу, щоб говорити про теперішнє! "If I were you" — я НЕ ти, але вживаємо "were"!</div>
+    </div>
+    <div class="what-card">
+      <span class="icon">🎭</span>
+      <h3>Two main types</h3>
+      <p><strong>Present Subjunctive</strong> — used in formal suggestions and demands ("I suggest he <em>be</em> here"). <strong>Past Subjunctive</strong> — used for unreal situations ("If I <em>were</em> a bird…"). Don't worry — we'll cover both!</p>
+      <div class="uk">👉 Два типи: Present Subjunctive (у формальних вимогах) та Past Subjunctive (нереальні ситуації). Вивчимо обидва!</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FORMULA ═══ -->
+<section id="formula" style="padding-top:0;">
+  <div class="section-title accent-blue">🔢 The Formulas / Формули</div>
+  <div class="section-sub">Learn these and you'll never be confused again!</div>
+
+  <div class="formula-wrap">
+    <div class="formula-title">🔵 Type 2 — Present / Future Unreal (Hypothetical Now)</div>
+    <div class="formula-row">
+      <span class="f-box f-subj">If</span>
+      <span class="f-plus">+</span>
+      <span class="f-box f-subj">Subject</span>
+      <span class="f-plus">+</span>
+      <span class="f-box f-verb">WERE / V²</span>
+      <span class="f-plus">,</span>
+      <span class="f-box f-subj">Subject</span>
+      <span class="f-plus">+</span>
+      <span class="f-box f-base">would + BASE VERB</span>
+    </div>
+    <div class="f-note">⚡ "Were" is ALWAYS used for all persons (I/he/she/it were — not was!) / "Were" вживається з УСІМА особами!</div>
+  </div>
+
+  <div class="formula-wrap" style="border-color:var(--pink);">
+    <div class="formula-title" style="color:var(--pink);">🔴 Type 3 — Past Unreal (Hypothetical Past)</div>
+    <div class="formula-row">
+      <span class="f-box f-subj">If</span>
+      <span class="f-plus">+</span>
+      <span class="f-box f-subj">Subject</span>
+      <span class="f-plus">+</span>
+      <span class="f-box f-verb" style="border-color:var(--pink);color:var(--pink);">HAD + V³</span>
+      <span class="f-plus">,</span>
+      <span class="f-box f-subj">Subject</span>
+      <span class="f-plus">+</span>
+      <span class="f-box f-base" style="border-color:var(--pink);color:var(--pink);">would have + V³</span>
+    </div>
+    <div class="f-note">⚡ This is about the past — something that DIDN'T happen / Про те, чого НЕ відбулось у минулому</div>
+  </div>
+
+  <div class="formula-wrap" style="border-color:var(--green);">
+    <div class="formula-title" style="color:var(--green);">🟢 Present Subjunctive (Formal Demands/Suggestions)</div>
+    <div class="formula-row">
+      <span class="f-box f-subj" style="border-color:var(--green);color:var(--green);">suggest / recommend / insist / demand / require</span>
+      <span class="f-plus">+</span>
+      <span class="f-box f-base" style="border-color:var(--green);color:var(--green);">that + Subject + BASE VERB (no -s!)</span>
+    </div>
+    <div class="f-note">⚡ Never add -s! "She suggests he GO" — not "goes"! / Ніколи не додавай -s! Навіть для he/she/it!</div>
+  </div>
+
+  <div class="formula-wrap" style="border-color:var(--yellow);">
+    <div class="formula-title" style="color:var(--yellow);">🌙 WISH Formula</div>
+    <div class="formula-row">
+      <span class="f-box f-subj" style="border-color:var(--yellow);color:var(--yellow);">Subject</span>
+      <span class="f-plus">+</span>
+      <span class="f-box f-verb" style="border-color:var(--yellow);color:var(--yellow);">WISH</span>
+      <span class="f-plus">+</span>
+      <span class="f-box f-base" style="border-color:var(--yellow);color:var(--yellow);">Subject + PAST TENSE (were/had/could...)</span>
+    </div>
+    <div class="f-note">⚡ "I wish I WERE taller" (now) / "I wish I HAD studied" (past regret) / Тепер: were/could; Жаль про минуле: had+V³</div>
+  </div>
+</section>
+
+<!-- ═══ MAGIC SENTENCE ═══ -->
+<section id="magic" style="padding-top:0;">
+  <div class="section-title accent-yellow">✨ The Magic Sentence / Чарівне речення</div>
+  <div class="section-sub">One sentence transformed 7 ways — watch how it changes! / Одне речення у 7 варіантах — дивись як воно змінюється!</div>
+
+  <div class="magic-box">
+    <div class="magic-label">🌟 Universal Base Idea</div>
+    <div class="magic-sentence">I <span>go</span> to school every day.</div>
+    <div class="magic-uk">Я ходжу до школи кожного дня. (РЕАЛЬНИЙ ФАКТ)</div>
+  </div>
+
+  <div class="ex-card yellow" style="margin-bottom:.8rem">
+    <div class="ex-en">🌙 WISH (Present): I wish I <strong style="color:var(--yellow)">didn't have to go</strong> to school today.</div>
+    <div class="ex-uk">Я б хотів не йти до школи сьогодні.</div>
+    <div class="ex-note">→ Using past tense "didn't" to express a present wish / Минулий час для теперішнього бажання</div>
+  </div>
+  <div class="ex-card purple">
+    <div class="ex-en">🌀 CONDITIONAL (Type 2): If I <strong style="color:var(--purple)">didn't go</strong> to school, I <strong style="color:var(--purple)">would miss</strong> my friends.</div>
+    <div class="ex-uk">Якби я не ходив до школи, то сумував би за друзями.</div>
+    <div class="ex-note">→ Hypothetical present situation / Уявна ситуація зараз</div>
+  </div>
+  <div class="ex-card pink">
+    <div class="ex-en">⏳ CONDITIONAL (Type 3): If I <strong style="color:var(--pink)">had not gone</strong> to school, I <strong style="color:var(--pink)">would have missed</strong> the test.</div>
+    <div class="ex-uk">Якби я не пішов до школи, то пропустив би контрольну.</div>
+    <div class="ex-note">→ Past regret / something that didn't happen / Жаль про минуле</div>
+  </div>
+  <div class="ex-card blue">
+    <div class="ex-en">📢 SUGGESTION: My mom suggests that I <strong style="color:var(--blue)">go</strong> to school early.</div>
+    <div class="ex-uk">Моя мама пропонує, щоб я йшов до школи рано.</div>
+    <div class="ex-note">→ NO "-s" after "go" even though "I"! / Без "-s" після дієслова!</div>
+  </div>
+  <div class="ex-card green">
+    <div class="ex-en">📋 DEMAND: The teacher demands that every student <strong style="color:var(--green)">be</strong> on time.</div>
+    <div class="ex-uk">Вчитель вимагає, щоб кожен учень був вчасно.</div>
+    <div class="ex-note">→ Formal Subjunctive: "be" not "is" / Формальний суб'юнктив: "be" а не "is"</div>
+  </div>
+  <div class="ex-card orange">
+    <div class="ex-en">💭 AS IF: She talks as if she <strong style="color:var(--orange)">were</strong> the teacher, not a student.</div>
+    <div class="ex-uk">Вона розмовляє так, наче вона вчителька, а не учениця.</div>
+    <div class="ex-note">→ "As if / as though" always use past subjunctive / "As if" завжди з минулим суб'юнктивом</div>
+  </div>
+  <div class="ex-card" style="border-color:var(--soft)">
+    <div class="ex-en">🙏 IF ONLY: If only I <strong style="color:var(--soft)">could go</strong> to a different school!</div>
+    <div class="ex-uk">Якби тільки я міг піти до іншої школи!</div>
+    <div class="ex-note">→ "If only" = strong wish / "If only" = сильне бажання</div>
+  </div>
+</section>
+
+<!-- ═══ 4 TYPES ═══ -->
+<section id="types" style="padding-top:0;">
+  <div class="section-title accent-pink">🎯 4 Main Types / 4 Головних типи</div>
+  <div class="section-sub">Each type is used in a different situation! / Кожен тип використовується в різних ситуаціях!</div>
+
+  <div class="types-grid">
+
+    <!-- WISH -->
+    <div class="type-card wish">
+      <span class="type-emoji">🌙</span>
+      <h3 style="color:var(--purple)">WISH & IF ONLY</h3>
+      <div class="tag">Wishes & Regrets</div>
+      <p>Used when you want reality to be different — RIGHT NOW or about the PAST.</p>
+      <div class="uk-note">Коли хочеш, щоб реальність була іншою — зараз або в минулому.</div>
+      <hr class="hr">
+      <div class="ex-card purple" style="background:rgba(167,139,250,.1)">
+        <div class="ex-en">I <strong>wish</strong> I <strong style="color:var(--purple)">were</strong> taller. 😔</div>
+        <div class="ex-uk">Я хотів би бути вищим. (зараз — але я не такий)</div>
+      </div>
+      <div class="ex-card purple" style="background:rgba(167,139,250,.1);margin-top:.6rem">
+        <div class="ex-en">I <strong>wish</strong> I <strong style="color:var(--purple)">hadn't eaten</strong> all that pizza. 🍕</div>
+        <div class="ex-uk">Шкода, що я з'їв всю ту піцу. (жаль про минуле)</div>
+      </div>
+      <div class="ex-card purple" style="background:rgba(167,139,250,.1);margin-top:.6rem">
+        <div class="ex-en"><strong>If only</strong> I <strong style="color:var(--purple)">could fly</strong>!</div>
+        <div class="ex-uk">Якби тільки я міг літати!</div>
+      </div>
+    </div>
+
+    <!-- CONDITIONAL -->
+    <div class="type-card cond">
+      <span class="type-emoji">🌀</span>
+      <h3 style="color:var(--blue)">CONDITIONAL</h3>
+      <div class="tag">If... would...</div>
+      <p>Used for hypothetical situations — "what WOULD happen IF...?"</p>
+      <div class="uk-note">Гіпотетичні ситуації — "що БУЛО б, ЯКБИ...?"</div>
+      <hr class="hr">
+      <div class="ex-card blue" style="background:rgba(78,205,196,.1)">
+        <div class="ex-en">If I <strong style="color:var(--blue)">were</strong> a superhero, I <strong style="color:var(--blue)">would save</strong> the world. 🦸</div>
+        <div class="ex-uk">Якби я був супергероєм, я б врятував світ.</div>
+      </div>
+      <div class="ex-card blue" style="background:rgba(78,205,196,.1);margin-top:.6rem">
+        <div class="ex-en">If she <strong style="color:var(--blue)">had studied</strong>, she <strong style="color:var(--blue)">would have passed</strong>. 📚</div>
+        <div class="ex-uk">Якби вона вчилась, то склала б іспит.</div>
+      </div>
+      <div class="ex-card blue" style="background:rgba(78,205,196,.1);margin-top:.6rem">
+        <div class="ex-en">What <strong style="color:var(--blue)">would</strong> you do if you <strong style="color:var(--blue)">won</strong> the lottery? 🎰</div>
+        <div class="ex-uk">Що б ти зробив, якби виграв лотерею?</div>
+      </div>
+    </div>
+
+    <!-- DEMAND -->
+    <div class="type-card demand">
+      <span class="type-emoji">📢</span>
+      <h3 style="color:var(--pink)">DEMANDS & SUGGESTIONS</h3>
+      <div class="tag">Formal requests</div>
+      <p>Used after verbs like suggest, demand, insist, recommend, require, ask. The verb stays in BASE form!</p>
+      <div class="uk-note">Після дієслів suggest, demand, insist, recommend, require, ask. Дієслово у базовій формі!</div>
+      <hr class="hr">
+      <div class="ex-card pink" style="background:rgba(255,107,157,.1)">
+        <div class="ex-en">I suggest that he <strong style="color:var(--pink)">apologize</strong>. 🙏</div>
+        <div class="ex-uk">Я пропоную, щоб він вибачився.</div>
+      </div>
+      <div class="ex-card pink" style="background:rgba(255,107,157,.1);margin-top:.6rem">
+        <div class="ex-en">The doctor recommended that she <strong style="color:var(--pink)">take</strong> a rest. 🏥</div>
+        <div class="ex-uk">Лікар рекомендував їй відпочити.</div>
+      </div>
+      <div class="ex-card pink" style="background:rgba(255,107,157,.1);margin-top:.6rem">
+        <div class="ex-en">They insisted that the meeting <strong style="color:var(--pink)">be</strong> postponed. 📅</div>
+        <div class="ex-uk">Вони наполягали, щоб зустріч перенесли.</div>
+      </div>
+    </div>
+
+    <!-- AS IF -->
+    <div class="type-card formal">
+      <span class="type-emoji">🎭</span>
+      <h3 style="color:var(--green)">AS IF / AS THOUGH</h3>
+      <div class="tag">Comparisons</div>
+      <p>Used to compare something to an unreal or imaginary situation. "He acts AS IF he were king!"</p>
+      <div class="uk-note">Порівняння з нереальною ситуацією. "Він поводиться так, ніби він король!"</div>
+      <hr class="hr">
+      <div class="ex-card green" style="background:rgba(107,203,119,.1)">
+        <div class="ex-en">He acts <strong style="color:var(--green)">as if</strong> he <strong style="color:var(--green)">were</strong> a king. 👑</div>
+        <div class="ex-uk">Він поводиться так, наче він король.</div>
+      </div>
+      <div class="ex-card green" style="background:rgba(107,203,119,.1);margin-top:.6rem">
+        <div class="ex-en">She speaks <strong style="color:var(--green)">as though</strong> she <strong style="color:var(--green)">knew</strong> everything. 🧠</div>
+        <div class="ex-uk">Вона говорить так, ніби знає все.</div>
+      </div>
+      <div class="ex-card green" style="background:rgba(107,203,119,.1);margin-top:.6rem">
+        <div class="ex-en">He looks <strong style="color:var(--green)">as if</strong> he <strong style="color:var(--green)">had seen</strong> a ghost. 👻</div>
+        <div class="ex-uk">Він виглядає так, ніби побачив привида.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ BIG EXAMPLES TABLE ═══ -->
+<section id="examples" style="padding-top:0;">
+  <div class="section-title accent-green">📋 Big Examples Table / Велика таблиця прикладів</div>
+  <div class="section-sub">Every situation you'll ever need! / Всі ситуації, які тобі знадобляться!</div>
+
+  <div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>Situation / Ситуація</th>
+        <th>English Example</th>
+        <th>Ukrainian / Українською</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td colspan="3" style="background:rgba(167,139,250,.15);font-weight:800;color:var(--purple);padding:.7rem 1.2rem;">💜 WISHES — Бажання</td></tr>
+      <tr><td class="td-cat" style="color:var(--purple)">Wish about appearance</td><td class="td-en">I wish I <strong>were</strong> taller.</td><td class="td-uk">Хотів би я бути вищим.</td></tr>
+      <tr><td class="td-cat" style="color:var(--purple)">Wish about skills</td><td class="td-en">I wish I <strong>could play</strong> guitar.</td><td class="td-uk">Хотів би я вміти грати на гітарі.</td></tr>
+      <tr><td class="td-cat" style="color:var(--purple)">Wish about weather</td><td class="td-en">I wish it <strong>weren't</strong> raining.</td><td class="td-uk">Хотів би я, щоб не йшов дощ.</td></tr>
+      <tr><td class="td-cat" style="color:var(--purple)">Wish about money</td><td class="td-en">I wish I <strong>had</strong> more money.</td><td class="td-uk">Хотів би я мати більше грошей.</td></tr>
+      <tr><td class="td-cat" style="color:var(--purple)">Wish about a friend</td><td class="td-en">I wish my best friend <strong>lived</strong> closer.</td><td class="td-uk">Хотів би я, щоб мій кращий друг жив ближче.</td></tr>
+      <tr><td class="td-cat" style="color:var(--purple)">Wish about pets</td><td class="td-en">I wish I <strong>had</strong> a dog.</td><td class="td-uk">Хотів би я мати собаку.</td></tr>
+      <tr><td class="td-cat" style="color:var(--purple)">Regret (past)</td><td class="td-en">I wish I <strong>had studied</strong> harder.</td><td class="td-uk">Шкода, що я не вчився старанніше.</td></tr>
+      <tr><td class="td-cat" style="color:var(--purple)">Regret (past)</td><td class="td-en">I wish I <strong>hadn't said</strong> that.</td><td class="td-uk">Шкода, що я це сказав.</td></tr>
+      <tr><td class="td-cat" style="color:var(--purple)">If only (strong wish)</td><td class="td-en">If only she <strong>were</strong> here with us!</td><td class="td-uk">Якби тільки вона була тут з нами!</td></tr>
+      <tr><td class="td-cat" style="color:var(--purple)">If only (past)</td><td class="td-en">If only I <strong>hadn't missed</strong> the bus!</td><td class="td-uk">Якби тільки я не запізнився на автобус!</td></tr>
+
+      <tr><td colspan="3" style="background:rgba(78,205,196,.15);font-weight:800;color:var(--blue);padding:.7rem 1.2rem;">💙 CONDITIONALS (Type 2 — Present/Future Unreal) — Умови</td></tr>
+      <tr><td class="td-cat" style="color:var(--blue)">Everyday life</td><td class="td-en">If I <strong>were</strong> you, I <strong>would apologize</strong>.</td><td class="td-uk">На твоєму місці я б вибачився.</td></tr>
+      <tr><td class="td-cat" style="color:var(--blue)">Money dream</td><td class="td-en">If I <strong>won</strong> the lottery, I <strong>would travel</strong> the world.</td><td class="td-uk">Якби я виграв лотерею, я б подорожував світом.</td></tr>
+      <tr><td class="td-cat" style="color:var(--blue)">Superpower</td><td class="td-en">If I <strong>could fly</strong>, I <strong>would visit</strong> every country.</td><td class="td-uk">Якби я міг літати, я б відвідав кожну країну.</td></tr>
+      <tr><td class="td-cat" style="color:var(--blue)">Animal kingdom</td><td class="td-en">If I <strong>were</strong> an animal, I <strong>would be</strong> a dolphin.</td><td class="td-uk">Якби я був твариною, я б був дельфіном.</td></tr>
+      <tr><td class="td-cat" style="color:var(--blue)">Weather</td><td class="td-en">If it <strong>were</strong> sunny, we <strong>would go</strong> to the beach.</td><td class="td-uk">Якби було сонячно, ми б пішли на пляж.</td></tr>
+      <tr><td class="td-cat" style="color:var(--blue)">Friendship advice</td><td class="td-en">If she <strong>asked</strong> me, I <strong>would help</strong> her.</td><td class="td-uk">Якби вона попросила мене, я б допоміг їй.</td></tr>
+      <tr><td class="td-cat" style="color:var(--blue)">School</td><td class="td-en">If homework <strong>didn't exist</strong>, students <strong>would be</strong> happier.</td><td class="td-uk">Якби домашніх завдань не було, учні були б щасливіші.</td></tr>
+      <tr><td class="td-cat" style="color:var(--blue)">Magic</td><td class="td-en">If I <strong>had</strong> a magic wand, I <strong>would fix</strong> everything.</td><td class="td-uk">Якби у мене була чарівна паличка, я б все виправив.</td></tr>
+
+      <tr><td colspan="3" style="background:rgba(255,107,157,.15);font-weight:800;color:var(--pink);padding:.7rem 1.2rem;">🩷 CONDITIONALS (Type 3 — Past Unreal) — Жаль про минуле</td></tr>
+      <tr><td class="td-cat" style="color:var(--pink)">Missed opportunity</td><td class="td-en">If I <strong>had gone</strong> to the party, I <strong>would have met</strong> her.</td><td class="td-uk">Якби я пішов на вечірку, я б познайомився з нею.</td></tr>
+      <tr><td class="td-cat" style="color:var(--pink)">Study regret</td><td class="td-en">If she <strong>had studied</strong>, she <strong>would have passed</strong> the exam.</td><td class="td-uk">Якби вона вчилась, вона б склала іспит.</td></tr>
+      <tr><td class="td-cat" style="color:var(--pink)">Accident</td><td class="td-en">If he <strong>had been careful</strong>, he <strong>wouldn't have broken</strong> it.</td><td class="td-uk">Якби він був обережним, він не зламав би це.</td></tr>
+      <tr><td class="td-cat" style="color:var(--pink)">Late arrival</td><td class="td-en">If we <strong>had left</strong> earlier, we <strong>would have caught</strong> the train.</td><td class="td-uk">Якби ми вийшли раніше, ми б встигли на поїзд.</td></tr>
+
+      <tr><td colspan="3" style="background:rgba(255,217,61,.15);font-weight:800;color:var(--yellow);padding:.7rem 1.2rem;">💛 SUGGESTIONS & DEMANDS — Пропозиції та вимоги</td></tr>
+      <tr><td class="td-cat" style="color:var(--yellow)">Suggestion</td><td class="td-en">I suggest that he <strong>speak</strong> to the manager.</td><td class="td-uk">Я пропоную, щоб він поговорив з менеджером.</td></tr>
+      <tr><td class="td-cat" style="color:var(--yellow)">Recommendation</td><td class="td-en">The doctor recommends that she <strong>rest</strong> for a week.</td><td class="td-uk">Лікар рекомендує їй відпочити тиждень.</td></tr>
+      <tr><td class="td-cat" style="color:var(--yellow)">Demand</td><td class="td-en">He demanded that I <strong>leave</strong> immediately.</td><td class="td-uk">Він вимагав, щоб я негайно пішов.</td></tr>
+      <tr><td class="td-cat" style="color:var(--yellow)">Request</td><td class="td-en">She asked that he <strong>be</strong> more careful.</td><td class="td-uk">Вона попросила його бути обережнішим.</td></tr>
+      <tr><td class="td-cat" style="color:var(--yellow)">Requirement</td><td class="td-en">The law requires that everyone <strong>wear</strong> a seatbelt.</td><td class="td-uk">Закон вимагає, щоб усі носили ремінь безпеки.</td></tr>
+      <tr><td class="td-cat" style="color:var(--yellow)">Insistence</td><td class="td-en">I insist that you <strong>take</strong> a break.</td><td class="td-uk">Я наполягаю, щоб ти зробив перерву.</td></tr>
+      <tr><td class="td-cat" style="color:var(--yellow)">Proposal</td><td class="td-en">We propose that the meeting <strong>be</strong> rescheduled.</td><td class="td-uk">Ми пропонуємо перенести зустріч.</td></tr>
+
+      <tr><td colspan="3" style="background:rgba(107,203,119,.15);font-weight:800;color:var(--green);padding:.7rem 1.2rem;">💚 AS IF / AS THOUGH — Так наче</td></tr>
+      <tr><td class="td-cat" style="color:var(--green)">Behaviour</td><td class="td-en">He acts as if he <strong>owned</strong> the place.</td><td class="td-uk">Він поводиться так, наче є господарем тут.</td></tr>
+      <tr><td class="td-cat" style="color:var(--green)">Speaking</td><td class="td-en">She talks as though she <strong>knew</strong> everything.</td><td class="td-uk">Вона розмовляє так, ніби знає все.</td></tr>
+      <tr><td class="td-cat" style="color:var(--green)">Appearance</td><td class="td-en">He looks as if he <strong>hadn't slept</strong> for days.</td><td class="td-uk">Він виглядає так, ніби не спав кілька днів.</td></tr>
+      <tr><td class="td-cat" style="color:var(--green)">Feeling</td><td class="td-en">I felt as though I <strong>were</strong> flying.</td><td class="td-uk">Я відчував, наче лечу.</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<!-- ═══ REAL vs UNREAL ═══ -->
+<section id="real-vs-unreal" style="padding-top:0;">
+  <div class="section-title accent-blue">⚖️ Real vs. Unreal / Реальне vs. Нереальне</div>
+  <div class="section-sub">The key difference you must understand! / Головна різниця, яку треба розуміти!</div>
+
+  <div class="compare-grid">
+    <div class="compare-col real">
+      <h4>✅ REAL (Indicative) — Реальне</h4>
+      <ul>
+        <li>I <strong>am</strong> tall.<span>Я високий. (ФАКТ)</span></li>
+        <li>She <strong>lives</strong> in London.<span>Вона живе у Лондоні. (ФАКТ)</span></li>
+        <li>It <strong>is</strong> raining.<span>Іде дощ. (ФАКТ)</span></li>
+        <li>He <strong>knows</strong> the answer.<span>Він знає відповідь. (ФАКТ)</span></li>
+        <li>We <strong>went</strong> to the park.<span>Ми пішли в парк. (ФАКТ)</span></li>
+        <li>I <strong>have</strong> a car.<span>У мене є машина. (ФАКТ)</span></li>
+      </ul>
+    </div>
+    <div class="compare-col unreal">
+      <h4>💭 UNREAL (Subjunctive) — Нереальне</h4>
+      <ul>
+        <li>I wish I <strong>were</strong> tall.<span>Хотів би бути високим. (МРІЯ)</span></li>
+        <li>If she <strong>lived</strong> in London…<span>Якби вона жила у Лондоні… (УЯВА)</span></li>
+        <li>I wish it <strong>weren't</strong> raining.<span>Хотів би, щоб не йшов дощ. (БАЖАННЯ)</span></li>
+        <li>If he <strong>knew</strong> the answer…<span>Якби він знав відповідь… (УМОВА)</span></li>
+        <li>If we <strong>had gone</strong> to the park…<span>Якби ми пішли в парк… (ЖАЛЬ)</span></li>
+        <li>If I <strong>had</strong> a car…<span>Якби у мене була машина… (ГІПОТЕЗА)</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="margin-top:2rem">
+    <div class="section-title" style="font-size:1.5rem;margin-bottom:1.2rem;">🗓️ Which past tense = which meaning? / Який минулий = яке значення?</div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot" style="background:var(--purple)"></div>
+        <h4 style="color:var(--purple)">WERE / V-ed (simple past) → Unreal NOW</h4>
+        <p>"If I <strong>were</strong> rich, I <strong>would buy</strong> a yacht." — I'm NOT rich now, but imagine…<br>
+        <span style="color:var(--yellow)">"Якби я був багатим, я б купив яхту." — Я НЕ багатий зараз, але уявімо...</span></p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot" style="background:var(--pink)"></div>
+        <h4 style="color:var(--pink)">HAD + V3 → Unreal in the PAST</h4>
+        <p>"If I <strong>had worked</strong> harder, I <strong>would have passed</strong>." — I DIDN'T work hard, so I didn't pass.<br>
+        <span style="color:var(--yellow)">"Якби я працював старанніше, я б склав." — Я НЕ працював, тому й не склав.</span></p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot" style="background:var(--yellow)"></div>
+        <h4 style="color:var(--yellow)">WISH + could/would → Wish about ability or repeated action</h4>
+        <p>"I wish you <strong>would stop</strong> doing that!" — Stop the annoying habit!<br>
+        <span style="color:var(--yellow)">"Хотів би, щоб ти перестав це робити!" — Припини цю дратівливу звичку!</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PHRASAL VERBS ═══ -->
+<section id="phrasal" style="padding-top:0;">
+  <div class="section-title accent-orange">🔥 Phrasal Verbs in Subjunctive</div>
+  <div class="section-sub">Real-life situations with phrasal verbs! / Реальні ситуації з фразовими дієсловами!</div>
+
+  <div class="pv-grid">
+
+    <!-- SCHOOL & STUDY -->
+    <div class="pv-card">
+      <div class="pv-verb" style="color:var(--purple)">give up 🎯</div>
+      <div class="pv-meaning">кинути, відмовитись / to quit</div>
+      <div class="pv-ex">I wish I hadn't <strong>given up</strong> playing piano.</div>
+      <div class="pv-uk">Шкода, що я кинув грати на піано.</div>
+    </div>
+
+    <div class="pv-card">
+      <div class="pv-verb" style="color:var(--blue)">catch up 📖</div>
+      <div class="pv-meaning">здогнати, наздогнати / to reach the same level</div>
+      <div class="pv-ex">If I <strong>caught up</strong> with my classmates, I'd feel better.</div>
+      <div class="pv-uk">Якби я наздогнав однокласників, почував би себе краще.</div>
+    </div>
+
+    <div class="pv-card">
+      <div class="pv-verb" style="color:var(--pink)">fall behind ⏰</div>
+      <div class="pv-meaning">відставати / to not keep up</div>
+      <div class="pv-ex">I wish I hadn't <strong>fallen behind</strong> in math.</div>
+      <div class="pv-uk">Шкода, що я відстав з математики.</div>
+    </div>
+
+    <div class="pv-card">
+      <div class="pv-verb" style="color:var(--yellow)">turn in 📝</div>
+      <div class="pv-meaning">здати (роботу) / to submit</div>
+      <div class="pv-ex">The teacher requires that everyone <strong>turn in</strong> their homework on time.</div>
+      <div class="pv-uk">Вчитель вимагає, щоб усі здавали домашнє вчасно.</div>
+    </div>
+
+    <div class="pv-card">
+      <div class="pv-verb" style="color:var(--green)">show up 🚪</div>
+      <div class="pv-meaning">з'явитись / to arrive</div>
+      <div class="pv-ex">She insists that he <strong>show up</strong> to every class.</div>
+      <div class="pv-uk">Вона наполягає, щоб він з'являвся на кожен урок.</div>
+    </div>
+
+    <div class="pv-card">
+      <div class="pv-verb" style="color:var(--orange)">make up for 💪</div>
+      <div class="pv-meaning">надолужити / to compensate</div>
+      <div class="pv-ex">If I <strong>made up for</strong> lost time, I'd pass the exam.</div>
+      <div class="pv-uk">Якби я надолужив згаяний час, склав би іспит.</div>
+    </div>
+
+    <!-- FRIENDSHIP & SOCIAL -->
+    <div class="pv-card">
+      <div class="pv-verb" style="color:var(--purple)">make up (with) 💕</div>
+      <div class="pv-meaning">помиритися / to reconcile</div>
+      <div class="pv-ex">I wish we <strong>made up</strong> before she moved away.</div>
+      <div class="pv-uk">Хотів би я, щоб ми помирились до того, як вона переїхала.</div>
+    </div>
+
+    <div class="pv-card">
+      <div class="pv-verb" style="color:var(--blue)">fall out (with) 😤</div>
+      <div class="pv-meaning">посваритися / to have a quarrel</div>
+      <div class="pv-ex">I wish I hadn't <strong>fallen out</strong> with my best friend.</div>
+      <div class="pv-uk">Шкода, що я посварився з кращим другом.</div>
+    </div>
+
+    <div class="pv-card">
+      <div class="pv-verb" style="color:var(--pink)">hang out 🎉</div>
+      <div class="pv-meaning">проводити час разом / to spend time</div>
+      <div class="pv-ex">If she <strong>hung out</strong> with us more, she'd feel less lonely.</div>
+      <div class="pv-uk">Якби вона більше проводила з нами час, відчувала б себе менш самотньою.</div>
+    </div>
+
+    <div class="pv-card">
+      <div class="pv-verb" style="color:var(--yellow)">reach out 📱</div>
+      <div class="pv-meaning">зв'язатися / to contact</div>
+      <div class="pv-ex">I suggest that you <strong>reach out</strong> to her first.</div>
+      <div class="pv-uk">Я пропоную, щоб ти першим написав їй.</div>
+    </div>
+
+    <div class="pv-card">
+      <div class="pv-verb" style="color:var(--green)">open up 🗣️</div>
+      <div class="pv-meaning">відкритись, поділитись / to share feelings</div>
+      <div class="pv-ex">I wish he would <strong>open up</strong> to me more.</div>
+      <div class="pv-uk">Хотів би я, щоб він більше відкривався мені.</div>
+    </div>
+
+    <div class="pv-card">
+      <div class="pv-verb" style="color:var(--orange)">stand by 🤝</div>
+      <div class="pv-meaning">підтримувати / to support</div>
+      <div class="pv-ex">If she <strong>stood by</strong> me, I'd feel so much stronger.</div>
+      <div class="pv-uk">Якби вона підтримувала мене, я б почувався набагато сильніше.</div>
+    </div>
+
+    <!-- HEALTH & LIFE -->
+    <div class="pv-card">
+      <div class="pv-verb" style="color:var(--purple)">work out 🏋️</div>
+      <div class="pv-meaning">тренуватися / to exercise</div>
+      <div class="pv-ex">The doctor suggests that he <strong>work out</strong> regularly.</div>
+      <div class="pv-uk">Лікар рекомендує, щоб він регулярно тренувався.</div>
+    </div>
+
+    <div class="pv-card">
+      <div class="pv-verb" style="color:var(--blue)">cut down on ✂️</div>
+      <div class="pv-meaning">скоротити, зменшити / to reduce</div>
+      <div class="pv-ex">I wish I <strong>cut down on</strong> sugar a long time ago.</div>
+      <div class="pv-uk">Хотів би я давно скоротити вживання цукру.</div>
+    </div>
+
+    <div class="pv-card">
+      <div class="pv-verb" style="color:var(--pink)">give up (habit) 🚭</div>
+      <div class="pv-meaning">кинути звичку / to stop a habit</div>
+      <div class="pv-ex">I wish he <strong>gave up</strong> eating junk food.</div>
+      <div class="pv-uk">Хотів би я, щоб він кинув їсти шкідливу їжу.</td>
+    </div>
+
+    <div class="pv-card">
+      <div class="pv-verb" style="color:var(--yellow)">come down with 🤒</div>
+      <div class="pv-meaning">захворіти / to get sick</div>
+      <div class="pv-ex">If she hadn't <strong>come down with</strong> a cold, she'd have played.</div>
+      <div class="pv-uk">Якби вона не захворіла, вона б зіграла.</div>
+    </div>
+
+    <!-- TRAVEL & ADVENTURE -->
+    <div class="pv-card">
+      <div class="pv-verb" style="color:var(--green)">set off 🧳</div>
+      <div class="pv-meaning">вирушити / to begin a journey</div>
+      <div class="pv-ex">If we <strong>set off</strong> earlier, we'd see the sunrise.</div>
+      <div class="pv-uk">Якби ми вирушили раніше, побачили б схід сонця.</div>
+    </div>
+
+    <div class="pv-card">
+      <div class="pv-verb" style="color:var(--orange)">check in ✈️</div>
+      <div class="pv-meaning">зареєструватись / to register at airport/hotel</div>
+      <div class="pv-ex">If I had <strong>checked in</strong> online, I wouldn't have missed the flight.</div>
+      <div class="pv-uk">Якби я зареєструвався онлайн, не пропустив би рейс.</div>
+    </div>
+
+    <div class="pv-card">
+      <div class="pv-verb" style="color:var(--purple)">get away 🌴</div>
+      <div class="pv-meaning">вирватись / to escape for a vacation</div>
+      <div class="pv-ex">I wish we could <strong>get away</strong> to the mountains this weekend.</div>
+      <div class="pv-uk">Хотів би я, щоб ми могли вирватися в гори цих вихідних.</div>
+    </div>
+
+    <div class="pv-card">
+      <div class="pv-verb" style="color:var(--blue)">look around 👀</div>
+      <div class="pv-meaning">оглядати / to explore</div>
+      <div class="pv-ex">If I <strong>looked around</strong> more carefully, I'd have found it.</div>
+      <div class="pv-uk">Якби я оглянувся уважніше, знайшов би це.</div>
+    </div>
+
+    <!-- EMOTIONS & DECISIONS -->
+    <div class="pv-card">
+      <div class="pv-verb" style="color:var(--pink)">give in 😮‍💨</div>
+      <div class="pv-meaning">здатися, поступитись / to surrender</div>
+      <div class="pv-ex">I wish I hadn't <strong>given in</strong> to peer pressure.</div>
+      <div class="pv-uk">Шкода, що я піддався тиску однолітків.</div>
+    </div>
+
+    <div class="pv-card">
+      <div class="pv-verb" style="color:var(--yellow)">think over 🤔</div>
+      <div class="pv-meaning">добре обдумати / to consider carefully</div>
+      <div class="pv-ex">I suggest that he <strong>think it over</strong> before deciding.</div>
+      <div class="pv-uk">Я пропоную, щоб він добре обміркував це перед рішенням.</div>
+    </div>
+
+    <div class="pv-card">
+      <div class="pv-verb" style="color:var(--green)">move on ➡️</div>
+      <div class="pv-meaning">рухатись вперед / to stop dwelling on the past</div>
+      <div class="pv-ex">I wish I <strong>moved on</strong> more easily from bad experiences.</div>
+      <div class="pv-uk">Хотів би я легше рухатись вперед після поганих подій.</div>
+    </div>
+
+    <div class="pv-card">
+      <div class="pv-verb" style="color:var(--orange)">calm down 😤→😌</div>
+      <div class="pv-meaning">заспокоїтись / to relax</div>
+      <div class="pv-ex">I wish he would <strong>calm down</strong> and listen to me.</div>
+      <div class="pv-uk">Хотів би я, щоб він заспокоївся і послухав мене.</div>
+    </div>
+
+    <!-- WORK & CAREER -->
+    <div class="pv-card">
+      <div class="pv-verb" style="color:var(--purple)">take on 💼</div>
+      <div class="pv-meaning">взяти на себе / to accept responsibility</div>
+      <div class="pv-ex">The boss insists that she <strong>take on</strong> the new project.</div>
+      <div class="pv-uk">Бос наполягає, щоб вона взяла новий проєкт.</div>
+    </div>
+
+    <div class="pv-card">
+      <div class="pv-verb" style="color:var(--blue)">back up 💾</div>
+      <div class="pv-meaning">підтримати, зробити резервну копію / to support or save data</div>
+      <div class="pv-ex">If he <strong>backed up</strong> the files, he wouldn't have lost everything.</div>
+      <div class="pv-uk">Якби він зробив резервну копію, не втратив би все.</div>
+    </div>
+
+    <div class="pv-card">
+      <div class="pv-verb" style="color:var(--pink)">step up 🦸</div>
+      <div class="pv-meaning">взяти ініціативу / to take initiative</div>
+      <div class="pv-ex">I recommend that someone <strong>step up</strong> and lead the team.</div>
+      <div class="pv-uk">Я рекомендую, щоб хтось взяв ініціативу і очолив команду.</div>
+    </div>
+
+    <div class="pv-card">
+      <div class="pv-verb" style="color:var(--yellow)">keep up with 🏃</div>
+      <div class="pv-meaning">бути в курсі / to stay informed</div>
+      <div class="pv-ex">It's essential that she <strong>keep up with</strong> the latest trends.</div>
+      <div class="pv-uk">Дуже важливо, щоб вона стежила за останніми трендами.</div>
+    </div>
+
+    <!-- TECHNOLOGY & DAILY LIFE -->
+    <div class="pv-card">
+      <div class="pv-verb" style="color:var(--green)">log in / log out 💻</div>
+      <div class="pv-meaning">увійти / вийти із системи</div>
+      <div class="pv-ex">It's important that you <strong>log out</strong> of shared devices.</div>
+      <div class="pv-uk">Важливо, щоб ти виходив із спільних пристроїв.</div>
+    </div>
+
+    <div class="pv-card">
+      <div class="pv-verb" style="color:var(--orange)">run out of 📦</div>
+      <div class="pv-meaning">вичерпати / to have none left</div>
+      <div class="pv-ex">If we <strong>ran out of</strong> battery, we'd be completely lost.</div>
+      <div class="pv-uk">Якби в нас скінчився заряд, ми б повністю заблукали.</div>
+    </div>
+
+    <div class="pv-card">
+      <div class="pv-verb" style="color:var(--purple)">figure out 🧩</div>
+      <div class="pv-meaning">зрозуміти, вирішити / to solve or understand</div>
+      <div class="pv-ex">I wish I could <strong>figure out</strong> this math problem.</div>
+      <div class="pv-uk">Хотів би я розв'язати цю математичну задачу.</div>
+    </div>
+
+    <div class="pv-card">
+      <div class="pv-verb" style="color:var(--blue)">turn off / turn on 🔌</div>
+      <div class="pv-meaning">вимкнути / увімкнути</div>
+      <div class="pv-ex">The rules require that everyone <strong>turn off</strong> their phones.</div>
+      <div class="pv-uk">Правила вимагають, щоб усі вимкнули телефони.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ TIPS ═══ -->
+<section id="tips" style="padding-top:0;">
+  <div class="section-title accent-yellow">💡 Tips, Tricks & Shortcuts</div>
+  <div class="section-sub">Remember these and you'll never forget Subjunctive! / Запам'ятай це і ніколи не забудеш!</div>
+
+  <div class="tips-grid">
+    <div class="tip-card">
+      <span class="tip-icon">👑</span>
+      <h4 style="color:var(--purple)">Always use "WERE"</h4>
+      <p>In Subjunctive, ALWAYS say "If I <strong>were</strong>...", never "If I <strong>was</strong>...".<br>
+      <span style="color:var(--yellow)">Завжди "were", ніколи "was" в умовних реченнях!</span></p>
+    </div>
+    <div class="tip-card">
+      <span class="tip-icon">🚫</span>
+      <h4 style="color:var(--pink)">No -S after "that"</h4>
+      <p>"I suggest that he <strong>go</strong>" NOT "goes"! The verb stays bare!<br>
+      <span style="color:var(--yellow)">Без -s після "that" у формальних пропозиціях!</span></p>
+    </div>
+    <div class="tip-card">
+      <span class="tip-icon">⏰</span>
+      <h4 style="color:var(--blue)">Time jump trick</h4>
+      <p>Think of it as jumping one tense back: present wishes → use past form.<br>
+      <span style="color:var(--yellow)">Перестрибни на один час назад: теперішнє→минулий час.</span></p>
+    </div>
+    <div class="tip-card">
+      <span class="tip-icon">🎯</span>
+      <h4 style="color:var(--green)">Key trigger words</h4>
+      <p>IF, WISH, IF ONLY, AS IF, SUGGEST, DEMAND, RECOMMEND, INSIST, REQUIRE.<br>
+      <span style="color:var(--yellow)">Ці слова — сигнал вжити Subjunctive!</span></p>
+    </div>
+    <div class="tip-card">
+      <span class="tip-icon">🗣️</span>
+      <h4 style="color:var(--orange)">Would = Result</h4>
+      <p>In conditionals: IF-part has no "would". RESULT-part always has "would"!<br>
+      <span style="color:var(--yellow)">В умові (if): без "would". В результаті: "would"!</span></p>
+    </div>
+    <div class="tip-card">
+      <span class="tip-icon">🌙</span>
+      <h4 style="color:var(--yellow)">WISH vs IF</h4>
+      <p>WISH = wish about yourself. IF = hypothetical situation for others or yourself.<br>
+      <span style="color:var(--yellow)">WISH = особисте бажання. IF = гіпотетична умова.</span></p>
+    </div>
+  </div>
+
+  <!-- MINI CHEAT SHEET -->
+  <div style="margin-top:2.5rem; background:var(--card); border-radius:20px; padding:2rem; border:2px solid var(--yellow);">
+    <div style="font-weight:800; color:var(--yellow); font-size:1.1rem; margin-bottom:1.2rem;">📌 Quick Cheat Sheet / Шпаргалка</div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:1rem;">
+      <div>
+        <div style="color:var(--purple); font-weight:800; margin-bottom:.5rem;">🌙 WISH</div>
+        <div style="font-size:.88rem; color:var(--soft); line-height:1.9;">
+          • I wish I <strong style="color:white">were</strong> ... → зараз<br>
+          • I wish I <strong style="color:white">could</strong> ... → здатність<br>
+          • I wish I <strong style="color:white">had</strong> ... → зараз<br>
+          • I wish I <strong style="color:white">had done</strong> → минуле жаль<br>
+          • I wish you <strong style="color:white">would</strong> ... → зміни поведінку!
+        </div>
+      </div>
+      <div>
+        <div style="color:var(--blue); font-weight:800; margin-bottom:.5rem;">🌀 CONDITIONAL</div>
+        <div style="font-size:.88rem; color:var(--soft); line-height:1.9;">
+          • If I <strong style="color:white">were</strong> ..., I would ... → уявне зараз<br>
+          • If I <strong style="color:white">had</strong> ..., I would have ... → уявне минуле<br>
+          • If only I <strong style="color:white">could</strong> ... → сильне бажання<br>
+          • What if I <strong style="color:white">were</strong> ...? → питання-уява
+        </div>
+      </div>
+      <div>
+        <div style="color:var(--pink); font-weight:800; margin-bottom:.5rem;">📢 FORMAL</div>
+        <div style="font-size:.88rem; color:var(--soft); line-height:1.9;">
+          • suggest that + S + <strong style="color:white">BASE</strong><br>
+          • demand that + S + <strong style="color:white">BASE</strong><br>
+          • recommend that + S + <strong style="color:white">BASE</strong><br>
+          • insist that + S + <strong style="color:white">BASE</strong><br>
+          • require that + S + <strong style="color:white">BASE</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <span class="big">🌟</span>
+  <p style="font-size:1.1rem; font-weight:700; color:var(--text); margin-bottom:.5rem;">You've mastered the Subjunctive! / Ти освоїв Subjunctive!</p>
+  <p>Practice every day and these patterns will become second nature. Good luck! 🍀</p>
+  <p style="margin-top:.4rem; color:var(--yellow)">Практикуйся щодня і ці структури стануть твоєю другою натурою. Удачі!</p>
+  <div style="margin-top:1.5rem; display:flex; gap:.5rem; flex-wrap:wrap; justify-content:center;">
+    <span class="pill pill-purple">Wishes 🌙</span>
+    <span class="pill pill-blue">Conditionals 🌀</span>
+    <span class="pill pill-pink">Demands 📢</span>
+    <span class="pill pill-yellow">As If 🎭</span>
+    <span class="pill pill-green">Phrasal Verbs 🔥</span>
+  </div>
+</footer>
+
+<script>
+  // Generate stars
+  const starsContainer = document.getElementById('stars');
+  for(let i=0; i<80; i++){
+    const star = document.createElement('div');
+    star.className = 'star';
+    const size = Math.random()*3+1;
+    star.style.cssText = `
+      width:${size}px; height:${size}px;
+      left:${Math.random()*100}%;
+      top:${Math.random()*100}%;
+      animation-delay:${Math.random()*4}s;
+      animation-duration:${2+Math.random()*3}s;
+    `;
+    starsContainer.appendChild(star);
+  }
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if(target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  // Intersection Observer for fade-in
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.what-card, .type-card, .pv-card, .tip-card, .ex-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity .5s ease, transform .5s ease';
+    observer.observe(el);
+  });
+</script>
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+
+</body>
+</html>

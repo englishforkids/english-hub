@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Perfect Aspect — English Grammar</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --pp: #5b4fcf;   /* present perfect */
+    --pa: #e05c2a;   /* past perfect */
+    --fp: #1a9e6e;   /* future perfect */
+    --ppC: #f0eeff;
+    --paC: #fff3ee;
+    --fpC: #eafaf4;
+    --bg: #f7f5ff;
+    --dark: #1e1838;
+    --gold: #f5c842;
+    --pill: #ffffffcc;
+    --shadow: 0 6px 32px #0002;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--dark);
+    overflow-x: hidden;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    background: linear-gradient(135deg, #1e1838 0%, #3a2f8a 55%, #5b4fcf 100%);
+    color: #fff;
+    padding: 60px 24px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 70% 30%, #f5c84240 0%, transparent 60%),
+                radial-gradient(ellipse at 20% 80%, #5b4fcf80 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .hero-tag {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--dark);
+    font-weight: 900;
+    font-size: 0.78rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    border-radius: 20px;
+    padding: 5px 18px;
+    margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(2.4rem, 7vw, 4.2rem);
+    line-height: 1.1;
+    margin-bottom: 10px;
+  }
+  .hero h1 span { color: var(--gold); }
+  .hero-sub {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    opacity: .85;
+    max-width: 560px;
+    margin: 0 auto 18px;
+  }
+  .hero-ua {
+    font-size: 1rem;
+    opacity: .65;
+    font-style: italic;
+  }
+  /* floating stars */
+  .star { position: absolute; font-size: 1.6rem; animation: float 4s ease-in-out infinite; opacity: .45; }
+  .star:nth-child(1) { top:12%; left:6%; animation-delay:0s; }
+  .star:nth-child(2) { top:20%; right:8%; animation-delay:1s; font-size:1rem; }
+  .star:nth-child(3) { bottom:18%; left:12%; animation-delay:2s; font-size:2rem; }
+  .star:nth-child(4) { bottom:10%; right:5%; animation-delay:.5s; font-size:1.2rem; }
+  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
+
+  /* ─── CONTAINER ─── */
+  .wrap { max-width: 900px; margin: 0 auto; padding: 0 18px; }
+
+  /* ─── SECTION TITLES ─── */
+  .sec-title {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    margin: 52px 0 6px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .sec-sub { color: #666; font-size: .95rem; margin-bottom: 24px; }
+
+  /* ─── CONCEPT BOX ─── */
+  .concept {
+    background: #fff;
+    border-radius: 20px;
+    padding: 28px 28px;
+    box-shadow: var(--shadow);
+    margin-bottom: 32px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    border-left: 6px solid var(--pp);
+  }
+  @media(max-width:600px){ .concept { grid-template-columns:1fr; } }
+  .concept h3 { font-size: 1rem; font-weight: 800; color: var(--pp); margin-bottom: 6px; }
+  .concept p { font-size: .97rem; line-height: 1.65; }
+  .concept .ua { color: #555; font-style: italic; }
+
+  /* ─── THE IDEA ─── */
+  .idea-strip {
+    background: linear-gradient(90deg, #5b4fcf, #7c6ff0);
+    color: #fff;
+    border-radius: 18px;
+    padding: 22px 28px;
+    margin-bottom: 36px;
+    font-size: 1.07rem;
+    line-height: 1.7;
+  }
+  .idea-strip strong { color: var(--gold); }
+
+  /* ─── MAGIC SENTENCE BANNER ─── */
+  .magic-banner {
+    background: linear-gradient(120deg, #1e1838, #3a2f8a);
+    color: #fff;
+    border-radius: 22px;
+    padding: 28px 32px;
+    margin-bottom: 40px;
+    box-shadow: 0 8px 40px #5b4fcf33;
+    text-align: center;
+  }
+  .magic-banner .label {
+    font-size: .78rem; font-weight: 900; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 10px;
+  }
+  .magic-banner h2 {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(1.1rem, 3vw, 1.5rem);
+    margin-bottom: 8px;
+  }
+  .magic-ua { font-size: .95rem; opacity: .65; font-style: italic; }
+
+  /* ─── TENSE CARDS ─── */
+  .tense-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 22px;
+    margin-bottom: 48px;
+  }
+  .tcard {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    animation: popIn .4s ease both;
+  }
+  .tcard:nth-child(1) { animation-delay:.05s; }
+  .tcard:nth-child(2) { animation-delay:.15s; }
+  .tcard:nth-child(3) { animation-delay:.25s; }
+  @keyframes popIn { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:none} }
+
+  .tcard-head {
+    padding: 18px 22px 14px;
+    display: flex; align-items: center; gap: 12px;
+    color: #fff;
+  }
+  .tcard-head .emoji { font-size: 2rem; }
+  .tcard-head h3 { font-family: 'Baloo 2', cursive; font-size: 1.25rem; line-height:1.2; }
+  .tcard-head small { font-size: .8rem; opacity:.8; }
+  .tcard.pp .tcard-head { background: var(--pp); }
+  .tcard.pa .tcard-head { background: var(--pa); }
+  .tcard.fp .tcard-head { background: var(--fp); }
+  .tcard-body {
+    padding: 20px 22px 22px;
+    background: #fff;
+  }
+  .tcard.pp .formula { border-color: var(--pp); }
+  .tcard.pa .formula { border-color: var(--pa); }
+  .tcard.fp .formula { border-color: var(--fp); }
+
+  /* ─── FORMULA ─── */
+  .formula {
+    background: #f8f7ff;
+    border: 2px solid var(--pp);
+    border-radius: 12px;
+    padding: 10px 14px;
+    font-size: .93rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    font-family: 'Courier New', monospace;
+    word-break: break-word;
+  }
+  .formula .plus { color: #aaa; margin: 0 4px; }
+
+  /* ─── MEANING TAG ─── */
+  .meaning {
+    font-size: .85rem;
+    font-weight: 700;
+    display: inline-block;
+    border-radius: 20px;
+    padding: 3px 12px;
+    margin-bottom: 10px;
+    color: #fff;
+  }
+  .pp .meaning { background: var(--pp); }
+  .pa .meaning { background: var(--pa); }
+  .fp .meaning { background: var(--fp); }
+
+  /* ─── EXAMPLES ─── */
+  .ex-list { list-style: none; }
+  .ex-list li {
+    padding: 9px 0 9px 0;
+    border-bottom: 1px dashed #eee;
+    font-size: .93rem;
+    line-height: 1.55;
+  }
+  .ex-list li:last-child { border-bottom: none; }
+  .ex-list li .en { font-weight: 700; }
+  .ex-list li .ua { color: #777; font-style: italic; font-size: .88rem; }
+  .ex-list li .highlight { color: var(--pp); font-weight: 800; }
+  .pa .ex-list li .highlight { color: var(--pa); }
+  .fp .ex-list li .highlight { color: var(--fp); }
+
+  /* ─── MAGIC SENTENCE TABLE ─── */
+  .magic-table-wrap {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    margin-bottom: 48px;
+  }
+  .magic-table-wrap h3 {
+    background: linear-gradient(90deg, #1e1838, #3a2f8a);
+    color: var(--gold);
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.15rem;
+    padding: 14px 24px;
+  }
+  table { width: 100%; border-collapse: collapse; font-size: .93rem; }
+  th {
+    background: #f0eeff;
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 800;
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--pp);
+  }
+  td { padding: 11px 14px; border-bottom: 1px solid #f0eeff; vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #faf9ff; }
+  .ttype { font-weight: 800; font-size: .85rem; }
+  .ttype.pp { color: var(--pp); }
+  .ttype.pa { color: var(--pa); }
+  .ttype.fp { color: var(--fp); }
+  .sent-en { font-weight: 700; }
+  .sent-ua { color: #888; font-style: italic; font-size: .87rem; }
+
+  /* ─── WHEN TO USE INFOGRAPHIC ─── */
+  .when-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 18px;
+    margin-bottom: 48px;
+  }
+  .when-card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 20px 20px;
+    box-shadow: var(--shadow);
+    border-top: 4px solid;
+  }
+  .when-card.pp { border-color: var(--pp); }
+  .when-card.pa { border-color: var(--pa); }
+  .when-card.fp { border-color: var(--fp); }
+  .when-card .icon { font-size: 2rem; margin-bottom: 8px; }
+  .when-card h4 { font-weight: 900; font-size: .97rem; margin-bottom: 4px; }
+  .when-card .ua-h { color: #777; font-size: .82rem; margin-bottom: 10px; font-style: italic; }
+  .when-card ul { list-style: none; }
+  .when-card ul li {
+    font-size: .87rem;
+    padding: 4px 0;
+    display: flex; gap: 7px;
+    line-height: 1.4;
+  }
+  .when-card ul li::before { content: '✓'; font-weight: 900; }
+  .when-card.pp ul li::before { color: var(--pp); }
+  .when-card.pa ul li::before { color: var(--pa); }
+  .when-card.fp ul li::before { color: var(--fp); }
+
+  /* ─── SIGNAL WORDS ─── */
+  .signals-section {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    padding: 26px 28px;
+    margin-bottom: 48px;
+  }
+  .signals-section h3 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.2rem;
+    margin-bottom: 16px;
+    color: var(--dark);
+  }
+  .sig-group { margin-bottom: 16px; }
+  .sig-group-label {
+    font-size: .78rem; font-weight: 900; letter-spacing: .1em;
+    text-transform: uppercase; margin-bottom: 8px;
+  }
+  .sig-group.pp .sig-group-label { color: var(--pp); }
+  .sig-group.pa .sig-group-label { color: var(--pa); }
+  .sig-group.fp .sig-group-label { color: var(--fp); }
+  .pills { display: flex; flex-wrap: wrap; gap: 8px; }
+  .pill {
+    border-radius: 20px;
+    padding: 5px 14px;
+    font-size: .88rem;
+    font-weight: 700;
+    border: 2px solid;
+  }
+  .pp .pill { border-color: var(--pp); color: var(--pp); background: var(--ppC); }
+  .pa .pill { border-color: var(--pa); color: var(--pa); background: var(--paC); }
+  .fp .pill { border-color: var(--fp); color: var(--fp); background: var(--fpC); }
+
+  /* ─── REAL LIFE EXAMPLES ─── */
+  .life-section {
+    margin-bottom: 48px;
+  }
+  .life-group { margin-bottom: 30px; }
+  .life-group-title {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .life-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 14px; }
+  .life-card {
+    border-radius: 14px;
+    padding: 15px 16px;
+    font-size: .92rem;
+    line-height: 1.55;
+    border-left: 4px solid;
+  }
+  .life-card.pp { background: var(--ppC); border-color: var(--pp); }
+  .life-card.pa { background: var(--paC); border-color: var(--pa); }
+  .life-card.fp { background: var(--fpC); border-color: var(--fp); }
+  .life-card .lc-en { font-weight: 700; }
+  .life-card .lc-en em { font-style: normal; font-weight: 800; text-decoration: underline; text-underline-offset: 3px; }
+  .life-card .lc-ua { color: #777; font-style: italic; font-size: .85rem; margin-top: 4px; }
+
+  /* ─── NEGATIVE / QUESTION ─── */
+  .nq-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 48px;
+  }
+  @media(max-width:560px){ .nq-grid{ grid-template-columns:1fr; } }
+  .nq-card {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .nq-head { padding: 12px 18px; font-weight: 900; font-size: .9rem; color: #fff; }
+  .nq-head.neg { background: #e74c6b; }
+  .nq-head.q { background: #2980b9; }
+  .nq-body { padding: 16px 18px; font-size: .9rem; }
+  .nq-body .formula { margin-bottom: 10px; border-color: #e74c6b; }
+  .nq-body .formula.q { border-color: #2980b9; }
+  .nq-body li { padding: 5px 0; border-bottom: 1px dashed #eee; }
+  .nq-body li:last-child { border-bottom: none; }
+  .nq-body li .ua { color: #888; font-style: italic; font-size: .84rem; }
+
+  /* ─── QUIZ ─── */
+  .quiz-section {
+    background: linear-gradient(135deg, #1e1838, #3a2f8a);
+    border-radius: 24px;
+    padding: 32px 28px;
+    margin-bottom: 60px;
+    color: #fff;
+  }
+  .quiz-section h3 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.4rem;
+    color: var(--gold);
+    margin-bottom: 22px;
+    text-align: center;
+  }
+  .q-item { margin-bottom: 20px; }
+  .q-text { font-size: .97rem; margin-bottom: 10px; line-height: 1.5; }
+  .q-text span { color: var(--gold); font-weight: 800; }
+  .q-opts { display: flex; flex-wrap: wrap; gap: 10px; }
+  .q-opt {
+    background: #ffffff20;
+    border: 2px solid #ffffff40;
+    border-radius: 12px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: .9rem;
+    font-family: 'Nunito', sans-serif;
+    color: #fff;
+    font-weight: 700;
+    transition: all .2s;
+  }
+  .q-opt:hover { background: #ffffff35; border-color: #ffffff80; }
+  .q-opt.correct { background: #1a9e6e; border-color: #1a9e6e; }
+  .q-opt.wrong { background: #e74c6b; border-color: #e74c6b; }
+  .q-feedback { font-size: .87rem; margin-top: 8px; min-height: 20px; font-style: italic; }
+  .q-feedback.ok { color: #6effca; }
+  .q-feedback.no { color: #ff8faa; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    text-align: center;
+    padding: 28px 16px;
+    font-size: .85rem;
+    color: #aaa;
+  }
+
+  /* ─── TIMELINE GRAPHIC ─── */
+  .timeline {
+    background: #fff;
+    border-radius: 20px;
+    padding: 26px 28px;
+    box-shadow: var(--shadow);
+    margin-bottom: 48px;
+    overflow: hidden;
+  }
+  .timeline h3 { font-family: 'Baloo 2', cursive; font-size: 1.1rem; margin-bottom: 20px; }
+  .tl-row {
+    display: flex; align-items: center; gap: 0;
+    margin-bottom: 18px;
+    position: relative;
+  }
+  .tl-label {
+    width: 110px;
+    flex-shrink: 0;
+    font-size: .82rem;
+    font-weight: 800;
+    text-align: right;
+    padding-right: 14px;
+  }
+  .tl-label.pp { color: var(--pp); }
+  .tl-label.pa { color: var(--pa); }
+  .tl-label.fp { color: var(--fp); }
+  .tl-line {
+    flex: 1;
+    height: 6px;
+    border-radius: 3px;
+    position: relative;
+    background: #eee;
+    margin: 0 6px;
+  }
+  .tl-line::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 14px;
+    width: 14px;
+    border-radius: 50%;
+    background: currentColor;
+  }
+  .tl-dot-past { left: 20%; }
+  .tl-dot-now  { left: 60%; }
+  .tl-dot-future { left: 80%; }
+  .tl-now {
+    position: absolute;
+    left: 60%;
+    top: -22px;
+    font-size: .7rem;
+    font-weight: 900;
+    color: #aaa;
+    transform: translateX(-50%);
+  }
+  .tl-arrow {
+    font-size: 1.2rem;
+    color: #bbb;
+  }
+  .tl-line.pp { background: linear-gradient(90deg, #eee 0%, #5b4fcf 60%, #eee 60%); }
+  .tl-line.pa { background: linear-gradient(90deg, #e05c2a 20%, #eee 20%); }
+  .tl-line.fp { background: linear-gradient(90deg, #eee 0%, #eee 80%, #1a9e6e 80%); }
+
+  /* ─── COLOR KEY ─── */
+  .color-key {
+    display: flex; gap: 18px; flex-wrap: wrap;
+    margin-bottom: 30px;
+  }
+  .ck { display: flex; align-items: center; gap: 7px; font-size: .88rem; font-weight: 700; }
+  .ck-dot { width: 14px; height: 14px; border-radius: 50%; }
+
+  /* ─── SCROLL REVEAL ─── */
+  .reveal { opacity: 0; transform: translateY(30px); transition: all .5s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  #scroll-top-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #1a1208;
+    border: 1.5px solid rgba(200,150,62,0.4);
+    color: #f5f0e8;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+    pointer-events: none;
+    z-index: 9998;
+  }
+  #scroll-top-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  #scroll-top-btn:hover {
+    background: #c8963e;
+    border-color: #c8963e;
+    color: #1a1208;
+  }
+
+  /* ─── MOBILE RESPONSIVE ─── */
+  @media (max-width: 480px) {
+
+    /* Hero */
+    .hero { padding: 40px 16px 56px; }
+    .hero h1 { font-size: 2rem; }
+    .hero-sub { font-size: .95rem; }
+    .hero-ua { font-size: .88rem; }
+    .star { display: none; }
+
+    /* Wrap */
+    .wrap { padding: 0 14px; }
+
+    /* Section titles */
+    .sec-title { font-size: 1.3rem; margin: 36px 0 4px; flex-wrap: wrap; }
+    .sec-sub { font-size: .88rem; margin-bottom: 16px; }
+
+    /* Color key */
+    .color-key { gap: 10px; margin-top: 24px; }
+    .ck { font-size: .82rem; }
+
+    /* Concept box */
+    .concept { padding: 18px 16px; gap: 16px; border-radius: 14px; }
+    .concept p { font-size: .9rem; }
+
+    /* Idea strip */
+    .idea-strip { padding: 16px 16px; font-size: .95rem; border-radius: 14px; }
+
+    /* Magic banner */
+    .magic-banner { padding: 20px 16px; border-radius: 16px; }
+    .magic-banner h2 { font-size: 1rem; }
+    .magic-ua { font-size: .85rem; }
+
+    /* Tense grid — single column */
+    .tense-grid { grid-template-columns: 1fr; gap: 16px; margin-bottom: 32px; }
+    .tcard-head { padding: 14px 16px 12px; }
+    .tcard-head .emoji { font-size: 1.6rem; }
+    .tcard-head h3 { font-size: 1.1rem; }
+    .tcard-body { padding: 16px 16px 18px; }
+    .formula { font-size: .82rem; padding: 8px 12px; }
+    .meaning { font-size: .78rem; padding: 3px 10px; }
+    .ex-list li { font-size: .88rem; padding: 8px 0; }
+    .ex-list li .ua { font-size: .82rem; }
+
+    /* Magic table — scrollable */
+    .magic-table-wrap { border-radius: 14px; }
+    .magic-table-wrap h3 { font-size: 1rem; padding: 12px 16px; }
+    .magic-table-wrap .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { min-width: 480px; font-size: .82rem; }
+    th { padding: 8px 10px; font-size: .72rem; }
+    td { padding: 9px 10px; }
+    .sent-en { font-size: .85rem; }
+    .sent-ua { font-size: .78rem; }
+    .ttype { font-size: .78rem; }
+
+    /* Timeline */
+    .timeline { padding: 18px 14px; border-radius: 14px; }
+    .timeline h3 { font-size: .97rem; margin-bottom: 14px; }
+    .tl-label { width: 72px; font-size: .72rem; padding-right: 8px; }
+
+    /* When-to-use grid — single column */
+    .when-grid { grid-template-columns: 1fr; gap: 14px; margin-bottom: 32px; }
+    .when-card { padding: 16px 16px; border-radius: 14px; }
+    .when-card h4 { font-size: .92rem; }
+    .when-card ul li { font-size: .83rem; }
+
+    /* Signal words */
+    .signals-section { padding: 18px 16px; border-radius: 14px; }
+    .signals-section h3 { font-size: 1.05rem; }
+    .pill { font-size: .8rem; padding: 4px 10px; }
+
+    /* Life cards — single column */
+    .life-cards { grid-template-columns: 1fr; gap: 10px; }
+    .life-card { padding: 12px 14px; font-size: .88rem; border-radius: 12px; }
+    .life-card .lc-ua { font-size: .8rem; }
+    .life-group-title { font-size: 1rem; }
+
+    /* Negatives / Questions grid */
+    .nq-grid { grid-template-columns: 1fr; gap: 14px; margin-bottom: 32px; }
+    .nq-head { font-size: .85rem; padding: 10px 14px; }
+    .nq-body { padding: 14px 14px; font-size: .85rem; }
+    .nq-body li { font-size: .85rem; }
+    .nq-body li .ua { font-size: .8rem; }
+
+    /* Quiz */
+    .quiz-section { padding: 22px 16px; border-radius: 18px; margin-bottom: 40px; }
+    .quiz-section h3 { font-size: 1.15rem; margin-bottom: 16px; }
+    .q-text { font-size: .9rem; }
+    .q-opt { font-size: .85rem; padding: 7px 13px; width: 100%; text-align: left; }
+    .q-opts { flex-direction: column; gap: 8px; }
+    .q-feedback { font-size: .82rem; }
+
+    /* Footer */
+    footer { font-size: .8rem; padding: 20px 14px; }
+
+    /* Scroll-top button */
+    #scroll-top-btn { bottom: 18px; right: 16px; width: 40px; height: 40px; font-size: 16px; }
+  }
+
+  /* ─── TABLET (481–768px) ─── */
+  @media (min-width: 481px) and (max-width: 768px) {
+    .wrap { padding: 0 20px; }
+    .tense-grid { grid-template-columns: 1fr; gap: 18px; }
+    .life-cards { grid-template-columns: 1fr 1fr; }
+    .when-grid { grid-template-columns: 1fr; }
+    .nq-grid { grid-template-columns: 1fr 1fr; }
+    .magic-table-wrap .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { min-width: 500px; }
+    .q-opt { width: 100%; text-align: left; }
+    .q-opts { flex-direction: column; gap: 8px; }
+    .timeline { padding: 20px 18px; }
+    .tl-label { width: 90px; font-size: .76rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="star">⭐</div>
+  <div class="star">✨</div>
+  <div class="star">🌟</div>
+  <div class="star">💫</div>
+  <div style="position:relative;z-index:1">
+    <div class="hero-tag">English Grammar for Beginners</div>
+    <h1>The <span>Perfect</span> Aspect ✅</h1>
+    <p class="hero-sub">When something is <em>done</em> — and why it matters right now, before now, or later</p>
+    <p class="hero-ua">Що робить результат дії важливим — зараз, до певного моменту чи у майбутньому</p>
+  </div>
+</section>
+
+<div class="wrap">
+
+  <!-- COLOR KEY -->
+  <div style="margin-top:36px;" class="reveal">
+    <div class="color-key">
+      <div class="ck"><div class="ck-dot" style="background:var(--pp)"></div>Present Perfect (фіолетовий)</div>
+      <div class="ck"><div class="ck-dot" style="background:var(--pa)"></div>Past Perfect (помаранчевий)</div>
+      <div class="ck"><div class="ck-dot" style="background:var(--fp)"></div>Future Perfect (зелений)</div>
+    </div>
+  </div>
+
+  <!-- WHAT IS PERFECT ASPECT -->
+  <h2 class="sec-title reveal">🔍 What is the Perfect Aspect?</h2>
+  <p class="sec-sub reveal">Що таке перфектний аспект?</p>
+
+  <div class="concept reveal">
+    <div>
+      <h3>🇬🇧 In English</h3>
+      <p>The <strong>Perfect Aspect</strong> shows that an action is <strong>completed</strong> and its result is <strong>connected</strong> to another point in time. It's not just about WHEN something happened — it's about the <strong>result or consequence</strong> it creates.</p>
+    </div>
+    <div>
+      <h3>🇺🇦 Українською</h3>
+      <p class="ua">Перфектний аспект показує, що дія <strong>завершена</strong> і її результат <strong>пов'язаний</strong> з іншим моментом часу. Це не просто «коли» щось сталось — це <strong>результат або наслідок</strong>, який це створює.</p>
+    </div>
+  </div>
+
+  <div class="idea-strip reveal">
+    💡 <strong>The Big Idea:</strong> Perfect = <strong>"done, and it matters!"</strong><br>
+    <span style="opacity:.8">Перфект = <strong>«зроблено, і це важливо!»</strong> — результат дії впливає на теперішній, минулий або майбутній момент.</span>
+  </div>
+
+  <!-- TIMELINE -->
+  <div class="timeline reveal">
+    <h3>⏳ Time & the Perfect Aspect — Час і перфект</h3>
+    <div style="position:relative">
+      <div style="display:flex;justify-content:space-between;font-size:.75rem;color:#aaa;margin-bottom:6px;padding:0 110px 0 110px;">
+        <span>PAST / МИНУЛЕ</span><span>NOW / ЗАРАЗ</span><span>FUTURE / МАЙБУТНЄ</span>
+      </div>
+      <!-- PP -->
+      <div class="tl-row">
+        <div class="tl-label pp">Present<br>Perfect</div>
+        <div style="flex:1;height:8px;border-radius:4px;background:linear-gradient(90deg,#5b4fcf 0%,#5b4fcf 65%,#ddd 65%);position:relative;">
+          <div style="position:absolute;top:50%;right:35%;transform:translateY(-50%);width:16px;height:16px;border-radius:50%;background:#5b4fcf;border:3px solid #fff;box-shadow:0 0 0 2px #5b4fcf"></div>
+          <div style="position:absolute;top:-22px;right:35%;transform:translateX(50%);font-size:.7rem;font-weight:900;color:#5b4fcf">NOW!</div>
+        </div>
+        <div style="font-size:.82rem;font-weight:700;color:var(--pp);width:130px;padding-left:12px">result felt NOW<br><span style="color:#aaa;font-weight:400">результат зараз</span></div>
+      </div>
+      <!-- PA -->
+      <div class="tl-row">
+        <div class="tl-label pa">Past<br>Perfect</div>
+        <div style="flex:1;height:8px;border-radius:4px;background:linear-gradient(90deg,#e05c2a 0%,#e05c2a 35%,#ddd 35%);position:relative;">
+          <div style="position:absolute;top:50%;left:35%;transform:translateY(-50%);width:16px;height:16px;border-radius:50%;background:#e05c2a;border:3px solid #fff;box-shadow:0 0 0 2px #e05c2a"></div>
+          <div style="position:absolute;top:-22px;left:35%;transform:translateX(-50%);font-size:.7rem;font-weight:900;color:#e05c2a">BEFORE past</div>
+        </div>
+        <div style="font-size:.82rem;font-weight:700;color:var(--pa);width:130px;padding-left:12px">done before past<br><span style="color:#aaa;font-weight:400">до минулого моменту</span></div>
+      </div>
+      <!-- FP -->
+      <div class="tl-row">
+        <div class="tl-label fp">Future<br>Perfect</div>
+        <div style="flex:1;height:8px;border-radius:4px;background:linear-gradient(90deg,#ddd 0%,#ddd 65%,#1a9e6e 65%);position:relative;">
+          <div style="position:absolute;top:50%;left:65%;transform:translateY(-50%);width:16px;height:16px;border-radius:50%;background:#1a9e6e;border:3px solid #fff;box-shadow:0 0 0 2px #1a9e6e"></div>
+          <div style="position:absolute;top:-22px;left:65%;transform:translateX(-50%);font-size:.7rem;font-weight:900;color:#1a9e6e">FUTURE point</div>
+        </div>
+        <div style="font-size:.82rem;font-weight:700;color:var(--fp);width:130px;padding-left:12px">done before future<br><span style="color:#aaa;font-weight:400">до майбутнього моменту</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAGIC SENTENCE INTRO -->
+  <div class="magic-banner reveal">
+    <div class="label">🪄 Magic Sentence — Чарівне речення</div>
+    <h2>One idea, three tenses: <em>"finish my homework"</em></h2>
+    <p class="magic-ua">Одна ідея — три часи. Дивись, як речення змінюється нижче!</p>
+  </div>
+
+  <!-- TENSE CARDS -->
+  <div class="tense-grid">
+
+    <!-- PRESENT PERFECT -->
+    <div class="tcard pp reveal">
+      <div class="tcard-head">
+        <div class="emoji">✅</div>
+        <div>
+          <h3>Present Perfect</h3>
+          <small>Теперішній перфект</small>
+        </div>
+      </div>
+      <div class="tcard-body">
+        <div class="meaning">Result matters NOW / результат важливий ЗАРАЗ</div>
+        <div class="formula">Subject <span class="plus">+</span> have/has <span class="plus">+</span> Past Participle (V3)</div>
+        <p style="font-size:.85rem;margin-bottom:10px;color:#777">🔑 Formula: I / You / We / They → <strong>have + V3</strong> &nbsp;|&nbsp; He / She / It → <strong>has + V3</strong></p>
+        <p style="font-size:.9rem;font-weight:700;margin-bottom:8px">🪄 Magic sentence:</p>
+        <ul class="ex-list">
+          <li><span class="en">I <span class="highlight">have finished</span> my homework.</span><br><span class="ua">Я (вже) зробив домашнє завдання.</span></li>
+        </ul>
+        <p style="font-size:.85rem;margin:10px 0 8px;font-weight:700">More examples:</p>
+        <ul class="ex-list">
+          <li><span class="en">She <span class="highlight">has eaten</span> breakfast.</span><br><span class="ua">Вона вже поснідала.</span></li>
+          <li><span class="en">They <span class="highlight">have arrived</span> at school.</span><br><span class="ua">Вони вже прийшли до школи.</span></li>
+          <li><span class="en">He <span class="highlight">has broken</span> his phone.</span><br><span class="ua">Він розбив свій телефон.</span></li>
+          <li><span class="en">I <span class="highlight">have never seen</span> a whale.</span><br><span class="ua">Я ніколи не бачив кита.</span></li>
+          <li><span class="en">We <span class="highlight">have just watched</span> a movie.</span><br><span class="ua">Ми щойно переглянули фільм.</span></li>
+          <li><span class="en">She <span class="highlight">has lost</span> her keys.</span><br><span class="ua">Вона загубила ключі.</span></li>
+          <li><span class="en">He <span class="highlight">has won</span> the competition three times.</span><br><span class="ua">Він вигравав змагання тричі.</span></li>
+          <li><span class="en">I <span class="highlight">have already cleaned</span> my room.</span><br><span class="ua">Я вже прибрав кімнату.</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- PAST PERFECT -->
+    <div class="tcard pa reveal">
+      <div class="tcard-head">
+        <div class="emoji">⏮️</div>
+        <div>
+          <h3>Past Perfect</h3>
+          <small>Минулий перфект</small>
+        </div>
+      </div>
+      <div class="tcard-body">
+        <div class="meaning">Done BEFORE another past moment</div>
+        <div class="formula">Subject <span class="plus">+</span> had <span class="plus">+</span> Past Participle (V3)</div>
+        <p style="font-size:.85rem;margin-bottom:10px;color:#777">🔑 Formula: ALL subjects → <strong>had + V3</strong></p>
+        <p style="font-size:.9rem;font-weight:700;margin-bottom:8px">🪄 Magic sentence:</p>
+        <ul class="ex-list">
+          <li><span class="en">I <span class="highlight">had finished</span> my homework before dinner.</span><br><span class="ua">Я зробив домашнє завдання ще до вечері.</span></li>
+        </ul>
+        <p style="font-size:.85rem;margin:10px 0 8px;font-weight:700">More examples:</p>
+        <ul class="ex-list">
+          <li><span class="en">She <span class="highlight">had eaten</span> before we arrived.</span><br><span class="ua">Вона вже поїла до нашого приходу.</span></li>
+          <li><span class="en">When I called, he <span class="highlight">had already left</span>.</span><br><span class="ua">Коли я зателефонував, він вже пішов.</span></li>
+          <li><span class="en">They <span class="highlight">had never seen</span> snow before that day.</span><br><span class="ua">До того дня вони ніколи не бачили снігу.</span></li>
+          <li><span class="en">She <span class="highlight">had studied</span> English for 3 years before moving abroad.</span><br><span class="ua">Вона вчила англійську 3 роки до переїзду.</span></li>
+          <li><span class="en">The movie <span class="highlight">had started</span> by the time we got there.</span><br><span class="ua">Фільм вже почався, коли ми прийшли.</span></li>
+          <li><span class="en">He <span class="highlight">had broken</span> his leg before the race.</span><br><span class="ua">Він зламав ногу до перегонів.</span></li>
+          <li><span class="en">I <span class="highlight">had forgotten</span> her name by then.</span><br><span class="ua">На той час я вже забув її ім'я.</span></li>
+          <li><span class="en">We <span class="highlight">had saved</span> enough money by last summer.</span><br><span class="ua">До минулого літа ми заощадили достатньо грошей.</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- FUTURE PERFECT -->
+    <div class="tcard fp reveal">
+      <div class="tcard-head">
+        <div class="emoji">🔮</div>
+        <div>
+          <h3>Future Perfect</h3>
+          <small>Майбутній перфект</small>
+        </div>
+      </div>
+      <div class="tcard-body">
+        <div class="meaning">Will be done BEFORE a future point</div>
+        <div class="formula">Subject <span class="plus">+</span> will have <span class="plus">+</span> Past Participle (V3)</div>
+        <p style="font-size:.85rem;margin-bottom:10px;color:#777">🔑 Formula: ALL subjects → <strong>will have + V3</strong></p>
+        <p style="font-size:.9rem;font-weight:700;margin-bottom:8px">🪄 Magic sentence:</p>
+        <ul class="ex-list">
+          <li><span class="en">I <span class="highlight">will have finished</span> my homework by 7 pm.</span><br><span class="ua">Я закінчу домашнє завдання до 7 вечора.</span></li>
+        </ul>
+        <p style="font-size:.85rem;margin:10px 0 8px;font-weight:700">More examples:</p>
+        <ul class="ex-list">
+          <li><span class="en">By Friday, she <span class="highlight">will have written</span> 10 pages.</span><br><span class="ua">До п'ятниці вона напише 10 сторінок.</span></li>
+          <li><span class="en">By next year, I <span class="highlight">will have learned</span> 1000 words.</span><br><span class="ua">До наступного року я вивчу 1000 слів.</span></li>
+          <li><span class="en">They <span class="highlight">will have built</span> the bridge by 2026.</span><br><span class="ua">Вони побудують міст до 2026 року.</span></li>
+          <li><span class="en">He <span class="highlight">will have graduated</span> by then.</span><br><span class="ua">До того часу він вже закінчить навчання.</span></li>
+          <li><span class="en">By tonight, I <span class="highlight">will have cooked</span> dinner.</span><br><span class="ua">До вечора я вже приготую вечерю.</span></li>
+          <li><span class="en">We <span class="highlight">will have saved</span> enough by next month.</span><br><span class="ua">До наступного місяця ми заощадимо достатньо.</span></li>
+          <li><span class="en">By 10 o'clock, the children <span class="highlight">will have gone</span> to bed.</span><br><span class="ua">До 10 години діти вже ляжуть спати.</span></li>
+          <li><span class="en">She <span class="highlight">will have read</span> the book by Sunday.</span><br><span class="ua">Вона прочитає книгу до неділі.</span></li>
+        </ul>
+      </div>
+    </div>
+
+  </div><!-- /tense-grid -->
+
+  <!-- MAGIC SENTENCE TABLE -->
+  <div class="magic-table-wrap reveal">
+    <h3>🪄 Magic Sentence Transformation — "finish my homework"</h3>
+    <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>Tense / Час</th>
+          <th>Sentence / Речення</th>
+          <th>Meaning / Значення</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="ttype pp">Present Perfect</span></td>
+          <td>
+            <div class="sent-en">I <strong style="color:var(--pp)">have finished</strong> my homework.</div>
+            <div class="sent-ua">Я (вже) зробив домашнє завдання.</div>
+          </td>
+          <td><small>Now I'm free to play! The result is NOW.<br><em style="color:#aaa">Зараз я вільний! Результат відчутний зараз.</em></small></td>
+        </tr>
+        <tr>
+          <td><span class="ttype pa">Past Perfect</span></td>
+          <td>
+            <div class="sent-en">I <strong style="color:var(--pa)">had finished</strong> my homework before dinner.</div>
+            <div class="sent-ua">Я зробив ДЗ ще до вечері.</div>
+          </td>
+          <td><small>Two past events — finishing came FIRST.<br><em style="color:#aaa">Два минулих — завершення ДЗ було раніше.</em></small></td>
+        </tr>
+        <tr>
+          <td><span class="ttype fp">Future Perfect</span></td>
+          <td>
+            <div class="sent-en">I <strong style="color:var(--fp)">will have finished</strong> my homework by 7 pm.</div>
+            <div class="sent-ua">Я закінчу ДЗ до 7 вечора.</div>
+          </td>
+          <td><small>By 7 pm it will already be done.<br><em style="color:#aaa">До 7 вечора все буде вже зроблено.</em></small></td>
+        </tr>
+        <tr>
+          <td><span class="ttype pp">Negative PP</span></td>
+          <td>
+            <div class="sent-en">I <strong style="color:var(--pp)">haven't finished</strong> my homework yet.</div>
+            <div class="sent-ua">Я ще не зробив домашнє завдання.</div>
+          </td>
+          <td><small>It's still not done.<br><em style="color:#aaa">Ще не зроблено.</em></small></td>
+        </tr>
+        <tr>
+          <td><span class="ttype pa">Negative PastP</span></td>
+          <td>
+            <div class="sent-en">I <strong style="color:var(--pa)">hadn't finished</strong> my homework when she called.</div>
+            <div class="sent-ua">Я не зробив ДЗ, коли вона подзвонила.</div>
+          </td>
+          <td><small>When she called — still not done.<br><em style="color:#aaa">Коли вона зателефонувала — ще не зроблено.</em></small></td>
+        </tr>
+        <tr>
+          <td><span class="ttype fp">Negative FutP</span></td>
+          <td>
+            <div class="sent-en">I <strong style="color:var(--fp)">won't have finished</strong> my homework by 5 pm.</div>
+            <div class="sent-ua">До 5 вечора я ще не закінчу ДЗ.</div>
+          </td>
+          <td><small>By 5 pm, it won't be done yet.<br><em style="color:#aaa">До 5 вечора ще не буде готово.</em></small></td>
+        </tr>
+        <tr>
+          <td><span class="ttype pp">Question PP</span></td>
+          <td>
+            <div class="sent-en"><strong style="color:var(--pp)">Have</strong> you <strong style="color:var(--pp)">finished</strong> your homework?</div>
+            <div class="sent-ua">Ти вже зробив домашнє завдання?</div>
+          </td>
+          <td><small>Asking about the result now.<br><em style="color:#aaa">Запит про результат зараз.</em></small></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <!-- WHEN TO USE -->
+  <h2 class="sec-title reveal">📅 When to Use Each Tense?</h2>
+  <p class="sec-sub reveal">Коли вживати кожен час?</p>
+
+  <div class="when-grid">
+    <div class="when-card pp reveal">
+      <div class="icon">✅</div>
+      <h4>Use Present Perfect when…</h4>
+      <div class="ua-h">Вживай Present Perfect, коли…</div>
+      <ul>
+        <li>The action just happened — Щойно сталося ("I've just called her")</li>
+        <li>Result is important now — Результат важливий зараз ("I've lost my bag!")</li>
+        <li>Life experience — Досвід у житті ("I've been to Italy")</li>
+        <li>Repeated in unfinished time — У незакінченому часі ("She's visited 3 times this week")</li>
+        <li>With: already, yet, just, ever, never, recently, so far, lately</li>
+      </ul>
+    </div>
+    <div class="when-card pa reveal">
+      <div class="icon">⏮️</div>
+      <h4>Use Past Perfect when…</h4>
+      <div class="ua-h">Вживай Past Perfect, коли…</div>
+      <ul>
+        <li>One past thing happened BEFORE another — Одна минула дія раніше за іншу</li>
+        <li>Explaining why something happened — Пояснення причини минулого</li>
+        <li>Reported speech sequences — У непрямому мовленні</li>
+        <li>Conditionals (3rd type) — У 3-му типі умовних речень</li>
+        <li>With: before, after, by the time, when, already, just, never</li>
+      </ul>
+    </div>
+    <div class="when-card fp reveal">
+      <div class="icon">🔮</div>
+      <h4>Use Future Perfect when…</h4>
+      <div class="ua-h">Вживай Future Perfect, коли…</div>
+      <ul>
+        <li>An action will be complete BEFORE a future moment — Дія завершиться до майбутнього моменту</li>
+        <li>Predictions of completion — Прогноз завершення</li>
+        <li>Plans or promises — Плани або обіцянки</li>
+        <li>With: by (tomorrow/next week/2030), before, by the time</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SIGNAL WORDS -->
+  <div class="signals-section reveal">
+    <h3>🚦 Signal Words — Слова-підказки</h3>
+    <div class="sig-group pp">
+      <div class="sig-group-label">✅ Present Perfect</div>
+      <div class="pills pp">
+        <span class="pill">already</span>
+        <span class="pill">yet</span>
+        <span class="pill">just</span>
+        <span class="pill">ever</span>
+        <span class="pill">never</span>
+        <span class="pill">recently</span>
+        <span class="pill">lately</span>
+        <span class="pill">so far</span>
+        <span class="pill">since</span>
+        <span class="pill">for</span>
+        <span class="pill">still (neg)</span>
+        <span class="pill">this week/month/year</span>
+        <span class="pill">how many times</span>
+      </div>
+    </div>
+    <div class="sig-group pa" style="margin-top:14px">
+      <div class="sig-group-label">⏮️ Past Perfect</div>
+      <div class="pills pa">
+        <span class="pill">before</span>
+        <span class="pill">after</span>
+        <span class="pill">already</span>
+        <span class="pill">just</span>
+        <span class="pill">never</span>
+        <span class="pill">by the time</span>
+        <span class="pill">when</span>
+        <span class="pill">until then</span>
+        <span class="pill">as soon as</span>
+        <span class="pill">once</span>
+      </div>
+    </div>
+    <div class="sig-group fp" style="margin-top:14px">
+      <div class="sig-group-label">🔮 Future Perfect</div>
+      <div class="pills fp">
+        <span class="pill">by tomorrow</span>
+        <span class="pill">by next week</span>
+        <span class="pill">by the time</span>
+        <span class="pill">before</span>
+        <span class="pill">by + year</span>
+        <span class="pill">by then</span>
+        <span class="pill">within</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- NEGATIVE & QUESTION -->
+  <h2 class="sec-title reveal">❓ Negatives & Questions</h2>
+  <p class="sec-sub reveal">Заперечення та питання</p>
+
+  <div class="nq-grid">
+    <div class="nq-card reveal">
+      <div class="nq-head neg">➖ Negative — Заперечення</div>
+      <div class="nq-body">
+        <div class="formula" style="border-color:#e74c6b">
+          have / has / had / will have <strong>NOT</strong> + V3
+        </div>
+        <ul class="ex-list">
+          <li>I <strong>haven't</strong> eaten yet.<br><span class="ua">Я ще не їв.</span></li>
+          <li>She <strong>hasn't</strong> called me.<br><span class="ua">Вона не телефонувала мені.</span></li>
+          <li>He <strong>hadn't</strong> slept when I arrived.<br><span class="ua">Він не спав, коли я прийшов.</span></li>
+          <li>They <strong>won't have</strong> arrived by noon.<br><span class="ua">До полудня вони ще не приїдуть.</span></li>
+          <li>I <strong>haven't</strong> finished yet.<br><span class="ua">Я ще не закінчив.</span></li>
+          <li>We <strong>haven't</strong> met before.<br><span class="ua">Ми раніше не зустрічались.</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="nq-card reveal">
+      <div class="nq-head q">❓ Questions — Питання</div>
+      <div class="nq-body">
+        <div class="formula q" style="border-color:#2980b9">
+          Have / Has / Had / Will ... have + V3 + ?
+        </div>
+        <ul class="ex-list">
+          <li><strong>Have</strong> you eaten?<br><span class="ua">Ти вже їв?</span></li>
+          <li><strong>Has</strong> she called?<br><span class="ua">Вона вже зателефонувала?</span></li>
+          <li><strong>Had</strong> he left when you arrived?<br><span class="ua">Він вже пішов, коли ти прийшов?</span></li>
+          <li><strong>Will</strong> you <strong>have</strong> finished by 8?<br><span class="ua">Ти закінчиш до 8?</span></li>
+          <li><strong>Have</strong> you ever been to London?<br><span class="ua">Ти коли-небудь був у Лондоні?</span></li>
+          <li>How many times <strong>have</strong> you done this?<br><span class="ua">Скільки разів ти це робив?</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- REAL LIFE EXAMPLES -->
+  <h2 class="sec-title reveal">🌍 Real-Life Examples — Приклади з реального життя</h2>
+  <p class="sec-sub reveal">Речення на всі випадки!</p>
+
+  <div class="life-section">
+
+    <div class="life-group reveal">
+      <div class="life-group-title">🏠 Home & Family — Дім і сім'я</div>
+      <div class="life-cards">
+        <div class="life-card pp"><div class="lc-en">Mum <em>has cooked</em> dinner.</div><div class="lc-ua">Мама вже приготувала вечерю.</div></div>
+        <div class="life-card pp"><div class="lc-en">I <em>have tidied</em> my room.</div><div class="lc-ua">Я прибрав кімнату.</div></div>
+        <div class="life-card pa"><div class="lc-en">Dad <em>had fixed</em> the car before the trip.</div><div class="lc-ua">Тато полагодив машину ще до поїздки.</div></div>
+        <div class="life-card fp"><div class="lc-en">By Sunday, we <em>will have repainted</em> the kitchen.</div><div class="lc-ua">До неділі ми перефарбуємо кухню.</div></div>
+      </div>
+    </div>
+
+    <div class="life-group reveal">
+      <div class="life-group-title">🏫 School & Study — Школа та навчання</div>
+      <div class="life-cards">
+        <div class="life-card pp"><div class="lc-en">I <em>have passed</em> my test!</div><div class="lc-ua">Я склав тест!</div></div>
+        <div class="life-card pp"><div class="lc-en">She <em>has read</em> 15 books this year.</div><div class="lc-ua">Вона прочитала 15 книг цього року.</div></div>
+        <div class="life-card pa"><div class="lc-en">He <em>had already answered</em> when the teacher called on him.</div><div class="lc-ua">Він вже відповів, коли вчитель його запитав.</div></div>
+        <div class="life-card fp"><div class="lc-en">By June, I <em>will have finished</em> all my exams.</div><div class="lc-ua">До червня я здам усі іспити.</div></div>
+        <div class="life-card pp"><div class="lc-en">We <em>have never studied</em> this grammar before.</div><div class="lc-ua">Ми ніколи раніше не вчили цю граматику.</div></div>
+        <div class="life-card pa"><div class="lc-en">The teacher <em>had explained</em> it twice before the test.</div><div class="lc-ua">Вчитель пояснив це двічі до тесту.</div></div>
+      </div>
+    </div>
+
+    <div class="life-group reveal">
+      <div class="life-group-title">🎮 Fun & Hobbies — Розваги та хобі</div>
+      <div class="life-cards">
+        <div class="life-card pp"><div class="lc-en">I <em>have beaten</em> this level!</div><div class="lc-ua">Я пройшов цей рівень!</div></div>
+        <div class="life-card pp"><div class="lc-en">They <em>have watched</em> every episode twice.</div><div class="lc-ua">Вони переглянули кожен епізод двічі.</div></div>
+        <div class="life-card pa"><div class="lc-en">She <em>had never played</em> chess before last year.</div><div class="lc-ua">До минулого року вона ніколи не грала в шахи.</div></div>
+        <div class="life-card fp"><div class="lc-en">By next month, I <em>will have completed</em> the whole game.</div><div class="lc-ua">До наступного місяця я пройду всю гру.</div></div>
+        <div class="life-card pp"><div class="lc-en">He <em>has drawn</em> over 100 pictures.</div><div class="lc-ua">Він намалював понад 100 малюнків.</div></div>
+        <div class="life-card pa"><div class="lc-en">I <em>had already chosen</em> my character when the game crashed.</div><div class="lc-ua">Я вже обрав персонажа, коли гра впала.</div></div>
+      </div>
+    </div>
+
+    <div class="life-group reveal">
+      <div class="life-group-title">✈️ Travel & Adventure — Подорожі</div>
+      <div class="life-cards">
+        <div class="life-card pp"><div class="lc-en">I <em>have been</em> to Paris twice.</div><div class="lc-ua">Я бував у Парижі двічі.</div></div>
+        <div class="life-card pp"><div class="lc-en">She <em>has visited</em> 10 countries.</div><div class="lc-ua">Вона відвідала 10 країн.</div></div>
+        <div class="life-card pa"><div class="lc-en">They <em>had packed</em> their bags before the taxi arrived.</div><div class="lc-ua">Вони зібрали речі ще до приїзду таксі.</div></div>
+        <div class="life-card fp"><div class="lc-en">By next summer, we <em>will have travelled</em> to 5 countries.</div><div class="lc-ua">До наступного літа ми відвідаємо 5 країн.</div></div>
+        <div class="life-card pp"><div class="lc-en">I <em>have never flown</em> in a plane.</div><div class="lc-ua">Я ніколи не літав літаком.</div></div>
+        <div class="life-card pa"><div class="lc-en">The plane <em>had already left</em> when we arrived at the airport.</div><div class="lc-ua">Літак вже відлетів, коли ми прибули в аеропорт.</div></div>
+      </div>
+    </div>
+
+    <div class="life-group reveal">
+      <div class="life-group-title">💼 Work & Goals — Робота та цілі</div>
+      <div class="life-cards">
+        <div class="life-card pp"><div class="lc-en">She <em>has just got</em> a new job!</div><div class="lc-ua">Вона щойно отримала нову роботу!</div></div>
+        <div class="life-card pp"><div class="lc-en">I <em>have completed</em> the project.</div><div class="lc-ua">Я завершив проект.</div></div>
+        <div class="life-card pa"><div class="lc-en">He <em>had worked</em> there for 10 years before he retired.</div><div class="lc-ua">Він пропрацював там 10 років до виходу на пенсію.</div></div>
+        <div class="life-card fp"><div class="lc-en">By December, she <em>will have earned</em> enough for a new laptop.</div><div class="lc-ua">До грудня вона заробить на новий ноутбук.</div></div>
+        <div class="life-card pp"><div class="lc-en">I <em>have applied</em> for three jobs so far.</div><div class="lc-ua">Поки що я подав заявки на три роботи.</div></div>
+        <div class="life-card pa"><div class="lc-en">They <em>had already signed</em> the contract when I arrived.</div><div class="lc-ua">Вони вже підписали контракт, коли я прийшов.</div></div>
+      </div>
+    </div>
+
+    <div class="life-group reveal">
+      <div class="life-group-title">😮 Emotions & Surprises — Емоції та несподіванки</div>
+      <div class="life-cards">
+        <div class="life-card pp"><div class="lc-en">Oh no, I <em>have spilled</em> my drink!</div><div class="lc-ua">О ні, я розлив напій!</div></div>
+        <div class="life-card pp"><div class="lc-en">Someone <em>has taken</em> my seat!</div><div class="lc-ua">Хтось зайняв моє місце!</div></div>
+        <div class="life-card pa"><div class="lc-en">I <em>had never felt</em> so happy before that moment.</div><div class="lc-ua">До того моменту я ніколи не відчував такого щастя.</div></div>
+        <div class="life-card fp"><div class="lc-en">By her birthday, I <em>will have surprised</em> her with a gift.</div><div class="lc-ua">До її дня народження я вже здивую її подарунком.</div></div>
+        <div class="life-card pp"><div class="lc-en">I <em>have finally found</em> my phone!</div><div class="lc-ua">Я нарешті знайшов свій телефон!</div></div>
+        <div class="life-card pa"><div class="lc-en">She <em>had already heard</em> the news before I told her.</div><div class="lc-ua">Вона вже чула новини до того, як я їй розповів.</div></div>
+      </div>
+    </div>
+
+    <div class="life-group reveal">
+      <div class="life-group-title">🍕 Food & Everyday Life — Їжа та щоденне життя</div>
+      <div class="life-cards">
+        <div class="life-card pp"><div class="lc-en">Have you <em>tried</em> sushi?</div><div class="lc-ua">Ти пробував суші?</div></div>
+        <div class="life-card pp"><div class="lc-en">I <em>have eaten</em> too much today.</div><div class="lc-ua">Я сьогодні забагато з'їв.</div></div>
+        <div class="life-card pa"><div class="lc-en">She <em>had already ordered</em> by the time I arrived.</div><div class="lc-ua">Вона вже зробила замовлення до мого приходу.</div></div>
+        <div class="life-card fp"><div class="lc-en">By lunch, the chef <em>will have prepared</em> the soup.</div><div class="lc-ua">До обіду кухар приготує суп.</div></div>
+        <div class="life-card pp"><div class="lc-en">I <em>haven't had</em> breakfast yet.</div><div class="lc-ua">Я ще не снідав.</div></div>
+        <div class="life-card pa"><div class="lc-en">The pizza <em>had gone</em> cold by the time we sat down.</div><div class="lc-ua">Піца вже охолола, коли ми сіли.</div></div>
+      </div>
+    </div>
+
+  </div><!-- /life-section -->
+
+  <!-- QUICK QUIZ -->
+  <div class="quiz-section reveal">
+    <h3>🎯 Quick Quiz — Швидкий тест!</h3>
+
+    <div class="q-item" id="q1">
+      <div class="q-text">1. I _____ never _____ to Japan. <span>(Present Perfect)</span></div>
+      <div class="q-opts">
+        <button class="q-opt" onclick="check(this,'q1',false)">had / been</button>
+        <button class="q-opt" onclick="check(this,'q1',true)">have / been</button>
+        <button class="q-opt" onclick="check(this,'q1',false)">will have / been</button>
+      </div>
+      <div class="q-feedback" id="q1-fb"></div>
+    </div>
+
+    <div class="q-item" id="q2">
+      <div class="q-text">2. She _____ already _____ the movie before we told her about it. <span>(Past Perfect)</span></div>
+      <div class="q-opts">
+        <button class="q-opt" onclick="check(this,'q2',false)">has / seen</button>
+        <button class="q-opt" onclick="check(this,'q2',true)">had / seen</button>
+        <button class="q-opt" onclick="check(this,'q2',false)">will have / seen</button>
+      </div>
+      <div class="q-feedback" id="q2-fb"></div>
+    </div>
+
+    <div class="q-item" id="q3">
+      <div class="q-text">3. By next year, I _____ _____ 2000 English words. <span>(Future Perfect)</span></div>
+      <div class="q-opts">
+        <button class="q-opt" onclick="check(this,'q3',false)">have / learned</button>
+        <button class="q-opt" onclick="check(this,'q3',false)">had / learned</button>
+        <button class="q-opt" onclick="check(this,'q3',true)">will have / learned</button>
+      </div>
+      <div class="q-feedback" id="q3-fb"></div>
+    </div>
+
+    <div class="q-item" id="q4">
+      <div class="q-text">4. _____ you ever _____ a tiger? <span>(Present Perfect question)</span></div>
+      <div class="q-opts">
+        <button class="q-opt" onclick="check(this,'q4',true)">Have / seen</button>
+        <button class="q-opt" onclick="check(this,'q4',false)">Had / seen</button>
+        <button class="q-opt" onclick="check(this,'q4',false)">Will have / seen</button>
+      </div>
+      <div class="q-feedback" id="q4-fb"></div>
+    </div>
+
+    <div class="q-item" id="q5">
+      <div class="q-text">5. They _____ _____ the bridge by 2028. <span>(Future Perfect)</span></div>
+      <div class="q-opts">
+        <button class="q-opt" onclick="check(this,'q5',false)">have / built</button>
+        <button class="q-opt" onclick="check(this,'q5',false)">had / built</button>
+        <button class="q-opt" onclick="check(this,'q5',true)">will have / built</button>
+      </div>
+      <div class="q-feedback" id="q5-fb"></div>
+    </div>
+
+    <div class="q-item" id="q6">
+      <div class="q-text">6. I _____ _____ my homework yet. (negative Present Perfect)</div>
+      <div class="q-opts">
+        <button class="q-opt" onclick="check(this,'q6',false)">hadn't / done</button>
+        <button class="q-opt" onclick="check(this,'q6',true)">haven't / done</button>
+        <button class="q-opt" onclick="check(this,'q6',false)">won't have / done</button>
+      </div>
+      <div class="q-feedback" id="q6-fb"></div>
+    </div>
+
+  </div>
+
+</div><!-- /wrap -->
+
+<footer>Made with ❤️ for English learners · Perfect Aspect Grammar Page</footer>
+
+<script>
+  // Quiz logic
+  function check(btn, qId, correct) {
+    const opts = document.querySelectorAll(`#${qId} .q-opt`);
+    opts.forEach(o => { o.disabled = true; o.classList.remove('correct','wrong'); });
+    btn.classList.add(correct ? 'correct' : 'wrong');
+    if (!correct) {
+      opts.forEach(o => {
+        o.onclick && o.onclick.toString().includes('true') && o.classList.add('correct');
+      });
+      // find and show correct
+      opts.forEach(o => {
+        if (o.getAttribute('onclick') && o.getAttribute('onclick').includes('true')) {
+          o.classList.add('correct');
+        }
+      });
+    }
+    const fb = document.getElementById(`${qId}-fb`);
+    fb.textContent = correct
+      ? '✅ Correct! Правильно!' 
+      : '❌ Not quite. Не зовсім. Look at the correct answer above! / Подивись на правильну відповідь!';
+    fb.className = `q-feedback ${correct ? 'ok' : 'no'}`;
+  }
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.08 });
+  reveals.forEach(r => observer.observe(r));
+</script>
+
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+</body>
+</html>

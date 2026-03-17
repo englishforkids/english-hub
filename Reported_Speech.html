@@ -1,0 +1,1525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reported Speech — Непряма мова</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sky: #4FC3F7;
+    --sun: #FFD54F;
+    --coral: #FF7043;
+    --mint: #69F0AE;
+    --lavender: #CE93D8;
+    --navy: #1A237E;
+    --card-bg: #FFFFFF;
+    --page-bg: #EEF6FF;
+    --text: #1a1a2e;
+    --muted: #5a6072;
+    --border-radius: 20px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--page-bg);
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, #1A237E 0%, #283593 40%, #3949AB 70%, #5C6BC0 100%);
+    padding: 60px 20px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 20% 50%, rgba(255,213,79,.18) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 30%, rgba(79,195,247,.18) 0%, transparent 60%);
+  }
+  .hero-emoji { font-size: 4rem; display: block; margin-bottom: 12px; animation: bounce 2s infinite; }
+  @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+  .hero h1 {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(2rem, 6vw, 3.8rem);
+    font-weight: 800;
+    color: #fff;
+    text-shadow: 0 4px 20px rgba(0,0,0,.3);
+    position: relative;
+  }
+  .hero h1 span { color: var(--sun); }
+  .hero-sub {
+    color: rgba(255,255,255,.85);
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    margin-top: 14px;
+    position: relative;
+  }
+  .hero-badges {
+    display: flex; flex-wrap: wrap; gap: 10px;
+    justify-content: center; margin-top: 26px; position: relative;
+  }
+  .badge {
+    background: rgba(255,255,255,.15);
+    border: 2px solid rgba(255,255,255,.35);
+    color: #fff;
+    border-radius: 50px;
+    padding: 6px 18px;
+    font-size: .9rem;
+    font-weight: 700;
+    backdrop-filter: blur(6px);
+  }
+
+  /* ── LAYOUT ── */
+  .container { max-width: 980px; margin: 0 auto; padding: 0 18px; }
+
+  /* ── SECTION TITLE ── */
+  .section-title {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    font-weight: 800;
+    margin: 60px 0 24px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .section-title .icon {
+    width: 48px; height: 48px;
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  /* ── CARD ── */
+  .card {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 28px 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 24px rgba(26,35,126,.08);
+    border: 2px solid transparent;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .card:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(26,35,126,.13); }
+
+  /* ── TWO COLUMN (EN | UA) ── */
+  .bilingual {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 20px 0;
+  }
+  @media(max-width:600px){ .bilingual{grid-template-columns:1fr;} }
+
+  .lang-en {
+    background: linear-gradient(135deg, #E3F2FD, #BBDEFB);
+    border-left: 5px solid #1976D2;
+    border-radius: 14px;
+    padding: 16px 18px;
+  }
+  .lang-ua {
+    background: linear-gradient(135deg, #FFF8E1, #FFECB3);
+    border-left: 5px solid #F9A825;
+    border-radius: 14px;
+    padding: 16px 18px;
+  }
+  .lang-label {
+    font-size: .7rem;
+    font-weight: 900;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    opacity: .6;
+    margin-bottom: 6px;
+  }
+
+  /* ── FORMULA BOX ── */
+  .formula {
+    background: linear-gradient(135deg, #1A237E, #283593);
+    color: #fff;
+    border-radius: 16px;
+    padding: 20px 24px;
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 18px 0;
+    display: flex; align-items: center; gap: 14px;
+    flex-wrap: wrap;
+  }
+  .formula-part {
+    background: rgba(255,255,255,.18);
+    border: 2px solid rgba(255,255,255,.35);
+    border-radius: 10px;
+    padding: 6px 14px;
+    white-space: nowrap;
+  }
+  .formula-arrow { font-size: 1.4rem; opacity: .8; }
+
+  /* ── SPEECH BUBBLE ── */
+  .bubble-wrap { display: flex; align-items: flex-start; gap: 14px; margin: 12px 0; }
+  .bubble-wrap.right { flex-direction: row-reverse; }
+  .avatar {
+    width: 52px; height: 52px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.6rem; flex-shrink: 0;
+  }
+  .bubble {
+    border-radius: 20px;
+    padding: 12px 18px;
+    max-width: 80%;
+    position: relative;
+    font-weight: 600;
+    font-size: .97rem;
+  }
+  .bubble-direct {
+    background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
+    border: 2px solid #66BB6A;
+    border-bottom-left-radius: 4px;
+  }
+  .bubble-reported {
+    background: linear-gradient(135deg, #FCE4EC, #F8BBD0);
+    border: 2px solid #EC407A;
+    border-bottom-right-radius: 4px;
+  }
+  .bubble-label {
+    font-size: .7rem;
+    font-weight: 900;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    opacity: .55;
+    margin-bottom: 4px;
+  }
+  .bubble em { color: #B71C1C; font-style: normal; font-weight: 800; }
+  .bubble strong { color: #1B5E20; font-weight: 800; }
+
+  /* ── BACKSHIFT TABLE ── */
+  .backshift-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 8px;
+  }
+  .backshift-table th {
+    font-family: 'Baloo 2', cursive;
+    font-weight: 800;
+    padding: 12px 18px;
+    font-size: 1rem;
+  }
+  .backshift-table th:first-child { color: #1B5E20; }
+  .backshift-table th:last-child { color: #B71C1C; }
+  .backshift-table td {
+    padding: 12px 18px;
+    font-size: .93rem;
+    font-weight: 600;
+  }
+  .bs-from {
+    background: #E8F5E9;
+    border-radius: 12px 0 0 12px;
+    border-left: 4px solid #66BB6A;
+  }
+  .bs-arrow {
+    background: #F3F4F6;
+    text-align: center;
+    font-size: 1.2rem;
+  }
+  .bs-to {
+    background: #FCE4EC;
+    border-radius: 0 12px 12px 0;
+    border-right: 4px solid #EC407A;
+  }
+
+  /* ── TIME WORDS TABLE ── */
+  .tw-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    margin: 14px 0;
+  }
+  .tw-item {
+    background: #F8F9FF;
+    border-radius: 12px;
+    padding: 10px 14px;
+    border: 2px solid #E8EAFB;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .tw-from { font-weight: 800; color: #1565C0; }
+  .tw-arr { color: #aaa; }
+  .tw-to { font-weight: 700; color: #AD1457; font-size: .9rem; }
+
+  /* ── VERBS GRID ── */
+  .verbs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 10px;
+    margin: 14px 0;
+  }
+  .verb-card {
+    border-radius: 14px;
+    padding: 14px 16px;
+    text-align: center;
+    font-weight: 800;
+    font-size: 1rem;
+    cursor: default;
+    transition: transform .15s;
+  }
+  .verb-card:hover { transform: scale(1.05); }
+  .v1 { background: #E3F2FD; border: 2px solid #90CAF9; color: #0D47A1; }
+  .v2 { background: #F3E5F5; border: 2px solid #CE93D8; color: #4A148C; }
+  .v3 { background: #E8F5E9; border: 2px solid #A5D6A7; color: #1B5E20; }
+  .v4 { background: #FFF3E0; border: 2px solid #FFCC80; color: #E65100; }
+  .v5 { background: #FCE4EC; border: 2px solid #F48FB1; color: #880E4F; }
+  .verb-card small { display: block; font-size: .75rem; font-weight: 600; opacity: .7; margin-top: 4px; }
+
+  /* ── EXAMPLE BLOCK ── */
+  .example-block {
+    background: linear-gradient(135deg, #F8F9FF 0%, #EEF2FF 100%);
+    border-radius: 16px;
+    padding: 20px 22px;
+    margin: 14px 0;
+    border: 2px solid #C5CAE9;
+  }
+  .example-block .ex-title {
+    font-size: .75rem;
+    font-weight: 900;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: #5C6BC0;
+    margin-bottom: 10px;
+  }
+  .ex-row { margin-bottom: 10px; }
+  .ex-label { font-size: .78rem; font-weight: 800; opacity: .55; text-transform: uppercase; letter-spacing: .08em; }
+  .ex-direct { color: #2E7D32; font-weight: 700; font-size: 1rem; margin: 2px 0; }
+  .ex-reported { color: #AD1457; font-weight: 700; font-size: 1rem; margin: 2px 0; }
+  .ex-ua { color: #5a6072; font-size: .9rem; margin: 2px 0 0; font-style: italic; }
+
+  /* ── HIGHLIGHT ── */
+  .hl-green { color: #2E7D32; font-weight: 800; }
+  .hl-red { color: #C62828; font-weight: 800; }
+  .hl-blue { color: #1565C0; font-weight: 800; }
+  .hl-purple { color: #6A1B9A; font-weight: 800; }
+  .hl-orange { color: #E65100; font-weight: 800; }
+
+  /* ── PILL TAGS ── */
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+  .tag {
+    border-radius: 50px;
+    padding: 4px 14px;
+    font-size: .82rem;
+    font-weight: 800;
+  }
+
+  /* ── SAY/TELL ── */
+  .say-tell {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 14px 0;
+  }
+  @media(max-width:500px){ .say-tell{grid-template-columns:1fr;} }
+  .say-box, .tell-box {
+    border-radius: 18px;
+    padding: 20px 22px;
+  }
+  .say-box { background: #E8F5E9; border: 3px solid #4CAF50; }
+  .tell-box { background: #E3F2FD; border: 3px solid #1976D2; }
+  .st-title {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+  }
+  .say-box .st-title { color: #1B5E20; }
+  .tell-box .st-title { color: #0D47A1; }
+
+  /* ── MEGA SENTENCE ── */
+  .mega-sent {
+    background: linear-gradient(135deg, #1A237E 0%, #4527A0 100%);
+    color: #fff;
+    border-radius: 20px;
+    padding: 28px 28px;
+    margin: 20px 0;
+    text-align: center;
+  }
+  .mega-sent .qs { font-size: 1.4rem; font-weight: 800; margin-bottom: 8px; color: var(--sun); }
+  .mega-sent .ua { font-size: 1rem; opacity: .8; font-style: italic; }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--muted);
+    font-size: .9rem;
+    margin-top: 60px;
+  }
+
+  /* ── NAV DOTS ── */
+  .toc {
+    background: #fff;
+    border-radius: 20px;
+    padding: 22px 28px;
+    box-shadow: 0 4px 24px rgba(26,35,126,.08);
+    margin: 32px 0;
+    display: flex; flex-wrap: wrap; gap: 10px;
+  }
+  .toc a {
+    color: #3949AB;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: .9rem;
+    background: #EEF2FF;
+    padding: 6px 14px;
+    border-radius: 50px;
+    border: 2px solid #C5CAE9;
+    transition: background .15s, transform .15s;
+  }
+  .toc a:hover { background: #C5CAE9; transform: translateY(-2px); }
+
+  /* ── DIVIDER ── */
+  .divider { height: 4px; background: linear-gradient(90deg, #4FC3F7, #CE93D8, #FF7043, #FFD54F); border-radius: 4px; margin: 36px 0 0; }
+
+  /* ── RESPONSIVE ── */
+
+  /* table wrapper — horizontal scroll on small screens */
+  .table-scroll {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 14px;
+  }
+  .table-scroll .backshift-table { min-width: 480px; }
+
+  @media(max-width: 768px) {
+    .container { padding: 0 14px; }
+
+    .hero { padding: 40px 16px 56px; }
+    .hero-emoji { font-size: 3rem; }
+    .badge { font-size: .8rem; padding: 5px 12px; }
+
+    .toc { padding: 16px 14px; gap: 8px; margin: 20px 0; }
+    .toc a { font-size: .8rem; padding: 5px 11px; }
+
+    .section-title {
+      font-size: 1.3rem;
+      margin: 40px 0 16px;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .section-title .icon { width: 40px; height: 40px; font-size: 1.2rem; }
+
+    .card { padding: 18px 14px; border-radius: 16px; }
+    .card:hover { transform: none; }
+
+    .formula {
+      font-size: .82rem;
+      padding: 14px 14px;
+      gap: 8px;
+    }
+    .formula-part { padding: 5px 10px; white-space: normal; }
+
+    .bilingual { grid-template-columns: 1fr; gap: 10px; margin: 14px 0; }
+    .say-tell   { grid-template-columns: 1fr; gap: 12px; }
+
+    .bubble { max-width: 90%; font-size: .88rem; padding: 10px 14px; }
+    .avatar { width: 40px; height: 40px; font-size: 1.3rem; }
+
+    .backshift-table th { font-size: .85rem; padding: 10px 12px; }
+    .backshift-table td { font-size: .82rem; padding: 10px 12px; }
+
+    .tw-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .tw-item { padding: 8px 10px; font-size: .82rem; gap: 6px; }
+    .tw-to { font-size: .78rem; }
+
+    .verbs-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 8px; }
+    .verb-card { font-size: .88rem; padding: 10px 10px; }
+    .verb-card small { font-size: .7rem; }
+
+    .example-block { padding: 14px 14px; }
+    .ex-direct, .ex-reported { font-size: .92rem; }
+
+    .mega-sent { padding: 20px 16px; }
+    .mega-sent .qs { font-size: 1.1rem; }
+
+    .q-box, .cmd-box { padding: 14px 14px; }
+
+    .say-box, .tell-box { padding: 16px 14px; }
+    .st-title { font-size: 1.3rem; }
+
+    footer { padding: 30px 16px; margin-top: 40px; }
+
+    #scroll-top-btn { bottom: 18px; right: 16px; width: 40px; height: 40px; font-size: 16px; }
+  }
+
+  @media(max-width: 420px) {
+    .tw-grid { grid-template-columns: 1fr; }
+    .verbs-grid { grid-template-columns: repeat(3, 1fr); }
+    .hero-badges { gap: 7px; }
+    .badge { font-size: .75rem; padding: 4px 10px; }
+    .formula { font-size: .78rem; }
+    .section-title { font-size: 1.15rem; }
+  }
+
+  /* ── QUESTION BOX ── */
+  .q-box {
+    border-radius: 14px;
+    padding: 18px 20px;
+    margin: 12px 0;
+  }
+  .q-direct { background: #F1F8E9; border-left: 5px solid #8BC34A; }
+  .q-reported { background: #FFF3E0; border-left: 5px solid #FF9800; }
+
+  /* ── COMMAND BOX ── */
+  .cmd-box {
+    border-radius: 14px;
+    padding: 18px 20px;
+    margin: 12px 0;
+  }
+  .cmd-direct { background: #FBE9E7; border-left: 5px solid #FF5722; }
+  .cmd-reported { background: #EDE7F6; border-left: 5px solid #7B1FA2; }
+
+  /* ── SCROLL ANIMATIONS ── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .5s ease, transform .5s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── SITUATIONS GRID ── */
+  .situations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 14px;
+  }
+
+  /* ── SUMMARY GRID ── */
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+    text-align: left;
+  }
+
+  @media(max-width: 768px) {
+    .situations-grid { grid-template-columns: 1fr; }
+    .summary-grid    { grid-template-columns: 1fr 1fr; }
+  }
+  @media(max-width: 420px) {
+    .summary-grid { grid-template-columns: 1fr; }
+  }
+
+#scroll-top-btn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #1a1208;
+  border: 1.5px solid rgba(200,150,62,0.4);
+  color: #f5f0e8;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+  pointer-events: none;
+  z-index: 9998;
+}
+#scroll-top-btn.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+#scroll-top-btn:hover {
+  background: #c8963e;
+  border-color: #c8963e;
+  color: #1a1208;
+}
+</style>
+</head>
+<body>
+
+<!-- ───── HERO ───── -->
+<div class="hero">
+  <span class="hero-emoji">💬</span>
+  <h1>Reported <span>Speech</span></h1>
+  <p class="hero-sub">Непряма мова в англійській — просто, зрозуміло, з прикладами!</p>
+  <div class="hero-badges">
+    <span class="badge">📖 Backshifting</span>
+    <span class="badge">🗣️ Reporting Verbs</span>
+    <span class="badge">❓ Questions</span>
+    <span class="badge">📢 Commands</span>
+    <span class="badge">🆚 Say vs Tell</span>
+    <span class="badge">🕐 Time Words</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- TOC -->
+  <nav class="toc">
+    <a href="#what">📌 Що це?</a>
+    <a href="#backshift">⏪ Backshifting</a>
+    <a href="#time">🕐 Time words</a>
+    <a href="#verbs">🗣️ Reporting verbs</a>
+    <a href="#questions">❓ Questions</a>
+    <a href="#commands">📢 Commands</a>
+    <a href="#saytell">🆚 Say / Tell</a>
+    <a href="#all-examples">🌟 Всі приклади</a>
+  </nav>
+
+  <!-- ───── 1. WHAT IS ───── -->
+  <section id="what">
+    <div class="section-title">
+      <div class="icon" style="background:#E3F2FD;">📌</div>
+      What is Reported Speech? / Що таке непряма мова?
+    </div>
+
+    <div class="card fade-in">
+      <div class="bilingual">
+        <div class="lang-en">
+          <div class="lang-label">🇬🇧 English</div>
+          <p><strong>Reported Speech</strong> (also called Indirect Speech) is when you tell someone <em>what another person said</em> — but without using their exact words or quotation marks.</p>
+          <p style="margin-top:10px">It's like summarising or retelling a conversation.</p>
+        </div>
+        <div class="lang-ua">
+          <div class="lang-label">🇺🇦 Українська</div>
+          <p><strong>Непряма мова</strong> — це коли ти розповідаєш комусь, <em>що сказала інша людина</em>, але не повторюєш її слова дослівно (без лапок).</p>
+          <p style="margin-top:10px">Це ніби переказ розмови своїми словами.</p>
+        </div>
+      </div>
+
+      <!-- Two bubbles comparison -->
+      <div style="margin-top:20px">
+        <p style="font-weight:800; margin-bottom:12px; color:#5C6BC0">👀 Look at the difference / Подивись на різницю:</p>
+
+        <div class="bubble-wrap">
+          <div class="avatar" style="background:#E8F5E9">🧑</div>
+          <div class="bubble bubble-direct">
+            <div class="bubble-label">Direct speech / Пряма мова</div>
+            Tom said: <strong>"I am hungry."</strong>
+            <div style="font-size:.85rem; color:#555; margin-top:4px">Том сказав: «Я голодний.»</div>
+          </div>
+        </div>
+
+        <div style="text-align:center; font-size:2rem; margin:6px 0">⬇️</div>
+
+        <div class="bubble-wrap right">
+          <div class="avatar" style="background:#FCE4EC">👩</div>
+          <div class="bubble bubble-reported">
+            <div class="bubble-label">Reported speech / Непряма мова</div>
+            Tom said (that) <em>he was hungry.</em>
+            <div style="font-size:.85rem; color:#555; margin-top:4px">Том сказав, що <em>він був голодний</em>.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- THE UNIVERSAL SENTENCE -->
+    <div class="mega-sent fade-in">
+      <div style="font-size:.85rem; opacity:.7; text-transform:uppercase; letter-spacing:.1em; margin-bottom:8px">🌟 Our Magic Sentence / Наше чарівне речення</div>
+      <div class="qs">"I eat pizza every day."</div>
+      <div class="ua">«Я їм піцу щодня.»</div>
+      <div style="margin-top:12px; font-size:.9rem; opacity:.8">We will use <strong style="color:var(--sun)">this one sentence</strong> throughout the whole page to show how it changes! / Ми будемо використовувати <strong style="color:var(--sun)">це одне речення</strong> протягом усієї сторінки, щоб показати, як воно змінюється!</div>
+    </div>
+
+    <div class="card fade-in">
+      <p style="font-weight:800; font-size:1.05rem; margin-bottom:12px">🔧 Basic Formula / Основна формула:</p>
+      <div class="formula">
+        <span class="formula-part">Subject</span>
+        <span class="formula-arrow">+</span>
+        <span class="formula-part">said / told + person</span>
+        <span class="formula-arrow">+</span>
+        <span class="formula-part">(that)</span>
+        <span class="formula-arrow">+</span>
+        <span class="formula-part">Sentence (changed!)</span>
+      </div>
+      <div style="background:#F8F9FF; border-radius:12px; padding:14px 18px; margin-top:10px; font-size:.92rem; color:#555">
+        💡 The word <strong>"that"</strong> is optional — you can include it or leave it out, both are correct! / Слово <strong>"that"</strong> необов'язкове — можна сказати з ним або без нього, обидва варіанти правильні!
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── 2. BACKSHIFTING ───── -->
+  <div class="divider"></div>
+  <section id="backshift">
+    <div class="section-title">
+      <div class="icon" style="background:#FCE4EC;">⏪</div>
+      Backshifting — "Shifting Tenses Back" / Зсув часів назад
+    </div>
+
+    <div class="card fade-in">
+      <div class="bilingual">
+        <div class="lang-en">
+          <div class="lang-label">🇬🇧 English</div>
+          <p>When you report speech, the <strong>verb tense usually goes one step back into the past.</strong> This is called <em>backshifting</em>.</p>
+          <p style="margin-top:8px">Think of it as "rewinding" the tense by one step.</p>
+        </div>
+        <div class="lang-ua">
+          <div class="lang-label">🇺🇦 Українська</div>
+          <p>Коли переказуєш чиїсь слова, <strong>час дієслова зазвичай зміщується на один крок у минуле.</strong></p>
+          <p style="margin-top:8px">Уяви, що "мотаєш плівку назад" на один крок.</p>
+        </div>
+      </div>
+
+      <p style="font-weight:800; margin: 18px 0 12px; color:#3949AB; font-size:1.05rem">📊 Tense Shift Table / Таблиця зміщення часів:</p>
+      <div class="table-scroll">
+      <table class="backshift-table">
+        <thead>
+          <tr>
+            <th>Direct Speech (was said) ✅</th>
+            <th style="background:#F3F4F6; text-align:center"></th>
+            <th>Reported Speech (becomes) 🔄</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="bs-from">Present Simple<br><span style="font-size:.82rem; color:#555">I <strong>eat</strong> pizza</span></td>
+            <td class="bs-arrow">→</td>
+            <td class="bs-to">Past Simple<br><span style="font-size:.82rem; color:#555">he <strong>ate</strong> pizza</span></td>
+          </tr>
+          <tr>
+            <td class="bs-from">Present Continuous<br><span style="font-size:.82rem; color:#555">I <strong>am eating</strong> pizza</span></td>
+            <td class="bs-arrow">→</td>
+            <td class="bs-to">Past Continuous<br><span style="font-size:.82rem; color:#555">he <strong>was eating</strong> pizza</span></td>
+          </tr>
+          <tr>
+            <td class="bs-from">Present Perfect<br><span style="font-size:.82rem; color:#555">I <strong>have eaten</strong> pizza</span></td>
+            <td class="bs-arrow">→</td>
+            <td class="bs-to">Past Perfect<br><span style="font-size:.82rem; color:#555">he <strong>had eaten</strong> pizza</span></td>
+          </tr>
+          <tr>
+            <td class="bs-from">Past Simple<br><span style="font-size:.82rem; color:#555">I <strong>ate</strong> pizza</span></td>
+            <td class="bs-arrow">→</td>
+            <td class="bs-to">Past Perfect<br><span style="font-size:.82rem; color:#555">he <strong>had eaten</strong> pizza</span></td>
+          </tr>
+          <tr>
+            <td class="bs-from">will<br><span style="font-size:.82rem; color:#555">I <strong>will eat</strong> pizza</span></td>
+            <td class="bs-arrow">→</td>
+            <td class="bs-to">would<br><span style="font-size:.82rem; color:#555">he <strong>would eat</strong> pizza</span></td>
+          </tr>
+          <tr>
+            <td class="bs-from">can<br><span style="font-size:.82rem; color:#555">I <strong>can</strong> eat pizza</span></td>
+            <td class="bs-arrow">→</td>
+            <td class="bs-to">could<br><span style="font-size:.82rem; color:#555">he <strong>could</strong> eat pizza</span></td>
+          </tr>
+          <tr>
+            <td class="bs-from">may<br><span style="font-size:.82rem; color:#555">I <strong>may</strong> eat pizza</span></td>
+            <td class="bs-arrow">→</td>
+            <td class="bs-to">might<br><span style="font-size:.82rem; color:#555">he <strong>might</strong> eat pizza</span></td>
+          </tr>
+          <tr>
+            <td class="bs-from">must / have to<br><span style="font-size:.82rem; color:#555">I <strong>must</strong> eat pizza</span></td>
+            <td class="bs-arrow">→</td>
+            <td class="bs-to">had to<br><span style="font-size:.82rem; color:#555">he <strong>had to</strong> eat pizza</span></td>
+          </tr>
+        </tbody>
+      </table>
+      </div><!-- /table-scroll -->
+      <div style="margin-top:24px; padding:18px; background:#F8F9FF; border-radius:14px; border:2px solid #C5CAE9">
+        <p style="font-weight:900; color:#5C6BC0; margin-bottom:14px">🌟 Our magic sentence through different tenses / Наше чарівне речення в різних часах:</p>
+
+        <div class="example-block">
+          <div class="ex-title">Present Simple → Past Simple</div>
+          <div class="ex-row">
+            <div class="ex-label">Direct</div>
+            <div class="ex-direct">"I <span class="hl-green">eat</span> pizza every day."</div>
+          </div>
+          <div class="ex-row">
+            <div class="ex-label">Reported</div>
+            <div class="ex-reported">She said (that) she <span class="hl-red">ate</span> pizza every day.</div>
+            <div class="ex-ua">Вона сказала, що їла піцу щодня.</div>
+          </div>
+        </div>
+
+        <div class="example-block">
+          <div class="ex-title">Present Continuous → Past Continuous</div>
+          <div class="ex-row">
+            <div class="ex-label">Direct</div>
+            <div class="ex-direct">"I <span class="hl-green">am eating</span> pizza right now."</div>
+          </div>
+          <div class="ex-row">
+            <div class="ex-label">Reported</div>
+            <div class="ex-reported">She said she <span class="hl-red">was eating</span> pizza right then.</div>
+            <div class="ex-ua">Вона сказала, що якраз їла піцу в той момент.</div>
+          </div>
+        </div>
+
+        <div class="example-block">
+          <div class="ex-title">Future (will) → would</div>
+          <div class="ex-row">
+            <div class="ex-label">Direct</div>
+            <div class="ex-direct">"I <span class="hl-green">will eat</span> pizza tomorrow."</div>
+          </div>
+          <div class="ex-row">
+            <div class="ex-label">Reported</div>
+            <div class="ex-reported">She said she <span class="hl-red">would eat</span> pizza the next day.</div>
+            <div class="ex-ua">Вона сказала, що їстиме піцу наступного дня.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NO BACKSHIFT -->
+    <div class="card fade-in" style="border:2px solid #66BB6A">
+      <p style="font-weight:900; font-size:1.1rem; color:#2E7D32; margin-bottom:12px">⚠️ When do we NOT need to backshift? / Коли зсув НЕ потрібен?</p>
+      <div class="bilingual">
+        <div class="lang-en">
+          <div class="lang-label">🇬🇧 English</div>
+          <ul style="list-style:none; padding:0; display:flex; flex-direction:column; gap:8px">
+            <li>✅ If something is <strong>still true now</strong> (general facts, habits)</li>
+            <li>✅ If reported <strong>immediately</strong> (right after it was said)</li>
+            <li>✅ Modals: <strong>would, could, might, should, ought to</strong> — don't change</li>
+          </ul>
+        </div>
+        <div class="lang-ua">
+          <div class="lang-label">🇺🇦 Українська</div>
+          <ul style="list-style:none; padding:0; display:flex; flex-direction:column; gap:8px">
+            <li>✅ Якщо щось <strong>досі є правдою</strong> (загальні факти, звички)</li>
+            <li>✅ Якщо переказуємо <strong>одразу</strong> після того, як це сказали</li>
+            <li>✅ Модальні: <strong>would, could, might, should, ought to</strong> — не змінюються</li>
+          </ul>
+        </div>
+      </div>
+      <div class="example-block" style="margin-top:14px">
+        <div class="ex-row">
+          <div class="ex-label">Direct</div>
+          <div class="ex-direct">"The Earth <span class="hl-green">is</span> round."</div>
+        </div>
+        <div class="ex-row">
+          <div class="ex-label">Reported (no backshift — still true!)</div>
+          <div class="ex-reported">He said the Earth <span class="hl-green">is</span> round. ✅</div>
+          <div class="ex-ua">Він сказав, що Земля є круглою. (Це завжди правда — без зсуву!)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── 3. TIME WORDS ───── -->
+  <div class="divider"></div>
+  <section id="time">
+    <div class="section-title">
+      <div class="icon" style="background:#FFF3E0;">🕐</div>
+      Time Words / Слова часу
+    </div>
+    <div class="card fade-in">
+      <div class="bilingual">
+        <div class="lang-en">
+          <div class="lang-label">🇬🇧 English</div>
+          <p>When reporting speech, words like <strong>"now", "today", "here"</strong> also change — because you're telling the story at a <em>different time or place</em>.</p>
+        </div>
+        <div class="lang-ua">
+          <div class="lang-label">🇺🇦 Українська</div>
+          <p>При непрямій мові слова типу <strong>"зараз", "сьогодні", "тут"</strong> теж змінюються — адже ти розповідаєш у <em>інший час або в іншому місці</em>.</p>
+        </div>
+      </div>
+      <div class="tw-grid" style="margin-top:18px">
+        <div class="tw-item"><span class="tw-from">now</span><span class="tw-arr">→</span><span class="tw-to">then / at that time</span></div>
+        <div class="tw-item"><span class="tw-from">today</span><span class="tw-arr">→</span><span class="tw-to">that day</span></div>
+        <div class="tw-item"><span class="tw-from">yesterday</span><span class="tw-arr">→</span><span class="tw-to">the day before</span></div>
+        <div class="tw-item"><span class="tw-from">tomorrow</span><span class="tw-arr">→</span><span class="tw-to">the next day / the following day</span></div>
+        <div class="tw-item"><span class="tw-from">last week</span><span class="tw-arr">→</span><span class="tw-to">the week before</span></div>
+        <div class="tw-item"><span class="tw-from">next week</span><span class="tw-arr">→</span><span class="tw-to">the following week</span></div>
+        <div class="tw-item"><span class="tw-from">ago</span><span class="tw-arr">→</span><span class="tw-to">before / previously</span></div>
+        <div class="tw-item"><span class="tw-from">here</span><span class="tw-arr">→</span><span class="tw-to">there</span></div>
+        <div class="tw-item"><span class="tw-from">this</span><span class="tw-arr">→</span><span class="tw-to">that</span></div>
+        <div class="tw-item"><span class="tw-from">these</span><span class="tw-arr">→</span><span class="tw-to">those</span></div>
+      </div>
+
+      <div class="example-block" style="margin-top:16px">
+        <div class="ex-title">🌟 Magic sentence with time word / Чарівне речення зі словом часу</div>
+        <div class="ex-row">
+          <div class="ex-label">Direct</div>
+          <div class="ex-direct">"I will eat pizza <span class="hl-green">tomorrow</span>."</div>
+        </div>
+        <div class="ex-row">
+          <div class="ex-label">Reported</div>
+          <div class="ex-reported">She said she would eat pizza <span class="hl-red">the next day</span>.</div>
+          <div class="ex-ua">Вона сказала, що їстиме піцу <span class="hl-red">наступного дня</span>.</div>
+        </div>
+      </div>
+
+      <div class="example-block">
+        <div class="ex-title">Example with "here" / Приклад з "here"</div>
+        <div class="ex-row">
+          <div class="ex-label">Direct</div>
+          <div class="ex-direct">"I eat pizza <span class="hl-green">here</span> every weekend."</div>
+        </div>
+        <div class="ex-row">
+          <div class="ex-label">Reported</div>
+          <div class="ex-reported">She said she ate pizza <span class="hl-red">there</span> every weekend.</div>
+          <div class="ex-ua">Вона сказала, що їла піцу <span class="hl-red">там</span> щовихідних.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── 4. REPORTING VERBS ───── -->
+  <div class="divider"></div>
+  <section id="verbs">
+    <div class="section-title">
+      <div class="icon" style="background:#F3E5F5;">🗣️</div>
+      Reporting Verbs / Дієслова для переказу
+    </div>
+    <div class="card fade-in">
+      <div class="bilingual">
+        <div class="lang-en">
+          <div class="lang-label">🇬🇧 English</div>
+          <p>Instead of always saying "said", you can use more <strong>expressive verbs</strong> to show HOW someone spoke — was it a request? A warning? A promise?</p>
+        </div>
+        <div class="lang-ua">
+          <div class="lang-label">🇺🇦 Українська</div>
+          <p>Замість "said" можна використовувати <strong>більш виразні дієслова</strong>, щоб показати, ЯК хтось говорив — це було прохання? Попередження? Обіцянка?</p>
+        </div>
+      </div>
+
+      <div class="verbs-grid" style="margin-top:18px">
+        <div class="verb-card v1">say<small>сказати</small></div>
+        <div class="verb-card v1">tell<small>розповісти</small></div>
+        <div class="verb-card v2">ask<small>запитати</small></div>
+        <div class="verb-card v3">explain<small>пояснити</small></div>
+        <div class="verb-card v4">warn<small>попередити</small></div>
+        <div class="verb-card v5">promise<small>обіцяти</small></div>
+        <div class="verb-card v1">claim<small>стверджувати</small></div>
+        <div class="verb-card v2">suggest<small>пропонувати</small></div>
+        <div class="verb-card v3">admit<small>визнавати</small></div>
+        <div class="verb-card v4">advise<small>радити</small></div>
+        <div class="verb-card v5">refuse<small>відмовитися</small></div>
+        <div class="verb-card v1">mention<small>згадати</small></div>
+        <div class="verb-card v2">complain<small>скаржитися</small></div>
+        <div class="verb-card v3">agree<small>погодитися</small></div>
+        <div class="verb-card v4">insist<small>наполягати</small></div>
+        <div class="verb-card v5">deny<small>заперечувати</small></div>
+        <div class="verb-card v1">announce<small>оголошувати</small></div>
+        <div class="verb-card v2">order<small>наказувати</small></div>
+        <div class="verb-card v3">remind<small>нагадати</small></div>
+        <div class="verb-card v4">beg<small>благати</small></div>
+      </div>
+
+      <!-- verb patterns -->
+      <div style="margin-top:20px">
+        <p style="font-weight:900; color:#3949AB; margin-bottom:12px">📐 Verb Patterns / Конструкції дієслів:</p>
+
+        <div class="example-block">
+          <div class="ex-title">Verb + that (say, explain, claim, admit…)</div>
+          <div class="ex-row">
+            <div class="ex-direct">She <span class="hl-blue">said</span> that she ate pizza every day.</div>
+            <div class="ex-ua">Вона <span class="hl-blue">сказала</span>, що їла піцу щодня.</div>
+          </div>
+          <div class="ex-row">
+            <div class="ex-direct">He <span class="hl-blue">explained</span> that he ate pizza for health reasons.</div>
+            <div class="ex-ua">Він <span class="hl-blue">пояснив</span>, що їв піцу з причин здоров'я.</div>
+          </div>
+        </div>
+
+        <div class="example-block">
+          <div class="ex-title">Verb + to-infinitive (promise, refuse, agree, offer…)</div>
+          <div class="ex-row">
+            <div class="ex-direct">She <span class="hl-purple">promised</span> to eat pizza with me.</div>
+            <div class="ex-ua">Вона <span class="hl-purple">пообіцяла</span> з'їсти піцу зі мною.</div>
+          </div>
+          <div class="ex-row">
+            <div class="ex-direct">He <span class="hl-purple">refused</span> to eat pizza without olives.</div>
+            <div class="ex-ua">Він <span class="hl-purple">відмовився</span> їсти піцу без оливок.</div>
+          </div>
+        </div>
+
+        <div class="example-block">
+          <div class="ex-title">Verb + -ing (suggest, deny, admit, mention…)</div>
+          <div class="ex-row">
+            <div class="ex-direct">She <span class="hl-orange">suggested</span> eating pizza together.</div>
+            <div class="ex-ua">Вона <span class="hl-orange">запропонувала</span> з'їсти піцу разом.</div>
+          </div>
+          <div class="ex-row">
+            <div class="ex-direct">He <span class="hl-orange">denied</span> eating all the pizza.</div>
+            <div class="ex-ua">Він <span class="hl-orange">заперечив</span>, що з'їв усю піцу.</div>
+          </div>
+        </div>
+
+        <div class="example-block">
+          <div class="ex-title">Verb + object + to-infinitive (tell, warn, advise, ask, order, beg…)</div>
+          <div class="ex-row">
+            <div class="ex-direct">She <span class="hl-red">told</span> me to eat pizza slowly.</div>
+            <div class="ex-ua">Вона <span class="hl-red">наказала</span> мені їсти піцу повільно.</div>
+          </div>
+          <div class="ex-row">
+            <div class="ex-direct">He <span class="hl-red">warned</span> us not to eat cold pizza.</div>
+            <div class="ex-ua">Він <span class="hl-red">попередив</span> нас не їсти холодну піцу.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── 5. REPORTED QUESTIONS ───── -->
+  <div class="divider"></div>
+  <section id="questions">
+    <div class="section-title">
+      <div class="icon" style="background:#F1F8E9;">❓</div>
+      Reported Questions / Непряме питання
+    </div>
+    <div class="card fade-in">
+      <div class="bilingual">
+        <div class="lang-en">
+          <div class="lang-label">🇬🇧 English</div>
+          <p>When you report a question, <strong>3 things change:</strong></p>
+          <ul style="margin-top:8px; padding-left:18px; line-height:2">
+            <li>The verb tense <strong>shifts back</strong></li>
+            <li>The word order becomes <strong>normal</strong> (Subject + Verb, NOT question order)</li>
+            <li>No question mark <strong>?</strong> at the end</li>
+          </ul>
+        </div>
+        <div class="lang-ua">
+          <div class="lang-label">🇺🇦 Українська</div>
+          <p>Коли переказуєш питання, <strong>3 речі змінюються:</strong></p>
+          <ul style="margin-top:8px; padding-left:18px; line-height:2">
+            <li>Час дієслова <strong>зсувається</strong></li>
+            <li>Порядок слів стає <strong>звичайним</strong> (Subject + Verb, НЕ питальним)</li>
+            <li>Знак питання <strong>?</strong> не ставиться</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- YES/NO questions -->
+      <p style="font-weight:900; font-size:1.05rem; margin:20px 0 12px; color:#558B2F">🟢 Yes/No Questions — use if/whether:</p>
+      <div class="formula">
+        <span class="formula-part">Subject + asked</span>
+        <span class="formula-arrow">+</span>
+        <span class="formula-part">if / whether</span>
+        <span class="formula-arrow">+</span>
+        <span class="formula-part">Subject + Verb (normal order)</span>
+      </div>
+
+      <div class="q-box q-direct">
+        <div class="ex-label">Direct question / Пряме питання</div>
+        <div style="font-size:1.05rem; font-weight:800; color:#33691E; margin-top:4px">"<span class="hl-green">Do</span> you eat pizza every day?"</div>
+        <div style="color:#555; font-size:.9rem; margin-top:4px">«Ти їси піцу щодня?»</div>
+      </div>
+      <div style="text-align:center; font-size:1.5rem; margin:4px 0">⬇️</div>
+      <div class="q-box q-reported">
+        <div class="ex-label">Reported question / Непряме питання</div>
+        <div style="font-size:1.05rem; font-weight:800; color:#E65100; margin-top:4px">He asked me <span class="hl-orange">if</span> I <span class="hl-red">ate</span> pizza every day.</div>
+        <div style="color:#555; font-size:.9rem; margin-top:4px">Він запитав мене, чи їм я піцу щодня.</div>
+      </div>
+
+      <!-- WH questions -->
+      <p style="font-weight:900; font-size:1.05rem; margin:20px 0 12px; color:#558B2F">🔵 Wh- Questions — keep the question word:</p>
+      <div class="formula">
+        <span class="formula-part">Subject + asked</span>
+        <span class="formula-arrow">+</span>
+        <span class="formula-part">wh-word</span>
+        <span class="formula-arrow">+</span>
+        <span class="formula-part">Subject + Verb (normal order!)</span>
+      </div>
+
+      <div class="q-box q-direct">
+        <div class="ex-label">Direct</div>
+        <div style="font-size:1.05rem; font-weight:800; color:#33691E; margin-top:4px">"<span class="hl-green">Why</span> do you eat pizza every day?"</div>
+        <div style="color:#555; font-size:.9rem; margin-top:4px">«Чому ти їси піцу щодня?»</div>
+      </div>
+      <div style="text-align:center; font-size:1.5rem; margin:4px 0">⬇️</div>
+      <div class="q-box q-reported">
+        <div class="ex-label">Reported</div>
+        <div style="font-size:1.05rem; font-weight:800; color:#E65100; margin-top:4px">She asked me <span class="hl-orange">why</span> I <span class="hl-red">ate</span> pizza every day.</div>
+        <div style="color:#555; font-size:.9rem; margin-top:4px">Вона запитала мене, чому я їм піцу щодня.</div>
+      </div>
+
+      <!-- More examples -->
+      <div style="margin-top:20px; background:#F8F9FF; border-radius:14px; padding:18px; border:2px solid #C5CAE9">
+        <p style="font-weight:900; color:#3949AB; margin-bottom:14px">📚 More question examples / Більше прикладів питань:</p>
+
+        <div class="example-block">
+          <div class="ex-row">
+            <div class="ex-label">Direct</div>
+            <div class="ex-direct">"<span class="hl-green">Where</span> do you eat pizza?"</div>
+          </div>
+          <div class="ex-row">
+            <div class="ex-label">Reported</div>
+            <div class="ex-reported">He asked me <span class="hl-orange">where</span> I <span class="hl-red">ate</span> pizza.</div>
+            <div class="ex-ua">Він запитав, де я їм піцу.</div>
+          </div>
+        </div>
+
+        <div class="example-block">
+          <div class="ex-row">
+            <div class="ex-label">Direct</div>
+            <div class="ex-direct">"<span class="hl-green">When</span> will you eat pizza again?"</div>
+          </div>
+          <div class="ex-row">
+            <div class="ex-label">Reported</div>
+            <div class="ex-reported">She asked me <span class="hl-orange">when</span> I <span class="hl-red">would</span> eat pizza again.</div>
+            <div class="ex-ua">Вона запитала, коли я знову їстиму піцу.</div>
+          </div>
+        </div>
+
+        <div class="example-block">
+          <div class="ex-row">
+            <div class="ex-label">Direct</div>
+            <div class="ex-direct">"<span class="hl-green">How often</span> do you eat pizza?"</div>
+          </div>
+          <div class="ex-row">
+            <div class="ex-label">Reported</div>
+            <div class="ex-reported">They asked me <span class="hl-orange">how often</span> I <span class="hl-red">ate</span> pizza.</div>
+            <div class="ex-ua">Вони запитали, як часто я їм піцу.</div>
+          </div>
+        </div>
+
+        <div style="background:#FFF8E1; border-radius:12px; padding:12px 16px; margin-top:10px; border-left:4px solid #FFC107">
+          <strong>⚠️ Remember! / Запам'ятай!</strong> No question marks in reported questions, and the verb order goes back to normal (Subject + Verb):<br>
+          <span style="color:#C62828">❌ She asked me why did I eat pizza.</span><br>
+          <span style="color:#2E7D32">✅ She asked me why I ate pizza.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── 6. COMMANDS ───── -->
+  <div class="divider"></div>
+  <section id="commands">
+    <div class="section-title">
+      <div class="icon" style="background:#FBE9E7;">📢</div>
+      Reported Commands & Requests / Накази та прохання
+    </div>
+    <div class="card fade-in">
+      <div class="bilingual">
+        <div class="lang-en">
+          <div class="lang-label">🇬🇧 English</div>
+          <p>Commands and requests use <strong>tell / ask + object + to-infinitive</strong>. For negative commands, use <strong>not to + verb</strong>.</p>
+        </div>
+        <div class="lang-ua">
+          <div class="lang-label">🇺🇦 Українська</div>
+          <p>Накази та прохання передаємо через <strong>tell / ask + особа + to-infinitive</strong>. Для заперечення — <strong>not to + дієслово</strong>.</p>
+        </div>
+      </div>
+
+      <div class="formula" style="margin-top:18px">
+        <span class="formula-part">told / asked + person</span>
+        <span class="formula-arrow">+</span>
+        <span class="formula-part">(not) to + verb</span>
+      </div>
+
+      <!-- Commands examples -->
+      <div class="cmd-box cmd-direct" style="margin-top:16px">
+        <div class="ex-label">Direct command / Прямий наказ</div>
+        <div style="font-size:1.05rem; font-weight:800; color:#BF360C; margin-top:4px">"<span class="hl-red">Eat</span> your pizza now!" (Mum to me)</div>
+        <div style="color:#555; font-size:.9rem; margin-top:4px">«Їж свою піцу зараз!»</div>
+      </div>
+      <div style="text-align:center; font-size:1.5rem; margin:4px 0">⬇️</div>
+      <div class="cmd-box cmd-reported">
+        <div class="ex-label">Reported command / Непрямий наказ</div>
+        <div style="font-size:1.05rem; font-weight:800; color:#4A148C; margin-top:4px">Mum <span class="hl-purple">told</span> me <span class="hl-purple">to eat</span> my pizza then.</div>
+        <div style="color:#555; font-size:.9rem; margin-top:4px">Мама наказала мені їсти піцу в той момент.</div>
+      </div>
+
+      <div style="margin-top:14px">
+        <div class="cmd-box cmd-direct">
+          <div class="ex-label">Direct negative command / Пряме заперечення</div>
+          <div style="font-size:1.05rem; font-weight:800; color:#BF360C; margin-top:4px">"<span class="hl-red">Don't eat</span> pizza without me!"</div>
+          <div style="color:#555; font-size:.9rem; margin-top:4px">«Не їж піцу без мене!»</div>
+        </div>
+        <div style="text-align:center; font-size:1.5rem; margin:4px 0">⬇️</div>
+        <div class="cmd-box cmd-reported">
+          <div class="ex-label">Reported / Непряме</div>
+          <div style="font-size:1.05rem; font-weight:800; color:#4A148C; margin-top:4px">He <span class="hl-purple">told</span> me <span class="hl-purple">not to eat</span> pizza without him.</div>
+          <div style="color:#555; font-size:.9rem; margin-top:4px">Він наказав мені не їсти піцу без нього.</div>
+        </div>
+      </div>
+
+      <!-- Request -->
+      <div style="margin-top:14px">
+        <div class="cmd-box cmd-direct">
+          <div class="ex-label">Direct request / Пряме прохання</div>
+          <div style="font-size:1.05rem; font-weight:800; color:#BF360C; margin-top:4px">"<span class="hl-red">Please save</span> some pizza for me."</div>
+          <div style="color:#555; font-size:.9rem; margin-top:4px">«Будь ласка, залиш мені трохи піци.»</div>
+        </div>
+        <div style="text-align:center; font-size:1.5rem; margin:4px 0">⬇️</div>
+        <div class="cmd-box cmd-reported">
+          <div class="ex-label">Reported / Непряме</div>
+          <div style="font-size:1.05rem; font-weight:800; color:#4A148C; margin-top:4px">She <span class="hl-purple">asked</span> me <span class="hl-purple">to save</span> some pizza for her.</div>
+          <div style="color:#555; font-size:.9rem; margin-top:4px">Вона попросила мене залишити їй трохи піци.</div>
+        </div>
+      </div>
+
+      <!-- More commands table -->
+      <div style="margin-top:20px; background:#F8F9FF; border-radius:14px; padding:18px; border:2px solid #C5CAE9">
+        <p style="font-weight:900; color:#3949AB; margin-bottom:14px">📚 More command examples / Більше прикладів наказів:</p>
+        <div class="example-block">
+          <div class="ex-row">
+            <div class="ex-label">Direct (teacher)</div>
+            <div class="ex-direct">"<span class="hl-red">Sit down</span> and open your books!"</div>
+          </div>
+          <div class="ex-row">
+            <div class="ex-label">Reported</div>
+            <div class="ex-reported">The teacher <span class="hl-purple">told</span> us <span class="hl-purple">to sit down</span> and <span class="hl-purple">open</span> our books.</div>
+            <div class="ex-ua">Вчитель наказав нам сісти й відкрити книги.</div>
+          </div>
+        </div>
+        <div class="example-block">
+          <div class="ex-row">
+            <div class="ex-label">Direct (doctor)</div>
+            <div class="ex-direct">"<span class="hl-red">Don't eat</span> any sweets for a week."</div>
+          </div>
+          <div class="ex-row">
+            <div class="ex-label">Reported</div>
+            <div class="ex-reported">The doctor <span class="hl-purple">told</span> me <span class="hl-purple">not to eat</span> any sweets for a week.</div>
+            <div class="ex-ua">Лікар наказав мені не їсти солодощів тиждень.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── 7. SAY vs TELL ───── -->
+  <div class="divider"></div>
+  <section id="saytell">
+    <div class="section-title">
+      <div class="icon" style="background:#E8F5E9;">🆚</div>
+      Say vs Tell / Сказати vs Розповісти
+    </div>
+    <div class="card fade-in">
+      <div class="bilingual">
+        <div class="lang-en">
+          <div class="lang-label">🇬🇧 English</div>
+          <p>This is one of the most common mistakes! The difference is simple:</p>
+        </div>
+        <div class="lang-ua">
+          <div class="lang-label">🇺🇦 Українська</div>
+          <p>Це одна з найпоширеніших помилок! Різниця проста:</p>
+        </div>
+      </div>
+
+      <div class="say-tell" style="margin-top:18px">
+        <div class="say-box">
+          <div class="st-title">SAY 💬</div>
+          <div class="bilingual">
+            <div class="lang-en" style="background:transparent; border:none; padding:0">
+              <p>✅ <strong>say something</strong></p>
+              <p>✅ <strong>say to someone</strong></p>
+              <p style="margin-top:8px">NO direct object (person) after "say"</p>
+            </div>
+            <div class="lang-ua" style="background:transparent; border:none; padding:0">
+              <p>✅ <strong>say something</strong></p>
+              <p>✅ <strong>say to someone</strong></p>
+              <p style="margin-top:8px">Після "say" НЕ ставимо особу напряму</p>
+            </div>
+          </div>
+          <div style="margin-top:12px; background:rgba(255,255,255,.7); border-radius:10px; padding:10px 14px">
+            <div class="ex-direct">She <span class="hl-green">said</span> that she ate pizza. ✅</div>
+            <div class="ex-direct" style="margin-top:4px">She <span class="hl-green">said to me</span> that she ate pizza. ✅</div>
+            <div style="color:#C62828; font-weight:700; margin-top:4px">She <span style="text-decoration:line-through">said me</span> that she ate pizza. ❌</div>
+          </div>
+        </div>
+
+        <div class="tell-box">
+          <div class="st-title">TELL 📣</div>
+          <div class="bilingual">
+            <div class="lang-en" style="background:transparent; border:none; padding:0">
+              <p>✅ <strong>tell someone</strong></p>
+              <p>ALWAYS needs a person after it!</p>
+            </div>
+            <div class="lang-ua" style="background:transparent; border:none; padding:0">
+              <p>✅ <strong>tell someone</strong></p>
+              <p>ЗАВЖДИ потребує особи після себе!</p>
+            </div>
+          </div>
+          <div style="margin-top:12px; background:rgba(255,255,255,.7); border-radius:10px; padding:10px 14px">
+            <div class="ex-direct">She <span class="hl-blue">told me</span> that she ate pizza. ✅</div>
+            <div class="ex-direct" style="margin-top:4px">She <span class="hl-blue">told</span> him the truth. ✅</div>
+            <div style="color:#C62828; font-weight:700; margin-top:4px">She <span style="text-decoration:line-through">told</span> that she ate pizza. ❌</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:#FFF8E1; border-radius:14px; padding:16px 20px; margin-top:16px; border:2px solid #FFC107">
+        <p style="font-weight:900; color:#E65100; margin-bottom:10px">🧠 Memory trick / Підказка для запам'ятовування:</p>
+        <div class="bilingual">
+          <div class="lang-en" style="background:transparent; border:none; padding:0">
+            <strong>TELL</strong> = has a target 🎯 — you always tell <em>someone</em><br>
+            <strong>SAY</strong> = floats free 🌬️ — you just say something
+          </div>
+          <div class="lang-ua" style="background:transparent; border:none; padding:0">
+            <strong>TELL</strong> = має ціль 🎯 — ти завжди розповідаєш <em>комусь</em><br>
+            <strong>SAY</strong> = вільне 🌬️ — ти просто щось кажеш
+          </div>
+        </div>
+      </div>
+
+      <!-- Special TELL phrases -->
+      <div style="margin-top:16px; background:#E3F2FD; border-radius:14px; padding:16px 20px; border:2px solid #90CAF9">
+        <p style="font-weight:900; color:#0D47A1; margin-bottom:10px">📌 Fixed "tell" phrases (no "that") / Сталі фрази з "tell":</p>
+        <div class="tw-grid" style="margin:0">
+          <div class="tw-item"><span class="tw-from" style="font-size:.85rem">tell the truth</span><span class="tw-arr"></span><span class="tw-to" style="font-size:.8rem">говорити правду</span></div>
+          <div class="tw-item"><span class="tw-from" style="font-size:.85rem">tell a lie</span><span class="tw-arr"></span><span class="tw-to" style="font-size:.8rem">брехати</span></div>
+          <div class="tw-item"><span class="tw-from" style="font-size:.85rem">tell a story</span><span class="tw-arr"></span><span class="tw-to" style="font-size:.8rem">розповідати історію</span></div>
+          <div class="tw-item"><span class="tw-from" style="font-size:.85rem">tell a joke</span><span class="tw-arr"></span><span class="tw-to" style="font-size:.8rem">розповісти жарт</span></div>
+          <div class="tw-item"><span class="tw-from" style="font-size:.85rem">tell the time</span><span class="tw-arr"></span><span class="tw-to" style="font-size:.8rem">сказати час</span></div>
+          <div class="tw-item"><span class="tw-from" style="font-size:.85rem">tell the difference</span><span class="tw-arr"></span><span class="tw-to" style="font-size:.8rem">відрізнити</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── 8. ALL EXAMPLES ───── -->
+  <div class="divider"></div>
+  <section id="all-examples">
+    <div class="section-title">
+      <div class="icon" style="background:#FFF3E0;">🌟</div>
+      Real-Life Examples / Приклади з реального життя
+    </div>
+
+    <div class="card fade-in" style="border:3px solid #FFD54F">
+      <p style="font-weight:900; font-size:1.1rem; color:#E65100; margin-bottom:18px">🍕 Our magic sentence in ALL situations / Наше чарівне речення у ВСІХ ситуаціях:</p>
+
+      <div class="situations-grid">
+
+        <div style="background:#E8F5E9; border-radius:14px; padding:16px; border:2px solid #A5D6A7">
+          <div style="font-weight:900; color:#1B5E20; margin-bottom:8px">📝 Statement</div>
+          <div style="font-size:.88rem; color:#2E7D32; font-weight:700">"I eat pizza every day."</div>
+          <div style="font-size:.85rem; color:#555; margin:4px 0">→ She said she <strong>ate</strong> pizza every day.</div>
+          <div style="font-size:.82rem; color:#888; font-style:italic">Вона сказала, що їла піцу щодня.</div>
+        </div>
+
+        <div style="background:#FCE4EC; border-radius:14px; padding:16px; border:2px solid #F48FB1">
+          <div style="font-weight:900; color:#880E4F; margin-bottom:8px">❓ Yes/No Question</div>
+          <div style="font-size:.88rem; color:#AD1457; font-weight:700">"Do you eat pizza every day?"</div>
+          <div style="font-size:.85rem; color:#555; margin:4px 0">→ He asked if I <strong>ate</strong> pizza every day.</div>
+          <div style="font-size:.82rem; color:#888; font-style:italic">Він запитав, чи їм я піцу щодня.</div>
+        </div>
+
+        <div style="background:#FFF3E0; border-radius:14px; padding:16px; border:2px solid #FFCC80">
+          <div style="font-weight:900; color:#E65100; margin-bottom:8px">🔍 Wh- Question</div>
+          <div style="font-size:.88rem; color:#BF360C; font-weight:700">"Why do you eat pizza every day?"</div>
+          <div style="font-size:.85rem; color:#555; margin:4px 0">→ She asked why I <strong>ate</strong> pizza every day.</div>
+          <div style="font-size:.82rem; color:#888; font-style:italic">Вона запитала, чому я їм піцу щодня.</div>
+        </div>
+
+        <div style="background:#EDE7F6; border-radius:14px; padding:16px; border:2px solid #CE93D8">
+          <div style="font-weight:900; color:#4A148C; margin-bottom:8px">📢 Command</div>
+          <div style="font-size:.88rem; color:#6A1B9A; font-weight:700">"Eat pizza every day!"</div>
+          <div style="font-size:.85rem; color:#555; margin:4px 0">→ He told me <strong>to eat</strong> pizza every day.</div>
+          <div style="font-size:.82rem; color:#888; font-style:italic">Він наказав мені їсти піцу щодня.</div>
+        </div>
+
+        <div style="background:#E3F2FD; border-radius:14px; padding:16px; border:2px solid #90CAF9">
+          <div style="font-weight:900; color:#0D47A1; margin-bottom:8px">🙏 Request</div>
+          <div style="font-size:.88rem; color:#1565C0; font-weight:700">"Please eat pizza with me every day!"</div>
+          <div style="font-size:.85rem; color:#555; margin:4px 0">→ She asked me <strong>to eat</strong> pizza with her every day.</div>
+          <div style="font-size:.82rem; color:#888; font-style:italic">Вона попросила мене їсти піцу з нею щодня.</div>
+        </div>
+
+        <div style="background:#F1F8E9; border-radius:14px; padding:16px; border:2px solid #AED581">
+          <div style="font-weight:900; color:#33691E; margin-bottom:8px">💡 Suggestion</div>
+          <div style="font-size:.88rem; color:#558B2F; font-weight:700">"Why don't we eat pizza every day?"</div>
+          <div style="font-size:.85rem; color:#555; margin:4px 0">→ He <strong>suggested eating</strong> pizza every day.</div>
+          <div style="font-size:.82rem; color:#888; font-style:italic">Він запропонував їсти піцу щодня.</div>
+        </div>
+
+        <div style="background:#FBE9E7; border-radius:14px; padding:16px; border:2px solid #FFAB91">
+          <div style="font-weight:900; color:#BF360C; margin-bottom:8px">⚠️ Warning</div>
+          <div style="font-size:.88rem; color:#D84315; font-weight:700">"Don't eat pizza every day — it's unhealthy!"</div>
+          <div style="font-size:.85rem; color:#555; margin:4px 0">→ Mum <strong>warned</strong> me <strong>not to eat</strong> pizza every day.</div>
+          <div style="font-size:.82rem; color:#888; font-style:italic">Мама попередила мене не їсти піцу щодня.</div>
+        </div>
+
+        <div style="background:#E8EAF6; border-radius:14px; padding:16px; border:2px solid #9FA8DA">
+          <div style="font-weight:900; color:#1A237E; margin-bottom:8px">🤞 Promise</div>
+          <div style="font-size:.88rem; color:#283593; font-weight:700">"I will eat pizza with you every day!"</div>
+          <div style="font-size:.85rem; color:#555; margin:4px 0">→ She <strong>promised to eat</strong> pizza with me every day.</div>
+          <div style="font-size:.82rem; color:#888; font-style:italic">Вона пообіцяла їсти піцу зі мною щодня.</div>
+        </div>
+
+        <div style="background:#E0F2F1; border-radius:14px; padding:16px; border:2px solid #80CBC4">
+          <div style="font-weight:900; color:#004D40; margin-bottom:8px">✅ Agreement</div>
+          <div style="font-size:.88rem; color:#00695C; font-weight:700">"Yes, eating pizza every day is wonderful!"</div>
+          <div style="font-size:.85rem; color:#555; margin:4px 0">→ He <strong>agreed that</strong> eating pizza every day was wonderful.</div>
+          <div style="font-size:.82rem; color:#888; font-style:italic">Він погодився, що їсти піцу щодня чудово.</div>
+        </div>
+
+        <div style="background:#FFF8E1; border-radius:14px; padding:16px; border:2px solid #FFE082">
+          <div style="font-weight:900; color:#FF6F00; margin-bottom:8px">🙅 Denial</div>
+          <div style="font-size:.88rem; color:#E65100; font-weight:700">"I don't eat pizza every day!"</div>
+          <div style="font-size:.85rem; color:#555; margin:4px 0">→ She <strong>denied eating</strong> pizza every day.</div>
+          <div style="font-size:.82rem; color:#888; font-style:italic">Вона заперечила, що їсть піцу щодня.</div>
+        </div>
+
+        <div style="background:#FFEBEE; border-radius:14px; padding:16px; border:2px solid #EF9A9A">
+          <div style="font-weight:900; color:#B71C1C; margin-bottom:8px">😤 Complaint</div>
+          <div style="font-size:.88rem; color:#C62828; font-weight:700">"I'm so tired of eating pizza every day!"</div>
+          <div style="font-size:.85rem; color:#555; margin:4px 0">→ He <strong>complained that</strong> he was tired of eating pizza every day.</div>
+          <div style="font-size:.82rem; color:#888; font-style:italic">Він поскаржився, що втомився їсти піцу щодня.</div>
+        </div>
+
+        <div style="background:#F3E5F5; border-radius:14px; padding:16px; border:2px solid #CE93D8">
+          <div style="font-weight:900; color:#4A148C; margin-bottom:8px">😲 Exclamation</div>
+          <div style="font-size:.88rem; color:#6A1B9A; font-weight:700">"How incredible that I eat pizza every day!"</div>
+          <div style="font-size:.85rem; color:#555; margin:4px 0">→ She <strong>exclaimed how incredible</strong> it was that she ate pizza every day.</div>
+          <div style="font-size:.82rem; color:#888; font-style:italic">Вона вигукнула, що неймовірно їла піцу щодня.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- EXTRA REAL LIFE SCENARIOS -->
+    <div class="card fade-in" style="border:3px solid #90CAF9">
+      <p style="font-weight:900; font-size:1.1rem; color:#0D47A1; margin-bottom:18px">🏫 Real Situations / Реальні ситуації:</p>
+
+      <div class="example-block">
+        <div class="ex-title">👨‍🏫 At School / У школі</div>
+        <div class="ex-row">
+          <div class="ex-label">Direct</div>
+          <div class="ex-direct">Teacher: "Open your textbooks to page 45."</div>
+        </div>
+        <div class="ex-row">
+          <div class="ex-label">Reported</div>
+          <div class="ex-reported">The teacher told us to open our textbooks to page 45.</div>
+          <div class="ex-ua">Вчитель наказав нам відкрити підручники на сторінці 45.</div>
+        </div>
+      </div>
+
+      <div class="example-block">
+        <div class="ex-title">👨‍⚕️ At the Doctor's / У лікаря</div>
+        <div class="ex-row">
+          <div class="ex-label">Direct</div>
+          <div class="ex-direct">Doctor: "You need to rest for three days."</div>
+        </div>
+        <div class="ex-row">
+          <div class="ex-label">Reported</div>
+          <div class="ex-reported">The doctor told me that I needed to rest for three days.</div>
+          <div class="ex-ua">Лікар сказав мені, що мені потрібно відпочити три дні.</div>
+        </div>
+      </div>
+
+      <div class="example-block">
+        <div class="ex-title">📱 Texting a friend / Переписка з другом</div>
+        <div class="ex-row">
+          <div class="ex-label">Direct</div>
+          <div class="ex-direct">Anna: "I can't come to the party."</div>
+        </div>
+        <div class="ex-row">
+          <div class="ex-label">Reported</div>
+          <div class="ex-reported">Anna said she couldn't come to the party.</div>
+          <div class="ex-ua">Анна сказала, що не може прийти на вечірку.</div>
+        </div>
+      </div>
+
+      <div class="example-block">
+        <div class="ex-title">📺 News / Новини</div>
+        <div class="ex-row">
+          <div class="ex-label">Direct</div>
+          <div class="ex-direct">The president: "We will build a new hospital."</div>
+        </div>
+        <div class="ex-row">
+          <div class="ex-label">Reported</div>
+          <div class="ex-reported">The president announced that they would build a new hospital.</div>
+          <div class="ex-ua">Президент оголосив, що вони збудують нову лікарню.</div>
+        </div>
+      </div>
+
+      <div class="example-block">
+        <div class="ex-title">🛍️ Shopping / У магазині</div>
+        <div class="ex-row">
+          <div class="ex-label">Direct</div>
+          <div class="ex-direct">Shop assistant: "This item is on sale today."</div>
+        </div>
+        <div class="ex-row">
+          <div class="ex-label">Reported</div>
+          <div class="ex-reported">The shop assistant said that item was on sale that day.</div>
+          <div class="ex-ua">Продавець сказав, що цей товар був на розпродажі того дня.</div>
+        </div>
+      </div>
+
+      <div class="example-block">
+        <div class="ex-title">✈️ At the Airport / В аеропорту</div>
+        <div class="ex-row">
+          <div class="ex-label">Direct</div>
+          <div class="ex-direct">Announcement: "The flight has been delayed by two hours."</div>
+        </div>
+        <div class="ex-row">
+          <div class="ex-label">Reported</div>
+          <div class="ex-reported">They announced that the flight had been delayed by two hours.</div>
+          <div class="ex-ua">Вони оголосили, що рейс затримався на дві години.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- QUICK REFERENCE SUMMARY -->
+    <div class="mega-sent fade-in" style="margin-top:20px">
+      <div style="font-size:1.2rem; font-weight:900; margin-bottom:16px; color:var(--sun)">📋 Quick Summary / Швидке підсумування</div>
+      <div class="summary-grid">
+        <div style="background:rgba(255,255,255,.12); border-radius:12px; padding:14px; border:1px solid rgba(255,255,255,.25)">
+          <div style="font-weight:900; color:var(--mint); margin-bottom:6px">Statements</div>
+          <div style="font-size:.88rem; opacity:.9">said / told + that + backshifted verb</div>
+        </div>
+        <div style="background:rgba(255,255,255,.12); border-radius:12px; padding:14px; border:1px solid rgba(255,255,255,.25)">
+          <div style="font-weight:900; color:var(--sky); margin-bottom:6px">Yes/No ?</div>
+          <div style="font-size:.88rem; opacity:.9">asked + if/whether + normal order</div>
+        </div>
+        <div style="background:rgba(255,255,255,.12); border-radius:12px; padding:14px; border:1px solid rgba(255,255,255,.25)">
+          <div style="font-weight:900; color:var(--coral); margin-bottom:6px">Wh- ?</div>
+          <div style="font-size:.88rem; opacity:.9">asked + wh-word + normal order</div>
+        </div>
+        <div style="background:rgba(255,255,255,.12); border-radius:12px; padding:14px; border:1px solid rgba(255,255,255,.25)">
+          <div style="font-weight:900; color:var(--lavender); margin-bottom:6px">Commands</div>
+          <div style="font-size:.88rem; opacity:.9">told/asked + person + (not) to + verb</div>
+        </div>
+        <div style="background:rgba(255,255,255,.12); border-radius:12px; padding:14px; border:1px solid rgba(255,255,255,.25)">
+          <div style="font-weight:900; color:var(--sun); margin-bottom:6px">Say vs Tell</div>
+          <div style="font-size:.88rem; opacity:.9">say (something) / tell + someone</div>
+        </div>
+        <div style="background:rgba(255,255,255,.12); border-radius:12px; padding:14px; border:1px solid rgba(255,255,255,.25)">
+          <div style="font-weight:900; color:var(--mint); margin-bottom:6px">Time Words</div>
+          <div style="font-size:.88rem; opacity:.9">now→then, today→that day, here→there…</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div style="font-size:2rem; margin-bottom:10px">🍕</div>
+  <p style="font-weight:800; font-size:1.1rem; color:#3949AB">You've mastered Reported Speech! / Ти опанував Непряму мову!</p>
+  <p style="margin-top:8px; opacity:.7">Practice makes perfect — keep reporting! 💪</p>
+</footer>
+
+<script>
+  // Scroll animation
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+</body>
+</html>

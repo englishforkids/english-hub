@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simple Aspect – English Grammar</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sun: #FFD93D;
+    --coral: #FF6B6B;
+    --mint: #6BCB77;
+    --sky: #4D96FF;
+    --lavender: #C77DFF;
+    --peach: #FFB347;
+    --bg: #FFF8F0;
+    --dark: #1a1a2e;
+    --card-shadow: 0 8px 32px rgba(0,0,0,0.10);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--dark);
+    overflow-x: hidden;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+    color: white;
+    padding: 60px 20px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 20% 50%, rgba(77,150,255,0.25) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 30%, rgba(255,107,107,0.20) 0%, transparent 60%);
+  }
+  .hero-badge {
+    display: inline-block;
+    background: var(--sun);
+    color: var(--dark);
+    font-weight: 800;
+    font-size: 0.85rem;
+    padding: 6px 18px;
+    border-radius: 20px;
+    margin-bottom: 18px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    animation: bounceIn 0.8s ease;
+  }
+  .hero h1 {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(2.8rem, 8vw, 5.5rem);
+    line-height: 1.1;
+    margin-bottom: 12px;
+    animation: slideDown 0.9s ease;
+  }
+  .hero h1 span { color: var(--sun); }
+  .hero-sub {
+    font-size: clamp(1rem, 3vw, 1.35rem);
+    opacity: 0.85;
+    max-width: 640px;
+    margin: 0 auto 14px;
+    animation: slideDown 1.1s ease;
+  }
+  .hero-ua {
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    opacity: 0.65;
+    font-style: italic;
+    animation: slideDown 1.2s ease;
+  }
+  .stars {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+  }
+  .star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 3s infinite alternate;
+  }
+
+  /* ===== LAYOUT ===== */
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+  section { padding: 60px 0; }
+
+  /* ===== SECTION TITLES ===== */
+  .sec-title {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .sec-title h2 {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .sec-title p {
+    margin-top: 8px;
+    font-size: 1.05rem;
+    opacity: 0.7;
+    font-style: italic;
+  }
+
+  /* ===== WHAT IS CARD ===== */
+  .what-is {
+    background: white;
+    border-radius: 28px;
+    padding: 40px 36px;
+    box-shadow: var(--card-shadow);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+    align-items: center;
+    border-left: 8px solid var(--sky);
+  }
+  @media(max-width:680px){ .what-is { grid-template-columns:1fr; } }
+  .what-is-text h3 { font-family:'Fredoka One',cursive; font-size:1.6rem; color:var(--sky); margin-bottom:12px; }
+  .what-is-text p { line-height:1.8; margin-bottom:10px; font-size:1.05rem; }
+  .what-is-text .ua { color:#888; font-style:italic; font-size:0.95rem; }
+  .what-is-visual {
+    background: linear-gradient(135deg, #e0f0ff, #f0e8ff);
+    border-radius: 20px;
+    padding: 28px;
+    text-align: center;
+  }
+  .big-emoji { font-size: 5rem; display: block; margin-bottom: 14px; animation: float 3s ease-in-out infinite; }
+  .what-is-visual p { font-weight: 700; font-size: 1.1rem; color: var(--dark); }
+
+  /* ===== SHADE BOX ===== */
+  .shade-box {
+    background: linear-gradient(135deg, #fff9e6, #fff3cd);
+    border: 3px solid var(--sun);
+    border-radius: 24px;
+    padding: 32px;
+    text-align: center;
+    margin: 40px 0;
+    box-shadow: 0 4px 20px rgba(255,211,61,0.25);
+  }
+  .shade-box h3 { font-family:'Fredoka One',cursive; font-size:1.6rem; color:#c07a00; margin-bottom:14px; }
+  .shade-grid { display:flex; flex-wrap:wrap; gap:16px; justify-content:center; margin-top:20px; }
+  .shade-tag {
+    background: white;
+    border: 2px solid var(--sun);
+    border-radius: 50px;
+    padding: 10px 22px;
+    font-weight: 700;
+    font-size: 1rem;
+    display: flex; align-items: center; gap: 8px;
+  }
+
+  /* ===== TENSE SECTIONS ===== */
+  .tense-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px,1fr)); gap: 28px; }
+
+  .tense-card {
+    border-radius: 24px;
+    padding: 32px 28px;
+    box-shadow: var(--card-shadow);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .tense-card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(0,0,0,0.15); }
+  .tense-card.present { background: linear-gradient(135deg, #e8f8ed, #d4f4de); border-top: 6px solid var(--mint); }
+  .tense-card.past    { background: linear-gradient(135deg, #fff0e8, #ffe0cc); border-top: 6px solid var(--coral); }
+  .tense-card.future  { background: linear-gradient(135deg, #e8f0ff, #d8e8ff); border-top: 6px solid var(--sky); }
+
+  .tense-header { display:flex; align-items:center; gap:14px; margin-bottom:20px; }
+  .tense-icon { font-size:2.8rem; }
+  .tense-header h3 { font-family:'Fredoka One',cursive; font-size:1.5rem; }
+  .tense-header .tense-ua { font-size:0.85rem; opacity:0.65; font-style:italic; }
+
+  /* Formula */
+  .formula-box {
+    background: rgba(255,255,255,0.75);
+    border-radius: 14px;
+    padding: 14px 18px;
+    margin: 16px 0;
+    font-size: 0.95rem;
+    border-left: 4px solid currentColor;
+  }
+  .formula-box .label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 800; opacity: 0.6; margin-bottom: 6px; }
+  .formula { font-family: monospace; font-size: 1.05rem; font-weight: 700; }
+  .formula .plus { color: #aaa; }
+  .formula .part { display: inline-block; background: rgba(0,0,0,0.07); border-radius: 6px; padding: 2px 8px; margin: 2px; }
+
+  /* When-to-use */
+  .when-list { list-style: none; padding: 0; }
+  .when-list li {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 8px 0;
+    font-size: 0.97rem;
+    line-height: 1.6;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+  .when-list li:last-child { border-bottom: none; }
+  .when-list .bullet { font-size: 1.2rem; flex-shrink: 0; margin-top: 2px; }
+
+  /* ===== MAGIC SENTENCE ===== */
+  .magic-section { background: linear-gradient(135deg, #1a1a2e, #16213e); color: white; border-radius: 32px; padding: 48px 36px; text-align: center; margin: 50px 0; }
+  .magic-section h2 { font-family:'Fredoka One',cursive; font-size:2rem; color:var(--sun); margin-bottom:8px; }
+  .magic-section .intro { opacity:0.75; margin-bottom:30px; font-size:1.05rem; }
+  .magic-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; text-align: left; }
+  .magic-card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 18px;
+    padding: 22px 20px;
+    transition: background 0.3s;
+  }
+  .magic-card:hover { background: rgba(255,255,255,0.12); }
+  .magic-card .tense-label {
+    font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 800;
+    margin-bottom: 10px; display: flex; align-items: center; gap: 8px;
+  }
+  .magic-card .tense-label span { padding: 3px 10px; border-radius: 20px; font-size: 0.75rem; }
+  .magic-card .tense-label span.present { background: var(--mint); color: #1a1a2e; }
+  .magic-card .tense-label span.past    { background: var(--coral); color: white; }
+  .magic-card .tense-label span.future  { background: var(--sky); color: white; }
+  .magic-sentence { font-size: 1.15rem; font-weight: 700; line-height: 1.5; margin-bottom: 8px; }
+  .magic-sentence .highlight { color: var(--sun); }
+  .magic-ua { font-size: 0.88rem; opacity: 0.6; font-style: italic; }
+
+  /* ===== EXAMPLES TABLE ===== */
+  .examples-section { background: white; }
+  .examples-tabs { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-bottom:32px; }
+  .tab-btn {
+    padding: 10px 26px;
+    border-radius: 50px;
+    border: 2px solid #ddd;
+    background: white;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.25s;
+  }
+  .tab-btn.active-present { background: var(--mint); border-color: var(--mint); color: white; }
+  .tab-btn.active-past    { background: var(--coral); border-color: var(--coral); color: white; }
+  .tab-btn.active-future  { background: var(--sky); border-color: var(--sky); color: white; }
+  .tab-btn.active-neg     { background: var(--lavender); border-color: var(--lavender); color: white; }
+  .tab-btn.active-quest   { background: var(--peach); border-color: var(--peach); color: var(--dark); }
+  .tab-btn:hover { transform: scale(1.05); }
+
+  .tab-content { display: none; }
+  .tab-content.active { display: block; animation: fadeIn 0.4s ease; }
+
+  .ex-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+  .ex-card {
+    border-radius: 16px;
+    padding: 18px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .ex-card.present { background: linear-gradient(135deg, #e8f8ed, #f0fdf4); border-left: 5px solid var(--mint); }
+  .ex-card.past    { background: linear-gradient(135deg, #fff0e8, #fff7f0); border-left: 5px solid var(--coral); }
+  .ex-card.future  { background: linear-gradient(135deg, #e8f0ff, #f0f5ff); border-left: 5px solid var(--sky); }
+  .ex-card.neg     { background: linear-gradient(135deg, #f5e8ff, #faf0ff); border-left: 5px solid var(--lavender); }
+  .ex-card.quest   { background: linear-gradient(135deg, #fff4e8, #fffaf0); border-left: 5px solid var(--peach); }
+
+  .ex-emoji { font-size: 1.6rem; margin-bottom: 8px; }
+  .ex-en { font-weight: 700; font-size: 1rem; margin-bottom: 5px; line-height: 1.4; }
+  .ex-key { color: var(--coral); font-weight: 900; }
+  .ex-en .mint  { color: #2e8b47; }
+  .ex-en .sky   { color: #1a5ccc; }
+  .ex-en .lav   { color: #8b2ed6; }
+  .ex-en .peach { color: #c47300; }
+  .ex-ua { font-size: 0.88rem; color: #888; font-style: italic; margin-bottom: 4px; }
+  .ex-context { font-size: 0.78rem; background: rgba(0,0,0,0.06); display: inline-block; padding: 3px 10px; border-radius: 20px; font-weight: 700; }
+
+  /* ===== TIME SIGNALS ===== */
+  .signals-section { background: #f7f0ff; }
+  .signals-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+  .signal-card {
+    background: white;
+    border-radius: 20px;
+    padding: 28px 24px;
+    box-shadow: var(--card-shadow);
+  }
+  .signal-card h4 { font-family:'Fredoka One',cursive; font-size:1.3rem; margin-bottom:16px; display:flex; align-items:center; gap:10px; }
+  .signal-card h4.present { color: var(--mint); }
+  .signal-card h4.past    { color: var(--coral); }
+  .signal-card h4.future  { color: var(--sky); }
+  .signal-tags { display:flex; flex-wrap:wrap; gap:8px; }
+  .signal-tag {
+    padding: 7px 14px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 700;
+  }
+  .signal-tag.present { background: #e8f8ed; color: #2e8b47; }
+  .signal-tag.past    { background: #fff0e8; color: #c04000; }
+  .signal-tag.future  { background: #e8f0ff; color: #1a5ccc; }
+
+  /* ===== NEGATIVES & QUESTIONS ===== */
+  .neg-q-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  @media(max-width:680px){ .neg-q-grid { grid-template-columns:1fr; } }
+  .neg-card {
+    background: linear-gradient(135deg, #f5e8ff, #faf0ff);
+    border-radius: 24px;
+    padding: 30px 26px;
+    border-top: 6px solid var(--lavender);
+    box-shadow: var(--card-shadow);
+  }
+  .q-card {
+    background: linear-gradient(135deg, #fff4e8, #fffaf0);
+    border-radius: 24px;
+    padding: 30px 26px;
+    border-top: 6px solid var(--peach);
+    box-shadow: var(--card-shadow);
+  }
+  .neg-card h3, .q-card h3 { font-family:'Fredoka One',cursive; font-size:1.4rem; margin-bottom:16px; }
+  .neg-card h3 { color: var(--lavender); }
+  .q-card h3   { color: var(--peach); }
+
+  /* ===== QUICK QUIZ ===== */
+  .quiz-section { background: linear-gradient(135deg, #1a1a2e, #0f3460); color: white; border-radius: 32px; padding: 48px 32px; margin: 50px 0; }
+  .quiz-section h2 { font-family:'Fredoka One',cursive; font-size:2rem; color:var(--sun); margin-bottom:8px; text-align:center; }
+  .quiz-intro { text-align:center; opacity:0.7; margin-bottom:32px; }
+  .quiz-items { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: 20px; }
+  .quiz-item { background: rgba(255,255,255,0.07); border-radius: 16px; padding: 22px; }
+  .quiz-q { font-weight: 700; margin-bottom: 14px; font-size: 1rem; }
+  .quiz-q span { color: var(--sun); }
+  .quiz-opts { display: flex; flex-direction: column; gap: 8px; }
+  .quiz-opt {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 10px;
+    padding: 10px 16px;
+    cursor: pointer;
+    font-family:'Nunito',sans-serif;
+    font-size: 0.95rem;
+    color: white;
+    text-align: left;
+    transition: all 0.2s;
+  }
+  .quiz-opt:hover { background: rgba(255,255,255,0.15); }
+  .quiz-opt.correct { background: rgba(107,203,119,0.35); border-color: var(--mint); }
+  .quiz-opt.wrong   { background: rgba(255,107,107,0.30); border-color: var(--coral); }
+  .quiz-feedback { margin-top: 10px; font-size: 0.9rem; min-height: 20px; }
+
+  /* ===== TIPS ===== */
+  .tips-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 20px; }
+  .tip-card {
+    background: white;
+    border-radius: 20px;
+    padding: 26px 22px;
+    box-shadow: var(--card-shadow);
+    text-align: center;
+    border-bottom: 5px solid var(--sun);
+    transition: transform 0.3s;
+  }
+  .tip-card:hover { transform: translateY(-5px); }
+  .tip-card .tip-icon { font-size: 2.8rem; margin-bottom: 12px; }
+  .tip-card h4 { font-family:'Fredoka One',cursive; font-size:1.1rem; margin-bottom:8px; color:var(--dark); }
+  .tip-card p { font-size: 0.9rem; opacity: 0.75; line-height: 1.6; }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--dark);
+    color: white;
+    text-align: center;
+    padding: 32px 20px;
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+
+  /* ===== ANIMATIONS ===== */
+  @keyframes bounceIn { from { opacity:0; transform:scale(0.6) translateY(-20px); } to { opacity:1; transform:scale(1) translateY(0); } }
+  @keyframes slideDown { from { opacity:0; transform:translateY(-30px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
+  @keyframes twinkle { from{opacity:0.2;transform:scale(0.8)} to{opacity:1;transform:scale(1.1)} }
+  @keyframes fadeIn { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+
+  /* ===== SCROLL FADE IN ===== */
+  .fade-in { opacity:0; transform:translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-in.visible { opacity:1; transform:translateY(0); }
+
+  /* ===== PROGRESS INDICATOR ===== */
+  .progress-bar { position:fixed; top:0; left:0; height:4px; background:var(--sun); z-index:1000; transition:width 0.1s; }
+
+  #scroll-top-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #1a1208;
+    border: 1.5px solid rgba(200,150,62,0.4);
+    color: #f5f0e8;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+    pointer-events: none;
+    z-index: 9998;
+  }
+  #scroll-top-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  #scroll-top-btn:hover {
+    background: #c8963e;
+    border-color: #c8963e;
+    color: #1a1208;
+  }
+
+  /* ===== INFOGRAPHIC ===== */
+  .infographic {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    margin: 40px 0;
+  }
+  @media(max-width:600px){ .infographic { grid-template-columns:1fr; } }
+  .infographic-panel {
+    padding: 36px 24px;
+    text-align: center;
+    position: relative;
+  }
+  .infographic-panel.p1 { background: linear-gradient(160deg, #6bcb77, #40bf6a); color: white; }
+  .infographic-panel.p2 { background: linear-gradient(160deg, #ff6b6b, #ff4040); color: white; }
+  .infographic-panel.p3 { background: linear-gradient(160deg, #4d96ff, #1a70ff); color: white; }
+  .infographic-panel h3 { font-family:'Fredoka One',cursive; font-size:1.4rem; margin-bottom:8px; }
+  .infographic-panel .big { font-size:3.5rem; margin-bottom:10px; }
+  .infographic-panel p { font-size: 0.9rem; opacity: 0.9; line-height: 1.6; }
+  .infographic-panel .tag { display:inline-block; background:rgba(255,255,255,0.2); border-radius:20px; padding:5px 14px; font-size:0.8rem; font-weight:700; margin-top:10px; }
+
+  /* ===== MOBILE — tablet (max 768px) ===== */
+  @media (max-width: 768px) {
+
+    /* Layout */
+    .container { padding: 0 16px; }
+    section { padding: 40px 0; }
+
+    /* Hero */
+    .hero { padding: 44px 16px 56px; }
+    .hero-badge { font-size: 0.75rem; padding: 5px 14px; }
+
+    /* Section titles */
+    .sec-title { margin-bottom: 28px; }
+    .sec-title h2 { font-size: 1.6rem; flex-wrap: wrap; justify-content: center; gap: 8px; line-height: 1.3; }
+    .sec-title p { font-size: 0.95rem; }
+
+    /* What-is card */
+    .what-is { padding: 24px 20px; gap: 24px; border-left-width: 5px; }
+    .what-is-text h3 { font-size: 1.3rem; }
+    .what-is-text p { font-size: 0.97rem; }
+    .big-emoji { font-size: 3.5rem; }
+
+    /* Shade box */
+    .shade-box { padding: 22px 16px; }
+    .shade-box h3 { font-size: 1.3rem; }
+    .shade-tag { font-size: 0.88rem; padding: 8px 16px; }
+
+    /* Tense grid — stack to single column */
+    .tense-grid { grid-template-columns: 1fr; gap: 20px; }
+    .tense-card { padding: 24px 20px; }
+    .tense-icon { font-size: 2.2rem; }
+    .tense-header h3 { font-size: 1.3rem; }
+    .formula { font-size: 0.95rem; }
+    .formula .part { padding: 2px 6px; font-size: 0.9rem; }
+    .when-list li { font-size: 0.93rem; }
+
+    /* Magic sentence section */
+    .magic-section { padding: 32px 18px; border-radius: 22px; margin: 32px 0; }
+    .magic-section h2 { font-size: 1.6rem; }
+    .magic-cards { grid-template-columns: 1fr; gap: 14px; }
+    .magic-sentence { font-size: 1.05rem; }
+
+    /* Examples tabs — scrollable row */
+    .examples-tabs {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      justify-content: flex-start;
+      padding-bottom: 6px;
+      gap: 8px;
+      scrollbar-width: none;
+    }
+    .examples-tabs::-webkit-scrollbar { display: none; }
+    .tab-btn { padding: 9px 18px; font-size: 0.88rem; white-space: nowrap; flex-shrink: 0; }
+
+    /* Example cards — single column on mobile */
+    .ex-grid { grid-template-columns: 1fr; gap: 12px; }
+    .ex-card { padding: 14px 16px; }
+    .ex-emoji { font-size: 1.4rem; margin-bottom: 6px; }
+    .ex-en { font-size: 0.97rem; }
+
+    /* Time signals */
+    .signals-grid { grid-template-columns: 1fr; gap: 16px; }
+    .signal-card { padding: 22px 18px; }
+    .signal-tag { font-size: 0.85rem; padding: 6px 12px; }
+
+    /* Negatives & Questions grid */
+    .neg-q-grid { grid-template-columns: 1fr; gap: 18px; }
+    .neg-card, .q-card { padding: 22px 18px; }
+    .neg-card h3, .q-card h3 { font-size: 1.25rem; }
+
+    /* Quiz */
+    .quiz-section { padding: 32px 18px; border-radius: 22px; margin: 32px 0; }
+    .quiz-section h2 { font-size: 1.6rem; }
+    .quiz-items { grid-template-columns: 1fr; gap: 16px; }
+    .quiz-item { padding: 18px 16px; }
+    .quiz-q { font-size: 0.95rem; }
+    .quiz-opt { font-size: 0.9rem; padding: 10px 14px; }
+
+    /* Tips */
+    .tips-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+    .tip-card { padding: 20px 16px; }
+    .tip-card .tip-icon { font-size: 2.2rem; }
+    .tip-card h4 { font-size: 1rem; }
+    .tip-card p { font-size: 0.85rem; }
+
+    /* Infographic — already 1col at 600px, adjust padding */
+    .infographic-panel { padding: 28px 20px; }
+    .infographic-panel .big { font-size: 2.8rem; }
+
+    /* Scroll-top button — smaller on mobile */
+    #scroll-top-btn { width: 40px; height: 40px; bottom: 20px; right: 16px; font-size: 16px; }
+  }
+
+  /* ===== MOBILE — small phones (max 480px) ===== */
+  @media (max-width: 480px) {
+
+    /* Hero tighter */
+    .hero { padding: 36px 14px 48px; }
+
+    /* What-is: smaller visual box */
+    .what-is { padding: 18px 16px; }
+    .big-emoji { font-size: 3rem; }
+
+    /* Shade tags wrap tighter */
+    .shade-tag { font-size: 0.83rem; padding: 7px 12px; }
+
+    /* Tips: single column on very small screens */
+    .tips-grid { grid-template-columns: 1fr; }
+
+    /* Formula boxes: allow horizontal scroll if overflow */
+    .formula-box { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .formula { white-space: nowrap; }
+
+    /* Magic cards full padding reduction */
+    .magic-section { padding: 26px 14px; }
+    .magic-card { padding: 16px 14px; }
+
+    /* Quiz */
+    .quiz-section { padding: 26px 14px; }
+
+    /* Footer */
+    footer { padding: 24px 14px; font-size: 0.82rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progress"></div>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <div class="stars" id="stars"></div>
+  <div style="position:relative; z-index:1;">
+    <div class="hero-badge">🎓 English Grammar for Beginners</div>
+    <h1>The <span>Simple</span> Aspect ✨</h1>
+    <p class="hero-sub">The most important tense group in English – made easy!</p>
+    <p class="hero-ua">Найважливіша група часів в англійській – пояснено просто!</p>
+  </div>
+</header>
+
+<!-- ===== WHAT IS ===== -->
+<section>
+  <div class="container">
+    <div class="sec-title fade-in">
+      <h2>🤔 What is the Simple Aspect? <br><small style="font-family:Nunito;font-size:1rem;font-weight:600;opacity:0.6;">Що таке Simple Aspect?</small></h2>
+    </div>
+    <div class="what-is fade-in">
+      <div class="what-is-text">
+        <h3>📖 In simple words… / Простими словами…</h3>
+        <p>The <strong>Simple Aspect</strong> describes actions as <strong>facts</strong> — things that happen, happened, or will happen. It doesn't care about the duration or the process — just the fact that something occurs.</p>
+        <p class="ua">🇺🇦 <em>Simple Aspect описує дії як <strong>факти</strong> — речі, що відбуваються, відбулися або відбудуться. Нас не цікавить тривалість чи процес — лише сам факт події.</em></p>
+        <p>Think of it as a <strong>camera snapshot</strong> 📷 — it captures a moment, a routine, a fact, or a scheduled event.</p>
+        <p class="ua">🇺🇦 <em>Уяви це як <strong>знімок камери</strong> 📷 — він фіксує момент, рутину, факт або заплановану подію.</em></p>
+      </div>
+      <div class="what-is-visual">
+        <span class="big-emoji">📷</span>
+        <p>Simple = A FACT 🎯<br><em style="opacity:0.7;font-size:0.9rem;">Simple = ФАКТ</em></p>
+        <div style="margin-top:16px;display:flex;flex-direction:column;gap:8px;">
+          <div style="background:white;border-radius:12px;padding:10px 16px;font-size:0.95rem;font-weight:700;">✅ Routines / Рутина</div>
+          <div style="background:white;border-radius:12px;padding:10px 16px;font-size:0.95rem;font-weight:700;">✅ Facts / Факти</div>
+          <div style="background:white;border-radius:12px;padding:10px 16px;font-size:0.95rem;font-weight:700;">✅ Completed actions / Завершені дії</div>
+          <div style="background:white;border-radius:12px;padding:10px 16px;font-size:0.95rem;font-weight:700;">✅ Future plans / Плани</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Shade / Відтінок -->
+    <div class="shade-box fade-in">
+      <h3>🎨 The "Shade" of Simple Aspect / Відтінок Simple Aspect</h3>
+      <p style="font-size:1rem;opacity:0.8;max-width:700px;margin:0 auto;">The Simple Aspect gives a <strong>neutral, factual shade</strong> — it doesn't show emotion, process, or drama. Just a plain statement of what IS, WAS, or WILL BE.</p>
+      <p style="font-size:0.9rem;color:#999;margin-top:8px;font-style:italic;">Simple Aspect дає <strong>нейтральний, фактичний відтінок</strong> — без емоцій, процесу чи драми. Просте твердження про те, що Є, БУЛО або БУДЕ.</p>
+      <div class="shade-grid">
+        <div class="shade-tag">🔁 Habit / Звичка</div>
+        <div class="shade-tag">📰 General truth / Загальна правда</div>
+        <div class="shade-tag">📅 Schedule / Розклад</div>
+        <div class="shade-tag">✅ Completed fact / Завершений факт</div>
+        <div class="shade-tag">🌍 Scientific law / Закон природи</div>
+        <div class="shade-tag">📖 Story sequence / Послідовність подій</div>
+      </div>
+    </div>
+
+    <!-- Infographic -->
+    <div class="infographic fade-in">
+      <div class="infographic-panel p1">
+        <div class="big">☀️</div>
+        <h3>Present Simple</h3>
+        <p>Things that are always true, happen regularly, or are scheduled.</p>
+        <p style="margin-top:8px;font-style:italic;opacity:0.85;">Те, що завжди правда, відбувається регулярно або заплановано.</p>
+        <div class="tag">NOW & ALWAYS</div>
+      </div>
+      <div class="infographic-panel p2">
+        <div class="big">🌙</div>
+        <h3>Past Simple</h3>
+        <p>Things that happened and finished at a specific time in the past.</p>
+        <p style="margin-top:8px;font-style:italic;opacity:0.85;">Те, що відбулося й завершилося в конкретний момент у минулому.</p>
+        <div class="tag">THEN & DONE</div>
+      </div>
+      <div class="infographic-panel p3">
+        <div class="big">🚀</div>
+        <h3>Future Simple</h3>
+        <p>Things that will happen, decisions made right now, or predictions.</p>
+        <p style="margin-top:8px;font-style:italic;opacity:0.85;">Те, що відбудеться, рішення прийняте зараз, або прогнози.</p>
+        <div class="tag">LATER & AHEAD</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== THREE TENSES ===== -->
+<section style="background:#f0f7ff; padding: 60px 0;">
+  <div class="container">
+    <div class="sec-title fade-in">
+      <h2>📚 The Three Simple Tenses</h2>
+      <p>Три прості часи – формули та коли вживати</p>
+    </div>
+    <div class="tense-grid">
+
+      <!-- PRESENT SIMPLE -->
+      <div class="tense-card present fade-in">
+        <div class="tense-header">
+          <div class="tense-icon">☀️</div>
+          <div>
+            <h3 style="color:#2e8b47;">Present Simple</h3>
+            <div class="tense-ua">Теперішній простий час</div>
+          </div>
+        </div>
+
+        <div class="formula-box" style="color:#2e8b47; border-color:#6bcb77;">
+          <div class="label">✅ Positive / Стверджувальне</div>
+          <div class="formula">
+            <span class="part">Subject</span> <span class="plus">+</span>
+            <span class="part">Verb (s/es)</span>
+          </div>
+          <div style="font-size:0.8rem;margin-top:6px;opacity:0.7;">I/You/We/They → play &nbsp;|&nbsp; He/She/It → plays</div>
+        </div>
+
+        <div class="formula-box" style="color:#c04000; border-color:#ff6b6b;">
+          <div class="label">❌ Negative / Заперечне</div>
+          <div class="formula">
+            <span class="part">Subject</span> <span class="plus">+</span>
+            <span class="part">don't / doesn't</span> <span class="plus">+</span>
+            <span class="part">Verb</span>
+          </div>
+        </div>
+
+        <div class="formula-box" style="color:#1a5ccc; border-color:#4d96ff;">
+          <div class="label">❓ Question / Запитання</div>
+          <div class="formula">
+            <span class="part">Do / Does</span> <span class="plus">+</span>
+            <span class="part">Subject</span> <span class="plus">+</span>
+            <span class="part">Verb?</span>
+          </div>
+        </div>
+
+        <ul class="when-list">
+          <li><span class="bullet">🔁</span><div><strong>Routines & habits</strong> <span style="color:#aaa;font-size:0.85rem;">/ Рутина та звички</span><br><em>She drinks coffee every morning.</em></div></li>
+          <li><span class="bullet">🌍</span><div><strong>General truths & facts</strong> <span style="color:#aaa;font-size:0.85rem;">/ Загальні факти</span><br><em>The sun rises in the east.</em></div></li>
+          <li><span class="bullet">📅</span><div><strong>Timetables & schedules</strong> <span style="color:#aaa;font-size:0.85rem;">/ Розклади</span><br><em>The train leaves at 9 AM.</em></div></li>
+          <li><span class="bullet">💭</span><div><strong>Permanent states</strong> <span style="color:#aaa;font-size:0.85rem;">/ Постійний стан</span><br><em>I live in Kyiv.</em></div></li>
+          <li><span class="bullet">📖</span><div><strong>Instructions & directions</strong> <span style="color:#aaa;font-size:0.85rem;">/ Інструкції</span><br><em>You press the button and the door opens.</em></div></li>
+        </ul>
+      </div>
+
+      <!-- PAST SIMPLE -->
+      <div class="tense-card past fade-in">
+        <div class="tense-header">
+          <div class="tense-icon">🌙</div>
+          <div>
+            <h3 style="color:#c04000;">Past Simple</h3>
+            <div class="tense-ua">Минулий простий час</div>
+          </div>
+        </div>
+
+        <div class="formula-box" style="color:#c04000; border-color:#ff6b6b;">
+          <div class="label">✅ Positive / Стверджувальне</div>
+          <div class="formula">
+            <span class="part">Subject</span> <span class="plus">+</span>
+            <span class="part">Verb-ed / V₂</span>
+          </div>
+          <div style="font-size:0.8rem;margin-top:6px;opacity:0.7;">Regular: played, worked &nbsp;|&nbsp; Irregular: went, saw, ate</div>
+        </div>
+
+        <div class="formula-box" style="color:#888; border-color:#aaa;">
+          <div class="label">❌ Negative / Заперечне</div>
+          <div class="formula">
+            <span class="part">Subject</span> <span class="plus">+</span>
+            <span class="part">didn't</span> <span class="plus">+</span>
+            <span class="part">Verb</span>
+          </div>
+        </div>
+
+        <div class="formula-box" style="color:#1a5ccc; border-color:#4d96ff;">
+          <div class="label">❓ Question / Запитання</div>
+          <div class="formula">
+            <span class="part">Did</span> <span class="plus">+</span>
+            <span class="part">Subject</span> <span class="plus">+</span>
+            <span class="part">Verb?</span>
+          </div>
+        </div>
+
+        <ul class="when-list">
+          <li><span class="bullet">✅</span><div><strong>Completed actions</strong> <span style="color:#aaa;font-size:0.85rem;">/ Завершені дії</span><br><em>I visited Paris last year.</em></div></li>
+          <li><span class="bullet">⏰</span><div><strong>Specific time in past</strong> <span style="color:#aaa;font-size:0.85rem;">/ Конкретний момент у минулому</span><br><em>She called me at 7 PM yesterday.</em></div></li>
+          <li><span class="bullet">📖</span><div><strong>Sequence of events</strong> <span style="color:#aaa;font-size:0.85rem;">/ Послідовність подій</span><br><em>He entered, sat down, and opened his book.</em></div></li>
+          <li><span class="bullet">💫</span><div><strong>Past habits (used to)</strong> <span style="color:#aaa;font-size:0.85rem;">/ Минулі звички</span><br><em>She played piano as a child.</em></div></li>
+          <li><span class="bullet">🎭</span><div><strong>Storytelling</strong> <span style="color:#aaa;font-size:0.85rem;">/ Розповідь</span><br><em>Once upon a time, a dragon lived in a cave.</em></div></li>
+        </ul>
+      </div>
+
+      <!-- FUTURE SIMPLE -->
+      <div class="tense-card future fade-in">
+        <div class="tense-header">
+          <div class="tense-icon">🚀</div>
+          <div>
+            <h3 style="color:#1a5ccc;">Future Simple</h3>
+            <div class="tense-ua">Майбутній простий час</div>
+          </div>
+        </div>
+
+        <div class="formula-box" style="color:#1a5ccc; border-color:#4d96ff;">
+          <div class="label">✅ Positive / Стверджувальне</div>
+          <div class="formula">
+            <span class="part">Subject</span> <span class="plus">+</span>
+            <span class="part">will</span> <span class="plus">+</span>
+            <span class="part">Verb</span>
+          </div>
+          <div style="font-size:0.8rem;margin-top:6px;opacity:0.7;">I will go / She will study / They will win</div>
+        </div>
+
+        <div class="formula-box" style="color:#888; border-color:#aaa;">
+          <div class="label">❌ Negative / Заперечне</div>
+          <div class="formula">
+            <span class="part">Subject</span> <span class="plus">+</span>
+            <span class="part">won't</span> <span class="plus">+</span>
+            <span class="part">Verb</span>
+          </div>
+        </div>
+
+        <div class="formula-box" style="color:#c04000; border-color:#ff6b6b;">
+          <div class="label">❓ Question / Запитання</div>
+          <div class="formula">
+            <span class="part">Will</span> <span class="plus">+</span>
+            <span class="part">Subject</span> <span class="plus">+</span>
+            <span class="part">Verb?</span>
+          </div>
+        </div>
+
+        <ul class="when-list">
+          <li><span class="bullet">💡</span><div><strong>Spontaneous decisions</strong> <span style="color:#aaa;font-size:0.85rem;">/ Спонтанні рішення</span><br><em>I'll help you with that!</em></div></li>
+          <li><span class="bullet">🔮</span><div><strong>Predictions</strong> <span style="color:#aaa;font-size:0.85rem;">/ Прогнози</span><br><em>It will rain tomorrow.</em></div></li>
+          <li><span class="bullet">🤝</span><div><strong>Promises & offers</strong> <span style="color:#aaa;font-size:0.85rem;">/ Обіцянки та пропозиції</span><br><em>I'll call you back, I promise.</em></div></li>
+          <li><span class="bullet">⚠️</span><div><strong>Threats & warnings</strong> <span style="color:#aaa;font-size:0.85rem;">/ Попередження</span><br><em>If you don't study, you'll fail.</em></div></li>
+          <li><span class="bullet">📋</span><div><strong>Future facts</strong> <span style="color:#aaa;font-size:0.85rem;">/ Майбутні факти</span><br><em>She will turn 18 next month.</em></div></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== MAGIC SENTENCE ===== -->
+<section>
+  <div class="container">
+    <div class="magic-section fade-in">
+      <h2>🪄 The Magic Sentence</h2>
+      <p class="intro">One sentence — three tenses! Watch how it transforms ✨<br><em style="font-size:0.9rem;">Одне речення — три часи! Дивись, як воно змінюється ✨</em></p>
+      <p style="margin-bottom:24px;opacity:0.8;font-size:1rem;">👤 <strong>Subject:</strong> "She" &nbsp;|&nbsp; 🏃 <strong>Action:</strong> "play / run / cook / study" — choose any!</p>
+
+      <div class="magic-cards">
+        <div class="magic-card">
+          <div class="tense-label"><span class="present">☀️ PRESENT SIMPLE</span></div>
+          <div class="magic-sentence">She <span class="highlight">plays</span> football every Saturday.</div>
+          <div class="magic-ua">🇺🇦 Вона грає у футбол кожну суботу.</div>
+          <div style="margin-top:12px;font-size:0.85rem;opacity:0.6;">→ Regular habit / Регулярна звичка</div>
+        </div>
+        <div class="magic-card">
+          <div class="tense-label"><span class="past">🌙 PAST SIMPLE</span></div>
+          <div class="magic-sentence">She <span class="highlight">played</span> football last Saturday.</div>
+          <div class="magic-ua">🇺🇦 Вона грала у футбол минулої суботи.</div>
+          <div style="margin-top:12px;font-size:0.85rem;opacity:0.6;">→ Completed action / Завершена дія</div>
+        </div>
+        <div class="magic-card">
+          <div class="tense-label"><span class="future">🚀 FUTURE SIMPLE</span></div>
+          <div class="magic-sentence">She <span class="highlight">will play</span> football next Saturday.</div>
+          <div class="magic-ua">🇺🇦 Вона гратиме у футбол наступної суботи.</div>
+          <div style="margin-top:12px;font-size:0.85rem;opacity:0.6;">→ Future plan / Майбутній план</div>
+        </div>
+        <div class="magic-card">
+          <div class="tense-label"><span class="present">☀️ PRESENT NEGATIVE</span></div>
+          <div class="magic-sentence">She <span class="highlight">doesn't play</span> football on Sundays.</div>
+          <div class="magic-ua">🇺🇦 Вона не грає у футбол у неділю.</div>
+          <div style="margin-top:12px;font-size:0.85rem;opacity:0.6;">→ Regular fact (negative) / Факт (заперечення)</div>
+        </div>
+        <div class="magic-card">
+          <div class="tense-label"><span class="past">🌙 PAST NEGATIVE</span></div>
+          <div class="magic-sentence">She <span class="highlight">didn't play</span> football last month.</div>
+          <div class="magic-ua">🇺🇦 Вона не грала у футбол минулого місяця.</div>
+          <div style="margin-top:12px;font-size:0.85rem;opacity:0.6;">→ Completed fact (negative) / Факт (заперечення)</div>
+        </div>
+        <div class="magic-card">
+          <div class="tense-label"><span class="future">🚀 FUTURE QUESTION</span></div>
+          <div class="magic-sentence"><span class="highlight">Will</span> she <span class="highlight">play</span> football tomorrow?</div>
+          <div class="magic-ua">🇺🇦 Вона гратиме у футбол завтра?</div>
+          <div style="margin-top:12px;font-size:0.85rem;opacity:0.6;">→ Future question / Запитання про майбутнє</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EXAMPLES ===== -->
+<section class="examples-section">
+  <div class="container">
+    <div class="sec-title fade-in">
+      <h2>💬 Tons of Examples!</h2>
+      <p>Багато прикладів на всі випадки життя! Обери тип:</p>
+    </div>
+
+    <div class="examples-tabs fade-in">
+      <button class="tab-btn active-present" onclick="showTab('present', this, 'active-present')">☀️ Present</button>
+      <button class="tab-btn" onclick="showTab('past', this, 'active-past')">🌙 Past</button>
+      <button class="tab-btn" onclick="showTab('future', this, 'active-future')">🚀 Future</button>
+      <button class="tab-btn" onclick="showTab('neg', this, 'active-neg')">❌ Negatives</button>
+      <button class="tab-btn" onclick="showTab('quest', this, 'active-quest')">❓ Questions</button>
+    </div>
+
+    <!-- PRESENT SIMPLE EXAMPLES -->
+    <div class="tab-content active" id="tab-present">
+      <div class="ex-grid">
+        <div class="ex-card present"><div class="ex-emoji">🌅</div><div class="ex-en">I <span class="mint">wake up</span> at 7 AM every day.</div><div class="ex-ua">Я прокидаюся о 7 ранку щодня.</div><div class="ex-context">Daily routine</div></div>
+        <div class="ex-card present"><div class="ex-emoji">☕</div><div class="ex-en">She <span class="mint">drinks</span> coffee before work.</div><div class="ex-ua">Вона п'є каву перед роботою.</div><div class="ex-context">Habit</div></div>
+        <div class="ex-card present"><div class="ex-emoji">🐕</div><div class="ex-en">My dog <span class="mint">barks</span> at strangers.</div><div class="ex-ua">Мій пес гавкає на чужих.</div><div class="ex-context">Animal behaviour</div></div>
+        <div class="ex-card present"><div class="ex-emoji">🌍</div><div class="ex-en">The Earth <span class="mint">revolves</span> around the Sun.</div><div class="ex-ua">Земля обертається навколо Сонця.</div><div class="ex-context">Scientific fact</div></div>
+        <div class="ex-card present"><div class="ex-emoji">🚌</div><div class="ex-en">The bus <span class="mint">leaves</span> at 8:30 AM.</div><div class="ex-ua">Автобус відправляється о 8:30.</div><div class="ex-context">Timetable</div></div>
+        <div class="ex-card present"><div class="ex-emoji">🏫</div><div class="ex-en">School <span class="mint">starts</span> at 9 o'clock.</div><div class="ex-ua">Школа починається о 9 годині.</div><div class="ex-context">Schedule</div></div>
+        <div class="ex-card present"><div class="ex-emoji">🍕</div><div class="ex-en">He <span class="mint">loves</span> pizza more than anything.</div><div class="ex-ua">Він любить піцу більше за все.</div><div class="ex-context">Preference</div></div>
+        <div class="ex-card present"><div class="ex-emoji">💻</div><div class="ex-en">They <span class="mint">work</span> from home every Friday.</div><div class="ex-ua">Вони працюють з дому кожну п'ятницю.</div><div class="ex-context">Work routine</div></div>
+        <div class="ex-card present"><div class="ex-emoji">🐠</div><div class="ex-en">Fish <span class="mint">breathe</span> through their gills.</div><div class="ex-ua">Риби дихають зябрами.</div><div class="ex-context">Biology fact</div></div>
+        <div class="ex-card present"><div class="ex-emoji">🧊</div><div class="ex-en">Water <span class="mint">freezes</span> at 0°C.</div><div class="ex-ua">Вода замерзає при 0°C.</div><div class="ex-context">Science</div></div>
+        <div class="ex-card present"><div class="ex-emoji">📚</div><div class="ex-en">She <span class="mint">reads</span> a book before sleeping.</div><div class="ex-ua">Вона читає книгу перед сном.</div><div class="ex-context">Evening routine</div></div>
+        <div class="ex-card present"><div class="ex-emoji">⚽</div><div class="ex-en">My friends <span class="mint">play</span> football on weekends.</div><div class="ex-ua">Мої друзі грають у футбол на вихідних.</div><div class="ex-context">Weekend habit</div></div>
+        <div class="ex-card present"><div class="ex-emoji">🌧</div><div class="ex-en">It often <span class="mint">rains</span> in autumn.</div><div class="ex-ua">Восени часто йде дощ.</div><div class="ex-context">Weather pattern</div></div>
+        <div class="ex-card present"><div class="ex-emoji">👨‍🍳</div><div class="ex-en">My mum <span class="mint">cooks</span> dinner at 6 PM.</div><div class="ex-ua">Моя мама готує вечерю о 6 вечора.</div><div class="ex-context">Family routine</div></div>
+        <div class="ex-card present"><div class="ex-emoji">🎸</div><div class="ex-en">He <span class="mint">plays</span> guitar in a band.</div><div class="ex-ua">Він грає на гітарі у гурті.</div><div class="ex-context">Hobby</div></div>
+        <div class="ex-card present"><div class="ex-emoji">✈️</div><div class="ex-en">The plane <span class="mint">lands</span> at midnight.</div><div class="ex-ua">Літак приземлюється опівночі.</div><div class="ex-context">Timetable</div></div>
+      </div>
+    </div>
+
+    <!-- PAST SIMPLE EXAMPLES -->
+    <div class="tab-content" id="tab-past">
+      <div class="ex-grid">
+        <div class="ex-card past"><div class="ex-emoji">🏖️</div><div class="ex-en">We <span class="ex-key">went</span> to the beach last summer.</div><div class="ex-ua">Ми їздили на пляж минулого літа.</div><div class="ex-context">Last summer</div></div>
+        <div class="ex-card past"><div class="ex-emoji">🎂</div><div class="ex-en">She <span class="ex-key">celebrated</span> her birthday yesterday.</div><div class="ex-ua">Вона святкувала день народження вчора.</div><div class="ex-context">Yesterday</div></div>
+        <div class="ex-card past"><div class="ex-emoji">📱</div><div class="ex-en">I <span class="ex-key">bought</span> a new phone last week.</div><div class="ex-ua">Я купив новий телефон минулого тижня.</div><div class="ex-context">Last week</div></div>
+        <div class="ex-card past"><div class="ex-emoji">🍔</div><div class="ex-en">They <span class="ex-key">ate</span> pizza for dinner on Friday.</div><div class="ex-ua">Вони їли піцу на вечерю в п'ятницю.</div><div class="ex-context">Specific day</div></div>
+        <div class="ex-card past"><div class="ex-emoji">🎬</div><div class="ex-en">He <span class="ex-key">watched</span> a movie at the cinema.</div><div class="ex-ua">Він дивився фільм у кінотеатрі.</div><div class="ex-context">Past event</div></div>
+        <div class="ex-card past"><div class="ex-emoji">🦕</div><div class="ex-en">Dinosaurs <span class="ex-key">lived</span> millions of years ago.</div><div class="ex-ua">Динозаври жили мільйони років тому.</div><div class="ex-context">History / Nature</div></div>
+        <div class="ex-card past"><div class="ex-emoji">🏆</div><div class="ex-en">Our team <span class="ex-key">won</span> the championship in 2022.</div><div class="ex-ua">Наша команда виграла чемпіонат у 2022 році.</div><div class="ex-context">Sport event</div></div>
+        <div class="ex-card past"><div class="ex-emoji">📩</div><div class="ex-en">She <span class="ex-key">sent</span> me a message this morning.</div><div class="ex-ua">Вона надіслала мені повідомлення сьогодні вранці.</div><div class="ex-context">This morning</div></div>
+        <div class="ex-card past"><div class="ex-emoji">🚗</div><div class="ex-en">Dad <span class="ex-key">drove</span> us to school yesterday.</div><div class="ex-ua">Тато відвіз нас до школи вчора.</div><div class="ex-context">Yesterday</div></div>
+        <div class="ex-card past"><div class="ex-emoji">📸</div><div class="ex-en">I <span class="ex-key">took</span> lots of photos during the trip.</div><div class="ex-ua">Я зробив багато фото під час поїздки.</div><div class="ex-context">Trip</div></div>
+        <div class="ex-card past"><div class="ex-emoji">🎓</div><div class="ex-en">She <span class="ex-key">graduated</span> from university in 2021.</div><div class="ex-ua">Вона закінчила університет у 2021 році.</div><div class="ex-context">Life event</div></div>
+        <div class="ex-card past"><div class="ex-emoji">🌧</div><div class="ex-en">It <span class="ex-key">rained</span> all day on Monday.</div><div class="ex-ua">Дощ йшов весь день у понеділок.</div><div class="ex-context">Past weather</div></div>
+      </div>
+    </div>
+
+    <!-- FUTURE SIMPLE EXAMPLES -->
+    <div class="tab-content" id="tab-future">
+      <div class="ex-grid">
+        <div class="ex-card future"><div class="ex-emoji">🎄</div><div class="ex-en">We <span class="sky">will visit</span> our grandparents for Christmas.</div><div class="ex-ua">Ми відвідаємо бабусю та дідуся на Різдво.</div><div class="ex-context">Holiday plan</div></div>
+        <div class="ex-card future"><div class="ex-emoji">🌦</div><div class="ex-en">It <span class="sky">will be</span> sunny tomorrow.</div><div class="ex-ua">Завтра буде сонячно.</div><div class="ex-context">Weather prediction</div></div>
+        <div class="ex-card future"><div class="ex-emoji">📞</div><div class="ex-en">I <span class="sky">will call</span> you tonight, I promise!</div><div class="ex-ua">Я зателефоную тобі сьогодні ввечері, обіцяю!</div><div class="ex-context">Promise</div></div>
+        <div class="ex-card future"><div class="ex-emoji">🤝</div><div class="ex-en">Don't worry, I <span class="sky">will help</span> you.</div><div class="ex-ua">Не хвилюйся, я допоможу тобі.</div><div class="ex-context">Offer / Promise</div></div>
+        <div class="ex-card future"><div class="ex-emoji">🎯</div><div class="ex-en">She <span class="sky">will pass</span> the exam next week.</div><div class="ex-ua">Вона складе іспит наступного тижня.</div><div class="ex-context">Prediction</div></div>
+        <div class="ex-card future"><div class="ex-emoji">🚀</div><div class="ex-en">Humans <span class="sky">will land</span> on Mars one day.</div><div class="ex-ua">Люди одного дня висадяться на Марсі.</div><div class="ex-context">Future prediction</div></div>
+        <div class="ex-card future"><div class="ex-emoji">🍕</div><div class="ex-en">"I'm hungry." — "I <span class="sky">will make</span> you a sandwich!"</div><div class="ex-ua">"Я голодний." — "Я зроблю тобі бутерброд!"</div><div class="ex-context">Spontaneous decision</div></div>
+        <div class="ex-card future"><div class="ex-emoji">🎉</div><div class="ex-en">We <span class="sky">will celebrate</span> your birthday this weekend.</div><div class="ex-ua">Ми відсвяткуємо твій день народження цих вихідних.</div><div class="ex-context">Plan</div></div>
+        <div class="ex-card future"><div class="ex-emoji">⚠️</div><div class="ex-en">If you eat too much, you <span class="sky">will feel</span> sick.</div><div class="ex-ua">Якщо будеш багато їсти, тобі стане погано.</div><div class="ex-context">Warning / Condition</div></div>
+        <div class="ex-card future"><div class="ex-emoji">🎓</div><div class="ex-en">She <span class="sky">will finish</span> school next June.</div><div class="ex-ua">Вона закінчить школу наступного червня.</div><div class="ex-context">Future fact</div></div>
+        <div class="ex-card future"><div class="ex-emoji">🏖️</div><div class="ex-en">They <span class="sky">will travel</span> to Italy next summer.</div><div class="ex-ua">Вони поїдуть до Італії наступного літа.</div><div class="ex-context">Travel plan</div></div>
+        <div class="ex-card future"><div class="ex-emoji">📱</div><div class="ex-en">The new model <span class="sky">will come out</span> in November.</div><div class="ex-ua">Нова модель вийде в листопаді.</div><div class="ex-context">Release date</div></div>
+      </div>
+    </div>
+
+    <!-- NEGATIVES -->
+    <div class="tab-content" id="tab-neg">
+      <div class="ex-grid">
+        <div class="ex-card neg"><div class="ex-emoji">☀️🚫</div><div class="ex-en">I <span class="lav">don't eat</span> meat. (I'm vegetarian.)</div><div class="ex-ua">Я не їм м'ясо. (Я вегетаріанець.)</div><div class="ex-context">Present – habit</div></div>
+        <div class="ex-card neg"><div class="ex-emoji">💤</div><div class="ex-en">She <span class="lav">doesn't sleep</span> late on weekdays.</div><div class="ex-ua">Вона не спить довго у будні.</div><div class="ex-context">Present – routine</div></div>
+        <div class="ex-card neg"><div class="ex-emoji">🐱</div><div class="ex-en">He <span class="lav">doesn't like</span> cats, only dogs.</div><div class="ex-ua">Він не любить котів, тільки собак.</div><div class="ex-context">Present – preference</div></div>
+        <div class="ex-card neg"><div class="ex-emoji">🌙🚫</div><div class="ex-en">We <span class="lav">didn't go</span> to school yesterday.</div><div class="ex-ua">Ми не ходили до школи вчора.</div><div class="ex-context">Past – missed event</div></div>
+        <div class="ex-card neg"><div class="ex-emoji">🎬</div><div class="ex-en">I <span class="lav">didn't watch</span> that movie, it was boring.</div><div class="ex-ua">Я не дивився той фільм, він нудний.</div><div class="ex-context">Past – choice</div></div>
+        <div class="ex-card neg"><div class="ex-emoji">🍔</div><div class="ex-en">She <span class="lav">didn't eat</span> breakfast this morning.</div><div class="ex-ua">Вона не снідала сьогодні вранці.</div><div class="ex-context">Past – today</div></div>
+        <div class="ex-card neg"><div class="ex-emoji">🚀🚫</div><div class="ex-en">I <span class="lav">won't tell</span> anyone your secret.</div><div class="ex-ua">Я нікому не розкажу твій секрет.</div><div class="ex-context">Future – promise</div></div>
+        <div class="ex-card neg"><div class="ex-emoji">🌧</div><div class="ex-en">It <span class="lav">won't rain</span> this afternoon, don't worry.</div><div class="ex-ua">Вдень не буде дощу, не хвилюйся.</div><div class="ex-context">Future – prediction</div></div>
+        <div class="ex-card neg"><div class="ex-emoji">🎓</div><div class="ex-en">He <span class="lav">won't pass</span> if he doesn't study.</div><div class="ex-ua">Він не складе, якщо не вчитиметься.</div><div class="ex-context">Future – warning</div></div>
+      </div>
+    </div>
+
+    <!-- QUESTIONS -->
+    <div class="tab-content" id="tab-quest">
+      <div class="ex-grid">
+        <div class="ex-card quest"><div class="ex-emoji">☀️❓</div><div class="ex-en"><span class="peach">Do you</span> drink coffee in the morning?</div><div class="ex-ua">Ти п'єш каву вранці?</div><div class="ex-context">Present – routine</div></div>
+        <div class="ex-card quest"><div class="ex-emoji">🐕</div><div class="ex-en"><span class="peach">Does she</span> have a pet?</div><div class="ex-ua">У неї є домашня тварина?</div><div class="ex-context">Present – possession</div></div>
+        <div class="ex-card quest"><div class="ex-emoji">⚽</div><div class="ex-en"><span class="peach">Does he</span> play any sports?</div><div class="ex-ua">Він займається якимось спортом?</div><div class="ex-context">Present – hobby</div></div>
+        <div class="ex-card quest"><div class="ex-emoji">🏖️</div><div class="ex-en"><span class="peach">Did you</span> enjoy your holiday?</div><div class="ex-ua">Тобі сподобалась відпустка?</div><div class="ex-context">Past – trip</div></div>
+        <div class="ex-card quest"><div class="ex-emoji">🎂</div><div class="ex-en"><span class="peach">Did she</span> get a birthday cake?</div><div class="ex-ua">Вона отримала торт на день народження?</div><div class="ex-context">Past – event</div></div>
+        <div class="ex-card quest"><div class="ex-emoji">📩</div><div class="ex-en"><span class="peach">Did you</span> see my message?</div><div class="ex-ua">Ти бачив моє повідомлення?</div><div class="ex-context">Past – communication</div></div>
+        <div class="ex-card quest"><div class="ex-emoji">🚀❓</div><div class="ex-en"><span class="peach">Will you</span> come to the party?</div><div class="ex-ua">Ти прийдеш на вечірку?</div><div class="ex-context">Future – invitation</div></div>
+        <div class="ex-card quest"><div class="ex-emoji">☔</div><div class="ex-en"><span class="peach">Will it</span> snow this winter?</div><div class="ex-ua">Цієї зими буде сніг?</div><div class="ex-context">Future – prediction</div></div>
+        <div class="ex-card quest"><div class="ex-emoji">📞</div><div class="ex-en"><span class="peach">Will you</span> call me tonight?</div><div class="ex-ua">Ти зателефонуєш мені сьогодні ввечері?</div><div class="ex-context">Future – arrangement</div></div>
+        <div class="ex-card quest"><div class="ex-emoji">🌍</div><div class="ex-en">Where <span class="peach">do you</span> live?</div><div class="ex-ua">Де ти живеш?</div><div class="ex-context">Present – location</div></div>
+        <div class="ex-card quest"><div class="ex-emoji">😴</div><div class="ex-en">What time <span class="peach">do you</span> wake up?</div><div class="ex-ua">О котрій ти прокидаєшся?</div><div class="ex-context">Present – routine</div></div>
+        <div class="ex-card quest"><div class="ex-emoji">🍕</div><div class="ex-en">What <span class="peach">did you</span> have for lunch?</div><div class="ex-ua">Що ти їв на обід?</div><div class="ex-context">Past – today</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TIME SIGNALS ===== -->
+<section style="background:#f7f0ff; padding:60px 0;">
+  <div class="container">
+    <div class="sec-title fade-in">
+      <h2>⏰ Time Signal Words</h2>
+      <p>Слова-сигнали — вони підкажуть, який час використовувати!</p>
+    </div>
+    <div class="signals-grid fade-in">
+      <div class="signal-card">
+        <h4 class="present">☀️ Present Simple</h4>
+        <div class="signal-tags">
+          <span class="signal-tag present">every day</span>
+          <span class="signal-tag present">every week</span>
+          <span class="signal-tag present">always</span>
+          <span class="signal-tag present">usually</span>
+          <span class="signal-tag present">often</span>
+          <span class="signal-tag present">sometimes</span>
+          <span class="signal-tag present">rarely</span>
+          <span class="signal-tag present">never</span>
+          <span class="signal-tag present">on Mondays</span>
+          <span class="signal-tag present">at weekends</span>
+          <span class="signal-tag present">in the morning</span>
+          <span class="signal-tag present">twice a week</span>
+        </div>
+      </div>
+      <div class="signal-card">
+        <h4 class="past">🌙 Past Simple</h4>
+        <div class="signal-tags">
+          <span class="signal-tag past">yesterday</span>
+          <span class="signal-tag past">last week</span>
+          <span class="signal-tag past">last year</span>
+          <span class="signal-tag past">ago</span>
+          <span class="signal-tag past">in 2020</span>
+          <span class="signal-tag past">this morning</span>
+          <span class="signal-tag past">on Monday</span>
+          <span class="signal-tag past">at 5 PM</span>
+          <span class="signal-tag past">when I was young</span>
+          <span class="signal-tag past">once</span>
+          <span class="signal-tag past">in the past</span>
+        </div>
+      </div>
+      <div class="signal-card">
+        <h4 class="future">🚀 Future Simple</h4>
+        <div class="signal-tags">
+          <span class="signal-tag future">tomorrow</span>
+          <span class="signal-tag future">next week</span>
+          <span class="signal-tag future">next year</span>
+          <span class="signal-tag future">soon</span>
+          <span class="signal-tag future">in the future</span>
+          <span class="signal-tag future">one day</span>
+          <span class="signal-tag future">this evening</span>
+          <span class="signal-tag future">in 10 years</span>
+          <span class="signal-tag future">someday</span>
+          <span class="signal-tag future">when I grow up</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NEGATIVES & QUESTIONS SECTION ===== -->
+<section>
+  <div class="container">
+    <div class="sec-title fade-in">
+      <h2>🔄 How to Build Sentences</h2>
+      <p>Як будувати речення — заперечні та питальні</p>
+    </div>
+    <div class="neg-q-grid fade-in">
+      <div class="neg-card">
+        <h3>❌ Negatives / Заперечення</h3>
+        <div class="formula-box" style="color:#8b2ed6;border-color:#c77dff;">
+          <div class="label">PRESENT</div>
+          <div class="formula">I/You/We/They + <span class="part">don't</span> + verb</div>
+          <div class="formula">He/She/It + <span class="part">doesn't</span> + verb</div>
+        </div>
+        <div class="formula-box" style="color:#8b2ed6;border-color:#c77dff;">
+          <div class="label">PAST</div>
+          <div class="formula">Subject + <span class="part">didn't</span> + verb</div>
+        </div>
+        <div class="formula-box" style="color:#8b2ed6;border-color:#c77dff;">
+          <div class="label">FUTURE</div>
+          <div class="formula">Subject + <span class="part">won't</span> + verb</div>
+        </div>
+        <ul class="when-list" style="margin-top:14px;">
+          <li><span class="bullet">💡</span><div>After <strong>don't/doesn't/didn't/won't</strong> — the main verb stays in base form (no -s, no -ed!)</div></li>
+          <li><span class="bullet">🇺🇦</span><div>Після <strong>don't/doesn't/didn't/won't</strong> — дієслово залишається в початковій формі!</div></li>
+        </ul>
+      </div>
+      <div class="q-card">
+        <h3>❓ Questions / Запитання</h3>
+        <div class="formula-box" style="color:#c47300;border-color:#ffb347;">
+          <div class="label">PRESENT</div>
+          <div class="formula"><span class="part">Do</span> + I/You/We/They + verb?</div>
+          <div class="formula"><span class="part">Does</span> + He/She/It + verb?</div>
+        </div>
+        <div class="formula-box" style="color:#c47300;border-color:#ffb347;">
+          <div class="label">PAST</div>
+          <div class="formula"><span class="part">Did</span> + Subject + verb?</div>
+        </div>
+        <div class="formula-box" style="color:#c47300;border-color:#ffb347;">
+          <div class="label">FUTURE</div>
+          <div class="formula"><span class="part">Will</span> + Subject + verb?</div>
+        </div>
+        <ul class="when-list" style="margin-top:14px;">
+          <li><span class="bullet">💡</span><div>For WH-questions, just add the question word first: <strong>What / Where / When / Why / Who / How</strong></div></li>
+          <li><span class="bullet">🇺🇦</span><div>Для питальних слів: <strong>Що / Де / Коли / Чому / Хто / Як</strong> — додай перед do/does/did/will</div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== QUIZ ===== -->
+<section>
+  <div class="container">
+    <div class="quiz-section fade-in">
+      <h2>🧠 Quick Quiz!</h2>
+      <p class="quiz-intro">Test yourself! Choose the correct answer. / Перевір себе! Обери правильну відповідь.</p>
+      <div class="quiz-items">
+
+        <div class="quiz-item">
+          <div class="quiz-q">1. She ___ to school every day. <span>(Present Simple)</span></div>
+          <div class="quiz-opts">
+            <button class="quiz-opt" onclick="answer(this,'wrong')">went</button>
+            <button class="quiz-opt" onclick="answer(this,'correct')">goes</button>
+            <button class="quiz-opt" onclick="answer(this,'wrong')">will go</button>
+          </div>
+          <div class="quiz-feedback"></div>
+        </div>
+
+        <div class="quiz-item">
+          <div class="quiz-q">2. I ___ my homework last night. <span>(Past Simple)</span></div>
+          <div class="quiz-opts">
+            <button class="quiz-opt" onclick="answer(this,'wrong')">do</button>
+            <button class="quiz-opt" onclick="answer(this,'wrong')">will do</button>
+            <button class="quiz-opt" onclick="answer(this,'correct')">did</button>
+          </div>
+          <div class="quiz-feedback"></div>
+        </div>
+
+        <div class="quiz-item">
+          <div class="quiz-q">3. It ___ rain tomorrow. <span>(Future prediction)</span></div>
+          <div class="quiz-opts">
+            <button class="quiz-opt" onclick="answer(this,'correct')">will</button>
+            <button class="quiz-opt" onclick="answer(this,'wrong')">does</button>
+            <button class="quiz-opt" onclick="answer(this,'wrong')">did</button>
+          </div>
+          <div class="quiz-feedback"></div>
+        </div>
+
+        <div class="quiz-item">
+          <div class="quiz-q">4. ___ you drink coffee? <span>(Present Question)</span></div>
+          <div class="quiz-opts">
+            <button class="quiz-opt" onclick="answer(this,'wrong')">Did</button>
+            <button class="quiz-opt" onclick="answer(this,'correct')">Do</button>
+            <button class="quiz-opt" onclick="answer(this,'wrong')">Will</button>
+          </div>
+          <div class="quiz-feedback"></div>
+        </div>
+
+        <div class="quiz-item">
+          <div class="quiz-q">5. He ___ come to the party. (Negative, future)</div>
+          <div class="quiz-opts">
+            <button class="quiz-opt" onclick="answer(this,'wrong')">doesn't</button>
+            <button class="quiz-opt" onclick="answer(this,'wrong')">didn't</button>
+            <button class="quiz-opt" onclick="answer(this,'correct')">won't</button>
+          </div>
+          <div class="quiz-feedback"></div>
+        </div>
+
+        <div class="quiz-item">
+          <div class="quiz-q">6. Water ___ at 100°C. <span>(Scientific fact)</span></div>
+          <div class="quiz-opts">
+            <button class="quiz-opt" onclick="answer(this,'wrong')">boiled</button>
+            <button class="quiz-opt" onclick="answer(this,'correct')">boils</button>
+            <button class="quiz-opt" onclick="answer(this,'wrong')">will boil</button>
+          </div>
+          <div class="quiz-feedback"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TIPS ===== -->
+<section style="background:#f0f7ff; padding:60px 0;">
+  <div class="container">
+    <div class="sec-title fade-in">
+      <h2>💡 Pro Tips & Tricks</h2>
+      <p>Корисні підказки для запам'ятовування!</p>
+    </div>
+    <div class="tips-grid fade-in">
+      <div class="tip-card">
+        <div class="tip-icon">🔤</div>
+        <h4>He/She/It → +s</h4>
+        <p>In Present Simple, add <strong>-s</strong> or <strong>-es</strong> to the verb for he/she/it.<br><em>У 3-й особі однини додай -s або -es!</em></p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">📖</div>
+        <h4>Irregular Verbs!</h4>
+        <p>Past Simple has irregular forms: go→<strong>went</strong>, eat→<strong>ate</strong>, see→<strong>saw</strong>.<br><em>Неправильні дієслова треба вчити!</em></p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">🕒</div>
+        <h4>Time words are clues!</h4>
+        <p><em>Yesterday, last, ago</em> → Past. <em>Tomorrow, next, soon</em> → Future. <em>Always, every</em> → Present.<br><em>Слова-часу підкажуть час!</em></p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">❌</div>
+        <h4>Don't double the negative!</h4>
+        <p>Say: "I <strong>don't</strong> know" NOT "I don't <strong>not</strong> know".<br><em>В англійській одне заперечення на речення!</em></p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">💬</div>
+        <h4>Contractions are friendly!</h4>
+        <p><em>do not = <strong>don't</strong>, did not = <strong>didn't</strong>, will not = <strong>won't</strong></em><br><em>Скорочені форми — норма у мовленні!</em></p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">🎯</div>
+        <h4>Will = spontaneous!</h4>
+        <p>Use <strong>will</strong> for decisions made at the moment of speaking.<br><em>Will = рішення прийняте ЗАРАЗ, у момент розмови!</em></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>✨ Simple Aspect — English Grammar for Beginners / Граматика для початківців ✨</p>
+  <p style="margin-top:8px;opacity:0.5;font-size:0.8rem;">Made with ❤️ for Ukrainian learners of English</p>
+</footer>
+
+<script>
+  // Stars
+  const starsContainer = document.getElementById('stars');
+  for(let i=0;i<60;i++){
+    const s=document.createElement('div');
+    s.className='star';
+    const size=Math.random()*3+1;
+    s.style.cssText=`width:${size}px;height:${size}px;top:${Math.random()*100}%;left:${Math.random()*100}%;animation-delay:${Math.random()*3}s;animation-duration:${2+Math.random()*3}s`;
+    starsContainer.appendChild(s);
+  }
+
+  // Progress bar
+  window.addEventListener('scroll',()=>{
+    const p=(window.scrollY/(document.body.scrollHeight-window.innerHeight))*100;
+    document.getElementById('progress').style.width=p+'%';
+  });
+
+  // Fade in
+  const faders=document.querySelectorAll('.fade-in');
+  const obs=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); } });
+  },{threshold:0.1});
+  faders.forEach(f=>obs.observe(f));
+
+  // Tabs
+  function showTab(id, btn, activeClass){
+    document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b=>{ b.className='tab-btn'; });
+    document.getElementById('tab-'+id).classList.add('active');
+    btn.classList.add(activeClass);
+  }
+
+  // Quiz
+  function answer(btn, result){
+    const item=btn.closest('.quiz-item');
+    if(item.querySelector('.correct')||item.querySelector('.wrong.chosen')) return;
+    btn.classList.add(result);
+    btn.classList.add('chosen');
+    const fb=item.querySelector('.quiz-feedback');
+    if(result==='correct'){
+      fb.innerHTML='✅ <strong>Correct!</strong> / <em>Правильно!</em> 🎉';
+      fb.style.color='#6bcb77';
+    } else {
+      fb.innerHTML='❌ <strong>Try again!</strong> / <em>Спробуй ще раз — обери іншу відповідь!</em>';
+      fb.style.color='#ff6b6b';
+    }
+  }
+</script>
+
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comparisons in English 🎯</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fff9f0;
+    --card: #ffffff;
+    --yellow: #FFD93D;
+    --orange: #FF6B35;
+    --blue: #4ECDC4;
+    --purple: #A78BFA;
+    --green: #6BCB77;
+    --pink: #FF6B9D;
+    --red: #FF4757;
+    --dark: #2D3436;
+    --text: #3D3D3D;
+    --shadow: 0 8px 30px rgba(0,0,0,0.12);
+    --radius: 20px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+
+  /* INTRO SECTION */
+  .intro-section {
+    max-width: 1100px;
+    margin: 0 auto 10px;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  @media(max-width: 700px) { .intro-section { grid-template-columns: 1fr; } }
+  .intro-card {
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 24px 26px;
+    border-top: 5px solid var(--orange);
+  }
+  .intro-card.adj-card { border-top-color: #4ECDC4; }
+  .intro-card.short-card { border-top-color: #A78BFA; }
+  .intro-card h3 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .intro-card p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 8px;
+  }
+  .adj-examples {
+    display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px;
+  }
+  .adj-ex {
+    background: #F0FDFB;
+    border: 2px solid #4ECDC4;
+    border-radius: 8px;
+    padding: 4px 10px;
+    font-size: 0.82rem;
+    font-weight: 800;
+    color: #0D9488;
+  }
+  .adj-ex.long {
+    background: #F5F3FF;
+    border-color: #A78BFA;
+    color: #7C3AED;
+  }
+  .card-explain {
+    background: #FFFBF0;
+    border-left: 4px solid #FFD93D;
+    border-radius: 0 10px 10px 0;
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #555;
+  }
+  .card-explain strong { color: #2D3436; }
+
+  /* HEADER */
+  header {
+    background: linear-gradient(135deg, #FF6B35 0%, #FFD93D 50%, #FF6B9D 100%);
+    padding: 60px 20px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    bottom: -2px; left: 0; right: 0;
+    height: 60px;
+    background: var(--bg);
+    clip-path: ellipse(55% 60px at 50% 60px);
+  }
+  header h1 {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    color: white;
+    text-shadow: 3px 4px 0 rgba(0,0,0,0.15);
+    letter-spacing: 1px;
+  }
+  header p {
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    color: rgba(255,255,255,0.95);
+    margin-top: 12px;
+    font-weight: 700;
+  }
+  .emoji-row {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+    animation: bounce 1.5s infinite alternate;
+  }
+  @keyframes bounce { from{transform:translateY(0)} to{transform:translateY(-10px)} }
+
+  /* BASE SENTENCE BOX */
+  .base-box {
+    max-width: 860px;
+    margin: 50px auto 20px;
+    padding: 0 20px;
+  }
+  .base-inner {
+    background: linear-gradient(135deg, #2D3436, #636e72);
+    color: white;
+    border-radius: var(--radius);
+    padding: 32px 36px;
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+  }
+  .base-inner::after {
+    content: '🌟';
+    position: absolute;
+    right: 30px; top: 20px;
+    font-size: 3rem;
+    opacity: 0.3;
+  }
+  .base-inner .label {
+    font-family: 'Fredoka One', cursive;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--yellow);
+    margin-bottom: 10px;
+  }
+  .base-inner .sentence {
+    font-size: clamp(1.2rem, 3vw, 1.6rem);
+    font-weight: 800;
+    line-height: 1.5;
+  }
+  .base-inner .ua {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.7);
+    margin-top: 8px;
+    font-style: italic;
+  }
+  .highlight { color: var(--yellow); }
+
+  /* MAIN GRID */
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px 20px 60px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  /* CARD */
+  .card {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: transform 0.2s;
+  }
+  .card:hover { transform: translateY(-4px); }
+
+  .card-header {
+    padding: 22px 28px 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .card-icon {
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.6rem;
+    flex-shrink: 0;
+  }
+  .card-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
+  .card-subtitle {
+    font-size: 0.85rem;
+    color: #120101;
+    margin-top: 2px;
+  }
+  .card-body {
+    padding: 0 28px 26px;
+  }
+
+  /* FORMULA */
+  .formula {
+    background: #F8F9FA;
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin: 14px 0;
+    font-size: 1.05rem;
+    font-weight: 700;
+    border-left: 4px solid currentColor;
+    font-family: 'Fredoka One', cursive;
+    letter-spacing: 0.5px;
+  }
+
+  /* RULE PILLS */
+  .rules {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 12px 0;
+  }
+  .pill {
+    border-radius: 50px;
+    padding: 6px 14px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  /* EXAMPLES */
+  .examples {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 16px;
+  }
+  @media(max-width: 600px) { .examples { grid-template-columns: 1fr; } }
+
+  .example {
+    border-radius: 14px;
+    padding: 16px;
+  }
+  .example .en {
+    font-size: 1rem;
+    font-weight: 800;
+    line-height: 1.5;
+    margin-bottom: 6px;
+  }
+  .example .ua {
+    font-size: 0.85rem;
+    opacity: 0.75;
+    font-style: italic;
+    line-height: 1.4;
+  }
+  .example .tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 6px;
+    padding: 2px 8px;
+    margin-bottom: 8px;
+  }
+
+  /* VISUAL INFOGRAPHIC */
+  .visual {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 16px;
+    margin: 20px 0;
+    padding: 20px;
+    background: #F8F9FA;
+    border-radius: 14px;
+    flex-wrap: wrap;
+  }
+  .bar-wrap { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .bar {
+    width: 52px;
+    border-radius: 8px 8px 0 0;
+    transition: all 0.3s;
+  }
+  .bar-label { font-size: 0.8rem; font-weight: 800; text-align: center; }
+  .bar-val { font-size: 0.75rem; color: #888; }
+
+  /* SCALE INFOGRAPHIC */
+  .scale {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin: 18px 0;
+    padding: 10px 18px;
+    background: #F8F9FA;
+    border-radius: 14px;
+    overflow: hidden;
+  }
+  .scale-item {
+    flex: 1;
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 10px 6px;
+    border-radius: 10px;
+    line-height: 1.3;
+    position: relative;
+  }
+  .scale-arrow {
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    color: #ccc;
+  }
+
+  /* COLORS per section */
+  .c-orange { --c: #FF6B35; }
+  .c-blue   { --c: #4ECDC4; }
+  .c-purple { --c: #A78BFA; }
+  .c-green  { --c: #6BCB77; }
+  .c-pink   { --c: #FF6B9D; }
+  .c-red    { --c: #FF4757; }
+  .c-yellow { --c: #FFD93D; }
+  .c-teal   { --c: #00B894; }
+
+  .card-header.c-orange { background: linear-gradient(135deg, #FF6B35, #FFD93D); color: white; }
+  .card-header.c-blue   { background: linear-gradient(135deg, #4ECDC4, #45B7D1); color: white; }
+  .card-header.c-purple { background: linear-gradient(135deg, #A78BFA, #7C3AED); color: white; }
+  .card-header.c-green  { background: linear-gradient(135deg, #6BCB77, #4DA853); color: white; }
+  .card-header.c-pink   { background: linear-gradient(135deg, #FF6B9D, #FF4757); color: white; }
+  .card-header.c-red    { background: linear-gradient(135deg, #FF4757, #C0392B); color: white; }
+  .card-header.c-yellow { background: linear-gradient(135deg, #FFD93D, #F39C12); color: white; }
+  .card-header.c-teal   { background: linear-gradient(135deg, #00B894, #00CEC9); color: white; }
+
+  .formula.c-orange { color: #FF6B35; border-color: #FF6B35; }
+  .formula.c-blue   { color: #4ECDC4; border-color: #4ECDC4; }
+  .formula.c-purple { color: #7C3AED; border-color: #A78BFA; }
+  .formula.c-green  { color: #4DA853; border-color: #6BCB77; }
+  .formula.c-pink   { color: #FF6B9D; border-color: #FF6B9D; }
+  .formula.c-red    { color: #FF4757; border-color: #FF4757; }
+  .formula.c-yellow { color: #F39C12; border-color: #FFD93D; }
+  .formula.c-teal   { color: #00B894; border-color: #00B894; }
+
+  .example.c-orange { background: #FFF4F0; }
+  .example .tag.c-orange { background: #FF6B35; color: white; }
+  .example.c-blue   { background: #F0FDFB; }
+  .example .tag.c-blue   { background: #4ECDC4; color: white; }
+  .example.c-purple { background: #F5F3FF; }
+  .example .tag.c-purple { background: #7C3AED; color: white; }
+  .example.c-green  { background: #F0FFF4; }
+  .example .tag.c-green  { background: #4DA853; color: white; }
+  .example.c-pink   { background: #FFF0F6; }
+  .example .tag.c-pink   { background: #FF6B9D; color: white; }
+  .example.c-red    { background: #FFF2F2; }
+  .example .tag.c-red    { background: #FF4757; color: white; }
+  .example.c-yellow { background: #FFFBF0; }
+  .example .tag.c-yellow { background: #F39C12; color: white; }
+  .example.c-teal   { background: #F0FFFD; }
+  .example .tag.c-teal   { background: #00B894; color: white; }
+
+  .card-icon.c-orange { background: rgba(255,255,255,0.25); }
+  .card-icon.c-blue   { background: rgba(255,255,255,0.25); }
+  .card-icon.c-purple { background: rgba(255,255,255,0.25); }
+  .card-icon.c-green  { background: rgba(255,255,255,0.25); }
+  .card-icon.c-pink   { background: rgba(255,255,255,0.25); }
+  .card-icon.c-red    { background: rgba(255,255,255,0.25); }
+  .card-icon.c-yellow { background: rgba(255,255,255,0.25); }
+  .card-icon.c-teal   { background: rgba(255,255,255,0.25); }
+
+  .pill.c-orange { background: #FFF4F0; color: #FF6B35; }
+  .pill.c-blue   { background: #F0FDFB; color: #0D9488; }
+  .pill.c-purple { background: #F5F3FF; color: #7C3AED; }
+  .pill.c-green  { background: #F0FFF4; color: #4DA853; }
+  .pill.c-pink   { background: #FFF0F6; color: #FF6B9D; }
+  .pill.c-red    { background: #FFF2F2; color: #FF4757; }
+  .pill.c-yellow { background: #FFFBF0; color: #D97706; }
+  .pill.c-teal   { background: #F0FFFD; color: #00B894; }
+
+  /* 2-col layout for bigger screens */
+  @media(min-width: 768px) {
+    main { grid-template-columns: 1fr 1fr; }
+    .card.full { grid-column: 1 / -1; }
+  }
+
+  /* QUICK REFERENCE TABLE */
+  .ref-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    margin-top: 16px;
+  }
+  .ref-table th {
+    background: linear-gradient(135deg, #2D3436, #636e72);
+    color: white;
+    padding: 12px 14px;
+    text-align: left;
+    font-family: 'Fredoka One', cursive;
+    font-weight: normal;
+    letter-spacing: 0.5px;
+  }
+  .ref-table tr:nth-child(even) td { background: #F8F9FA; }
+  .ref-table td {
+    padding: 11px 14px;
+    border-bottom: 1px solid #EEE;
+  }
+  .ref-table td:first-child { font-weight: 800; font-family: 'Fredoka One', cursive; }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 40px 20px 50px;
+    background: linear-gradient(135deg, #2D3436, #636e72);
+    color: rgba(255,255,255,0.8);
+    font-size: 0.9rem;
+  }
+  footer .big { font-family: 'Fredoka One', cursive; font-size: 1.4rem; color: white; margin-bottom: 8px; }
+
+  /* KEY WORD highlight in examples */
+  .kw { background: var(--yellow); padding: 1px 4px; border-radius: 4px; font-weight: 900; color: #2D3436; }
+
+#scroll-top-btn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #1a1208;
+  border: 1.5px solid rgba(200,150,62,0.4);
+  color: #f5f0e8;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+  pointer-events: none;
+  z-index: 9998;
+}
+#scroll-top-btn.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+#scroll-top-btn:hover {
+  background: #c8963e;
+  border-color: #c8963e;
+  color: #1a1208;
+}
+
+  /* ===================== MOBILE RESPONSIVE ===================== */
+  @media(max-width: 767px) {
+
+    /* Header */
+    header {
+      padding: 40px 16px 60px;
+    }
+    .emoji-row { font-size: 1.8rem; }
+
+    /* Base sentence box */
+    .base-box {
+      margin: 30px auto 16px;
+      padding: 0 14px;
+    }
+    .base-inner {
+      padding: 22px 20px;
+    }
+    .base-inner::after { display: none; }
+
+    /* Intro section */
+    .intro-section {
+      padding: 0 14px;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-bottom: 0;
+    }
+    .intro-card {
+      padding: 18px 16px;
+    }
+    .intro-card h3 { font-size: 1.05rem; }
+    .intro-card p { font-size: 0.85rem; }
+
+    /* Main grid: always 1 column on mobile */
+    main {
+      grid-template-columns: 1fr !important;
+      padding: 14px 14px 50px;
+      gap: 18px;
+    }
+    .card.full { grid-column: 1 !important; }
+
+    /* Card header */
+    .card-header {
+      padding: 16px 16px 12px;
+      gap: 10px;
+    }
+    .card-icon {
+      width: 42px; height: 42px;
+      font-size: 1.3rem;
+      border-radius: 10px;
+      flex-shrink: 0;
+    }
+    .card-title { font-size: 1.15rem; }
+    .card-subtitle { font-size: 0.78rem; }
+
+    /* Card body */
+    .card-body {
+      padding: 0 14px 18px;
+    }
+
+    /* Formula */
+    .formula {
+      font-size: 0.88rem;
+      padding: 10px 12px;
+      word-break: break-word;
+      white-space: normal;
+    }
+
+    /* Pills */
+    .pill {
+      font-size: 0.76rem;
+      padding: 5px 10px;
+    }
+
+    /* Explanation block */
+    .card-explain {
+      font-size: 0.82rem;
+      padding: 10px 12px;
+    }
+
+    /* Visual bars */
+    .visual {
+      padding: 14px 10px;
+      gap: 10px;
+    }
+    .bar { width: 40px; }
+    .bar-label { font-size: 0.72rem; }
+    .bar-val { font-size: 0.68rem; }
+
+    /* Examples grid: 1 column */
+    .examples {
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    .example {
+      padding: 12px;
+    }
+    .example .en { font-size: 0.92rem; }
+    .example .ua { font-size: 0.78rem; }
+
+    /* Table: horizontal scroll wrapper */
+    .table-scroll-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 10px;
+    }
+    .ref-table {
+      min-width: 520px;
+      font-size: 0.78rem;
+    }
+    .ref-table th, .ref-table td {
+      padding: 9px 10px;
+      white-space: nowrap;
+    }
+
+    /* Footer */
+    footer {
+      padding: 28px 16px 40px;
+    }
+    footer .big { font-size: 1.1rem; }
+    footer p { font-size: 0.82rem; }
+
+    /* Scroll-to-top btn: slightly smaller on mobile */
+    #scroll-top-btn {
+      bottom: 18px;
+      right: 18px;
+      width: 38px;
+      height: 38px;
+      font-size: 16px;
+    }
+  }
+
+  /* Wrap for table scroll on all screens */
+  .table-scroll-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+</style>
+</head>
+<body>
+
+<header>
+  <div class="emoji-row">📏🐘🦁🏔️⚡</div>
+  <h1>Comparisons in English</h1>
+  <p>Порівняння в англійській мові — просто та зрозуміло!</p>
+</header>
+
+<!-- BASE SENTENCE -->
+<div class="base-box">
+  <div class="base-inner">
+    <div class="label">⭐ Our Base Sentence — Наше базове речення</div>
+    <div class="sentence">This <span class="highlight">cat</span> is <span class="highlight">fast</span>.</div>
+    <div class="ua">Цей кіт — швидкий.</div>
+    <div class="ua" style="margin-top:10px; color: rgba(255,255,255,0.5); font-size:0.8rem;">👇 Watch how this sentence CHANGES below! — Дивись, як речення змінюється нижче!</div>
+  </div>
+</div>
+
+
+<!-- INTRO SECTION -->
+<div class="intro-section">
+
+  <!-- What is an adjective -->
+  <div class="intro-card adj-card">
+    <h3>🔤 What is an adjective? — Що таке прикметник?</h3>
+    <p>An <strong>adjective (adj)</strong> is a word that <em>describes</em> a noun — it tells us what something is <strong>like</strong>.</p>
+    <p>Прикметник — це слово, яке <em>описує</em> іменник: яке воно, якої якості.</p>
+    <p>In formulas we write <strong>adj</strong> as a short form for "adjective" — У формулах ми пишемо <strong>adj</strong> замість слова "adjective".</p>
+    <div class="adj-examples">
+      <span class="adj-ex">fast — швидкий</span>
+      <span class="adj-ex">big — великий</span>
+      <span class="adj-ex">small — маленький</span>
+      <span class="adj-ex long">beautiful — красивий</span>
+      <span class="adj-ex long">interesting — цікавий</span>
+      <span class="adj-ex long">expensive — дорогий</span>
+    </div>
+  </div>
+
+  <!-- Short vs Long adjectives -->
+  <div class="intro-card short-card">
+    <h3>📏 Short vs Long adjectives — Короткі та довгі прикметники</h3>
+    <p>This matters for comparatives & superlatives! — Це важливо для порівняння!</p>
+    <p>🟢 <strong>Short (1–2 syllables)</strong> — короткі (1–2 склади):<br>
+    Add <strong>-er / -est</strong> → fast, big, old, smart, happy</p>
+    <p>🔵 <strong>Long (3+ syllables)</strong> — довгі (3+ склади):<br>
+    Use <strong>more / the most</strong> → beautiful, interesting, expensive</p>
+    <p>⚠️ <strong>Irregular</strong> — неправильні:<br>
+    good → <strong>better → the best</strong><br>
+    bad → <strong>worse → the worst</strong><br>
+    far → <strong>further → the furthest</strong></p>
+  </div>
+
+</div>
+
+<main>
+
+  <!-- 1. COMPARATIVE -->
+  <div class="card full">
+    <div class="card-header c-orange">
+      <div class="card-icon c-orange">🐇</div>
+      <div>
+        <div class="card-title">Comparative — Порівняльний ступінь</div>
+        <div class="card-subtitle">Comparing TWO things — Порівнюємо ДВІ речі</div>
+      </div>
+    </div>
+    <div class="card-body">
+
+      <div class="card-explain">
+        <strong>How to form it — Як утворити:</strong> Take your adjective and add <strong>-er</strong> (short adj) or put <strong>more</strong> in front (long adj). Always add <strong>than</strong> after to introduce what you're comparing to.<br>
+        <em>Візьми прикметник і додай <strong>-er</strong> (короткий) або постав <strong>more</strong> перед ним (довгий). Після завжди додай <strong>than</strong> — щоб показати, з чим порівнюєш.</em>
+      </div>
+      <!-- Visual infographic -->
+      <div class="visual">
+        <div class="bar-wrap">
+          <div class="bar" style="height:70px; background:#FF6B35;"></div>
+          <div class="bar-label">🐱 Cat</div>
+          <div class="bar-val">fast</div>
+        </div>
+        <div style="font-size:1.8rem; padding-bottom:30px;">➡️</div>
+        <div class="bar-wrap">
+          <div class="bar" style="height:120px; background:#FFD93D;"></div>
+          <div class="bar-label">🐕 Dog</div>
+          <div class="bar-val">faster</div>
+        </div>
+        <div style="font-size:1rem; font-weight:800; color:#888; padding-bottom:20px; max-width:180px; text-align:center;">Dog > Cat<br>Собака швидший, ніж кіт</div>
+      </div>
+
+      <div class="formula c-orange">📐 Formula: <span style="background:#FF6B35;color:white;border-radius:6px;padding:2px 8px;">adj + -er</span> + than &nbsp;|&nbsp; <span style="background:#FF6B35;color:white;border-radius:6px;padding:2px 8px;">more</span> + adj + than</div>
+
+      <div class="rules">
+        <div class="pill c-orange">🔤 Short adj → add <b>-er</b></div>
+        <div class="pill c-orange">📝 Long adj → <b>more</b> + adj</div>
+        <div class="pill c-orange">fast → fast<b>er</b></div>
+        <div class="pill c-orange">beautiful → <b>more</b> beautiful</div>
+        <div class="pill c-orange">⚠️ good → <b>better</b> | bad → <b>worse</b></div>
+      </div>
+
+      <div class="examples">
+        <div class="example c-orange">
+          <div class="tag c-orange">Example 1</div>
+          <div class="en">This cat is <span class="kw">faster than</span> that dog.</div>
+          <div class="ua">Цей кіт швидший, ніж той собака.</div>
+        </div>
+        <div class="example c-orange">
+          <div class="tag c-orange">Example 2</div>
+          <div class="en">This cat is <span class="kw">more beautiful than</span> that dog.</div>
+          <div class="ua">Цей кіт красивіший, ніж той собака.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. SUPERLATIVE -->
+  <div class="card full">
+    <div class="card-header c-purple">
+      <div class="card-icon c-purple">🏆</div>
+      <div>
+        <div class="card-title">Superlative — Найвищий ступінь</div>
+        <div class="card-subtitle">The BEST/WORST of ALL — Найкраще/найгірше З УСІХ</div>
+      </div>
+    </div>
+    <div class="card-body">
+
+      <div class="card-explain">
+        <strong>How to form it — Як утворити:</strong> Add <strong>-est</strong> to short adjectives or use <strong>the most</strong> before long ones. Always use <strong>the</strong> at the start — it's required! Usually followed by <strong>in</strong> (place/group) or <strong>of</strong> (set of things).<br>
+        <em>Додай <strong>-est</strong> до коротких прикметників або постав <strong>the most</strong> перед довгими. Завжди потрібен артикль <strong>the</strong> на початку! Зазвичай після вживають <strong>in</strong> (місце/група) або <strong>of</strong> (набір речей).</em>
+      </div>
+
+      <div class="visual">
+        <div class="bar-wrap">
+          <div class="bar" style="height:50px; background:#DDD;"></div>
+          <div class="bar-label">🐱 Cat</div>
+          <div class="bar-val">fast</div>
+        </div>
+        <div class="bar-wrap">
+          <div class="bar" style="height:90px; background:#A78BFA;"></div>
+          <div class="bar-label">🐕 Dog</div>
+          <div class="bar-val">faster</div>
+        </div>
+        <div class="bar-wrap">
+          <div class="bar" style="height:150px; background:#7C3AED;"></div>
+          <div class="bar-label">🐆 Cheetah</div>
+          <div class="bar-val">🏆 fastest</div>
+        </div>
+        <div style="font-size:1rem; font-weight:800; color:#888; padding-bottom:20px; max-width:160px; text-align:center;">Cheetah = #1<br>Найшвидший з усіх!</div>
+      </div>
+
+      <div class="formula c-purple">📐 Formula: <span style="background:#7C3AED;color:white;border-radius:6px;padding:2px 8px;">the</span> + adj + <span style="background:#7C3AED;color:white;border-radius:6px;padding:2px 8px;">-est</span> &nbsp;|&nbsp; <span style="background:#7C3AED;color:white;border-radius:6px;padding:2px 8px;">the most</span> + adj</div>
+
+      <div class="rules">
+        <div class="pill c-purple">🔤 Short → <b>the</b> + adj + <b>-est</b></div>
+        <div class="pill c-purple">📝 Long → <b>the most</b> + adj</div>
+        <div class="pill c-purple">fast → the fast<b>est</b></div>
+        <div class="pill c-purple">beautiful → <b>the most</b> beautiful</div>
+        <div class="pill c-purple">⚠️ good → <b>the best</b> | bad → <b>the worst</b></div>
+      </div>
+
+      <div class="examples">
+        <div class="example c-purple">
+          <div class="tag c-purple">Example 1</div>
+          <div class="en">This cat is <span class="kw">the fastest</span> animal in the room.</div>
+          <div class="ua">Цей кіт — найшвидша тварина в кімнаті.</div>
+        </div>
+        <div class="example c-purple">
+          <div class="tag c-purple">Example 2</div>
+          <div class="en">This cat is <span class="kw">the most beautiful</span> cat in the world.</div>
+          <div class="ua">Цей кіт — найкрасивіший кіт у світі.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. AS...AS -->
+  <div class="card">
+    <div class="card-header c-blue">
+      <div class="card-icon c-blue">⚖️</div>
+      <div>
+        <div class="card-title">as...as — такий самий, як...</div>
+        <div class="card-subtitle">Equal / SAME — Однакові</div>
+      </div>
+    </div>
+    <div class="card-body">
+
+      <div class="card-explain">
+        <strong>How to form it — Як утворити:</strong> Put <strong>as</strong> before and after the adjective (unchanged!). Use <strong>not as...as</strong> to say something is less. The adjective stays in its base form — no -er, no more!<br>
+        <em>Постав <strong>as</strong> до і після прикметника (без змін!). Щоб сказати "не такий" — додай <strong>not</strong> спочатку. Прикметник залишається у початковій формі — без -er чи more!</em>
+      </div>
+      <div class="visual">
+        <div class="bar-wrap">
+          <div class="bar" style="height:100px; background:#4ECDC4;"></div>
+          <div class="bar-label">🐱 Cat</div>
+        </div>
+        <div style="font-size:2rem; padding-bottom:30px;">🟰</div>
+        <div class="bar-wrap">
+          <div class="bar" style="height:100px; background:#4ECDC4;"></div>
+          <div class="bar-label">🐕 Dog</div>
+        </div>
+        <div style="font-size:0.9rem;font-weight:800;color:#0D9488;padding-bottom:20px; text-align:center;">Same speed!<br>Однакова швидкість!</div>
+      </div>
+
+      <div class="formula c-blue">📐 as + <span style="background:#4ECDC4;color:white;border-radius:6px;padding:2px 8px;">adj</span> + as</div>
+
+      <div class="examples">
+        <div class="example c-blue">
+          <div class="tag c-blue">Example 1</div>
+          <div class="en">This cat is <span class="kw">as fast as</span> that dog.</div>
+          <div class="ua">Цей кіт такий самий швидкий, як і той собака.</div>
+        </div>
+        <div class="example c-blue">
+          <div class="tag c-blue">Example 2 (negative)</div>
+          <div class="en">This cat is <span class="kw">not as big as</span> that dog.</div>
+          <div class="ua">Цей кіт не такий великий, як той собака.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. THE...THE -->
+  <div class="card">
+    <div class="card-header c-green">
+      <div class="card-icon c-green">📈</div>
+      <div>
+        <div class="card-title">the...the — чим...тим...</div>
+        <div class="card-subtitle">Parallel change — Паралельна зміна</div>
+      </div>
+    </div>
+    <div class="card-body">
+
+      <div class="card-explain">
+        <strong>How to form it — Як утворити:</strong> Use <strong>the</strong> + comparative in both parts of the sentence. It shows that two things change <em>together</em> — when one grows, the other does too!<br>
+        <em>Використай <strong>the</strong> + порівняльний ступінь в обох частинах. Це показує, що дві речі змінюються <em>разом</em> — одне зростає, і друге теж!</em>
+      </div>
+      <div class="visual" style="flex-direction:column; gap:6px;">
+        <div style="display:flex;align-items:center;gap:10px;font-weight:800;font-size:0.9rem;">
+          <span style="color:#4DA853;">⬆️ More training</span>
+          <span style="color:#888;">→</span>
+          <span style="color:#4DA853;">⬆️ Faster cat!</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;font-weight:800;font-size:0.9rem;">
+          <span style="color:#4DA853;">Більше тренувань</span>
+          <span style="color:#888;">→</span>
+          <span style="color:#4DA853;">Швидший кіт!</span>
+        </div>
+      </div>
+
+      <div class="formula c-green">📐 <span style="background:#4DA853;color:white;border-radius:6px;padding:2px 8px;">The</span> + comp, <span style="background:#4DA853;color:white;border-radius:6px;padding:2px 8px;">the</span> + comp</div>
+
+      <div class="examples">
+        <div class="example c-green">
+          <div class="tag c-green">Example 1</div>
+          <div class="en"><span class="kw">The faster</span> this cat runs, <span class="kw">the happier</span> it is.</div>
+          <div class="ua">Чим швидше цей кіт бігає, тим він щасливіший.</div>
+        </div>
+        <div class="example c-green">
+          <div class="tag c-green">Example 2</div>
+          <div class="en"><span class="kw">The more</span> this cat eats, <span class="kw">the bigger</span> it gets.</div>
+          <div class="ua">Чим більше цей кіт їсть, тим більшим він стає.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. TOO -->
+  <div class="card">
+    <div class="card-header c-red">
+      <div class="card-icon c-red">🚫</div>
+      <div>
+        <div class="card-title">too — занадто</div>
+        <div class="card-subtitle">MORE than needed — Більше, ніж потрібно</div>
+      </div>
+    </div>
+    <div class="card-body">
+
+      <div class="card-explain">
+        <strong>How to form it — Як утворити:</strong> Put <strong>too</strong> directly before the adjective. It means the quality is <em>more than needed</em> — something negative! Often followed by <strong>to + verb</strong> to explain the result.<br>
+        <em>Постав <strong>too</strong> перед прикметником. Це означає, що якість <em>перевищує потребу</em> — негативно! Часто після додають <strong>to + дієслово</strong>, щоб пояснити наслідок.</em>
+      </div>
+      <div class="visual" style="justify-content:center; gap:20px;">
+        <div style="text-align:center">
+          <div style="font-size:2.5rem;">😤</div>
+          <div style="font-size:0.85rem;font-weight:800;color:#FF4757;">TOO fast!</div>
+          <div style="font-size:0.75rem;color:#888;">can't catch it</div>
+        </div>
+        <div style="text-align:center; font-size:1.5rem; padding-top:10px;">≠</div>
+        <div style="text-align:center">
+          <div style="font-size:2.5rem;">😊</div>
+          <div style="font-size:0.85rem;font-weight:800;color:#4DA853;">Just right!</div>
+          <div style="font-size:0.75rem;color:#888;">perfect speed</div>
+        </div>
+      </div>
+
+      <div class="formula c-red">📐 <span style="background:#FF4757;color:white;border-radius:6px;padding:2px 8px;">too</span> + adj + (to + verb)</div>
+
+      <div class="examples">
+        <div class="example c-red">
+          <div class="tag c-red">Example 1</div>
+          <div class="en">This cat is <span class="kw">too fast</span> to catch.</div>
+          <div class="ua">Цей кіт занадто швидкий, щоб його зловити.</div>
+        </div>
+        <div class="example c-red">
+          <div class="tag c-red">Example 2</div>
+          <div class="en">This cat is <span class="kw">too small</span> to open the door.</div>
+          <div class="ua">Цей кіт занадто маленький, щоб відчинити двері.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. ENOUGH -->
+  <div class="card">
+    <div class="card-header c-yellow">
+      <div class="card-icon c-yellow">✅</div>
+      <div>
+        <div class="card-title">enough — достатньо</div>
+        <div class="card-subtitle">The RIGHT amount — Саме те, що треба</div>
+      </div>
+    </div>
+    <div class="card-body">
+
+      <div class="visual" style="justify-content:center; gap:20px;">
+        <div style="text-align:center">
+          <div style="font-size:2.5rem;">😢</div>
+          <div style="font-size:0.85rem;font-weight:800;color:#FF4757;">NOT fast enough</div>
+          <div style="font-size:0.75rem;color:#888;">can't win</div>
+        </div>
+        <div style="text-align:center; font-size:1.5rem; padding-top:10px;">→</div>
+        <div style="text-align:center">
+          <div style="font-size:2.5rem;">🏆</div>
+          <div style="font-size:0.85rem;font-weight:800;color:#4DA853;">Fast ENOUGH!</div>
+          <div style="font-size:0.75rem;color:#888;">wins the race!</div>
+        </div>
+      </div>
+
+      <div class="formula c-yellow">📐 adj + <span style="background:#D97706;color:white;border-radius:6px;padding:2px 8px;">enough</span> + (to + verb)</div>
+
+      <div class="rules">
+        <div class="pill c-yellow">⬅️ After adjective: fast <b>enough</b> — ставимо ПІСЛЯ прикметника</div>
+        <div class="pill c-yellow">➡️ Before noun: <b>enough</b> time / <b>enough</b> food — ставимо ПЕРЕД іменником</div>
+        <div class="pill c-yellow">🇺🇦 fast <b>enough</b> = достатньо швидкий (прикметник + enough)</div>
+        <div class="pill c-yellow">🇺🇦 <b>enough</b> time = достатньо часу (enough + іменник)</div>
+      </div>
+
+      <div class="examples">
+        <div class="example c-yellow">
+          <div class="tag c-yellow">Example 1</div>
+          <div class="en">This cat is <span class="kw">fast enough</span> to win the race.</div>
+          <div class="ua">Цей кіт достатньо швидкий, щоб перемогти в гонці.</div>
+        </div>
+        <div class="example c-yellow">
+          <div class="tag c-yellow">Example 2</div>
+          <div class="en">This cat is <span class="kw">big enough</span> to scare the mouse.</div>
+          <div class="ua">Цей кіт достатньо великий, щоб налякати мишу.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. FAR MORE / MUCH MORE -->
+  <div class="card">
+    <div class="card-header c-pink">
+      <div class="card-icon c-pink">🚀</div>
+      <div>
+        <div class="card-title">far more / much more — набагато більше</div>
+        <div class="card-subtitle">Strong comparison — Посилення порівняння</div>
+      </div>
+    </div>
+    <div class="card-body">
+
+      <div class="visual">
+        <div class="bar-wrap">
+          <div class="bar" style="height:40px; background:#DDD;"></div>
+          <div class="bar-label">🐕 Dog</div>
+          <div class="bar-val">fast</div>
+        </div>
+        <div style="font-size:1.8rem; padding-bottom:30px;">💥</div>
+        <div class="bar-wrap">
+          <div class="bar" style="height:160px; background:#FF6B9D;"></div>
+          <div class="bar-label">🐱 Cat</div>
+          <div class="bar-val">FAR faster!</div>
+        </div>
+        <div style="font-size:0.9rem;font-weight:800;color:#FF6B9D;padding-bottom:20px;text-align:center;">HUGE difference!<br>Величезна різниця!</div>
+      </div>
+
+      <div class="formula c-pink">📐 <span style="background:#FF6B9D;color:white;border-radius:6px;padding:2px 8px;">far/much/a lot</span> + comparative</div>
+
+      <div class="examples">
+        <div class="example c-pink">
+          <div class="tag c-pink">Example 1</div>
+          <div class="en">This cat is <span class="kw">far faster</span> than that dog.</div>
+          <div class="ua">Цей кіт набагато швидший, ніж той собака.</div>
+        </div>
+        <div class="example c-pink">
+          <div class="tag c-pink">Example 2</div>
+          <div class="en">This cat is <span class="kw">much more beautiful</span> than that dog.</div>
+          <div class="ua">Цей кіт набагато красивіший, ніж той собака.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8. LESS -->
+  <div class="card">
+    <div class="card-header c-teal">
+      <div class="card-icon c-teal">📉</div>
+      <div>
+        <div class="card-title">less / the least — менш... / найменш...</div>
+        <div class="card-subtitle">Opposite of more — Протилежне до more</div>
+      </div>
+    </div>
+    <div class="card-body">
+
+      <div class="visual">
+        <div class="bar-wrap">
+          <div class="bar" style="height:130px; background:#DDD;"></div>
+          <div class="bar-label">🐕 Dog</div>
+          <div class="bar-val">fast</div>
+        </div>
+        <div style="font-size:1.8rem; padding-bottom:30px;">⬇️</div>
+        <div class="bar-wrap">
+          <div class="bar" style="height:70px; background:#00B894;"></div>
+          <div class="bar-label">🐱 Cat</div>
+          <div class="bar-val">less fast</div>
+        </div>
+        <div style="font-size:0.9rem;font-weight:800;color:#00B894;padding-bottom:20px;text-align:center;">Cat has LESS speed<br>Кіт менш швидкий</div>
+      </div>
+
+      <div class="formula c-teal">📐 <span style="background:#00B894;color:white;border-radius:6px;padding:2px 8px;">less</span> + adj + than &nbsp;&nbsp; | &nbsp;&nbsp; <span style="background:#00B894;color:white;border-radius:6px;padding:2px 8px;">the least</span> + adj</div>
+
+      <div class="examples">
+        <div class="example c-teal">
+          <div class="tag c-teal">Example 1</div>
+          <div class="en">This cat is <span class="kw">less fast than</span> that dog.</div>
+          <div class="ua">Цей кіт менш швидкий, ніж той собака.</div>
+        </div>
+        <div class="example c-teal">
+          <div class="tag c-teal">Example 2</div>
+          <div class="en">This cat is <span class="kw">the least active</span> of all pets.</div>
+          <div class="ua">Цей кіт найменш активний з усіх домашніх тварин.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUICK REFERENCE TABLE -->
+  <div class="card full">
+    <div class="card-header" style="background: linear-gradient(135deg, #2D3436, #636e72); color:white;">
+      <div class="card-icon" style="background:rgba(255,255,255,0.15); font-size:1.6rem;">📋</div>
+      <div>
+        <div class="card-title">Quick Reference Table — Таблиця порівнянь</div>
+        <div class="card-subtitle" style="color:rgba(255,255,255,0.7);">All structures at a glance — Всі структури одним поглядом</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="table-scroll-wrap"><table class="ref-table">
+        <thead>
+          <tr>
+            <th>Structure</th>
+            <th>Formula</th>
+            <th>Meaning (UA)</th>
+            <th>Example</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Comparative</td>
+            <td>adj-er / more adj + than</td>
+            <td>Порівняльний ступінь</td>
+            <td>faster than / more beautiful than</td>
+          </tr>
+          <tr>
+            <td>Superlative</td>
+            <td>the adj-est / the most adj</td>
+            <td>Найвищий ступінь</td>
+            <td>the fastest / the most beautiful</td>
+          </tr>
+          <tr>
+            <td>as...as</td>
+            <td>as + adj + as</td>
+            <td>Такий самий, як</td>
+            <td>as fast as</td>
+          </tr>
+          <tr>
+            <td>not as...as</td>
+            <td>not as + adj + as</td>
+            <td>Не такий, як</td>
+            <td>not as fast as</td>
+          </tr>
+          <tr>
+            <td>the...the</td>
+            <td>the + comp, the + comp</td>
+            <td>Чим...тим...</td>
+            <td>the faster..., the better...</td>
+          </tr>
+          <tr>
+            <td>too</td>
+            <td>too + adj (+ to verb)</td>
+            <td>Занадто</td>
+            <td>too fast to catch</td>
+          </tr>
+          <tr>
+            <td>enough</td>
+            <td>adj + enough (+ to verb)</td>
+            <td>Достатньо</td>
+            <td>fast enough to win</td>
+          </tr>
+          <tr>
+            <td>far/much more</td>
+            <td>far/much + comparative</td>
+            <td>Набагато більше</td>
+            <td>far faster / much more beautiful</td>
+          </tr>
+          <tr>
+            <td>less / the least</td>
+            <td>less + adj + than / the least + adj</td>
+            <td>Менш / найменш</td>
+            <td>less fast / the least active</td>
+          </tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="big">🐱 You're doing great! Ти молодець! 🎉</div>
+  <p>Keep practising and comparisons will feel natural! <br>Практикуй і порівняння стануть природними!</p>
+</footer>
+
+
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+</body>
+</html>

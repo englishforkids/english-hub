@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adverbs — English Grammar for Everyone</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --yellow: #FFD93D;
+    --orange: #FF6B35;
+    --pink: #FF3CAC;
+    --purple: #A855F7;
+    --blue: #3B82F6;
+    --cyan: #06B6D4;
+    --green: #22C55E;
+    --teal: #14B8A6;
+    --red: #EF4444;
+    --dark: #0F0F1A;
+    --card: #1A1A2E;
+    --card2: #16213E;
+    --text: #F0F0FF;
+    --muted: #9090B0;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--dark);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, #2D1B69 0%, #0F0F1A 70%);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: 2rem; position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .floating-emoji {
+    position: absolute;
+    font-size: 2.5rem;
+    animation: float 6s ease-in-out infinite;
+    opacity: 0.6;
+  }
+  .floating-emoji:nth-child(1)  { top: 10%; left: 5%;  animation-delay: 0s;   }
+  .floating-emoji:nth-child(2)  { top: 20%; right: 8%; animation-delay: 1s;   }
+  .floating-emoji:nth-child(3)  { top: 60%; left: 3%;  animation-delay: 2s;   }
+  .floating-emoji:nth-child(4)  { top: 70%; right: 5%; animation-delay: 1.5s; }
+  .floating-emoji:nth-child(5)  { top: 40%; left: 10%; animation-delay: 3s;   }
+  .floating-emoji:nth-child(6)  { top: 85%; left: 15%; animation-delay: 0.5s; }
+  .floating-emoji:nth-child(7)  { top: 15%; left: 40%; animation-delay: 2.5s; }
+  .floating-emoji:nth-child(8)  { top: 80%; right: 15%;animation-delay: 3.5s; }
+
+  @keyframes float {
+    0%,100% { transform: translateY(0) rotate(0deg); }
+    50%      { transform: translateY(-20px) rotate(5deg); }
+  }
+
+  .hero-badge {
+    background: linear-gradient(135deg, var(--purple), var(--pink));
+    color: #fff; font-size: .85rem; font-weight: 800;
+    padding: .4rem 1.2rem; border-radius: 99px; letter-spacing: .1em;
+    text-transform: uppercase; margin-bottom: 1.5rem;
+    box-shadow: 0 0 30px rgba(168,85,247,.5);
+  }
+  .hero h1 {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(2.8rem, 8vw, 6rem);
+    font-weight: 800;
+    line-height: 1.1;
+    background: linear-gradient(135deg, #fff 0%, var(--yellow) 50%, var(--orange) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+  }
+  .hero-sub {
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    color: #B0B0D0; max-width: 600px; line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+  .hero-sub span { color: var(--yellow); font-weight: 800; }
+  .scroll-hint {
+    position: absolute; bottom: 2rem;
+    display: flex; flex-direction: column; align-items: center; gap: .5rem;
+    color: var(--muted); font-size: .8rem;
+    animation: bounce 2s infinite;
+  }
+  @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(8px)} }
+
+  /* ── LAYOUT ── */
+  .container { max-width: 1000px; margin: 0 auto; padding: 0 1.5rem; }
+  section { padding: 5rem 0; }
+
+  .section-title {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    font-weight: 800; margin-bottom: .5rem;
+  }
+  .section-sub { color: var(--muted); font-size: 1rem; margin-bottom: 2.5rem; line-height: 1.6; }
+
+  /* ── CARDS ── */
+  .card {
+    background: var(--card);
+    border: 1px solid rgba(255,255,255,.07);
+    border-radius: 20px;
+    padding: 1.8rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform .3s, box-shadow .3s;
+  }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(0,0,0,.4); }
+  .card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: var(--accent, linear-gradient(90deg, var(--purple), var(--pink)));
+  }
+
+  /* ── WHAT IS ADVERB ── */
+  .definition-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  @media(max-width:640px){ .definition-grid { grid-template-columns: 1fr; } }
+
+  .def-card {
+    background: var(--card2);
+    border-radius: 16px; padding: 1.5rem;
+    border: 1px solid rgba(255,255,255,.06);
+    display: flex; flex-direction: column; gap: .8rem;
+  }
+  .def-icon { font-size: 2.5rem; }
+  .def-title { font-size: 1.1rem; font-weight: 800; color: var(--yellow); }
+  .def-text { font-size: .95rem; color: #C0C0D8; line-height: 1.6; }
+  .def-text em { color: var(--cyan); font-style: normal; font-weight: 700; }
+  .def-text .ua { color: var(--muted); font-size: .88rem; display: block; margin-top: .3rem; }
+
+  /* ── FORMULA BOX ── */
+  .formula {
+    background: linear-gradient(135deg, rgba(168,85,247,.15), rgba(59,130,246,.15));
+    border: 2px solid rgba(168,85,247,.4);
+    border-radius: 16px; padding: 1.2rem 1.5rem;
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.15rem; font-weight: 700;
+    display: flex; align-items: center; gap: .7rem; flex-wrap: wrap;
+    margin: 1rem 0;
+  }
+  .formula .tag {
+    background: rgba(168,85,247,.3);
+    padding: .2rem .7rem; border-radius: 8px;
+    color: #D4AAFF; font-size: .95rem;
+  }
+  .formula .arr { color: var(--yellow); font-size: 1.4rem; }
+
+  /* ── EXAMPLE SENTENCES ── */
+  .sentence-card {
+    background: var(--card2);
+    border-left: 4px solid var(--accent-color, var(--cyan));
+    border-radius: 0 12px 12px 0;
+    padding: 1rem 1.3rem;
+    margin: .7rem 0;
+  }
+  .sentence-card .en { font-size: 1.05rem; font-weight: 700; color: #E0E0FF; }
+  .sentence-card .ua { font-size: .9rem; color: var(--muted); margin-top: .2rem; }
+  .sentence-card .highlight { color: var(--yellow); font-weight: 900; }
+  .sentence-card .orig { color: var(--muted); text-decoration: line-through; font-size: .85rem; }
+
+  /* ── UNIVERSAL SENTENCE ── */
+  .univ-hero {
+    background: linear-gradient(135deg, #1A0A3A, #0A1A3A);
+    border: 2px solid rgba(168,85,247,.3);
+    border-radius: 24px; padding: 2.5rem;
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .univ-hero::after {
+    content: '✨';
+    position: absolute; top: 1rem; right: 1.5rem; font-size: 2rem;
+  }
+  .univ-base {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(1.3rem, 4vw, 2rem);
+    font-weight: 800; color: #fff; margin: 1rem 0;
+  }
+  .univ-base span { color: var(--yellow); }
+
+  /* ── FORMATION TABLE ── */
+  .table-wrap { overflow-x: auto; margin: 1.5rem 0; }
+  table { width: 100%; border-collapse: collapse; }
+  th {
+    background: linear-gradient(135deg, var(--purple), var(--pink));
+    color: #fff; padding: .8rem 1rem;
+    font-weight: 800; text-align: left; font-size: .9rem;
+  }
+  th:first-child { border-radius: 12px 0 0 0; }
+  th:last-child  { border-radius: 0 12px 0 0; }
+  td { padding: .75rem 1rem; border-bottom: 1px solid rgba(255,255,255,.06); font-size: .95rem; }
+  tr:nth-child(even) td { background: rgba(255,255,255,.025); }
+  tr:hover td { background: rgba(168,85,247,.1); }
+  td .adj { color: var(--cyan); font-weight: 700; }
+  td .adv { color: var(--yellow); font-weight: 700; }
+  td .rule { color: var(--muted); font-size: .8rem; }
+  td .ua { color: var(--muted); font-size: .82rem; }
+
+  /* ── POSITION SECTION ── */
+  .pos-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.3rem; }
+  .pos-card {
+    border-radius: 16px; padding: 1.5rem;
+    border: 1px solid rgba(255,255,255,.07);
+    position: relative; overflow: hidden;
+  }
+  .pos-card .pos-num {
+    font-family: 'Baloo 2', cursive;
+    font-size: 3.5rem; font-weight: 900;
+    position: absolute; right: 1rem; top: -.5rem;
+    opacity: .1; color: #fff;
+  }
+  .pos-card h3 { font-size: 1rem; font-weight: 800; margin-bottom: .5rem; }
+  .pos-card p { font-size: .88rem; color: var(--muted); line-height: 1.6; }
+  .pos-card .ex { color: #D0D0F0; font-size: .9rem; margin-top: .6rem; }
+  .pos-card .ex span { color: var(--yellow); font-weight: 800; }
+
+  /* ── FREQUENCY CHART ── */
+  .freq-bar-wrap { display: flex; flex-direction: column; gap: .8rem; margin: 1.5rem 0; }
+  .freq-row { display: flex; align-items: center; gap: 1rem; }
+  .freq-word {
+    min-width: 110px; font-weight: 800; font-size: .95rem; text-align: right;
+  }
+  .freq-bar-outer {
+    flex: 1; background: rgba(255,255,255,.06); border-radius: 99px; height: 28px;
+    overflow: hidden;
+  }
+  .freq-bar-inner {
+    height: 100%; border-radius: 99px;
+    display: flex; align-items: center; padding-left: .8rem;
+    font-size: .8rem; font-weight: 800; color: #fff;
+    transition: width 1s ease;
+  }
+  .freq-pct { min-width: 40px; font-size: .8rem; color: var(--muted); }
+
+  /* ── DEGREE CARDS ── */
+  .degree-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; }
+  .degree-card {
+    border-radius: 16px; padding: 1.3rem;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,.08);
+    transition: transform .2s;
+  }
+  .degree-card:hover { transform: scale(1.03); }
+  .degree-word { font-family: 'Baloo 2', cursive; font-size: 1.6rem; font-weight: 900; }
+  .degree-ua { font-size: .8rem; color: var(--muted); margin: .3rem 0; }
+  .degree-level {
+    height: 8px; border-radius: 99px; margin: .6rem 0;
+    background: linear-gradient(90deg, var(--c1, #3B82F6), var(--c2, #A855F7));
+  }
+  .degree-ex { font-size: .82rem; color: #B0B0D0; line-height: 1.5; }
+  .degree-ex strong { color: var(--yellow); }
+
+  /* ── TYPES SECTION ── */
+  .types-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+  .type-card {
+    border-radius: 20px; padding: 1.8rem;
+    border: 1px solid rgba(255,255,255,.07);
+  }
+  .type-icon { font-size: 2.8rem; margin-bottom: .8rem; }
+  .type-title { font-size: 1.1rem; font-weight: 800; margin-bottom: .3rem; }
+  .type-title-ua { font-size: .85rem; color: var(--muted); margin-bottom: .8rem; }
+  .type-questions { font-size: .82rem; color: var(--cyan); font-weight: 700; margin-bottom: .8rem; }
+  .type-examples { display: flex; flex-direction: column; gap: .4rem; }
+  .type-ex {
+    background: rgba(255,255,255,.04);
+    border-radius: 8px; padding: .5rem .8rem;
+    font-size: .88rem;
+  }
+  .type-ex span { color: var(--yellow); font-weight: 800; }
+
+  /* ── COMPARISON ── */
+  .comp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  @media(max-width:580px){ .comp-grid { grid-template-columns: 1fr; } }
+  .comp-box {
+    border-radius: 16px; padding: 1.5rem;
+    border: 2px dashed rgba(255,255,255,.12);
+  }
+  .comp-box h4 { font-size: 1rem; font-weight: 800; margin-bottom: 1rem; }
+  .comp-item { display: flex; justify-content: space-between; align-items: baseline;
+    border-bottom: 1px solid rgba(255,255,255,.06); padding: .4rem 0; font-size: .9rem; }
+  .comp-item .adj2 { color: var(--cyan); font-weight: 700; }
+  .comp-item .adv2 { color: var(--yellow); font-weight: 700; }
+
+  /* ── EXCEPTIONS ── */
+  .exc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; }
+  .exc-card {
+    background: linear-gradient(135deg, rgba(239,68,68,.1), rgba(239,68,68,.05));
+    border: 1px solid rgba(239,68,68,.25); border-radius: 14px; padding: 1.2rem;
+    text-align: center;
+  }
+  .exc-adj { font-size: 1rem; color: var(--muted); text-decoration: line-through; margin-bottom: .4rem; }
+  .exc-adv { font-size: 1.4rem; font-weight: 900; color: var(--red); margin-bottom: .3rem; }
+  .exc-mean { font-size: .8rem; color: var(--muted); }
+
+  /* ── SAME FORM ── */
+  .same-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: .8rem; }
+  .same-card {
+    background: linear-gradient(135deg, rgba(34,197,94,.1), rgba(6,182,212,.1));
+    border: 1px solid rgba(34,197,94,.2); border-radius: 12px; padding: 1rem;
+    text-align: center;
+  }
+  .same-word { font-size: 1.3rem; font-weight: 900; color: var(--green); }
+  .same-ua { font-size: .78rem; color: var(--muted); margin: .2rem 0; }
+  .same-ex { font-size: .8rem; color: #C0C0D0; }
+
+  /* ── MEGA EXAMPLE TABLE ── */
+  .mega-table { width: 100%; border-collapse: collapse; }
+  .mega-table th {
+    background: linear-gradient(135deg, #1E3A5F, #2D1B69);
+    color: #fff; padding: .7rem .9rem; font-size: .85rem;
+  }
+  .mega-table td { padding: .7rem .9rem; font-size: .88rem; border-bottom: 1px solid rgba(255,255,255,.05); }
+  .mega-table tr:hover td { background: rgba(255,255,255,.03); }
+  .mega-table .cat { color: var(--cyan); font-weight: 700; }
+  .mega-table .adv-cell { color: var(--yellow); font-weight: 800; }
+  .mega-table .sent { color: #E0E0FF; }
+  .mega-table .ua2 { color: var(--muted); font-size: .8rem; }
+
+  /* ── DIVIDER ── */
+  .wave-divider { text-align: center; font-size: 2rem; opacity: .3; margin: 2rem 0; }
+
+  /* ── PILL ── */
+  .pill {
+    display: inline-block;
+    padding: .2rem .8rem; border-radius: 99px;
+    font-size: .8rem; font-weight: 800; margin: .2rem;
+  }
+
+  /* ── BG ACCENTS ── */
+  .bg-glow {
+    position: relative;
+  }
+  .bg-glow::before {
+    content: '';
+    position: absolute; width: 600px; height: 600px;
+    background: radial-gradient(circle, var(--glow-color, rgba(168,85,247,.08)) 0%, transparent 70%);
+    top: -200px; left: -200px; pointer-events: none; z-index: 0;
+  }
+  .bg-glow > * { position: relative; z-index: 1; }
+
+  /* ── COLORS helpers ── */
+  .c-yellow { color: var(--yellow); }
+  .c-cyan   { color: var(--cyan);   }
+  .c-green  { color: var(--green);  }
+  .c-pink   { color: var(--pink);   }
+  .c-orange { color: var(--orange); }
+  .c-purple { color: var(--purple); }
+
+  /* section backgrounds */
+  .sec-alt { background: rgba(255,255,255,.015); }
+
+  /* ── SCROLL TO TOP ── */
+  #scroll-top-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #1a1208;
+    border: 1.5px solid rgba(200,150,62,0.4);
+    color: #f5f0e8;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+    pointer-events: none;
+    z-index: 9998;
+  }
+  #scroll-top-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  #scroll-top-btn:hover {
+    background: #c8963e;
+    border-color: #c8963e;
+    color: #1a1208;
+  }
+
+  /* ── NAMED GRIDS (replaced inline styles) ── */
+  .univ-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1rem;
+  }
+  .correct-wrong-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .degree-compare-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+  }
+  .cheat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.2rem;
+  }
+  .mistake-row {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  /* ══════════════════════════════════════
+     MOBILE RESPONSIVE — max-width: 600px
+  ══════════════════════════════════════ */
+  @media (max-width: 600px) {
+
+    /* Layout */
+    .container { padding: 0 1rem; }
+    section { padding: 3rem 0; }
+
+    /* Hero */
+    .hero { padding: 5rem 1rem 4rem; min-height: auto; }
+    .hero-badge { font-size: .72rem; padding: .35rem .9rem; letter-spacing: .05em; }
+    .floating-emoji { font-size: 1.6rem; }
+
+    /* Section titles */
+    .section-title { font-size: 1.5rem; }
+    .section-sub { font-size: .9rem; margin-bottom: 1.5rem; }
+
+    /* Cards */
+    .card { padding: 1.2rem; border-radius: 14px; }
+
+    /* Definition grid → 1 col */
+    .definition-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .def-card { padding: 1.1rem; }
+    .def-icon { font-size: 2rem; }
+    .def-title { font-size: 1rem; }
+    .def-text { font-size: .88rem; }
+
+    /* Universal sentence */
+    .univ-hero { padding: 1.5rem 1rem; }
+    .univ-hero::after { display: none; }
+
+    /* Formula */
+    .formula { font-size: .95rem; padding: 1rem; gap: .5rem; }
+    .formula .tag { font-size: .8rem; padding: .2rem .5rem; }
+
+    /* Sentence cards */
+    .sentence-card { padding: .8rem 1rem; }
+    .sentence-card .en { font-size: .95rem; }
+    .sentence-card .ua { font-size: .82rem; }
+
+    /* Tables — horizontal scroll */
+    .table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 12px;
+    }
+    table { min-width: 420px; }
+    th { padding: .6rem .7rem; font-size: .78rem; }
+    td { padding: .6rem .7rem; font-size: .82rem; }
+    .mega-table { min-width: 560px; }
+    .mega-table th { font-size: .75rem; padding: .6rem .6rem; }
+    .mega-table td { font-size: .8rem; padding: .6rem .6rem; }
+
+    /* Position grid → 1 col */
+    .pos-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .pos-card { padding: 1.2rem; }
+    .pos-card .pos-num { font-size: 2.5rem; }
+    .pos-card p { font-size: .82rem; }
+    .pos-card .ex { font-size: .84rem; }
+
+    /* Frequency bars — compact */
+    .freq-row { gap: .5rem; }
+    .freq-word { min-width: 80px; font-size: .82rem; }
+    .freq-bar-inner { font-size: .7rem; padding-left: .5rem; }
+    .freq-bar-outer { height: 24px; }
+    .freq-pct { min-width: 32px; font-size: .72rem; }
+
+    /* Degree grid → 2 col */
+    .degree-grid { grid-template-columns: 1fr 1fr; gap: .8rem; }
+    .degree-card { padding: 1rem .8rem; }
+    .degree-word { font-size: 1.3rem; }
+    .degree-ua { font-size: .72rem; }
+    .degree-ex { font-size: .75rem; }
+
+    /* Types grid → 1 col */
+    .types-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .type-card { padding: 1.3rem; }
+    .type-icon { font-size: 2.2rem; }
+    .type-title { font-size: 1rem; }
+    .type-ex { font-size: .82rem; }
+
+    /* Comparison grid → 1 col */
+    .comp-grid { grid-template-columns: 1fr; }
+    .comp-box { padding: 1.1rem; }
+    .comp-item { font-size: .83rem; }
+
+    /* Exceptions grid → 2 col */
+    .exc-grid { grid-template-columns: 1fr 1fr; gap: .8rem; }
+    .exc-card { padding: 1rem; }
+    .exc-adv { font-size: 1.1rem; }
+
+    /* Same form grid → 2 col */
+    .same-grid { grid-template-columns: 1fr 1fr; gap: .7rem; }
+    .same-word { font-size: 1.1rem; }
+    .same-ex { font-size: .74rem; }
+
+    /* Footer */
+    footer { padding: 2rem 1rem; font-size: .82rem; }
+
+    /* Scroll-to-top button */
+    #scroll-top-btn { bottom: 16px; right: 16px; width: 40px; height: 40px; font-size: 16px; }
+
+    /* Named grids → 1 col on mobile */
+    .univ-grid { grid-template-columns: 1fr; }
+    .correct-wrong-grid { grid-template-columns: 1fr; }
+    .degree-compare-grid { grid-template-columns: 1fr; }
+    .cheat-grid { grid-template-columns: 1fr; }
+
+    /* Mistake rows → column */
+    .mistake-row { flex-direction: column; align-items: flex-start; }
+  }
+
+  /* Tablet tweaks — 601px to 768px */
+  @media (min-width: 601px) and (max-width: 768px) {
+    .container { padding: 0 1.2rem; }
+    section { padding: 3.5rem 0; }
+    .degree-grid { grid-template-columns: repeat(3, 1fr); }
+    .types-grid { grid-template-columns: 1fr 1fr; }
+    .exc-grid { grid-template-columns: repeat(2, 1fr); }
+    .same-grid { grid-template-columns: repeat(3, 1fr); }
+    table { min-width: 480px; }
+    .mega-table { min-width: 600px; }
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #050510;
+    text-align: center; padding: 3rem 1.5rem;
+    color: var(--muted); font-size: .9rem;
+  }
+  footer span { color: var(--yellow); }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="floating-emoji">📚</span>
+  <span class="floating-emoji">✨</span>
+  <span class="floating-emoji">🚀</span>
+  <span class="floating-emoji">⚡</span>
+  <span class="floating-emoji">🌟</span>
+  <span class="floating-emoji">🎯</span>
+  <span class="floating-emoji">💡</span>
+  <span class="floating-emoji">🔥</span>
+  <div class="hero-badge">English Grammar · Англійська граматика</div>
+  <h1>ADVERBS<br>Прислівники</h1>
+  <p class="hero-sub">
+    Слова, які <span>описують дію</span> — як, де, коли і наскільки!<br>
+    Words that describe <span>HOW</span>, <span>WHERE</span>, <span>WHEN</span> &amp; <span>HOW MUCH</span>
+  </p>
+  <div class="scroll-hint">▼ Scroll to learn · Гортай вниз</div>
+</section>
+
+<!-- 1. WHAT IS AN ADVERB -->
+<section>
+  <div class="container">
+    <div class="section-title c-cyan">📌 What is an Adverb? · Що таке прислівник?</div>
+    <p class="section-sub">
+      An adverb <strong>modifies</strong> a verb, adjective, or another adverb.<br>
+      Прислівник <strong>описує / уточнює</strong> дієслово, прикметник або інший прислівник.
+    </p>
+    <div class="definition-grid">
+      <div class="def-card">
+        <div class="def-icon">🏃</div>
+        <div class="def-title">Modifies a VERB · Описує дієслово</div>
+        <div class="def-text">
+          She sings <em>beautifully</em>.<br>
+          <span class="ua">Вона співає <em>красиво</em>.</span>
+          He runs <em>fast</em>.<br>
+          <span class="ua">Він бігає <em>швидко</em>.</span>
+        </div>
+      </div>
+      <div class="def-card">
+        <div class="def-icon">🎨</div>
+        <div class="def-title">Modifies an ADJECTIVE · Описує прикметник</div>
+        <div class="def-text">
+          It is <em>very</em> cold today.<br>
+          <span class="ua">Сьогодні <em>дуже</em> холодно.</span>
+          She is <em>extremely</em> smart.<br>
+          <span class="ua">Вона <em>надзвичайно</em> розумна.</span>
+        </div>
+      </div>
+      <div class="def-card">
+        <div class="def-icon">🔄</div>
+        <div class="def-title">Modifies another ADVERB · Описує інший прислівник</div>
+        <div class="def-text">
+          He drives <em>incredibly fast</em>.<br>
+          <span class="ua">Він їздить <em>неймовірно швидко</em>.</span>
+          She speaks <em>quite loudly</em>.<br>
+          <span class="ua">Вона говорить <em>досить голосно</em>.</span>
+        </div>
+      </div>
+      <div class="def-card">
+        <div class="def-icon">❓</div>
+        <div class="def-title">KEY QUESTIONS · Ключові питання</div>
+        <div class="def-text">
+          <em>HOW?</em> — як? &nbsp;•&nbsp; <em>WHERE?</em> — де?<br>
+          <em>WHEN?</em> — коли? &nbsp;•&nbsp; <em>HOW OFTEN?</em> — як часто?<br>
+          <em>HOW MUCH?</em> — наскільки?
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UNIVERSAL SENTENCE -->
+<section class="sec-alt">
+  <div class="container">
+    <div class="section-title c-yellow">🌟 Our Universal Sentence · Наше Універсальне Речення</div>
+    <p class="section-sub">
+      We'll use ONE sentence and transform it in every topic below!<br>
+      Ми використаємо ОДНЕ речення і будемо бачити, як воно змінюється!
+    </p>
+    <div class="univ-hero">
+      <p style="color:var(--muted);font-size:.9rem;margin-bottom:.5rem;">Base sentence · Базове речення</p>
+      <div class="univ-base">"She <span>sings</span>."</div>
+      <p style="color:var(--muted);font-size:.9rem;margin-top:.5rem;">Watch how adverbs transform it ↓<br>Дивись, як прислівники змінюють його ↓</p>
+    </div>
+
+    <div class="univ-grid" style="margin-top:1.5rem;">
+      <div class="sentence-card" style="--accent-color:#06B6D4">
+        <div class="en">She sings <span class="highlight">beautifully</span>. (HOW?)</div>
+        <div class="ua">Вона співає <strong>красиво</strong>. (ЯК?)</div>
+      </div>
+      <div class="sentence-card" style="--accent-color:#A855F7">
+        <div class="en">She sings <span class="highlight">here</span>. (WHERE?)</div>
+        <div class="ua">Вона співає <strong>тут</strong>. (ДЕ?)</div>
+      </div>
+      <div class="sentence-card" style="--accent-color:#22C55E">
+        <div class="en">She sings <span class="highlight">today</span>. (WHEN?)</div>
+        <div class="ua">Вона співає <strong>сьогодні</strong>. (КОЛИ?)</div>
+      </div>
+      <div class="sentence-card" style="--accent-color:#FF6B35">
+        <div class="en">She <span class="highlight">always</span> sings. (HOW OFTEN?)</div>
+        <div class="ua">Вона <strong>завжди</strong> співає. (ЯК ЧАСТО?)</div>
+      </div>
+      <div class="sentence-card" style="--accent-color:#FFD93D">
+        <div class="en">She sings <span class="highlight">very</span> well. (HOW MUCH?)</div>
+        <div class="ua">Вона співає <strong>дуже</strong> добре. (НАСКІЛЬКИ?)</div>
+      </div>
+      <div class="sentence-card" style="--accent-color:#FF3CAC">
+        <div class="en">She <span class="highlight">certainly</span> sings. (ATTITUDE)</div>
+        <div class="ua">Вона <strong>точно</strong> співає. (СТАВЛЕННЯ)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. FORMATION -LY -->
+<section class="bg-glow" style="--glow-color:rgba(59,130,246,.08)">
+  <div class="container">
+    <div class="section-title c-blue">⚗️ Formation (-ly) · Як утворюються прислівники</div>
+    <p class="section-sub">
+      Most adverbs are formed by adding <strong>-ly</strong> to an adjective.<br>
+      Більшість прислівників утворюються додаванням <strong>-ly</strong> до прикметника.
+    </p>
+
+    <div class="formula">
+      <span class="tag">Adjective · Прикметник</span>
+      <span class="arr">+</span>
+      <span class="tag">-ly</span>
+      <span class="arr">=</span>
+      <span class="tag">Adverb · Прислівник</span>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Adjective · Прикметник</th>
+          <th>Rule · Правило</th>
+          <th>Adverb · Прислівник</th>
+          <th>Meaning · Значення</th>
+        </tr>
+        <tr>
+          <td><span class="adj">quick</span> (швидкий)</td>
+          <td><span class="rule">+ ly</span></td>
+          <td><span class="adv">quickly</span></td>
+          <td class="ua">швидко</td>
+        </tr>
+        <tr>
+          <td><span class="adj">slow</span> (повільний)</td>
+          <td><span class="rule">+ ly</span></td>
+          <td><span class="adv">slowly</span></td>
+          <td class="ua">повільно</td>
+        </tr>
+        <tr>
+          <td><span class="adj">careful</span> (обережний)</td>
+          <td><span class="rule">+ ly</span></td>
+          <td><span class="adv">carefully</span></td>
+          <td class="ua">обережно</td>
+        </tr>
+        <tr>
+          <td><span class="adj">happy</span> (щасливий)</td>
+          <td><span class="rule">y → i + ly</span></td>
+          <td><span class="adv">happily</span></td>
+          <td class="ua">щасливо</td>
+        </tr>
+        <tr>
+          <td><span class="adj">easy</span> (легкий)</td>
+          <td><span class="rule">y → i + ly</span></td>
+          <td><span class="adv">easily</span></td>
+          <td class="ua">легко</td>
+        </tr>
+        <tr>
+          <td><span class="adj">gentle</span> (ніжний)</td>
+          <td><span class="rule">le → ly</span></td>
+          <td><span class="adv">gently</span></td>
+          <td class="ua">ніжно</td>
+        </tr>
+        <tr>
+          <td><span class="adj">terrible</span> (жахливий)</td>
+          <td><span class="rule">le → ly</span></td>
+          <td><span class="adv">terribly</span></td>
+          <td class="ua">жахливо</td>
+        </tr>
+        <tr>
+          <td><span class="adj">true</span> (правдивий)</td>
+          <td><span class="rule">e → ly</span></td>
+          <td><span class="adv">truly</span></td>
+          <td class="ua">по-справжньому</td>
+        </tr>
+        <tr>
+          <td><span class="adj">full</span> (повний)</td>
+          <td><span class="rule">full → fully</span></td>
+          <td><span class="adv">fully</span></td>
+          <td class="ua">повністю</td>
+        </tr>
+        <tr>
+          <td><span class="adj">loud</span> (гучний)</td>
+          <td><span class="rule">+ ly</span></td>
+          <td><span class="adv">loudly</span></td>
+          <td class="ua">голосно</td>
+        </tr>
+        <tr>
+          <td><span class="adj">beautiful</span> (красивий)</td>
+          <td><span class="rule">+ ly</span></td>
+          <td><span class="adv">beautifully</span></td>
+          <td class="ua">красиво</td>
+        </tr>
+        <tr>
+          <td><span class="adj">angry</span> (злий)</td>
+          <td><span class="rule">y → i + ly</span></td>
+          <td><span class="adv">angrily</span></td>
+          <td class="ua">сердито</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Exceptions -->
+    <h3 style="font-size:1.2rem;font-weight:800;color:var(--red);margin:2rem 0 1rem;">
+      ⚠️ Irregular Adverbs · Неправильні прислівники (Винятки!)
+    </h3>
+    <div class="exc-grid">
+      <div class="exc-card">
+        <div class="exc-adj">goodly ✗</div>
+        <div class="exc-adv">well</div>
+        <div class="exc-mean">добре / добрe (not goodly!)</div>
+      </div>
+      <div class="exc-card">
+        <div class="exc-adj">fastly ✗</div>
+        <div class="exc-adv">fast</div>
+        <div class="exc-mean">швидко (no -ly!)</div>
+      </div>
+      <div class="exc-card">
+        <div class="exc-adj">hardly ≠ hard</div>
+        <div class="exc-adv">hard</div>
+        <div class="exc-mean">важко/старанно (hardly = майже не)</div>
+      </div>
+      <div class="exc-card">
+        <div class="exc-adj">lately ≠ late</div>
+        <div class="exc-adv">late</div>
+        <div class="exc-mean">пізно (lately = останнім часом)</div>
+      </div>
+    </div>
+
+    <div style="margin-top:1.5rem;">
+      <h3 style="font-size:1.1rem;font-weight:800;color:var(--green);margin-bottom:1rem;">
+        ♻️ Same Form (Adj = Adv) · Однакова форма прикметника і прислівника
+      </h3>
+      <div class="same-grid">
+        <div class="same-card">
+          <div class="same-word">fast</div>
+          <div class="same-ua">швидкий / швидко</div>
+          <div class="same-ex">a fast car · drive fast</div>
+        </div>
+        <div class="same-card">
+          <div class="same-word">hard</div>
+          <div class="same-ua">важкий / старанно</div>
+          <div class="same-ex">hard work · work hard</div>
+        </div>
+        <div class="same-card">
+          <div class="same-word">late</div>
+          <div class="same-ua">пізній / пізно</div>
+          <div class="same-ex">late bus · arrive late</div>
+        </div>
+        <div class="same-card">
+          <div class="same-word">early</div>
+          <div class="same-ua">ранній / рано</div>
+          <div class="same-ex">early morning · wake early</div>
+        </div>
+        <div class="same-card">
+          <div class="same-word">high</div>
+          <div class="same-ua">високий / високо</div>
+          <div class="same-ex">high tower · fly high</div>
+        </div>
+        <div class="same-card">
+          <div class="same-word">straight</div>
+          <div class="same-ua">прямий / прямо</div>
+          <div class="same-ex">straight road · go straight</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. TYPES OF ADVERBS -->
+<section class="sec-alt">
+  <div class="container">
+    <div class="section-title c-pink">🗂️ Types of Adverbs · Типи прислівників</div>
+    <p class="section-sub">7 main types, each answering a different question · 7 основних типів</p>
+    <div class="types-grid">
+
+      <div class="type-card" style="background:linear-gradient(135deg,rgba(6,182,212,.1),rgba(6,182,212,.03));">
+        <div class="type-icon">🏃</div>
+        <div class="type-title c-cyan">Manner · Спосіб дії</div>
+        <div class="type-title-ua">Як щось відбувається?</div>
+        <div class="type-questions">HOW? · ЯК?</div>
+        <div class="type-examples">
+          <div class="type-ex">She sings <span>beautifully</span>. <br><small style="color:var(--muted)">Вона співає красиво.</small></div>
+          <div class="type-ex">He works <span>hard</span>. <br><small style="color:var(--muted)">Він працює старанно.</small></div>
+          <div class="type-ex">The dog ate <span>quickly</span>. <br><small style="color:var(--muted)">Пес їв швидко.</small></div>
+          <div class="type-ex">She smiled <span>warmly</span>. <br><small style="color:var(--muted)">Вона тепло посміхнулась.</small></div>
+        </div>
+      </div>
+
+      <div class="type-card" style="background:linear-gradient(135deg,rgba(168,85,247,.1),rgba(168,85,247,.03));">
+        <div class="type-icon">📍</div>
+        <div class="type-title c-purple">Place · Місце</div>
+        <div class="type-title-ua">Де щось відбувається?</div>
+        <div class="type-questions">WHERE? · ДЕ?</div>
+        <div class="type-examples">
+          <div class="type-ex">She sings <span>here</span>. <br><small style="color:var(--muted)">Вона співає тут.</small></div>
+          <div class="type-ex">He went <span>outside</span>. <br><small style="color:var(--muted)">Він пішов надвір.</small></div>
+          <div class="type-ex">Come <span>inside</span>, it's cold! <br><small style="color:var(--muted)">Заходь всередину!</small></div>
+          <div class="type-ex">The cat is <span>upstairs</span>. <br><small style="color:var(--muted)">Кіт нагорі.</small></div>
+        </div>
+      </div>
+
+      <div class="type-card" style="background:linear-gradient(135deg,rgba(34,197,94,.1),rgba(34,197,94,.03));">
+        <div class="type-icon">🕐</div>
+        <div class="type-title c-green">Time · Час</div>
+        <div class="type-title-ua">Коли щось відбувається?</div>
+        <div class="type-questions">WHEN? · КОЛИ?</div>
+        <div class="type-examples">
+          <div class="type-ex">She sings <span>today</span>. <br><small style="color:var(--muted)">Вона співає сьогодні.</small></div>
+          <div class="type-ex">I'll call you <span>soon</span>. <br><small style="color:var(--muted)">Я зателефоную незабаром.</small></div>
+          <div class="type-ex">He arrived <span>yesterday</span>. <br><small style="color:var(--muted)">Він приїхав вчора.</small></div>
+          <div class="type-ex">We met <span>recently</span>. <br><small style="color:var(--muted)">Ми нещодавно зустрілись.</small></div>
+        </div>
+      </div>
+
+      <div class="type-card" style="background:linear-gradient(135deg,rgba(255,107,53,.1),rgba(255,107,53,.03));">
+        <div class="type-icon">🔁</div>
+        <div class="type-title c-orange">Frequency · Частота</div>
+        <div class="type-title-ua">Як часто відбувається?</div>
+        <div class="type-questions">HOW OFTEN? · ЯК ЧАСТО?</div>
+        <div class="type-examples">
+          <div class="type-ex">She <span>always</span> sings. <br><small style="color:var(--muted)">Вона завжди співає.</small></div>
+          <div class="type-ex">I <span>sometimes</span> go there. <br><small style="color:var(--muted)">Іноді я туди ходжу.</small></div>
+          <div class="type-ex">He <span>never</span> eats fish. <br><small style="color:var(--muted)">Він ніколи не їсть рибу.</small></div>
+          <div class="type-ex">We <span>often</span> play chess. <br><small style="color:var(--muted)">Ми часто граємо в шахи.</small></div>
+        </div>
+      </div>
+
+      <div class="type-card" style="background:linear-gradient(135deg,rgba(255,61,172,.1),rgba(255,61,172,.03));">
+        <div class="type-icon">📊</div>
+        <div class="type-title c-pink">Degree · Ступінь</div>
+        <div class="type-title-ua">Наскільки сильно / інтенсивно?</div>
+        <div class="type-questions">HOW MUCH? · НАСКІЛЬКИ?</div>
+        <div class="type-examples">
+          <div class="type-ex">She sings <span>very</span> well. <br><small style="color:var(--muted)">Вона дуже добре співає.</small></div>
+          <div class="type-ex">It's <span>quite</span> cold today. <br><small style="color:var(--muted)">Сьогодні досить холодно.</small></div>
+          <div class="type-ex">He is <span>too</span> tired. <br><small style="color:var(--muted)">Він надто втомлений.</small></div>
+          <div class="type-ex">I'm <span>almost</span> ready. <br><small style="color:var(--muted)">Я майже готова.</small></div>
+        </div>
+      </div>
+
+      <div class="type-card" style="background:linear-gradient(135deg,rgba(255,211,61,.1),rgba(255,211,61,.03));">
+        <div class="type-icon">🎭</div>
+        <div class="type-title c-yellow">Attitude / Comment</div>
+        <div class="type-title-ua">Ставлення мовця</div>
+        <div class="type-questions">HOW SURE? · НАСКІЛЬКИ ВПЕВНЕНИЙ?</div>
+        <div class="type-examples">
+          <div class="type-ex">She <span>definitely</span> sings well. <br><small style="color:var(--muted)">Вона точно добре співає.</small></div>
+          <div class="type-ex"><span>Honestly</span>, I don't know. <br><small style="color:var(--muted)">Чесно кажучи, не знаю.</small></div>
+          <div class="type-ex"><span>Fortunately</span>, we won. <br><small style="color:var(--muted)">На щастя, ми виграли.</small></div>
+          <div class="type-ex"><span>Sadly</span>, he left. <br><small style="color:var(--muted)">На жаль, він пішов.</small></div>
+        </div>
+      </div>
+
+      <div class="type-card" style="background:linear-gradient(135deg,rgba(20,184,166,.1),rgba(20,184,166,.03));">
+        <div class="type-icon">🔗</div>
+        <div class="type-title c-teal" style="color:var(--teal)">Conjunctive Adverbs</div>
+        <div class="type-title-ua">Сполучні прислівники</div>
+        <div class="type-questions">Connecting ideas · З'єднують думки</div>
+        <div class="type-examples">
+          <div class="type-ex">I was tired; <span>however</span>, I went. <br><small style="color:var(--muted)">Я втомився, проте пішов.</small></div>
+          <div class="type-ex">Study hard; <span>otherwise</span>, you'll fail. <br><small style="color:var(--muted)">Вчися, інакше провалишся.</small></div>
+          <div class="type-ex">I love it; <span>furthermore</span>, it's free. <br><small style="color:var(--muted)">Я це люблю, до того ж безкоштовно.</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. POSITION IN SENTENCE -->
+<section class="bg-glow" style="--glow-color:rgba(34,197,94,.06)">
+  <div class="container">
+    <div class="section-title c-green">📐 Position in Sentence · Місце в реченні</div>
+    <p class="section-sub">Where you PUT the adverb changes the emphasis! · Де ти поставиш прислівник — змінює акцент!</p>
+
+    <div class="pos-grid">
+      <div class="pos-card" style="background:linear-gradient(135deg,rgba(34,197,94,.12),rgba(34,197,94,.03));">
+        <div class="pos-num">1</div>
+        <h3 class="c-green">Front Position · На початку</h3>
+        <p>For time, comment, and emphasis.<br>Для часу, коментаря або акценту.</p>
+        <div class="ex"><span>Yesterday</span>, she sang at the concert.<br>
+          <span>Fortunately</span>, no one was hurt.<br>
+          <span>Slowly</span>, he opened the door.</div>
+      </div>
+      <div class="pos-card" style="background:linear-gradient(135deg,rgba(59,130,246,.12),rgba(59,130,246,.03));">
+        <div class="pos-num">2</div>
+        <h3 class="c-blue" style="color:var(--blue)">Mid Position · Посередині</h3>
+        <p>Frequency adverbs — BEFORE main verb, AFTER "be".<br>Прислівники частоти — ПЕРЕД дієсловом, ПІСЛЯ "be".</p>
+        <div class="ex">She <span>always</span> sings at night.<br>
+          He is <span>often</span> late.<br>
+          I <span>never</span> drink coffee.</div>
+      </div>
+      <div class="pos-card" style="background:linear-gradient(135deg,rgba(255,107,53,.12),rgba(255,107,53,.03));">
+        <div class="pos-num">3</div>
+        <h3 style="color:var(--orange)">End Position · Наприкінці</h3>
+        <p>Manner, place, time — most common.<br>Спосіб, місце, час — найчастіше.</p>
+        <div class="ex">She sings <span>beautifully</span>.<br>
+          He went <span>outside</span>.<br>
+          She arrived <span>yesterday</span>.</div>
+      </div>
+    </div>
+
+    <div class="card" style="--accent:linear-gradient(90deg,var(--green),var(--cyan));margin-top:2rem;">
+      <h3 style="font-size:1.1rem;font-weight:800;margin-bottom:1rem;">
+        🔑 Golden Rule for Frequency Adverbs · Золоте правило для прислівників частоти
+      </h3>
+      <div class="formula">
+        <span class="tag">Subject</span>
+        <span class="arr">+</span>
+        <span class="tag" style="background:rgba(255,211,61,.2);color:var(--yellow)">ADVERB</span>
+        <span class="arr">+</span>
+        <span class="tag">Main Verb</span>
+        <span class="arr"> | </span>
+        <span class="tag">Subject</span>
+        <span class="arr">+</span>
+        <span class="tag">to be</span>
+        <span class="arr">+</span>
+        <span class="tag" style="background:rgba(255,211,61,.2);color:var(--yellow)">ADVERB</span>
+      </div>
+      <div class="correct-wrong-grid" style="margin-top:1rem;">
+        <div>
+          <div style="font-size:.8rem;color:var(--green);font-weight:800;margin-bottom:.5rem;">✅ CORRECT</div>
+          <div class="sentence-card" style="--accent-color:var(--green)">
+            <div class="en">I <span class="highlight">always</span> eat breakfast.</div>
+            <div class="ua">Я завжди їм сніданок.</div>
+          </div>
+          <div class="sentence-card" style="--accent-color:var(--green)">
+            <div class="en">She is <span class="highlight">often</span> late.</div>
+            <div class="ua">Вона часто запізнюється.</div>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:.8rem;color:var(--red);font-weight:800;margin-bottom:.5rem;">❌ WRONG</div>
+          <div class="sentence-card" style="--accent-color:var(--red)">
+            <div class="en"><span class="orig">I eat always breakfast.</span></div>
+            <div class="ua">Неправильний порядок!</div>
+          </div>
+          <div class="sentence-card" style="--accent-color:var(--red)">
+            <div class="en"><span class="orig">She often is late.</span></div>
+            <div class="ua">Always AFTER "be"!</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. FREQUENCY ADVERBS -->
+<section class="sec-alt">
+  <div class="container">
+    <div class="section-title c-orange">🔁 Frequency Adverbs · Прислівники частоти</div>
+    <p class="section-sub">From 100% to 0% · Від 100% до 0%</p>
+
+    <div class="freq-bar-wrap">
+      <div class="freq-row">
+        <div class="freq-word" style="color:#FFD93D">always</div>
+        <div class="freq-bar-outer">
+          <div class="freq-bar-inner" style="width:100%;background:linear-gradient(90deg,#FFD93D,#FF6B35)">завжди</div>
+        </div>
+        <div class="freq-pct">100%</div>
+      </div>
+      <div class="freq-row">
+        <div class="freq-word" style="color:#06B6D4">usually</div>
+        <div class="freq-bar-outer">
+          <div class="freq-bar-inner" style="width:90%;background:linear-gradient(90deg,#06B6D4,#3B82F6)">зазвичай</div>
+        </div>
+        <div class="freq-pct">~90%</div>
+      </div>
+      <div class="freq-row">
+        <div class="freq-word" style="color:#A855F7">normally</div>
+        <div class="freq-bar-outer">
+          <div class="freq-bar-inner" style="width:80%;background:linear-gradient(90deg,#A855F7,#EC4899)">як правило</div>
+        </div>
+        <div class="freq-pct">~80%</div>
+      </div>
+      <div class="freq-row">
+        <div class="freq-word" style="color:#22C55E">often</div>
+        <div class="freq-bar-outer">
+          <div class="freq-bar-inner" style="width:70%;background:linear-gradient(90deg,#22C55E,#06B6D4)">часто</div>
+        </div>
+        <div class="freq-pct">~70%</div>
+      </div>
+      <div class="freq-row">
+        <div class="freq-word" style="color:#F59E0B">sometimes</div>
+        <div class="freq-bar-outer">
+          <div class="freq-bar-inner" style="width:50%;background:linear-gradient(90deg,#F59E0B,#EF4444)">іноді</div>
+        </div>
+        <div class="freq-pct">~50%</div>
+      </div>
+      <div class="freq-row">
+        <div class="freq-word" style="color:#14B8A6">occasionally</div>
+        <div class="freq-bar-outer">
+          <div class="freq-bar-inner" style="width:30%;background:linear-gradient(90deg,#14B8A6,#22C55E)">зрідка</div>
+        </div>
+        <div class="freq-pct">~30%</div>
+      </div>
+      <div class="freq-row">
+        <div class="freq-word" style="color:#F97316">rarely</div>
+        <div class="freq-bar-outer">
+          <div class="freq-bar-inner" style="width:15%;background:linear-gradient(90deg,#F97316,#EF4444)">рідко</div>
+        </div>
+        <div class="freq-pct">~15%</div>
+      </div>
+      <div class="freq-row">
+        <div class="freq-word" style="color:#EF4444">never</div>
+        <div class="freq-bar-outer">
+          <div class="freq-bar-inner" style="width:2%;background:#EF4444;min-width:40px">ніколи</div>
+        </div>
+        <div class="freq-pct">0%</div>
+      </div>
+    </div>
+
+    <div class="univ-grid" style="margin-top:2rem;">
+      <div class="sentence-card" style="--accent-color:#FFD93D">
+        <div class="en">She <span class="highlight">always</span> sings in the morning.</div>
+        <div class="ua">Вона завжди співає вранці.</div>
+      </div>
+      <div class="sentence-card" style="--accent-color:#06B6D4">
+        <div class="en">She <span class="highlight">usually</span> sings after work.</div>
+        <div class="ua">Зазвичай вона співає після роботи.</div>
+      </div>
+      <div class="sentence-card" style="--accent-color:#22C55E">
+        <div class="en">She <span class="highlight">sometimes</span> sings at school.</div>
+        <div class="ua">Іноді вона співає в школі.</div>
+      </div>
+      <div class="sentence-card" style="--accent-color:#EF4444">
+        <div class="en">She <span class="highlight">never</span> sings in public.</div>
+        <div class="ua">Вона ніколи не співає публічно.</div>
+      </div>
+      <div class="sentence-card" style="--accent-color:#F97316">
+        <div class="en">I <span class="highlight">rarely</span> watch TV.</div>
+        <div class="ua">Я рідко дивлюсь телевізор.</div>
+      </div>
+      <div class="sentence-card" style="--accent-color:#A855F7">
+        <div class="en">We <span class="highlight">often</span> play football.</div>
+        <div class="ua">Ми часто граємо у футбол.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. DEGREE -->
+<section class="bg-glow" style="--glow-color:rgba(255,61,172,.06)">
+  <div class="container">
+    <div class="section-title c-pink">📊 Degree Adverbs · Прислівники ступеня</div>
+    <p class="section-sub">
+      They tell us HOW MUCH or TO WHAT EXTENT.<br>
+      Вони кажуть нам НАСКІЛЬКИ або ДО ЯКОЇ МІРИ.
+    </p>
+
+    <div class="degree-grid">
+      <div class="degree-card" style="background:linear-gradient(135deg,rgba(239,68,68,.12),rgba(239,68,68,.03));">
+        <div class="degree-word" style="color:#EF4444">extremely</div>
+        <div class="degree-ua">надзвичайно</div>
+        <div class="degree-level" style="--c1:#EF4444;--c2:#FF6B35;width:100%;"></div>
+        <div class="degree-ex">She is <strong>extremely</strong> talented.<br>Вона надзвичайно талановита.</div>
+      </div>
+      <div class="degree-card" style="background:linear-gradient(135deg,rgba(255,107,53,.12),rgba(255,107,53,.03));">
+        <div class="degree-word" style="color:#FF6B35">very</div>
+        <div class="degree-ua">дуже</div>
+        <div class="degree-level" style="--c1:#FF6B35;--c2:#FFD93D;width:90%;"></div>
+        <div class="degree-ex">She sings <strong>very</strong> well.<br>Вона дуже добре співає.</div>
+      </div>
+      <div class="degree-card" style="background:linear-gradient(135deg,rgba(255,211,61,.12),rgba(255,211,61,.03));">
+        <div class="degree-word" style="color:#FFD93D">really</div>
+        <div class="degree-ua">справді, дуже</div>
+        <div class="degree-level" style="--c1:#FFD93D;--c2:#22C55E;width:85%;"></div>
+        <div class="degree-ex">That was <strong>really</strong> good!<br>Це було справді добре!</div>
+      </div>
+      <div class="degree-card" style="background:linear-gradient(135deg,rgba(34,197,94,.12),rgba(34,197,94,.03));">
+        <div class="degree-word" style="color:#22C55E">quite</div>
+        <div class="degree-ua">досить, цілком</div>
+        <div class="degree-level" style="--c1:#22C55E;--c2:#06B6D4;width:65%;"></div>
+        <div class="degree-ex">It's <strong>quite</strong> cold today.<br>Сьогодні досить холодно.</div>
+      </div>
+      <div class="degree-card" style="background:linear-gradient(135deg,rgba(6,182,212,.12),rgba(6,182,212,.03));">
+        <div class="degree-word" style="color:#06B6D4">rather</div>
+        <div class="degree-ua">досить, трохи</div>
+        <div class="degree-level" style="--c1:#06B6D4;--c2:#3B82F6;width:60%;"></div>
+        <div class="degree-ex">She is <strong>rather</strong> shy.<br>Вона досить сором'язлива.</div>
+      </div>
+      <div class="degree-card" style="background:linear-gradient(135deg,rgba(59,130,246,.12),rgba(59,130,246,.03));">
+        <div class="degree-word" style="color:#3B82F6">fairly</div>
+        <div class="degree-ua">порівняно, досить</div>
+        <div class="degree-level" style="--c1:#3B82F6;--c2:#A855F7;width:55%;"></div>
+        <div class="degree-ex">He is <strong>fairly</strong> good at chess.<br>Він досить добре грає в шахи.</div>
+      </div>
+      <div class="degree-card" style="background:linear-gradient(135deg,rgba(168,85,247,.12),rgba(168,85,247,.03));">
+        <div class="degree-word" style="color:#A855F7">pretty</div>
+        <div class="degree-ua">досить (розм.)</div>
+        <div class="degree-level" style="--c1:#A855F7;--c2:#EC4899;width:55%;"></div>
+        <div class="degree-ex">That's <strong>pretty</strong> cool!<br>Це досить круто! (розм.)</div>
+      </div>
+      <div class="degree-card" style="background:linear-gradient(135deg,rgba(236,72,153,.12),rgba(236,72,153,.03));">
+        <div class="degree-word" style="color:#EC4899">almost</div>
+        <div class="degree-ua">майже</div>
+        <div class="degree-level" style="--c1:#EC4899;--c2:#F97316;width:45%;"></div>
+        <div class="degree-ex">I'm <strong>almost</strong> finished!<br>Я майже закінчив(ла)!</div>
+      </div>
+      <div class="degree-card" style="background:linear-gradient(135deg,rgba(107,114,128,.12),rgba(107,114,128,.03));">
+        <div class="degree-word" style="color:#9CA3AF">a bit</div>
+        <div class="degree-ua">трохи</div>
+        <div class="degree-level" style="--c1:#6B7280;--c2:#9CA3AF;width:25%;"></div>
+        <div class="degree-ex">I'm <strong>a bit</strong> tired today.<br>Я сьогодні трохи втомлена.</div>
+      </div>
+      <div class="degree-card" style="background:linear-gradient(135deg,rgba(239,68,68,.12),rgba(239,68,68,.03));border:1px solid rgba(239,68,68,.3)">
+        <div class="degree-word" style="color:#EF4444">too</div>
+        <div class="degree-ua">надто (негативно!)</div>
+        <div class="degree-level" style="--c1:#EF4444;--c2:#7F1D1D;width:100%;"></div>
+        <div class="degree-ex">It's <strong>too</strong> hot to go out!<br>Надто спекотно, щоб виходити!</div>
+      </div>
+      <div class="degree-card" style="background:linear-gradient(135deg,rgba(20,184,166,.12),rgba(20,184,166,.03));">
+        <div class="degree-word" style="color:#14B8A6">enough</div>
+        <div class="degree-ua">достатньо (після прикм.)</div>
+        <div class="degree-level" style="--c1:#14B8A6;--c2:#22C55E;width:50%;"></div>
+        <div class="degree-ex">She is old <strong>enough</strong> to drive.<br>Вона достатньо стара, щоб водити.</div>
+      </div>
+      <div class="degree-card" style="background:linear-gradient(135deg,rgba(251,191,36,.12),rgba(251,191,36,.03));">
+        <div class="degree-word" style="color:#FBBF24">just</div>
+        <div class="degree-ua">просто, щойно</div>
+        <div class="degree-level" style="--c1:#FBBF24;--c2:#F97316;width:40%;"></div>
+        <div class="degree-ex">I've <strong>just</strong> arrived.<br>Я щойно приїхав(ла).</div>
+      </div>
+    </div>
+
+    <!-- quite vs rather vs fairly -->
+    <div class="card" style="--accent:linear-gradient(90deg,var(--pink),var(--purple));margin-top:2.5rem;">
+      <h3 style="font-size:1.1rem;font-weight:800;margin-bottom:1.2rem;">🤔 quite vs rather vs fairly — What's the difference? · В чому різниця?</h3>
+      <div class="degree-compare-grid" style="margin-top:1rem;">
+        <div style="background:rgba(34,197,94,.08);border-radius:12px;padding:1.2rem;">
+          <div style="font-size:1.2rem;font-weight:900;color:var(--green);margin-bottom:.5rem;">quite</div>
+          <div style="font-size:.88rem;color:#C0C0D0;line-height:1.6;">Neutral — positive or negative. About 70%.<br><em style="color:var(--muted)">Нейтральне — позитивне або негативне.</em></div>
+          <div class="sentence-card" style="--accent-color:var(--green);margin-top:.7rem;">
+            <div class="en">It's quite <span class="highlight">good</span>.</div>
+            <div class="ua">Це досить добре.</div>
+          </div>
+        </div>
+        <div style="background:rgba(59,130,246,.08);border-radius:12px;padding:1.2rem;">
+          <div style="font-size:1.2rem;font-weight:900;color:var(--blue);margin-bottom:.5rem;">rather</div>
+          <div style="font-size:.88rem;color:#C0C0D0;line-height:1.6;">Often slightly negative or surprising.<br><em style="color:var(--muted)">Часто з негативним або несподіваним відтінком.</em></div>
+          <div class="sentence-card" style="--accent-color:var(--blue);margin-top:.7rem;">
+            <div class="en">It's rather <span class="highlight">cold</span>.</div>
+            <div class="ua">Досить холодно (більше ніж очікував).</div>
+          </div>
+        </div>
+        <div style="background:rgba(168,85,247,.08);border-radius:12px;padding:1.2rem;">
+          <div style="font-size:1.2rem;font-weight:900;color:var(--purple);margin-bottom:.5rem;">fairly</div>
+          <div style="font-size:.88rem;color:#C0C0D0;line-height:1.6;">Moderate, usually positive. About 50-60%.<br><em style="color:var(--muted)">Помірне, зазвичай позитивне.</em></div>
+          <div class="sentence-card" style="--accent-color:var(--purple);margin-top:.7rem;">
+            <div class="en">She speaks fairly <span class="highlight">well</span>.</div>
+            <div class="ua">Вона непогано розмовляє.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. MEGA EXAMPLES TABLE -->
+<section class="sec-alt">
+  <div class="container">
+    <div class="section-title c-yellow">📚 Mega Examples · Мегатаблиця прикладів</div>
+    <p class="section-sub">Real-life sentences using our universal base · Приклади з реального життя</p>
+    <div class="table-wrap">
+      <table class="mega-table">
+        <tr>
+          <th>Type · Тип</th>
+          <th>Adverb · Прислівник</th>
+          <th>Sentence · Речення</th>
+          <th>Ukrainian · Переклад</th>
+        </tr>
+        <tr><td class="cat">Manner</td><td class="adv-cell">quietly</td><td class="sent">She sings <strong>quietly</strong> at night.</td><td class="ua2">Вона тихо співає вночі.</td></tr>
+        <tr><td class="cat">Manner</td><td class="adv-cell">loudly</td><td class="sent">He speaks <strong>loudly</strong> on the phone.</td><td class="ua2">Він голосно розмовляє по телефону.</td></tr>
+        <tr><td class="cat">Manner</td><td class="adv-cell">carefully</td><td class="sent">She drives <strong>carefully</strong> in the rain.</td><td class="ua2">Вона обережно їде під дощем.</td></tr>
+        <tr><td class="cat">Manner</td><td class="adv-cell">happily</td><td class="sent">The children <strong>happily</strong> played in the park.</td><td class="ua2">Діти щасливо гралися в парку.</td></tr>
+        <tr><td class="cat">Manner</td><td class="adv-cell">suddenly</td><td class="sent">She <strong>suddenly</strong> stopped singing.</td><td class="ua2">Вона раптово припинила співати.</td></tr>
+        <tr><td class="cat">Manner</td><td class="adv-cell">well</td><td class="sent">She sings <strong>well</strong> for her age.</td><td class="ua2">Вона добре співає для свого віку.</td></tr>
+        <tr><td class="cat">Place</td><td class="adv-cell">everywhere</td><td class="sent">She sings <strong>everywhere</strong> she goes.</td><td class="ua2">Вона співає скрізь, куди іде.</td></tr>
+        <tr><td class="cat">Place</td><td class="adv-cell">abroad</td><td class="sent">She sings <strong>abroad</strong> every summer.</td><td class="ua2">Вона співає за кордоном кожного літа.</td></tr>
+        <tr><td class="cat">Place</td><td class="adv-cell">nearby</td><td class="sent">She found a café <strong>nearby</strong>.</td><td class="ua2">Вона знайшла кафе неподалік.</td></tr>
+        <tr><td class="cat">Time</td><td class="adv-cell">now</td><td class="sent">She is singing <strong>now</strong>!</td><td class="ua2">Вона зараз співає!</td></tr>
+        <tr><td class="cat">Time</td><td class="adv-cell">tomorrow</td><td class="sent">She will sing <strong>tomorrow</strong> at 6 pm.</td><td class="ua2">Вона буде співати завтра о 6 вечора.</td></tr>
+        <tr><td class="cat">Time</td><td class="adv-cell">already</td><td class="sent">She has <strong>already</strong> recorded 3 songs.</td><td class="ua2">Вона вже записала 3 пісні.</td></tr>
+        <tr><td class="cat">Time</td><td class="adv-cell">still</td><td class="sent">She is <strong>still</strong> singing after 2 hours.</td><td class="ua2">Вона все ще співає після 2 годин.</td></tr>
+        <tr><td class="cat">Time</td><td class="adv-cell">yet</td><td class="sent">Has she finished singing <strong>yet</strong>?</td><td class="ua2">Вона вже закінчила співати?</td></tr>
+        <tr><td class="cat">Frequency</td><td class="adv-cell">daily</td><td class="sent">She practices <strong>daily</strong> for 2 hours.</td><td class="ua2">Вона щодня практикується 2 години.</td></tr>
+        <tr><td class="cat">Frequency</td><td class="adv-cell">weekly</td><td class="sent">They meet <strong>weekly</strong> for rehearsal.</td><td class="ua2">Вони зустрічаються щотижня на репетицію.</td></tr>
+        <tr><td class="cat">Degree</td><td class="adv-cell">incredibly</td><td class="sent">She sings <strong>incredibly</strong> well.</td><td class="ua2">Вона співає неймовірно добре.</td></tr>
+        <tr><td class="cat">Degree</td><td class="adv-cell">barely</td><td class="sent">He can <strong>barely</strong> hear her singing.</td><td class="ua2">Він ледве чує її спів.</td></tr>
+        <tr><td class="cat">Degree</td><td class="adv-cell">completely</td><td class="sent">She is <strong>completely</strong> focused on singing.</td><td class="ua2">Вона повністю зосереджена на співі.</td></tr>
+        <tr><td class="cat">Attitude</td><td class="adv-cell">surprisingly</td><td class="sent"><strong>Surprisingly</strong>, she sings opera!</td><td class="ua2">Дивно, але вона співає оперу!</td></tr>
+        <tr><td class="cat">Attitude</td><td class="adv-cell">luckily</td><td class="sent"><strong>Luckily</strong>, she remembered all the lyrics.</td><td class="ua2">На щастя, вона пам'ятала всі слова.</td></tr>
+        <tr><td class="cat">Attitude</td><td class="adv-cell">clearly</td><td class="sent"><strong>Clearly</strong>, she has a natural talent.</td><td class="ua2">Очевидно, вона має природний талант.</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 8. COMPARISON ADJ vs ADV -->
+<section class="bg-glow" style="--glow-color:rgba(6,182,212,.06)">
+  <div class="container">
+    <div class="section-title c-cyan">⚖️ Adjective vs Adverb · Прикметник vs Прислівник</div>
+    <p class="section-sub">Don't mix them up! · Не переплутай!</p>
+    <div class="comp-grid">
+      <div class="comp-box">
+        <h4>🎨 ADJECTIVE describes a NOUN<br><small style="color:var(--muted)">Прикметник описує іменник</small></h4>
+        <div class="comp-item"><span>She is a <span class="adj2">beautiful</span> singer.</span></div>
+        <div class="comp-item"><span>He is a <span class="adj2">careful</span> driver.</span></div>
+        <div class="comp-item"><span>It was a <span class="adj2">quick</span> meal.</span></div>
+        <div class="comp-item"><span>She has a <span class="adj2">loud</span> voice.</span></div>
+        <div class="comp-item"><span>He is a <span class="adj2">good</span> student.</span></div>
+      </div>
+      <div class="comp-box">
+        <h4>🏃 ADVERB describes a VERB<br><small style="color:var(--muted)">Прислівник описує дієслово</small></h4>
+        <div class="comp-item"><span>She sings <span class="adv2">beautifully</span>.</span></div>
+        <div class="comp-item"><span>He drives <span class="adv2">carefully</span>.</span></div>
+        <div class="comp-item"><span>They ate <span class="adv2">quickly</span>.</span></div>
+        <div class="comp-item"><span>She sings <span class="adv2">loudly</span>.</span></div>
+        <div class="comp-item"><span>He studies <span class="adv2">well</span>.</span></div>
+      </div>
+    </div>
+
+    <div class="card" style="--accent:linear-gradient(90deg,var(--red),var(--orange));margin-top:1.5rem;">
+      <h3 style="font-size:1rem;font-weight:800;margin-bottom:1rem;">⚠️ Common Mistakes · Поширені помилки</h3>
+      <div style="display:grid;gap:.7rem;">
+        <div class="mistake-row">
+          <div style="background:rgba(239,68,68,.1);border-radius:8px;padding:.5rem 1rem;font-size:.9rem;">❌ She sings <span style="color:#EF4444;font-weight:800">good</span>.</div>
+          <div style="color:var(--muted);font-size:.85rem;">→</div>
+          <div style="background:rgba(34,197,94,.1);border-radius:8px;padding:.5rem 1rem;font-size:.9rem;">✅ She sings <span style="color:#22C55E;font-weight:800">well</span>.</div>
+        </div>
+        <div class="mistake-row">
+          <div style="background:rgba(239,68,68,.1);border-radius:8px;padding:.5rem 1rem;font-size:.9rem;">❌ He runs <span style="color:#EF4444;font-weight:800">fastly</span>.</div>
+          <div style="color:var(--muted);font-size:.85rem;">→</div>
+          <div style="background:rgba(34,197,94,.1);border-radius:8px;padding:.5rem 1rem;font-size:.9rem;">✅ He runs <span style="color:#22C55E;font-weight:800">fast</span>.</div>
+        </div>
+        <div class="mistake-row">
+          <div style="background:rgba(239,68,68,.1);border-radius:8px;padding:.5rem 1rem;font-size:.9rem;">❌ I feel <span style="color:#EF4444;font-weight:800">badly</span> about it.</div>
+          <div style="color:var(--muted);font-size:.85rem;">→</div>
+          <div style="background:rgba(34,197,94,.1);border-radius:8px;padding:.5rem 1rem;font-size:.9rem;">✅ I feel <span style="color:#22C55E;font-weight:800">bad</span> about it.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. QUICK REFERENCE CHEAT SHEET -->
+<section class="sec-alt">
+  <div class="container">
+    <div class="section-title c-yellow">🗒️ Quick Cheat Sheet · Шпаргалка</div>
+    <p class="section-sub">Everything you need on one screen · Все найважливіше на одному екрані</p>
+    <div class="cheat-grid" style="margin-top:0;">
+
+      <div class="card" style="--accent:linear-gradient(90deg,#FFD93D,#FF6B35)">
+        <div style="font-size:1rem;font-weight:800;margin-bottom:.8rem;">🔧 Formation Rules · Правила утворення</div>
+        <div style="font-size:.88rem;line-height:2;color:#D0D0F0;">
+          quick → <strong style="color:var(--yellow)">quickly</strong><br>
+          happy → <strong style="color:var(--yellow)">happily</strong> (y→i)<br>
+          gentle → <strong style="color:var(--yellow)">gently</strong> (le→ly)<br>
+          true → <strong style="color:var(--yellow)">truly</strong> (drop e)<br>
+          good → <strong style="color:var(--red)">well</strong> (irregular!)<br>
+          fast → <strong style="color:var(--red)">fast</strong> (no -ly!)
+        </div>
+      </div>
+
+      <div class="card" style="--accent:linear-gradient(90deg,#FF3CAC,#A855F7)">
+        <div style="font-size:1rem;font-weight:800;margin-bottom:.8rem;">📊 Degree Scale · Шкала інтенсивності</div>
+        <div style="font-size:.85rem;line-height:1.9;color:#D0D0F0;">
+          <span style="color:#EF4444">extremely / incredibly</span> ████████ 100%<br>
+          <span style="color:#FF6B35">very / really</span> ███████ 90%<br>
+          <span style="color:#FFD93D">quite / rather</span> █████ 65%<br>
+          <span style="color:#22C55E">fairly / pretty</span> ████ 55%<br>
+          <span style="color:#06B6D4">almost / nearly</span> ███ 45%<br>
+          <span style="color:#9CA3AF">a bit / slightly</span> █ 20%
+        </div>
+      </div>
+
+      <div class="card" style="--accent:linear-gradient(90deg,#06B6D4,#3B82F6)">
+        <div style="font-size:1rem;font-weight:800;margin-bottom:.8rem;">📍 Position Rules · Правила позиції</div>
+        <div style="font-size:.85rem;line-height:1.9;color:#D0D0F0;">
+          <span style="color:#22C55E">✅ Frequency</span> → before verb<br>
+          <span style="color:#22C55E">✅ Frequency</span> → after "be"<br>
+          <span style="color:#22C55E">✅ Manner</span> → usually at end<br>
+          <span style="color:#22C55E">✅ Time/Place</span> → usually at end<br>
+          <span style="color:#22C55E">✅ Sentence adverb</span> → at start<br>
+          <span style="color:#EF4444">❌ Never</span> between verb &amp; object
+        </div>
+      </div>
+
+      <div class="card" style="--accent:linear-gradient(90deg,#22C55E,#06B6D4)">
+        <div style="font-size:1rem;font-weight:800;margin-bottom:.8rem;">🔁 Frequency Order · Порядок частоти</div>
+        <div style="font-size:.85rem;line-height:1.9;color:#D0D0F0;">
+          <span style="color:#FFD93D">always</span> → 100%<br>
+          <span style="color:#06B6D4">usually / normally</span> → 80-90%<br>
+          <span style="color:#22C55E">often / frequently</span> → 60-70%<br>
+          <span style="color:#F59E0B">sometimes</span> → 50%<br>
+          <span style="color:#F97316">rarely / seldom</span> → 10-15%<br>
+          <span style="color:#EF4444">never</span> → 0%
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div style="font-size:2rem;margin-bottom:1rem;">🎓</div>
+  <div>Made with <span>♥</span> for English learners · Зроблено з <span>♥</span> для тих, хто вчить англійську</div>
+  <div style="margin-top:.5rem;font-size:.8rem;">Practice every day · Практикуйся щодня · <span>She always sings beautifully!</span> 🎵</div>
+</footer>
+
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🍕 English at the Restaurant | Англійська в ресторані</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orange: #FF6B35;
+    --yellow: #FFD166;
+    --green: #06D6A0;
+    --blue: #118AB2;
+    --pink: #EF476F;
+    --purple: #9B5DE5;
+    --cream: #FFF8F0;
+    --dark: #2D2D2D;
+    --card-shadow: 0 8px 32px rgba(0,0,0,0.10);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--cream);
+    color: var(--dark);
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #FF6B35 0%, #FFD166 50%, #EF476F 100%);
+    padding: 60px 24px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.08'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-emoji-row {
+    font-size: 3rem;
+    margin-bottom: 16px;
+    animation: float 3s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  .hero h1 {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    font-weight: 800;
+    color: #fff;
+    text-shadow: 3px 3px 0px rgba(0,0,0,0.15);
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+  .hero p {
+    font-size: 1.15rem;
+    color: rgba(255,255,255,0.92);
+    max-width: 560px;
+    margin: 0 auto 24px;
+    font-weight: 600;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: #fff;
+    color: var(--orange);
+    font-weight: 800;
+    font-size: 0.95rem;
+    padding: 8px 22px;
+    border-radius: 30px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  }
+
+  /* NAV PILLS */
+  .nav-pills {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 28px 16px 10px;
+    position: sticky;
+    top: 0;
+    background: var(--cream);
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .nav-pills a {
+    text-decoration: none;
+    background: #fff;
+    color: var(--dark);
+    font-weight: 700;
+    font-size: 0.88rem;
+    padding: 7px 18px;
+    border-radius: 20px;
+    border: 2px solid transparent;
+    transition: all 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  }
+  .nav-pills a:hover { border-color: var(--orange); color: var(--orange); transform: translateY(-2px); }
+
+  /* MAIN */
+  main { max-width: 960px; margin: 0 auto; padding: 32px 16px 80px; }
+
+  /* SECTION HEADER */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 48px 0 24px;
+  }
+  .section-icon {
+    font-size: 2.4rem;
+    width: 60px; height: 60px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 18px;
+    flex-shrink: 0;
+  }
+  .section-title h2 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.6rem;
+    font-weight: 800;
+    line-height: 1.1;
+  }
+  .section-title .subtitle {
+    font-size: 0.95rem;
+    color: #888;
+    font-weight: 600;
+  }
+
+  /* VOCAB GRID */
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 14px;
+  }
+  .vocab-card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 18px 14px;
+    text-align: center;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.2s;
+    cursor: default;
+    border-bottom: 4px solid transparent;
+  }
+  .vocab-card:hover { transform: translateY(-5px); }
+  .vocab-emoji { font-size: 2.4rem; margin-bottom: 8px; display: block; }
+  .vocab-en { font-weight: 800; font-size: 1.05rem; color: var(--dark); }
+  .vocab-uk { font-size: 0.85rem; color: #888; font-weight: 600; margin-top: 2px; }
+  .vocab-pron { font-size: 0.78rem; color: var(--blue); font-weight: 700; margin-top: 3px; font-style: italic; }
+
+  /* PHRASE CARDS */
+  .phrase-block {
+    background: #fff;
+    border-radius: 22px;
+    padding: 24px;
+    margin-bottom: 16px;
+    box-shadow: var(--card-shadow);
+    border-left: 6px solid var(--orange);
+  }
+  .phrase-block.green { border-color: var(--green); }
+  .phrase-block.blue { border-color: var(--blue); }
+  .phrase-block.purple { border-color: var(--purple); }
+  .phrase-block.pink { border-color: var(--pink); }
+
+  .phrase-situation {
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #aaa;
+    margin-bottom: 10px;
+  }
+  .phrase-en {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--dark);
+    margin-bottom: 4px;
+  }
+  .phrase-uk {
+    font-size: 0.95rem;
+    color: #777;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .phrase-note {
+    font-size: 0.82rem;
+    background: #FFF3E0;
+    color: #E65100;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-weight: 700;
+    display: inline-block;
+  }
+
+  /* DIALOG BUBBLE */
+  .dialog-box {
+    background: #fff;
+    border-radius: 22px;
+    padding: 28px;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 20px;
+  }
+  .dialog-box h3 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin-bottom: 18px;
+    color: var(--dark);
+  }
+  .bubble-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 14px;
+    align-items: flex-start;
+  }
+  .bubble-row.right { flex-direction: row-reverse; }
+  .bubble-avatar {
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    font-size: 1.4rem;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  .bubble-waiter { background: #E3F2FD; }
+  .bubble-customer { background: #FFF3E0; }
+  .bubble-content { max-width: 78%; }
+  .bubble-who { font-size: 0.72rem; font-weight: 800; color: #aaa; margin-bottom: 3px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .bubble-right .bubble-who { text-align: right; }
+  .bubble-text {
+    background: #F5F5F5;
+    border-radius: 14px 14px 14px 4px;
+    padding: 10px 14px;
+    font-weight: 700;
+    font-size: 1rem;
+  }
+  .bubble-row.right .bubble-text {
+    background: linear-gradient(135deg, var(--orange), #FFD166);
+    color: #fff;
+    border-radius: 14px 14px 4px 14px;
+  }
+  .bubble-translation {
+    font-size: 0.8rem;
+    color: #999;
+    font-weight: 600;
+    margin-top: 3px;
+    padding: 0 4px;
+  }
+  .bubble-row.right .bubble-translation { text-align: right; }
+
+  /* INFOGRAPHIC */
+  .info-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  .info-card {
+    border-radius: 20px;
+    padding: 22px 18px;
+    color: #fff;
+    box-shadow: var(--card-shadow);
+    position: relative;
+    overflow: hidden;
+  }
+  .info-card::after {
+    content: attr(data-emoji);
+    position: absolute;
+    right: 12px; bottom: 6px;
+    font-size: 4rem;
+    opacity: 0.2;
+  }
+  .info-card h4 { font-weight: 800; font-size: 1.05rem; margin-bottom: 8px; }
+  .info-card ul { list-style: none; }
+  .info-card li { font-size: 0.9rem; font-weight: 600; padding: 3px 0; opacity: 0.95; }
+  .info-card li::before { content: '→ '; }
+
+  .bg-orange { background: linear-gradient(135deg, #FF6B35, #FF8C61); }
+  .bg-green { background: linear-gradient(135deg, #06D6A0, #00B894); }
+  .bg-blue { background: linear-gradient(135deg, #118AB2, #0078A8); }
+  .bg-purple { background: linear-gradient(135deg, #9B5DE5, #7C45C8); }
+  .bg-pink { background: linear-gradient(135deg, #EF476F, #D63B5E); }
+  .bg-yellow { background: linear-gradient(135deg, #FFD166, #FFC135); color: #333 !important; }
+  .bg-yellow h4, .bg-yellow li { color: #333 !important; }
+
+  /* TIP BOX */
+  .tip-box {
+    background: linear-gradient(135deg, #FFF9C4, #FFF3E0);
+    border: 2px dashed #FFD166;
+    border-radius: 18px;
+    padding: 20px 22px;
+    margin: 20px 0;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .tip-icon { font-size: 2rem; flex-shrink: 0; }
+  .tip-text strong { font-size: 1rem; font-weight: 800; color: var(--orange); display: block; margin-bottom: 4px; }
+  .tip-text p { font-size: 0.92rem; font-weight: 600; color: #555; line-height: 1.6; }
+
+  /* MENU VISUAL */
+  .menu-visual {
+    background: linear-gradient(135deg, #FFF8F0, #FFF0E0);
+    border: 3px solid #FFD166;
+    border-radius: 22px;
+    padding: 28px;
+    margin: 20px 0;
+  }
+  .menu-visual h3 {
+    font-family: 'Baloo 2', cursive;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 6px;
+    color: var(--orange);
+  }
+  .menu-divider {
+    border: none;
+    border-top: 2px dashed #FFD166;
+    margin: 14px 0;
+  }
+  .menu-section-title {
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    color: var(--orange);
+    margin-bottom: 8px;
+  }
+  .menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0;
+  }
+  .menu-item-left span { font-weight: 700; display: block; }
+  .menu-item-left small { color: #999; font-size: 0.8rem; }
+  .menu-price { font-weight: 800; color: var(--orange); }
+
+  /* QUIZ */
+  .quiz-box {
+    background: #fff;
+    border-radius: 22px;
+    padding: 28px;
+    box-shadow: var(--card-shadow);
+    margin: 24px 0;
+  }
+  .quiz-box h3 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: var(--purple);
+  }
+  .quiz-q {
+    background: #F3E8FF;
+    border-radius: 14px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+  }
+  .quiz-q p { font-weight: 700; margin-bottom: 10px; }
+  .quiz-options { display: flex; gap: 8px; flex-wrap: wrap; }
+  .quiz-btn {
+    background: #fff;
+    border: 2px solid #D0B3FF;
+    color: var(--purple);
+    font-weight: 700;
+    padding: 7px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.92rem;
+    transition: all 0.2s;
+  }
+  .quiz-btn:hover { background: var(--purple); color: #fff; border-color: var(--purple); }
+  .quiz-btn.correct { background: var(--green); color: #fff; border-color: var(--green); }
+  .quiz-btn.wrong { background: var(--pink); color: #fff; border-color: var(--pink); }
+  .quiz-feedback { margin-top: 8px; font-weight: 700; font-size: 0.9rem; display: none; }
+
+  /* TABLE MANNER */
+  .table-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 16px 0;
+  }
+  @media (max-width: 500px) { .table-grid { grid-template-columns: 1fr; } }
+  .do-card { background: #E8F8F1; border-radius: 16px; padding: 16px 18px; border-left: 4px solid var(--green); }
+  .dont-card { background: #FEE8ED; border-radius: 16px; padding: 16px 18px; border-left: 4px solid var(--pink); }
+  .do-card h4 { color: var(--green); font-weight: 800; margin-bottom: 8px; }
+  .dont-card h4 { color: var(--pink); font-weight: 800; margin-bottom: 8px; }
+  .do-card li, .dont-card li { font-size: 0.9rem; font-weight: 600; margin-bottom: 4px; }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 40px 16px;
+    background: var(--dark);
+    color: rgba(255,255,255,0.6);
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+  footer strong { color: var(--yellow); }
+
+  /* ===== RESPONSIVE / MOBILE ===== */
+
+  /* Tablet */
+  @media (max-width: 768px) {
+    .hero { padding: 40px 16px 56px; }
+    .hero-emoji-row { font-size: 2.2rem; }
+    .hero p { font-size: 1rem; }
+
+    main { padding: 20px 12px 60px; }
+
+    .section-header { margin: 36px 0 18px; gap: 10px; }
+    .section-icon { width: 50px; height: 50px; font-size: 2rem; border-radius: 14px; }
+    .section-title h2 { font-size: 1.35rem; }
+    .section-title .subtitle { font-size: 0.88rem; }
+
+    .info-strip { grid-template-columns: repeat(2, 1fr); }
+
+    .dialog-box { padding: 20px 16px; }
+    .bubble-text { font-size: 0.92rem; }
+
+    .menu-visual { padding: 20px 16px; }
+
+    .phrase-block { padding: 18px 16px; }
+    .phrase-en { font-size: 1.05rem; }
+
+    .table-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  }
+
+  /* Mobile */
+  @media (max-width: 480px) {
+    html { font-size: 15px; }
+
+    /* Hero */
+    .hero { padding: 32px 14px 44px; }
+    .hero-emoji-row { font-size: 1.8rem; letter-spacing: -1px; }
+    .hero h1 { font-size: 1.6rem; }
+    .hero p { font-size: 0.93rem; }
+    .hero-badge { font-size: 0.82rem; padding: 6px 16px; }
+
+    /* Nav — scrollable row, no wrap */
+    .nav-pills {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      justify-content: flex-start;
+      padding: 14px 12px 10px;
+      gap: 8px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .nav-pills::-webkit-scrollbar { display: none; }
+    .nav-pills a {
+      white-space: nowrap;
+      flex-shrink: 0;
+      font-size: 0.82rem;
+      padding: 6px 14px;
+    }
+
+    /* Main */
+    main { padding: 16px 10px 56px; }
+
+    /* Section headers */
+    .section-header { margin: 28px 0 14px; gap: 10px; }
+    .section-icon { width: 44px; height: 44px; font-size: 1.7rem; border-radius: 12px; }
+    .section-title h2 { font-size: 1.15rem; }
+    .section-title .subtitle { font-size: 0.8rem; }
+
+    /* Vocab grid — 2 columns */
+    .vocab-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .vocab-card { padding: 14px 10px; border-radius: 14px; }
+    .vocab-emoji { font-size: 2rem; margin-bottom: 6px; }
+    .vocab-en { font-size: 0.95rem; }
+    .vocab-uk { font-size: 0.78rem; }
+    .vocab-pron { font-size: 0.72rem; }
+
+    /* Info strip — 1 column */
+    .info-strip { grid-template-columns: 1fr; gap: 12px; }
+    .info-card { padding: 18px 16px; }
+    .info-card li { font-size: 0.88rem; }
+
+    /* Phrase blocks */
+    .phrase-block { padding: 14px 14px; border-radius: 16px; border-left-width: 4px; }
+    .phrase-en { font-size: 1rem; }
+    .phrase-uk { font-size: 0.88rem; }
+    .phrase-note { font-size: 0.78rem; padding: 5px 10px; }
+
+    /* Dialog */
+    .dialog-box { padding: 16px 12px; border-radius: 18px; }
+    .dialog-box h3 { font-size: 1.05rem; margin-bottom: 14px; }
+    .bubble-row { gap: 8px; margin-bottom: 10px; }
+    .bubble-avatar { width: 34px; height: 34px; font-size: 1.1rem; }
+    .bubble-text { font-size: 0.85rem; padding: 8px 11px; border-radius: 12px 12px 12px 4px; }
+    .bubble-row.right .bubble-text { border-radius: 12px 12px 4px 12px; }
+    .bubble-translation { font-size: 0.74rem; }
+    .bubble-content { max-width: 82%; }
+
+    /* Menu */
+    .menu-visual { padding: 16px 12px; border-radius: 16px; }
+    .menu-visual h3 { font-size: 1.2rem; }
+    .menu-item { flex-wrap: wrap; gap: 2px; }
+    .menu-item-left { flex: 1 1 auto; }
+    .menu-price { flex-shrink: 0; }
+    .menu-item-left span { font-size: 0.95rem; }
+    .menu-item-left small { font-size: 0.75rem; }
+
+    /* Tip box */
+    .tip-box { padding: 14px 14px; gap: 10px; border-radius: 14px; }
+    .tip-icon { font-size: 1.6rem; }
+    .tip-text strong { font-size: 0.92rem; }
+    .tip-text p { font-size: 0.84rem; line-height: 1.55; }
+
+    /* Table manners — stack to 1 col */
+    .table-grid { grid-template-columns: 1fr; gap: 10px; }
+    .do-card, .dont-card { padding: 14px 14px; }
+    .do-card li, .dont-card li { font-size: 0.85rem; }
+
+    /* Quiz */
+    .quiz-box { padding: 18px 14px; border-radius: 18px; }
+    .quiz-box h3 { font-size: 1.1rem; margin-bottom: 14px; }
+    .quiz-q { padding: 13px 14px; border-radius: 12px; }
+    .quiz-q p { font-size: 0.9rem; }
+    .quiz-btn { font-size: 0.85rem; padding: 6px 13px; }
+
+    /* Footer */
+    footer { padding: 28px 12px; font-size: 0.82rem; }
+
+    /* Scroll-top btn — smaller, lower overlap with content */
+    #scroll-top-btn { bottom: 16px; right: 16px; width: 40px; height: 40px; font-size: 16px; }
+  }
+
+  /* Very small phones */
+  @media (max-width: 360px) {
+    .hero h1 { font-size: 1.35rem; }
+    .vocab-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+    .info-strip { grid-template-columns: 1fr; }
+    .bubble-content { max-width: 86%; }
+  }
+
+  /* SCROLL ANIMATE */
+  .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.5s, transform 0.5s; }
+  .fade-in.visible { opacity: 1; transform: none; }
+
+  /* HIGHLIGHT WORD */
+  .hl { background: var(--yellow); padding: 1px 5px; border-radius: 5px; font-weight: 800; }
+  .hl-green { background: #C8F7E8; padding: 1px 5px; border-radius: 5px; font-weight: 800; }
+  .hl-blue { background: #D0EEFF; padding: 1px 5px; border-radius: 5px; font-weight: 800; }
+
+#scroll-top-btn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #1a1208;
+  border: 1.5px solid rgba(200,150,62,0.4);
+  color: #f5f0e8;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+  pointer-events: none;
+  z-index: 9998;
+}
+#scroll-top-btn.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+#scroll-top-btn:hover {
+  background: #c8963e;
+  border-color: #c8963e;
+  color: #1a1208;
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-emoji-row">🍕 🍜 🥗 🍣 🍔 🍰 ☕</div>
+  <h1>English at the Restaurant</h1>
+  <p>Вчимось говорити про їжу й у ресторані англійською — легко, весело та зрозуміло! 🌟</p>
+  <span class="hero-badge">🎓 For Beginners · Для початківців</span>
+</div>
+
+<!-- NAV -->
+<nav class="nav-pills">
+  <a href="#vocab">🍽️ Слова</a>
+  <a href="#menu">📋 Меню</a>
+  <a href="#phrases">💬 Фрази</a>
+  <a href="#dialog">🗣️ Діалог</a>
+  <a href="#manners">✨ Етикет</a>
+  <a href="#quiz">🎯 Квіз</a>
+</nav>
+
+<main>
+
+  <!-- === SECTION 1: VOCABULARY === -->
+  <section id="vocab">
+    <div class="section-header fade-in">
+      <div class="section-icon" style="background:#FFF3E0;">🍽️</div>
+      <div class="section-title">
+        <h2>Food Vocabulary · Слова про їжу</h2>
+        <div class="subtitle">Основні слова, які треба знати перед походом у ресторан</div>
+      </div>
+    </div>
+
+    <div class="info-strip fade-in">
+      <div class="info-card bg-orange" data-emoji="🍞">
+        <h4>🍞 Starters / Закуски</h4>
+        <ul>
+          <li>Soup — суп</li>
+          <li>Salad — салат</li>
+          <li>Bread — хліб</li>
+          <li>Garlic bread — часниковий хліб</li>
+          <li>Appetizer — закуска</li>
+        </ul>
+      </div>
+      <div class="info-card bg-green" data-emoji="🥩">
+        <h4>🥩 Main Course / Основне</h4>
+        <ul>
+          <li>Steak — стейк</li>
+          <li>Pasta — паста</li>
+          <li>Pizza — піца</li>
+          <li>Burger — бургер</li>
+          <li>Chicken — курка</li>
+        </ul>
+      </div>
+      <div class="info-card bg-purple" data-emoji="🍰">
+        <h4>🍰 Dessert / Десерт</h4>
+        <ul>
+          <li>Cake — торт</li>
+          <li>Ice cream — морозиво</li>
+          <li>Chocolate — шоколад</li>
+          <li>Cheesecake — чізкейк</li>
+          <li>Cookies — печиво</li>
+        </ul>
+      </div>
+      <div class="info-card bg-blue" data-emoji="🥤">
+        <h4>🥤 Drinks / Напої</h4>
+        <ul>
+          <li>Water — вода</li>
+          <li>Juice — сік</li>
+          <li>Coffee — кава</li>
+          <li>Tea — чай</li>
+          <li>Lemonade — лимонад</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tip-box fade-in">
+      <div class="tip-icon">💡</div>
+      <div class="tip-text">
+        <strong>Порада / Tip!</strong>
+        <p>In English, meals have <span class="hl">3 parts</span>: <strong>Starter</strong> (закуска) → <strong>Main Course</strong> (основна страва) → <strong>Dessert</strong> (десерт). У ресторані офіціант може запитати: <em>"Are you ready to order?"</em> — «Ви готові зробити замовлення?»</p>
+      </div>
+    </div>
+
+    <!-- VOCAB CARDS -->
+    <p style="font-weight:800;font-size:1rem;margin-bottom:14px;">🌍 Important words · Важливі слова:</p>
+    <div class="vocab-grid fade-in">
+      <div class="vocab-card" style="border-bottom-color:#FF6B35;">
+        <span class="vocab-emoji">🍴</span>
+        <div class="vocab-en">Fork</div>
+        <div class="vocab-uk">Виделка</div>
+        <div class="vocab-pron">/fɔːrk/</div>
+      </div>
+      <div class="vocab-card" style="border-bottom-color:#06D6A0;">
+        <span class="vocab-emoji">🔪</span>
+        <div class="vocab-en">Knife</div>
+        <div class="vocab-uk">Ніж</div>
+        <div class="vocab-pron">/naɪf/</div>
+      </div>
+      <div class="vocab-card" style="border-bottom-color:#118AB2;">
+        <span class="vocab-emoji">🥄</span>
+        <div class="vocab-en">Spoon</div>
+        <div class="vocab-uk">Ложка</div>
+        <div class="vocab-pron">/spuːn/</div>
+      </div>
+      <div class="vocab-card" style="border-bottom-color:#9B5DE5;">
+        <span class="vocab-emoji">🥃</span>
+        <div class="vocab-en">Glass</div>
+        <div class="vocab-uk">Склянка</div>
+        <div class="vocab-pron">/ɡlæs/</div>
+      </div>
+      <div class="vocab-card" style="border-bottom-color:#EF476F;">
+        <span class="vocab-emoji">📋</span>
+        <div class="vocab-en">Menu</div>
+        <div class="vocab-uk">Меню</div>
+        <div class="vocab-pron">/ˈmenjuː/</div>
+      </div>
+      <div class="vocab-card" style="border-bottom-color:#FFD166;">
+        <span class="vocab-emoji">🧾</span>
+        <div class="vocab-en">Bill / Check</div>
+        <div class="vocab-uk">Рахунок</div>
+        <div class="vocab-pron">/bɪl/</div>
+      </div>
+      <div class="vocab-card" style="border-bottom-color:#FF6B35;">
+        <span class="vocab-emoji">👨‍🍳</span>
+        <div class="vocab-en">Waiter</div>
+        <div class="vocab-uk">Офіціант</div>
+        <div class="vocab-pron">/ˈweɪtər/</div>
+      </div>
+      <div class="vocab-card" style="border-bottom-color:#06D6A0;">
+        <span class="vocab-emoji">🪑</span>
+        <div class="vocab-en">Table</div>
+        <div class="vocab-uk">Стіл</div>
+        <div class="vocab-pron">/ˈteɪbl/</div>
+      </div>
+      <div class="vocab-card" style="border-bottom-color:#118AB2;">
+        <span class="vocab-emoji">🏷️</span>
+        <div class="vocab-en">Price</div>
+        <div class="vocab-uk">Ціна</div>
+        <div class="vocab-pron">/praɪs/</div>
+      </div>
+      <div class="vocab-card" style="border-bottom-color:#9B5DE5;">
+        <span class="vocab-emoji">🍱</span>
+        <div class="vocab-en">Portion</div>
+        <div class="vocab-uk">Порція</div>
+        <div class="vocab-pron">/ˈpɔːrʃn/</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- === SECTION 2: MENU === -->
+  <section id="menu">
+    <div class="section-header fade-in">
+      <div class="section-icon" style="background:#E8F5E9;">📋</div>
+      <div class="section-title">
+        <h2>Reading the Menu · Читаємо меню</h2>
+        <div class="subtitle">Як розібратись у меню англійською</div>
+      </div>
+    </div>
+
+    <div class="menu-visual fade-in">
+      <h3>🌟 Sunshine Café Menu</h3>
+      <p style="text-align:center;color:#999;font-size:0.85rem;margin-bottom:12px;">Sample menu · Приклад меню</p>
+      <hr class="menu-divider">
+
+      <div class="menu-section-title">🥗 Starters / Закуски</div>
+      <div class="menu-item">
+        <div class="menu-item-left">
+          <span>Garden Salad</span>
+          <small>Fresh vegetables, olive oil · Свіжі овочі, оливкова олія</small>
+        </div>
+        <div class="menu-price">$6</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-left">
+          <span>Tomato Soup</span>
+          <small>Served with bread · Подається з хлібом</small>
+        </div>
+        <div class="menu-price">$7</div>
+      </div>
+
+      <hr class="menu-divider">
+      <div class="menu-section-title">🍕 Main Course / Основні страви</div>
+      <div class="menu-item">
+        <div class="menu-item-left">
+          <span>Margherita Pizza</span>
+          <small>Tomato, mozzarella, basil · Томат, моцарела, базилік</small>
+        </div>
+        <div class="menu-price">$14</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-left">
+          <span>Grilled Chicken</span>
+          <small>With fries & sauce · З картоплею фрі та соусом</small>
+        </div>
+        <div class="menu-price">$16</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-left">
+          <span>Spaghetti Bolognese</span>
+          <small>Meat sauce, parmesan · М'ясний соус, пармезан</small>
+        </div>
+        <div class="menu-price">$15</div>
+      </div>
+
+      <hr class="menu-divider">
+      <div class="menu-section-title">🍰 Desserts / Десерти</div>
+      <div class="menu-item">
+        <div class="menu-item-left">
+          <span>Chocolate Cake</span>
+          <small>With whipped cream · Зі збитими вершками</small>
+        </div>
+        <div class="menu-price">$8</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-left">
+          <span>Vanilla Ice Cream</span>
+          <small>3 scoops · 3 кульки</small>
+        </div>
+        <div class="menu-price">$6</div>
+      </div>
+    </div>
+
+    <div class="tip-box fade-in">
+      <div class="tip-icon">🔍</div>
+      <div class="tip-text">
+        <strong>Як читати меню / How to read a menu</strong>
+        <p>
+          <span class="hl">Served with</span> = подається з (наприклад: «served with fries» = з картоплею фрі)<br>
+          <span class="hl">Grilled</span> = на грилі &nbsp;|&nbsp; <span class="hl">Fried</span> = смажений &nbsp;|&nbsp; <span class="hl">Baked</span> = запечений<br>
+          <span class="hl">Vegetarian</span> = вегетаріанське &nbsp;|&nbsp; <span class="hl">Spicy</span> = гостре &nbsp;|&nbsp; <span class="hl">Gluten-free</span> = без глютену
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- === SECTION 3: PHRASES === -->
+  <section id="phrases">
+    <div class="section-header fade-in">
+      <div class="section-icon" style="background:#E3F2FD;">💬</div>
+      <div class="section-title">
+        <h2>Key Phrases · Ключові фрази</h2>
+        <div class="subtitle">Що казати у ресторані — крок за кроком</div>
+      </div>
+    </div>
+
+    <!-- Step 1 -->
+    <p style="font-weight:800;color:#FF6B35;font-size:1rem;margin-bottom:10px;">📍 Step 1 · Крок 1 — Arriving / Прихід</p>
+    <div class="phrase-block fade-in">
+      <div class="phrase-situation">When you arrive · Коли приходиш</div>
+      <div class="phrase-en">"A table for two, please."</div>
+      <div class="phrase-uk">Столик для двох, будь ласка.</div>
+      <span class="phrase-note">💡 Replace "two" with the number of people · Заміни "two" на кількість людей</span>
+    </div>
+    <div class="phrase-block fade-in">
+      <div class="phrase-situation">Reservation · Бронювання</div>
+      <div class="phrase-en">"I have a reservation under [your name]."</div>
+      <div class="phrase-uk">У мене є бронювання на ім'я [твоє ім'я].</div>
+    </div>
+    <div class="phrase-block fade-in">
+      <div class="phrase-situation">No reservation · Без бронювання</div>
+      <div class="phrase-en">"Do you have any tables available?"</div>
+      <div class="phrase-uk">Чи є у вас вільні столики?</div>
+    </div>
+
+    <!-- Step 2 -->
+    <p style="font-weight:800;color:#06D6A0;font-size:1rem;margin:24px 0 10px;">📋 Step 2 · Крок 2 — Ordering / Замовлення</p>
+    <div class="phrase-block green fade-in">
+      <div class="phrase-situation">Asking for the menu · Просимо меню</div>
+      <div class="phrase-en">"Could I see the menu, please?"</div>
+      <div class="phrase-uk">Чи можу я побачити меню, будь ласка?</div>
+    </div>
+    <div class="phrase-block green fade-in">
+      <div class="phrase-situation">Ordering food · Замовляємо їжу</div>
+      <div class="phrase-en">"I'd like the pizza, please."</div>
+      <div class="phrase-uk">Я б хотів/хотіла піцу, будь ласка.</div>
+      <span class="phrase-note">💡 "I'd like..." is more polite than "I want..." · Ввічливіше ніж "I want"</span>
+    </div>
+    <div class="phrase-block green fade-in">
+      <div class="phrase-situation">Not ready yet · Ще не готові</div>
+      <div class="phrase-en">"We need a few more minutes, please."</div>
+      <div class="phrase-uk">Нам потрібно ще кілька хвилин, будь ласка.</div>
+    </div>
+    <div class="phrase-block green fade-in">
+      <div class="phrase-situation">Asking questions · Питаємо про страви</div>
+      <div class="phrase-en">"What do you recommend?"</div>
+      <div class="phrase-uk">Що ви рекомендуєте?</div>
+    </div>
+    <div class="phrase-block green fade-in">
+      <div class="phrase-situation">Allergies · Алергії</div>
+      <div class="phrase-en">"Does this contain nuts/gluten?"</div>
+      <div class="phrase-uk">Чи містить це горіхи/глютен?</div>
+    </div>
+
+    <!-- Step 3 -->
+    <p style="font-weight:800;color:#118AB2;font-size:1rem;margin:24px 0 10px;">🍽️ Step 3 · Крок 3 — During the Meal / Під час їжі</p>
+    <div class="phrase-block blue fade-in">
+      <div class="phrase-situation">Calling the waiter · Кличемо офіціанта</div>
+      <div class="phrase-en">"Excuse me!" / "Could you help me, please?"</div>
+      <div class="phrase-uk">Вибачте! / Чи не могли б ви мені допомогти?</div>
+      <span class="phrase-note">⚠️ Never snap your fingers! · Ніколи не клацай пальцями!</span>
+    </div>
+    <div class="phrase-block blue fade-in">
+      <div class="phrase-situation">Something is wrong · Щось не так</div>
+      <div class="phrase-en">"I'm sorry, but this is not what I ordered."</div>
+      <div class="phrase-uk">Вибачте, але це не те, що я замовляв/замовляла.</div>
+    </div>
+    <div class="phrase-block blue fade-in">
+      <div class="phrase-situation">Compliments · Компліменти</div>
+      <div class="phrase-en">"This is delicious!" / "It's amazing!"</div>
+      <div class="phrase-uk">Це дуже смачно! / Це чудово!</div>
+    </div>
+
+    <!-- Step 4 -->
+    <p style="font-weight:800;color:#EF476F;font-size:1rem;margin:24px 0 10px;">💳 Step 4 · Крок 4 — Paying / Оплата</p>
+    <div class="phrase-block pink fade-in">
+      <div class="phrase-situation">Asking for the bill · Просимо рахунок</div>
+      <div class="phrase-en">"Could I have the bill, please?" / "Check, please!"</div>
+      <div class="phrase-uk">Чи можу я отримати рахунок? / Рахунок, будь ласка!</div>
+      <span class="phrase-note">💡 "Bill" = British English · "Check" = American English</span>
+    </div>
+    <div class="phrase-block pink fade-in">
+      <div class="phrase-situation">Paying separately · Платимо окремо</div>
+      <div class="phrase-en">"Can we pay separately?"</div>
+      <div class="phrase-uk">Чи можемо ми заплатити окремо?</div>
+    </div>
+    <div class="phrase-block pink fade-in">
+      <div class="phrase-situation">Leaving a tip · Залишаємо чайові</div>
+      <div class="phrase-en">"Keep the change." / "The service was great!"</div>
+      <div class="phrase-uk">Решту залиште собі. / Обслуговування було чудовим!</div>
+    </div>
+  </section>
+
+  <!-- === SECTION 4: DIALOG === -->
+  <section id="dialog">
+    <div class="section-header fade-in">
+      <div class="section-icon" style="background:#F3E8FF;">🗣️</div>
+      <div class="section-title">
+        <h2>Sample Dialogue · Зразок діалогу</h2>
+        <div class="subtitle">Повний діалог у ресторані від початку до кінця</div>
+      </div>
+    </div>
+
+    <div class="dialog-box fade-in">
+      <h3>🍴 At the Restaurant · У ресторані</h3>
+
+      <div class="bubble-row">
+        <div class="bubble-avatar bubble-waiter">👨‍💼</div>
+        <div class="bubble-content">
+          <div class="bubble-who">Waiter · Офіціант</div>
+          <div class="bubble-text">Good evening! Welcome to Sunshine Café. How many people?</div>
+          <div class="bubble-translation">Добрий вечір! Ласкаво просимо до кафе. Скільки вас?</div>
+        </div>
+      </div>
+
+      <div class="bubble-row right">
+        <div class="bubble-avatar bubble-customer">🙋</div>
+        <div class="bubble-content bubble-right">
+          <div class="bubble-who">Customer · Відвідувач</div>
+          <div class="bubble-text">Two people, please.</div>
+          <div class="bubble-translation">Двоє, будь ласка.</div>
+        </div>
+      </div>
+
+      <div class="bubble-row">
+        <div class="bubble-avatar bubble-waiter">👨‍💼</div>
+        <div class="bubble-content">
+          <div class="bubble-who">Waiter · Офіціант</div>
+          <div class="bubble-text">Follow me, please. Here is your table. Would you like to see the menu?</div>
+          <div class="bubble-translation">Прошу за мною. Ось ваш столик. Бажаєте побачити меню?</div>
+        </div>
+      </div>
+
+      <div class="bubble-row right">
+        <div class="bubble-avatar bubble-customer">🙋</div>
+        <div class="bubble-content bubble-right">
+          <div class="bubble-who">Customer · Відвідувач</div>
+          <div class="bubble-text">Yes, please. And could we get some water?</div>
+          <div class="bubble-translation">Так, будь ласка. І чи можна нам трохи води?</div>
+        </div>
+      </div>
+
+      <div class="bubble-row">
+        <div class="bubble-avatar bubble-waiter">👨‍💼</div>
+        <div class="bubble-content">
+          <div class="bubble-who">Waiter · Офіціант</div>
+          <div class="bubble-text">Of course! Are you ready to order?</div>
+          <div class="bubble-translation">Звичайно! Ви готові зробити замовлення?</div>
+        </div>
+      </div>
+
+      <div class="bubble-row right">
+        <div class="bubble-avatar bubble-customer">🙋</div>
+        <div class="bubble-content bubble-right">
+          <div class="bubble-who">Customer · Відвідувач</div>
+          <div class="bubble-text">Yes! I'd like the Margherita pizza. What do you recommend for dessert?</div>
+          <div class="bubble-translation">Так! Я б хотів піцу Маргарита. Що ви рекомендуєте з десертів?</div>
+        </div>
+      </div>
+
+      <div class="bubble-row">
+        <div class="bubble-avatar bubble-waiter">👨‍💼</div>
+        <div class="bubble-content">
+          <div class="bubble-who">Waiter · Офіціант</div>
+          <div class="bubble-text">Our chocolate cake is very popular! It's delicious.</div>
+          <div class="bubble-translation">Наш шоколадний торт дуже популярний! Він дуже смачний.</div>
+        </div>
+      </div>
+
+      <div class="bubble-row right">
+        <div class="bubble-avatar bubble-customer">🙋</div>
+        <div class="bubble-content bubble-right">
+          <div class="bubble-who">Customer · Відвідувач</div>
+          <div class="bubble-text">Great! I'll have the chocolate cake too, please.</div>
+          <div class="bubble-translation">Чудово! Я також візьму шоколадний торт, будь ласка.</div>
+        </div>
+      </div>
+
+      <div class="bubble-row">
+        <div class="bubble-avatar bubble-waiter">👨‍💼</div>
+        <div class="bubble-content">
+          <div class="bubble-who">Waiter · Офіціант</div>
+          <div class="bubble-text">Excellent choice! Enjoy your meal!</div>
+          <div class="bubble-translation">Відмінний вибір! Смачного!</div>
+        </div>
+      </div>
+
+      <div class="bubble-row right">
+        <div class="bubble-avatar bubble-customer">🙋</div>
+        <div class="bubble-content bubble-right">
+          <div class="bubble-who">Customer · Відвідувач</div>
+          <div class="bubble-text">Excuse me — could I have the bill, please? Everything was delicious!</div>
+          <div class="bubble-translation">Вибачте, чи можна рахунок? Все було дуже смачно!</div>
+        </div>
+      </div>
+
+      <div class="bubble-row">
+        <div class="bubble-avatar bubble-waiter">👨‍💼</div>
+        <div class="bubble-content">
+          <div class="bubble-who">Waiter · Офіціант</div>
+          <div class="bubble-text">Thank you so much! Have a wonderful evening!</div>
+          <div class="bubble-translation">Велике спасибі! Гарного вечора!</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- === SECTION 5: DESCRIBING FOOD === -->
+  <section id="describing">
+    <div class="section-header fade-in">
+      <div class="section-icon" style="background:#FFF3E0;">😋</div>
+      <div class="section-title">
+        <h2>Describing Food · Описуємо їжу</h2>
+        <div class="subtitle">Як сказати, яка їжа на смак — корисні прикметники</div>
+      </div>
+    </div>
+
+    <div class="vocab-grid fade-in">
+      <div class="vocab-card" style="border-bottom-color:#FF6B35;">
+        <span class="vocab-emoji">😍</span>
+        <div class="vocab-en">Delicious</div>
+        <div class="vocab-uk">Дуже смачний</div>
+        <div class="vocab-pron">/dɪˈlɪʃəs/</div>
+      </div>
+      <div class="vocab-card" style="border-bottom-color:#06D6A0;">
+        <span class="vocab-emoji">🍯</span>
+        <div class="vocab-en">Sweet</div>
+        <div class="vocab-uk">Солодкий</div>
+        <div class="vocab-pron">/swiːt/</div>
+      </div>
+      <div class="vocab-card" style="border-bottom-color:#FF4444;">
+        <span class="vocab-emoji">🌶️</span>
+        <div class="vocab-en">Spicy</div>
+        <div class="vocab-uk">Гострий</div>
+        <div class="vocab-pron">/ˈspaɪsi/</div>
+      </div>
+      <div class="vocab-card" style="border-bottom-color:#118AB2;">
+        <span class="vocab-emoji">🧂</span>
+        <div class="vocab-en">Salty</div>
+        <div class="vocab-uk">Солоний</div>
+        <div class="vocab-pron">/ˈsɔːlti/</div>
+      </div>
+      <div class="vocab-card" style="border-bottom-color:#9B5DE5;">
+        <span class="vocab-emoji">🍋</span>
+        <div class="vocab-en">Sour</div>
+        <div class="vocab-uk">Кислий</div>
+        <div class="vocab-pron">/saʊər/</div>
+      </div>
+      <div class="vocab-card" style="border-bottom-color:#EF476F;">
+        <span class="vocab-emoji">🥦</span>
+        <div class="vocab-en">Bitter</div>
+        <div class="vocab-uk">Гіркий</div>
+        <div class="vocab-pron">/ˈbɪtər/</div>
+      </div>
+      <div class="vocab-card" style="border-bottom-color:#FFD166;">
+        <span class="vocab-emoji">🔥</span>
+        <div class="vocab-en">Hot</div>
+        <div class="vocab-uk">Гарячий</div>
+        <div class="vocab-pron">/hɒt/</div>
+      </div>
+      <div class="vocab-card" style="border-bottom-color:#06D6A0;">
+        <span class="vocab-emoji">🧊</span>
+        <div class="vocab-en">Cold</div>
+        <div class="vocab-uk">Холодний</div>
+        <div class="vocab-pron">/kəʊld/</div>
+      </div>
+      <div class="vocab-card" style="border-bottom-color:#FF6B35;">
+        <span class="vocab-emoji">✨</span>
+        <div class="vocab-en">Fresh</div>
+        <div class="vocab-uk">Свіжий</div>
+        <div class="vocab-pron">/freʃ/</div>
+      </div>
+      <div class="vocab-card" style="border-bottom-color:#9B5DE5;">
+        <span class="vocab-emoji">🫙</span>
+        <div class="vocab-en">Crunchy</div>
+        <div class="vocab-uk">Хрусткий</div>
+        <div class="vocab-pron">/ˈkrʌntʃi/</div>
+      </div>
+    </div>
+
+    <div class="tip-box fade-in" style="margin-top:20px;">
+      <div class="tip-icon">🗣️</div>
+      <div class="tip-text">
+        <strong>Як використовувати / How to use:</strong>
+        <p>
+          "This pizza is <span class="hl">delicious</span>!" — Ця піца дуже смачна!<br>
+          "The soup is too <span class="hl">salty</span>." — Суп занадто солоний.<br>
+          "I love <span class="hl">sweet</span> desserts!" — Я люблю солодкі десерти!<br>
+          "This is <span class="hl-green">very fresh</span> and <span class="hl-green">crunchy</span>!" — Це дуже свіже й хрустке!
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- === SECTION 6: TABLE MANNERS === -->
+  <section id="manners">
+    <div class="section-header fade-in">
+      <div class="section-icon" style="background:#E8F8F1;">✨</div>
+      <div class="section-title">
+        <h2>Table Manners · Етикет за столом</h2>
+        <div class="subtitle">Що робити і що НЕ робити у ресторані</div>
+      </div>
+    </div>
+
+    <div class="table-grid fade-in">
+      <div class="do-card">
+        <h4>✅ DO · Роби</h4>
+        <ul>
+          <li>Say "please" and "thank you" · Кажи «будь ласка» та «дякую»</li>
+          <li>Wait to be seated · Чекай, поки тебе посадять</li>
+          <li>Use "Excuse me" to call a waiter · Кажи «вибачте», щоб покликати офіціанта</li>
+          <li>Put your napkin on your lap · Поклади серветку на коліна</li>
+          <li>Say "Enjoy your meal!" to others · Побажай іншим смачного</li>
+          <li>Leave a tip if service was good · Залиш чайові за хороше обслуговування</li>
+        </ul>
+      </div>
+      <div class="dont-card">
+        <h4>❌ DON'T · Не роби</h4>
+        <ul>
+          <li>Snap your fingers at staff · Не клацай пальцями на персонал</li>
+          <li>Talk with your mouth full · Не розмовляй з повним ротом</li>
+          <li>Shout across the restaurant · Не кричи через весь ресторан</li>
+          <li>Use your phone at the table · Не сиди в телефоні за столом</li>
+          <li>Leave without paying · Не йди без оплати!</li>
+          <li>Say "I want" — use "I'd like" · Не кажи «I want», кажи «I'd like»</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tip-box fade-in">
+      <div class="tip-icon">🌍</div>
+      <div class="tip-text">
+        <strong>Cultural Tip · Культурна порада</strong>
+        <p>In English-speaking countries, it's common to leave a <span class="hl">10–20% tip</span> (чайові) for good service. You can say: <em>"Keep the change"</em> (Решту залиште) or just leave extra money on the table. Tipping shows you appreciated the service! 😊</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- === SECTION 7: QUIZ === -->
+  <section id="quiz">
+    <div class="section-header fade-in">
+      <div class="section-icon" style="background:#F3E8FF;">🎯</div>
+      <div class="section-title">
+        <h2>Quick Quiz · Швидкий тест</h2>
+        <div class="subtitle">Перевір себе! Обери правильну відповідь</div>
+      </div>
+    </div>
+
+    <div class="quiz-box fade-in">
+      <h3>🧠 Test Your Knowledge!</h3>
+
+      <div class="quiz-q" id="q1">
+        <p>1. How do you politely ask for the menu? · Як ввічливо попросити меню?</p>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="checkAnswer(this, false, 'q1')">Give me the menu!</button>
+          <button class="quiz-btn" onclick="checkAnswer(this, true, 'q1')">Could I see the menu, please?</button>
+          <button class="quiz-btn" onclick="checkAnswer(this, false, 'q1')">Menu now!</button>
+        </div>
+        <div class="quiz-feedback" id="q1-fb"></div>
+      </div>
+
+      <div class="quiz-q" id="q2">
+        <p>2. What does "delicious" mean? · Що означає "delicious"?</p>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="checkAnswer(this, false, 'q2')">Гострий</button>
+          <button class="quiz-btn" onclick="checkAnswer(this, false, 'q2')">Холодний</button>
+          <button class="quiz-btn" onclick="checkAnswer(this, true, 'q2')">Дуже смачний</button>
+          <button class="quiz-btn" onclick="checkAnswer(this, false, 'q2')">Солоний</button>
+        </div>
+        <div class="quiz-feedback" id="q2-fb"></div>
+      </div>
+
+      <div class="quiz-q" id="q3">
+        <p>3. How do you ask for the bill? · Як попросити рахунок?</p>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="checkAnswer(this, false, 'q3')">More food, please!</button>
+          <button class="quiz-btn" onclick="checkAnswer(this, true, 'q3')">Could I have the bill, please?</button>
+          <button class="quiz-btn" onclick="checkAnswer(this, false, 'q3')">Goodbye!</button>
+        </div>
+        <div class="quiz-feedback" id="q3-fb"></div>
+      </div>
+
+      <div class="quiz-q" id="q4">
+        <p>4. What comes FIRST in a restaurant meal? · Що йде ПЕРШИМ у ресторані?</p>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="checkAnswer(this, false, 'q4')">Dessert</button>
+          <button class="quiz-btn" onclick="checkAnswer(this, false, 'q4')">Main Course</button>
+          <button class="quiz-btn" onclick="checkAnswer(this, true, 'q4')">Starter</button>
+        </div>
+        <div class="quiz-feedback" id="q4-fb"></div>
+      </div>
+
+      <div class="quiz-q" id="q5">
+        <p>5. Which is MORE polite? · Що ВВІЧЛИВІШЕ?</p>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="checkAnswer(this, false, 'q5')">"I want pizza."</button>
+          <button class="quiz-btn" onclick="checkAnswer(this, true, 'q5')">"I'd like the pizza, please."</button>
+        </div>
+        <div class="quiz-feedback" id="q5-fb"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHEAT SHEET -->
+  <section>
+    <div class="section-header fade-in">
+      <div class="section-icon" style="background:#FFF9C4;">📌</div>
+      <div class="section-title">
+        <h2>Quick Cheat Sheet · Шпаргалка</h2>
+        <div class="subtitle">Зберіжи — всі найважливіші фрази одним поглядом!</div>
+      </div>
+    </div>
+
+    <div class="info-strip fade-in">
+      <div class="info-card bg-orange" data-emoji="🚪">
+        <h4>Arriving · Прихід</h4>
+        <ul>
+          <li>A table for two, please</li>
+          <li>I have a reservation</li>
+          <li>Do you have tables?</li>
+        </ul>
+      </div>
+      <div class="info-card bg-green" data-emoji="📋">
+        <h4>Ordering · Замовлення</h4>
+        <ul>
+          <li>I'd like the pizza</li>
+          <li>Could I see the menu?</li>
+          <li>What do you recommend?</li>
+        </ul>
+      </div>
+      <div class="info-card bg-blue" data-emoji="🍽️">
+        <h4>During Meal · Під час їжі</h4>
+        <ul>
+          <li>Excuse me!</li>
+          <li>This is delicious!</li>
+          <li>Could I get more water?</li>
+        </ul>
+      </div>
+      <div class="info-card bg-pink" data-emoji="💳">
+        <h4>Paying · Оплата</h4>
+        <ul>
+          <li>Check, please!</li>
+          <li>Can we pay separately?</li>
+          <li>Keep the change</li>
+        </ul>
+      </div>
+      <div class="info-card bg-purple" data-emoji="😋">
+        <h4>Taste Words · Смак</h4>
+        <ul>
+          <li>Delicious / Yummy</li>
+          <li>Spicy / Sweet / Salty</li>
+          <li>Fresh / Crunchy / Hot</li>
+        </ul>
+      </div>
+      <div class="info-card bg-yellow" data-emoji="✅">
+        <h4>Polite Words · Ввічливість</h4>
+        <ul>
+          <li>Please / Thank you</li>
+          <li>Excuse me / Sorry</li>
+          <li>Could I / I'd like</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>🍕 <strong>English at the Restaurant</strong> · Англійська в ресторані</p>
+  <p style="margin-top:8px;">Практикуй щодня — і незабаром ти говоритимеш як справжній носій! 🌟</p>
+  <p style="margin-top:8px; font-size:0.8rem;">Practice every day and you'll speak like a native! 🎉</p>
+</footer>
+
+<script>
+  // Scroll animation
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Quiz logic
+  function checkAnswer(btn, correct, qId) {
+    const q = document.getElementById(qId);
+    const btns = q.querySelectorAll('.quiz-btn');
+    const fb = document.getElementById(qId + '-fb');
+    btns.forEach(b => b.disabled = true);
+    if (correct) {
+      btn.classList.add('correct');
+      fb.textContent = '✅ Correct! Правильно! 🎉';
+      fb.style.color = '#06D6A0';
+    } else {
+      btn.classList.add('wrong');
+      fb.textContent = '❌ Not quite! Не зовсім! Try again next time. 💪';
+      fb.style.color = '#EF476F';
+      // Highlight correct answer
+      btns.forEach(b => { if (b.onclick.toString().includes('true')) b.classList.add('correct'); });
+    }
+    fb.style.display = 'block';
+  }
+</script>
+
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+
+</body>
+</html>

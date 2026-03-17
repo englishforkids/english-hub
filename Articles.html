@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English Articles — A / An / The / Zero 🎓</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fdf6ec;
+    --card: #fff;
+    --a-color: #ff6b6b;
+    --an-color: #ffa94d;
+    --the-color: #339af0;
+    --zero-color: #51cf66;
+    --special-color: #cc5de8;
+    --text: #2d2d2d;
+    --muted: #888;
+    --shadow: 0 8px 32px rgba(0,0,0,0.10);
+    --radius: 20px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    background: linear-gradient(135deg, #ffe066 0%, #ff6b6b 40%, #cc5de8 70%, #339af0 100%);
+    padding: 60px 24px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-emoji { font-size: 72px; display: block; margin-bottom: 12px; animation: bounce 2s infinite; }
+  @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+  .hero h1 {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(2.2rem, 6vw, 3.8rem);
+    font-weight: 800;
+    color: #fff;
+    text-shadow: 0 3px 12px rgba(0,0,0,0.2);
+    margin-bottom: 12px;
+  }
+  .hero p {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: rgba(255,255,255,0.92);
+    max-width: 600px;
+    margin: 0 auto;
+    font-weight: 600;
+    line-height: 1.6;
+  }
+
+  /* ===== NAV PILLS ===== */
+  .nav-pills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    padding: 28px 24px;
+    background: #fff;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-pills a {
+    text-decoration: none;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+    border: 2.5px solid transparent;
+  }
+  .nav-pills a:hover { transform: translateY(-2px); filter: brightness(1.05); }
+  .pill-a   { background: var(--a-color); color: #fff; }
+  .pill-an  { background: var(--an-color); color: #fff; }
+  .pill-the { background: var(--the-color); color: #fff; }
+  .pill-zero{ background: var(--zero-color); color: #fff; }
+  .pill-sp  { background: var(--special-color); color: #fff; }
+
+  /* ===== MAIN LAYOUT ===== */
+  .container { max-width: 900px; margin: 0 auto; padding: 0 20px 80px; }
+
+  /* ===== SECTION ===== */
+  .section { margin-top: 60px; }
+  .section-title {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(1.7rem, 4vw, 2.4rem);
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 6px;
+  }
+  .section-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .section-subtitle {
+    font-size: 1.05rem;
+    color: var(--muted);
+    margin-bottom: 24px;
+    font-weight: 600;
+    padding-left: 66px;
+    line-height: 1.5;
+  }
+
+  /* ===== CARD ===== */
+  .card {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 28px 28px;
+    margin-bottom: 18px;
+    border-left: 6px solid transparent;
+    transition: transform 0.2s;
+  }
+  .card:hover { transform: translateY(-2px); }
+
+  /* ===== FORMULA BOX ===== */
+  .formula {
+    background: #f8f9fa;
+    border-radius: 14px;
+    padding: 18px 22px;
+    margin: 14px 0;
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.15rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border: 2px dashed #dee2e6;
+  }
+  .formula-icon { font-size: 1.4rem; }
+  .ftoken {
+    display: inline-block;
+    padding: 4px 14px;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+  }
+  .fplus { color: #aaa; font-size: 1.1rem; margin: 0 2px; }
+
+  /* ===== RULE ROW ===== */
+  .rule-row {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 12px;
+    align-items: flex-start;
+  }
+  .rule-icon {
+    font-size: 1.7rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+    width: 36px;
+    text-align: center;
+  }
+  .rule-text { flex: 1; }
+  .rule-text strong { font-size: 1rem; }
+  .rule-text p { font-size: 0.92rem; color: #555; line-height: 1.5; margin-top: 2px; }
+
+  /* ===== EXAMPLES ===== */
+  .examples-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 14px;
+    margin-top: 18px;
+  }
+  .ex-card {
+    background: #f8f9fa;
+    border-radius: 14px;
+    padding: 16px 18px;
+    border-left: 4px solid transparent;
+  }
+  .ex-en {
+    font-weight: 700;
+    font-size: 1.01rem;
+    line-height: 1.5;
+  }
+  .ex-ua {
+    font-size: 0.87rem;
+    color: #666;
+    margin-top: 4px;
+    line-height: 1.4;
+  }
+  .ex-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 2px 9px;
+    border-radius: 30px;
+    color: #fff;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .highlight {
+    font-weight: 900;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* ===== UNIVERSAL SENTENCE BOX ===== */
+  .uni-box {
+    background: linear-gradient(135deg, #e8f4fd, #f0fbf4);
+    border-radius: var(--radius);
+    padding: 28px 28px;
+    margin: 30px 0;
+    border: 2.5px solid #b2d8f7;
+    box-shadow: var(--shadow);
+  }
+  .uni-box h3 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .uni-box .desc {
+    font-size: 0.92rem;
+    color: #555;
+    margin-bottom: 18px;
+    line-height: 1.5;
+  }
+  .uni-row {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    margin-bottom: 14px;
+    padding: 14px 16px;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  .uni-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 900;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .uni-content { flex: 1; }
+  .uni-en { font-weight: 700; font-size: 1rem; line-height: 1.5; }
+  .uni-ua { font-size: 0.87rem; color: #666; margin-top: 3px; }
+  .uni-why { font-size: 0.82rem; background: #f0f4ff; color: #4263eb; padding: 4px 10px; border-radius: 8px; margin-top: 6px; display: inline-block; font-weight: 700; }
+
+  /* ===== SPECIAL CASES TABLE ===== */
+  .sp-table { width: 100%; border-collapse: collapse; margin-top: 14px; }
+  .sp-table th {
+    background: var(--special-color);
+    color: #fff;
+    padding: 10px 14px;
+    text-align: left;
+    font-size: 0.9rem;
+    font-weight: 800;
+  }
+  .sp-table th:first-child { border-radius: 12px 0 0 0; }
+  .sp-table th:last-child { border-radius: 0 12px 0 0; }
+  .sp-table td { padding: 10px 14px; font-size: 0.9rem; border-bottom: 1px solid #f0eaf7; vertical-align: top; }
+  .sp-table tr:last-child td { border-bottom: none; }
+  .sp-table tr:nth-child(even) td { background: #faf5ff; }
+  .sp-table .phrase { font-weight: 800; color: var(--special-color); }
+  .sp-table .ua { color: #888; font-size: 0.83rem; }
+
+  /* ===== INFOGRAPHIC GRID ===== */
+  .infographic {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin: 24px 0;
+  }
+  @media(max-width: 480px) { .infographic { grid-template-columns: 1fr; } }
+  .info-cell {
+    border-radius: 18px;
+    padding: 20px 18px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .info-cell::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.18);
+  }
+  .info-cell .big { font-size: 2.8rem; font-family: 'Baloo 2', cursive; font-weight: 900; color: #fff; display: block; line-height: 1; margin-bottom: 6px; }
+  .info-cell .label { font-size: 1rem; font-weight: 800; color: #fff; line-height: 1.4; }
+  .info-cell .sub { font-size: 0.8rem; color: rgba(255,255,255,0.85); margin-top: 4px; }
+  .cell-a   { background: linear-gradient(135deg, #ff6b6b, #fa5252); }
+  .cell-an  { background: linear-gradient(135deg, #ffa94d, #fd7e14); }
+  .cell-the { background: linear-gradient(135deg, #339af0, #1971c2); }
+  .cell-z   { background: linear-gradient(135deg, #51cf66, #2f9e44); }
+
+  /* ===== MEMORY TIP ===== */
+  .tip-box {
+    background: linear-gradient(135deg, #fff9db, #fffde7);
+    border: 2px solid #ffe066;
+    border-radius: 16px;
+    padding: 18px 22px;
+    margin: 18px 0;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .tip-box .tip-icon { font-size: 2rem; flex-shrink: 0; }
+  .tip-box p { font-size: 0.95rem; font-weight: 600; line-height: 1.6; color: #5c4000; }
+  .tip-box strong { color: #b36200; }
+
+  /* ===== MANY EXAMPLES SECTION ===== */
+  .big-examples { margin-top: 22px; }
+  .be-category { margin-bottom: 28px; }
+  .be-category h4 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.15rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .be-list { list-style: none; }
+  .be-list li {
+    padding: 10px 16px;
+    border-radius: 12px;
+    margin-bottom: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    transition: transform 0.15s;
+  }
+  .be-list li:hover { transform: translateX(4px); }
+  .be-list .en { font-weight: 700; font-size: 0.97rem; }
+  .be-list .ua { font-size: 0.83rem; color: #666; }
+
+  /* Color variants for be-list */
+  .bg-a  { background: #fff5f5; border-left: 3px solid var(--a-color); }
+  .bg-an { background: #fff8f0; border-left: 3px solid var(--an-color); }
+  .bg-the{ background: #eff8ff; border-left: 3px solid var(--the-color); }
+  .bg-z  { background: #f0fff4; border-left: 3px solid var(--zero-color); }
+  .bg-sp { background: #fbf3ff; border-left: 3px solid var(--special-color); }
+
+  /* ===== ACCORDION ===== */
+  details {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 3px 14px rgba(0,0,0,0.07);
+    margin-bottom: 14px;
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+  }
+  details[open] { box-shadow: 0 6px 24px rgba(0,0,0,0.13); }
+  summary {
+    padding: 18px 22px;
+    cursor: pointer;
+    font-weight: 800;
+    font-size: 1.05rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    list-style: none;
+    user-select: none;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: '▼'; margin-left: auto; font-size: 0.8rem; color: #aaa; transition: transform 0.2s; }
+  details[open] summary::after { transform: rotate(180deg); }
+  .details-body { padding: 0 22px 22px; }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    text-align: center;
+    padding: 40px 24px;
+    font-size: 0.9rem;
+    color: #aaa;
+    font-weight: 600;
+  }
+
+  /* ===== SCROLLBAR ===== */
+  #scroll-top-btn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #1a1208;
+  border: 1.5px solid rgba(200,150,62,0.4);
+  color: #f5f0e8;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+  pointer-events: none;
+  z-index: 9998;
+}
+#scroll-top-btn.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+#scroll-top-btn:hover {
+  background: #c8963e;
+  border-color: #c8963e;
+  color: #1a1208;
+}
+
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: #f1f1f1; }
+  ::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
+
+  .divider { height: 3px; border-radius: 2px; margin: 12px 0 22px; opacity: 0.25; }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media(max-width:520px){ .two-col { grid-template-columns: 1fr; } }
+
+  /* ===== TABLE SCROLL WRAPPER ===== */
+  .table-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 12px;
+    margin-top: 14px;
+  }
+  .table-scroll .sp-table { margin-top: 0; min-width: 480px; }
+
+  /* ===== RESPONSIVE ===== */
+  @media(max-width: 768px) {
+    .container { padding: 0 14px 60px; }
+    .hero { padding: 40px 16px 56px; }
+    .hero-emoji { font-size: 52px; }
+    .nav-pills {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+      justify-content: flex-start;
+      padding: 14px 16px;
+      gap: 8px;
+      scrollbar-width: none;
+    }
+    .nav-pills::-webkit-scrollbar { display: none; }
+    .nav-pills a { white-space: nowrap; flex-shrink: 0; padding: 7px 16px; font-size: 0.88rem; }
+    .section { margin-top: 40px; }
+    .section-title { font-size: 1.5rem; gap: 10px; }
+    .section-badge { width: 42px; height: 42px; font-size: 1.3rem; border-radius: 12px; }
+    .section-subtitle { padding-left: 52px; font-size: 0.95rem; }
+    .card { padding: 18px 16px; border-radius: 16px; }
+    .uni-box { padding: 18px 16px; border-radius: 16px; }
+    .formula { padding: 14px 16px; font-size: 1rem; gap: 8px; }
+    .ftoken { padding: 4px 10px; font-size: 0.88rem; }
+    .infographic { gap: 10px; }
+    .info-cell { padding: 16px 12px; }
+    .info-cell .big { font-size: 2.2rem; }
+    .info-cell .label { font-size: 0.88rem; }
+    .info-cell .sub { font-size: 0.74rem; }
+    .examples-grid { grid-template-columns: 1fr; gap: 10px; }
+    .rule-icon { font-size: 1.4rem; width: 30px; }
+    .uni-box h3 { font-size: 1.15rem; flex-wrap: wrap; }
+    .uni-row { padding: 12px 14px; gap: 10px; }
+    .uni-badge { width: 38px; height: 38px; font-size: 0.88rem; border-radius: 10px; }
+    .uni-en { font-size: 0.95rem; }
+    .uni-ua { font-size: 0.83rem; }
+    .uni-why { font-size: 0.78rem; }
+    .be-list li { padding: 10px 14px; }
+    .be-list .en { font-size: 0.92rem; }
+    .be-list .ua { font-size: 0.8rem; }
+    .be-category h4 { font-size: 1.05rem; }
+    .tip-box { padding: 14px 16px; gap: 10px; }
+    .tip-box .tip-icon { font-size: 1.6rem; }
+    .tip-box p { font-size: 0.88rem; }
+    summary { padding: 14px 16px; font-size: 0.97rem; }
+    .details-body { padding: 0 16px 16px; }
+    .footer { padding: 30px 16px; font-size: 0.82rem; }
+    #scroll-top-btn { bottom: 18px; right: 16px; width: 40px; height: 40px; font-size: 16px; }
+  }
+
+  @media(max-width: 420px) {
+    .infographic { grid-template-columns: 1fr 1fr; }
+    .info-cell .big { font-size: 1.9rem; }
+    .section-title { font-size: 1.3rem; }
+    .section-subtitle { padding-left: 0; margin-top: 8px; }
+    .hero h1 { font-size: 1.8rem; }
+    .hero p { font-size: 0.92rem; }
+    .uni-box h3 { font-size: 1rem; }
+    .formula { flex-wrap: wrap; }
+  }
+
+  .vowel-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 10px 0;
+  }
+  .vowel-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: var(--an-color);
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 900;
+  }
+  .vowel-chip.consonant { background: #dee2e6; color: #555; }
+
+  .quote-box {
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px 22px;
+    box-shadow: var(--shadow);
+    position: relative;
+    margin: 20px 0;
+  }
+  .quote-box::before {
+    content: '"';
+    position: absolute;
+    top: -8px;
+    left: 14px;
+    font-size: 5rem;
+    color: #e0e0e0;
+    font-family: Georgia, serif;
+    line-height: 1;
+  }
+  .quote-box p { font-size: 1.1rem; font-weight: 700; padding-left: 20px; }
+  .quote-box small { display: block; padding-left: 20px; margin-top: 4px; color: #999; font-size: 0.85rem; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <span class="hero-emoji">📚</span>
+  <h1>English Articles<br><span style="font-size:0.65em;opacity:0.95">A / AN / THE / Zero Article</span></h1>
+  <p>Зрозумій артиклі раз і назавжди — просто, весело і з прикладами!<br>
+  <span style="opacity:0.8">Understand articles once and for all — simple, fun, with examples!</span></p>
+</div>
+
+<!-- NAV -->
+<nav class="nav-pills">
+  <a href="#article-a"   class="pill-a">  A</a>
+  <a href="#article-an"  class="pill-an"> AN</a>
+  <a href="#article-the" class="pill-the">THE</a>
+  <a href="#article-zero"class="pill-zero">Zero Article ∅</a>
+  <a href="#special"     class="pill-sp"> Special Cases</a>
+  <a href="#universal"   class="pill-the">🔄 Universal Sentence</a>
+  <a href="#mega"        class="pill-a">  💡 All Examples</a>
+</nav>
+
+<div class="container">
+
+  <!-- QUICK OVERVIEW -->
+  <section class="section" id="overview">
+    <div class="section-title">
+      <div class="section-badge" style="background:#667eea;">🗺️</div>
+      Quick Overview — Короткий огляд
+    </div>
+    <p class="section-subtitle">Що таке артикль? / What is an article?</p>
+
+    <div class="card" style="border-color:#667eea;">
+      <p style="font-size:1.05rem;line-height:1.7;font-weight:600;">
+        🇬🇧 An <strong>article</strong> is a small word placed <em>before a noun</em> to tell us: is it something <em>specific</em> or <em>general</em>? Is it <em>one of many</em> or <em>the only one</em>?<br><br>
+        🇺🇦 <strong>Артикль</strong> — це маленьке слово, яке ставимо <em>перед іменником</em>, щоб пояснити: це щось <em>конкретне</em> чи <em>загальне</em>? Це <em>одне з багатьох</em> чи <em>єдине</em>?
+      </p>
+    </div>
+
+    <div class="infographic">
+      <div class="info-cell cell-a">
+        <span class="big">A</span>
+        <div class="label">Indefinite<br>Невизначений</div>
+        <div class="sub">перед приголосним звуком</div>
+      </div>
+      <div class="info-cell cell-an">
+        <span class="big">AN</span>
+        <div class="label">Indefinite<br>Невизначений</div>
+        <div class="sub">перед голосним звуком</div>
+      </div>
+      <div class="info-cell cell-the">
+        <span class="big">THE</span>
+        <div class="label">Definite<br>Визначений</div>
+        <div class="sub">конкретний / єдиний</div>
+      </div>
+      <div class="info-cell cell-z">
+        <span class="big">∅</span>
+        <div class="label">Zero Article<br>Нульовий</div>
+        <div class="sub">загальне / абстрактне</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== A ===== -->
+  <section class="section" id="article-a">
+    <div class="section-title">
+      <div class="section-badge" style="background:var(--a-color);">A</div>
+      Article "A" — Артикль «A»
+    </div>
+    <p class="section-subtitle">
+      🇬🇧 Use <b>A</b> before a consonant sound. It means "one of many" — we don't know which one.<br>
+      🇺🇦 Вживаємо <b>A</b> перед приголосним звуком. Значення: «один із багатьох» — нам неважливо, який саме.
+    </p>
+
+    <div class="card" style="border-color:var(--a-color);">
+      <div class="formula">
+        <span class="formula-icon">📐</span>
+        <b>Formula / Формула:</b>
+        <span class="ftoken" style="background:var(--a-color);">A</span>
+        <span class="fplus">+</span>
+        <span class="ftoken" style="background:#868e96;">consonant sound word</span>
+      </div>
+
+      <div class="tip-box">
+        <span class="tip-icon">💡</span>
+        <p>🇬🇧 "A" = there are many of them in the world, and this is just ONE of them. You could pick any.<br>
+        🇺🇦 «A» = таких речей у світі багато, і ця — просто ОДНА з них. Може бути будь-яка.</p>
+      </div>
+
+      <div class="rule-row">
+        <div class="rule-icon">📌</div>
+        <div class="rule-text">
+          <strong>🇬🇧 First mention / 🇺🇦 Перша згадка</strong>
+          <p>When you introduce something for the first time. / Коли ви вперше згадуєте щось.</p>
+        </div>
+      </div>
+      <div class="rule-row">
+        <div class="rule-icon">🔢</div>
+        <div class="rule-text">
+          <strong>🇬🇧 A = one / 🇺🇦 A = один</strong>
+          <p>"I have a dog" = I have one dog. / «У мене є собака» = один собака.</p>
+        </div>
+      </div>
+      <div class="rule-row">
+        <div class="rule-icon">👔</div>
+        <div class="rule-text">
+          <strong>🇬🇧 Jobs & categories / 🇺🇦 Професії та категорії</strong>
+          <p>"She is a teacher." / «Вона — вчителька.»</p>
+        </div>
+      </div>
+
+      <div class="examples-grid">
+        <div class="ex-card" style="border-color:var(--a-color);">
+          <span class="ex-tag" style="background:var(--a-color);">A + consonant</span>
+          <div class="ex-en">I saw <span class="highlight" style="color:var(--a-color);">a</span> <span class="highlight" style="color:var(--a-color);">dog</span> in the park.</div>
+          <div class="ex-ua">Я побачив якогось собаку в парку. (незнайомого, одного з багатьох)</div>
+        </div>
+        <div class="ex-card" style="border-color:var(--a-color);">
+          <span class="ex-tag" style="background:var(--a-color);">Job</span>
+          <div class="ex-en">He is <span class="highlight" style="color:var(--a-color);">a</span> <span class="highlight" style="color:var(--a-color);">doctor</span>.</div>
+          <div class="ex-ua">Він — лікар. (один з усіх лікарів)</div>
+        </div>
+        <div class="ex-card" style="border-color:var(--a-color);">
+          <span class="ex-tag" style="background:var(--a-color);">First mention</span>
+          <div class="ex-en">I bought <span class="highlight" style="color:var(--a-color);">a</span> <span class="highlight" style="color:var(--a-color);">book</span> yesterday.</div>
+          <div class="ex-ua">Я купив книжку вчора. (якусь, не вказуємо яку саме)</div>
+        </div>
+        <div class="ex-card" style="border-color:var(--a-color);">
+          <span class="ex-tag" style="background:var(--a-color);">A = one</span>
+          <div class="ex-en">Can I have <span class="highlight" style="color:var(--a-color);">a</span> glass of water?</div>
+          <div class="ex-ua">Можна мені один стакан води?</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== AN ===== -->
+  <section class="section" id="article-an">
+    <div class="section-title">
+      <div class="section-badge" style="background:var(--an-color);">AN</div>
+      Article "AN" — Артикль «AN»
+    </div>
+    <p class="section-subtitle">
+      🇬🇧 Use <b>AN</b> before a <em>vowel sound</em> (A, E, I, O, U sounds). Same meaning as A!<br>
+      🇺🇦 Вживаємо <b>AN</b> перед <em>голосним звуком</em> (A, E, I, O, U). Значення те саме, що й A!
+    </p>
+
+    <div class="card" style="border-color:var(--an-color);">
+      <div class="formula">
+        <span class="formula-icon">📐</span>
+        <b>Formula:</b>
+        <span class="ftoken" style="background:var(--an-color);">AN</span>
+        <span class="fplus">+</span>
+        <span class="ftoken" style="background:#868e96;">vowel sound word</span>
+      </div>
+
+      <p style="font-weight:700;margin:12px 0 8px;">🇬🇧 Vowel letters / 🇺🇦 Голосні букви:</p>
+      <div class="vowel-box">
+        <span class="vowel-chip">A</span>
+        <span class="vowel-chip">E</span>
+        <span class="vowel-chip">I</span>
+        <span class="vowel-chip">O</span>
+        <span class="vowel-chip">U</span>
+        <span class="vowel-chip consonant">B</span>
+        <span class="vowel-chip consonant">C</span>
+        <span class="vowel-chip consonant">D</span>
+        <span class="vowel-chip consonant">F</span>
+        <span class="vowel-chip consonant">...</span>
+      </div>
+
+      <div class="tip-box">
+        <span class="tip-icon">⚠️</span>
+        <p>🇬🇧 It's about the <strong>SOUND</strong>, not the letter! <br>
+        "AN hour" (/aʊ/ sound → AN) ✅ &nbsp;&nbsp; "A university" (/juː/ sound → A) ✅<br>
+        🇺🇦 Важливий <strong>ЗВУК</strong>, а не буква!<br>
+        «AN hour» (звучить /аʊ/ → AN) ✅ &nbsp;&nbsp; «A university» (звучить /ju/ → A) ✅</p>
+      </div>
+
+      <div class="examples-grid">
+        <div class="ex-card" style="border-color:var(--an-color);">
+          <span class="ex-tag" style="background:var(--an-color);">AN + vowel</span>
+          <div class="ex-en">She has <span class="highlight" style="color:var(--an-color);">an</span> <span class="highlight" style="color:var(--an-color);">apple</span>.</div>
+          <div class="ex-ua">У неї є яблуко. (apple починається з голосного /æ/)</div>
+        </div>
+        <div class="ex-card" style="border-color:var(--an-color);">
+          <span class="ex-tag" style="background:var(--an-color);">AN + vowel</span>
+          <div class="ex-en">He is <span class="highlight" style="color:var(--an-color);">an</span> <span class="highlight" style="color:var(--an-color);">engineer</span>.</div>
+          <div class="ex-ua">Він — інженер. (engineer починається з /ɛ/)</div>
+        </div>
+        <div class="ex-card" style="border-color:var(--an-color);">
+          <span class="ex-tag" style="background:var(--an-color);">Sound trick</span>
+          <div class="ex-en">It took <span class="highlight" style="color:var(--an-color);">an</span> <span class="highlight" style="color:var(--an-color);">hour</span>.</div>
+          <div class="ex-ua">Це зайняло годину. (H мовчить, чуємо /aʊ/)</div>
+        </div>
+        <div class="ex-card" style="border-color:var(--an-color);">
+          <span class="ex-tag" style="background:var(--an-color);">Sound trick</span>
+          <div class="ex-en">He goes to <span class="highlight" style="color:var(--an-color);">a</span> <span class="highlight" style="color:var(--an-color);">university</span>.</div>
+          <div class="ex-ua">Він ходить до університету. (звучить /juː/ → A, не AN)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== THE ===== -->
+  <section class="section" id="article-the">
+    <div class="section-title">
+      <div class="section-badge" style="background:var(--the-color);">THE</div>
+      Article "THE" — Артикль «THE»
+    </div>
+    <p class="section-subtitle">
+      🇬🇧 Use <b>THE</b> when both you AND the listener know EXACTLY what you mean.<br>
+      🇺🇦 Вживаємо <b>THE</b>, коли і ви, і слухач ТОЧНО знаєте, про що йдеться.
+    </p>
+
+    <div class="card" style="border-color:var(--the-color);">
+      <div class="formula">
+        <span class="formula-icon">📐</span>
+        <b>Formula:</b>
+        <span class="ftoken" style="background:var(--the-color);">THE</span>
+        <span class="fplus">+</span>
+        <span class="ftoken" style="background:#868e96;">specific / unique noun</span>
+      </div>
+
+      <div class="tip-box">
+        <span class="tip-icon">🎯</span>
+        <p>🇬🇧 Think of THE as pointing a finger: "THAT specific one!" If there's only ONE in the world (the Sun, the Moon) — use THE. If you mentioned it before — use THE.<br>
+        🇺🇦 Уявіть THE як вказівний палець: «ОСЬ ЦЕЙ конкретний!» Якщо він один у світі (Сонце, Місяць) — вживаємо THE. Якщо вже згадували — вживаємо THE.</p>
+      </div>
+
+      <div class="two-col">
+        <div>
+          <div class="rule-row">
+            <div class="rule-icon">🔁</div>
+            <div class="rule-text">
+              <strong>🇬🇧 Second mention / 🇺🇦 Повторна згадка</strong>
+              <p>"I saw a dog. <u>The dog</u> was big." / «Я бачив собаку. <u>Той собака</u> був великий.»</p>
+            </div>
+          </div>
+          <div class="rule-row">
+            <div class="rule-icon">🌍</div>
+            <div class="rule-text">
+              <strong>🇬🇧 Unique things / 🇺🇦 Єдині речі</strong>
+              <p>"The Sun, the Moon, the Earth, the sky."</p>
+            </div>
+          </div>
+          <div class="rule-row">
+            <div class="rule-icon">🗺️</div>
+            <div class="rule-text">
+              <strong>🇬🇧 Geographic names / 🇺🇦 Географічні назви</strong>
+              <p>"The Amazon, the Pacific Ocean, the Alps."</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="rule-row">
+            <div class="rule-icon">📍</div>
+            <div class="rule-text">
+              <strong>🇬🇧 Context makes it clear / 🇺🇦 Контекст все пояснює</strong>
+              <p>"Close the door." (obviously THE door of the room)</p>
+            </div>
+          </div>
+          <div class="rule-row">
+            <div class="rule-icon">🥇</div>
+            <div class="rule-text">
+              <strong>🇬🇧 Superlatives / 🇺🇦 Найвищий ступінь</strong>
+              <p>"She is <u>the best</u> student." / «Вона <u>найкраща</u> студентка.»</p>
+            </div>
+          </div>
+          <div class="rule-row">
+            <div class="rule-icon">🎻</div>
+            <div class="rule-text">
+              <strong>🇬🇧 Musical instruments / 🇺🇦 Музичні інструменти</strong>
+              <p>"She plays the violin." / «Вона грає на скрипці.»</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="examples-grid">
+        <div class="ex-card" style="border-color:var(--the-color);">
+          <span class="ex-tag" style="background:var(--the-color);">2nd mention</span>
+          <div class="ex-en">I bought a book. <span class="highlight" style="color:var(--the-color);">The</span> book was great!</div>
+          <div class="ex-ua">Я купив книжку. Ця книжка (та сама) була чудовою!</div>
+        </div>
+        <div class="ex-card" style="border-color:var(--the-color);">
+          <span class="ex-tag" style="background:var(--the-color);">Unique</span>
+          <div class="ex-en"><span class="highlight" style="color:var(--the-color);">The</span> Sun rises in the east.</div>
+          <div class="ex-ua">Сонце сходить на сході. (воно одне)</div>
+        </div>
+        <div class="ex-card" style="border-color:var(--the-color);">
+          <span class="ex-tag" style="background:var(--the-color);">Context</span>
+          <div class="ex-en">Please open <span class="highlight" style="color:var(--the-color);">the</span> window.</div>
+          <div class="ex-ua">Будь ласка, відчини вікно. (те саме вікно в кімнаті)</div>
+        </div>
+        <div class="ex-card" style="border-color:var(--the-color);">
+          <span class="ex-tag" style="background:var(--the-color);">Superlative</span>
+          <div class="ex-en">It is <span class="highlight" style="color:var(--the-color);">the</span> most beautiful city.</div>
+          <div class="ex-ua">Це найкрасивіше місто.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ZERO ARTICLE ===== -->
+  <section class="section" id="article-zero">
+    <div class="section-title">
+      <div class="section-badge" style="background:var(--zero-color);">∅</div>
+      Zero Article — Нульовий артикль
+    </div>
+    <p class="section-subtitle">
+      🇬🇧 No article at all! Used for general ideas, plural nouns, proper names, and more.<br>
+      🇺🇦 Взагалі без артикля! Вживається із загальними поняттями, множиною, власними назвами тощо.
+    </p>
+
+    <div class="card" style="border-color:var(--zero-color);">
+      <div class="formula">
+        <span class="formula-icon">📐</span>
+        <b>Formula:</b>
+        <span class="ftoken" style="background:#adb5bd;">∅</span>
+        <span class="fplus">(no article)</span>
+        <span class="fplus">+</span>
+        <span class="ftoken" style="background:#868e96;">general / abstract / plural / proper noun</span>
+      </div>
+
+      <div class="two-col">
+        <div>
+          <div class="rule-row">
+            <div class="rule-icon">📦</div>
+            <div class="rule-text">
+              <strong>🇬🇧 Plural nouns (general) / 🇺🇦 Множина (загальне)</strong>
+              <p>"Dogs are loyal." (усі собаки загалом)</p>
+            </div>
+          </div>
+          <div class="rule-row">
+            <div class="rule-icon">💭</div>
+            <div class="rule-text">
+              <strong>🇬🇧 Abstract nouns / 🇺🇦 Абстрактні іменники</strong>
+              <p>"Love is beautiful." / "Life is short."</p>
+            </div>
+          </div>
+          <div class="rule-row">
+            <div class="rule-icon">🏷️</div>
+            <div class="rule-text">
+              <strong>🇬🇧 Proper names / 🇺🇦 Власні назви</strong>
+              <p>"Kyiv, Ukraine, Anna, Monday."</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="rule-row">
+            <div class="rule-icon">🍚</div>
+            <div class="rule-text">
+              <strong>🇬🇧 Uncountable nouns / 🇺🇦 Незлічувані іменники</strong>
+              <p>"Water is essential." / "I like music."</p>
+            </div>
+          </div>
+          <div class="rule-row">
+            <div class="rule-icon">🗣️</div>
+            <div class="rule-text">
+              <strong>🇬🇧 Languages / 🇺🇦 Мови</strong>
+              <p>"She speaks French." / «Вона говорить французькою.»</p>
+            </div>
+          </div>
+          <div class="rule-row">
+            <div class="rule-icon">🍽️</div>
+            <div class="rule-text">
+              <strong>🇬🇧 Meals / 🇺🇦 Прийоми їжі</strong>
+              <p>"I have breakfast at 8." / «Я снідаю о 8.»</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="examples-grid">
+        <div class="ex-card" style="border-color:var(--zero-color);">
+          <span class="ex-tag" style="background:var(--zero-color);">General plural</span>
+          <div class="ex-en"><span class="highlight" style="color:var(--zero-color);">∅ Dogs</span> are friendly animals.</div>
+          <div class="ex-ua">Собаки — дружелюбні тварини. (всі собаки загалом)</div>
+        </div>
+        <div class="ex-card" style="border-color:var(--zero-color);">
+          <span class="ex-tag" style="background:var(--zero-color);">Abstract</span>
+          <div class="ex-en"><span class="highlight" style="color:var(--zero-color);">∅ Happiness</span> is a choice.</div>
+          <div class="ex-ua">Щастя — це вибір. (абстрактне поняття)</div>
+        </div>
+        <div class="ex-card" style="border-color:var(--zero-color);">
+          <span class="ex-tag" style="background:var(--zero-color);">Language</span>
+          <div class="ex-en">I study <span class="highlight" style="color:var(--zero-color);">∅ English</span>.</div>
+          <div class="ex-ua">Я вивчаю англійську мову.</div>
+        </div>
+        <div class="ex-card" style="border-color:var(--zero-color);">
+          <span class="ex-tag" style="background:var(--zero-color);">Meal</span>
+          <div class="ex-en">Let's have <span class="highlight" style="color:var(--zero-color);">∅ lunch</span> together.</div>
+          <div class="ex-ua">Давай пообідаємо разом.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SPECIAL CASES ===== -->
+  <section class="section" id="special">
+    <div class="section-title">
+      <div class="section-badge" style="background:var(--special-color);">★</div>
+      Special Cases — Особливі випадки
+    </div>
+    <p class="section-subtitle">
+      🇬🇧 Some phrases need special attention — they don't follow simple rules!<br>
+      🇺🇦 Деякі фрази потребують окремої уваги — вони не підпорядковуються простим правилам!
+    </p>
+
+    <div class="card" style="border-color:var(--special-color);">
+
+      <details>
+        <summary style="color:var(--special-color);">🌍 Countries, cities, oceans — Країни, міста, океани</summary>
+        <div class="details-body">
+          <div class="table-scroll"><table class="sp-table">
+            <tr><th>Phrase</th><th>Article</th><th>🇺🇦 Пояснення</th></tr>
+            <tr><td class="phrase">France, Ukraine, Italy</td><td>∅ no article</td><td class="ua">Більшість країн — без артикля</td></tr>
+            <tr><td class="phrase">the USA, the UK, the UAE</td><td>THE</td><td class="ua">Назви типу «Сполучені... Держави» → THE</td></tr>
+            <tr><td class="phrase">the Netherlands, the Philippines</td><td>THE</td><td class="ua">Множинні назви країн → THE</td></tr>
+            <tr><td class="phrase">Paris, Kyiv, London</td><td>∅ no article</td><td class="ua">Міста — без артикля</td></tr>
+            <tr><td class="phrase">the Pacific Ocean, the Atlantic</td><td>THE</td><td class="ua">Океани, моря, річки, гори → THE</td></tr>
+            <tr><td class="phrase">the Alps, the Carpathians</td><td>THE</td><td class="ua">Гірські хребти → THE</td></tr>
+            <tr><td class="phrase">Mount Everest, Lake Baikal</td><td>∅ no article</td><td class="ua">Окремі гори, озера → без артикля</td></tr>
+          </table></div>
+        </div>
+      </details>
+
+      <details>
+        <summary style="color:var(--special-color);">🏫 Institutions — at school, in hospital, in prison</summary>
+        <div class="details-body">
+          <p style="margin-bottom:12px;font-size:0.95rem;line-height:1.6;">
+            🇬🇧 When we use a place <em>for its main purpose</em>, no article! When we just go there as a visitor, use THE.<br>
+            🇺🇦 Коли ми використовуємо місце <em>за основним призначенням</em> — без артикля! Коли просто відвідуємо — вживаємо THE.
+          </p>
+          <div class="table-scroll"><table class="sp-table">
+            <tr><th>Without purpose</th><th>For its purpose</th><th>🇺🇦 Різниця</th></tr>
+            <tr><td>go to <span class="phrase">the school</span> (to visit)</td><td>go to <span class="phrase">school</span> (as a student)</td><td class="ua">йти до школи (як відвідувач) vs як учень</td></tr>
+            <tr><td>go to <span class="phrase">the hospital</span> (to visit sb)</td><td>go to <span class="phrase">hospital</span> (as a patient)</td><td class="ua">відвідати пацієнта vs лікуватися</td></tr>
+            <tr><td>go to <span class="phrase">the church</span> (as tourist)</td><td>go to <span class="phrase">church</span> (to pray)</td><td class="ua">оглянути церкву vs молитися</td></tr>
+            <tr><td>go to <span class="phrase">the prison</span> (to visit)</td><td>go to <span class="phrase">prison</span> (as inmate)</td><td class="ua">відвідати в'язницю vs бути ув'язненим</td></tr>
+            <tr><td>go to <span class="phrase">the bed</span> (to get sth)</td><td>go to <span class="phrase">bed</span> (to sleep)</td><td class="ua">підійти до ліжка vs лягти спати</td></tr>
+          </table></div>
+        </div>
+      </details>
+
+      <details>
+        <summary style="color:var(--special-color);">👥 THE + adjective = a group of people</summary>
+        <div class="details-body">
+          <p style="margin-bottom:12px;font-size:0.95rem;line-height:1.6;">
+            🇬🇧 THE + adjective can refer to a whole group of people.<br>
+            🇺🇦 THE + прикметник може позначати цілу групу людей.
+          </p>
+          <div class="table-scroll"><table class="sp-table">
+            <tr><th>Phrase</th><th>Meaning</th><th>🇺🇦 Значення</th></tr>
+            <tr><td class="phrase">the rich</td><td>rich people</td><td class="ua">багаті (люди)</td></tr>
+            <tr><td class="phrase">the poor</td><td>poor people</td><td class="ua">бідні (люди)</td></tr>
+            <tr><td class="phrase">the elderly</td><td>elderly people</td><td class="ua">літні (люди)</td></tr>
+            <tr><td class="phrase">the young</td><td>young people</td><td class="ua">молодь</td></tr>
+            <tr><td class="phrase">the blind</td><td>blind people</td><td class="ua">сліпі (люди)</td></tr>
+            <tr><td class="phrase">the unemployed</td><td>unemployed people</td><td class="ua">безробітні</td></tr>
+            <tr><td class="phrase">the homeless</td><td>homeless people</td><td class="ua">бездомні</td></tr>
+          </table></div>
+        </div>
+      </details>
+
+      <details>
+        <summary style="color:var(--special-color);">🚗 Transport — by car, on the bus…</summary>
+        <div class="details-body">
+          <div class="table-scroll"><table class="sp-table">
+            <tr><th>Phrase</th><th>Article</th><th>🇺🇦 Пояснення</th></tr>
+            <tr><td class="phrase">by car / by bus / by train</td><td>∅ no article</td><td class="ua">Як засіб пересування → без артикля</td></tr>
+            <tr><td class="phrase">on the bus / on the train</td><td>THE</td><td class="ua">Про конкретний рейс → THE</td></tr>
+            <tr><td class="phrase">in the car / in a car</td><td>THE / A</td><td class="ua">В конкретній машині → THE/A</td></tr>
+          </table></div>
+        </div>
+      </details>
+
+      <details>
+        <summary style="color:var(--special-color);">🌅 Times of day — in the morning / at night</summary>
+        <div class="details-body">
+          <div class="table-scroll"><table class="sp-table">
+            <tr><th>Phrase</th><th>Article</th><th>🇺🇦 Значення</th></tr>
+            <tr><td class="phrase">in the morning / afternoon / evening</td><td>THE</td><td class="ua">вранці / вдень / ввечері</td></tr>
+            <tr><td class="phrase">at night / at noon / at midnight</td><td>∅ no article</td><td class="ua">вночі / опівдні / опівночі</td></tr>
+            <tr><td class="phrase">at dawn / at dusk / at sunrise</td><td>∅ no article</td><td class="ua">на світанку / в сутінки / на сході сонця</td></tr>
+          </table></div>
+        </div>
+      </details>
+
+    </div>
+  </section>
+
+  <!-- ===== UNIVERSAL SENTENCE ===== -->
+  <section class="section" id="universal">
+    <div class="section-title">
+      <div class="section-badge" style="background:#667eea;">🔄</div>
+      Universal Sentence — Універсальне речення
+    </div>
+    <p class="section-subtitle">
+      🇬🇧 Watch how ONE sentence changes completely with different articles — same words, different meaning!<br>
+      🇺🇦 Поглянь, як ОДНЕ речення змінює зміст залежно від артикля — ті самі слова, різне значення!
+    </p>
+
+    <div class="uni-box">
+      <h3>🐕 "I saw ___ dog in the park."</h3>
+      <p class="desc">🇬🇧 Let's fill the blank with different articles and see what happens!<br>
+      🇺🇦 Вставляємо різні артиклі й дивимось, що змінюється!</p>
+
+      <div class="uni-row">
+        <div class="uni-badge" style="background:var(--a-color);">A</div>
+        <div class="uni-content">
+          <div class="uni-en">I saw <span style="color:var(--a-color);font-weight:900;">a dog</span> in the park.</div>
+          <div class="uni-ua">Я побачив у парку якогось собаку. (незнайомого, одного з багатьох)</div>
+          <span class="uni-why">First time mentioning it. We don't know which dog.</span>
+        </div>
+      </div>
+
+      <div class="uni-row">
+        <div class="uni-badge" style="background:var(--the-color);">THE</div>
+        <div class="uni-content">
+          <div class="uni-en">I saw <span style="color:var(--the-color);font-weight:900;">the dog</span> in the park.</div>
+          <div class="uni-ua">Я побачив у парку того самого собаку. (ми обидва знаємо, який це собака)</div>
+          <span class="uni-why">We both know which dog. Maybe we talked about it before.</span>
+        </div>
+      </div>
+
+      <div class="uni-row">
+        <div class="uni-badge" style="background:var(--zero-color);">∅</div>
+        <div class="uni-content">
+          <div class="uni-en">I saw <span style="color:var(--zero-color);font-weight:900;">dogs</span> in the park.</div>
+          <div class="uni-ua">Я бачив у парку собак. (декількох, загальна згадка)</div>
+          <span class="uni-why">Plural, general — no article needed.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="uni-box" style="background:linear-gradient(135deg,#fff3e0,#fce4ec);border-color:#ffb74d;">
+      <h3>☕ "She drinks ___ coffee every morning."</h3>
+      <p class="desc">🇬🇧 Another great example to compare!<br>
+      🇺🇦 Ще один чудовий приклад для порівняння!</p>
+
+      <div class="uni-row">
+        <div class="uni-badge" style="background:var(--zero-color);">∅</div>
+        <div class="uni-content">
+          <div class="uni-en">She drinks <span style="color:var(--zero-color);font-weight:900;">∅ coffee</span> every morning.</div>
+          <div class="uni-ua">Вона п'є каву щоранку. (загалом, зазвичай — незлічуваний іменник)</div>
+          <span class="uni-why">Uncountable noun used in general sense.</span>
+        </div>
+      </div>
+
+      <div class="uni-row">
+        <div class="uni-badge" style="background:var(--the-color);">THE</div>
+        <div class="uni-content">
+          <div class="uni-en">She drinks <span style="color:var(--the-color);font-weight:900;">the coffee</span> I made.</div>
+          <div class="uni-ua">Вона п'є ту каву, яку я зробив. (конкретна кава)</div>
+          <span class="uni-why">Specific coffee we know about.</span>
+        </div>
+      </div>
+
+      <div class="uni-row">
+        <div class="uni-badge" style="background:var(--a-color);">A</div>
+        <div class="uni-content">
+          <div class="uni-en">She ordered <span style="color:var(--a-color);font-weight:900;">a coffee</span>.</div>
+          <div class="uni-ua">Вона замовила (одну) каву. (одну порцію, розмовне вживання)</div>
+          <span class="uni-why">Colloquial: one cup/portion of coffee.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MEGA EXAMPLES ===== -->
+  <section class="section" id="mega">
+    <div class="section-title">
+      <div class="section-badge" style="background:#f76707;">💡</div>
+      100+ Real Life Examples — Приклади на всі випадки
+    </div>
+    <p class="section-subtitle">
+      🇬🇧 Grouped by topic so you can learn them naturally!<br>
+      🇺🇦 Згруповані за темами для легкого запам'ятовування!
+    </p>
+
+    <div class="big-examples">
+
+      <!-- DAILY LIFE -->
+      <div class="be-category">
+        <h4>🏠 Daily life / Щоденне життя</h4>
+        <ul class="be-list">
+          <li class="bg-a"><span class="en">I need <b>a</b> pen to write this down.</span><span class="ua">Мені потрібна ручка, щоб записати це. (будь-яка)</span></li>
+          <li class="bg-the"><span class="en">Can you pass me <b>the</b> salt?</span><span class="ua">Передай мені сіль. (ту, що стоїть на столі)</span></li>
+          <li class="bg-z"><span class="en">I drink <b>∅</b> tea in the morning.</span><span class="ua">Я п'ю чай вранці. (загалом)</span></li>
+          <li class="bg-a"><span class="en">She bought <b>a</b> new dress.</span><span class="ua">Вона купила нову сукню. (якусь, вперше згадуємо)</span></li>
+          <li class="bg-the"><span class="en"><b>The</b> dress she bought was red.</span><span class="ua">Та сукня, яку вона купила, була червоною. (та сама, яку щойно згадали)</span></li>
+          <li class="bg-z"><span class="en"><b>∅</b> Breakfast is the most important meal.</span><span class="ua">Сніданок — найважливіший прийом їжі. (загальна думка)</span></li>
+          <li class="bg-an"><span class="en">He ate <b>an</b> orange for breakfast.</span><span class="ua">Він з'їв апельсин на сніданок. (один апельсин)</span></li>
+          <li class="bg-the"><span class="en">I left my keys on <b>the</b> table.</span><span class="ua">Я залишив ключі на столі. (конкретний стіл у домі)</span></li>
+        </ul>
+      </div>
+
+      <!-- SCHOOL & WORK -->
+      <div class="be-category">
+        <h4>🏫 School & Work / Школа та робота</h4>
+        <ul class="be-list">
+          <li class="bg-a"><span class="en">She is <b>a</b> teacher.</span><span class="ua">Вона — вчителька. (одна з усіх вчителів)</span></li>
+          <li class="bg-an"><span class="en">He wants to be <b>an</b> actor.</span><span class="ua">Він хоче стати актором.</span></li>
+          <li class="bg-z"><span class="en">They go to <b>∅</b> school every day.</span><span class="ua">Вони ходять до школи щодня. (як учні)</span></li>
+          <li class="bg-the"><span class="en">I went to <b>the</b> school to meet the principal.</span><span class="ua">Я пішов до школи зустрітися з директором. (як відвідувач)</span></li>
+          <li class="bg-a"><span class="en">We have <b>a</b> test on Friday.</span><span class="ua">У нас контрольна робота в п'ятницю. (одна, вперше згадуємо)</span></li>
+          <li class="bg-the"><span class="en"><b>The</b> test was really hard.</span><span class="ua">Та контрольна була дуже важка. (та, про яку говорили)</span></li>
+          <li class="bg-z"><span class="en">He studied <b>∅</b> law at university.</span><span class="ua">Він вивчав право в університеті. (як предмет)</span></li>
+          <li class="bg-an"><span class="en">She wrote <b>an</b> essay about nature.</span><span class="ua">Вона написала есе про природу.</span></li>
+        </ul>
+      </div>
+
+      <!-- FOOD & DRINKS -->
+      <div class="be-category">
+        <h4>🍕 Food & Drinks / Їжа та напої</h4>
+        <ul class="be-list">
+          <li class="bg-a"><span class="en">I'd like <b>a</b> burger, please.</span><span class="ua">Я хочу замовити бургер, будь ласка. (один)</span></li>
+          <li class="bg-an"><span class="en">Have <b>an</b> apple — it's healthy.</span><span class="ua">З'їж яблуко — це корисно. (одне яблуко)</span></li>
+          <li class="bg-z"><span class="en"><b>∅</b> Chocolate makes me happy.</span><span class="ua">Шоколад робить мене щасливим. (шоколад загалом)</span></li>
+          <li class="bg-the"><span class="en">Where is <b>the</b> chocolate I bought?</span><span class="ua">Де той шоколад, який я купив? (конкретна плитка)</span></li>
+          <li class="bg-z"><span class="en">I love <b>∅</b> pizza.</span><span class="ua">Я люблю піцу. (піцу загалом)</span></li>
+          <li class="bg-a"><span class="en">Let's order <b>a</b> pizza tonight.</span><span class="ua">Давай замовимо піцу сьогодні ввечері. (одну піцу)</span></li>
+          <li class="bg-the"><span class="en">Can I try <b>the</b> pasta you made?</span><span class="ua">Можна спробувати пасту, яку ти приготував? (ту, конкретну)</span></li>
+          <li class="bg-z"><span class="en">She drinks <b>∅</b> water all day.</span><span class="ua">Вона п'є воду весь день. (воду загалом)</span></li>
+        </ul>
+      </div>
+
+      <!-- NATURE & PLACES -->
+      <div class="be-category">
+        <h4>🌿 Nature & Places / Природа та місця</h4>
+        <ul class="be-list">
+          <li class="bg-the"><span class="en"><b>The</b> Amazon River is the longest.</span><span class="ua">Річка Амазонка — найдовша. (єдина, конкретна)</span></li>
+          <li class="bg-the"><span class="en"><b>The</b> moon was bright last night.</span><span class="ua">Місяць був яскравий минулої ночі. (він один)</span></li>
+          <li class="bg-z"><span class="en">We went to <b>∅</b> Paris last summer.</span><span class="ua">Ми їздили до Парижа минулого літа. (міста — без артикля)</span></li>
+          <li class="bg-z"><span class="en">She lives in <b>∅</b> Ukraine.</span><span class="ua">Вона живе в Україні. (більшість країн — без артикля)</span></li>
+          <li class="bg-the"><span class="en">They visited <b>the</b> USA last year.</span><span class="ua">Вони відвідали США минулого року. (абревіатура-назва → THE)</span></li>
+          <li class="bg-a"><span class="en">We found <b>a</b> beautiful lake.</span><span class="ua">Ми знайшли красиве озеро. (одне, незнайоме)</span></li>
+          <li class="bg-the"><span class="en"><b>The</b> lake near our house is clean.</span><span class="ua">Озеро біля нашого будинку чисте. (те саме, конкретне)</span></li>
+          <li class="bg-z"><span class="en"><b>∅</b> Nature is important for health.</span><span class="ua">Природа важлива для здоров'я. (абстрактно)</span></li>
+        </ul>
+      </div>
+
+      <!-- SPORTS & HOBBIES -->
+      <div class="be-category">
+        <h4>⚽ Sports & Hobbies / Спорт та хобі</h4>
+        <ul class="be-list">
+          <li class="bg-z"><span class="en">I play <b>∅</b> football every weekend.</span><span class="ua">Я граю у футбол кожних вихідних. (гра загалом)</span></li>
+          <li class="bg-the"><span class="en">She plays <b>the</b> piano beautifully.</span><span class="ua">Вона чудово грає на фортепіано. (інструменти → THE)</span></li>
+          <li class="bg-a"><span class="en">He bought <b>a</b> guitar yesterday.</span><span class="ua">Він купив гітару вчора. (одну, нову)</span></li>
+          <li class="bg-the"><span class="en"><b>The</b> guitar he plays is old.</span><span class="ua">Гітара, на якій він грає, стара. (та конкретна)</span></li>
+          <li class="bg-z"><span class="en">Do you like <b>∅</b> swimming?</span><span class="ua">Тобі подобається плавання? (вид спорту)</span></li>
+          <li class="bg-an"><span class="en">She is <b>an</b> excellent swimmer.</span><span class="ua">Вона відмінна плавчиня.</span></li>
+          <li class="bg-a"><span class="en">We watched <b>a</b> game last night.</span><span class="ua">Ми дивились матч минулої ночі. (якийсь матч)</span></li>
+          <li class="bg-the"><span class="en"><b>The</b> game was incredible!</span><span class="ua">Той матч був неймовірним! (той, що ми дивились)</span></li>
+        </ul>
+      </div>
+
+      <!-- FEELINGS & ABSTRACT -->
+      <div class="be-category">
+        <h4>💭 Feelings & Abstract / Почуття та абстрактні поняття</h4>
+        <ul class="be-list">
+          <li class="bg-z"><span class="en"><b>∅</b> Love is the strongest feeling.</span><span class="ua">Любов — найсильніше почуття. (абстрактне)</span></li>
+          <li class="bg-z"><span class="en"><b>∅</b> Fear is natural.</span><span class="ua">Страх — природне явище.</span></li>
+          <li class="bg-a"><span class="en">She has <b>a</b> strong fear of spiders.</span><span class="ua">Вона має сильний страх перед павуками. (конкретний страх)</span></li>
+          <li class="bg-z"><span class="en"><b>∅</b> Time flies when you have fun.</span><span class="ua">Час летить, коли весело.</span></li>
+          <li class="bg-the"><span class="en"><b>The</b> time we spent together was special.</span><span class="ua">Той час, який ми провели разом, був особливим.</span></li>
+          <li class="bg-z"><span class="en"><b>∅</b> Kindness costs nothing.</span><span class="ua">Доброта нічого не коштує.</span></li>
+          <li class="bg-a"><span class="en">She showed me <b>a</b> kindness I won't forget.</span><span class="ua">Вона проявила до мене доброту, яку я не забуду. (один конкретний прояв)</span></li>
+          <li class="bg-z"><span class="en"><b>∅</b> Hope is important.</span><span class="ua">Надія важлива.</span></li>
+        </ul>
+      </div>
+
+      <!-- HEALTH -->
+      <div class="be-category">
+        <h4>💊 Health / Здоров'я</h4>
+        <ul class="be-list">
+          <li class="bg-an"><span class="en">She is <b>an</b> excellent doctor.</span><span class="ua">Вона відмінний лікар.</span></li>
+          <li class="bg-z"><span class="en">He went to <b>∅</b> hospital last week.</span><span class="ua">Він поліг до лікарні минулого тижня. (як пацієнт)</span></li>
+          <li class="bg-the"><span class="en">I visited him in <b>the</b> hospital.</span><span class="ua">Я відвідав його в лікарні. (як гість)</span></li>
+          <li class="bg-a"><span class="en">He has <b>a</b> headache.</span><span class="ua">У нього болить голова. (один вид болю)</span></li>
+          <li class="bg-z"><span class="en"><b>∅</b> Exercise is good for you.</span><span class="ua">Фізичні вправи корисні для тебе.</span></li>
+          <li class="bg-an"><span class="en">Take <b>an</b> aspirin — you'll feel better.</span><span class="ua">Прийми аспірин — тобі стане краще. (одну таблетку)</span></li>
+          <li class="bg-z"><span class="en"><b>∅</b> Sleep is essential.</span><span class="ua">Сон необхідний.</span></li>
+          <li class="bg-a"><span class="en">I had <b>a</b> terrible cold last month.</span><span class="ua">У мене була жахлива застуда минулого місяця.</span></li>
+        </ul>
+      </div>
+
+      <!-- SHOPPING & MONEY -->
+      <div class="be-category">
+        <h4>🛍️ Shopping & Money / Шопінг та гроші</h4>
+        <ul class="be-list">
+          <li class="bg-a"><span class="en">I need <b>a</b> new phone.</span><span class="ua">Мені потрібен новий телефон. (якийсь, не конкретний)</span></li>
+          <li class="bg-the"><span class="en"><b>The</b> phone I ordered arrived.</span><span class="ua">Телефон, який я замовив, прийшов. (той, конкретний)</span></li>
+          <li class="bg-z"><span class="en"><b>∅</b> Money doesn't buy happiness.</span><span class="ua">Гроші не купують щастя. (гроші загалом)</span></li>
+          <li class="bg-a"><span class="en">She gave me <b>a</b> discount.</span><span class="ua">Вона дала мені знижку. (якусь знижку)</span></li>
+          <li class="bg-the"><span class="en">I'll take <b>the</b> red one.</span><span class="ua">Я візьму той червоний. (конкретний, вибраний)</span></li>
+          <li class="bg-a"><span class="en">Can I get <b>a</b> receipt?</span><span class="ua">Можна мені чек? (один чек)</span></li>
+          <li class="bg-z"><span class="en">We do <b>∅</b> shopping on Saturdays.</span><span class="ua">Ми ходимо по магазинах по суботах. (загальна звичка)</span></li>
+          <li class="bg-the"><span class="en">I forgot my bag at <b>the</b> shop.</span><span class="ua">Я забув сумку в магазині. (конкретний магазин)</span></li>
+        </ul>
+      </div>
+
+      <!-- TRAVEL -->
+      <div class="be-category">
+        <h4>✈️ Travel / Подорожі</h4>
+        <ul class="be-list">
+          <li class="bg-a"><span class="en">We booked <b>a</b> hotel for the weekend.</span><span class="ua">Ми забронювали готель на вихідні. (якийсь)</span></li>
+          <li class="bg-the"><span class="en"><b>The</b> hotel was amazing!</span><span class="ua">Той готель був чудовим! (той, що забронювали)</span></li>
+          <li class="bg-z"><span class="en">I love <b>∅</b> travelling.</span><span class="ua">Я люблю подорожувати. (загалом)</span></li>
+          <li class="bg-the"><span class="en">I missed <b>the</b> train!</span><span class="ua">Я запізнився на поїзд! (конкретний поїзд)</span></li>
+          <li class="bg-a"><span class="en">Let's find <b>a</b> taxi.</span><span class="ua">Давай знайдемо таксі. (будь-яке)</span></li>
+          <li class="bg-z"><span class="en">We travel by <b>∅</b> car.</span><span class="ua">Ми їздимо на машині. (засіб пересування)</span></li>
+          <li class="bg-an"><span class="en">She booked <b>an</b> early flight.</span><span class="ua">Вона забронювала ранній рейс.</span></li>
+          <li class="bg-the"><span class="en"><b>The</b> flight was delayed for 2 hours.</span><span class="ua">Той рейс затримали на 2 години.</span></li>
+        </ul>
+      </div>
+
+      <!-- WEATHER -->
+      <div class="be-category">
+        <h4>🌤️ Weather / Погода</h4>
+        <ul class="be-list">
+          <li class="bg-the"><span class="en"><b>The</b> weather is great today.</span><span class="ua">Погода сьогодні чудова. (конкретна, сьогоднішня)</span></li>
+          <li class="bg-the"><span class="en"><b>The</b> sky is so blue!</span><span class="ua">Небо таке блакитне! (одне небо, конкретне)</span></li>
+          <li class="bg-a"><span class="en">It was <b>a</b> stormy night.</span><span class="ua">Це була бурхлива ніч. (одна конкретна ніч)</span></li>
+          <li class="bg-z"><span class="en"><b>∅</b> Snow makes everything look magical.</span><span class="ua">Сніг робить все чарівним. (сніг загалом)</span></li>
+          <li class="bg-the"><span class="en"><b>The</b> snow outside is deep.</span><span class="ua">Сніг надворі глибокий. (той, що є зараз)</span></li>
+          <li class="bg-an"><span class="en">It was <b>an</b> extremely hot day.</span><span class="ua">Це був надзвичайно спекотний день.</span></li>
+          <li class="bg-z"><span class="en"><b>∅</b> Rain is good for crops.</span><span class="ua">Дощ корисний для врожаю. (дощ загалом)</span></li>
+          <li class="bg-the"><span class="en">I got soaked in <b>the</b> rain.</span><span class="ua">Я промок під тим дощем. (конкретний дощ, що йде зараз)</span></li>
+        </ul>
+      </div>
+
+      <!-- SPECIAL THE RICH ETC -->
+      <div class="be-category">
+        <h4>👥 THE + adjective (groups) / THE + прикметник (групи людей)</h4>
+        <ul class="be-list">
+          <li class="bg-sp"><span class="en"><b>The rich</b> should help <b>the poor</b>.</span><span class="ua">Багаті повинні допомагати бідним.</span></li>
+          <li class="bg-sp"><span class="en">The government must support <b>the elderly</b>.</span><span class="ua">Уряд повинен підтримувати літніх людей.</span></li>
+          <li class="bg-sp"><span class="en"><b>The young</b> are the future.</span><span class="ua">Молодь — це майбутнє.</span></li>
+          <li class="bg-sp"><span class="en">We need more support for <b>the homeless</b>.</span><span class="ua">Нам потрібно більше підтримки для бездомних.</span></li>
+          <li class="bg-sp"><span class="en"><b>The unemployed</b> need new opportunities.</span><span class="ua">Безробітні потребують нових можливостей.</span></li>
+          <li class="bg-sp"><span class="en">Schools should help <b>the disabled</b>.</span><span class="ua">Школи повинні допомагати людям з інвалідністю.</span></li>
+          <li class="bg-sp"><span class="en"><b>The brave</b> are remembered forever.</span><span class="ua">Хоробрих пам'ятають вічно.</span></li>
+          <li class="bg-sp"><span class="en">We must listen to <b>the sick</b>.</span><span class="ua">Ми повинні прислухатися до хворих.</span></li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== SUMMARY CHEAT SHEET ===== -->
+  <section class="section" id="summary">
+    <div class="section-title">
+      <div class="section-badge" style="background:#20c997;">📋</div>
+      Cheat Sheet — Шпаргалка
+    </div>
+    <p class="section-subtitle">🇬🇧 Your quick reference guide! / 🇺🇦 Твій швидкий довідник!</p>
+
+    <div class="card" style="border-color:#20c997;">
+      <div class="table-scroll"><table style="width:100%;border-collapse:collapse;min-width:520px;">
+        <thead>
+          <tr style="background:#20c997;color:#fff;">
+            <th style="padding:12px 16px;text-align:left;border-radius:12px 0 0 0;font-size:0.95rem;">Article</th>
+            <th style="padding:12px 16px;text-align:left;font-size:0.95rem;">When to use</th>
+            <th style="padding:12px 16px;text-align:left;font-size:0.95rem;">Коли вживати</th>
+            <th style="padding:12px 16px;text-align:left;border-radius:0 12px 0 0;font-size:0.95rem;">Example</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background:#fff5f5;">
+            <td style="padding:12px 16px;font-weight:900;color:var(--a-color);font-size:1.2rem;">A</td>
+            <td style="padding:12px 16px;font-size:0.88rem;">Before consonant sounds, first mention, one of many</td>
+            <td style="padding:12px 16px;font-size:0.88rem;color:#888;">Перед приголосним, перша згадка, один з багатьох</td>
+            <td style="padding:12px 16px;font-size:0.88rem;">a book, a car, a teacher</td>
+          </tr>
+          <tr style="background:#fff8f0;">
+            <td style="padding:12px 16px;font-weight:900;color:var(--an-color);font-size:1.2rem;">AN</td>
+            <td style="padding:12px 16px;font-size:0.88rem;">Before vowel sounds, same as A</td>
+            <td style="padding:12px 16px;font-size:0.88rem;color:#888;">Перед голосним звуком, те ж саме що A</td>
+            <td style="padding:12px 16px;font-size:0.88rem;">an apple, an hour, an idea</td>
+          </tr>
+          <tr style="background:#eff8ff;">
+            <td style="padding:12px 16px;font-weight:900;color:var(--the-color);font-size:1.2rem;">THE</td>
+            <td style="padding:12px 16px;font-size:0.88rem;">Specific, unique, second mention, superlatives</td>
+            <td style="padding:12px 16px;font-size:0.88rem;color:#888;">Конкретне, єдине, повторна згадка, найвищий ступінь</td>
+            <td style="padding:12px 16px;font-size:0.88rem;">the Sun, the best, the book I read</td>
+          </tr>
+          <tr style="background:#f0fff4;">
+            <td style="padding:12px 16px;font-weight:900;color:var(--zero-color);font-size:1.2rem;">∅</td>
+            <td style="padding:12px 16px;font-size:0.88rem;">General/abstract nouns, plural, proper names, languages</td>
+            <td style="padding:12px 16px;font-size:0.88rem;color:#888;">Загальні/абстрактні, множина, власні назви, мови</td>
+            <td style="padding:12px 16px;font-size:0.88rem;">dogs, love, Paris, English</td>
+          </tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <div class="tip-box" style="margin-top:20px;">
+      <span class="tip-icon">🧠</span>
+      <p>🇬🇧 <strong>Easy trick to remember:</strong><br>
+      • <strong>A/AN</strong> = "Hmm, just any one of them" 🤷<br>
+      • <strong>THE</strong> = "THAT specific one! I'm pointing at it!" 👆<br>
+      • <strong>∅</strong> = "I'm talking about this concept in general" 🌐<br><br>
+      🇺🇦 <strong>Легкий спосіб запам'ятати:</strong><br>
+      • <strong>A/AN</strong> = «Якийсь, один із багатьох» 🤷<br>
+      • <strong>THE</strong> = «ОЦЕЙ конкретний, я на нього вказую!» 👆<br>
+      • <strong>∅</strong> = «Я говорю про це поняття загалом» 🌐</p>
+    </div>
+  </section>
+
+</div>
+
+<div class="footer">
+  Made with ❤️ for English learners • Зроблено з ❤️ для тих, хто вчить англійську<br>
+  <span style="font-size:0.8rem;">Practice every day and articles will become natural! / Практикуйся щодня і артиклі стануть природними!</span>
+</div>
+
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+
+<script>
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  // Animate cards on scroll
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.card, .uni-box, .be-category').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(28px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,1536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAKE — The Magic Word / Магічне Слово</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --yellow: #FFD93D;
+    --orange: #FF6B35;
+    --red: #EF233C;
+    --pink: #FF6B9D;
+    --purple: #A855F7;
+    --blue: #3B82F6;
+    --cyan: #06B6D4;
+    --green: #10B981;
+    --dark: #1a1a2e;
+    --darker: #0f0f1a;
+    --card: #16213e;
+    --card2: #1e2a4a;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; max-width: 100%; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--darker);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  img, svg, video, iframe, table { max-width: 100%; }
+
+  /* tables get horizontal scroll on small screens */
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; width: 100%; }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 40%, #16213e 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(255,107,53,0.15) 0%, transparent 70%);
+    top: -100px; left: -100px;
+    border-radius: 50%;
+    animation: pulse 4s ease-in-out infinite;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(168,85,247,0.12) 0%, transparent 70%);
+    bottom: -100px; right: -100px;
+    border-radius: 50%;
+    animation: pulse 4s ease-in-out infinite reverse;
+  }
+
+  @keyframes pulse {
+    0%,100% { transform: scale(1); opacity: 0.7; }
+    50% { transform: scale(1.2); opacity: 1; }
+  }
+
+  .hero-emoji {
+    font-size: 80px;
+    animation: bounce 2s ease-in-out infinite;
+    position: relative; z-index:1;
+  }
+  @keyframes bounce {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+  }
+
+  .hero h1 {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(80px, 18vw, 180px);
+    background: linear-gradient(135deg, var(--yellow), var(--orange), var(--red), var(--pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 0.9;
+    position: relative; z-index:1;
+    filter: drop-shadow(0 0 40px rgba(255,107,53,0.4));
+    animation: shimmer 3s ease-in-out infinite;
+  }
+  @keyframes shimmer {
+    0%,100% { filter: drop-shadow(0 0 30px rgba(255,107,53,0.4)); }
+    50% { filter: drop-shadow(0 0 60px rgba(255,107,53,0.7)); }
+  }
+
+  .hero-sub {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(18px,3vw,28px);
+    color: var(--yellow);
+    margin-top: 10px;
+    position: relative; z-index:1;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  .hero-desc {
+    max-width: 700px;
+    font-size: 18px;
+    color: var(--muted);
+    margin-top: 20px;
+    line-height: 1.8;
+    position: relative; z-index:1;
+  }
+
+  .hero-tags {
+    display: flex; flex-wrap: wrap; gap: 10px;
+    justify-content: center;
+    margin-top: 30px;
+    position: relative; z-index:1;
+  }
+  .tag {
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .tag-y { background: var(--yellow); color: var(--darker); }
+  .tag-o { background: var(--orange); color: white; }
+  .tag-p { background: var(--purple); color: white; }
+  .tag-c { background: var(--cyan); color: var(--darker); }
+  .tag-g { background: var(--green); color: white; }
+
+  /* ===== SECTIONS ===== */
+  .section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
+
+  .section-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(36px, 5vw, 56px);
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+  }
+  .section-title span { color: var(--yellow); }
+  .section-title::after {
+    content: '';
+    display: block;
+    width: 80px; height: 4px;
+    background: linear-gradient(90deg, var(--orange), var(--yellow));
+    margin: 12px auto 0;
+    border-radius: 2px;
+  }
+
+  /* ===== MEANINGS GRID ===== */
+  .meanings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+
+  .meaning-card {
+    background: var(--card);
+    border-radius: 24px;
+    padding: 30px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .meaning-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    padding: 2px;
+    background: var(--grad);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .meaning-card:hover { transform: translateY(-6px); }
+  .meaning-card:hover::before { opacity: 1; }
+
+  .mc-1 { --grad: linear-gradient(135deg, var(--yellow), var(--orange)); }
+  .mc-2 { --grad: linear-gradient(135deg, var(--pink), var(--purple)); }
+  .mc-3 { --grad: linear-gradient(135deg, var(--cyan), var(--blue)); }
+  .mc-4 { --grad: linear-gradient(135deg, var(--green), var(--cyan)); }
+  .mc-5 { --grad: linear-gradient(135deg, var(--orange), var(--red)); }
+  .mc-6 { --grad: linear-gradient(135deg, var(--purple), var(--pink)); }
+
+  .mc-icon { font-size: 48px; margin-bottom: 16px; }
+  .mc-en { font-family: 'Baloo 2', cursive; font-size: 22px; font-weight: 800; color: var(--yellow); }
+  .mc-ua { font-size: 15px; color: var(--muted); margin-top: 4px; margin-bottom: 12px; font-weight: 600; }
+  .mc-desc { font-size: 15px; line-height: 1.7; color: var(--text); }
+  .mc-examples { margin-top: 16px; }
+  .mc-ex {
+    background: rgba(255,255,255,0.05);
+    border-radius: 12px;
+    padding: 10px 14px;
+    margin-top: 8px;
+    font-size: 14px;
+  }
+  .mc-ex .en { color: var(--yellow); font-weight: 700; }
+  .mc-ex .ua { color: var(--muted); font-size: 13px; margin-top: 2px; }
+
+  /* ===== MAGIC SENTENCE ===== */
+  .magic-box {
+    background: linear-gradient(135deg, #1e1b4b, #312e81);
+    border-radius: 32px;
+    padding: 50px 40px;
+    border: 2px solid rgba(168,85,247,0.4);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+    max-width: 900px;
+  }
+  .magic-box::before {
+    content: '✨';
+    position: absolute;
+    font-size: 200px;
+    opacity: 0.04;
+    top: -30px; right: -30px;
+  }
+
+  .magic-label {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--yellow), var(--orange));
+    color: var(--darker);
+    padding: 6px 20px;
+    border-radius: 50px;
+    font-weight: 900;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .magic-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(28px, 4vw, 44px);
+    color: white;
+    margin-bottom: 8px;
+  }
+
+  .magic-ua {
+    color: rgba(255,255,255,0.5);
+    font-size: 16px;
+    margin-bottom: 40px;
+  }
+
+  .transformations {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 10px;
+  }
+
+  .transform-card {
+    background: rgba(255,255,255,0.06);
+    border-radius: 20px;
+    padding: 20px;
+    border: 1px solid rgba(255,255,255,0.1);
+    text-align: left;
+    transition: all 0.3s;
+  }
+  .transform-card:hover {
+    background: rgba(255,255,255,0.1);
+    transform: scale(1.02);
+  }
+
+  .tc-label {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 8px;
+  }
+  .tc-sent { font-size: 15px; font-weight: 700; color: white; line-height: 1.5; }
+  .tc-ua { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 6px; }
+
+  /* ===== FORMULA BOX ===== */
+  .formula-section { background: var(--card); border-radius: 32px; padding: 50px 40px; }
+  .formula-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: 24px; margin-top: 30px; }
+  .formula-card {
+    background: var(--card2);
+    border-radius: 20px;
+    padding: 24px;
+    border-left: 4px solid var(--accent);
+  }
+  .formula-card.f1 { --accent: var(--yellow); }
+  .formula-card.f2 { --accent: var(--pink); }
+  .formula-card.f3 { --accent: var(--cyan); }
+  .formula-card.f4 { --accent: var(--green); }
+
+  .formula-name { font-weight: 800; color: var(--accent); font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }
+  .formula-box {
+    background: rgba(0,0,0,0.3);
+    border-radius: 12px;
+    padding: 12px 16px;
+    margin: 12px 0;
+    font-family: 'Courier New', monospace;
+    font-size: 15px;
+    color: var(--yellow);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  .formula-ex { font-size: 14px; color: var(--muted); margin-top: 6px; }
+  .formula-ex span { color: var(--text); }
+
+  /* ===== PHRASAL VERBS ===== */
+  .pv-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px,1fr));
+    gap: 20px;
+  }
+
+  .pv-card {
+    background: var(--card);
+    border-radius: 20px;
+    padding: 22px;
+    border-top: 3px solid var(--pv-color);
+    transition: all 0.3s;
+  }
+  .pv-card:hover { transform: translateY(-4px); background: var(--card2); }
+
+  .pv-verb { font-family: 'Fredoka One', cursive; font-size: 22px; color: var(--pv-color); }
+  .pv-ua { font-size: 13px; color: var(--muted); margin: 4px 0 12px; font-weight: 600; }
+  .pv-sent { font-size: 14px; color: var(--text); line-height: 1.6; }
+  .pv-sent-ua { font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+  /* ===== COLLOCATIONS ===== */
+  .coll-section { margin: 0 auto; }
+  .coll-group { margin-bottom: 50px; }
+  .coll-group-title {
+    font-family: 'Baloo 2', cursive;
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--yellow);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .coll-chips { display: flex; flex-wrap: wrap; gap: 12px; }
+  .chip {
+    background: var(--card);
+    border-radius: 50px;
+    padding: 10px 20px;
+    font-size: 15px;
+    font-weight: 700;
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: all 0.2s;
+    cursor: default;
+  }
+  .chip:hover { transform: scale(1.05); border-color: var(--chip-color); color: var(--chip-color); }
+  .chip-y { --chip-color: var(--yellow); }
+  .chip-o { --chip-color: var(--orange); }
+  .chip-p { --chip-color: var(--purple); }
+  .chip-c { --chip-color: var(--cyan); }
+  .chip-g { --chip-color: var(--green); }
+  .chip-r { --chip-color: var(--red); }
+
+  /* ===== SITUATIONS TABLE ===== */
+  .situations { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px,1fr)); gap: 20px; }
+  .sit-card {
+    background: var(--card);
+    border-radius: 20px;
+    padding: 24px;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .sit-title { font-weight: 800; color: var(--yellow); font-size: 16px; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+  .sit-item { padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+  .sit-item:last-child { border-bottom: none; }
+  .sit-en { font-size: 14px; font-weight: 700; color: var(--text); }
+  .sit-ua { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+  /* ===== QUIZ ===== */
+  .quiz-section {
+    background: linear-gradient(135deg, #0d2137, #1a1a2e);
+    border-radius: 32px;
+    padding: 50px 40px;
+    border: 2px solid rgba(6,182,212,0.3);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .quiz-title { font-family: 'Fredoka One', cursive; font-size: 36px; color: var(--cyan); text-align: center; margin-bottom: 30px; }
+  .quiz-q { background: var(--card); border-radius: 20px; padding: 24px; margin-bottom: 20px; }
+  .quiz-q-text { font-weight: 700; font-size: 18px; margin-bottom: 16px; }
+  .quiz-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .quiz-opt {
+    background: rgba(255,255,255,0.05);
+    border: 2px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 12px 16px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: var(--text);
+  }
+  .quiz-opt:hover { border-color: var(--cyan); color: var(--cyan); background: rgba(6,182,212,0.1); }
+  .quiz-opt.correct { border-color: var(--green); background: rgba(16,185,129,0.2); color: var(--green); }
+  .quiz-opt.wrong { border-color: var(--red); background: rgba(239,35,60,0.2); color: var(--red); }
+  .quiz-feedback { margin-top: 12px; font-size: 14px; padding: 10px 14px; border-radius: 10px; display: none; }
+  .quiz-feedback.show { display: block; }
+  .quiz-feedback.ok { background: rgba(16,185,129,0.15); color: var(--green); }
+  .quiz-feedback.nope { background: rgba(239,35,60,0.15); color: #ff6b6b; }
+  .quiz-score { text-align: center; font-family: 'Fredoka One', cursive; font-size: 28px; color: var(--yellow); margin-top: 20px; }
+
+  /* ===== COMPARISON ===== */
+  .vs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 900px; margin: 0 auto; }
+  @media(max-width:600px) { .vs-grid { grid-template-columns: 1fr; } }
+  .vs-card { background: var(--card); border-radius: 24px; padding: 30px; }
+  .vs-word { font-family: 'Fredoka One', cursive; font-size: 36px; text-align: center; margin-bottom: 4px; }
+  .vs-ua { text-align: center; color: var(--muted); font-size: 14px; margin-bottom: 20px; }
+  .vs-item { padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 14px; }
+  .vs-item:last-child { border-bottom: none; }
+  .vs-item strong { color: var(--yellow); }
+
+  /* ===== DIVIDER ===== */
+  .divider {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--orange), var(--yellow), var(--orange), transparent);
+    margin: 0 40px;
+    opacity: 0.3;
+  }
+
+  /* ===== SCROLLBAR ===== */
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: var(--darker); }
+  ::-webkit-scrollbar-thumb { background: var(--orange); border-radius: 4px; }
+
+  /* ===== RESPONSIVE ===== */
+
+  @media(max-width:768px) {
+    html, body { overflow-x: hidden; }
+
+    .section { padding: 40px 14px; }
+
+    .hero { padding: 50px 16px 40px; }
+    .hero-emoji { font-size: 52px; }
+    .hero-desc { font-size: 15px; }
+    .hero-tags { gap: 8px; }
+    .tag { font-size: 12px; padding: 6px 14px; }
+
+    .section-title { font-size: 28px; margin-bottom: 30px; }
+    .section-title small { font-size: 0.55em !important; }
+
+    .meanings-grid { grid-template-columns: 1fr; gap: 16px; }
+    .meaning-card { padding: 22px 18px; }
+    .mc-icon { font-size: 36px; }
+    .mc-en { font-size: 18px; }
+
+    .magic-box { padding: 28px 16px; border-radius: 24px; }
+    .magic-title { font-size: 22px; }
+    .magic-ua { font-size: 14px; margin-bottom: 24px; }
+    .transformations { grid-template-columns: 1fr; gap: 12px; }
+    .transform-card { padding: 16px; }
+
+    .formula-section { padding: 28px 16px; border-radius: 24px; }
+    .formula-grid { grid-template-columns: 1fr; gap: 16px; }
+    .formula-card { padding: 18px; }
+    .formula-box { font-size: 13px; padding: 10px 12px; word-break: break-word; }
+
+    .pv-grid { grid-template-columns: 1fr; gap: 14px; }
+    .pv-card { padding: 18px; }
+    .pv-verb { font-size: 20px; }
+
+    .coll-group { margin-bottom: 36px; }
+    .coll-group-title { font-size: 18px; }
+    .coll-chips { gap: 8px; }
+    .chip { font-size: 13px; padding: 8px 14px; }
+
+    .situations { grid-template-columns: 1fr; gap: 14px; }
+    .sit-card { padding: 18px; }
+
+    .vs-grid { grid-template-columns: 1fr; gap: 16px; }
+    .vs-card { padding: 20px 16px; }
+    .vs-word { font-size: 28px; }
+
+    .big-ex-grid { grid-template-columns: 1fr; gap: 14px; }
+    .big-ex-card { padding: 18px; }
+    .big-ex-card:hover { transform: none; }
+
+    .tip-box { flex-direction: column; gap: 10px; padding: 18px 16px; margin: 24px auto; }
+    .tip-icon { font-size: 26px; }
+    .tip-text { font-size: 14px; }
+
+    .quiz-section { padding: 28px 16px; border-radius: 24px; }
+    .quiz-title { font-size: 26px; }
+    .quiz-q { padding: 18px 14px; }
+    .quiz-q-text { font-size: 15px; }
+    .quiz-opts { grid-template-columns: 1fr; gap: 8px; }
+    .quiz-opt { font-size: 14px; padding: 10px 12px; }
+
+    .divider { margin: 0 16px; }
+
+    footer { padding: 40px 16px; }
+
+    #scroll-top-btn { bottom: 16px; right: 16px; width: 40px; height: 40px; font-size: 16px; }
+  }
+
+  @media(max-width:380px) {
+    .hero h1 { font-size: 72px; }
+    .section-title { font-size: 24px; }
+    .magic-title { font-size: 18px; }
+    .chip { font-size: 12px; padding: 7px 12px; }
+    .tag { font-size: 11px; padding: 5px 12px; }
+  }
+
+  /* ===== STICKY TOC ===== */
+  .toc {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 100;
+  }
+  .toc a {
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.3);
+    transition: all 0.3s;
+    display: block;
+  }
+  .toc a:hover, .toc a.active {
+    background: var(--orange);
+    border-color: var(--orange);
+    transform: scale(1.4);
+  }
+  @media(max-width:1100px) { .toc { display: none; } }
+
+  /* ===== SCROLL REVEAL ===== */
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  
+  /* ===== BIG EXAMPLES SECTION ===== */
+  .big-ex-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px,1fr)); gap: 20px; }
+  .big-ex-card {
+    background: var(--card);
+    border-radius: 20px;
+    padding: 22px;
+    border-left: 4px solid var(--be-color);
+    transition: all 0.3s;
+  }
+  .big-ex-card:hover { transform: translateX(6px); }
+  .be-cat { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; color: var(--be-color); margin-bottom: 10px; }
+  .be-en { font-size: 15px; font-weight: 700; color: var(--text); line-height: 1.6; }
+  .be-ua { font-size: 13px; color: var(--muted); margin-top: 6px; }
+
+  /* tip box */
+  .tip-box {
+    background: linear-gradient(135deg, rgba(255,107,53,0.12), rgba(255,217,61,0.08));
+    border: 1px solid rgba(255,107,53,0.3);
+    border-radius: 20px;
+    padding: 24px 30px;
+    margin: 40px auto;
+    max-width: 800px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .tip-icon { font-size: 32px; flex-shrink: 0; }
+  .tip-text { font-size: 15px; line-height: 1.8; }
+  .tip-text strong { color: var(--yellow); }
+
+#scroll-top-btn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #1a1208;
+  border: 1.5px solid rgba(200,150,62,0.4);
+  color: #f5f0e8;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+  pointer-events: none;
+  z-index: 9998;
+}
+#scroll-top-btn.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+#scroll-top-btn:hover {
+  background: #c8963e;
+  border-color: #c8963e;
+  color: #1a1208;
+}
+</style>
+</head>
+<body>
+
+<!-- TABLE OF CONTENTS DOTS -->
+<nav class="toc">
+  <a href="#hero" title="Top"></a>
+  <a href="#meanings" title="Meanings"></a>
+  <a href="#magic" title="Magic Sentence"></a>
+  <a href="#formulas" title="Formulas"></a>
+  <a href="#phrasal" title="Phrasal Verbs"></a>
+  <a href="#collocations" title="Collocations"></a>
+  <a href="#situations" title="Situations"></a>
+  <a href="#examples" title="Examples"></a>
+  <a href="#quiz" title="Quiz"></a>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+  <div class="hero-emoji">🛠️</div>
+  <h1>MAKE</h1>
+  <p class="hero-sub">The Most Powerful English Word</p>
+  <p class="hero-desc">
+    <strong style="color:var(--yellow)">Make</strong> — одне з найважливіших слів в англійській мові! 
+    Без нього неможливо говорити про створення, причини, дії і зміни. 
+    Вчимо всі значення, фрази і формули — просто і з прикладами! 🚀
+  </p>
+  <div class="hero-tags">
+    <span class="tag tag-y">🏗️ Створювати</span>
+    <span class="tag tag-o">💥 Змушувати</span>
+    <span class="tag tag-p">💰 Заробляти</span>
+    <span class="tag tag-c">🌟 Ставати</span>
+    <span class="tag tag-g">📅 Встигнути</span>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== MEANINGS ===== -->
+<div class="section" id="meanings">
+  <h2 class="section-title">What does <span>MAKE</span> mean? <br><small style="font-size:0.5em;color:var(--muted)">Що означає MAKE?</small></h2>
+
+  <div class="tip-box">
+    <span class="tip-icon">💡</span>
+    <div class="tip-text">
+      <strong>MAKE</strong> — неправильне дієслово (irregular verb): <strong style="color:var(--orange)">make → made → made</strong><br>
+      Воно має <strong>6+ основних значень</strong> і зустрічається в сотнях виразів. Не намагайся вивчити все одразу — читай, практикуйся і слова самі запам'ятаються! 😊
+    </div>
+  </div>
+
+  <div class="meanings-grid">
+
+    <div class="meaning-card mc-1 reveal">
+      <div class="mc-icon">🏗️</div>
+      <div class="mc-en">1. To create / produce</div>
+      <div class="mc-ua">Створювати, робити, виготовляти</div>
+      <div class="mc-desc">When you <em>build, cook, write, draw, or produce</em> something — you MAKE it! / Коли ти щось будуєш, готуєш, пишеш, малюєш або виробляєш.</div>
+      <div class="mc-examples">
+        <div class="mc-ex"><div class="en">She <strong>made</strong> a delicious cake. 🎂</div><div class="ua">Вона спекла смачний торт.</div></div>
+        <div class="mc-ex"><div class="en">He <strong>makes</strong> furniture in his workshop. 🪑</div><div class="ua">Він робить меблі у своїй майстерні.</div></div>
+        <div class="mc-ex"><div class="en">They <strong>made</strong> a movie about robots. 🎬</div><div class="ua">Вони зняли фільм про роботів.</div></div>
+      </div>
+    </div>
+
+    <div class="meaning-card mc-2 reveal">
+      <div class="mc-icon">💥</div>
+      <div class="mc-en">2. To cause / force</div>
+      <div class="mc-ua">Змушувати, спричиняти</div>
+      <div class="mc-desc">When something <em>causes</em> an action or feeling, or when you <em>force</em> someone to do something. / Коли щось є причиною дії або почуття, або ти когось змушуєш.</div>
+      <div class="mc-examples">
+        <div class="mc-ex"><div class="en">The movie <strong>made</strong> me cry. 😭</div><div class="ua">Фільм змусив мене плакати.</div></div>
+        <div class="mc-ex"><div class="en">Mum <strong>made</strong> me clean my room. 🧹</div><div class="ua">Мама змусила мене прибрати кімнату.</div></div>
+        <div class="mc-ex"><div class="en">The news <strong>made</strong> everyone happy. 🎉</div><div class="ua">Новина зробила всіх щасливими.</div></div>
+      </div>
+    </div>
+
+    <div class="meaning-card mc-3 reveal">
+      <div class="mc-icon">💰</div>
+      <div class="mc-en">3. To earn money</div>
+      <div class="mc-ua">Заробляти гроші</div>
+      <div class="mc-desc">When you <em>earn</em> or <em>get</em> money through work. / Коли ти заробляєш або отримуєш гроші.</div>
+      <div class="mc-examples">
+        <div class="mc-ex"><div class="en">She <strong>makes</strong> $3000 a month. 💵</div><div class="ua">Вона заробляє $3000 на місяць.</div></div>
+        <div class="mc-ex"><div class="en">He <strong>made</strong> a lot of money last year. 📈</div><div class="ua">Минулого року він заробив багато грошей.</div></div>
+      </div>
+    </div>
+
+    <div class="meaning-card mc-4 reveal">
+      <div class="mc-icon">🌟</div>
+      <div class="mc-en">4. To become</div>
+      <div class="mc-ua">Ставати (кимось), бути придатним для</div>
+      <div class="mc-desc">When someone is <em>perfect</em> for a role or will <em>become</em> something great. / Коли хтось ідеально підходить для ролі або стане кимось чудовим.</div>
+      <div class="mc-examples">
+        <div class="mc-ex"><div class="en">She will <strong>make</strong> a great teacher. 👩‍🏫</div><div class="ua">Вона стане чудовим учителем.</div></div>
+        <div class="mc-ex"><div class="en">This room would <strong>make</strong> a perfect office. 🖥️</div><div class="ua">Ця кімната стала б ідеальним офісом.</div></div>
+      </div>
+    </div>
+
+    <div class="meaning-card mc-5 reveal">
+      <div class="mc-icon">📅</div>
+      <div class="mc-en">5. To arrive / manage to do</div>
+      <div class="mc-ua">Встигнути, дістатися, змогти</div>
+      <div class="mc-desc">When you <em>manage to arrive</em> or <em>succeed</em> at something despite difficulties. / Коли тобі вдається приїхати або зробити щось попри труднощі.</div>
+      <div class="mc-examples">
+        <div class="mc-ex"><div class="en">I can't <strong>make</strong> it to the party. 🎈</div><div class="ua">Я не зможу потрапити на вечірку.</div></div>
+        <div class="mc-ex"><div class="en">We just <strong>made</strong> it on time! ⏰</div><div class="ua">Ми ледве встигли вчасно!</div></div>
+      </div>
+    </div>
+
+    <div class="meaning-card mc-6 reveal">
+      <div class="mc-icon">🤝</div>
+      <div class="mc-en">6. To perform an action</div>
+      <div class="mc-ua">Виконувати дію (у стійких виразах)</div>
+      <div class="mc-desc">Used with nouns to describe <em>actions</em> — these are fixed phrases you must memorize! / Вживається з іменниками для позначення дій — це стійкі вирази, які треба запам'ятати!</div>
+      <div class="mc-examples">
+        <div class="mc-ex"><div class="en"><strong>make</strong> a decision 🤔 / <strong>make</strong> a mistake ❌</div><div class="ua">прийняти рішення / зробити помилку</div></div>
+        <div class="mc-ex"><div class="en"><strong>make</strong> a phone call 📞 / <strong>make</strong> a promise 🤞</div><div class="ua">зробити дзвінок / дати обіцянку</div></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ===== MAGIC SENTENCE ===== -->
+<div class="section" id="magic">
+  <div class="magic-box reveal">
+    <span class="magic-label">✨ Magic Sentence / Чарівне речення</span>
+    <h2 class="magic-title">I make something every day.</h2>
+    <p class="magic-ua">Я щодня щось роблю.</p>
+
+    <div class="transformations">
+      <div class="transform-card">
+        <div class="tc-label" style="color:var(--yellow)">📝 Present Simple</div>
+        <div class="tc-sent">She <span style="color:var(--yellow)">makes</span> coffee every morning.</div>
+        <div class="tc-ua">Вона щоранку варить каву.</div>
+      </div>
+      <div class="transform-card">
+        <div class="tc-label" style="color:var(--orange)">⏳ Past Simple</div>
+        <div class="tc-sent">I <span style="color:var(--orange)">made</span> a big mistake yesterday.</div>
+        <div class="tc-ua">Вчора я зробив велику помилку.</div>
+      </div>
+      <div class="transform-card">
+        <div class="tc-label" style="color:var(--cyan)">🔮 Future</div>
+        <div class="tc-sent">We will <span style="color:var(--cyan)">make</span> a plan tomorrow.</div>
+        <div class="tc-ua">Завтра ми складемо план.</div>
+      </div>
+      <div class="transform-card">
+        <div class="tc-label" style="color:var(--green)">🙋 Question</div>
+        <div class="tc-sent">Do you <span style="color:var(--green)">make</span> your bed every day?</div>
+        <div class="tc-ua">Ти щодня застилаєш ліжко?</div>
+      </div>
+      <div class="transform-card">
+        <div class="tc-label" style="color:var(--pink)">🚫 Negative</div>
+        <div class="tc-sent">I don't <span style="color:var(--pink)">make</span> mistakes often.</div>
+        <div class="tc-ua">Я не часто роблю помилки.</div>
+      </div>
+      <div class="transform-card">
+        <div class="tc-label" style="color:var(--purple)">😲 Passive</div>
+        <div class="tc-sent">This car was <span style="color:var(--purple)">made</span> in Germany.</div>
+        <div class="tc-ua">Цей автомобіль був зроблений у Німеччині.</div>
+      </div>
+      <div class="transform-card">
+        <div class="tc-label" style="color:var(--red)">🔁 Present Perfect</div>
+        <div class="tc-sent">I have <span style="color:var(--red)">made</span> my decision.</div>
+        <div class="tc-ua">Я прийняв своє рішення.</div>
+      </div>
+      <div class="transform-card">
+        <div class="tc-label" style="color:var(--blue)">💭 Conditional</div>
+        <div class="tc-sent">If I could, I would <span style="color:var(--blue)">make</span> things better.</div>
+        <div class="tc-ua">Якби міг, я б виправив ситуацію.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ===== FORMULAS ===== -->
+<div class="section" id="formulas">
+  <h2 class="section-title">⚙️ <span>Formulas</span> / Формули</h2>
+
+  <div class="formula-section reveal">
+    <div class="formula-grid">
+
+      <div class="formula-card f1">
+        <div class="formula-name">🏗️ Make + noun (create)</div>
+        <div class="formula-box">Subject + MAKE + noun (object)</div>
+        <div class="formula-ex">She <span><strong>makes</strong> sandwiches</span> for lunch. 🥪</div>
+        <div class="formula-ex">He <span><strong>made</strong> a drawing</span> for his mum. 🎨</div>
+        <div class="formula-ex">They <span><strong>make</strong> cars</span> in this factory. 🏭</div>
+      </div>
+
+      <div class="formula-card f2">
+        <div class="formula-name">💥 Make + object + verb (force)</div>
+        <div class="formula-box">Subject + MAKE + person + verb (NO "to"!)</div>
+        <div class="formula-ex">She <span><strong>made</strong> me <strong>laugh</strong></span>. 😂 (NOT: made me to laugh)</div>
+        <div class="formula-ex">The teacher <span><strong>made</strong> us <strong>write</strong></span> an essay. ✍️</div>
+        <div class="formula-ex">The music <span><strong>makes</strong> me <strong>feel</strong></span> happy. 🎵</div>
+      </div>
+
+      <div class="formula-card f3">
+        <div class="formula-name">🌟 Make + object + adjective</div>
+        <div class="formula-box">Subject + MAKE + person/thing + adjective</div>
+        <div class="formula-ex">The news <span><strong>made</strong> her <strong>sad</strong></span>. 😢</div>
+        <div class="formula-ex">Exercise <span><strong>makes</strong> you <strong>strong</strong></span>. 💪</div>
+        <div class="formula-ex">Coffee <span><strong>makes</strong> me <strong>nervous</strong></span>. ☕😬</div>
+      </div>
+
+      <div class="formula-card f4">
+        <div class="formula-name">📞 Make + fixed noun phrases</div>
+        <div class="formula-box">MAKE + a/the + noun</div>
+        <div class="formula-ex"><span><strong>make</strong> a <strong>mistake</strong></span> — зробити помилку ❌</div>
+        <div class="formula-ex"><span><strong>make</strong> a <strong>decision</strong></span> — прийняти рішення 🤔</div>
+        <div class="formula-ex"><span><strong>make</strong> a <strong>noise</strong></span> — шуміти 📢</div>
+      </div>
+
+    </div>
+
+    <div class="tip-box" style="margin-top:30px">
+      <span class="tip-icon">⚠️</span>
+      <div class="tip-text">
+        <strong>ВАЖЛИВО!</strong> Після <strong style="color:var(--orange)">make someone DO something</strong> — інфінітив БЕЗ "to"!<br>
+        ✅ She made me <strong>clean</strong> the dishes. &nbsp;&nbsp; ❌ She made me <u>to clean</u> the dishes.<br>
+        Але у пасивному стані "to" з'являється: She was made <strong>to clean</strong> the dishes. 🔄
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ===== PHRASAL VERBS ===== -->
+<div class="section" id="phrasal">
+  <h2 class="section-title">🚀 Phrasal Verbs with <span>MAKE</span><br><small style="font-size:0.45em;color:var(--muted)">Фразові дієслова з MAKE</small></h2>
+
+  <div class="pv-grid">
+
+    <div class="pv-card reveal" style="--pv-color:var(--yellow)">
+      <div class="pv-verb">make up</div>
+      <div class="pv-ua">1. вигадати / 2. помиритися / 3. наносити макіяж / 4. скласти (суму/кількість)</div>
+      <div class="pv-sent">He <strong>made up</strong> a funny story. 📖 (вигадав)</div>
+      <div class="pv-sent">Let's <strong>make up</strong> after our fight. 🤝 (помиримось)</div>
+      <div class="pv-sent">She is <strong>making up</strong> her face. 💄 (робить макіяж)</div>
+      <div class="pv-sent-ua">Women make up 50% of the team. (становлять)</div>
+    </div>
+
+    <div class="pv-card reveal" style="--pv-color:var(--orange)">
+      <div class="pv-verb">make out</div>
+      <div class="pv-ua">1. розібрати / зрозуміти / 2. виписувати чек / 3. цілуватися</div>
+      <div class="pv-sent">I can't <strong>make out</strong> his handwriting. ✍️😵</div>
+      <div class="pv-sent-ua">Не можу розібрати його почерк.</div>
+      <div class="pv-sent">Please <strong>make out</strong> the cheque to John. 💳</div>
+      <div class="pv-sent-ua">Будь ласка, випиши чек на ім'я Джона.</div>
+    </div>
+
+    <div class="pv-card reveal" style="--pv-color:var(--pink)">
+      <div class="pv-verb">make for</div>
+      <div class="pv-ua">рухатися до / сприяти чомусь</div>
+      <div class="pv-sent">We <strong>made for</strong> the exit when the fire alarm rang. 🚨</div>
+      <div class="pv-sent-ua">Ми рушили до виходу, коли спрацювала пожежна тривога.</div>
+      <div class="pv-sent">Good sleep <strong>makes for</strong> better focus. 😴</div>
+      <div class="pv-sent-ua">Хороший сон сприяє кращій концентрації.</div>
+    </div>
+
+    <div class="pv-card reveal" style="--pv-color:var(--purple)">
+      <div class="pv-verb">make off (with)</div>
+      <div class="pv-ua">утекти; втекти з чимось (вкраденим)</div>
+      <div class="pv-sent">The thief <strong>made off</strong> with the jewels. 💎🏃</div>
+      <div class="pv-sent-ua">Злодій утік із коштовностями.</div>
+    </div>
+
+    <div class="pv-card reveal" style="--pv-color:var(--blue)">
+      <div class="pv-verb">make over</div>
+      <div class="pv-ua">перетворити / змінити зовнішність / передати майно</div>
+      <div class="pv-sent">They <strong>made over</strong> the old building into a school. 🏫</div>
+      <div class="pv-sent-ua">Вони перетворили стару будівлю на школу.</div>
+    </div>
+
+    <div class="pv-card reveal" style="--pv-color:var(--cyan)">
+      <div class="pv-verb">make do (with)</div>
+      <div class="pv-ua">обходитися тим, що є; задовольнятися</div>
+      <div class="pv-sent">We had no oven, so we <strong>made do with</strong> a microwave. 📡</div>
+      <div class="pv-sent-ua">У нас не було духовки, тож обходилися мікрохвильовкою.</div>
+    </div>
+
+    <div class="pv-card reveal" style="--pv-color:var(--green)">
+      <div class="pv-verb">make of</div>
+      <div class="pv-ua">думати / розуміти щось (зазвичай у питаннях)</div>
+      <div class="pv-sent">What do you <strong>make of</strong> her new idea? 🤔</div>
+      <div class="pv-sent-ua">Що ти думаєш про її нову ідею?</div>
+    </div>
+
+    <div class="pv-card reveal" style="--pv-color:var(--red)">
+      <div class="pv-verb">make up for</div>
+      <div class="pv-ua">компенсувати; надолужити</div>
+      <div class="pv-sent">He worked extra hours to <strong>make up for</strong> lost time. ⏳</div>
+      <div class="pv-sent-ua">Він попрацював довше, щоб надолужити втрачений час.</div>
+    </div>
+
+    <div class="pv-card reveal" style="--pv-color:var(--yellow)">
+      <div class="pv-verb">make out of</div>
+      <div class="pv-ua">зробити щось із чогось</div>
+      <div class="pv-sent">She <strong>made</strong> a bag <strong>out of</strong> old jeans. 👖</div>
+      <div class="pv-sent-ua">Вона зробила сумку зі старих джинсів.</div>
+    </div>
+
+    <div class="pv-card reveal" style="--pv-color:var(--orange)">
+      <div class="pv-verb">make it</div>
+      <div class="pv-ua">встигнути / досягти успіху / вижити</div>
+      <div class="pv-sent">Sorry, I can't <strong>make it</strong> tonight. 😔</div>
+      <div class="pv-sent-ua">Вибач, сьогодні ввечері не зможу прийти.</div>
+      <div class="pv-sent">She worked hard and finally <strong>made it</strong>! 🌟</div>
+      <div class="pv-sent-ua">Вона наполегливо працювала і нарешті досягла успіху!</div>
+    </div>
+
+    <div class="pv-card reveal" style="--pv-color:var(--pink)">
+      <div class="pv-verb">make believe</div>
+      <div class="pv-ua">прикидатися; уявляти (у грі)</div>
+      <div class="pv-sent">The kids <strong>made believe</strong> they were astronauts. 🚀👶</div>
+      <div class="pv-sent-ua">Діти уявляли себе астронавтами.</div>
+    </div>
+
+    <div class="pv-card reveal" style="--pv-color:var(--purple)">
+      <div class="pv-verb">make towards</div>
+      <div class="pv-ua">рухатися у напрямку</div>
+      <div class="pv-sent">She <strong>made towards</strong> the door quickly. 🚪</div>
+      <div class="pv-sent-ua">Вона швидко рушила до дверей.</div>
+    </div>
+
+    <div class="pv-card reveal" style="--pv-color:var(--blue)">
+      <div class="pv-verb">make away (with)</div>
+      <div class="pv-ua">позбутися / утекти</div>
+      <div class="pv-sent">He <strong>made away with</strong> all the evidence. 🗑️</div>
+      <div class="pv-sent-ua">Він позбувся всіх доказів.</div>
+    </div>
+
+    <div class="pv-card reveal" style="--pv-color:var(--cyan)">
+      <div class="pv-verb">make into</div>
+      <div class="pv-ua">перетворити на щось інше</div>
+      <div class="pv-sent">They <strong>made</strong> the novel <strong>into</strong> a film. 🎬</div>
+      <div class="pv-sent-ua">Вони екранізували роман.</div>
+    </div>
+
+    <div class="pv-card reveal" style="--pv-color:var(--green)">
+      <div class="pv-verb">make after</div>
+      <div class="pv-ua">гнатися за кимось</div>
+      <div class="pv-sent">The dog <strong>made after</strong> the cat. 🐕🐈</div>
+      <div class="pv-sent-ua">Собака погнався за котом.</div>
+    </div>
+
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ===== COLLOCATIONS ===== -->
+<div class="section" id="collocations">
+  <h2 class="section-title">🔗 <span>Collocations</span> / Колокації<br><small style="font-size:0.4em;color:var(--muted)">Стійкі словосполучення з MAKE</small></h2>
+
+  <div class="coll-section">
+
+    <div class="coll-group reveal">
+      <div class="coll-group-title">🗣️ Communication / Спілкування</div>
+      <div class="coll-chips">
+        <span class="chip chip-y">make a call 📞</span>
+        <span class="chip chip-y">make a speech 🎤</span>
+        <span class="chip chip-y">make a complaint 😤</span>
+        <span class="chip chip-y">make a request 🙏</span>
+        <span class="chip chip-y">make a suggestion 💡</span>
+        <span class="chip chip-y">make a promise 🤞</span>
+        <span class="chip chip-y">make a comment 💬</span>
+        <span class="chip chip-y">make an offer 🤝</span>
+        <span class="chip chip-y">make an announcement 📢</span>
+        <span class="chip chip-y">make a point ✅</span>
+        <span class="chip chip-y">make an excuse 😅</span>
+        <span class="chip chip-y">make a confession 😶</span>
+      </div>
+    </div>
+
+    <div class="coll-group reveal">
+      <div class="coll-group-title">🧠 Thinking & Deciding / Думати і вирішувати</div>
+      <div class="coll-chips">
+        <span class="chip chip-o">make a decision 🤔</span>
+        <span class="chip chip-o">make a choice ✔️</span>
+        <span class="chip chip-o">make a plan 📋</span>
+        <span class="chip chip-o">make up your mind 💭</span>
+        <span class="chip chip-o">make a judgement ⚖️</span>
+        <span class="chip chip-o">make an assumption 🧐</span>
+        <span class="chip chip-o">make a connection 🔗</span>
+        <span class="chip chip-o">make sense 🧩</span>
+        <span class="chip chip-o">make a distinction 🔍</span>
+        <span class="chip chip-o">make a calculation 🔢</span>
+      </div>
+    </div>
+
+    <div class="coll-group reveal">
+      <div class="coll-group-title">😬 Mistakes & Problems / Помилки і проблеми</div>
+      <div class="coll-chips">
+        <span class="chip chip-r">make a mistake ❌</span>
+        <span class="chip chip-r">make an error ⚠️</span>
+        <span class="chip chip-r">make a mess 🤦</span>
+        <span class="chip chip-r">make trouble 😈</span>
+        <span class="chip chip-r">make a scene 🎭</span>
+        <span class="chip chip-r">make things worse 📉</span>
+        <span class="chip chip-r">make a fuss 😩</span>
+        <span class="chip chip-r">make things difficult 😤</span>
+      </div>
+    </div>
+
+    <div class="coll-group reveal">
+      <div class="coll-group-title">💰 Money & Work / Гроші і праця</div>
+      <div class="coll-chips">
+        <span class="chip chip-g">make money 💵</span>
+        <span class="chip chip-g">make a profit 📈</span>
+        <span class="chip chip-g">make a loss 📉</span>
+        <span class="chip chip-g">make a living 🏠</span>
+        <span class="chip chip-g">make a deal 🤝</span>
+        <span class="chip chip-g">make progress 🚶</span>
+        <span class="chip chip-g">make an effort 💪</span>
+        <span class="chip chip-g">make a contribution 🎁</span>
+        <span class="chip chip-g">make a payment 💳</span>
+        <span class="chip chip-g">make a difference 🌍</span>
+        <span class="chip chip-g">make an investment 💹</span>
+      </div>
+    </div>
+
+    <div class="coll-group reveal">
+      <div class="coll-group-title">🏠 Everyday Life / Повсякденне життя</div>
+      <div class="coll-chips">
+        <span class="chip chip-c">make breakfast/lunch/dinner 🍳</span>
+        <span class="chip chip-c">make your bed 🛏️</span>
+        <span class="chip chip-c">make tea/coffee ☕</span>
+        <span class="chip chip-c">make a sandwich 🥪</span>
+        <span class="chip chip-c">make noise 📢</span>
+        <span class="chip chip-c">make room 🪑</span>
+        <span class="chip chip-c">make time ⏰</span>
+        <span class="chip chip-c">make a list 📝</span>
+        <span class="chip chip-c">make an appointment 📆</span>
+        <span class="chip chip-c">make a reservation 🍽️</span>
+        <span class="chip chip-c">make a trip ✈️</span>
+        <span class="chip chip-c">make a fire 🔥</span>
+      </div>
+    </div>
+
+    <div class="coll-group reveal">
+      <div class="coll-group-title">😊 Emotions & Relationships / Емоції і стосунки</div>
+      <div class="coll-chips">
+        <span class="chip chip-p">make friends 👫</span>
+        <span class="chip chip-p">make enemies 😡</span>
+        <span class="chip chip-p">make someone happy/sad 😊😢</span>
+        <span class="chip chip-p">make an impression 👀</span>
+        <span class="chip chip-p">make someone feel... 💓</span>
+        <span class="chip chip-p">make up (reconcile) 🤗</span>
+        <span class="chip chip-p">make a joke 😂</span>
+        <span class="chip chip-p">make fun of 😜</span>
+        <span class="chip chip-p">make someone proud 🏆</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ===== SITUATIONS ===== -->
+<div class="section" id="situations">
+  <h2 class="section-title">🎯 <span>Real-life Situations</span><br><small style="font-size:0.4em;color:var(--muted)">Реальні ситуації — приклади</small></h2>
+
+  <div class="situations">
+
+    <div class="sit-card reveal">
+      <div class="sit-title">🍳 In the Kitchen / На кухні</div>
+      <div class="sit-item"><div class="sit-en">Can you make pasta for dinner?</div><div class="sit-ua">Можеш приготувати пасту на вечерю?</div></div>
+      <div class="sit-item"><div class="sit-en">I made a smoothie this morning.</div><div class="sit-ua">Вранці я зробив смузі.</div></div>
+      <div class="sit-item"><div class="sit-en">She makes amazing sushi!</div><div class="sit-ua">Вона готує дивовижні суші!</div></div>
+      <div class="sit-item"><div class="sit-en">He made a salad for everyone.</div><div class="sit-ua">Він приготував салат для всіх.</div></div>
+    </div>
+
+    <div class="sit-card reveal">
+      <div class="sit-title">🏫 At School / У школі</div>
+      <div class="sit-item"><div class="sit-en">I made a few mistakes in the test.</div><div class="sit-ua">Я зробив кілька помилок у контрольній.</div></div>
+      <div class="sit-item"><div class="sit-en">She made a presentation about space.</div><div class="sit-ua">Вона зробила презентацію про космос.</div></div>
+      <div class="sit-item"><div class="sit-en">Don't make noise in the library!</div><div class="sit-ua">Не шуміть у бібліотеці!</div></div>
+      <div class="sit-item"><div class="sit-en">He made an excuse for being late.</div><div class="sit-ua">Він придумав виправдання для запізнення.</div></div>
+    </div>
+
+    <div class="sit-card reveal">
+      <div class="sit-title">💼 At Work / На роботі</div>
+      <div class="sit-item"><div class="sit-en">We need to make a plan for next week.</div><div class="sit-ua">Нам треба скласти план на наступний тиждень.</div></div>
+      <div class="sit-item"><div class="sit-en">She made a great impression.</div><div class="sit-ua">Вона справила чудове враження.</div></div>
+      <div class="sit-item"><div class="sit-en">Can you make a call to the client?</div><div class="sit-ua">Можеш зателефонувати клієнту?</div></div>
+      <div class="sit-item"><div class="sit-en">They made a lot of money last year.</div><div class="sit-ua">Минулого року вони заробили багато грошей.</div></div>
+    </div>
+
+    <div class="sit-card reveal">
+      <div class="sit-title">🏡 At Home / Вдома</div>
+      <div class="sit-item"><div class="sit-en">Make your bed before breakfast!</div><div class="sit-ua">Застели ліжко перед сніданком!</div></div>
+      <div class="sit-item"><div class="sit-en">I'll make tea — who wants some?</div><div class="sit-ua">Заварю чай — хтось хоче?</div></div>
+      <div class="sit-item"><div class="sit-en">She made a fire to keep warm.</div><div class="sit-ua">Вона розпалила вогнище, щоб зігрітися.</div></div>
+      <div class="sit-item"><div class="sit-en">Can you make room for one more chair?</div><div class="sit-ua">Можеш звільнити місце ще для одного стільця?</div></div>
+    </div>
+
+    <div class="sit-card reveal">
+      <div class="sit-title">🎉 Social / Спілкування</div>
+      <div class="sit-item"><div class="sit-en">He made friends very quickly.</div><div class="sit-ua">Він дуже швидко знайшов друзів.</div></div>
+      <div class="sit-item"><div class="sit-en">Stop making fun of me!</div><div class="sit-ua">Перестань кепкувати з мене!</div></div>
+      <div class="sit-item"><div class="sit-en">She made a joke and everyone laughed.</div><div class="sit-ua">Вона пожартувала, і всі засміялись.</div></div>
+      <div class="sit-item"><div class="sit-en">Let's make up and be friends again.</div><div class="sit-ua">Давай помиримося і знову будемо друзями.</div></div>
+    </div>
+
+    <div class="sit-card reveal">
+      <div class="sit-title">✈️ Travel / Подорожі</div>
+      <div class="sit-item"><div class="sit-en">Did you make a reservation?</div><div class="sit-ua">Ти зробив бронювання?</div></div>
+      <div class="sit-item"><div class="sit-en">We made it to the airport just in time!</div><div class="sit-ua">Ми встигли до аеропорту якраз вчасно!</div></div>
+      <div class="sit-item"><div class="sit-en">She made a trip to Italy last summer.</div><div class="sit-ua">Минулого літа вона здійснила поїздку до Італії.</div></div>
+      <div class="sit-item"><div class="sit-en">Don't make the same mistake twice.</div><div class="sit-ua">Не роби одну і ту саму помилку двічі.</div></div>
+    </div>
+
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ===== BIG EXAMPLES ===== -->
+<div class="section" id="examples">
+  <h2 class="section-title">📚 100 <span>Examples</span> / Приклади<br><small style="font-size:0.4em;color:var(--muted)">Якомога більше прикладів на всі випадки!</small></h2>
+
+  <div class="big-ex-grid">
+
+    <div class="big-ex-card reveal" style="--be-color:var(--yellow)">
+      <div class="be-cat">🏗️ Creating / Створення</div>
+      <div class="be-en">My dad <strong>makes</strong> wooden toys in the garage.</div>
+      <div class="be-ua">Мій тато робить дерев'яні іграшки в гаражі.</div>
+    </div>
+    <div class="big-ex-card reveal" style="--be-color:var(--yellow)">
+      <div class="be-cat">🏗️ Creating / Створення</div>
+      <div class="be-en">She <strong>made</strong> her own wedding dress!</div>
+      <div class="be-ua">Вона сама пошила весільну сукню!</div>
+    </div>
+    <div class="big-ex-card reveal" style="--be-color:var(--yellow)">
+      <div class="be-cat">🏗️ Creating / Створення</div>
+      <div class="be-en">The kids <strong>made</strong> a snowman in the garden.</div>
+      <div class="be-ua">Діти зліпили сніговика в саду.</div>
+    </div>
+    <div class="big-ex-card reveal" style="--be-color:var(--yellow)">
+      <div class="be-cat">🏗️ Creating / Створення</div>
+      <div class="be-en">He <strong>made</strong> his first website at age 13.</div>
+      <div class="be-ua">Він зробив перший вебсайт у 13 років.</div>
+    </div>
+    <div class="big-ex-card reveal" style="--be-color:var(--yellow)">
+      <div class="be-cat">🏗️ Creating / Створення</div>
+      <div class="be-en">They <strong>make</strong> cheese from goat's milk here.</div>
+      <div class="be-ua">Тут роблять сир із козячого молока.</div>
+    </div>
+
+    <div class="big-ex-card reveal" style="--be-color:var(--orange)">
+      <div class="be-cat">💥 Cause / Причина</div>
+      <div class="be-en">The onions <strong>made</strong> her eyes water.</div>
+      <div class="be-ua">Цибуля викликала сльози на її очах.</div>
+    </div>
+    <div class="big-ex-card reveal" style="--be-color:var(--orange)">
+      <div class="be-cat">💥 Cause / Причина</div>
+      <div class="be-en">His words <strong>made</strong> me think deeply.</div>
+      <div class="be-ua">Його слова змусили мене глибоко задуматися.</div>
+    </div>
+    <div class="big-ex-card reveal" style="--be-color:var(--orange)">
+      <div class="be-cat">💥 Cause / Причина</div>
+      <div class="be-en">The rain <strong>made</strong> the road slippery.</div>
+      <div class="be-ua">Дощ зробив дорогу слизькою.</div>
+    </div>
+    <div class="big-ex-card reveal" style="--be-color:var(--orange)">
+      <div class="be-cat">💥 Cause / Причина</div>
+      <div class="be-en">Cartoons <strong>make</strong> children happy.</div>
+      <div class="be-ua">Мультфільми роблять дітей щасливими.</div>
+    </div>
+    <div class="big-ex-card reveal" style="--be-color:var(--orange)">
+      <div class="be-cat">💥 Cause / Причина</div>
+      <div class="be-en">Don't <strong>make</strong> me repeat myself!</div>
+      <div class="be-ua">Не змушуй мене повторюватися!</div>
+    </div>
+
+    <div class="big-ex-card reveal" style="--be-color:var(--green)">
+      <div class="be-cat">💰 Earn / Заробляти</div>
+      <div class="be-en">He <strong>makes</strong> good money as a programmer.</div>
+      <div class="be-ua">Він добре заробляє як програміст.</div>
+    </div>
+    <div class="big-ex-card reveal" style="--be-color:var(--green)">
+      <div class="be-cat">💰 Earn / Заробляти</div>
+      <div class="be-en">Our company <strong>made</strong> a huge profit this year.</div>
+      <div class="be-ua">Наша компанія отримала величезний прибуток цього року.</div>
+    </div>
+    <div class="big-ex-card reveal" style="--be-color:var(--green)">
+      <div class="be-cat">💰 Earn / Заробляти</div>
+      <div class="be-en">She <strong>makes</strong> her living as a freelance artist.</div>
+      <div class="be-ua">Вона заробляє на життя як художник-фрілансер.</div>
+    </div>
+
+    <div class="big-ex-card reveal" style="--be-color:var(--cyan)">
+      <div class="be-cat">⏰ Arrive / Встигнути</div>
+      <div class="be-en">We barely <strong>made</strong> the last train.</div>
+      <div class="be-ua">Ми ледве встигли на останній поїзд.</div>
+    </div>
+    <div class="big-ex-card reveal" style="--be-color:var(--cyan)">
+      <div class="be-cat">⏰ Arrive / Встигнути</div>
+      <div class="be-en">Can you <strong>make</strong> the 9 o'clock meeting?</div>
+      <div class="be-ua">Чи зможеш ти бути на нараді о 9?</div>
+    </div>
+    <div class="big-ex-card reveal" style="--be-color:var(--cyan)">
+      <div class="be-cat">⏰ Arrive / Встигнути</div>
+      <div class="be-en">Sorry, I won't be able to <strong>make</strong> it tonight.</div>
+      <div class="be-ua">Вибач, я не зможу прийти сьогодні ввечері.</div>
+    </div>
+
+    <div class="big-ex-card reveal" style="--be-color:var(--purple)">
+      <div class="be-cat">🤔 Decisions / Рішення</div>
+      <div class="be-en">She finally <strong>made</strong> up her mind to quit.</div>
+      <div class="be-ua">Вона нарешті вирішила звільнитися.</div>
+    </div>
+    <div class="big-ex-card reveal" style="--be-color:var(--purple)">
+      <div class="be-cat">🤔 Decisions / Рішення</div>
+      <div class="be-en">It's hard to <strong>make</strong> the right decision.</div>
+      <div class="be-ua">Важко прийняти правильне рішення.</div>
+    </div>
+    <div class="big-ex-card reveal" style="--be-color:var(--purple)">
+      <div class="be-cat">🤔 Decisions / Рішення</div>
+      <div class="be-en">Let me <strong>make</strong> a choice and stick with it.</div>
+      <div class="be-ua">Дозволь мені зробити вибір і дотримуватися його.</div>
+    </div>
+
+    <div class="big-ex-card reveal" style="--be-color:var(--pink)">
+      <div class="be-cat">📢 Communication / Спілкування</div>
+      <div class="be-en">He <strong>made</strong> a brilliant speech at the ceremony.</div>
+      <div class="be-ua">Він виголосив блискучу промову на церемонії.</div>
+    </div>
+    <div class="big-ex-card reveal" style="--be-color:var(--pink)">
+      <div class="be-cat">📢 Communication / Спілкування</div>
+      <div class="be-en">I need to <strong>make</strong> an important phone call.</div>
+      <div class="be-ua">Мені потрібно зробити важливий дзвінок.</div>
+    </div>
+    <div class="big-ex-card reveal" style="--be-color:var(--pink)">
+      <div class="be-cat">📢 Communication / Спілкування</div>
+      <div class="be-en">She <strong>made</strong> a complaint to the manager.</div>
+      <div class="be-ua">Вона поскаржилася менеджеру.</div>
+    </div>
+    <div class="big-ex-card reveal" style="--be-color:var(--pink)">
+      <div class="be-cat">📢 Communication / Спілкування</div>
+      <div class="be-en">Can I <strong>make</strong> a suggestion?</div>
+      <div class="be-ua">Можу я запропонувати ідею?</div>
+    </div>
+
+    <div class="big-ex-card reveal" style="--be-color:var(--red)">
+      <div class="be-cat">😬 Mistakes / Помилки</div>
+      <div class="be-en">Everyone <strong>makes</strong> mistakes — that's normal.</div>
+      <div class="be-ua">Усі роблять помилки — це нормально.</div>
+    </div>
+    <div class="big-ex-card reveal" style="--be-color:var(--red)">
+      <div class="be-cat">😬 Mistakes / Помилки</div>
+      <div class="be-en">Don't <strong>make</strong> a mess in the kitchen!</div>
+      <div class="be-ua">Не влаштовуй безлад на кухні!</div>
+    </div>
+    <div class="big-ex-card reveal" style="--be-color:var(--red)">
+      <div class="be-cat">😬 Mistakes / Помилки</div>
+      <div class="be-en">He <strong>made</strong> things worse by lying.</div>
+      <div class="be-ua">Він погіршив ситуацію, збрехавши.</div>
+    </div>
+
+    <div class="big-ex-card reveal" style="--be-color:var(--blue)">
+      <div class="be-cat">🌟 Become / Ставати</div>
+      <div class="be-en">With practice, you'll <strong>make</strong> a great musician.</div>
+      <div class="be-ua">З практикою ти станеш чудовим музикантом.</div>
+    </div>
+    <div class="big-ex-card reveal" style="--be-color:var(--blue)">
+      <div class="be-cat">🌟 Become / Ставати</div>
+      <div class="be-en">This building would <strong>make</strong> a perfect museum.</div>
+      <div class="be-ua">Ця будівля стала б ідеальним музеєм.</div>
+    </div>
+    <div class="big-ex-card reveal" style="--be-color:var(--blue)">
+      <div class="be-cat">🌟 Become / Ставати</div>
+      <div class="be-en">He has all it takes to <strong>make</strong> a champion.</div>
+      <div class="be-ua">У нього є все необхідне, щоб стати чемпіоном.</div>
+    </div>
+
+    <div class="big-ex-card reveal" style="--be-color:var(--yellow)">
+      <div class="be-cat">🌍 Make a difference / Впливати</div>
+      <div class="be-en">Even small actions can <strong>make</strong> a big difference.</div>
+      <div class="be-ua">Навіть маленькі дії можуть справити великий вплив.</div>
+    </div>
+    <div class="big-ex-card reveal" style="--be-color:var(--yellow)">
+      <div class="be-cat">🌍 Make a difference / Впливати</div>
+      <div class="be-en">Volunteering <strong>makes</strong> a difference in people's lives.</div>
+      <div class="be-ua">Волонтерство впливає на життя людей.</div>
+    </div>
+
+    <div class="big-ex-card reveal" style="--be-color:var(--green)">
+      <div class="be-cat">🤝 Relationships / Стосунки</div>
+      <div class="be-en">It's easy to <strong>make</strong> friends if you smile. 😊</div>
+      <div class="be-ua">Легко заводити друзів, якщо посміхаєшся.</div>
+    </div>
+    <div class="big-ex-card reveal" style="--be-color:var(--green)">
+      <div class="be-cat">🤝 Relationships / Стосунки</div>
+      <div class="be-en">After the argument, they <strong>made</strong> up quickly.</div>
+      <div class="be-ua">Після сварки вони швидко помирилися.</div>
+    </div>
+    <div class="big-ex-card reveal" style="--be-color:var(--green)">
+      <div class="be-cat">🤝 Relationships / Стосунки</div>
+      <div class="be-en">She <strong>made</strong> him feel welcome immediately.</div>
+      <div class="be-ua">Вона одразу дала йому відчути себе бажаним гостем.</div>
+    </div>
+
+    <div class="big-ex-card reveal" style="--be-color:var(--orange)">
+      <div class="be-cat">🧩 Make sense / Мати сенс</div>
+      <div class="be-en">This explanation <strong>makes</strong> perfect sense.</div>
+      <div class="be-ua">Це пояснення має повний сенс.</div>
+    </div>
+    <div class="big-ex-card reveal" style="--be-color:var(--orange)">
+      <div class="be-cat">🧩 Make sense / Мати сенс</div>
+      <div class="be-en">Does this sentence <strong>make</strong> sense to you?</div>
+      <div class="be-ua">Чи зрозуміле тобі це речення?</div>
+    </div>
+
+    <div class="big-ex-card reveal" style="--be-color:var(--cyan)">
+      <div class="be-cat">🎭 Idioms / Ідіоми</div>
+      <div class="be-en">She <strong>made</strong> the most of her free time.</div>
+      <div class="be-ua">Вона максимально використала свій вільний час.</div>
+    </div>
+    <div class="big-ex-card reveal" style="--be-color:var(--cyan)">
+      <div class="be-cat">🎭 Idioms / Ідіоми</div>
+      <div class="be-en">Don't <strong>make</strong> a mountain out of a molehill.</div>
+      <div class="be-ua">Не роби з мухи слона.</div>
+    </div>
+    <div class="big-ex-card reveal" style="--be-color:var(--cyan)">
+      <div class="be-cat">🎭 Idioms / Ідіоми</div>
+      <div class="be-en">It <strong>makes</strong> my day when you smile! ☀️</div>
+      <div class="be-ua">Коли ти посміхаєшся, мій день стає кращим!</div>
+    </div>
+    <div class="big-ex-card reveal" style="--be-color:var(--cyan)">
+      <div class="be-cat">🎭 Idioms / Ідіоми</div>
+      <div class="be-en"><strong>Make</strong> yourself at home! 🏡</div>
+      <div class="be-ua">Почувайся як вдома!</div>
+    </div>
+    <div class="big-ex-card reveal" style="--be-color:var(--cyan)">
+      <div class="be-cat">🎭 Idioms / Ідіоми</div>
+      <div class="be-en">You <strong>made</strong> my day! 🌟</div>
+      <div class="be-ua">Ти зробив мій день!</div>
+    </div>
+
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ===== DO vs MAKE ===== -->
+<div class="section">
+  <h2 class="section-title">⚔️ <span>MAKE</span> vs <span style="color:var(--cyan)">DO</span><br><small style="font-size:0.4em;color:var(--muted)">Коли MAKE, а коли DO?</small></h2>
+
+  <div class="tip-box">
+    <span class="tip-icon">🎯</span>
+    <div class="tip-text">
+      <strong style="color:var(--yellow)">MAKE</strong> — зазвичай коли <strong>створюємо щось нове</strong> або <strong>щось є результатом</strong>. «Результат»!<br>
+      <strong style="color:var(--cyan)">DO</strong> — зазвичай для <strong>завдань, обов'язків, активностей</strong>. «Процес»!
+    </div>
+  </div>
+
+  <div class="vs-grid">
+    <div class="vs-card">
+      <div class="vs-word" style="color:var(--yellow)">MAKE 🏗️</div>
+      <div class="vs-ua">Результат / творення</div>
+      <div class="vs-item"><strong>make</strong> a cake, dinner, coffee</div>
+      <div class="vs-item"><strong>make</strong> a decision, plan, choice</div>
+      <div class="vs-item"><strong>make</strong> a mistake, mess, noise</div>
+      <div class="vs-item"><strong>make</strong> a phone call, speech</div>
+      <div class="vs-item"><strong>make</strong> money, a profit</div>
+      <div class="vs-item"><strong>make</strong> friends, enemies</div>
+      <div class="vs-item"><strong>make</strong> progress, an effort</div>
+      <div class="vs-item"><strong>make</strong> your bed 🛏️</div>
+    </div>
+    <div class="vs-card">
+      <div class="vs-word" style="color:var(--cyan)">DO 📋</div>
+      <div class="vs-ua">Процес / обов'язок</div>
+      <div class="vs-item"><strong>do</strong> homework, exercises</div>
+      <div class="vs-item"><strong>do</strong> the dishes, laundry, shopping</div>
+      <div class="vs-item"><strong>do</strong> your hair, makeup*</div>
+      <div class="vs-item"><strong>do</strong> business, research</div>
+      <div class="vs-item"><strong>do</strong> a job, task, work</div>
+      <div class="vs-item"><strong>do</strong> yoga, sport, exercise</div>
+      <div class="vs-item"><strong>do</strong> a favour, damage</div>
+      <div class="vs-item"><strong>do</strong> your best 💪</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ===== QUIZ ===== -->
+<div class="section" id="quiz">
+  <h2 class="section-title">🧠 <span>Quiz</span> / Тест<br><small style="font-size:0.4em;color:var(--muted)">Перевір себе!</small></h2>
+  <div class="quiz-section">
+    <div class="quiz-title">🎯 Test Your Knowledge!</div>
+
+    <div id="quiz-container"></div>
+    <div class="quiz-score" id="quiz-score" style="display:none"></div>
+    <div style="text-align:center;margin-top:20px">
+      <button id="quiz-restart" onclick="initQuiz()" style="display:none;background:linear-gradient(135deg,var(--orange),var(--yellow));color:var(--darker);border:none;padding:14px 36px;border-radius:50px;font-family:'Nunito',sans-serif;font-size:16px;font-weight:800;cursor:pointer;letter-spacing:1px;">🔄 Try Again / Спробувати ще</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer style="text-align:center;padding:60px 20px;color:var(--muted);font-size:14px;background:var(--darker);">
+  <div style="font-family:'Fredoka One',cursive;font-size:48px;color:var(--orange);margin-bottom:10px">MAKE it happen! 🚀</div>
+  <div style="font-size:18px;margin-bottom:20px;color:var(--text)">Практикуй кожен день і MAKE прогрес! 💪</div>
+  <div>Створено для початківців та підлітків · English for Everyone 🌍</div>
+</footer>
+
+<script>
+// ===== SCROLL REVEAL =====
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 50);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+revealEls.forEach(el => observer.observe(el));
+
+// ===== TOC =====
+const tocLinks = document.querySelectorAll('.toc a');
+const sections = ['hero','meanings','magic','formulas','phrasal','collocations','situations','examples','quiz'];
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && window.scrollY >= el.offsetTop - 200) current = id;
+  });
+  tocLinks.forEach((l, i) => {
+    l.classList.toggle('active', sections[i] === current);
+  });
+});
+
+// ===== QUIZ =====
+const quizData = [
+  { q: "She _____ a beautiful song. 🎵", opts: ["did", "made", "do", "make"], ans: 1, ua: "Правильно! MAKE використовується для створення" },
+  { q: "Can you _____ the homework? 📚", opts: ["make", "made", "do", "doing"], ans: 2, ua: "Правильно! DO — для завдань і обов'язків" },
+  { q: "The joke _____ everyone laugh.", opts: ["did", "made", "do", "doing"], ans: 1, ua: "Правильно! MAKE = змусити когось зробити щось" },
+  { q: "I need to _____ a phone call. 📞", opts: ["do", "did", "make", "making"], ans: 2, ua: "Правильно! make a phone call — стійкий вираз" },
+  { q: "He _____ a mistake in the test. ❌", opts: ["did", "do", "done", "made"], ans: 3, ua: "Правильно! make a mistake — зробити помилку" },
+  { q: "She _____ a lot of money last year. 💰", opts: ["did", "do", "made", "making"], ans: 2, ua: "Правильно! make money = заробляти гроші" },
+  { q: "Don't _____ noise! 🤫", opts: ["do", "make", "did", "doing"], ans: 1, ua: "Правильно! make noise = шуміти" },
+  { q: "Let's _____ up after our fight. 🤝", opts: ["do", "doing", "make", "did"], ans: 2, ua: "Правильно! make up = помиритися" },
+];
+
+let answered = 0, score = 0;
+
+function initQuiz() {
+  answered = 0; score = 0;
+  document.getElementById('quiz-score').style.display = 'none';
+  document.getElementById('quiz-restart').style.display = 'none';
+  const container = document.getElementById('quiz-container');
+  container.innerHTML = '';
+  quizData.forEach((q, qi) => {
+    const div = document.createElement('div');
+    div.className = 'quiz-q';
+    div.innerHTML = `
+      <div class="quiz-q-text">${qi+1}. ${q.q}</div>
+      <div class="quiz-opts">
+        ${q.opts.map((o,oi) => `<button class="quiz-opt" onclick="answer(this,${qi},${oi})">${o}</button>`).join('')}
+      </div>
+      <div class="quiz-feedback" id="fb${qi}"></div>
+    `;
+    container.appendChild(div);
+  });
+}
+
+function answer(btn, qi, oi) {
+  const q = quizData[qi];
+  const opts = btn.parentElement.querySelectorAll('.quiz-opt');
+  opts.forEach(o => o.disabled = true);
+  const fb = document.getElementById('fb' + qi);
+  if (oi === q.ans) {
+    btn.classList.add('correct');
+    fb.textContent = '✅ ' + q.ua;
+    fb.className = 'quiz-feedback show ok';
+    score++;
+  } else {
+    btn.classList.add('wrong');
+    opts[q.ans].classList.add('correct');
+    fb.textContent = '❌ ' + q.ua;
+    fb.className = 'quiz-feedback show nope';
+  }
+  answered++;
+  if (answered === quizData.length) {
+    const scoreEl = document.getElementById('quiz-score');
+    const pct = Math.round(score/quizData.length*100);
+    let emoji = pct === 100 ? '🏆' : pct >= 75 ? '🌟' : pct >= 50 ? '👍' : '💪';
+    scoreEl.textContent = `${emoji} ${score}/${quizData.length} — ${pct}%`;
+    scoreEl.style.display = 'block';
+    document.getElementById('quiz-restart').style.display = 'inline-block';
+  }
+}
+
+initQuiz();
+</script>
+
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+</body>
+</html>

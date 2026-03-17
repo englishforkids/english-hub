@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎵 Talking About Music in English</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --coral: #FF6B6B;
+    --yellow: #FFE66D;
+    --mint: #4ECDC4;
+    --purple: #A855F7;
+    --blue: #3B82F6;
+    --dark: #1a1a2e;
+    --soft: #F8F4FF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--dark);
+    color: #fff;
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(168,85,247,.25) 0%, transparent 70%);
+    top: -100px; right: -100px;
+    animation: pulse 4s ease-in-out infinite;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(78,205,196,.2) 0%, transparent 70%);
+    bottom: -80px; left: -80px;
+    animation: pulse 4s ease-in-out infinite 2s;
+  }
+  @keyframes pulse { 0%,100%{transform:scale(1);opacity:.8} 50%{transform:scale(1.1);opacity:1} }
+
+  .floating-notes {
+    position: absolute;
+    font-size: 2rem;
+    animation: floatNote linear infinite;
+    opacity: .4;
+  }
+  @keyframes floatNote {
+    0%   { transform: translateY(110vh) rotate(0deg); opacity: 0; }
+    10%  { opacity: .4; }
+    90%  { opacity: .4; }
+    100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+  }
+
+  .hero-badge {
+    background: linear-gradient(135deg, var(--purple), var(--mint));
+    border-radius: 50px;
+    padding: .5rem 1.5rem;
+    font-size: .9rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    position: relative; z-index: 2;
+  }
+
+  .hero h1 {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(2.5rem, 7vw, 5rem);
+    line-height: 1.1;
+    position: relative; z-index: 2;
+    background: linear-gradient(135deg, #fff 0%, var(--yellow) 50%, var(--coral) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+  }
+
+  .hero p {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: rgba(255,255,255,.75);
+    max-width: 600px;
+    position: relative; z-index: 2;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  .hero-emoji {
+    font-size: clamp(3rem, 8vw, 6rem);
+    position: relative; z-index: 2;
+    margin-bottom: 1rem;
+    animation: bounce 2s ease-in-out infinite;
+  }
+  @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-15px)} }
+
+  /* ── SCROLL HINT ── */
+  .scroll-hint {
+    position: relative; z-index: 2;
+    margin-top: 2rem;
+    font-size: .85rem;
+    color: rgba(255,255,255,.5);
+    display: flex; flex-direction: column; align-items: center; gap: .5rem;
+    animation: fadeInUp 1s 1s both;
+  }
+  .scroll-hint span { font-size: 1.5rem; animation: bounce 1.5s infinite; }
+  @keyframes fadeInUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+
+  /* ── SECTION WRAPPER ── */
+  .section {
+    padding: 5rem 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    margin-bottom: .5rem;
+    display: flex; align-items: center; gap: .75rem;
+    flex-wrap: wrap;
+  }
+
+  .section-sub {
+    color: rgba(255,255,255,.55);
+    font-size: 1rem;
+    margin-bottom: 3rem;
+    font-style: italic;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    height: 4px;
+    background: linear-gradient(90deg, var(--coral), var(--yellow), var(--mint), var(--purple));
+    border-radius: 99px;
+    margin: 0 0 2rem;
+    width: 100px;
+  }
+
+  /* ── GENRE GRID ── */
+  .genre-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  .genre-card {
+    background: rgba(255,255,255,.05);
+    border: 2px solid rgba(255,255,255,.1);
+    border-radius: 20px;
+    padding: 1.2rem 1rem;
+    text-align: center;
+    cursor: default;
+    transition: transform .25s, border-color .25s, background .25s;
+  }
+  .genre-card:hover {
+    transform: translateY(-6px) scale(1.04);
+    border-color: var(--mint);
+    background: rgba(78,205,196,.15);
+  }
+  .genre-card .icon { font-size: 2.2rem; margin-bottom: .5rem; display: block; }
+  .genre-card .en  { font-weight: 800; font-size: 1rem; color: #fff; }
+  .genre-card .uk  { font-size: .8rem; color: rgba(255,255,255,.5); margin-top: .2rem; }
+
+  /* ── PHRASE CARDS ── */
+  .phrase-group { margin-bottom: 3rem; }
+  .phrase-group h3 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    display: flex; align-items: center; gap: .5rem;
+  }
+
+  .phrase-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+
+  .phrase-card {
+    border-radius: 18px;
+    padding: 1.2rem 1.4rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform .25s;
+  }
+  .phrase-card:hover { transform: translateY(-4px); }
+  .phrase-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,.35);
+    border-radius: inherit;
+  }
+  .phrase-card * { position: relative; z-index: 1; }
+
+  .phrase-card .en-phrase {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: .3rem;
+    line-height: 1.4;
+  }
+  .phrase-card .uk-phrase {
+    font-size: .85rem;
+    color: rgba(255,255,255,.7);
+    font-style: italic;
+    margin-bottom: .6rem;
+  }
+  .phrase-card .example {
+    background: rgba(255,255,255,.15);
+    border-radius: 10px;
+    padding: .5rem .8rem;
+    font-size: .8rem;
+    line-height: 1.5;
+  }
+  .phrase-card .example strong { color: var(--yellow); display: block; margin-bottom: .1rem; }
+  .phrase-card .example em { color: rgba(255,255,255,.65); font-size: .75rem; }
+
+  /* card color variants */
+  .c-coral  { background: linear-gradient(135deg, #FF6B6B, #ee4444); }
+  .c-mint   { background: linear-gradient(135deg, #4ECDC4, #0ea5a0); }
+  .c-purple { background: linear-gradient(135deg, #A855F7, #7c3aed); }
+  .c-blue   { background: linear-gradient(135deg, #3B82F6, #1d4ed8); }
+  .c-yellow { background: linear-gradient(135deg, #F59E0B, #d97706); }
+  .c-pink   { background: linear-gradient(135deg, #EC4899, #be185d); }
+  .c-green  { background: linear-gradient(135deg, #10B981, #047857); }
+  .c-orange { background: linear-gradient(135deg, #F97316, #c2410c); }
+
+  /* ── FEELINGS WHEEL ── */
+  .feelings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: .75rem;
+    margin-bottom: 2rem;
+  }
+  .feeling-pill {
+    border-radius: 50px;
+    padding: .7rem 1rem;
+    text-align: center;
+    font-weight: 700;
+    font-size: .9rem;
+    transition: transform .2s;
+  }
+  .feeling-pill:hover { transform: scale(1.06); }
+  .feeling-pill .fen { display: block; font-size: 1rem; }
+  .feeling-pill .fuk { display: block; font-size: .75rem; opacity: .75; font-weight: 600; margin-top: .1rem; }
+
+  /* ── CONVERSATION BOX ── */
+  .convo-box {
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 24px;
+    padding: 2rem;
+    margin-bottom: 3rem;
+  }
+  .convo-box h3 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: .6rem;
+  }
+
+  .bubble-row { display: flex; gap: 1rem; margin-bottom: 1rem; align-items: flex-start; }
+  .bubble-row.right { flex-direction: row-reverse; }
+
+  .avatar {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    font-size: 1.4rem;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .av-a { background: linear-gradient(135deg, var(--coral), #ff8c42); }
+  .av-b { background: linear-gradient(135deg, var(--mint), #00b4d8); }
+
+  .bubble {
+    max-width: 70%;
+    border-radius: 18px;
+    padding: .8rem 1.1rem;
+    line-height: 1.5;
+  }
+  .bubble-row:not(.right) .bubble { background: rgba(255,255,255,.1); border-top-left-radius: 4px; }
+  .bubble-row.right          .bubble { background: linear-gradient(135deg,rgba(168,85,247,.4),rgba(59,130,246,.4)); border-top-right-radius: 4px; }
+
+  .bubble .speaker { font-size: .7rem; font-weight: 800; letter-spacing: .05em; margin-bottom: .2rem; opacity: .6; text-transform: uppercase; }
+  .bubble .buk { font-size: .78rem; color: rgba(255,255,255,.55); margin-top: .3rem; font-style: italic; }
+  .bubble .highlight { color: var(--yellow); font-weight: 800; }
+
+  /* ── ADJECTIVE TABLE ── */
+  .adj-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 3rem;
+  }
+  .adj-table th {
+    background: rgba(168,85,247,.4);
+    padding: .9rem 1.2rem;
+    font-family: 'Fredoka One', cursive;
+    font-size: 1rem;
+    text-align: left;
+    letter-spacing: .03em;
+  }
+  .adj-table td {
+    padding: .8rem 1.2rem;
+    background: rgba(255,255,255,.04);
+    border-bottom: 1px solid rgba(255,255,255,.06);
+    font-size: .9rem;
+    line-height: 1.5;
+  }
+  .adj-table tr:last-child td { border-bottom: none; }
+  .adj-table tr:hover td { background: rgba(255,255,255,.08); }
+  .adj-table td:first-child { font-weight: 800; color: var(--mint); }
+  .adj-table td:nth-child(2) { color: rgba(255,255,255,.6); font-style: italic; }
+  .adj-table td:nth-child(3) { color: rgba(255,255,255,.8); }
+
+  /* ── TIPS BOX ── */
+  .tips-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem; margin-bottom: 3rem; }
+  .tip-card {
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 20px;
+    padding: 1.4rem;
+    transition: transform .25s, border-color .25s;
+  }
+  .tip-card:hover { transform: translateY(-5px); border-color: var(--yellow); }
+  .tip-card .tip-icon { font-size: 2rem; margin-bottom: .7rem; }
+  .tip-card h4 { font-family: 'Fredoka One', cursive; font-size: 1.1rem; margin-bottom: .4rem; }
+  .tip-card p  { font-size: .85rem; color: rgba(255,255,255,.65); line-height: 1.6; }
+
+  /* ── INFOGRAPHIC BAR ── */
+  .info-bar {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+  .info-stat {
+    flex: 1;
+    min-width: 160px;
+    background: linear-gradient(135deg, rgba(255,255,255,.07), rgba(255,255,255,.02));
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 20px;
+    padding: 1.5rem;
+    text-align: center;
+  }
+  .info-stat .big { font-family: 'Fredoka One', cursive; font-size: 2.8rem; line-height: 1; }
+  .info-stat .lbl { font-size: .8rem; color: rgba(255,255,255,.55); margin-top: .4rem; line-height: 1.4; }
+
+  /* ── QUIZ ── */
+  .quiz-wrap { margin-bottom: 4rem; }
+  .quiz-q {
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 20px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .quiz-q .question { font-weight: 800; font-size: 1rem; margin-bottom: 1rem; }
+  .quiz-q .question em { color: rgba(255,255,255,.55); font-size: .85rem; font-weight: 400; }
+  .quiz-options { display: flex; flex-wrap: wrap; gap: .6rem; }
+  .qopt {
+    background: rgba(255,255,255,.08);
+    border: 2px solid rgba(255,255,255,.15);
+    border-radius: 50px;
+    padding: .45rem 1.1rem;
+    cursor: pointer;
+    font-size: .9rem;
+    transition: all .2s;
+    font-weight: 600;
+    color: #fff;
+  }
+  .qopt:hover { background: rgba(255,255,255,.15); border-color: rgba(255,255,255,.4); }
+  .qopt.correct { background: rgba(16,185,129,.3); border-color: #10B981; color: #6ee7b7; }
+  .qopt.wrong   { background: rgba(239,68,68,.3);  border-color: #ef4444; color: #fca5a5; }
+  .quiz-feedback { font-size: .85rem; margin-top: .6rem; min-height: 1.2em; font-weight: 700; }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center;
+    padding: 3rem 1.5rem;
+    background: rgba(0,0,0,.3);
+    font-size: .85rem;
+    color: rgba(255,255,255,.4);
+  }
+  footer span { color: var(--coral); }
+
+  /* ── SCROLL TO TOP ── */
+  #scroll-top-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #1a1208;
+    border: 1.5px solid rgba(200,150,62,0.4);
+    color: #f5f0e8;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+    pointer-events: none;
+    z-index: 9998;
+  }
+  #scroll-top-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  #scroll-top-btn:hover {
+    background: #c8963e;
+    border-color: #c8963e;
+    color: #1a1208;
+  }
+
+  /* ── RESPONSIVE ── */
+  /* ── TABLE SCROLL WRAPPER ── */
+  .table-scroll {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 16px;
+    margin-bottom: 3rem;
+  }
+  .table-scroll .adj-table { margin-bottom: 0; min-width: 560px; }
+
+  /* ── TABLET ── */
+  @media(max-width: 768px) {
+    .section { padding: 3rem 1rem; }
+
+    .info-bar { gap: .6rem; }
+    .info-stat { min-width: 130px; padding: 1rem; }
+    .info-stat .big { font-size: 2.2rem; }
+
+    .genre-grid { grid-template-columns: repeat(3, 1fr); gap: .7rem; }
+    .genre-card { padding: .9rem .6rem; }
+    .genre-card .icon { font-size: 1.8rem; }
+    .genre-card .en   { font-size: .85rem; }
+
+    .phrase-list { grid-template-columns: 1fr; }
+
+    .feelings-grid { grid-template-columns: repeat(2, 1fr); }
+
+    .tips-grid { grid-template-columns: 1fr 1fr; }
+
+    .bubble { max-width: 80%; }
+
+    .section-title { font-size: clamp(1.4rem, 4vw, 2rem); }
+  }
+
+  /* ── MOBILE ── */
+  @media(max-width: 480px) {
+    .hero { padding: 1.5rem 1rem; min-height: auto; padding-top: 4rem; padding-bottom: 3rem; }
+    .hero-badge { font-size: .75rem; padding: .4rem 1rem; }
+
+    .section { padding: 2.5rem .9rem; }
+
+    .genre-grid { grid-template-columns: repeat(3, 1fr); gap: .5rem; }
+    .genre-card { padding: .7rem .4rem; border-radius: 14px; }
+    .genre-card .icon { font-size: 1.5rem; }
+    .genre-card .en   { font-size: .75rem; }
+    .genre-card .uk   { font-size: .65rem; }
+
+    .phrase-card { border-radius: 14px; padding: 1rem 1.1rem; }
+    .phrase-card .en-phrase { font-size: .95rem; }
+
+    .feelings-grid { grid-template-columns: repeat(2, 1fr); gap: .5rem; }
+    .feeling-pill { padding: .55rem .7rem; border-radius: 40px; }
+    .feeling-pill .fen { font-size: .85rem; }
+    .feeling-pill .fuk { font-size: .7rem; }
+
+    .convo-box { padding: 1.2rem 1rem; border-radius: 18px; }
+    .bubble { max-width: 88%; font-size: .9rem; }
+    .bubble-row { gap: .6rem; }
+    .avatar { width: 36px; height: 36px; font-size: 1.1rem; }
+
+    .tips-grid { grid-template-columns: 1fr; }
+    .tip-card { padding: 1.1rem; }
+
+    .info-bar { flex-direction: row; flex-wrap: wrap; }
+    .info-stat { min-width: calc(50% - .4rem); flex: none; padding: .9rem .7rem; }
+    .info-stat .big { font-size: 2rem; }
+    .info-stat .lbl { font-size: .75rem; }
+
+    .quiz-q { padding: 1.1rem; }
+    .qopt { font-size: .82rem; padding: .4rem .9rem; }
+
+    .adj-table th, .adj-table td { padding: .7rem .8rem; font-size: .82rem; }
+
+    .divider { margin-bottom: 1.2rem; }
+    .section-sub { font-size: .88rem; margin-bottom: 2rem; }
+
+    #scroll-top-btn { bottom: 16px; right: 16px; width: 40px; height: 40px; font-size: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Floating notes -->
+<script>
+  const notes = ['🎵','🎶','🎸','🎹','🎷','🥁','🎺','🪗'];
+  for(let i=0;i<14;i++){
+    const n = document.createElement('div');
+    n.className = 'floating-notes';
+    n.textContent = notes[Math.floor(Math.random()*notes.length)];
+    n.style.left = Math.random()*100+'vw';
+    n.style.animationDuration = (8+Math.random()*10)+'s';
+    n.style.animationDelay    = (Math.random()*12)+'s';
+    n.style.fontSize           = (1.2+Math.random()*1.5)+'rem';
+    document.body.appendChild(n);
+  }
+</script>
+
+<!-- ════════════ HERO ════════════ -->
+<section class="hero">
+  <div class="hero-badge">🇬🇧 English for Music Lovers 🎶</div>
+  <div class="hero-emoji">🎵</div>
+  <h1>Talking About<br>Music in English</h1>
+  <p>
+    Learn how to describe songs, artists, and your feelings about music in English!<br>
+    <span style="color:rgba(255,255,255,.45);font-size:.9em">Навчись розповідати про музику та пісні англійською!</span>
+  </p>
+  <div class="scroll-hint">Scroll down to start learning <span>↓</span></div>
+</section>
+
+<!-- ════════════ STAT BAR ════════════ -->
+<div style="background:rgba(255,255,255,.03);padding:2rem 1.5rem;">
+  <div class="info-bar" style="max-width:1100px;margin:0 auto;">
+    <div class="info-stat">
+      <div class="big" style="color:var(--coral)">50+</div>
+      <div class="lbl">Useful phrases<br><em style="font-style:normal">Корисних фраз</em></div>
+    </div>
+    <div class="info-stat">
+      <div class="big" style="color:var(--mint)">15+</div>
+      <div class="lbl">Music genres<br><em style="font-style:normal">Музичних жанрів</em></div>
+    </div>
+    <div class="info-stat">
+      <div class="big" style="color:var(--yellow)">🎤</div>
+      <div class="lbl">Real conversations<br><em style="font-style:normal">Справжні діалоги</em></div>
+    </div>
+    <div class="info-stat">
+      <div class="big" style="color:var(--purple)">✅</div>
+      <div class="lbl">Mini quiz included<br><em style="font-style:normal">Міні-тест всередині</em></div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ 1. GENRES ════════════ -->
+<div style="background:linear-gradient(180deg,rgba(168,85,247,.05) 0%,transparent 100%);">
+<section class="section">
+  <div class="section-title" style="color:var(--purple)">🎸 Music Genres <span style="color:rgba(255,255,255,.35);font-size:.6em">Музичні жанри</span></div>
+  <div class="divider"></div>
+  <p class="section-sub">How to say the genre you like / Як назвати жанр, який тобі подобається</p>
+
+  <div class="genre-grid">
+    <div class="genre-card"><span class="icon">🎸</span><div class="en">Rock</div><div class="uk">Рок</div></div>
+    <div class="genre-card"><span class="icon">🎤</span><div class="en">Pop</div><div class="uk">Поп</div></div>
+    <div class="genre-card"><span class="icon">🎹</span><div class="en">Classical</div><div class="uk">Класична</div></div>
+    <div class="genre-card"><span class="icon">🎷</span><div class="en">Jazz</div><div class="uk">Джаз</div></div>
+    <div class="genre-card"><span class="icon">🔊</span><div class="en">Hip-Hop</div><div class="uk">Хіп-хоп</div></div>
+    <div class="genre-card"><span class="icon">🌍</span><div class="en">R&B / Soul</div><div class="uk">Ар-ен-бі</div></div>
+    <div class="genre-card"><span class="icon">🤘</span><div class="en">Metal</div><div class="uk">Метал</div></div>
+    <div class="genre-card"><span class="icon">🎻</span><div class="en">Folk</div><div class="uk">Фолк</div></div>
+    <div class="genre-card"><span class="icon">💃</span><div class="en">Dance / EDM</div><div class="uk">Танцювальна</div></div>
+    <div class="genre-card"><span class="icon">🌟</span><div class="en">K-Pop</div><div class="uk">Кей-поп</div></div>
+    <div class="genre-card"><span class="icon">🎶</span><div class="en">Country</div><div class="uk">Кантрі</div></div>
+    <div class="genre-card"><span class="icon">🌙</span><div class="en">Indie</div><div class="uk">Інді</div></div>
+    <div class="genre-card"><span class="icon">🎺</span><div class="en">Blues</div><div class="uk">Блюз</div></div>
+    <div class="genre-card"><span class="icon">🪗</span><div class="en">Reggae</div><div class="uk">Реґе</div></div>
+    <div class="genre-card"><span class="icon">🎧</span><div class="en">Electronic</div><div class="uk">Електронна</div></div>
+  </div>
+
+  <div class="convo-box" style="background:rgba(168,85,247,.1);border-color:rgba(168,85,247,.3);">
+    <h3>💬 How to talk about genres / Як говорити про жанри</h3>
+    <div class="phrase-list">
+      <div class="phrase-card c-purple">
+        <div class="en-phrase">I love <span style="color:var(--yellow)">pop</span> music.</div>
+        <div class="uk-phrase">Я люблю поп-музику.</div>
+        <div class="example"><strong>💡 More examples:</strong> I love <em>rock / jazz / hip-hop</em> music.</div>
+      </div>
+      <div class="phrase-card c-mint">
+        <div class="en-phrase">My favourite genre is <span style="color:var(--yellow)">indie</span>.</div>
+        <div class="uk-phrase">Мій улюблений жанр — інді.</div>
+        <div class="example"><strong>💡 Try:</strong> My favourite genre is <em>classical / R&B / metal</em>.</div>
+      </div>
+      <div class="phrase-card c-blue">
+        <div class="en-phrase">I'm really into <span style="color:var(--yellow)">K-Pop</span> right now.</div>
+        <div class="uk-phrase">Я зараз дуже захоплений(а) кей-попом.</div>
+        <div class="example"><strong>💡 "I'm into"</strong> = I'm a big fan of (я фанат)</div>
+      </div>
+      <div class="phrase-card c-coral">
+        <div class="en-phrase">I'm not really a fan of <span style="color:var(--yellow)">metal</span>.</div>
+        <div class="uk-phrase">Я не дуже фанат металу.</div>
+        <div class="example"><strong>💡 Ввічлива відмова:</strong> "not really a fan" = м'яке "не подобається"</div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ════════════ 2. ADJECTIVES ════════════ -->
+<section class="section">
+  <div class="section-title" style="color:var(--mint)">✨ Describing Music <span style="color:rgba(255,255,255,.35);font-size:.6em">Як описати музику</span></div>
+  <div class="divider" style="background:linear-gradient(90deg,var(--mint),var(--blue))"></div>
+  <p class="section-sub">Powerful adjectives to describe any song / Потужні прикметники для будь-якої пісні</p>
+
+  <div class="table-scroll">
+  <table class="adj-table">
+    <thead>
+      <tr>
+        <th>English word 🇬🇧</th>
+        <th>Українською 🇺🇦</th>
+        <th>Example sentence / Приклад</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>catchy</td><td>чіпляюча, що застряє в голові</td><td>This song is so <strong>catchy</strong> — I can't stop singing it!</td></tr>
+      <tr><td>upbeat</td><td>весела, енергійна</td><td>I need an <strong>upbeat</strong> song to wake me up in the morning.</td></tr>
+      <tr><td>relaxing</td><td>розслаблювальна</td><td>This is so <strong>relaxing</strong> — perfect for studying.</td></tr>
+      <tr><td>emotional / moving</td><td>зворушлива, емоційна</td><td>The lyrics are really <strong>moving</strong> — I almost cried.</td></tr>
+      <tr><td>powerful</td><td>потужна, сильна</td><td>Her voice is incredibly <strong>powerful</strong>.</td></tr>
+      <tr><td>soothing</td><td>заспокійлива</td><td>Jazz is very <strong>soothing</strong> after a hard day.</td></tr>
+      <tr><td>energetic</td><td>енергійна</td><td>This track is so <strong>energetic</strong> — great for working out!</td></tr>
+      <tr><td>haunting</td><td>така, що переслідує / незабутня</td><td>The melody is <strong>haunting</strong> — I keep thinking about it.</td></tr>
+      <tr><td>cheerful</td><td>радісна, весела</td><td>It's a really <strong>cheerful</strong> tune — it made me smile.</td></tr>
+      <tr><td>melancholic / sad</td><td>сумна, меланхолійна</td><td>The song is quite <strong>melancholic</strong>, but beautiful.</td></tr>
+      <tr><td>fast-paced / slow</td><td>швидкий / повільний темп</td><td>I prefer <strong>slow</strong> songs in the evening.</td></tr>
+      <tr><td>epic</td><td>епічна</td><td>That guitar solo was absolutely <strong>epic</strong>!</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<!-- ════════════ 3. HOW YOU FEEL ════════════ -->
+<div style="background:linear-gradient(180deg,rgba(59,130,246,.07) 0%,transparent 100%);">
+<section class="section">
+  <div class="section-title" style="color:var(--blue)">❤️ How the Music Makes You Feel <span style="color:rgba(255,255,255,.35);font-size:.6em">Що відчуваєш від музики</span></div>
+  <div class="divider" style="background:linear-gradient(90deg,var(--blue),var(--coral))"></div>
+  <p class="section-sub">Tell others how a song makes you feel / Розкажи, які почуття викликає пісня</p>
+
+  <div class="feelings-grid">
+    <div class="feeling-pill" style="background:rgba(239,68,68,.25);border:2px solid rgba(239,68,68,.5)"><span class="fen">😢 Sad</span><span class="fuk">Сумно</span></div>
+    <div class="feeling-pill" style="background:rgba(245,158,11,.25);border:2px solid rgba(245,158,11,.5)"><span class="fen">😊 Happy</span><span class="fuk">Радісно</span></div>
+    <div class="feeling-pill" style="background:rgba(16,185,129,.25);border:2px solid rgba(16,185,129,.5)"><span class="fen">😌 Calm</span><span class="fuk">Спокійно</span></div>
+    <div class="feeling-pill" style="background:rgba(168,85,247,.25);border:2px solid rgba(168,85,247,.5)"><span class="fen">😤 Excited</span><span class="fuk">Збуджено</span></div>
+    <div class="feeling-pill" style="background:rgba(236,72,153,.25);border:2px solid rgba(236,72,153,.5)"><span class="fen">😍 Inspired</span><span class="fuk">Натхненно</span></div>
+    <div class="feeling-pill" style="background:rgba(59,130,246,.25);border:2px solid rgba(59,130,246,.5)"><span class="fen">🥺 Nostalgic</span><span class="fuk">Ностальгія</span></div>
+    <div class="feeling-pill" style="background:rgba(249,115,22,.25);border:2px solid rgba(249,115,22,.5)"><span class="fen">🔥 Pumped up</span><span class="fuk">На підйомі</span></div>
+    <div class="feeling-pill" style="background:rgba(20,184,166,.25);border:2px solid rgba(20,184,166,.5)"><span class="fen">😴 Sleepy</span><span class="fuk">Хочеться спати</span></div>
+  </div>
+
+  <div class="phrase-group">
+    <h3>🗣️ Useful feeling phrases / Корисні фрази про почуття</h3>
+    <div class="phrase-list">
+      <div class="phrase-card c-blue">
+        <div class="en-phrase">This song makes me feel <span style="color:var(--yellow)">happy</span>.</div>
+        <div class="uk-phrase">Ця пісня робить мене щасливим(ою).</div>
+        <div class="example"><strong>Structure:</strong> This song makes me feel + [adjective]<br><em>Замінюй прикметник на будь-який!</em></div>
+      </div>
+      <div class="phrase-card c-coral">
+        <div class="en-phrase">It gives me <span style="color:var(--yellow)">chills</span>.</div>
+        <div class="uk-phrase">У мене мурашки по шкірі від неї.</div>
+        <div class="example"><strong>💡 "Chills"</strong> = мурашки (від захвату або страху)</div>
+      </div>
+      <div class="phrase-card c-mint">
+        <div class="en-phrase">It always cheers me up.</div>
+        <div class="uk-phrase">Вона завжди піднімає мені настрій.</div>
+        <div class="example"><strong>💡 "Cheer up"</strong> = підняти настрій</div>
+      </div>
+      <div class="phrase-card c-purple">
+        <div class="en-phrase">This song brings back <span style="color:var(--yellow)">memories</span>.</div>
+        <div class="uk-phrase">Ця пісня повертає спогади.</div>
+        <div class="example"><strong>💡</strong> Говориш про ностальгію? Використай цю фразу!</div>
+      </div>
+      <div class="phrase-card c-pink">
+        <div class="en-phrase">I always cry when I hear this song.</div>
+        <div class="uk-phrase">Я завжди плачу, коли чую цю пісню.</div>
+        <div class="example"><strong>💡</strong> Для дуже зворушливих пісень!</div>
+      </div>
+      <div class="phrase-card c-orange">
+        <div class="en-phrase">It pumps me up / gets me going.</div>
+        <div class="uk-phrase">Вона заряджає мене енергією.</div>
+        <div class="example"><strong>💡</strong> Ідеально для тренувальних плейлистів!</div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ════════════ 4. TALKING ABOUT SONGS & ARTISTS ════════════ -->
+<section class="section">
+  <div class="section-title" style="color:var(--yellow)">🎤 Talking About Songs & Artists <span style="color:rgba(255,255,255,.35);font-size:.6em">Про пісні та артистів</span></div>
+  <div class="divider" style="background:linear-gradient(90deg,var(--yellow),var(--orange,#f97316))"></div>
+  <p class="section-sub">Essential phrases for any music conversation / Базові фрази для будь-якої розмови про музику</p>
+
+  <div class="phrase-group">
+    <h3>🎵 Asking & Recommending / Питати та рекомендувати</h3>
+    <div class="phrase-list">
+      <div class="phrase-card c-yellow">
+        <div class="en-phrase">Have you heard of <span style="color:#1a1a2e">[artist name]</span>?</div>
+        <div class="uk-phrase">Ти чув(ла) про [ім'я артиста]?</div>
+        <div class="example" style="color:#1a1a2e;background:rgba(0,0,0,.15)"><strong style="color:#1a1a2e">💡 Example:</strong> Have you heard of Billie Eilish?<br><em style="color:rgba(0,0,0,.6)">Ти чув(ла) про Біллі Айліш?</em></div>
+      </div>
+      <div class="phrase-card c-green">
+        <div class="en-phrase">You should check out <span style="color:var(--yellow)">[song/artist]</span>!</div>
+        <div class="uk-phrase">Тобі варто послухати [пісню/артиста]!</div>
+        <div class="example"><strong>💡 "Check out"</strong> = ознайомитись, послухати</div>
+      </div>
+      <div class="phrase-card c-mint">
+        <div class="en-phrase">What kind of music do you listen to?</div>
+        <div class="uk-phrase">Яку музику ти слухаєш?</div>
+        <div class="example"><strong>💡</strong> Відмінне питання, щоб розпочати розмову!</div>
+      </div>
+      <div class="phrase-card c-blue">
+        <div class="en-phrase">Who is your favourite artist / band?</div>
+        <div class="uk-phrase">Хто твій улюблений виконавець / гурт?</div>
+        <div class="example"><strong>💡 Artist</strong> = виконавець; <strong>Band</strong> = гурт</div>
+      </div>
+      <div class="phrase-card c-coral">
+        <div class="en-phrase">What's your favourite song at the moment?</div>
+        <div class="uk-phrase">Яка зараз твоя улюблена пісня?</div>
+        <div class="example"><strong>💡 "At the moment"</strong> = зараз, на даний момент</div>
+      </div>
+      <div class="phrase-card c-purple">
+        <div class="en-phrase">I think you'd really like this.</div>
+        <div class="uk-phrase">Думаю, тобі це дуже сподобається.</div>
+        <div class="example"><strong>💡</strong> Рекомендуй музику другу!</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="phrase-group">
+    <h3>⭐ Giving Your Opinion / Висловлювати думку</h3>
+    <div class="phrase-list">
+      <div class="phrase-card c-mint">
+        <div class="en-phrase">This song is absolutely <span style="color:var(--yellow)">amazing</span>!</div>
+        <div class="uk-phrase">Ця пісня просто неймовірна!</div>
+        <div class="example"><strong>Strong words:</strong> amazing · incredible · brilliant · fantastic</div>
+      </div>
+      <div class="phrase-card c-blue">
+        <div class="en-phrase">I'm obsessed with this song right now.</div>
+        <div class="uk-phrase">Я зараз одержимий(а) цією піснею.</div>
+        <div class="example"><strong>💡 "Obsessed with"</strong> = не можеш думати ні про що інше</div>
+      </div>
+      <div class="phrase-card c-orange">
+        <div class="en-phrase">It's not really my thing.</div>
+        <div class="uk-phrase">Це не зовсім моє.</div>
+        <div class="example"><strong>💡</strong> Ввічливо сказати, що не подобається. <em>"not my thing" = не моє</em></div>
+      </div>
+      <div class="phrase-card c-pink">
+        <div class="en-phrase">I can't get this song out of my head!</div>
+        <div class="uk-phrase">Ця пісня застрягла в мене в голові!</div>
+        <div class="example"><strong>💡 Earworm!</strong> = пісня, яка "застряє" — earworm (дослівно: вухо-хробак)</div>
+      </div>
+      <div class="phrase-card c-coral">
+        <div class="en-phrase">The lyrics are really <span style="color:var(--yellow)">deep / meaningful</span>.</div>
+        <div class="uk-phrase">Слова пісні дуже глибокі / змістовні.</div>
+        <div class="example"><strong>Lyrics</strong> = слова пісні; <strong>deep</strong> = глибокі за змістом</div>
+      </div>
+      <div class="phrase-card c-purple">
+        <div class="en-phrase">The beat / melody is so good.</div>
+        <div class="uk-phrase">Ритм / мелодія просто чудова.</div>
+        <div class="example"><strong>Beat</strong> = ритм; <strong>Melody</strong> = мелодія; <strong>Tune</strong> = мотив</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ 5. VOCABULARY ════════════ -->
+<div style="background:linear-gradient(180deg,rgba(16,185,129,.07) 0%,transparent 100%);">
+<section class="section">
+  <div class="section-title" style="color:#10B981">📖 Music Vocabulary <span style="color:rgba(255,255,255,.35);font-size:.6em">Музичний словник</span></div>
+  <div class="divider" style="background:linear-gradient(90deg,#10B981,var(--mint))"></div>
+  <p class="section-sub">Key words to sound like a music pro / Ключові слова, щоб говорити як профі</p>
+
+  <div class="table-scroll">
+  <table class="adj-table">
+    <thead>
+      <tr>
+        <th>Word 🇬🇧</th>
+        <th>Українська 🇺🇦</th>
+        <th>Example / Приклад</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>lyrics</td><td>слова / текст пісні</td><td>The <strong>lyrics</strong> of this song are so relatable.</td></tr>
+      <tr><td>chorus</td><td>приспів</td><td>The <strong>chorus</strong> is the catchiest part.</td></tr>
+      <tr><td>verse</td><td>куплет</td><td>The first <strong>verse</strong> tells a story.</td></tr>
+      <tr><td>beat / rhythm</td><td>ритм, бит</td><td>I love the <strong>beat</strong> — it makes me want to dance.</td></tr>
+      <tr><td>melody / tune</td><td>мелодія, мотив</td><td>I keep humming this <strong>melody</strong> all day.</td></tr>
+      <tr><td>album</td><td>альбом</td><td>Have you heard her new <strong>album</strong>?</td></tr>
+      <tr><td>track / single</td><td>трек / сингл</td><td>This is the best <strong>track</strong> on the album.</td></tr>
+      <tr><td>music video / MV</td><td>музичне відео</td><td>The <strong>music video</strong> is amazing!</td></tr>
+      <tr><td>live performance</td><td>живий виступ</td><td>Their <strong>live performance</strong> was breathtaking.</td></tr>
+      <tr><td>playlist</td><td>плейлист</td><td>Can you share your study <strong>playlist</strong>?</td></tr>
+      <tr><td>vibe</td><td>атмосфера, настрій (розм.)</td><td>This song has such a good <strong>vibe</strong>.</td></tr>
+      <tr><td>bop / banger</td><td>крутяк (сленг)</td><td>That song is a total <strong>bop</strong>! / absolute <strong>banger</strong>!</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+</div>
+
+<!-- ════════════ 6. DIALOGUE ════════════ -->
+<section class="section">
+  <div class="section-title" style="color:var(--coral)">💬 Real Conversations <span style="color:rgba(255,255,255,.35);font-size:.6em">Реальні діалоги</span></div>
+  <div class="divider" style="background:linear-gradient(90deg,var(--coral),var(--pink,#ec4899))"></div>
+  <p class="section-sub">See how these phrases work in real dialogues / Як ці фрази звучать у реальних розмовах</p>
+
+  <!-- Dialogue 1 -->
+  <div class="convo-box">
+    <h3>🎧 Dialogue 1 — Recommending a song / Рекомендуєш пісню</h3>
+
+    <div class="bubble-row">
+      <div class="avatar av-a">😊</div>
+      <div class="bubble">
+        <div class="speaker">Alex</div>
+        <span class="highlight">Have you heard of</span> Taylor Swift?
+        <div class="buk">Ти чув(ла) про Тейлор Свіфт?</div>
+      </div>
+    </div>
+    <div class="bubble-row right">
+      <div class="avatar av-b">🙂</div>
+      <div class="bubble">
+        <div class="speaker">Sam</div>
+        Of course! I <span class="highlight">love her music</span>. I'm <span class="highlight">obsessed with</span> her latest album!
+        <div class="buk">Звісно! Я обожнюю її музику. Я одержима її останнім альбомом!</div>
+      </div>
+    </div>
+    <div class="bubble-row">
+      <div class="avatar av-a">😊</div>
+      <div class="bubble">
+        <div class="speaker">Alex</div>
+        Yes! The <span class="highlight">lyrics are so deep</span>. And the melody is really <span class="highlight">catchy</span>.
+        <div class="buk">Так! Слова такі глибокі. І мелодія дуже чіпляюча.</div>
+      </div>
+    </div>
+    <div class="bubble-row right">
+      <div class="avatar av-b">🙂</div>
+      <div class="bubble">
+        <div class="speaker">Sam</div>
+        Totally! It always <span class="highlight">cheers me up</span> when I'm sad. <span class="highlight">I can't get it out of my head!</span>
+        <div class="buk">Точно! Вона завжди піднімає мені настрій, коли мені сумно. Не можу вийняти її з голови!</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dialogue 2 -->
+  <div class="convo-box">
+    <h3>🎸 Dialogue 2 — Different tastes / Різні смаки</h3>
+
+    <div class="bubble-row">
+      <div class="avatar av-b">🙂</div>
+      <div class="bubble">
+        <div class="speaker">Sam</div>
+        <span class="highlight">What kind of music do you listen to?</span>
+        <div class="buk">Яку музику ти слухаєш?</div>
+      </div>
+    </div>
+    <div class="bubble-row right">
+      <div class="avatar av-a">😊</div>
+      <div class="bubble">
+        <div class="speaker">Alex</div>
+        <span class="highlight">I'm really into</span> rock and indie. <span class="highlight">My favourite genre is</span> alternative rock.
+        <div class="buk">Я дуже захоплений роком та інді. Мій улюблений жанр — альтернативний рок.</div>
+      </div>
+    </div>
+    <div class="bubble-row">
+      <div class="avatar av-b">🙂</div>
+      <div class="bubble">
+        <div class="speaker">Sam</div>
+        Oh, interesting! <span class="highlight">I'm not really a fan of</span> rock — <span class="highlight">it's not my thing</span>. But I love pop and R&B.
+        <div class="buk">О, цікаво! Я не дуже фанат року — це не моє. Але я люблю поп і R&B.</div>
+      </div>
+    </div>
+    <div class="bubble-row right">
+      <div class="avatar av-a">😊</div>
+      <div class="bubble">
+        <div class="speaker">Alex</div>
+        Fair enough! <span class="highlight">You should check out</span> Coldplay though — they're <span class="highlight">amazing</span> and not too heavy.
+        <div class="buk">Зрозуміло! Але тобі варто послухати Coldplay — вони неймовірні і не надто важкі.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ 7. TIPS ════════════ -->
+<div style="background:linear-gradient(180deg,rgba(245,158,11,.07) 0%,transparent 100%);">
+<section class="section">
+  <div class="section-title" style="color:var(--yellow)">💡 Pro Tips <span style="color:rgba(255,255,255,.35);font-size:.6em">Корисні поради</span></div>
+  <div class="divider" style="background:linear-gradient(90deg,var(--yellow),var(--coral))"></div>
+  <p class="section-sub">How to sound natural when talking about music / Як звучати природно</p>
+  <div class="tips-grid">
+    <div class="tip-card">
+      <div class="tip-icon">🔁</div>
+      <h4>Use "I'm into" not "I like"</h4>
+      <p>Say <em>"I'm really into jazz"</em> instead of <em>"I like jazz"</em> — it sounds much more natural and expressive.<br><span style="color:rgba(255,255,255,.4)">"I'm into" звучить природніше, ніж просто "I like".</span></p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🎯</div>
+      <h4>Be specific!</h4>
+      <p>Don't just say "good". Use: <em>catchy, emotional, powerful, relaxing</em>.<br><span style="color:rgba(255,255,255,.4)">Не кажи просто "добра" — використовуй точні прикметники!</span></p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">😄</div>
+      <h4>Learn slang words</h4>
+      <p><em>"That's a banger!"</em>, <em>"It's a total bop!"</em>, <em>"It slaps!"</em> — all mean the song is great!<br><span style="color:rgba(255,255,255,.4)">"It slaps" = це крутяк (сучасний сленг)</span></p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🎧</div>
+      <h4>Listen with lyrics</h4>
+      <p>Search for "[song name] lyrics" on YouTube — read along while you listen to learn naturally.<br><span style="color:rgba(255,255,255,.4)">Шукай "[назва пісні] lyrics" на YouTube!</span></p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🤝</div>
+      <h4>Disagree politely</h4>
+      <p><em>"It's not really my thing"</em> or <em>"I'm not a huge fan"</em> — kind ways to say you don't like something.<br><span style="color:rgba(255,255,255,.4)">Ввічливо відмовляйся — це важлива навичка!</span></p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🌍</div>
+      <h4>Music = Culture</h4>
+      <p>Ask native speakers about their favourite music — it's a great way to make friends and practise English!<br><span style="color:rgba(255,255,255,.4)">Музика — найкращий спосіб знайти спільну мову!</span></p>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ════════════ 8. QUIZ ════════════ -->
+<section class="section">
+  <div class="section-title" style="color:var(--purple)">🧠 Mini Quiz <span style="color:rgba(255,255,255,.35);font-size:.6em">Міні-тест</span></div>
+  <div class="divider"></div>
+  <p class="section-sub">Test what you've learned! / Перевір, що ти засвоїв(ла)!</p>
+
+  <div class="quiz-wrap" id="quiz"></div>
+</section>
+
+<!-- ════════════ FOOTER ════════════ -->
+<footer>
+  <div style="font-size:2rem;margin-bottom:.8rem">🎵🎶🎸🎹</div>
+  <p>Made with <span>♥</span> for music learners everywhere</p>
+  <p style="margin-top:.4rem">Keep listening, keep learning! 🚀</p>
+</footer>
+
+<script>
+/* ── QUIZ ── */
+const questions = [
+  {
+    q: "How do you say that a song is stuck in your head?",
+    uk: "Як сказати, що пісня застрягла в голові?",
+    opts: [
+      "I can't get this song out of my head!",
+      "This song is very bad.",
+      "I forget this song.",
+      "The song is old."
+    ],
+    correct: 0
+  },
+  {
+    q: "Which word means a song that's very easy to remember and sing?",
+    uk: "Яке слово означає пісню, яка дуже легко запам'ятовується?",
+    opts: ["Boring", "Catchy", "Loud", "Short"],
+    correct: 1
+  },
+  {
+    q: "How do you politely say you don't like a genre?",
+    uk: "Як ввічливо сказати, що жанр тобі не подобається?",
+    opts: [
+      "I hate it!",
+      "It's not really my thing.",
+      "This is terrible music.",
+      "I never listen to music."
+    ],
+    correct: 1
+  },
+  {
+    q: "What does 'lyrics' mean?",
+    uk: "Що означає слово 'lyrics'?",
+    opts: ["Rhythm / Ритм", "Music video / Відео", "Words of a song / Слова пісні", "Album cover / Обкладинка"],
+    correct: 2
+  },
+  {
+    q: "Complete: 'I'm really ___ K-Pop right now.'",
+    uk: "Вибери правильний варіант: 'I'm really ___ K-Pop right now.'",
+    opts: ["at", "into", "of", "by"],
+    correct: 1
+  },
+  {
+    q: "What does 'It gives me chills' mean?",
+    uk: "Що означає 'It gives me chills'?",
+    opts: [
+      "The song is cold / Пісня холодна",
+      "I feel goosebumps / У мене мурашки",
+      "I feel tired / Я втомлений",
+      "The song is boring / Пісня нудна"
+    ],
+    correct: 1
+  }
+];
+
+const qWrap = document.getElementById('quiz');
+let score = 0;
+
+questions.forEach((item, i) => {
+  const div = document.createElement('div');
+  div.className = 'quiz-q';
+  div.innerHTML = `
+    <div class="question">
+      <span style="color:var(--mint);font-size:1.1rem">${i+1}.</span> ${item.q}<br>
+      <em>${item.uk}</em>
+    </div>
+    <div class="quiz-options" id="opts-${i}">
+      ${item.opts.map((o,j)=>`<button class="qopt" onclick="answer(${i},${j},${item.correct},this)">${o}</button>`).join('')}
+    </div>
+    <div class="quiz-feedback" id="fb-${i}"></div>
+  `;
+  qWrap.appendChild(div);
+});
+
+// Score card
+const scoreCard = document.createElement('div');
+scoreCard.id = 'score-card';
+scoreCard.style.cssText = `
+  display:none; background:linear-gradient(135deg,rgba(168,85,247,.3),rgba(59,130,246,.3));
+  border:2px solid rgba(168,85,247,.5); border-radius:24px; padding:2rem; text-align:center; margin-top:1.5rem;
+`;
+qWrap.appendChild(scoreCard);
+
+const answered = new Array(questions.length).fill(false);
+
+window.answer = function(qi, chosen, correct, btn) {
+  if (answered[qi]) return;
+  answered[qi] = true;
+  if (chosen === correct) score++;
+
+  const opts = document.querySelectorAll(`#opts-${qi} .qopt`);
+  opts.forEach((b, j) => {
+    b.style.pointerEvents = 'none';
+    if (j === correct) b.classList.add('correct');
+    else if (j === chosen && chosen !== correct) b.classList.add('wrong');
+  });
+
+  const fb = document.getElementById(`fb-${qi}`);
+  if (chosen === correct) {
+    fb.textContent = '✅ Correct! Правильно!';
+    fb.style.color = '#6ee7b7';
+  } else {
+    fb.textContent = `❌ Not quite. The answer is: "${questions[qi].opts[correct]}"`;
+    fb.style.color = '#fca5a5';
+  }
+
+  if (answered.every(Boolean)) {
+    const pct = Math.round(score/questions.length*100);
+    let msg = pct === 100 ? '🏆 Perfect! Відмінно!' :
+              pct >= 70  ? '🎉 Great job! Молодець!' :
+              pct >= 50  ? '👍 Good effort! Непогано!' :
+                           '📚 Keep practising! Продовжуй вчитися!';
+    scoreCard.style.display = 'block';
+    scoreCard.innerHTML = `
+      <div style="font-family:'Fredoka One',cursive;font-size:3rem;color:var(--yellow);margin-bottom:.5rem">${score}/${questions.length}</div>
+      <div style="font-size:1.5rem;margin-bottom:.5rem">${msg}</div>
+      <div style="color:rgba(255,255,255,.55);font-size:.9rem">Score: ${pct}%</div>
+      <button onclick="restartQuiz()" style="margin-top:1.2rem;background:var(--purple);border:none;color:#fff;padding:.6rem 1.6rem;border-radius:50px;font-family:'Nunito',sans-serif;font-weight:800;font-size:1rem;cursor:pointer">🔄 Try again / Спробувати ще раз</button>
+    `;
+    scoreCard.scrollIntoView({behavior:'smooth', block:'center'});
+  }
+};
+
+window.restartQuiz = function() {
+  location.reload();
+};
+</script>
+
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+
+</body>
+</html>

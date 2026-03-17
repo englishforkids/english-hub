@@ -1,0 +1,1527 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sports English 🏆 Спортивна англійська</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #00c06e;
+    --green-light: #e6fff4;
+    --orange: #ff7b2e;
+    --orange-light: #fff3ec;
+    --blue: #2e9cff;
+    --blue-light: #eaf5ff;
+    --purple: #9b5de5;
+    --purple-light: #f3eeff;
+    --yellow: #ffd60a;
+    --red: #ff4060;
+    --dark: #1a1a2e;
+    --card-bg: #ffffff;
+    --body-bg: #f0faf5;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--body-bg);
+    color: var(--dark);
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, #00c06e 0%, #00e68a 40%, #2e9cff 100%);
+    padding: 60px 20px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.07'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+    animation: bgScroll 20s linear infinite;
+  }
+  @keyframes bgScroll { to { background-position: 60px 60px; } }
+
+  .hero-emoji { font-size: 80px; animation: bounce 2s ease-in-out infinite; display: block; }
+  @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+
+  .hero h1 {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    color: #fff;
+    text-shadow: 3px 4px 0 rgba(0,0,0,.15);
+    position: relative; z-index: 1;
+    margin: 16px 0 10px;
+  }
+  .hero p {
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    color: rgba(255,255,255,.9);
+    font-weight: 700;
+    position: relative; z-index: 1;
+  }
+  .badge {
+    display: inline-block;
+    background: var(--yellow);
+    color: var(--dark);
+    font-weight: 900;
+    font-size: .85rem;
+    padding: 4px 14px;
+    border-radius: 999px;
+    margin-top: 14px;
+    position: relative; z-index: 1;
+    box-shadow: 0 3px 0 rgba(0,0,0,.18);
+  }
+
+  /* ── LAYOUT ── */
+  .container { max-width: 960px; margin: 0 auto; padding: 0 16px; }
+
+  section { padding: 50px 0; }
+
+  .section-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    text-align: center;
+    margin-bottom: 36px;
+    position: relative;
+  }
+  .section-title span { color: var(--green); }
+  .section-title::after {
+    content: '';
+    display: block;
+    width: 60px; height: 5px;
+    background: var(--orange);
+    border-radius: 99px;
+    margin: 10px auto 0;
+  }
+
+  /* ── VOCAB GRID ── */
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+  }
+  .vocab-card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 22px 16px;
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(0,0,0,.07);
+    transition: transform .2s, box-shadow .2s;
+    cursor: default;
+    border-bottom: 5px solid var(--green);
+  }
+  .vocab-card:hover { transform: translateY(-5px); box-shadow: 0 10px 28px rgba(0,0,0,.12); }
+  .vocab-card .emoji { font-size: 2.4rem; margin-bottom: 10px; }
+  .vocab-card .en {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.25rem;
+    color: var(--dark);
+  }
+  .vocab-card .ua {
+    font-size: .9rem;
+    color: #666;
+    font-weight: 700;
+    margin-top: 4px;
+  }
+  .vocab-card .tip {
+    font-size: .78rem;
+    background: var(--green-light);
+    color: var(--green);
+    font-weight: 800;
+    border-radius: 8px;
+    padding: 3px 8px;
+    margin-top: 8px;
+    display: inline-block;
+  }
+  .vocab-card:nth-child(2n) { border-bottom-color: var(--orange); }
+  .vocab-card:nth-child(2n) .tip { background: var(--orange-light); color: var(--orange); }
+  .vocab-card:nth-child(3n) { border-bottom-color: var(--blue); }
+  .vocab-card:nth-child(3n) .tip { background: var(--blue-light); color: var(--blue); }
+  .vocab-card:nth-child(4n) { border-bottom-color: var(--purple); }
+  .vocab-card:nth-child(4n) .tip { background: var(--purple-light); color: var(--purple); }
+
+  /* ── SPORT VOCAB TABS ── */
+  .sport-vocab-section { background: #fff; }
+  .tabs-wrap { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 28px; }
+  .tab-btn {
+    background: #f0f0f0;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: .95rem;
+    cursor: pointer;
+    transition: all .2s;
+    color: #555;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .tab-btn:hover { background: #e0e0e0; transform: translateY(-2px); }
+  .tab-btn.active { background: var(--dark); color: #fff; box-shadow: 0 4px 14px rgba(0,0,0,.18); }
+
+  .sport-panel { display: none; }
+  .sport-panel.active { display: block; animation: fadeSlide .3s ease; }
+  @keyframes fadeSlide { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:none} }
+
+  .sport-panel-inner {
+    background: #f8faff;
+    border-radius: 24px;
+    padding: 28px;
+    box-shadow: 0 4px 18px rgba(0,0,0,.06);
+  }
+  .sport-panel-header {
+    display: flex; align-items: center; gap: 16px;
+    margin-bottom: 22px;
+    padding-bottom: 16px;
+    border-bottom: 2px dashed #e8e8e8;
+  }
+  .sport-panel-icon { font-size: 3rem; }
+  .sport-panel-title { font-family: 'Fredoka One', cursive; font-size: 1.6rem; }
+  .sport-panel-sub { font-size: .9rem; color: #888; font-weight: 700; margin-top: 2px; }
+
+  .sv-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+    gap: 12px;
+    margin-bottom: 22px;
+  }
+  .sv-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 14px 14px;
+    box-shadow: 0 3px 10px rgba(0,0,0,.06);
+    border-left: 4px solid var(--green);
+    transition: transform .2s;
+  }
+  .sv-card:hover { transform: translateY(-3px); }
+  .sv-card .sv-en { font-weight: 800; font-size: 1rem; color: var(--dark); }
+  .sv-card .sv-ua { font-size: .8rem; color: #888; font-weight: 700; margin-top: 3px; }
+  .sv-card .sv-ex { font-size: .75rem; color: var(--green); font-style: italic; margin-top: 5px; font-weight: 700; }
+
+  .sv-sentence {
+    background: var(--dark);
+    border-radius: 16px;
+    padding: 18px 20px;
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .sv-sentence .sv-s-label { font-size: .75rem; font-weight: 900; color: var(--yellow); letter-spacing: .06em; }
+  .sv-sentence .sv-s-en { font-weight: 800; font-size: 1rem; color: #fff; }
+  .sv-sentence .sv-s-ua { font-size: .85rem; color: rgba(255,255,255,.55); }
+
+  /* ── PHRASES ── */
+  .phrases-section { background: var(--dark); }
+  .phrases-section .section-title { color: #fff; }
+  .phrases-section .section-title span { color: var(--yellow); }
+
+  .phrase-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  @media(max-width:600px){ .phrase-columns { grid-template-columns: 1fr; } }
+
+  .phrase-col h3 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.2rem;
+    color: var(--yellow);
+    margin-bottom: 14px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .phrase-item {
+    background: rgba(255,255,255,.07);
+    border-left: 4px solid var(--green);
+    border-radius: 0 14px 14px 0;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    transition: background .2s;
+  }
+  .phrase-item:hover { background: rgba(255,255,255,.12); }
+  .phrase-item .en {
+    font-weight: 800;
+    color: #fff;
+    font-size: 1rem;
+  }
+  .phrase-item .ua {
+    color: rgba(255,255,255,.6);
+    font-size: .85rem;
+    margin-top: 3px;
+  }
+  .phrase-item .example {
+    color: var(--yellow);
+    font-size: .8rem;
+    font-style: italic;
+    margin-top: 5px;
+  }
+  .phrase-col:nth-child(2) .phrase-item { border-left-color: var(--orange); }
+
+  /* ── INFOGRAPHIC: SENTENCE BUILDER ── */
+  .builder-section { background: var(--blue-light); }
+  .builder-box {
+    background: #fff;
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: 0 6px 24px rgba(0,0,0,.08);
+  }
+  .builder-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 18px;
+    font-size: 1.05rem;
+    font-weight: 700;
+  }
+  .block {
+    border-radius: 12px;
+    padding: 8px 16px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.1rem;
+    box-shadow: 0 3px 0 rgba(0,0,0,.13);
+    transition: transform .15s;
+    cursor: default;
+  }
+  .block:hover { transform: translateY(-3px); }
+  .block.who { background: #ffd60a; color: #1a1a2e; }
+  .block.verb { background: #00c06e; color: #fff; }
+  .block.what { background: #2e9cff; color: #fff; }
+  .block.where { background: #ff7b2e; color: #fff; }
+  .block.when { background: #9b5de5; color: #fff; }
+  .block.plus { background: transparent; color: #aaa; font-size: 1.3rem; box-shadow: none; padding: 4px 6px; }
+  .builder-legend {
+    display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px;
+  }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-size: .85rem; font-weight: 700; }
+  .legend-dot { width: 14px; height: 14px; border-radius: 4px; }
+
+  .example-sentences {
+    margin-top: 24px;
+    border-top: 2px dashed #eee;
+    padding-top: 20px;
+  }
+  .ex-sent {
+    display: flex;
+    flex-direction: column;
+    background: #f8f8ff;
+    border-radius: 14px;
+    padding: 14px 18px;
+    margin-bottom: 12px;
+    border-left: 5px solid var(--blue);
+  }
+  .ex-sent .en { font-weight: 800; font-size: 1.05rem; }
+  .ex-sent .ua { color: #666; font-size: .9rem; margin-top: 4px; }
+
+  /* ── SPORTS LIST ── */
+  .sports-section { background: #fff; }
+  .verb-rule-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+  }
+  @media(max-width:600px){ .verb-rule-grid { grid-template-columns: 1fr; } }
+  .sports-table-wrap { overflow-x: auto; }
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 8px;
+    font-size: .95rem;
+  }
+  thead th {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1rem;
+    padding: 10px 18px;
+    text-align: left;
+    color: #fff;
+    background: var(--dark);
+  }
+  thead th:first-child { border-radius: 12px 0 0 12px; }
+  thead th:last-child { border-radius: 0 12px 12px 0; }
+  tbody tr td {
+    background: #f7fafd;
+    padding: 12px 18px;
+    border-top: 2px solid transparent;
+    border-bottom: 2px solid transparent;
+    transition: background .15s;
+  }
+  tbody tr:hover td { background: var(--blue-light); }
+  tbody tr td:first-child { border-radius: 12px 0 0 12px; border-left: 4px solid var(--blue); font-size: 1.5rem; }
+  tbody tr td:last-child { border-radius: 0 12px 12px 0; }
+  tbody td .en { font-weight: 800; }
+  tbody td .ua { font-size: .8rem; color: #888; font-weight: 700; }
+
+  /* ── TIPS ── */
+  .tips-section { background: linear-gradient(135deg, #fff3ec, #fff); }
+  .tips-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; }
+  .tip-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 26px 20px;
+    box-shadow: 0 4px 18px rgba(0,0,0,.06);
+    border-top: 5px solid var(--orange);
+    transition: transform .2s;
+  }
+  .tip-card:hover { transform: translateY(-4px); }
+  .tip-card:nth-child(2) { border-top-color: var(--green); }
+  .tip-card:nth-child(3) { border-top-color: var(--purple); }
+  .tip-card:nth-child(4) { border-top-color: var(--blue); }
+  .tip-icon { font-size: 2.4rem; margin-bottom: 12px; }
+  .tip-card h4 { font-family: 'Fredoka One', cursive; font-size: 1.2rem; margin-bottom: 8px; }
+  .tip-card p { font-size: .9rem; color: #555; line-height: 1.6; }
+
+  /* ── QUIZ ── */
+  .quiz-section { background: var(--purple-light); }
+  .quiz-box {
+    background: #fff;
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: 0 6px 24px rgba(0,0,0,.08);
+    max-width: 680px;
+    margin: 0 auto;
+  }
+  .quiz-q {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.4rem;
+    text-align: center;
+    color: var(--purple);
+    margin-bottom: 6px;
+  }
+  .quiz-ua {
+    text-align: center;
+    color: #888;
+    font-size: .9rem;
+    margin-bottom: 24px;
+    font-weight: 700;
+  }
+  .quiz-options { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media(max-width:480px){ .quiz-options { grid-template-columns: 1fr; } }
+  .quiz-btn {
+    background: #f5f0ff;
+    border: 3px solid transparent;
+    border-radius: 14px;
+    padding: 14px 10px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all .2s;
+    color: var(--dark);
+  }
+  .quiz-btn:hover { background: var(--purple-light); border-color: var(--purple); transform: scale(1.03); }
+  .quiz-btn.correct { background: #e6fff4; border-color: var(--green); color: var(--green); }
+  .quiz-btn.wrong { background: #ffe6ec; border-color: var(--red); color: var(--red); }
+  .quiz-feedback {
+    text-align: center;
+    margin-top: 18px;
+    font-size: 1.1rem;
+    font-weight: 800;
+    min-height: 28px;
+    transition: all .3s;
+  }
+  .quiz-nav {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+  }
+  .quiz-nav button {
+    background: var(--purple);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 28px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background .2s, transform .2s;
+  }
+  .quiz-nav button:hover { background: #7c3aed; transform: scale(1.05); }
+  .quiz-score {
+    text-align: center;
+    font-family: 'Fredoka One', cursive;
+    font-size: 2rem;
+    color: var(--purple);
+    margin-top: 12px;
+  }
+  .progress-bar-wrap {
+    background: #e9e0ff;
+    border-radius: 99px;
+    height: 8px;
+    margin-bottom: 24px;
+    overflow: hidden;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    background: var(--purple);
+    border-radius: 99px;
+    transition: width .4s;
+  }
+
+  /* ── DIALOGUE ── */
+  .dialogue-section { background: #fff; }
+  .chat-bubble-wrap { max-width: 700px; margin: 0 auto; }
+  .bubble-row { display: flex; gap: 12px; margin-bottom: 18px; align-items: flex-start; }
+  .bubble-row.right { flex-direction: row-reverse; }
+  .avatar {
+    width: 46px; height: 46px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    box-shadow: 0 3px 8px rgba(0,0,0,.1);
+  }
+  .avatar.a { background: var(--blue-light); }
+  .avatar.b { background: var(--green-light); }
+  .bubble {
+    max-width: 75%;
+    border-radius: 20px;
+    padding: 14px 18px;
+    box-shadow: 0 3px 12px rgba(0,0,0,.07);
+  }
+  .bubble.a { background: var(--blue-light); border-top-left-radius: 4px; }
+  .bubble.b { background: var(--green-light); border-top-right-radius: 4px; }
+  .bubble .name { font-size: .75rem; font-weight: 900; opacity: .6; margin-bottom: 4px; }
+  .bubble .text-en { font-weight: 700; font-size: .95rem; }
+  .bubble .text-ua { font-size: .8rem; color: #777; margin-top: 3px; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--dark);
+    color: rgba(255,255,255,.7);
+    text-align: center;
+    padding: 30px 20px;
+    font-size: .9rem;
+  }
+  footer strong { color: var(--yellow); }
+
+  /* ── SCROLL TO TOP ── */
+  #scroll-top-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #1a1208;
+    border: 1.5px solid rgba(200,150,62,0.4);
+    color: #f5f0e8;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+    pointer-events: none;
+    z-index: 9998;
+  }
+  #scroll-top-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  #scroll-top-btn:hover {
+    background: #c8963e;
+    border-color: #c8963e;
+    color: #1a1208;
+  }
+
+  /* ── MOBILE RESPONSIVE ── */
+  @media (max-width: 600px) {
+
+    /* Layout */
+    .container { padding: 0 12px; }
+    section { padding: 36px 0; }
+
+    /* Hero */
+    .hero { padding: 40px 16px 56px; }
+    .hero-emoji { font-size: 56px; }
+
+    /* Section title */
+    .section-title { font-size: 1.5rem; margin-bottom: 24px; }
+
+    /* Vocab grid — 2 columns on mobile */
+    .vocab-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .vocab-card { padding: 16px 10px; }
+    .vocab-card .emoji { font-size: 1.8rem; }
+    .vocab-card .en { font-size: 1rem; }
+    .vocab-card .ua { font-size: .8rem; }
+
+    /* Sport vocab tabs */
+    .tabs-wrap { gap: 8px; }
+    .tab-btn { padding: 8px 14px; font-size: .82rem; }
+    .sport-panel-inner { padding: 18px 14px; }
+    .sport-panel-header { gap: 10px; }
+    .sport-panel-icon { font-size: 2rem; }
+    .sport-panel-title { font-size: 1.25rem; }
+    .sport-panel-sub { font-size: .8rem; }
+    .sv-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+    .sv-card { padding: 10px 10px; }
+    .sv-card .sv-en { font-size: .9rem; }
+    .sv-card .sv-ua { font-size: .72rem; }
+    .sv-card .sv-ex { font-size: .7rem; }
+    .sv-sentence { padding: 14px 14px; }
+    .sv-sentence .sv-s-en { font-size: .9rem; }
+    .sv-sentence .sv-s-ua { font-size: .8rem; }
+
+    /* Phrases */
+    .phrase-columns { grid-template-columns: 1fr; }
+    .phrase-item { padding: 10px 12px; }
+    .phrase-item .en { font-size: .9rem; }
+    .phrase-item .ua { font-size: .8rem; }
+    .phrase-item .example { font-size: .75rem; }
+
+    /* Sentence builder */
+    .builder-box { padding: 18px 14px; }
+    .block { padding: 6px 12px; font-size: .95rem; }
+    .block.plus { font-size: 1.1rem; padding: 2px 4px; }
+    .builder-row { gap: 6px; margin-bottom: 12px; }
+
+    /* Sports table */
+    .sports-table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,.07);
+    }
+    .sports-table-wrap::after {
+      content: '← прокрути вбік →';
+      display: block;
+      text-align: center;
+      font-size: .75rem;
+      color: #aaa;
+      font-weight: 700;
+      padding: 6px 0 2px;
+    }
+    table { font-size: .85rem; min-width: 480px; }
+    thead th { padding: 8px 12px; font-size: .85rem; }
+    tbody tr td { padding: 10px 12px; }
+
+    /* Verb rule boxes */
+    .sports-section > .container > div[style*="grid"] {
+      grid-template-columns: 1fr !important;
+    }
+
+    /* Dialogue */
+    .bubble { max-width: 85%; padding: 10px 13px; }
+    .bubble .text-en { font-size: .88rem; }
+    .bubble .text-ua { font-size: .76rem; }
+    .avatar { width: 38px; height: 38px; font-size: 1.2rem; }
+
+    /* Tips */
+    .tips-grid { grid-template-columns: 1fr; gap: 14px; }
+    .tip-card { padding: 20px 16px; }
+
+    /* Quiz */
+    .quiz-box { padding: 20px 14px; }
+    .quiz-q { font-size: 1.15rem; }
+    .quiz-options { grid-template-columns: 1fr; gap: 10px; }
+    .quiz-btn { padding: 12px 10px; font-size: .92rem; }
+
+    /* Scroll-to-top btn */
+    #scroll-top-btn { bottom: 16px; right: 16px; width: 40px; height: 40px; font-size: 16px; }
+  }
+
+  /* Medium screens — tablets */
+  @media (min-width: 601px) and (max-width: 800px) {
+    .vocab-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+    .sv-grid { grid-template-columns: repeat(auto-fill, minmax(145px, 1fr)); }
+    .phrase-columns { grid-template-columns: 1fr; }
+    .tips-grid { grid-template-columns: 1fr 1fr; }
+    .sport-panel-inner { padding: 22px 18px; }
+  }
+
+  /* ── ANIMATIONS ── */
+  .fade-in { opacity: 0; transform: translateY(28px); transition: opacity .5s ease, transform .5s ease; }
+  .fade-in.visible { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <span class="hero-emoji">🏆</span>
+  <h1>Sports English</h1>
+  <p>Говори про спорт англійською — легко та впевнено!</p>
+  <div class="badge">⚡ Для початківців · For beginners</div>
+</header>
+
+<!-- VOCABULARY -->
+<section class="fade-in">
+  <div class="container">
+    <h2 class="section-title">Key <span>Words</span> · Ключові слова</h2>
+    <div class="vocab-grid">
+      <div class="vocab-card"><div class="emoji">⚽</div><div class="en">Match</div><div class="ua">Матч / Гра</div><div class="tip">a football match</div></div>
+      <div class="vocab-card"><div class="emoji">🏅</div><div class="en">Win</div><div class="ua">Перемога / Перемогти</div><div class="tip">We won!</div></div>
+      <div class="vocab-card"><div class="emoji">😢</div><div class="en">Lose</div><div class="ua">Програти / Поразка</div><div class="tip">They lost 0–2</div></div>
+      <div class="vocab-card"><div class="emoji">🤝</div><div class="en">Draw / Tie</div><div class="ua">Нічия</div><div class="tip">It's a draw!</div></div>
+      <div class="vocab-card"><div class="emoji">🔢</div><div class="en">Score</div><div class="ua">Рахунок / Забити гол</div><div class="tip">The score is 3–1</div></div>
+      <div class="vocab-card"><div class="emoji">🏃</div><div class="en">Team</div><div class="ua">Команда</div><div class="tip">my team</div></div>
+      <div class="vocab-card"><div class="emoji">🦸</div><div class="en">Player</div><div class="ua">Гравець</div><div class="tip">best player</div></div>
+      <div class="vocab-card"><div class="emoji">📋</div><div class="en">Coach</div><div class="ua">Тренер</div><div class="tip">our coach</div></div>
+      <div class="vocab-card"><div class="emoji">🏟️</div><div class="en">Stadium</div><div class="ua">Стадіон</div><div class="tip">at the stadium</div></div>
+      <div class="vocab-card"><div class="emoji">📣</div><div class="en">Fan</div><div class="ua">Вболівальник</div><div class="tip">big fan</div></div>
+      <div class="vocab-card"><div class="emoji">🎽</div><div class="en">Train / Practice</div><div class="ua">Тренуватись</div><div class="tip">I train every day</div></div>
+      <div class="vocab-card"><div class="emoji">🏆</div><div class="en">Champion</div><div class="ua">Чемпіон</div><div class="tip">world champion</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SPORTS TABLE -->
+<section class="sports-section fade-in">
+  <div class="container">
+    <h2 class="section-title">Sports <span>Names</span> · Назви видів спорту</h2>
+    <div class="sports-table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Emoji</th>
+            <th>English</th>
+            <th>Українська</th>
+            <th>Verb (дієслово)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>⚽</td>
+            <td><span class="en">Football / Soccer</span><br><span class="ua">Футбол</span></td>
+            <td>Футбол</td>
+            <td><b>play</b> football</td>
+          </tr>
+          <tr>
+            <td>🏀</td>
+            <td><span class="en">Basketball</span><br><span class="ua">Баскетбол</span></td>
+            <td>Баскетбол</td>
+            <td><b>play</b> basketball</td>
+          </tr>
+          <tr>
+            <td>🎾</td>
+            <td><span class="en">Tennis</span><br><span class="ua">Теніс</span></td>
+            <td>Теніс</td>
+            <td><b>play</b> tennis</td>
+          </tr>
+          <tr>
+            <td>🏊</td>
+            <td><span class="en">Swimming</span><br><span class="ua">Плавання</span></td>
+            <td>Плавання</td>
+            <td><b>go</b> swimming</td>
+          </tr>
+          <tr>
+            <td>🚴</td>
+            <td><span class="en">Cycling</span><br><span class="ua">Велоспорт</span></td>
+            <td>Велоспорт</td>
+            <td><b>go</b> cycling</td>
+          </tr>
+          <tr>
+            <td>🥊</td>
+            <td><span class="en">Boxing</span><br><span class="ua">Бокс</span></td>
+            <td>Бокс</td>
+            <td><b>do</b> boxing</td>
+          </tr>
+          <tr>
+            <td>🤸</td>
+            <td><span class="en">Gymnastics</span><br><span class="ua">Гімнастика</span></td>
+            <td>Гімнастика</td>
+            <td><b>do</b> gymnastics</td>
+          </tr>
+          <tr>
+            <td>🏋️</td>
+            <td><span class="en">Weightlifting</span><br><span class="ua">Важка атлетика</span></td>
+            <td>Важка атлетика</td>
+            <td><b>do</b> weightlifting</td>
+          </tr>
+          <tr>
+            <td>⛷️</td>
+            <td><span class="en">Skiing</span><br><span class="ua">Лижний спорт</span></td>
+            <td>Лижний спорт</td>
+            <td><b>go</b> skiing</td>
+          </tr>
+          <tr>
+            <td>🏐</td>
+            <td><span class="en">Volleyball</span><br><span class="ua">Волейбол</span></td>
+            <td>Волейбол</td>
+            <td><b>play</b> volleyball</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- VERB RULE INFOGRAPHIC -->
+    <div style="margin-top:32px; background:#fff; border-radius:20px; padding:28px; box-shadow:0 4px 18px rgba(0,0,0,.07);">
+      <h3 style="font-family:'Fredoka One',cursive;font-size:1.4rem;margin-bottom:6px;text-align:center;">🎯 Important Rule · Важливе правило</h3>
+      <p style="text-align:center;color:#888;margin-bottom:20px;font-weight:700;font-size:.9rem;">Які дієслова використовувати зі спортом?</p>
+      <div class="verb-rule-grid">
+        <div style="background:#e6fff4;border-radius:16px;padding:18px;text-align:center;">
+          <div style="font-size:2rem;">🎮</div>
+          <div style="font-family:'Fredoka One',cursive;font-size:1.3rem;color:var(--green);margin:6px 0;">PLAY</div>
+          <div style="font-size:.85rem;font-weight:700;color:#555;">Team sports & games with a ball<br><span style="color:#aaa;">Командні ігри, м'яч</span></div>
+          <div style="font-size:.8rem;margin-top:8px;color:var(--green);font-weight:800;">football · basketball · tennis</div>
+        </div>
+        <div style="background:#eaf5ff;border-radius:16px;padding:18px;text-align:center;">
+          <div style="font-size:2rem;">🏄</div>
+          <div style="font-family:'Fredoka One',cursive;font-size:1.3rem;color:var(--blue);margin:6px 0;">GO</div>
+          <div style="font-size:.85rem;font-weight:700;color:#555;">Outdoor/movement activities<br><span style="color:#aaa;">На вулиці, -ing форми</span></div>
+          <div style="font-size:.8rem;margin-top:8px;color:var(--blue);font-weight:800;">swimming · cycling · skiing</div>
+        </div>
+        <div style="background:#fff3ec;border-radius:16px;padding:18px;text-align:center;">
+          <div style="font-size:2rem;">🥋</div>
+          <div style="font-family:'Fredoka One',cursive;font-size:1.3rem;color:var(--orange);margin:6px 0;">DO</div>
+          <div style="font-size:.85rem;font-weight:700;color:#555;">Individual sports & martial arts<br><span style="color:#aaa;">Індивідуальні, бойові</span></div>
+          <div style="font-size:.8rem;margin-top:8px;color:var(--orange);font-weight:800;">boxing · gymnastics · yoga</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPORT-SPECIFIC VOCABULARY -->
+<section class="sport-vocab-section fade-in">
+  <div class="container">
+    <h2 class="section-title">Words for Each <span>Sport</span> · Слова для кожного виду спорту</h2>
+    <p style="text-align:center;color:#888;font-weight:700;margin-bottom:28px;font-size:.95rem;">Обери вид спорту і вивчи потрібні слова! · Click a sport to learn its key words!</p>
+
+    <div class="tabs-wrap">
+      <button class="tab-btn active" onclick="showPanel('football')">⚽ Football</button>
+      <button class="tab-btn" onclick="showPanel('basketball')">🏀 Basketball</button>
+      <button class="tab-btn" onclick="showPanel('tennis')">🎾 Tennis</button>
+      <button class="tab-btn" onclick="showPanel('swimming')">🏊 Swimming</button>
+      <button class="tab-btn" onclick="showPanel('boxing')">🥊 Boxing</button>
+      <button class="tab-btn" onclick="showPanel('athletics')">🏃 Athletics</button>
+    </div>
+
+    <!-- FOOTBALL -->
+    <div class="sport-panel active" id="panel-football">
+      <div class="sport-panel-inner">
+        <div class="sport-panel-header">
+          <div class="sport-panel-icon">⚽</div>
+          <div>
+            <div class="sport-panel-title">Football / Soccer</div>
+            <div class="sport-panel-sub">Футбол — найпопулярніший вид спорту у світі</div>
+          </div>
+        </div>
+        <div class="sv-grid">
+          <div class="sv-card" style="border-left-color:#00c06e">
+            <div class="sv-en">Goal</div><div class="sv-ua">Гол / Ворота</div>
+            <div class="sv-ex">He scored a goal!</div>
+          </div>
+          <div class="sv-card" style="border-left-color:#2e9cff">
+            <div class="sv-en">Goalkeeper</div><div class="sv-ua">Воротар</div>
+            <div class="sv-ex">The goalkeeper saved it.</div>
+          </div>
+          <div class="sv-card" style="border-left-color:#ff7b2e">
+            <div class="sv-en">Penalty</div><div class="sv-ua">Пенальті</div>
+            <div class="sv-ex">It's a penalty kick!</div>
+          </div>
+          <div class="sv-card" style="border-left-color:#9b5de5">
+            <div class="sv-en">Referee</div><div class="sv-ua">Суддя / Рефері</div>
+            <div class="sv-ex">The referee blew the whistle.</div>
+          </div>
+          <div class="sv-card" style="border-left-color:#ffd60a">
+            <div class="sv-en">Offside</div><div class="sv-ua">Офсайд</div>
+            <div class="sv-ex">The flag is up — offside!</div>
+          </div>
+          <div class="sv-card" style="border-left-color:#ff4060">
+            <div class="sv-en">Foul</div><div class="sv-ua">Фол / Порушення</div>
+            <div class="sv-ex">That was a bad foul.</div>
+          </div>
+          <div class="sv-card" style="border-left-color:#00c06e">
+            <div class="sv-en">Corner kick</div><div class="sv-ua">Кутовий удар</div>
+            <div class="sv-ex">It's a corner!</div>
+          </div>
+          <div class="sv-card" style="border-left-color:#2e9cff">
+            <div class="sv-en">Half-time</div><div class="sv-ua">Перерва / Halftime</div>
+            <div class="sv-ex">It's half-time now.</div>
+          </div>
+          <div class="sv-card" style="border-left-color:#ff7b2e">
+            <div class="sv-en">Yellow card</div><div class="sv-ua">Жовта картка</div>
+            <div class="sv-ex">He got a yellow card.</div>
+          </div>
+        </div>
+        <div class="sv-sentence">
+          <span class="sv-s-label">📝 EXAMPLE SENTENCE · ПРИКЛАД</span>
+          <span class="sv-s-en">The referee gave a penalty and the striker scored the winning goal in the last minute!</span>
+          <span class="sv-s-ua">Суддя призначив пенальті, і нападник забив переможний гол на останній хвилині!</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- BASKETBALL -->
+    <div class="sport-panel" id="panel-basketball">
+      <div class="sport-panel-inner">
+        <div class="sport-panel-header">
+          <div class="sport-panel-icon">🏀</div>
+          <div>
+            <div class="sport-panel-title">Basketball</div>
+            <div class="sport-panel-sub">Баскетбол — гра швидкості та висоти</div>
+          </div>
+        </div>
+        <div class="sv-grid">
+          <div class="sv-card" style="border-left-color:#ff7b2e">
+            <div class="sv-en">Basket / Hoop</div><div class="sv-ua">Кільце / Кошик</div>
+            <div class="sv-ex">He shot into the basket!</div>
+          </div>
+          <div class="sv-card" style="border-left-color:#2e9cff">
+            <div class="sv-en">Dribble</div><div class="sv-ua">Вести м'яч</div>
+            <div class="sv-ex">She can dribble very fast.</div>
+          </div>
+          <div class="sv-card" style="border-left-color:#00c06e">
+            <div class="sv-en">Three-pointer</div><div class="sv-ua">Трьохочковий</div>
+            <div class="sv-ex">That was a great three-pointer!</div>
+          </div>
+          <div class="sv-card" style="border-left-color:#9b5de5">
+            <div class="sv-en">Slam dunk</div><div class="sv-ua">Данк / Удар зверху</div>
+            <div class="sv-ex">He did a slam dunk!</div>
+          </div>
+          <div class="sv-card" style="border-left-color:#ff4060">
+            <div class="sv-en">Foul</div><div class="sv-ua">Фол</div>
+            <div class="sv-ex">Personal foul — free throw!</div>
+          </div>
+          <div class="sv-card" style="border-left-color:#ffd60a">
+            <div class="sv-en">Free throw</div><div class="sv-ua">Штрафний кидок</div>
+            <div class="sv-ex">She scored two free throws.</div>
+          </div>
+          <div class="sv-card" style="border-left-color:#00c06e">
+            <div class="sv-en">Quarter</div><div class="sv-ua">Чверть (гри)</div>
+            <div class="sv-ex">It's the fourth quarter.</div>
+          </div>
+          <div class="sv-card" style="border-left-color:#2e9cff">
+            <div class="sv-en">Rebound</div><div class="sv-ua">Підбір м'яча</div>
+            <div class="sv-ex">He grabbed the rebound.</div>
+          </div>
+        </div>
+        <div class="sv-sentence">
+          <span class="sv-s-label">📝 EXAMPLE SENTENCE · ПРИКЛАД</span>
+          <span class="sv-s-en">In the last quarter, he dribbled past two players and scored a three-pointer to win the game!</span>
+          <span class="sv-s-ua">В останній чверті він обійшов двох гравців і влучив трьохочковим, виігравши гру!</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TENNIS -->
+    <div class="sport-panel" id="panel-tennis">
+      <div class="sport-panel-inner">
+        <div class="sport-panel-header">
+          <div class="sport-panel-icon">🎾</div>
+          <div>
+            <div class="sport-panel-title">Tennis</div>
+            <div class="sport-panel-sub">Теніс — гра точності та витривалості</div>
+          </div>
+        </div>
+        <div class="sv-grid">
+          <div class="sv-card" style="border-left-color:#00c06e">
+            <div class="sv-en">Serve</div><div class="sv-ua">Подача</div>
+            <div class="sv-ex">Her serve is very powerful.</div>
+          </div>
+          <div class="sv-card" style="border-left-color:#2e9cff">
+            <div class="sv-en">Ace</div><div class="sv-ua">Ейс (невзятий подача)</div>
+            <div class="sv-ex">That was a perfect ace!</div>
+          </div>
+          <div class="sv-card" style="border-left-color:#ff7b2e">
+            <div class="sv-en">Forehand</div><div class="sv-ua">Удар справа</div>
+            <div class="sv-ex">He has a strong forehand.</div>
+          </div>
+          <div class="sv-card" style="border-left-color:#9b5de5">
+            <div class="sv-en">Backhand</div><div class="sv-ua">Удар зліва</div>
+            <div class="sv-ex">Her backhand is amazing.</div>
+          </div>
+          <div class="sv-card" style="border-left-color:#ffd60a">
+            <div class="sv-en">Set</div><div class="sv-ua">Сет</div>
+            <div class="sv-ex">She won the first set 6–4.</div>
+          </div>
+          <div class="sv-card" style="border-left-color:#ff4060">
+            <div class="sv-en">Deuce</div><div class="sv-ua">Рівний рахунок (40:40)</div>
+            <div class="sv-ex">It's deuce again!</div>
+          </div>
+          <div class="sv-card" style="border-left-color:#00c06e">
+            <div class="sv-en">Love</div><div class="sv-ua">Нуль (у рахунку)</div>
+            <div class="sv-ex">The score is 40–love.</div>
+          </div>
+          <div class="sv-card" style="border-left-color:#2e9cff">
+            <div class="sv-en">Net</div><div class="sv-ua">Сітка</div>
+            <div class="sv-ex">The ball hit the net.</div>
+          </div>
+        </div>
+        <div class="sv-sentence">
+          <span class="sv-s-label">📝 EXAMPLE SENTENCE · ПРИКЛАД</span>
+          <span class="sv-s-en">She served an ace, then won the set 6–4 with a brilliant backhand shot!</span>
+          <span class="sv-s-ua">Вона подала ейс, а потім виграла сет 6–4 блискучим ударом зліва!</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SWIMMING -->
+    <div class="sport-panel" id="panel-swimming">
+      <div class="sport-panel-inner">
+        <div class="sport-panel-header">
+          <div class="sport-panel-icon">🏊</div>
+          <div>
+            <div class="sport-panel-title">Swimming</div>
+            <div class="sport-panel-sub">Плавання — спорт для всього тіла</div>
+          </div>
+        </div>
+        <div class="sv-grid">
+          <div class="sv-card" style="border-left-color:#2e9cff">
+            <div class="sv-en">Lane</div><div class="sv-ua">Доріжка (у басейні)</div>
+            <div class="sv-ex">I swim in lane 3.</div>
+          </div>
+          <div class="sv-card" style="border-left-color:#00c06e">
+            <div class="sv-en">Stroke</div><div class="sv-ua">Стиль плавання</div>
+            <div class="sv-ex">My best stroke is freestyle.</div>
+          </div>
+          <div class="sv-card" style="border-left-color:#ff7b2e">
+            <div class="sv-en">Freestyle</div><div class="sv-ua">Вільний стиль / кроль</div>
+            <div class="sv-ex">She swam freestyle in 48 sec.</div>
+          </div>
+          <div class="sv-card" style="border-left-color:#9b5de5">
+            <div class="sv-en">Backstroke</div><div class="sv-ua">Плавання на спині</div>
+            <div class="sv-ex">He prefers backstroke.</div>
+          </div>
+          <div class="sv-card" style="border-left-color:#ffd60a">
+            <div class="sv-en">Breaststroke</div><div class="sv-ua">Брас</div>
+            <div class="sv-ex">Breaststroke is relaxing.</div>
+          </div>
+          <div class="sv-card" style="border-left-color:#ff4060">
+            <div class="sv-en">Butterfly</div><div class="sv-ua">Батерфляй</div>
+            <div class="sv-ex">Butterfly is the hardest stroke.</div>
+          </div>
+          <div class="sv-card" style="border-left-color:#00c06e">
+            <div class="sv-en">Lap</div><div class="sv-ua">Довжина басейну</div>
+            <div class="sv-ex">I swam 20 laps today.</div>
+          </div>
+          <div class="sv-card" style="border-left-color:#2e9cff">
+            <div class="sv-en">Goggles</div><div class="sv-ua">Окуляри для плавання</div>
+            <div class="sv-ex">Don't forget your goggles!</div>
+          </div>
+        </div>
+        <div class="sv-sentence">
+          <span class="sv-s-label">📝 EXAMPLE SENTENCE · ПРИКЛАД</span>
+          <span class="sv-s-en">She put on her goggles, dived into lane 2 and swam 10 laps of freestyle without stopping!</span>
+          <span class="sv-s-ua">Вона надягла окуляри, пірнула на другу доріжку і проплила 10 довжин кролем без зупинки!</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOXING -->
+    <div class="sport-panel" id="panel-boxing">
+      <div class="sport-panel-inner">
+        <div class="sport-panel-header">
+          <div class="sport-panel-icon">🥊</div>
+          <div>
+            <div class="sport-panel-title">Boxing</div>
+            <div class="sport-panel-sub">Бокс — спорт сили та стратегії</div>
+          </div>
+        </div>
+        <div class="sv-grid">
+          <div class="sv-card" style="border-left-color:#ff4060">
+            <div class="sv-en">Punch</div><div class="sv-ua">Удар кулаком</div>
+            <div class="sv-ex">He threw a strong punch.</div>
+          </div>
+          <div class="sv-card" style="border-left-color:#ff7b2e">
+            <div class="sv-en">Jab</div><div class="sv-ua">Прямий удар</div>
+            <div class="sv-ex">A quick jab to the face.</div>
+          </div>
+          <div class="sv-card" style="border-left-color:#9b5de5">
+            <div class="sv-en">Knockout (KO)</div><div class="sv-ua">Нокаут</div>
+            <div class="sv-ex">He won by knockout!</div>
+          </div>
+          <div class="sv-card" style="border-left-color:#2e9cff">
+            <div class="sv-en">Round</div><div class="sv-ua">Раунд</div>
+            <div class="sv-ex">There are 12 rounds.</div>
+          </div>
+          <div class="sv-card" style="border-left-color:#00c06e">
+            <div class="sv-en">Guard</div><div class="sv-ua">Захист / Стійка</div>
+            <div class="sv-ex">Keep your guard up!</div>
+          </div>
+          <div class="sv-card" style="border-left-color:#ffd60a">
+            <div class="sv-en">Ring</div><div class="sv-ua">Ринг</div>
+            <div class="sv-ex">He entered the ring.</div>
+          </div>
+          <div class="sv-card" style="border-left-color:#ff4060">
+            <div class="sv-en">Uppercut</div><div class="sv-ua">Апперкот (удар знизу)</div>
+            <div class="sv-ex">A powerful uppercut!</div>
+          </div>
+          <div class="sv-card" style="border-left-color:#00c06e">
+            <div class="sv-en">Gloves</div><div class="sv-ua">Боксерські рукавиці</div>
+            <div class="sv-ex">Put your gloves on.</div>
+          </div>
+        </div>
+        <div class="sv-sentence">
+          <span class="sv-s-label">📝 EXAMPLE SENTENCE · ПРИКЛАД</span>
+          <span class="sv-s-en">In round 8, he landed a powerful uppercut and won the fight by knockout!</span>
+          <span class="sv-s-ua">У 8-му раунді він провів потужний апперкот і виграв бій нокаутом!</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ATHLETICS -->
+    <div class="sport-panel" id="panel-athletics">
+      <div class="sport-panel-inner">
+        <div class="sport-panel-header">
+          <div class="sport-panel-icon">🏃</div>
+          <div>
+            <div class="sport-panel-title">Athletics / Track & Field</div>
+            <div class="sport-panel-sub">Легка атлетика — швидкість, сила, стрибки</div>
+          </div>
+        </div>
+        <div class="sv-grid">
+          <div class="sv-card" style="border-left-color:#00c06e">
+            <div class="sv-en">Sprint</div><div class="sv-ua">Спринт / Біг на короткі дистанції</div>
+            <div class="sv-ex">She's a great sprinter.</div>
+          </div>
+          <div class="sv-card" style="border-left-color:#2e9cff">
+            <div class="sv-en">Marathon</div><div class="sv-ua">Марафон (42 км)</div>
+            <div class="sv-ex">He ran a marathon!</div>
+          </div>
+          <div class="sv-card" style="border-left-color:#ff7b2e">
+            <div class="sv-en">Hurdles</div><div class="sv-ua">Бар'єрний біг</div>
+            <div class="sv-ex">The hurdles race is tough.</div>
+          </div>
+          <div class="sv-card" style="border-left-color:#9b5de5">
+            <div class="sv-en">Long jump</div><div class="sv-ua">Стрибок у довжину</div>
+            <div class="sv-ex">She won the long jump.</div>
+          </div>
+          <div class="sv-card" style="border-left-color:#ffd60a">
+            <div class="sv-en">High jump</div><div class="sv-ua">Стрибок у висоту</div>
+            <div class="sv-ex">He cleared 2.10m in high jump.</div>
+          </div>
+          <div class="sv-card" style="border-left-color:#ff4060">
+            <div class="sv-en">Relay race</div><div class="sv-ua">Естафета</div>
+            <div class="sv-ex">Our relay team is the best.</div>
+          </div>
+          <div class="sv-card" style="border-left-color:#00c06e">
+            <div class="sv-en">Finish line</div><div class="sv-ua">Фінішна лінія</div>
+            <div class="sv-ex">She crossed the finish line first!</div>
+          </div>
+          <div class="sv-card" style="border-left-color:#2e9cff">
+            <div class="sv-en">Personal best (PB)</div><div class="sv-ua">Особистий рекорд</div>
+            <div class="sv-ex">I set a new personal best!</div>
+          </div>
+        </div>
+        <div class="sv-sentence">
+          <span class="sv-s-label">📝 EXAMPLE SENTENCE · ПРИКЛАД</span>
+          <span class="sv-s-en">She ran the 100m sprint in 10.9 seconds — a new personal best — and crossed the finish line first!</span>
+          <span class="sv-s-ua">Вона пробігла 100 м за 10,9 секунди — новий особистий рекорд — і першою перетнула фінішну лінію!</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PHRASES -->
+<section class="phrases-section fade-in">
+  <div class="container">
+    <h2 class="section-title" style="color:#fff;">Useful <span>Phrases</span> · Корисні фрази</h2>
+    <div class="phrase-columns">
+      <div class="phrase-col">
+        <h3>🗣️ Talking about yourself · Про себе</h3>
+        <div class="phrase-item">
+          <div class="en">I love / like football.</div>
+          <div class="ua">Я люблю / мені подобається футбол.</div>
+          <div class="example">✏️ I love playing basketball after school.</div>
+        </div>
+        <div class="phrase-item">
+          <div class="en">My favourite sport is tennis.</div>
+          <div class="ua">Мій улюблений вид спорту — теніс.</div>
+          <div class="example">✏️ My favourite sport is swimming.</div>
+        </div>
+        <div class="phrase-item">
+          <div class="en">I play / do / go [sport] every day.</div>
+          <div class="ua">Я займаюся [спортом] щодня.</div>
+          <div class="example">✏️ I go swimming twice a week.</div>
+        </div>
+        <div class="phrase-item">
+          <div class="en">I'm on the school team.</div>
+          <div class="ua">Я граю у шкільній команді.</div>
+          <div class="example">✏️ I'm on the football team.</div>
+        </div>
+        <div class="phrase-item">
+          <div class="en">I train / practise three times a week.</div>
+          <div class="ua">Я тренуюся три рази на тиждень.</div>
+          <div class="example">✏️ We practise on Tuesdays and Thursdays.</div>
+        </div>
+      </div>
+      <div class="phrase-col">
+        <h3>💬 Discussing a game · Про матч</h3>
+        <div class="phrase-item">
+          <div class="en">Did you watch the match?</div>
+          <div class="ua">Ти дивився матч?</div>
+          <div class="example">✏️ Did you watch the match last night?</div>
+        </div>
+        <div class="phrase-item">
+          <div class="en">The score was 3–1.</div>
+          <div class="ua">Рахунок був 3–1.</div>
+          <div class="example">✏️ We won 2–0!</div>
+        </div>
+        <div class="phrase-item">
+          <div class="en">They won / lost / drew.</div>
+          <div class="ua">Вони виграли / програли / зіграли внічию.</div>
+          <div class="example">✏️ My team lost yesterday, sadly.</div>
+        </div>
+        <div class="phrase-item">
+          <div class="en">It was an amazing / terrible game.</div>
+          <div class="ua">Це була дивовижна / жахлива гра.</div>
+          <div class="example">✏️ The final was so exciting!</div>
+        </div>
+        <div class="phrase-item">
+          <div class="en">Who scored the goal?</div>
+          <div class="ua">Хто забив гол?</div>
+          <div class="example">✏️ He scored two goals in the first half.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SENTENCE BUILDER -->
+<section class="builder-section fade-in">
+  <div class="container">
+    <h2 class="section-title">Build a <span>Sentence</span> · Склади речення</h2>
+    <div class="builder-box">
+      <p style="text-align:center;font-weight:700;color:#555;margin-bottom:22px;">Combine the blocks to make your own sports sentence! · Склади власне речення зі блоків!</p>
+
+      <div class="builder-row">
+        <div class="block who">I</div>
+        <div class="block plus">+</div>
+        <div class="block verb">play</div>
+        <div class="block plus">+</div>
+        <div class="block what">football</div>
+        <div class="block plus">+</div>
+        <div class="block where">at the stadium</div>
+        <div class="block plus">+</div>
+        <div class="block when">on weekends</div>
+      </div>
+      <div class="builder-row">
+        <div class="block who">She</div>
+        <div class="block plus">+</div>
+        <div class="block verb">goes</div>
+        <div class="block plus">+</div>
+        <div class="block what">swimming</div>
+        <div class="block plus">+</div>
+        <div class="block where">at the pool</div>
+        <div class="block plus">+</div>
+        <div class="block when">every morning</div>
+      </div>
+      <div class="builder-row">
+        <div class="block who">My team</div>
+        <div class="block plus">+</div>
+        <div class="block verb">won</div>
+        <div class="block plus">+</div>
+        <div class="block what">the match</div>
+        <div class="block plus">+</div>
+        <div class="block when">yesterday</div>
+      </div>
+
+      <div class="builder-legend">
+        <div class="legend-item"><div class="legend-dot" style="background:var(--yellow);"></div> WHO (Хто)</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--green);"></div> VERB (Дієслово)</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--blue);"></div> WHAT (Що)</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--orange);"></div> WHERE (Де)</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--purple);"></div> WHEN (Коли)</div>
+      </div>
+
+      <div class="example-sentences">
+        <h4 style="font-family:'Fredoka One',cursive;margin-bottom:14px;font-size:1.1rem;">📌 More examples · Ще приклади</h4>
+        <div class="ex-sent" style="border-left-color:var(--green);">
+          <span class="en">🟢 My favourite player is very fast and scores a lot of goals.</span>
+          <span class="ua">Мій улюблений гравець дуже швидкий і забиває багато голів.</span>
+        </div>
+        <div class="ex-sent" style="border-left-color:var(--orange);">
+          <span class="en">🟠 I don't like boxing because it is too dangerous.</span>
+          <span class="ua">Мені не подобається бокс, бо він занадто небезпечний.</span>
+        </div>
+        <div class="ex-sent" style="border-left-color:var(--purple);">
+          <span class="en">🟣 We lost the game, but we practised a lot and we will do better next time.</span>
+          <span class="ua">Ми програли гру, але багато тренувалися і наступного разу зробимо краще.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIALOGUE -->
+<section class="dialogue-section fade-in">
+  <div class="container">
+    <h2 class="section-title">Sample <span>Dialogue</span> · Зразок діалогу</h2>
+    <div class="chat-bubble-wrap">
+
+      <div class="bubble-row">
+        <div class="avatar a">🧒</div>
+        <div class="bubble a">
+          <div class="name">Alex</div>
+          <div class="text-en">Hey! Did you watch the match last night?</div>
+          <div class="text-ua">Привіт! Ти дивився матч учора ввечері?</div>
+        </div>
+      </div>
+
+      <div class="bubble-row right">
+        <div class="avatar b">👧</div>
+        <div class="bubble b">
+          <div class="name">Sofia</div>
+          <div class="text-en">Yes! It was amazing! The score was 3–2!</div>
+          <div class="text-ua">Так! Це було неймовірно! Рахунок 3–2!</div>
+        </div>
+      </div>
+
+      <div class="bubble-row">
+        <div class="avatar a">🧒</div>
+        <div class="bubble a">
+          <div class="name">Alex</div>
+          <div class="text-en">My favourite player scored twice. He's the best!</div>
+          <div class="text-ua">Мій улюблений гравець забив двічі. Він найкращий!</div>
+        </div>
+      </div>
+
+      <div class="bubble-row right">
+        <div class="avatar b">👧</div>
+        <div class="bubble b">
+          <div class="name">Sofia</div>
+          <div class="text-en">Do you play football too?</div>
+          <div class="text-ua">Ти теж граєш у футбол?</div>
+        </div>
+      </div>
+
+      <div class="bubble-row">
+        <div class="avatar a">🧒</div>
+        <div class="bubble a">
+          <div class="name">Alex</div>
+          <div class="text-en">Yes! I'm on the school team. We train on Mondays and Wednesdays.</div>
+          <div class="text-ua">Так! Я граю в шкільній команді. Ми тренуємося в понеділок і середу.</div>
+        </div>
+      </div>
+
+      <div class="bubble-row right">
+        <div class="avatar b">👧</div>
+        <div class="bubble b">
+          <div class="name">Sofia</div>
+          <div class="text-en">Cool! I prefer swimming. I go to the pool every morning.</div>
+          <div class="text-ua">Круто! Я надаю перевагу плаванню. Я ходжу до басейну щоранку.</div>
+        </div>
+      </div>
+
+      <div class="bubble-row">
+        <div class="avatar a">🧒</div>
+        <div class="bubble a">
+          <div class="name">Alex</div>
+          <div class="text-en">That's great! Sport is really important for health.</div>
+          <div class="text-ua">Це чудово! Спорт дуже важливий для здоров'я.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TIPS -->
+<section class="tips-section fade-in">
+  <div class="container">
+    <h2 class="section-title">Top <span>Tips</span> · Корисні поради</h2>
+    <div class="tips-grid">
+      <div class="tip-card">
+        <div class="tip-icon">🎯</div>
+        <h4>Use play / go / do</h4>
+        <p>Remember: <b>PLAY</b> for team sports, <b>GO</b> for outdoor activities, <b>DO</b> for martial arts.<br><span style="color:#aaa;font-size:.82rem;">Пам'ятай: PLAY — командні, GO — на вулиці, DO — бойові мистецтва.</span></p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">🕐</div>
+        <h4>Talk about time</h4>
+        <p>Say HOW OFTEN you play: <b>every day, twice a week, on Saturdays</b>.<br><span style="color:#aaa;font-size:.82rem;">Говори ЯК ЧАСТО: щодня, двічі на тиждень, по суботах.</span></p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">😍</div>
+        <h4>Share your opinion</h4>
+        <p>Use <b>I think, In my opinion, I believe</b> to express what you feel about sport.<br><span style="color:#aaa;font-size:.82rem;">Використовуй: я думаю, на мою думку, я вважаю.</span></p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">📺</div>
+        <h4>Watch sports in English</h4>
+        <p>Watch YouTube sports commentary to hear real natural language!<br><span style="color:#aaa;font-size:.82rem;">Дивись спортивні відео англійською — це найкраща практика!</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MINI QUIZ -->
+<section class="quiz-section fade-in">
+  <div class="container">
+    <h2 class="section-title">Mini <span>Quiz</span> · Міні-вікторина</h2>
+    <div class="quiz-box">
+      <div class="progress-bar-wrap">
+        <div class="progress-bar-fill" id="progressBar" style="width:0%"></div>
+      </div>
+      <div id="quizContainer"></div>
+      <div class="quiz-feedback" id="quizFeedback"></div>
+      <div class="quiz-nav">
+        <button id="nextBtn" onclick="nextQuestion()" style="display:none;">Next →</button>
+        <button id="restartBtn" onclick="restartQuiz()" style="display:none;">🔄 Restart</button>
+      </div>
+      <div class="quiz-score" id="quizScore"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>🏆 <strong>Sports English</strong> · Спортивна англійська для всіх</p>
+  <p style="margin-top:6px;">Вчи нові слова щодня і ти станеш справжнім чемпіоном! 💪</p>
+</footer>
+
+<script>
+  // ── SPORT VOCAB TABS ──
+  function showPanel(sport) {
+    document.querySelectorAll('.sport-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('panel-' + sport).classList.add('active');
+    event.currentTarget.classList.add('active');
+  }
+
+  // ── INTERSECTION OBSERVER for fade-in ──
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // ── QUIZ ──
+  const questions = [
+    {
+      q: "Which verb do you use with football?",
+      ua: "Яке дієслово використовується з футболом?",
+      options: ["do football", "go football", "play football", "make football"],
+      correct: 2
+    },
+    {
+      q: "How do you say «Я програв» in English?",
+      ua: "Як сказати це англійською?",
+      options: ["I won", "I lost", "I drew", "I scored"],
+      correct: 1
+    },
+    {
+      q: "Complete: 'The score ___ 3–1'",
+      ua: "Закінчи речення:",
+      options: ["is be", "was", "were", "are"],
+      correct: 1
+    },
+    {
+      q: "Which verb goes with swimming?",
+      ua: "Яке дієслово підходить до плавання?",
+      options: ["play swimming", "do swimming", "go swimming", "make swimming"],
+      correct: 2
+    },
+    {
+      q: "What does 'champion' mean in Ukrainian?",
+      ua: "Що означає це слово?",
+      options: ["Тренер", "Гравець", "Чемпіон", "Вболівальник"],
+      correct: 2
+    },
+    {
+      q: "Which sport uses DO?",
+      ua: "З яким видом спорту використовують DO?",
+      options: ["Football", "Swimming", "Boxing", "Basketball"],
+      correct: 2
+    },
+    {
+      q: "Translate: 'My favourite sport is cycling.'",
+      ua: "Обери правильний переклад:",
+      options: [
+        "Мій улюблений спорт — теніс.",
+        "Мій улюблений спорт — велоспорт.",
+        "Мій улюблений спорт — плавання.",
+        "Я займаюся велоспортом щодня."
+      ],
+      correct: 1
+    }
+  ];
+
+  let current = 0, score = 0, answered = false;
+
+  function renderQuestion() {
+    const q = questions[current];
+    const pct = (current / questions.length) * 100;
+    document.getElementById('progressBar').style.width = pct + '%';
+    document.getElementById('quizScore').textContent = '';
+    document.getElementById('quizFeedback').textContent = '';
+    document.getElementById('nextBtn').style.display = 'none';
+    answered = false;
+
+    document.getElementById('quizContainer').innerHTML = `
+      <div class="quiz-q">${current + 1}/${questions.length}: ${q.q}</div>
+      <div class="quiz-ua">${q.ua}</div>
+      <div class="quiz-options">
+        ${q.options.map((opt, i) => `<button class="quiz-btn" onclick="answer(${i})">${opt}</button>`).join('')}
+      </div>
+    `;
+  }
+
+  function answer(idx) {
+    if (answered) return;
+    answered = true;
+    const q = questions[current];
+    const btns = document.querySelectorAll('.quiz-btn');
+    btns[q.correct].classList.add('correct');
+    if (idx !== q.correct) {
+      btns[idx].classList.add('wrong');
+      document.getElementById('quizFeedback').innerHTML = '❌ Not quite! · Не зовсім вірно!';
+      document.getElementById('quizFeedback').style.color = '#ff4060';
+    } else {
+      score++;
+      document.getElementById('quizFeedback').innerHTML = '✅ Correct! Great job! · Правильно!';
+      document.getElementById('quizFeedback').style.color = '#00c06e';
+    }
+    btns.forEach(b => b.disabled = true);
+    if (current < questions.length - 1) {
+      document.getElementById('nextBtn').style.display = 'inline-block';
+    } else {
+      setTimeout(showResult, 700);
+    }
+  }
+
+  function nextQuestion() {
+    current++;
+    renderQuestion();
+  }
+
+  function showResult() {
+    document.getElementById('progressBar').style.width = '100%';
+    const pct = Math.round((score / questions.length) * 100);
+    const emoji = pct >= 80 ? '🏆' : pct >= 50 ? '💪' : '📚';
+    document.getElementById('quizContainer').innerHTML = `
+      <div style="text-align:center;padding:20px 0;">
+        <div style="font-size:4rem;">${emoji}</div>
+      </div>
+    `;
+    document.getElementById('quizFeedback').innerHTML = '';
+    document.getElementById('quizScore').innerHTML = `${score} / ${questions.length} — ${pct}%<br>
+      <span style="font-size:1rem;font-weight:700;color:#888;">${pct>=80?'Champion! Чемпіон! 🥇':pct>=50?'Good job! Молодець! 👍':'Keep practising! Практикуйся! 📖'}</span>`;
+    document.getElementById('restartBtn').style.display = 'inline-block';
+    document.getElementById('nextBtn').style.display = 'none';
+  }
+
+  function restartQuiz() {
+    current = 0; score = 0;
+    document.getElementById('restartBtn').style.display = 'none';
+    document.getElementById('quizScore').textContent = '';
+    renderQuestion();
+  }
+
+  renderQuestion();
+</script>
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+</body>
+</html>

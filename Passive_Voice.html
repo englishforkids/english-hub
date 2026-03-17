@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Passive Voice – Пасивний стан англійської мови</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;900&family=Unbounded:wght@700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --y: #FFD93D;
+    --o: #FF6B35;
+    --b: #3DD6F5;
+    --p: #B66EFF;
+    --pk: #FF6B9D;
+    --g: #2FD89A;
+    --dark: #0D1117;
+    --card: #161B27;
+    --card2: #1E2637;
+    --text: #E8EEFF;
+    --muted: #8899BB;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Nunito',sans-serif;background:var(--dark);color:var(--text);overflow-x:hidden;}
+
+  /* ── HERO ── */
+  .hero{
+    background: linear-gradient(135deg,#0D1117 0%,#111827 60%,#0D1B2A 100%);
+    padding:70px 20px 90px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:'';position:absolute;inset:0;
+    background:
+      radial-gradient(ellipse at 15% 50%,rgba(61,214,245,.13) 0%,transparent 55%),
+      radial-gradient(ellipse at 85% 50%,rgba(182,110,255,.13) 0%,transparent 55%);
+  }
+  .stars{position:absolute;inset:0;overflow:hidden;pointer-events:none;}
+  .star{
+    position:absolute;width:3px;height:3px;border-radius:50%;
+    background:#fff;animation:twinkle 3s infinite;
+  }
+  @keyframes twinkle{0%,100%{opacity:.1}50%{opacity:.8}}
+  .hero-icon{font-size:90px;animation:float 3s ease-in-out infinite;display:block;position:relative;}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+  .hero h1{
+    font-family:'Unbounded',cursive;
+    font-size:clamp(1.8rem,5vw,4rem);
+    line-height:1.15;
+    position:relative;
+  }
+  .hero h1 .en{color:var(--y);}
+  .hero h1 .ua{color:var(--b);font-size:0.6em;display:block;margin-top:6px;}
+  .hero-sub{color:var(--muted);font-size:1.05rem;margin-top:16px;max-width:600px;margin-inline:auto;position:relative;}
+  .hero-sub .ua{color:#6699cc;font-size:0.9em;}
+  .cake-badge{
+    display:inline-flex;align-items:center;gap:10px;
+    background:linear-gradient(135deg,rgba(255,217,61,.15),rgba(255,107,53,.15));
+    border:2px solid rgba(255,217,61,.4);
+    border-radius:40px;padding:10px 24px;margin-top:24px;position:relative;
+    font-weight:700;font-size:0.95rem;
+  }
+  .cake-badge .ua{display:block;color:var(--muted);font-size:0.8em;margin-top:2px;}
+
+  /* ── NAV ── */
+  .nav{
+    position:sticky;top:0;z-index:100;
+    background:rgba(13,17,23,.9);backdrop-filter:blur(16px);
+    border-bottom:1px solid rgba(255,255,255,.06);
+    padding:12px 20px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;
+  }
+  .nav a{
+    padding:7px 16px;border-radius:30px;font-weight:700;font-size:0.8rem;
+    text-decoration:none;color:var(--muted);background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.08);transition:all .2s;white-space:nowrap;
+  }
+  .nav a:hover{color:#fff;background:rgba(255,255,255,.12);transform:translateY(-2px);}
+
+  /* ── CONTAINER ── */
+  .wrap{max-width:920px;margin:0 auto;padding:0 20px;}
+
+  /* ── SECTION HEADER ── */
+  section{padding:56px 0 20px;}
+  .sh{margin-bottom:28px;}
+  .sh h2{font-family:'Unbounded',cursive;font-size:1.6rem;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+  .sh .sub-en{color:var(--muted);font-size:0.95rem;margin-top:4px;}
+  .sh .sub-ua{color:#5577aa;font-size:0.88rem;margin-top:2px;}
+
+  /* ── CARD ── */
+  .card{background:var(--card);border-radius:20px;padding:26px;border:1px solid rgba(255,255,255,.06);}
+  .card2{background:var(--card2);}
+
+  /* ── COMPARE ── */
+  .compare{display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:center;margin:24px 0;}
+  @media(max-width:580px){.compare{grid-template-columns:1fr;}.arr{transform:rotate(90deg);}}
+  .cmp{background:var(--card2);border-radius:20px;padding:24px 20px;text-align:center;border:2px solid transparent;}
+  .cmp.act{border-color:rgba(255,107,53,.4);}
+  .cmp.pas{border-color:rgba(61,214,245,.4);}
+  .cmp .lbl{font-size:.7rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;}
+  .cmp.act .lbl{color:var(--o);}
+  .cmp.pas .lbl{color:var(--b);}
+  .cmp .ico{font-size:54px;display:block;margin-bottom:10px;}
+  .cmp .sent{font-size:1.1rem;font-weight:700;line-height:1.4;}
+  .cmp .ua{color:var(--muted);font-size:.85rem;margin-top:8px;}
+  .arr{font-size:2.2rem;color:var(--p);text-align:center;}
+
+  /* ── FORMULA ── */
+  .formula{
+    background:linear-gradient(135deg,#0D1B2A,#111827);
+    border-radius:20px;padding:28px 30px;
+    border:1px solid rgba(61,214,245,.2);
+    position:relative;overflow:hidden;
+    margin:20px 0;
+  }
+  .formula::after{content:'⚙️';position:absolute;right:20px;top:16px;font-size:30px;opacity:.2;}
+  .f-lbl{font-size:.7rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:var(--b);margin-bottom:10px;}
+  .f-row{font-family:'Unbounded',cursive;font-size:clamp(1rem,2.5vw,1.4rem);line-height:1.6;flex-wrap:wrap;display:flex;align-items:center;gap:8px;}
+  .fo{color:var(--b);}
+  .fb{color:var(--y);}
+  .fp{color:var(--g);}
+  .fby{color:var(--pk);}
+  .fdim{color:rgba(255,255,255,.3);font-size:.85em;}
+  .f-ua{color:var(--muted);font-size:.88rem;margin-top:10px;line-height:1.6;}
+
+  /* ── SHOWCASE ── */
+  .showcase{
+    background:linear-gradient(135deg,#131B2E,#0D1525);
+    border-radius:24px;padding:30px 32px;text-align:center;
+    border:2px solid rgba(182,110,255,.3);margin:24px 0;position:relative;overflow:hidden;
+  }
+  .showcase::after{content:'🍰';position:absolute;font-size:100px;right:-5px;bottom:-10px;opacity:.08;}
+  .sc-lbl{font-size:.7rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:var(--p);margin-bottom:8px;}
+  .sc-act{color:var(--muted);font-size:.95rem;margin-bottom:4px;}
+  .sc-pas{font-family:'Unbounded',cursive;font-size:clamp(1.1rem,3vw,1.7rem);font-weight:900;line-height:1.4;position:relative;}
+  .sc-ua{color:#6699cc;font-size:.85rem;margin-top:8px;}
+
+  /* ── TENSE CARDS ── */
+  .tenses{display:grid;gap:12px;}
+  .tc{
+    background:var(--card2);border-radius:16px;padding:20px 24px;
+    border-left:5px solid var(--b);transition:transform .2s;
+    display:grid;grid-template-columns:1fr auto;align-items:start;gap:10px;
+  }
+  .tc:hover{transform:translateX(5px);}
+  .tc:nth-child(1){border-color:#3DD6F5;}
+  .tc:nth-child(2){border-color:#FF6B35;}
+  .tc:nth-child(3){border-color:#B66EFF;}
+  .tc:nth-child(4){border-color:#FFD93D;}
+  .tc:nth-child(5){border-color:#FF6B9D;}
+  .tc:nth-child(6){border-color:#2FD89A;}
+  .tc:nth-child(7){border-color:#60A5FA;}
+  .tc:nth-child(8){border-color:#F472B6;}
+  .tc:nth-child(9){border-color:#FB923C;}
+  .tc:nth-child(10){border-color:#A3E635;}
+  .tc-name{font-weight:900;font-size:.72rem;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:4px;}
+  .tc-form{font-size:.82rem;color:#6699bb;font-style:italic;margin-bottom:6px;}
+  .tc-ex{font-size:1rem;font-weight:700;}
+  .tc-ex .hl{color:var(--y);}
+  .tc-ua{font-size:.82rem;color:var(--muted);margin-top:4px;}
+  .tc-badge{
+    font-size:.7rem;font-weight:900;padding:4px 10px;border-radius:20px;
+    background:rgba(255,255,255,.06);color:var(--muted);white-space:nowrap;align-self:flex-start;
+  }
+
+  /* ── MODAL CARDS ── */
+  .modals{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px;margin-top:18px;}
+  .mc{background:var(--card2);border-radius:18px;padding:22px;text-align:center;}
+  .mc-word{font-family:'Unbounded',cursive;font-size:1.5rem;font-weight:900;color:var(--p);margin-bottom:4px;}
+  .mc-en{font-size:.8rem;color:var(--muted);margin-bottom:4px;}
+  .mc-ua{font-size:.8rem;color:#5577aa;margin-bottom:12px;}
+  .mc-ex{background:rgba(255,255,255,.04);border-radius:10px;padding:10px 14px;font-size:.93rem;font-weight:700;margin-bottom:6px;}
+  .mc-ex-ua{font-size:.8rem;color:var(--muted);}
+
+  /* ── STRIPS ── */
+  .strip{
+    display:flex;align-items:flex-start;gap:12px;
+    background:linear-gradient(135deg,rgba(182,110,255,.15),rgba(61,214,245,.1));
+    border:1px solid rgba(182,110,255,.25);
+    border-radius:14px;padding:16px 20px;margin:10px 0;
+  }
+  .strip.g{background:linear-gradient(135deg,rgba(47,216,154,.15),rgba(6,214,160,.1));border-color:rgba(47,216,154,.25);}
+  .strip.o{background:linear-gradient(135deg,rgba(255,107,53,.15),rgba(255,107,53,.05));border-color:rgba(255,107,53,.3);}
+  .strip.pk{background:linear-gradient(135deg,rgba(255,107,157,.15),rgba(255,107,157,.05));border-color:rgba(255,107,157,.3);}
+  .strip.y{background:linear-gradient(135deg,rgba(255,217,61,.15),rgba(255,217,61,.05));border-color:rgba(255,217,61,.3);}
+  .strip-ico{font-size:1.6rem;flex-shrink:0;margin-top:2px;}
+  .strip-en{font-size:1rem;font-weight:700;}
+  .strip-ua{font-size:.85rem;color:var(--muted);margin-top:3px;}
+
+  /* ── REPORTING ── */
+  .rep-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px;}
+  @media(max-width:560px){.rep-grid{grid-template-columns:1fr;}}
+  .rc{background:var(--card2);border-radius:16px;padding:20px;}
+  .rc-lbl{font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:1.5px;color:var(--p);margin-bottom:10px;}
+  .rc-lbl.g{color:var(--g);}
+  .rc-en{font-size:.97rem;font-weight:700;margin-bottom:6px;}
+  .rc-ua{font-size:.85rem;color:var(--muted);}
+  .verbs-box{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+  .vb{
+    padding:6px 14px;border-radius:20px;font-size:.82rem;font-weight:800;
+    background:rgba(255,255,255,.06);color:var(--text);border:1px solid rgba(255,255,255,.1);
+  }
+
+  /* ── SCROLL TO TOP ── */
+  #scroll-top-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #1a1208;
+    border: 1.5px solid rgba(200,150,62,0.4);
+    color: #f5f0e8;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+    pointer-events: none;
+    z-index: 9998;
+  }
+  #scroll-top-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  #scroll-top-btn:hover {
+    background: #c8963e;
+    border-color: #c8963e;
+    color: #1a1208;
+  }
+
+  /* ── CAUSATIVE ── */
+  .caus-vis{
+    background:linear-gradient(135deg,rgba(255,217,61,.08),rgba(255,107,53,.06));
+    border:2px dashed rgba(255,217,61,.35);
+    border-radius:22px;padding:30px;text-align:center;margin:20px 0;
+  }
+  .caus-f{font-family:'Unbounded',cursive;font-size:clamp(1rem,2.5vw,1.45rem);font-weight:900;margin:12px 0;}
+  .cv{
+    background:var(--card2);border-radius:18px;padding:22px;
+    border-top:4px solid var(--o);
+  }
+  .cv.g2{border-top-color:var(--b);}
+  .cv-word{font-family:'Unbounded',cursive;font-size:1.3rem;font-weight:900;color:var(--o);margin-bottom:6px;}
+  .cv.g2 .cv-word{color:var(--b);}
+  .cv-ex{font-size:1rem;font-weight:700;margin-bottom:4px;}
+  .cv-ua{font-size:.85rem;color:var(--muted);}
+
+  /* ── TIP ── */
+  .tip{
+    background:rgba(255,217,61,.06);border-left:4px solid var(--y);
+    border-radius:12px;padding:16px 20px;margin:18px 0;
+    font-size:.93rem;
+  }
+  .tip strong{color:var(--y);}
+  .tip .ua{color:var(--muted);font-size:.87rem;display:block;margin-top:4px;}
+
+  /* ── CHEAT SHEET TABLE ── */
+  .table-wrap{overflow-x:auto;border-radius:20px;}
+  table{width:100%;border-collapse:collapse;font-size:.88rem;}
+  th{padding:12px 16px;text-align:left;font-size:.7rem;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:var(--y);background:rgba(255,217,61,.07);border-bottom:2px solid rgba(255,255,255,.08);}
+  td{padding:13px 16px;border-bottom:1px solid rgba(255,255,255,.05);}
+  tr:last-child td{border-bottom:none;}
+  tr:hover td{background:rgba(255,255,255,.02);}
+  .tc-n{font-weight:800;}
+  .td-f{color:var(--muted);font-style:italic;}
+  .td-ex{font-weight:700;}
+  .td-ua{font-size:.8rem;color:#5577aa;}
+
+  /* ── WAVE DIV ── */
+  .wv{height:3px;background:linear-gradient(90deg,var(--b),var(--p),var(--pk),var(--o),var(--y));border-radius:3px;margin:44px 0;opacity:.4;}
+
+  /* ── FOOTER ── */
+  footer{background:#080C12;text-align:center;padding:40px 20px;color:var(--muted);font-size:.88rem;margin-top:60px;border-top:1px solid rgba(255,255,255,.05);}
+  footer .big{font-size:2.5rem;display:block;margin-bottom:10px;}
+  footer strong{color:#fff;}
+
+  /* ── UTIL ── */
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  @media(max-width:560px){.grid2{grid-template-columns:1fr;}}
+  .ua-note{color:#5577aa;font-size:.88rem;margin-top:3px;}
+
+  /* ── STEP INFOGRAPHIC ── */
+  .steps{display:flex;flex-wrap:wrap;gap:0;margin:24px 0;position:relative;}
+  .step{flex:1;min-width:150px;text-align:center;padding:20px 12px;position:relative;}
+  .step:not(:last-child)::after{
+    content:'→';position:absolute;right:-10px;top:50%;transform:translateY(-50%);
+    font-size:1.4rem;color:var(--muted);
+  }
+  @media(max-width:500px){.step:not(:last-child)::after{content:'↓';right:50%;top:auto;bottom:-14px;transform:none;}}
+  .step-num{
+    width:44px;height:44px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Unbounded',cursive;font-weight:900;font-size:1rem;
+    margin:0 auto 10px;
+  }
+  .step-en{font-weight:700;font-size:.9rem;}
+  .step-ua{color:var(--muted);font-size:.78rem;margin-top:2px;}
+
+  /* ══════════════════════════════════
+     ── MOBILE (≤ 480px) ──
+  ══════════════════════════════════ */
+  @media(max-width:480px){
+
+    /* Hero */
+    .hero{ padding:44px 16px 60px; }
+    .hero-icon{ font-size:60px; }
+    .hero h1{ font-size:1.55rem; }
+    .hero-sub{ font-size:.92rem; }
+    .cake-badge{
+      flex-direction:column; align-items:flex-start;
+      padding:12px 18px; font-size:.82rem; border-radius:16px;
+      text-align:left; gap:4px;
+    }
+
+    /* Nav: horizontal scroll instead of wrap */
+    .nav{
+      flex-wrap:nowrap; overflow-x:auto; justify-content:flex-start;
+      padding:10px 14px; gap:6px;
+      -webkit-overflow-scrolling:touch;
+      scrollbar-width:none;
+    }
+    .nav::-webkit-scrollbar{ display:none; }
+    .nav a{ font-size:.74rem; padding:6px 13px; flex-shrink:0; }
+
+    /* Wrap padding */
+    .wrap{ padding:0 14px; }
+
+    /* Section headers */
+    section{ padding:40px 0 16px; }
+    .sh h2{ font-size:1.15rem; gap:7px; }
+    .sh .sub-en, .sh .sub-ua{ font-size:.82rem; }
+
+    /* Compare */
+    .compare{ grid-template-columns:1fr; gap:12px; }
+    .arr{ transform:rotate(90deg); font-size:1.6rem; }
+    .cmp{ padding:18px 14px; }
+    .cmp .ico{ font-size:40px; }
+    .cmp .sent{ font-size:.95rem; }
+    .cmp .ua{ font-size:.78rem; }
+
+    /* Formula */
+    .formula{ padding:20px 18px; }
+    .f-row{ font-size:.82rem; gap:5px; }
+    .f-ua{ font-size:.8rem; }
+
+    /* Steps infographic: single column */
+    .steps{ flex-direction:column; gap:0; }
+    .step{ min-width:unset; padding:14px 10px 28px; }
+    .step:not(:last-child)::after{
+      content:'↓'; right:50%; top:auto; bottom:4px;
+      transform:translateX(50%); font-size:1.2rem;
+    }
+
+    /* Showcase */
+    .showcase{ padding:22px 18px; }
+    .sc-pas{ font-size:1rem; }
+    .sc-act{ font-size:.82rem; }
+
+    /* Tense cards — badge drops below on mobile */
+    .tc{ grid-template-columns:1fr; gap:6px; padding:16px 18px; }
+    .tc-badge{ align-self:unset; width:fit-content; }
+    .tc-ex{ font-size:.93rem; }
+    .tc-name{ font-size:.68rem; }
+
+    /* Modal cards — single column */
+    .modals{ grid-template-columns:1fr; }
+    .mc{ padding:18px 16px; }
+    .mc-word{ font-size:1.25rem; }
+    .mc-ex{ font-size:.88rem; }
+
+    /* Strips */
+    .strip{ padding:13px 14px; gap:10px; }
+    .strip-ico{ font-size:1.3rem; }
+    .strip-en{ font-size:.9rem; }
+    .strip-ua{ font-size:.78rem; }
+
+    /* Reporting */
+    .rep-grid{ grid-template-columns:1fr; }
+    .rc{ padding:16px; }
+
+    /* Causative */
+    .caus-vis{ padding:20px 16px; }
+    .caus-f{ font-size:.88rem; }
+    .cv{ padding:16px; }
+    .cv-word{ font-size:1.1rem; }
+
+    /* Grid2 */
+    .grid2{ grid-template-columns:1fr; }
+
+    /* Table: horizontal scroll with min-width to stay readable */
+    .table-wrap{
+      overflow-x:auto;
+      -webkit-overflow-scrolling:touch;
+      border-radius:16px;
+      /* subtle scroll hint */
+      background:
+        linear-gradient(to right, var(--card2) 30%, transparent),
+        linear-gradient(to left,  var(--card2) 30%, transparent);
+      background-size:40px 100%, 40px 100%;
+      background-position:left, right;
+      background-repeat:no-repeat;
+    }
+    table{ min-width:520px; font-size:.78rem; }
+    th{ padding:10px 12px; font-size:.62rem; }
+    td{ padding:10px 12px; }
+    .td-ua{ font-size:.72rem; }
+
+    /* Wave divider */
+    .wv{ margin:30px 0; }
+
+    /* Footer */
+    footer{ padding:32px 16px; font-size:.82rem; }
+    footer .big{ font-size:2rem; }
+
+    /* Scroll-to-top btn: smaller on mobile */
+    #scroll-top-btn{ width:38px; height:38px; font-size:15px; bottom:18px; right:16px; }
+
+    /* Tip box */
+    .tip{ font-size:.84rem; padding:13px 15px; }
+
+    /* Card padding */
+    .card{ padding:18px 16px; }
+  }
+
+  /* ── Tablet tweaks (481–768px) ── */
+  @media(min-width:481px) and (max-width:768px){
+    .wrap{ padding:0 18px; }
+    .hero{ padding:54px 18px 70px; }
+    .hero h1{ font-size:2rem; }
+    .sh h2{ font-size:1.35rem; }
+    .tc{ grid-template-columns:1fr; gap:6px; }
+    .tc-badge{ align-self:unset; width:fit-content; }
+    table{ min-width:480px; font-size:.82rem; }
+    .modals{ grid-template-columns:repeat(2,1fr); }
+    .steps{ flex-wrap:wrap; }
+    .step{ min-width:140px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- STARS -->
+<div class="hero">
+  <div class="stars" id="stars"></div>
+  <span class="hero-icon">📚</span>
+  <h1>
+    <span class="en">The Passive Voice</span>
+    <span class="ua">Пасивний Стан в Англійській Мові</span>
+  </h1>
+  <p class="hero-sub">
+    Learn it step by step with formulas, examples & visuals!<br>
+    <span class="ua">Вивчай крок за кроком — з формулами, прикладами та ілюстраціями!</span>
+  </p>
+  <div class="cake-badge">
+    🍰 Our star sentence: <strong>"The cake was baked by Grandma."</strong>
+    <span class="ua">Наше головне речення: «Торт був спечений бабусею.»</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="#what">🤔 What / Що це?</a>
+  <a href="#formula">📐 Formula</a>
+  <a href="#tenses">⏰ All Tenses</a>
+  <a href="#modals">💪 Modals</a>
+  <a href="#reporting">📰 Reporting</a>
+  <a href="#causative">🛠️ Have sth done</a>
+  <a href="#cheat">📋 Cheat Sheet</a>
+</nav>
+
+<div class="wrap">
+
+  <!-- ═══════ SECTION 1 ═══════ -->
+  <section id="what">
+    <div class="sh">
+      <h2>🤔 What is the Passive Voice?</h2>
+      <p class="sub-en">When the <strong>thing that receives the action</strong> becomes the main focus of the sentence.</p>
+      <p class="sub-ua">Коли <strong>предмет, на який спрямована дія</strong>, стає головним у реченні.</p>
+    </div>
+
+    <div class="compare">
+      <div class="cmp act">
+        <span class="ico">👵</span>
+        <div class="lbl">⚡ Active / Активний</div>
+        <div class="sent">"Grandma <strong>baked</strong> the cake."</div>
+        <div class="ua">«Бабуся <strong>спекла</strong> торт.»<br><small>Grandma is the subject — she acts.</small><br><small>Бабуся — підмет, вона діє.</small></div>
+      </div>
+      <div class="arr">→</div>
+      <div class="cmp pas">
+        <span class="ico">🍰</span>
+        <div class="lbl">🌊 Passive / Пасивний</div>
+        <div class="sent">"The cake <strong>was baked</strong> by Grandma."</div>
+        <div class="ua">«Торт <strong>був спечений</strong> бабусею.»<br><small>The cake is the subject — it receives the action.</small><br><small>Торт — підмет, він приймає дію.</small></div>
+      </div>
+    </div>
+
+    <div class="card card2" style="margin-top:20px;">
+      <div style="display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap;">
+        <div style="font-size:48px;">💡</div>
+        <div style="flex:1;min-width:200px;">
+          <div style="font-weight:900;font-size:1.05rem;margin-bottom:8px;">When do we use it? / Коли ми це використовуємо?</div>
+          <div class="strip" style="margin:6px 0;padding:10px 14px;">
+            <div class="strip-ico">📰</div>
+            <div>
+              <div class="strip-en">When the action is more important than who did it.</div>
+              <div class="strip-ua">Коли дія важливіша за того, хто її зробив.</div>
+            </div>
+          </div>
+          <div class="strip g" style="margin:6px 0;padding:10px 14px;">
+            <div class="strip-ico">❓</div>
+            <div>
+              <div class="strip-en">When we don't know who did it.</div>
+              <div class="strip-ua">Коли ми не знаємо, хто це зробив.</div>
+            </div>
+          </div>
+          <div class="strip o" style="margin:6px 0;padding:10px 14px;">
+            <div class="strip-ico">🔬</div>
+            <div>
+              <div class="strip-en">In science, news, and formal writing.</div>
+              <div class="strip-ua">У науці, новинах та офіційних текстах.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wv"></div>
+
+  <!-- ═══════ SECTION 2: FORMULA ═══════ -->
+  <section id="formula">
+    <div class="sh">
+      <h2>📐 The Magic Formula / Чарівна формула</h2>
+      <p class="sub-en">Every passive sentence follows the same pattern.</p>
+      <p class="sub-ua">Кожне пасивне речення слідує одному й тому ж зразку.</p>
+    </div>
+
+    <div class="formula">
+      <div class="f-lbl">⚙️ Passive = </div>
+      <div class="f-row">
+        <span class="fo">Object</span>
+        <span class="fdim">+</span>
+        <span class="fb">correct "BE"</span>
+        <span class="fdim">+</span>
+        <span class="fp">Past Participle</span>
+        <span class="fdim">+</span>
+        <span class="fby">(by + agent)</span>
+        <span class="fdim">← optional!</span>
+      </div>
+      <div class="f-ua">
+        🇺🇦 <strong>Об'єкт</strong> + <strong>правильна форма "BE"</strong> + <strong>дієприкметник минулого часу</strong> + <strong>(by + виконавець)</strong> — необов'язково!
+      </div>
+    </div>
+
+    <!-- HOW TO BUILD steps -->
+    <div style="background:var(--card2);border-radius:20px;padding:24px;margin:20px 0;">
+      <div style="font-weight:900;margin-bottom:16px;font-size:1rem;">🔨 How to build a passive sentence? / Як побудувати пасивне речення?</div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num" style="background:rgba(61,214,245,.15);color:var(--b);">1</div>
+          <div class="step-en">Take the <strong>object</strong><br>"the cake"</div>
+          <div class="step-ua">Беремо об'єкт</div>
+        </div>
+        <div class="step">
+          <div class="step-num" style="background:rgba(255,217,61,.15);color:var(--y);">2</div>
+          <div class="step-en">Add correct <strong>BE</strong><br>"was"</div>
+          <div class="step-ua">Додаємо форму BE</div>
+        </div>
+        <div class="step">
+          <div class="step-num" style="background:rgba(47,216,154,.15);color:var(--g);">3</div>
+          <div class="step-en">Add <strong>past participle</strong><br>"baked"</div>
+          <div class="step-ua">Додаємо дієприкметник</div>
+        </div>
+        <div class="step">
+          <div class="step-num" style="background:rgba(255,107,157,.15);color:var(--pk);">4</div>
+          <div class="step-en"><strong>(optional)</strong> by + agent<br>"by Grandma"</div>
+          <div class="step-ua">За бажанням: ким?</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="showcase">
+      <div class="sc-lbl">🌟 Our Star Sentence / Наше головне речення</div>
+      <div class="sc-act">Active: "Grandma baked the cake." → «Бабуся спекла торт.»</div>
+      <div class="sc-pas">
+        "<span class="fo">The cake</span>&nbsp;<span class="fb">was</span>&nbsp;<span class="fp">baked</span>&nbsp;<span class="fby">by Grandma</span>."
+      </div>
+      <div class="sc-ua">🇺🇦 «<span style="color:var(--b)">Торт</span> <span style="color:var(--y)">був</span> <span style="color:var(--g)">спечений</span> <span style="color:var(--pk)">бабусею</span>.»</div>
+    </div>
+
+    <div class="grid2" style="margin-top:16px;">
+      <div style="background:rgba(61,214,245,.07);border:1px solid rgba(61,214,245,.2);border-radius:16px;padding:18px;text-align:center;">
+        <div style="font-size:1.8rem;">🔵</div>
+        <div style="font-weight:900;color:var(--b);margin:6px 0;">The cake</div>
+        <div style="font-size:.82rem;color:var(--muted);">Object → New Subject<br>Об'єкт → Новий підмет</div>
+      </div>
+      <div style="background:rgba(255,217,61,.07);border:1px solid rgba(255,217,61,.2);border-radius:16px;padding:18px;text-align:center;">
+        <div style="font-size:1.8rem;">🟡</div>
+        <div style="font-weight:900;color:var(--y);margin:6px 0;">was baked</div>
+        <div style="font-size:.82rem;color:var(--muted);">BE + Past Participle<br>BE + Дієприкметник</div>
+      </div>
+    </div>
+
+    <div class="tip">
+      <strong>⚠️ Past Participle (PP)</strong> — this is the 3rd form of the verb. Regular verbs add -ed: bake → baked. Irregular: write → written, eat → eaten.<br>
+      <span class="ua">🇺🇦 Дієприкметник минулого часу — це 3-я форма дієслова. Правильні дієслова: +ed. Неправильні: write → written, eat → eaten.</span>
+    </div>
+  </section>
+
+  <div class="wv"></div>
+
+  <!-- ═══════ SECTION 3: ALL TENSES ═══════ -->
+  <section id="tenses">
+    <div class="sh">
+      <h2>⏰ Passive in ALL Tenses</h2>
+      <p class="sub-en">Watch how "The cake was baked" changes in every tense! The Past Participle (baked) never changes — only BE changes!</p>
+      <p class="sub-ua">Дивись, як змінюється речення в кожному часі! Дієприкметник (baked) завжди однаковий — змінюється лише BE!</p>
+    </div>
+
+    <div class="formula" style="margin-bottom:24px;">
+      <div class="f-lbl">🔑 The Key / Ключ</div>
+      <div class="f-row" style="font-size:1rem;">
+        Change <span class="fb">BE</span> to match the tense. <span class="fdim">Змінюй</span> <span class="fb">BE</span> <span class="fdim">відповідно до часу.</span> Keep <span class="fp">Past Participle</span> the same!
+      </div>
+    </div>
+
+    <div class="tenses">
+
+      <div class="tc">
+        <div>
+          <div class="tc-name">Present Simple / Теперішній простий</div>
+          <div class="tc-form">am / is / are + past participle</div>
+          <div class="tc-ex">🍰 The cake <span class="hl">is baked</span> by Grandma every Sunday.</div>
+          <div class="tc-ua">🇺🇦 Торт <span style="color:var(--y)">печеться</span> бабусею щонеділі.</div>
+        </div>
+        <div class="tc-badge">now/always</div>
+      </div>
+
+      <div class="tc">
+        <div>
+          <div class="tc-name">Present Continuous / Теперішній тривалий</div>
+          <div class="tc-form">am / is / are + being + past participle</div>
+          <div class="tc-ex">🍰 The cake <span class="hl">is being baked</span> right now.</div>
+          <div class="tc-ua">🇺🇦 Торт <span style="color:var(--y)">зараз печеться</span>.</div>
+        </div>
+        <div class="tc-badge">right now</div>
+      </div>
+
+      <div class="tc">
+        <div>
+          <div class="tc-name">Present Perfect / Теперішній доконаний</div>
+          <div class="tc-form">have / has + been + past participle</div>
+          <div class="tc-ex">🍰 The cake <span class="hl">has been baked</span> already.</div>
+          <div class="tc-ua">🇺🇦 Торт <span style="color:var(--y)">вже був спечений</span>.</div>
+        </div>
+        <div class="tc-badge">just done</div>
+      </div>
+
+      <div class="tc">
+        <div>
+          <div class="tc-name">Past Simple / Минулий простий</div>
+          <div class="tc-form">was / were + past participle</div>
+          <div class="tc-ex">🍰 The cake <span class="hl">was baked</span> by Grandma yesterday.</div>
+          <div class="tc-ua">🇺🇦 Торт <span style="color:var(--y)">був спечений</span> бабусею вчора.</div>
+        </div>
+        <div class="tc-badge">yesterday</div>
+      </div>
+
+      <div class="tc">
+        <div>
+          <div class="tc-name">Past Continuous / Минулий тривалий</div>
+          <div class="tc-form">was / were + being + past participle</div>
+          <div class="tc-ex">🍰 The cake <span class="hl">was being baked</span> when I arrived.</div>
+          <div class="tc-ua">🇺🇦 Торт <span style="color:var(--y)">пекся</span>, коли я прийшов.</div>
+        </div>
+        <div class="tc-badge">was happening</div>
+      </div>
+
+      <div class="tc">
+        <div>
+          <div class="tc-name">Past Perfect / Минулий доконаний</div>
+          <div class="tc-form">had + been + past participle</div>
+          <div class="tc-ex">🍰 The cake <span class="hl">had been baked</span> before the party.</div>
+          <div class="tc-ua">🇺🇦 Торт <span style="color:var(--y)">був спечений</span> до вечірки.</div>
+        </div>
+        <div class="tc-badge">before another past</div>
+      </div>
+
+      <div class="tc">
+        <div>
+          <div class="tc-name">Future Simple / Майбутній простий</div>
+          <div class="tc-form">will + be + past participle</div>
+          <div class="tc-ex">🍰 The cake <span class="hl">will be baked</span> tomorrow.</div>
+          <div class="tc-ua">🇺🇦 Торт <span style="color:var(--y)">буде спечений</span> завтра.</div>
+        </div>
+        <div class="tc-badge">tomorrow</div>
+      </div>
+
+      <div class="tc">
+        <div>
+          <div class="tc-name">Future Perfect / Майбутній доконаний</div>
+          <div class="tc-form">will + have been + past participle</div>
+          <div class="tc-ex">🍰 The cake <span class="hl">will have been baked</span> by noon.</div>
+          <div class="tc-ua">🇺🇦 Торт <span style="color:var(--y)">буде вже спечений</span> до полудня.</div>
+        </div>
+        <div class="tc-badge">done by future time</div>
+      </div>
+
+      <div class="tc">
+        <div>
+          <div class="tc-name">Going to Future / Заплановане майбутнє</div>
+          <div class="tc-form">am / is / are + going to be + past participle</div>
+          <div class="tc-ex">🍰 The cake <span class="hl">is going to be baked</span> this evening.</div>
+          <div class="tc-ua">🇺🇦 Торт <span style="color:var(--y)">збираються спекти</span> цього вечора.</div>
+        </div>
+        <div class="tc-badge">planned future</div>
+      </div>
+
+      <div class="tc">
+        <div>
+          <div class="tc-name">Conditional / Умовний спосіб</div>
+          <div class="tc-form">would + be + past participle</div>
+          <div class="tc-ex">🍰 The cake <span class="hl">would be baked</span> if we had flour.</div>
+          <div class="tc-ua">🇺🇦 Торт <span style="color:var(--y)">був би спечений</span>, якби у нас було борошно.</div>
+        </div>
+        <div class="tc-badge">if / якби</div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="wv"></div>
+
+  <!-- ═══════ SECTION 4: MODALS ═══════ -->
+  <section id="modals">
+    <div class="sh">
+      <h2>💪 Passive with Modal Verbs</h2>
+      <p class="sub-en">Modal verbs (can, must, should...) work perfectly with the passive!</p>
+      <p class="sub-ua">Модальні дієслова (can, must, should...) чудово поєднуються з пасивом!</p>
+    </div>
+
+    <div class="formula">
+      <div class="f-lbl">⚙️ Modal Passive Formula</div>
+      <div class="f-row">
+        <span class="fo">Subject</span>
+        <span class="fdim">+</span>
+        <span class="fb">modal verb</span>
+        <span class="fdim">+</span>
+        <span class="fp">be + past participle</span>
+      </div>
+      <div class="f-ua">🇺🇦 Підмет + модальне дієслово + be + дієприкметник минулого часу</div>
+    </div>
+
+    <div class="modals">
+      <div class="mc">
+        <div class="mc-word">can</div>
+        <div class="mc-en">ability / possibility</div>
+        <div class="mc-ua">здатність / можливість</div>
+        <div class="mc-ex">🍰 The cake <strong>can be baked</strong> in 30 min.</div>
+        <div class="mc-ex-ua">Торт можна спекти за 30 хв.</div>
+      </div>
+      <div class="mc">
+        <div class="mc-word">could</div>
+        <div class="mc-en">past ability / polite request</div>
+        <div class="mc-ua">минула здатність / ввічливе прохання</div>
+        <div class="mc-ex">🍰 The cake <strong>could be baked</strong> faster.</div>
+        <div class="mc-ex-ua">Торт можна було б спекти швидше.</div>
+      </div>
+      <div class="mc">
+        <div class="mc-word">should</div>
+        <div class="mc-en">advice / recommendation</div>
+        <div class="mc-ua">порада / рекомендація</div>
+        <div class="mc-ex">🍰 The cake <strong>should be baked</strong> at 180°C.</div>
+        <div class="mc-ex-ua">Торт слід пекти при 180°C.</div>
+      </div>
+      <div class="mc">
+        <div class="mc-word">must</div>
+        <div class="mc-en">obligation / strong necessity</div>
+        <div class="mc-ua">обов'язок / необхідність</div>
+        <div class="mc-ex">🍰 The cake <strong>must be baked</strong> today!</div>
+        <div class="mc-ex-ua">Торт мусить бути спечений сьогодні!</div>
+      </div>
+      <div class="mc">
+        <div class="mc-word">might</div>
+        <div class="mc-en">uncertainty / maybe</div>
+        <div class="mc-ua">невпевненість / можливо</div>
+        <div class="mc-ex">🍰 The cake <strong>might be baked</strong> tonight.</div>
+        <div class="mc-ex-ua">Можливо, торт спечуть сьогодні ввечері.</div>
+      </div>
+      <div class="mc">
+        <div class="mc-word">will</div>
+        <div class="mc-en">certainty / promise</div>
+        <div class="mc-ua">впевненість / обіцянка</div>
+        <div class="mc-ex">🍰 The cake <strong>will be baked</strong> with love.</div>
+        <div class="mc-ex-ua">Торт буде спечений з любов'ю.</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wv"></div>
+
+  <!-- ═══════ SECTION 5: REPORTING ═══════ -->
+  <section id="reporting">
+    <div class="sh">
+      <h2>📰 Reporting Passive / Репортажний пасив</h2>
+      <p class="sub-en">Used when we want to say what "people say / think / believe" without naming who exactly.</p>
+      <p class="sub-ua">Використовується, коли хочемо сказати, що «кажуть / думають / вважають» люди, не називаючи конкретно хто.</p>
+    </div>
+
+    <div class="formula">
+      <div class="f-lbl">⚙️ Two Patterns / Два зразки</div>
+      <div class="f-row" style="font-size:1rem;margin-bottom:8px;">
+        Pattern 1: <span class="fb">It is said / reported / believed</span> <span class="fdim">that</span> <span class="fp">+ full sentence</span>
+      </div>
+      <div class="f-row" style="font-size:1rem;">
+        Pattern 2: <span class="fo">Subject</span> <span class="fb">is said / believed</span> <span class="fp">to + verb</span>
+      </div>
+      <div class="f-ua">
+        🇺🇦 Зразок 1: <strong>Кажуть, що...</strong> | Зразок 2: <strong>Він, кажуть, є...</strong>
+      </div>
+    </div>
+
+    <div class="card card2" style="margin:20px 0;padding:24px;">
+      <div style="font-weight:900;margin-bottom:14px;">Example / Приклад: "People say that Grandma is the best baker."</div>
+      <div class="strip">
+        <div class="strip-ico">📺</div>
+        <div>
+          <div class="strip-en"><strong>It is said that</strong> Grandma is the best baker in town.</div>
+          <div class="strip-ua">Кажуть, що бабуся — найкраща кондитерка в місті.</div>
+        </div>
+      </div>
+      <div class="strip g">
+        <div class="strip-ico">⭐</div>
+        <div>
+          <div class="strip-en"><strong>Grandma is said to be</strong> the best baker in town.</div>
+          <div class="strip-ua">Бабусю вважають найкращою кондитеркою в місті.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rep-grid">
+      <div class="rc">
+        <div class="rc-lbl">🗣️ Common reporting verbs / Дієслова</div>
+        <div class="verbs-box">
+          <span class="vb">say / казати</span>
+          <span class="vb">think / думати</span>
+          <span class="vb">believe / вважати</span>
+          <span class="vb">report / повідомляти</span>
+          <span class="vb">know / знати</span>
+          <span class="vb">claim / стверджувати</span>
+          <span class="vb">expect / очікувати</span>
+          <span class="vb">consider / вважати</span>
+        </div>
+      </div>
+      <div class="rc">
+        <div class="rc-lbl g">📰 Why use it? / Чому?</div>
+        <div class="rc-en">Journalists and scientists use it when they can't confirm who said something, or when it's a general belief.</div>
+        <div class="rc-ua" style="margin-top:6px;">Журналісти й вчені використовують це, коли не можуть підтвердити, хто саме сказав це, або коли це загальна думка.</div>
+      </div>
+    </div>
+
+    <div style="margin-top:20px;">
+      <div class="strip pk">
+        <div class="strip-ico">📻</div>
+        <div>
+          <div class="strip-en"><strong>It is reported that</strong> Grandma's cake won first prize at the competition.</div>
+          <div class="strip-ua">Повідомляється, що торт бабусі виграв перший приз на змаганні.</div>
+        </div>
+      </div>
+      <div class="strip y">
+        <div class="strip-ico">🏆</div>
+        <div>
+          <div class="strip-en"><strong>Grandma's cake is believed to be</strong> the most delicious in the whole region.</div>
+          <div class="strip-ua">Вважається, що торт бабусі є найсмачнішим у всьому регіоні.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wv"></div>
+
+  <!-- ═══════ SECTION 6: CAUSATIVE ═══════ -->
+  <section id="causative">
+    <div class="sh">
+      <h2>🛠️ Have / Get Something Done</h2>
+      <p class="sub-en">When you arrange for someone else to do something for you — you don't do it yourself!</p>
+      <p class="sub-ua">Коли ти організовуєш, щоб хтось інший щось зробив для тебе — ти сам цього не робиш!</p>
+    </div>
+
+    <div class="card card2" style="margin-bottom:20px;display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap;">
+      <div style="font-size:52px;">🤔</div>
+      <div style="flex:1;min-width:200px;">
+        <div style="font-weight:900;font-size:1.05rem;margin-bottom:10px;">What's the difference? / У чому різниця?</div>
+        <div class="strip" style="margin:6px 0;padding:10px 16px;">
+          <div class="strip-ico">👩‍🍳</div>
+          <div>
+            <div class="strip-en"><strong>"I baked a cake"</strong> — I did it myself.</div>
+            <div class="strip-ua">Я сам(а) спекла торт.</div>
+          </div>
+        </div>
+        <div class="strip g" style="margin:6px 0;padding:10px 16px;">
+          <div class="strip-ico">🎂</div>
+          <div>
+            <div class="strip-en"><strong>"I had a cake baked"</strong> — I paid/asked someone to do it.</div>
+            <div class="strip-ua">Я замовила/попросила спекти торт.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="caus-vis">
+      <div style="font-size:2.5rem;margin-bottom:8px;">You 👤 → 🛠️ → Someone else 👷</div>
+      <div style="font-size:.78rem;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;">Causative Formula / Каузативна форма</div>
+      <div class="caus-f">
+        Subject + <span style="color:var(--o);">have/get</span> + Object + <span style="color:var(--p);">past participle</span>
+      </div>
+      <div style="font-size:.85rem;color:var(--muted);margin-top:8px;">
+        ✅ <strong style="color:#fff;">have</strong> = more formal / більш офіційно &nbsp;&nbsp;
+        ✅ <strong style="color:#fff;">get</strong> = more informal / більш розмовно
+      </div>
+    </div>
+
+    <div class="grid2" style="margin:20px 0;">
+      <div class="cv">
+        <div class="cv-word">HAVE</div>
+        <div style="font-size:.8rem;color:var(--muted);margin-bottom:12px;">formal / офіційне</div>
+        <div class="cv-ex">🍰 I <span style="color:var(--o);">had</span> a cake <span style="color:var(--p);">baked</span> for the party.</div>
+        <div class="cv-ua">Я замовила торт спекти до вечірки.</div>
+      </div>
+      <div class="cv g2">
+        <div class="cv-word">GET</div>
+        <div style="font-size:.8rem;color:var(--muted);margin-bottom:12px;">informal / розмовне</div>
+        <div class="cv-ex">🍰 I <span style="color:var(--b);">got</span> a cake <span style="color:var(--p);">baked</span> for the party.</div>
+        <div class="cv-ua">Я попросила спекти торт до вечірки.</div>
+      </div>
+    </div>
+
+    <div style="font-weight:900;font-size:1rem;margin-bottom:14px;">📚 More everyday examples / Ще приклади:</div>
+    <div class="strip">
+      <div class="strip-ico">💇</div>
+      <div>
+        <div class="strip-en">She <strong>had her hair cut</strong> yesterday. (past)</div>
+        <div class="strip-ua">Вона постриглася вчора.</div>
+      </div>
+    </div>
+    <div class="strip g">
+      <div class="strip-ico">🚗</div>
+      <div>
+        <div class="strip-en">He <strong>is getting his car fixed</strong> right now. (present continuous)</div>
+        <div class="strip-ua">Він зараз здає машину в ремонт.</div>
+      </div>
+    </div>
+    <div class="strip o">
+      <div class="strip-ico">📱</div>
+      <div>
+        <div class="strip-en">They <strong>will have their phone repaired</strong> tomorrow. (future)</div>
+        <div class="strip-ua">Вони здадуть телефон в ремонт завтра.</div>
+      </div>
+    </div>
+    <div class="strip pk">
+      <div class="strip-ico">🏠</div>
+      <div>
+        <div class="strip-en">We <strong>should get our roof fixed</strong> before winter. (modal)</div>
+        <div class="strip-ua">Нам слід полагодити дах до зими.</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wv"></div>
+
+  <!-- ═══════ CHEAT SHEET ═══════ -->
+  <section id="cheat">
+    <div class="sh">
+      <h2>📋 Quick Reference Cheat Sheet / Шпаргалка</h2>
+      <p class="sub-en">All passive forms in one place!</p>
+      <p class="sub-ua">Усі пасивні форми в одному місці!</p>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Tense / Час</th>
+            <th>Formula / Формула</th>
+            <th>🍰 Example / Приклад</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="tc-n" style="color:#3DD6F5;">Present Simple</span><br><span class="td-ua">Теперішній простий</span></td>
+            <td class="td-f">is/are + PP</td>
+            <td><div class="td-ex">The cake <em>is baked</em> every day.</div><div class="td-ua">Торт печеться щодня.</div></td>
+          </tr>
+          <tr>
+            <td><span class="tc-n" style="color:#FF6B35;">Past Simple</span><br><span class="td-ua">Минулий простий</span></td>
+            <td class="td-f">was/were + PP</td>
+            <td><div class="td-ex">The cake <em>was baked</em> yesterday.</div><div class="td-ua">Торт спекли вчора.</div></td>
+          </tr>
+          <tr>
+            <td><span class="tc-n" style="color:#60A5FA;">Future Simple</span><br><span class="td-ua">Майбутній простий</span></td>
+            <td class="td-f">will be + PP</td>
+            <td><div class="td-ex">The cake <em>will be baked</em> tomorrow.</div><div class="td-ua">Торт спечуть завтра.</div></td>
+          </tr>
+          <tr>
+            <td><span class="tc-n" style="color:#B66EFF;">Present Perfect</span><br><span class="td-ua">Теперішній доконаний</span></td>
+            <td class="td-f">has/have been + PP</td>
+            <td><div class="td-ex">The cake <em>has been baked</em>.</div><div class="td-ua">Торт вже спечений.</div></td>
+          </tr>
+          <tr>
+            <td><span class="tc-n" style="color:#2FD89A;">Modals</span><br><span class="td-ua">Модальні дієслова</span></td>
+            <td class="td-f">modal + be + PP</td>
+            <td><div class="td-ex">The cake <em>should be baked</em>.</div><div class="td-ua">Торт слід спекти.</div></td>
+          </tr>
+          <tr>
+            <td><span class="tc-n" style="color:#FFD93D;">Reporting</span><br><span class="td-ua">Репортажний пасив</span></td>
+            <td class="td-f">It is said that... /<br>Subject is said to...</td>
+            <td><div class="td-ex"><em>It is said that</em> the cake is amazing.</div><div class="td-ua">Кажуть, що торт чудовий.</div></td>
+          </tr>
+          <tr>
+            <td><span class="tc-n" style="color:#F472B6;">Causative</span><br><span class="td-ua">Каузатив</span></td>
+            <td class="td-f">have/get + obj + PP</td>
+            <td><div class="td-ex">I <em>had the cake baked</em>.</div><div class="td-ua">Я замовила, щоб спекли торт.</div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span class="big">🎉</span>
+  <strong>You've learned the Passive Voice! / Ти вивчив(ла) пасивний стан!</strong><br><br>
+  <span style="color:var(--muted);">Remember the formula / Запам'ятай формулу:<br></span>
+  <span style="color:#fff;font-weight:700;">Object + BE (correct form) + Past Participle</span><br><br>
+  <div style="margin-top:14px;display:inline-block;background:linear-gradient(135deg,rgba(255,217,61,.15),rgba(255,107,53,.15));border:2px solid rgba(255,217,61,.4);border-radius:30px;padding:10px 28px;font-weight:800;">
+    🍰 "The cake was baked by Grandma." — Торт був спечений бабусею.
+  </div>
+</footer>
+
+<script>
+  // Generate stars
+  const s=document.getElementById('stars');
+  for(let i=0;i<60;i++){
+    const d=document.createElement('div');
+    d.className='star';
+    d.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*100}%;animation-delay:${Math.random()*3}s;animation-duration:${2+Math.random()*3}s;opacity:${Math.random()*.6};width:${1+Math.random()*3}px;height:${1+Math.random()*3}px;`;
+    s.appendChild(d);
+  }
+</script>
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+</body>
+</html>

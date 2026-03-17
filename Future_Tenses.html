@@ -1,0 +1,1854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Future Tenses in English 🚀</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sky: #0ea5e9;
+    --violet: #8b5cf6;
+    --pink: #ec4899;
+    --orange: #f97316;
+    --green: #22c55e;
+    --teal: #14b8a6;
+    --yellow: #eab308;
+    --red: #ef4444;
+    --navy: #0f172a;
+    --bg: #f0f9ff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--navy);
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 40%, #0ea5e9 100%);
+    padding: 60px 20px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 20% 50%, rgba(139,92,246,.3) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(14,165,233,.4) 0%, transparent 50%);
+  }
+  .hero-stars {
+    position: absolute; inset: 0; overflow: hidden;
+  }
+  .star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 3s infinite alternate;
+  }
+  @keyframes twinkle { from{opacity:.2} to{opacity:1} }
+
+  .hero h1 {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(2.2rem, 6vw, 4.5rem);
+    font-weight: 800;
+    color: white;
+    position: relative;
+    text-shadow: 0 0 40px rgba(14,165,233,.8);
+    line-height: 1.1;
+  }
+  .hero h1 span { color: #7dd3fc; }
+  .hero p {
+    color: #bae6fd;
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    margin-top: 16px;
+    position: relative;
+    max-width: 700px;
+    margin-inline: auto;
+  }
+  .rocket-emoji {
+    font-size: 4rem;
+    display: block;
+    margin-bottom: 20px;
+    animation: float 3s ease-in-out infinite;
+    position: relative;
+  }
+  @keyframes float {
+    0%,100%{transform:translateY(0) rotate(-10deg)}
+    50%{transform:translateY(-15px) rotate(10deg)}
+  }
+
+  /* NAV PILLS */
+  .nav-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    padding: 30px 20px;
+    background: white;
+    box-shadow: 0 4px 20px rgba(0,0,0,.08);
+    position: sticky; top: 0; z-index: 100;
+  }
+  .nav-pills a {
+    text-decoration: none;
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: .85rem;
+    transition: all .2s;
+    border: 2px solid transparent;
+  }
+  .nav-pills a:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,.15); }
+
+  /* SECTIONS */
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+  section { padding: 60px 0; }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .section-header h2 {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 800;
+    line-height: 1.2;
+  }
+  .section-header p {
+    font-size: 1.1rem;
+    margin-top: 10px;
+    opacity: .8;
+    max-width: 700px;
+    margin-inline: auto;
+  }
+  .badge {
+    display: inline-block;
+    padding: 4px 14px;
+    border-radius: 50px;
+    font-size: .8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+  }
+
+  /* OVERVIEW CARDS */
+  .overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .overview-card {
+    border-radius: 20px;
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform .25s, box-shadow .25s;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+  .overview-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,.15); }
+  .overview-card .oc-emoji { font-size: 2.5rem; margin-bottom: 12px; display: block; }
+  .overview-card h3 { font-family: 'Baloo 2', cursive; font-size: 1.3rem; font-weight: 800; color: white; }
+  .overview-card .formula-preview {
+    background: rgba(255,255,255,.2);
+    border-radius: 10px;
+    padding: 8px 12px;
+    margin-top: 10px;
+    font-size: .85rem;
+    color: rgba(255,255,255,.9);
+    font-weight: 700;
+  }
+  .overview-card .uk { color: rgba(255,255,255,.75); font-size: .85rem; margin-top: 6px; }
+
+  /* TENSE SECTIONS */
+  .tense-section {
+    border-radius: 28px;
+    padding: 40px;
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  @media(max-width:600px){ .tense-section { padding: 24px; } }
+
+  .tense-title {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+  }
+  .tense-emoji { font-size: 3rem; }
+  .tense-title-text h2 {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(1.4rem,3vw,2rem);
+    font-weight: 800;
+  }
+  .tense-title-text p { font-size: .95rem; margin-top: 2px; opacity: .75; }
+
+  /* FORMULA BOX */
+  .formula-box {
+    background: rgba(255,255,255,.6);
+    border-radius: 16px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+    backdrop-filter: blur(10px);
+  }
+  .formula-box h4 {
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 800;
+    margin-bottom: 10px;
+    opacity: .6;
+  }
+  .formula {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    font-weight: 800;
+    font-family: 'Baloo 2', cursive;
+  }
+  .formula .f-subject { color: #2563eb; }
+  .formula .f-verb { color: #dc2626; }
+  .formula .f-aux { color: #7c3aed; }
+  .formula .f-time { color: #059669; }
+  .formula .f-neg { color: #dc2626; }
+
+  /* WHEN TO USE */
+  .when-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+  .when-card {
+    background: rgba(255,255,255,.7);
+    border-radius: 14px;
+    padding: 16px;
+    border-left: 4px solid;
+  }
+  .when-card .wc-icon { font-size: 1.8rem; margin-bottom: 8px; display: block; }
+  .when-card h5 { font-weight: 800; font-size: .95rem; margin-bottom: 4px; }
+  .when-card p { font-size: .85rem; opacity: .8; }
+  .when-card .uk-note { font-size: .8rem; font-style: italic; margin-top: 4px; opacity: .65; }
+
+  /* EXAMPLES */
+  .examples-title {
+    font-weight: 800;
+    font-size: 1rem;
+    margin-bottom: 14px;
+    opacity: .7;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .examples-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .example-card {
+    background: rgba(255,255,255,.8);
+    border-radius: 14px;
+    padding: 14px 16px;
+    position: relative;
+    border-left: 3px solid rgba(0,0,0,.15);
+  }
+  .example-card .en {
+    font-weight: 700;
+    font-size: 1rem;
+    color: #1e293b;
+  }
+  .example-card .uk {
+    font-size: .88rem;
+    color: #475569;
+    margin-top: 4px;
+    font-style: italic;
+  }
+  .example-card .context {
+    font-size: .75rem;
+    background: rgba(0,0,0,.07);
+    border-radius: 6px;
+    padding: 2px 8px;
+    display: inline-block;
+    margin-bottom: 6px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+  }
+
+  /* MAGIC SENTENCE */
+  .magic-box {
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 40px;
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .magic-box::before {
+    content: '✨';
+    position: absolute;
+    font-size: 8rem;
+    opacity: .06;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .magic-box h3 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+    color: #7dd3fc;
+  }
+  .magic-box p { opacity: .8; margin-bottom: 20px; font-size: .95rem; }
+  .magic-sentence {
+    background: rgba(255,255,255,.08);
+    border-radius: 14px;
+    padding: 16px 20px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #e2e8f0;
+    margin: 8px 0;
+    border-left: 3px solid;
+    text-align: left;
+  }
+  .magic-sentence .tense-label {
+    font-size: .75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+    opacity: .7;
+  }
+  .magic-sentence .en { color: white; font-size: 1.1rem; }
+  .magic-sentence .uk { color: rgba(255,255,255,.6); font-size: .9rem; font-style: italic; margin-top: 3px; }
+
+  /* COMPARISON TABLE */
+  .comparison-table-wrap { overflow-x: auto; border-radius: 16px; }
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .comparison-table th {
+    padding: 14px 16px;
+    font-family: 'Baloo 2', cursive;
+    font-size: .95rem;
+    text-align: left;
+    color: white;
+  }
+  .comparison-table td {
+    padding: 12px 16px;
+    font-size: .9rem;
+    border-bottom: 1px solid #f1f5f9;
+    vertical-align: top;
+  }
+  .comparison-table tr:last-child td { border-bottom: none; }
+  .comparison-table tr:hover td { background: #f8fafc; }
+
+  /* SIGNAL WORDS */
+  .signal-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+  }
+  .signal-tag {
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: .82rem;
+    font-weight: 700;
+    background: rgba(255,255,255,.8);
+  }
+
+  /* TIPS */
+  .tip-box {
+    background: rgba(255,255,255,.7);
+    border-radius: 14px;
+    padding: 16px 20px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    margin-top: 20px;
+    border-left: 4px solid;
+  }
+  .tip-box .tip-icon { font-size: 1.5rem; flex-shrink: 0; }
+  .tip-box .tip-text { font-size: .9rem; }
+  .tip-box .tip-text strong { display: block; font-size: .95rem; margin-bottom: 3px; }
+
+  /* QUIZ */
+  .quiz-section {
+    background: linear-gradient(135deg, #1e1b4b, #312e81);
+    border-radius: 28px;
+    padding: 40px;
+    color: white;
+    margin-top: 40px;
+  }
+  .quiz-section h2 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 8px;
+    color: #c7d2fe;
+  }
+  .quiz-section > p {
+    text-align: center;
+    opacity: .7;
+    margin-bottom: 30px;
+  }
+  .quiz-q {
+    background: rgba(255,255,255,.08);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+  .quiz-q .q-text { font-weight: 700; font-size: 1.05rem; margin-bottom: 14px; }
+  .quiz-q .q-uk { font-size: .85rem; opacity: .65; margin-bottom: 10px; font-style: italic; }
+  .quiz-opts { display: flex; flex-wrap: wrap; gap: 10px; }
+  .quiz-opt {
+    background: rgba(255,255,255,.12);
+    border: 2px solid transparent;
+    border-radius: 10px;
+    padding: 8px 18px;
+    cursor: pointer;
+    font-size: .95rem;
+    font-weight: 700;
+    transition: all .2s;
+    color: white;
+  }
+  .quiz-opt:hover { background: rgba(255,255,255,.2); border-color: rgba(255,255,255,.3); transform: translateY(-2px); }
+  .quiz-opt.correct { background: rgba(34,197,94,.3); border-color: #22c55e; }
+  .quiz-opt.wrong { background: rgba(239,68,68,.3); border-color: #ef4444; }
+  .quiz-opt.disabled { pointer-events: none; }
+  .q-feedback { font-size: .9rem; margin-top: 12px; padding: 8px 14px; border-radius: 8px; display: none; }
+  .q-feedback.show { display: block; }
+  .q-feedback.correct-fb { background: rgba(34,197,94,.2); color: #bbf7d0; }
+  .q-feedback.wrong-fb { background: rgba(239,68,68,.2); color: #fecaca; }
+
+  .quiz-score {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #c7d2fe;
+  }
+  .btn-reset {
+    display: block;
+    margin: 16px auto 0;
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all .2s;
+  }
+  .btn-reset:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(109,40,217,.4); }
+
+  /* COLORS per tense */
+  .c-simple { background: linear-gradient(135deg, #dbeafe, #bfdbfe); }
+  .c-going { background: linear-gradient(135deg, #dcfce7, #bbf7d0); }
+  .c-pres-cont { background: linear-gradient(135deg, #fef9c3, #fef08a); }
+  .c-continuous { background: linear-gradient(135deg, #fce7f3, #fbcfe8); }
+  .c-perfect { background: linear-gradient(135deg, #ede9fe, #ddd6fe); }
+  .c-perf-cont { background: linear-gradient(135deg, #ffedd5, #fed7aa); }
+
+  .ov-simple { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
+  .ov-going { background: linear-gradient(135deg, #22c55e, #15803d); }
+  .ov-pres { background: linear-gradient(135deg, #eab308, #a16207); }
+  .ov-continuous { background: linear-gradient(135deg, #ec4899, #9d174d); }
+  .ov-perfect { background: linear-gradient(135deg, #8b5cf6, #5b21b6); }
+  .ov-perfcont { background: linear-gradient(135deg, #f97316, #c2410c); }
+
+  /* INTRO TIMELINE */
+  .timeline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin: 30px auto;
+    max-width: 700px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 10px;
+  }
+  .tl-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 80px;
+  }
+  .tl-dot {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem;
+    color: white;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+  .tl-label { font-size: .72rem; font-weight: 700; margin-top: 6px; text-align: center; opacity: .75; }
+  .tl-line { flex: 1; height: 3px; min-width: 20px; background: linear-gradient(90deg, #cbd5e1, #94a3b8); }
+
+  /* PROGRESS */
+  .progress-bar { height: 6px; border-radius: 3px; background: #e2e8f0; margin-top: 8px; }
+  .progress-fill { height: 100%; border-radius: 3px; transition: width 1s; }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 40px 20px;
+    background: #0f172a;
+    color: rgba(255,255,255,.4);
+    font-size: .85rem;
+  }
+  footer span { color: #7dd3fc; }
+
+  /* Animations */
+  .fade-in { opacity: 0; transform: translateY(20px); transition: opacity .6s, transform .6s; }
+  .fade-in.visible { opacity: 1; transform: none; }
+
+  /* ==============================
+     MOBILE RESPONSIVE
+  ================================ */
+
+  @media(max-width:768px){
+    .hero { padding: 40px 16px 60px; }
+    .rocket-emoji { font-size: 3rem; }
+    .nav-pills { padding: 12px 10px; gap: 7px; }
+    .nav-pills a { padding: 6px 12px; font-size: .78rem; }
+    section { padding: 40px 0; }
+    .overview-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .overview-card { padding: 18px; }
+    .overview-card .oc-emoji { font-size: 2rem; }
+    .overview-card h3 { font-size: 1.1rem; }
+    .tense-section { padding: 28px 20px; }
+    .formula-box { padding: 16px; }
+    .formula { font-size: .95rem; }
+    .when-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .when-card { padding: 12px; }
+    .examples-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .example-card { padding: 12px; }
+    .magic-box { padding: 22px 16px; }
+    .magic-sentence { padding: 12px 14px; font-size: .95rem; }
+    .magic-sentence .en { font-size: 1rem; }
+    .comparison-table th, .comparison-table td { padding: 10px 12px; font-size: .82rem; }
+    .quiz-section { padding: 28px 20px; }
+    .quiz-q { padding: 16px; }
+    .quiz-opt { padding: 7px 14px; font-size: .88rem; }
+    .timeline { padding: 8px 4px; }
+    .tl-dot { width: 38px; height: 38px; font-size: 1.1rem; }
+    .tl-line { min-width: 10px; }
+    .tl-label { font-size: .62rem; }
+    .signal-tag { font-size: .76rem; padding: 3px 9px; }
+  }
+
+  @media(max-width:500px){
+    .hero { padding: 30px 14px 50px; }
+    .rocket-emoji { font-size: 2.5rem; margin-bottom: 14px; }
+
+    /* NAV — horizontal scroll, no wrap */
+    .nav-pills {
+      gap: 5px;
+      padding: 10px 8px;
+      justify-content: flex-start;
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .nav-pills::-webkit-scrollbar { display: none; }
+    .nav-pills a {
+      white-space: nowrap;
+      flex-shrink: 0;
+      padding: 6px 11px;
+      font-size: .75rem;
+    }
+
+    section { padding: 32px 0; }
+    .container { padding: 0 14px; }
+    .section-header h2 { font-size: 1.5rem; }
+    .section-header p { font-size: .92rem; }
+
+    .overview-grid { grid-template-columns: 1fr; gap: 10px; }
+    .overview-card { padding: 16px 18px; }
+
+    .tense-section { padding: 20px 14px; border-radius: 18px; }
+    .tense-title { gap: 10px; margin-bottom: 18px; }
+    .tense-emoji { font-size: 2.2rem; }
+    .tense-title-text h2 { font-size: 1.2rem; }
+    .tense-title-text p { font-size: .82rem; }
+
+    .formula-box { padding: 14px; border-radius: 12px; }
+    .formula { font-size: .88rem; line-height: 1.7; }
+
+    .when-grid { grid-template-columns: 1fr; gap: 8px; }
+    .when-card { padding: 12px 14px; }
+    .when-card .wc-icon { font-size: 1.5rem; }
+
+    .examples-grid { grid-template-columns: 1fr; gap: 8px; }
+    .example-card { padding: 12px 14px; }
+    .example-card .en { font-size: .93rem; }
+    .example-card .uk { font-size: .82rem; }
+
+    .magic-box { padding: 18px 14px; border-radius: 16px; }
+    .magic-box h3 { font-size: 1.2rem; }
+    .magic-sentence { padding: 10px 12px; font-size: .88rem; }
+    .magic-sentence .en { font-size: .95rem; }
+    .magic-sentence .uk { font-size: .8rem; }
+
+    /* Table — horizontal scroll */
+    .comparison-table-wrap {
+      border-radius: 12px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .comparison-table { min-width: 560px; }
+    .comparison-table th, .comparison-table td { padding: 9px 10px; font-size: .78rem; }
+
+    .quiz-section { padding: 20px 14px; border-radius: 20px; }
+    .quiz-section h2 { font-size: 1.4rem; }
+    .quiz-q { padding: 14px; border-radius: 12px; }
+    .quiz-q .q-text { font-size: .93rem; }
+    /* Quiz options stack vertically */
+    .quiz-opts { flex-direction: column; gap: 7px; }
+    .quiz-opt { width: 100%; text-align: left; padding: 10px 14px; font-size: .9rem; }
+    .btn-reset { padding: 10px 24px; font-size: .92rem; }
+
+    .tip-box { padding: 13px 14px; gap: 10px; border-radius: 12px; }
+    .tip-box .tip-icon { font-size: 1.3rem; }
+    .tip-box .tip-text { font-size: .83rem; }
+
+    .signal-tags { gap: 5px; margin-top: 14px; }
+    .signal-tag { font-size: .74rem; padding: 3px 9px; }
+
+    /* Timeline — horizontal scroll */
+    .timeline {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      justify-content: flex-start;
+      padding: 8px 4px;
+      scrollbar-width: none;
+    }
+    .timeline::-webkit-scrollbar { display: none; }
+    .tl-dot { width: 34px; height: 34px; font-size: .7rem; }
+    .tl-label { font-size: .58rem; min-width: 52px; }
+    .tl-line { min-width: 10px; }
+
+    footer { padding: 28px 14px; font-size: .8rem; }
+    #scroll-top-btn { bottom: 18px; right: 16px; width: 40px; height: 40px; font-size: 16px; }
+  }
+
+  #scroll-top-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #1a1208;
+    border: 1.5px solid rgba(200,150,62,0.4);
+    color: #f5f0e8;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+    pointer-events: none;
+    z-index: 9998;
+  }
+  #scroll-top-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  #scroll-top-btn:hover {
+    background: #c8963e;
+    border-color: #c8963e;
+    color: #1a1208;
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-stars" id="stars"></div>
+  <div style="position:relative">
+    <span class="rocket-emoji">🚀</span>
+    <h1>Future Tenses<br><span>in English</span></h1>
+    <p>Майбутній час в англійській мові — всі форми, формули, пояснення й тони тисяч прикладів!</p>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav class="nav-pills">
+  <a href="#overview" style="background:#dbeafe;color:#1d4ed8">📋 Overview</a>
+  <a href="#magic" style="background:#f0fdf4;color:#15803d">✨ Magic Sentence</a>
+  <a href="#simple" style="background:#dbeafe;color:#1d4ed8">1. Will / Future Simple</a>
+  <a href="#going" style="background:#dcfce7;color:#15803d">2. Going to</a>
+  <a href="#pres-cont" style="background:#fef9c3;color:#a16207">3. Present Continuous</a>
+  <a href="#continuous" style="background:#fce7f3;color:#9d174d">4. Future Continuous</a>
+  <a href="#perfect" style="background:#ede9fe;color:#5b21b6">5. Future Perfect</a>
+  <a href="#perf-cont" style="background:#ffedd5;color:#c2410c">6. Future Perfect Continuous</a>
+  <a href="#compare" style="background:#f1f5f9;color:#334155">📊 Compare</a>
+  <a href="#quiz" style="background:#e0e7ff;color:#3730a3">🎯 Quiz</a>
+</nav>
+
+<!-- OVERVIEW -->
+<section id="overview">
+  <div class="container">
+    <div class="section-header">
+      <span class="badge" style="background:#dbeafe;color:#1d4ed8">Огляд / Overview</span>
+      <h2>6 способів говорити про майбутнє 🕐</h2>
+      <p>In English, we don't have just ONE future tense — we have 6 different ways to talk about future events, each with its own <strong>flavour</strong> (відтінок значення)!</p>
+    </div>
+
+    <!-- Timeline -->
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot" style="background:#3b82f6">NOW</div>
+        <div class="tl-label">Зараз</div>
+      </div>
+      <div class="tl-line"></div>
+      <div class="tl-item">
+        <div class="tl-dot" style="background:#22c55e">📅</div>
+        <div class="tl-label">Плани</div>
+      </div>
+      <div class="tl-line"></div>
+      <div class="tl-item">
+        <div class="tl-dot" style="background:#eab308">📆</div>
+        <div class="tl-label">Розклад</div>
+      </div>
+      <div class="tl-line"></div>
+      <div class="tl-item">
+        <div class="tl-dot" style="background:#ec4899">🔄</div>
+        <div class="tl-label">В процесі</div>
+      </div>
+      <div class="tl-line"></div>
+      <div class="tl-item">
+        <div class="tl-dot" style="background:#8b5cf6">✅</div>
+        <div class="tl-label">Завершено</div>
+      </div>
+      <div class="tl-line"></div>
+      <div class="tl-item">
+        <div class="tl-dot" style="background:#f97316">⏱️</div>
+        <div class="tl-label">Тривалість</div>
+      </div>
+      <div class="tl-line"></div>
+      <div class="tl-item">
+        <div class="tl-dot" style="background:#0f172a">FUTURE</div>
+        <div class="tl-label">Майбутнє</div>
+      </div>
+    </div>
+
+    <div class="overview-grid">
+      <a href="#simple" class="overview-card ov-simple fade-in">
+        <span class="oc-emoji">⚡</span>
+        <h3>Future Simple</h3>
+        <div class="formula-preview">Subject + will + V₁</div>
+        <p class="uk">Миттєві рішення, обіцянки, передбачення</p>
+      </a>
+      <a href="#going" class="overview-card ov-going fade-in">
+        <span class="oc-emoji">🎯</span>
+        <h3>Be Going to</h3>
+        <div class="formula-preview">Subject + am/is/are going to + V₁</div>
+        <p class="uk">Плани, наміри, очевидні передбачення</p>
+      </a>
+      <a href="#pres-cont" class="overview-card ov-pres fade-in">
+        <span class="oc-emoji">📅</span>
+        <h3>Present Continuous</h3>
+        <div class="formula-preview">Subject + am/is/are + V-ing</div>
+        <p class="uk">Домовлені/заплановані події</p>
+      </a>
+      <a href="#continuous" class="overview-card ov-continuous fade-in">
+        <span class="oc-emoji">🔄</span>
+        <h3>Future Continuous</h3>
+        <div class="formula-preview">Subject + will be + V-ing</div>
+        <p class="uk">Дія в процесі в певний момент майбутнього</p>
+      </a>
+      <a href="#perfect" class="overview-card ov-perfect fade-in">
+        <span class="oc-emoji">✅</span>
+        <h3>Future Perfect</h3>
+        <div class="formula-preview">Subject + will have + V₃</div>
+        <p class="uk">Завершена дія до певного моменту</p>
+      </a>
+      <a href="#perf-cont" class="overview-card ov-perfcont fade-in">
+        <span class="oc-emoji">⏱️</span>
+        <h3>Future Perfect Continuous</h3>
+        <div class="formula-preview">Subject + will have been + V-ing</div>
+        <p class="uk">Тривала дія до певного моменту</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- MAGIC SENTENCE -->
+<section id="magic" style="background:#0f172a; padding: 60px 0;">
+  <div class="container">
+    <div class="magic-box" style="background:transparent; border: 2px solid rgba(255,255,255,.1)">
+      <h3>✨ Magic Sentence / Чарівне речення</h3>
+      <p>Watch how ONE idea changes across all 6 future tenses!<br>Подивись, як ОДНА ідея змінюється в усіх 6 формах майбутнього!</p>
+      <p style="color:#fbbf24; font-style:italic; margin-bottom:24px">Subject: <strong>She</strong> | Action: <strong>study English</strong> | Ідея: Вона вчить англійську</p>
+
+      <div class="magic-sentence" style="border-color:#3b82f6">
+        <div class="tense-label" style="color:#60a5fa">⚡ Future Simple — Will</div>
+        <div class="en">She <strong style="color:#60a5fa">will study</strong> English tomorrow.</div>
+        <div class="uk">Вона вивчатиме англійську завтра. (Рішення прямо зараз / обіцянка)</div>
+      </div>
+      <div class="magic-sentence" style="border-color:#22c55e">
+        <div class="tense-label" style="color:#4ade80">🎯 Be Going to</div>
+        <div class="en">She <strong style="color:#4ade80">is going to study</strong> English tomorrow.</div>
+        <div class="uk">Вона збирається вивчати англійську завтра. (У неї є план)</div>
+      </div>
+      <div class="magic-sentence" style="border-color:#eab308">
+        <div class="tense-label" style="color:#fde047">📅 Present Continuous (Future)</div>
+        <div class="en">She <strong style="color:#fde047">is studying</strong> English tomorrow at 5pm.</div>
+        <div class="uk">Вона вчить англійську завтра о 17:00. (Домовлено, зустріч є)</div>
+      </div>
+      <div class="magic-sentence" style="border-color:#ec4899">
+        <div class="tense-label" style="color:#f9a8d4">🔄 Future Continuous</div>
+        <div class="en">She <strong style="color:#f9a8d4">will be studying</strong> English at 5pm tomorrow.</div>
+        <div class="uk">Вона буде вчити англійську о 17:00 завтра. (Саме в цей момент вона буде зайнята цим)</div>
+      </div>
+      <div class="magic-sentence" style="border-color:#8b5cf6">
+        <div class="tense-label" style="color:#c4b5fd">✅ Future Perfect</div>
+        <div class="en">She <strong style="color:#c4b5fd">will have studied</strong> English for a year by July.</div>
+        <div class="uk">До липня вона вже рік вчитиме англійську. (Завершено до певного моменту)</div>
+      </div>
+      <div class="magic-sentence" style="border-color:#f97316">
+        <div class="tense-label" style="color:#fdba74">⏱️ Future Perfect Continuous</div>
+        <div class="en">By July, she <strong style="color:#fdba74">will have been studying</strong> English for a year.</div>
+        <div class="uk">До липня вона буде вчити англійську вже рік. (Наголос на тривалості)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 1. FUTURE SIMPLE -->
+<section id="simple" style="background:#eff6ff">
+  <div class="container">
+    <div class="tense-section c-simple fade-in">
+      <div class="tense-title">
+        <span class="tense-emoji">⚡</span>
+        <div class="tense-title-text">
+          <h2 style="color:#1d4ed8">1. Future Simple — "will"</h2>
+          <p>Spontaneous decisions, promises, predictions, offers</p>
+          <p>Миттєві рішення, обіцянки, передбачення, пропозиції</p>
+        </div>
+      </div>
+
+      <div class="formula-box">
+        <h4>📐 Formula / Формула</h4>
+        <div class="formula" style="margin-bottom:10px">
+          <span class="f-subject">Subject</span> + <span class="f-aux">will</span> + <span class="f-verb">V₁ (base form)</span>
+        </div>
+        <div class="formula" style="margin-bottom:6px">
+          ❌ Negative: <span class="f-subject">Subject</span> + <span class="f-neg">will not (won't)</span> + <span class="f-verb">V₁</span>
+        </div>
+        <div class="formula">
+          ❓ Question: <span class="f-aux">Will</span> + <span class="f-subject">Subject</span> + <span class="f-verb">V₁</span>?
+        </div>
+      </div>
+
+      <div class="when-grid">
+        <div class="when-card" style="border-color:#3b82f6">
+          <span class="wc-icon">💡</span>
+          <h5>Spontaneous decision</h5>
+          <p>You decide something RIGHT NOW, not earlier</p>
+          <p class="uk-note">Рішення прямо зараз, не заплановане</p>
+        </div>
+        <div class="when-card" style="border-color:#22c55e">
+          <span class="wc-icon">🤝</span>
+          <h5>Promise / Offer</h5>
+          <p>You promise or offer to do something</p>
+          <p class="uk-note">Обіцянка або пропозиція допомогти</p>
+        </div>
+        <div class="when-card" style="border-color:#f97316">
+          <span class="wc-icon">🔮</span>
+          <h5>Prediction (opinion)</h5>
+          <p>You think/believe/expect something will happen</p>
+          <p class="uk-note">Передбачення за власною думкою (I think, I believe)</p>
+        </div>
+        <div class="when-card" style="border-color:#8b5cf6">
+          <span class="wc-icon">⚠️</span>
+          <h5>Threats / Warnings</h5>
+          <p>Warnings or threats about the future</p>
+          <p class="uk-note">Погрози чи попередження</p>
+        </div>
+        <div class="when-card" style="border-color:#ec4899">
+          <span class="wc-icon">🌍</span>
+          <h5>Facts / General truths</h5>
+          <p>Something that will always be true</p>
+          <p class="uk-note">Беззаперечні факти про майбутнє</p>
+        </div>
+        <div class="when-card" style="border-color:#eab308">
+          <span class="wc-icon">📩</span>
+          <h5>Requests</h5>
+          <p>Polite requests using "will you...?"</p>
+          <p class="uk-note">Ввічливе прохання</p>
+        </div>
+      </div>
+
+      <div class="examples-title">💬 Examples / Приклади</div>
+      <div class="examples-grid">
+        <div class="example-card">
+          <div class="context">💡 Spontaneous</div>
+          <div class="en">The phone is ringing — I'<strong>ll</strong> get it!</div>
+          <div class="uk">Телефон дзвонить — я відповім! (Вирішив зараз)</div>
+        </div>
+        <div class="example-card">
+          <div class="context">🤝 Promise</div>
+          <div class="en">I <strong>will</strong> always be there for you.</div>
+          <div class="uk">Я завжди буду поруч з тобою.</div>
+        </div>
+        <div class="example-card">
+          <div class="context">🤝 Offer</div>
+          <div class="en">You look tired — I'<strong>ll</strong> make you some tea.</div>
+          <div class="uk">Ти виглядаєш втомленим — я зроблю тобі чай.</div>
+        </div>
+        <div class="example-card">
+          <div class="context">🔮 Prediction</div>
+          <div class="en">I think it <strong>will</strong> rain tomorrow.</div>
+          <div class="uk">Я думаю, завтра піде дощ.</div>
+        </div>
+        <div class="example-card">
+          <div class="context">🔮 Prediction</div>
+          <div class="en">She <strong>will</strong> probably pass the exam.</div>
+          <div class="uk">Вона, мабуть, складе іспит.</div>
+        </div>
+        <div class="example-card">
+          <div class="context">🌍 Fact</div>
+          <div class="en">The sun <strong>will</strong> rise at 6am tomorrow.</div>
+          <div class="uk">Сонце зійде о 6 ранку завтра.</div>
+        </div>
+        <div class="example-card">
+          <div class="context">❌ Negative</div>
+          <div class="en">I <strong>won't</strong> tell anyone your secret.</div>
+          <div class="uk">Я нікому не розкажу твій секрет.</div>
+        </div>
+        <div class="example-card">
+          <div class="context">❓ Question</div>
+          <div class="en"><strong>Will</strong> you help me with my homework?</div>
+          <div class="uk">Ти допоможеш мені з домашнім завданням?</div>
+        </div>
+        <div class="example-card">
+          <div class="context">📩 Request</div>
+          <div class="en"><strong>Will</strong> you please be quiet?</div>
+          <div class="uk">Чи можеш ти, будь ласка, помовчати?</div>
+        </div>
+        <div class="example-card">
+          <div class="context">🧠 I think</div>
+          <div class="en">I believe robots <strong>will</strong> replace many jobs.</div>
+          <div class="uk">Я вважаю, роботи замінять багато професій.</div>
+        </div>
+        <div class="example-card">
+          <div class="context">🏠 Daily life</div>
+          <div class="en">Don't worry, I <strong>will</strong> clean my room.</div>
+          <div class="uk">Не хвилюйся, я прибиру свою кімнату.</div>
+        </div>
+        <div class="example-card">
+          <div class="context">💼 Work</div>
+          <div class="en">We <strong>will</strong> send you the report by Friday.</div>
+          <div class="uk">Ми надішлемо тобі звіт до п'ятниці.</div>
+        </div>
+      </div>
+
+      <div class="signal-tags">
+        <strong>🔔 Signal words:</strong>
+        <span class="signal-tag" style="background:#dbeafe;color:#1d4ed8">tomorrow</span>
+        <span class="signal-tag" style="background:#dbeafe;color:#1d4ed8">next week/month/year</span>
+        <span class="signal-tag" style="background:#dbeafe;color:#1d4ed8">soon</span>
+        <span class="signal-tag" style="background:#dbeafe;color:#1d4ed8">in 2030</span>
+        <span class="signal-tag" style="background:#dbeafe;color:#1d4ed8">I think / I believe</span>
+        <span class="signal-tag" style="background:#dbeafe;color:#1d4ed8">probably</span>
+        <span class="signal-tag" style="background:#dbeafe;color:#1d4ed8">perhaps / maybe</span>
+      </div>
+
+      <div class="tip-box" style="border-color:#3b82f6">
+        <span class="tip-icon">💡</span>
+        <div class="tip-text">
+          <strong>Key difference! Головна відмінність!</strong>
+          "Will" = you decide NOW (зараз вирішив). "Going to" = you decided BEFORE (вирішив раніше). Compare: "I'll have the pizza" (deciding now in a restaurant) vs "I'm going to have pizza tonight" (you already planned it earlier).
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. BE GOING TO -->
+<section id="going" style="background:#f0fdf4">
+  <div class="container">
+    <div class="tense-section c-going fade-in">
+      <div class="tense-title">
+        <span class="tense-emoji">🎯</span>
+        <div class="tense-title-text">
+          <h2 style="color:#15803d">2. Be Going to (gonna)</h2>
+          <p>Intentions, plans made in advance, predictions based on evidence</p>
+          <p>Наміри, заздалегідь зроблені плани, очевидні передбачення</p>
+        </div>
+      </div>
+
+      <div class="formula-box">
+        <h4>📐 Formula / Формула</h4>
+        <div class="formula" style="margin-bottom:10px">
+          <span class="f-subject">Subject</span> + <span class="f-aux">am/is/are going to</span> + <span class="f-verb">V₁</span>
+        </div>
+        <div class="formula" style="margin-bottom:6px">
+          ❌ Negative: <span class="f-subject">Subject</span> + <span class="f-neg">am/is/are NOT going to</span> + <span class="f-verb">V₁</span>
+        </div>
+        <div class="formula">
+          ❓ Question: <span class="f-aux">Am/Is/Are</span> + <span class="f-subject">Subject</span> + <span class="f-verb">going to + V₁</span>?
+        </div>
+        <div style="margin-top:10px; padding:8px 12px; background:rgba(0,0,0,.06); border-radius:8px; font-size:.88rem">
+          🗣️ <strong>Spoken / Informal:</strong> "going to" → <strong>"gonna"</strong> — "I'm gonna do it!" (I am going to do it)
+        </div>
+      </div>
+
+      <div class="when-grid">
+        <div class="when-card" style="border-color:#22c55e">
+          <span class="wc-icon">📋</span>
+          <h5>Pre-made plans</h5>
+          <p>You decided BEFORE you speak</p>
+          <p class="uk-note">Рішення прийнято раніше, ніж ти говориш</p>
+        </div>
+        <div class="when-card" style="border-color:#16a34a">
+          <span class="wc-icon">💪</span>
+          <h5>Intentions</h5>
+          <p>You INTEND to do something</p>
+          <p class="uk-note">Ти маєш намір щось зробити</p>
+        </div>
+        <div class="when-card" style="border-color:#4ade80">
+          <span class="wc-icon">👀</span>
+          <h5>Evidence-based prediction</h5>
+          <p>You can SEE/FEEL it will happen</p>
+          <p class="uk-note">Ти бачиш ознаки того, що станеться (хмари = дощ)</p>
+        </div>
+      </div>
+
+      <div class="examples-title">💬 Examples / Приклади</div>
+      <div class="examples-grid">
+        <div class="example-card">
+          <div class="context">📋 Plan</div>
+          <div class="en">I'<strong>m going to</strong> visit my grandma on Sunday.</div>
+          <div class="uk">Я збираюся навідати бабусю в неділю. (Вже запланував)</div>
+        </div>
+        <div class="example-card">
+          <div class="context">💪 Intention</div>
+          <div class="en">This year I'<strong>m going to</strong> learn to drive.</div>
+          <div class="uk">Цього року я збираюся навчитися водити.</div>
+        </div>
+        <div class="example-card">
+          <div class="context">👀 Evidence</div>
+          <div class="en">Look at those clouds — it'<strong>s going to</strong> rain!</div>
+          <div class="uk">Дивись на ці хмари — зараз піде дощ! (Видно вже зараз)</div>
+        </div>
+        <div class="example-card">
+          <div class="context">👀 Evidence</div>
+          <div class="en">She'<strong>s going to</strong> fall — she's leaning too far!</div>
+          <div class="uk">Вона зараз впаде — вона занадто нахилилась!</div>
+        </div>
+        <div class="example-card">
+          <div class="context">🏋️ Plan</div>
+          <div class="en">We'<strong>re going to</strong> start exercising every morning.</div>
+          <div class="uk">Ми збираємося починати займатися щоранку.</div>
+        </div>
+        <div class="example-card">
+          <div class="context">🍕 Plan</div>
+          <div class="en">They'<strong>re going to</strong> open a pizza restaurant next month.</div>
+          <div class="uk">Вони збираються відкрити піцерію наступного місяця.</div>
+        </div>
+        <div class="example-card">
+          <div class="context">❌ No plan</div>
+          <div class="en">I'<strong>m not going to</strong> eat junk food anymore.</div>
+          <div class="uk">Я більше не збираюся їсти фастфуд.</div>
+        </div>
+        <div class="example-card">
+          <div class="context">❓ Question</div>
+          <div class="en"><strong>Are</strong> you <strong>going to</strong> apply for the job?</div>
+          <div class="uk">Ти збираєшся подати заявку на роботу?</div>
+        </div>
+        <div class="example-card">
+          <div class="context">🗣️ Informal (gonna)</div>
+          <div class="en">I'<strong>m gonna</strong> tell you something amazing!</div>
+          <div class="uk">Я збираюся розповісти тобі щось дивовижне!</div>
+        </div>
+        <div class="example-card">
+          <div class="context">🏠 Home plan</div>
+          <div class="en">We'<strong>re going to</strong> repaint the living room green.</div>
+          <div class="uk">Ми збираємося пофарбувати вітальню в зелений.</div>
+        </div>
+        <div class="example-card">
+          <div class="context">📚 Study</div>
+          <div class="en">I'<strong>m going to</strong> study for three hours tonight.</div>
+          <div class="uk">Сьогодні ввечері я збираюся вчитися три години.</div>
+        </div>
+        <div class="example-card">
+          <div class="context">🎂 Birthday</div>
+          <div class="en">We'<strong>re going to</strong> throw her a surprise party!</div>
+          <div class="uk">Ми збираємося влаштувати їй вечірку-сюрприз!</div>
+        </div>
+      </div>
+
+      <div class="signal-tags">
+        <strong>🔔 Signal words:</strong>
+        <span class="signal-tag" style="background:#dcfce7;color:#15803d">next...</span>
+        <span class="signal-tag" style="background:#dcfce7;color:#15803d">tomorrow</span>
+        <span class="signal-tag" style="background:#dcfce7;color:#15803d">soon</span>
+        <span class="signal-tag" style="background:#dcfce7;color:#15803d">this weekend</span>
+        <span class="signal-tag" style="background:#dcfce7;color:#15803d">tonight</span>
+        <span class="signal-tag" style="background:#dcfce7;color:#15803d">Look! (evidence)</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. PRESENT CONTINUOUS FOR FUTURE -->
+<section id="pres-cont" style="background:#fefce8">
+  <div class="container">
+    <div class="tense-section c-pres-cont fade-in">
+      <div class="tense-title">
+        <span class="tense-emoji">📅</span>
+        <div class="tense-title-text">
+          <h2 style="color:#a16207">3. Present Continuous for Future</h2>
+          <p>Fixed arrangements — events already organised, with specific time &amp; place</p>
+          <p>Конкретні домовленості — події, які вже організовані (час і місце відоме)</p>
+        </div>
+      </div>
+
+      <div class="formula-box">
+        <h4>📐 Formula / Формула</h4>
+        <div class="formula" style="margin-bottom:10px">
+          <span class="f-subject">Subject</span> + <span class="f-aux">am/is/are</span> + <span class="f-verb">V-ing</span> + <span class="f-time">future time expression</span>
+        </div>
+        <div style="margin-top:10px; padding:10px; background:rgba(0,0,0,.06); border-radius:8px; font-size:.88rem">
+          ⚠️ <strong>Key!</strong> The future time expression (tomorrow, next week, at 5pm...) is REQUIRED to show this is future, not present!<br>
+          <em>Потрібне слово-маркер часу, інакше речення означатиме теперішній момент!</em>
+        </div>
+      </div>
+
+      <div class="when-grid">
+        <div class="when-card" style="border-color:#eab308">
+          <span class="wc-icon">🤝</span>
+          <h5>Arranged meetings</h5>
+          <p>You have an appointment / meeting set up</p>
+          <p class="uk-note">У тебе є домовленість — час і місце вже визначені</p>
+        </div>
+        <div class="when-card" style="border-color:#ca8a04">
+          <span class="wc-icon">✈️</span>
+          <h5>Travel arrangements</h5>
+          <p>Flights, hotels, trips already booked</p>
+          <p class="uk-note">Квитки куплені, готель заброньований</p>
+        </div>
+        <div class="when-card" style="border-color:#facc15">
+          <span class="wc-icon">👥</span>
+          <h5>Social plans</h5>
+          <p>You confirmed plans with someone else</p>
+          <p class="uk-note">Зустрілися / домовилися з кимось конкретно</p>
+        </div>
+      </div>
+
+      <div class="examples-title">💬 Examples / Приклади</div>
+      <div class="examples-grid">
+        <div class="example-card">
+          <div class="context">👨‍⚕️ Doctor</div>
+          <div class="en">I'<strong>m seeing</strong> the doctor tomorrow at 10.</div>
+          <div class="uk">Я йду до лікаря завтра о 10. (Записаний!)</div>
+        </div>
+        <div class="example-card">
+          <div class="context">✈️ Travel</div>
+          <div class="en">We'<strong>re flying</strong> to Barcelona on Friday.</div>
+          <div class="uk">В п'ятницю ми летимо до Барселони. (Квитки куплені)</div>
+        </div>
+        <div class="example-card">
+          <div class="context">🎉 Social</div>
+          <div class="en">She'<strong>s meeting</strong> her friends at 7pm tonight.</div>
+          <div class="uk">Вона зустрічається з друзями сьогодні о 19:00.</div>
+        </div>
+        <div class="example-card">
+          <div class="context">💼 Work</div>
+          <div class="en">He'<strong>s presenting</strong> his project next Monday.</div>
+          <div class="uk">У наступний понеділок він представляє свій проект.</div>
+        </div>
+        <div class="example-card">
+          <div class="context">🍽️ Dinner</div>
+          <div class="en">We'<strong>re having</strong> dinner with the Smiths on Saturday.</div>
+          <div class="uk">У суботу ми вечеряємо з родиною Сміт.</div>
+        </div>
+        <div class="example-card">
+          <div class="context">🎵 Concert</div>
+          <div class="en">They'<strong>re performing</strong> at Madison Square Garden next week.</div>
+          <div class="uk">Наступного тижня вони виступають на Медісон Сквер Гарден.</div>
+        </div>
+        <div class="example-card">
+          <div class="context">🎓 School</div>
+          <div class="en">I'<strong>m starting</strong> a new course in September.</div>
+          <div class="uk">У вересні я починаю новий курс. (Вже зареєстрований)</div>
+        </div>
+        <div class="example-card">
+          <div class="context">❓ Question</div>
+          <div class="en">What <strong>are</strong> you <strong>doing</strong> this weekend?</div>
+          <div class="uk">Що ти робиш цих вихідних? (Які плани?)</div>
+        </div>
+      </div>
+
+      <div class="tip-box" style="border-color:#eab308">
+        <span class="tip-icon">⚠️</span>
+        <div class="tip-text">
+          <strong>Going to vs Present Continuous: яка різниця?</strong>
+          "I'm going to meet Tom" = я маю намір зустрітися (але може ще не домовились точно). "I'm meeting Tom at 3pm" = ми вже домовились, час і місце визначені!
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. FUTURE CONTINUOUS -->
+<section id="continuous" style="background:#fdf2f8">
+  <div class="container">
+    <div class="tense-section c-continuous fade-in">
+      <div class="tense-title">
+        <span class="tense-emoji">🔄</span>
+        <div class="tense-title-text">
+          <h2 style="color:#9d174d">4. Future Continuous</h2>
+          <p>An action IN PROGRESS at a specific moment in the future</p>
+          <p>Дія, яка буде тривати в конкретний момент майбутнього</p>
+        </div>
+      </div>
+
+      <div class="formula-box">
+        <h4>📐 Formula / Формула</h4>
+        <div class="formula" style="margin-bottom:10px">
+          <span class="f-subject">Subject</span> + <span class="f-aux">will be</span> + <span class="f-verb">V-ing</span>
+        </div>
+        <div class="formula" style="margin-bottom:6px">
+          ❌ Negative: <span class="f-subject">Subject</span> + <span class="f-neg">won't be</span> + <span class="f-verb">V-ing</span>
+        </div>
+        <div class="formula">
+          ❓ Question: <span class="f-aux">Will</span> + <span class="f-subject">Subject</span> + <span class="f-aux">be</span> + <span class="f-verb">V-ing</span>?
+        </div>
+      </div>
+
+      <div style="background:rgba(255,255,255,.7); border-radius:14px; padding:16px; margin-bottom:20px; text-align:center">
+        <div style="font-size:.85rem; opacity:.6; margin-bottom:8px">📊 TIMELINE / Шкала часу</div>
+        <div style="display:flex; align-items:center; justify-content:center; gap:8px; font-size:.9rem; flex-wrap:wrap">
+          <span style="background:#fce7f3;border-radius:8px;padding:4px 10px">NOW</span>
+          <span>────────</span>
+          <span style="background:#ec4899;color:white;border-radius:8px;padding:4px 10px;font-weight:700">━━━[DOING]━━━</span>
+          <span>────────</span>
+          <span style="background:#f1f5f9;border-radius:8px;padding:4px 10px">AFTER</span>
+        </div>
+        <div style="font-size:.8rem; margin-top:8px; opacity:.65">At 8pm tomorrow → she WILL BE studying (at that exact moment)</div>
+      </div>
+
+      <div class="when-grid">
+        <div class="when-card" style="border-color:#ec4899">
+          <span class="wc-icon">🕐</span>
+          <h5>In progress at a future time</h5>
+          <p>Something is happening at a specific moment</p>
+          <p class="uk-note">Щось буде відбуватися в конкретний момент</p>
+        </div>
+        <div class="when-card" style="border-color:#be185d">
+          <span class="wc-icon">🔁</span>
+          <h5>Parallel actions</h5>
+          <p>Two things happening at the same future time</p>
+          <p class="uk-note">Дві паралельні дії в майбутньому</p>
+        </div>
+        <div class="when-card" style="border-color:#f472b6">
+          <span class="wc-icon">😊</span>
+          <h5>Polite / natural questions</h5>
+          <p>Asking about someone's plans without pressure</p>
+          <p class="uk-note">Ввічливе запитання про плани без тиску</p>
+        </div>
+        <div class="when-card" style="border-color:#db2777">
+          <span class="wc-icon">📅</span>
+          <h5>Expected/routine future</h5>
+          <p>Something expected to happen as usual</p>
+          <p class="uk-note">Щось що очікується за звичайним ходом подій</p>
+        </div>
+      </div>
+
+      <div class="examples-title">💬 Examples / Приклади</div>
+      <div class="examples-grid">
+        <div class="example-card">
+          <div class="context">🕐 At that time</div>
+          <div class="en">At 8pm I'<strong>ll be watching</strong> the game.</div>
+          <div class="uk">О 20:00 я дивитимусь матч. (Саме в цей момент)</div>
+        </div>
+        <div class="example-card">
+          <div class="context">🕐 At that time</div>
+          <div class="en">This time tomorrow I'<strong>ll be lying</strong> on a beach!</div>
+          <div class="uk">В цей час завтра я буду лежати на пляжі!</div>
+        </div>
+        <div class="example-card">
+          <div class="context">🔁 Parallel</div>
+          <div class="en">While you sleep, I'<strong>ll be working</strong> on the project.</div>
+          <div class="uk">Поки ти спиш, я буду працювати над проектом.</div>
+        </div>
+        <div class="example-card">
+          <div class="context">😊 Polite ask</div>
+          <div class="en"><strong>Will</strong> you <strong>be using</strong> the car tonight?</div>
+          <div class="uk">Ти будеш користуватися машиною сьогодні ввечері? (Ввічливо)</div>
+        </div>
+        <div class="example-card">
+          <div class="context">😊 Polite ask</div>
+          <div class="en"><strong>Will</strong> you <strong>be passing</strong> the post office today?</div>
+          <div class="uk">Ти будеш проходити повз пошту сьогодні? (Ввічливо)</div>
+        </div>
+        <div class="example-card">
+          <div class="context">📅 Expected</div>
+          <div class="en">The manager <strong>will be joining</strong> us shortly.</div>
+          <div class="uk">Менеджер незабаром приєднається до нас.</div>
+        </div>
+        <div class="example-card">
+          <div class="context">✈️ Travel</div>
+          <div class="en">At this time next week I'<strong>ll be flying</strong> to Japan.</div>
+          <div class="uk">В цей час наступного тижня я летітиму до Японії.</div>
+        </div>
+        <div class="example-card">
+          <div class="context">🎓 Study</div>
+          <div class="en">During the exam, students <strong>won't be using</strong> phones.</div>
+          <div class="uk">Під час іспиту студенти не будуть користуватися телефонами.</div>
+        </div>
+        <div class="example-card">
+          <div class="context">🏡 Home</div>
+          <div class="en">When you get home, I'<strong>ll be cooking</strong> dinner.</div>
+          <div class="uk">Коли ти прийдеш додому, я буду готувати вечерю.</div>
+        </div>
+      </div>
+
+      <div class="signal-tags">
+        <strong>🔔 Signal words:</strong>
+        <span class="signal-tag" style="background:#fce7f3;color:#9d174d">at this time tomorrow</span>
+        <span class="signal-tag" style="background:#fce7f3;color:#9d174d">at 5pm</span>
+        <span class="signal-tag" style="background:#fce7f3;color:#9d174d">this time next week</span>
+        <span class="signal-tag" style="background:#fce7f3;color:#9d174d">when you arrive</span>
+        <span class="signal-tag" style="background:#fce7f3;color:#9d174d">while...</span>
+        <span class="signal-tag" style="background:#fce7f3;color:#9d174d">still</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. FUTURE PERFECT -->
+<section id="perfect" style="background:#f5f3ff">
+  <div class="container">
+    <div class="tense-section c-perfect fade-in">
+      <div class="tense-title">
+        <span class="tense-emoji">✅</span>
+        <div class="tense-title-text">
+          <h2 style="color:#5b21b6">5. Future Perfect</h2>
+          <p>An action COMPLETED before a specific point in the future</p>
+          <p>Дія буде ЗАВЕРШЕНА до певного моменту в майбутньому</p>
+        </div>
+      </div>
+
+      <div class="formula-box">
+        <h4>📐 Formula / Формула</h4>
+        <div class="formula" style="margin-bottom:10px">
+          <span class="f-subject">Subject</span> + <span class="f-aux">will have</span> + <span class="f-verb">V₃ (past participle)</span>
+        </div>
+        <div class="formula" style="margin-bottom:6px">
+          ❌ Negative: <span class="f-subject">Subject</span> + <span class="f-neg">won't have</span> + <span class="f-verb">V₃</span>
+        </div>
+        <div class="formula">
+          ❓ Question: <span class="f-aux">Will</span> + <span class="f-subject">Subject</span> + <span class="f-aux">have</span> + <span class="f-verb">V₃</span>?
+        </div>
+      </div>
+
+      <div style="background:rgba(255,255,255,.7); border-radius:14px; padding:16px; margin-bottom:20px; text-align:center">
+        <div style="font-size:.85rem; opacity:.6; margin-bottom:8px">📊 TIMELINE / Шкала часу</div>
+        <div style="display:flex; align-items:center; justify-content:center; gap:8px; font-size:.9rem; flex-wrap:wrap">
+          <span style="background:#ede9fe;border-radius:8px;padding:4px 10px">NOW</span>
+          <span>────</span>
+          <span style="background:#8b5cf6;color:white;border-radius:8px;padding:4px 10px;font-weight:700">[ACTION DONE ✅]</span>
+          <span>────</span>
+          <span style="background:#7c3aed;color:white;border-radius:8px;padding:4px 10px;font-weight:700">DEADLINE "by..."</span>
+          <span>────</span>
+          <span style="background:#f1f5f9;border-radius:8px;padding:4px 10px">FUTURE</span>
+        </div>
+        <div style="font-size:.8rem; margin-top:8px; opacity:.65">By 6pm → she WILL HAVE finished (completed before 6pm)</div>
+      </div>
+
+      <div class="when-grid">
+        <div class="when-card" style="border-color:#8b5cf6">
+          <span class="wc-icon">⏰</span>
+          <h5>Completed before deadline</h5>
+          <p>Finished before a specific future time</p>
+          <p class="uk-note">Завершено до певного моменту в майбутньому</p>
+        </div>
+        <div class="when-card" style="border-color:#6d28d9">
+          <span class="wc-icon">📊</span>
+          <h5>Achievement by time</h5>
+          <p>How much you'll have done by then</p>
+          <p class="uk-note">Скільки/чого досягнеш до того часу</p>
+        </div>
+        <div class="when-card" style="border-color:#a78bfa">
+          <span class="wc-icon">🔗</span>
+          <h5>Before another event</h5>
+          <p>One future event before another</p>
+          <p class="uk-note">Одна подія завершиться до початку іншої</p>
+        </div>
+      </div>
+
+      <div class="examples-title">💬 Examples / Приклади</div>
+      <div class="examples-grid">
+        <div class="example-card">
+          <div class="context">⏰ By deadline</div>
+          <div class="en">By 6pm, she <strong>will have finished</strong> her homework.</div>
+          <div class="uk">До 18:00 вона закінчить домашнє завдання.</div>
+        </div>
+        <div class="example-card">
+          <div class="context">⏰ By deadline</div>
+          <div class="en">By the time you wake up, I <strong>will have left</strong>.</div>
+          <div class="uk">Коли ти прокинешся, я вже піду.</div>
+        </div>
+        <div class="example-card">
+          <div class="context">📊 Achievement</div>
+          <div class="en">By December, we <strong>will have saved</strong> enough money.</div>
+          <div class="uk">До грудня ми заощадимо достатньо грошей.</div>
+        </div>
+        <div class="example-card">
+          <div class="context">📊 Achievement</div>
+          <div class="en">By graduation, she <strong>will have studied</strong> for 4 years.</div>
+          <div class="uk">До закінчення університету вона навчатиметься вже 4 роки.</div>
+        </div>
+        <div class="example-card">
+          <div class="context">🔗 Before event</div>
+          <div class="en">The film <strong>will have started</strong> by the time we arrive.</div>
+          <div class="uk">Фільм вже почнеться на той час, як ми прийдемо.</div>
+        </div>
+        <div class="example-card">
+          <div class="context">💼 Work</div>
+          <div class="en">They <strong>will have built</strong> the new bridge by 2027.</div>
+          <div class="uk">До 2027 року вони вже побудують новий міст.</div>
+        </div>
+        <div class="example-card">
+          <div class="context">❌ Negative</div>
+          <div class="en">I <strong>won't have read</strong> all the books by Friday.</div>
+          <div class="uk">До п'ятниці я не встигну прочитати всі книги.</div>
+        </div>
+        <div class="example-card">
+          <div class="context">❓ Question</div>
+          <div class="en"><strong>Will</strong> you <strong>have eaten</strong> before I arrive?</div>
+          <div class="uk">Ти вже поїси до того, як я прийду?</div>
+        </div>
+        <div class="example-card">
+          <div class="context">🎂 Life milestone</div>
+          <div class="en">By 2030, I <strong>will have turned</strong> 30.</div>
+          <div class="uk">До 2030 року мені вже виповниться 30.</div>
+        </div>
+      </div>
+
+      <div class="signal-tags">
+        <strong>🔔 Signal words:</strong>
+        <span class="signal-tag" style="background:#ede9fe;color:#5b21b6">by (the time)...</span>
+        <span class="signal-tag" style="background:#ede9fe;color:#5b21b6">by next year</span>
+        <span class="signal-tag" style="background:#ede9fe;color:#5b21b6">before...</span>
+        <span class="signal-tag" style="background:#ede9fe;color:#5b21b6">when... (arrive etc.)</span>
+        <span class="signal-tag" style="background:#ede9fe;color:#5b21b6">already</span>
+        <span class="signal-tag" style="background:#ede9fe;color:#5b21b6">yet</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. FUTURE PERFECT CONTINUOUS -->
+<section id="perf-cont" style="background:#fff7ed">
+  <div class="container">
+    <div class="tense-section c-perf-cont fade-in">
+      <div class="tense-title">
+        <span class="tense-emoji">⏱️</span>
+        <div class="tense-title-text">
+          <h2 style="color:#c2410c">6. Future Perfect Continuous</h2>
+          <p>How long an action WILL HAVE BEEN ongoing by a future point</p>
+          <p>Скільки часу дія вже ТРИВАЛА до певного моменту в майбутньому</p>
+        </div>
+      </div>
+
+      <div class="formula-box">
+        <h4>📐 Formula / Формула</h4>
+        <div class="formula" style="margin-bottom:10px">
+          <span class="f-subject">Subject</span> + <span class="f-aux">will have been</span> + <span class="f-verb">V-ing</span>
+        </div>
+        <div class="formula" style="margin-bottom:6px">
+          ❌ Negative: <span class="f-subject">Subject</span> + <span class="f-neg">won't have been</span> + <span class="f-verb">V-ing</span>
+        </div>
+        <div class="formula">
+          ❓ Question: <span class="f-aux">Will</span> + <span class="f-subject">Subject</span> + <span class="f-aux">have been</span> + <span class="f-verb">V-ing</span>?
+        </div>
+      </div>
+
+      <div style="background:rgba(255,255,255,.7); border-radius:14px; padding:16px; margin-bottom:20px">
+        <div style="text-align:center; font-size:.85rem; opacity:.6; margin-bottom:12px">📊 TIMELINE / Шкала часу</div>
+        <div style="display:flex; align-items:center; justify-content:center; gap:6px; font-size:.85rem; flex-wrap:wrap">
+          <span style="background:#ffedd5;border-radius:8px;padding:4px 10px">Past START ▶</span>
+          <span>━━━━━━━━━━━━━━━━</span>
+          <span style="background:#f97316;color:white;border-radius:8px;padding:4px 10px;font-weight:700">FOR 3 YEARS...</span>
+          <span>━━━━━━━━━━━━━━━━</span>
+          <span style="background:#c2410c;color:white;border-radius:8px;padding:4px 10px;font-weight:700">DEADLINE "by..."</span>
+        </div>
+        <div style="font-size:.8rem; margin-top:10px; opacity:.65; text-align:center">By July → she WILL HAVE BEEN studying for 3 years (focuses on DURATION, not completion)</div>
+      </div>
+
+      <div class="when-grid">
+        <div class="when-card" style="border-color:#f97316">
+          <span class="wc-icon">⏳</span>
+          <h5>Duration up to a future point</h5>
+          <p>Emphasises HOW LONG something will have continued</p>
+          <p class="uk-note">Наголос на тривалості дії до певного моменту</p>
+        </div>
+        <div class="when-card" style="border-color:#ea580c">
+          <span class="wc-icon">😤</span>
+          <h5>Explaining tiredness/results</h5>
+          <p>Why you'll be tired/happy/busy by then</p>
+          <p class="uk-note">Пояснення чому щось відбудеться (результат тривалих зусиль)</p>
+        </div>
+      </div>
+
+      <div class="examples-title">💬 Examples / Приклади</div>
+      <div class="examples-grid">
+        <div class="example-card">
+          <div class="context">⏳ Duration</div>
+          <div class="en">By July, she <strong>will have been studying</strong> English for a year.</div>
+          <div class="uk">До липня вона буде вчити англійську вже рік.</div>
+        </div>
+        <div class="example-card">
+          <div class="context">⏳ Duration</div>
+          <div class="en">By 2030, he <strong>will have been working</strong> here for 20 years.</div>
+          <div class="uk">До 2030 року він уже 20 років працюватиме тут.</div>
+        </div>
+        <div class="example-card">
+          <div class="context">😤 Tired</div>
+          <div class="en">I'<strong>ll be tired</strong> — I <strong>will have been travelling</strong> for 12 hours.</div>
+          <div class="uk">Я буду втомленим — я 12 годин буду в дорозі.</div>
+        </div>
+        <div class="example-card">
+          <div class="context">🏃 Sport</div>
+          <div class="en">By the end of the race, she <strong>will have been running</strong> for 3 hours.</div>
+          <div class="uk">До кінця забігу вона бігтиме вже 3 години.</div>
+        </div>
+        <div class="example-card">
+          <div class="context">📺 TV</div>
+          <div class="en">By midnight, they <strong>will have been watching</strong> TV for 6 hours!</div>
+          <div class="uk">До опівночі вони дивитимуться телевізор вже 6 годин!</div>
+        </div>
+        <div class="example-card">
+          <div class="context">💼 Project</div>
+          <div class="en">By Friday, we <strong>will have been working</strong> on this for 3 weeks.</div>
+          <div class="uk">До п'ятниці ми вже 3 тижні будемо працювати над цим.</div>
+        </div>
+        <div class="example-card">
+          <div class="context">💑 Together</div>
+          <div class="en">In August, they <strong>will have been dating</strong> for 5 years.</div>
+          <div class="uk">У серпні вони вже 5 років зустрічатимуться.</div>
+        </div>
+        <div class="example-card">
+          <div class="context">❓ Question</div>
+          <div class="en">How long <strong>will</strong> you <strong>have been waiting</strong> by then?</div>
+          <div class="uk">Скільки часу ти вже будеш чекати на той момент?</div>
+        </div>
+      </div>
+
+      <div class="signal-tags">
+        <strong>🔔 Signal words:</strong>
+        <span class="signal-tag" style="background:#ffedd5;color:#c2410c">by... for...</span>
+        <span class="signal-tag" style="background:#ffedd5;color:#c2410c">for 3 years</span>
+        <span class="signal-tag" style="background:#ffedd5;color:#c2410c">for how long</span>
+        <span class="signal-tag" style="background:#ffedd5;color:#c2410c">by the time</span>
+      </div>
+
+      <div class="tip-box" style="border-color:#f97316">
+        <span class="tip-icon">🆚</span>
+        <div class="tip-text">
+          <strong>Future Perfect vs Future Perfect Continuous:</strong><br>
+          "By July, she will have learned 500 words." → Result/completion (500 words learned ✅)<br>
+          "By July, she will have been studying for a year." → Duration/process (emphasises the 1 year of effort ⏳)
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section id="compare" style="background:#f8fafc; padding:60px 0">
+  <div class="container">
+    <div class="section-header">
+      <span class="badge" style="background:#e2e8f0;color:#334155">Порівняння / Comparison</span>
+      <h2>📊 All 6 Future Forms — Side by Side</h2>
+      <p>Порівняй усі форми разом, щоб зрозуміти відтінки кожного часу</p>
+    </div>
+
+    <div class="comparison-table-wrap fade-in">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th style="background:#1e293b">⚡ Tense</th>
+            <th style="background:#1e293b">🎨 Flavour / Відтінок</th>
+            <th style="background:#1e293b">📐 Formula</th>
+            <th style="background:#1e293b">📌 Example</th>
+            <th style="background:#1e293b">🔔 Signal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong style="color:#1d4ed8">⚡ Future Simple</strong><br><small>will + V₁</small></td>
+            <td>Spontaneous decision, promise, prediction (opinion), offer, request</td>
+            <td><code>will + V</code></td>
+            <td><em>I'll call you tonight.</em><br><small style="color:#64748b">Я зателефоную тобі ввечері.</small></td>
+            <td>tomorrow, soon, probably, I think</td>
+          </tr>
+          <tr>
+            <td><strong style="color:#15803d">🎯 Be Going to</strong><br><small>am/is/are going to + V₁</small></td>
+            <td>Pre-planned intention, evidence-based prediction</td>
+            <td><code>going to + V</code></td>
+            <td><em>I'm going to call her.</em><br><small style="color:#64748b">Я збираюся їй зателефонувати.</small></td>
+            <td>tonight, this week, Look!</td>
+          </tr>
+          <tr>
+            <td><strong style="color:#a16207">📅 Present Continuous</strong><br><small>am/is/are + V-ing</small></td>
+            <td>Fixed arrangement (time+place confirmed)</td>
+            <td><code>am/is/are + V-ing</code></td>
+            <td><em>I'm calling her at 3pm.</em><br><small style="color:#64748b">Я телефоную їй о 15:00. (домовлено)</small></td>
+            <td>tomorrow at X, next Monday</td>
+          </tr>
+          <tr>
+            <td><strong style="color:#9d174d">🔄 Future Continuous</strong><br><small>will be + V-ing</small></td>
+            <td>In progress at a specific future moment</td>
+            <td><code>will be + V-ing</code></td>
+            <td><em>At 3pm I'll be calling clients.</em><br><small style="color:#64748b">О 15:00 я буду дзвонити клієнтам.</small></td>
+            <td>at this time tomorrow, while, when you arrive</td>
+          </tr>
+          <tr>
+            <td><strong style="color:#5b21b6">✅ Future Perfect</strong><br><small>will have + V₃</small></td>
+            <td>Completed before a future deadline</td>
+            <td><code>will have + V₃</code></td>
+            <td><em>By 4pm I will have called everyone.</em><br><small style="color:#64748b">До 16:00 я вже зателефоную всім.</small></td>
+            <td>by (the time), before, when</td>
+          </tr>
+          <tr>
+            <td><strong style="color:#c2410c">⏱️ Future Perfect Continuous</strong><br><small>will have been + V-ing</small></td>
+            <td>Duration of an ongoing action up to a future point</td>
+            <td><code>will have been + V-ing</code></td>
+            <td><em>By 5pm I'll have been calling for 2 hours.</em><br><small style="color:#64748b">До 17:00 я вже 2 години дзвонитиму.</small></td>
+            <td>by… for…, how long</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- COMMON MISTAKES -->
+    <div style="background:white; border-radius:20px; padding:30px; margin-top:30px">
+      <h3 style="font-family:'Baloo 2',cursive; font-size:1.6rem; color:#dc2626; margin-bottom:20px">⚠️ Common Mistakes / Типові помилки</h3>
+      <div style="display:grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap:14px">
+        <div style="background:#fef2f2; border-radius:12px; padding:16px; border-left:4px solid #ef4444">
+          <div style="font-size:.75rem; font-weight:800; color:#dc2626; margin-bottom:6px">❌ WRONG / ✅ CORRECT</div>
+          <div style="font-size:.9rem; margin-bottom:4px"><del>I will to go</del> → <strong>I will go</strong></div>
+          <div style="font-size:.82rem; color:#64748b">After "will" use V₁ without "to"! / Після "will" — інфінітив без "to"!</div>
+        </div>
+        <div style="background:#fef2f2; border-radius:12px; padding:16px; border-left:4px solid #ef4444">
+          <div style="font-size:.75rem; font-weight:800; color:#dc2626; margin-bottom:6px">❌ WRONG / ✅ CORRECT</div>
+          <div style="font-size:.9rem; margin-bottom:4px"><del>I'm going to will study</del> → <strong>I'm going to study</strong></div>
+          <div style="font-size:.82rem; color:#64748b">Don't mix "will" + "going to" / Не змішуй обидві форми разом!</div>
+        </div>
+        <div style="background:#fef2f2; border-radius:12px; padding:16px; border-left:4px solid #ef4444">
+          <div style="font-size:.75rem; font-weight:800; color:#dc2626; margin-bottom:6px">❌ WRONG / ✅ CORRECT</div>
+          <div style="font-size:.9rem; margin-bottom:4px"><del>When he will arrive, call me</del> → <strong>When he arrives, call me</strong></div>
+          <div style="font-size:.82rem; color:#64748b">After when/if/before/until in time clauses → use Present Simple! / Після when/if — теперішній час!</div>
+        </div>
+        <div style="background:#fef2f2; border-radius:12px; padding:16px; border-left:4px solid #ef4444">
+          <div style="font-size:.75rem; font-weight:800; color:#dc2626; margin-bottom:6px">❌ WRONG / ✅ CORRECT</div>
+          <div style="font-size:.9rem; margin-bottom:4px"><del>I will have been finished by 5pm</del> → <strong>I will have finished by 5pm</strong></div>
+          <div style="font-size:.82rem; color:#64748b">Future Perfect Continuous uses action verbs, not state verbs! / Не вживай з дієсловами стану!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section id="quiz" style="padding: 60px 0; background: #eef2ff">
+  <div class="container">
+    <div class="quiz-section">
+      <h2>🎯 Quiz Time!</h2>
+      <p>Test your knowledge of future tenses! / Перевір свої знання майбутніх часів!</p>
+
+      <div id="quiz-container"></div>
+      <div class="quiz-score" id="quiz-score"></div>
+      <button class="btn-reset" onclick="resetQuiz()">🔄 Try Again / Спробувати знову</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>🚀 Future Tenses in English | Майбутній час в англійській мові</p>
+  <p style="margin-top:8px">Made with ❤️ for <span>English learners</span> | For kids, teens & beginners 📚</p>
+</footer>
+
+<script>
+// Stars
+const starsContainer = document.getElementById('stars');
+for(let i = 0; i < 60; i++){
+  const s = document.createElement('div');
+  s.className = 'star';
+  const size = Math.random() * 3 + 1;
+  s.style.cssText = `width:${size}px;height:${size}px;top:${Math.random()*100}%;left:${Math.random()*100}%;animation-delay:${Math.random()*3}s;animation-duration:${2+Math.random()*3}s`;
+  starsContainer.appendChild(s);
+}
+
+// Scroll animations
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Quiz data
+const quizData = [
+  {
+    q: "The phone is ringing. I ___ answer it! (Телефон дзвонить. Я відповім!)",
+    opts: ["am going to answer", "will answer", "am answering", "will have answered"],
+    correct: 1,
+    explain: "✅ 'Will' — spontaneous decision made RIGHT NOW! / Миттєве рішення прямо зараз!"
+  },
+  {
+    q: "Look at those dark clouds! It ___ rain! (Дивись на ті хмари! Зараз піде дощ!)",
+    opts: ["will rain", "is going to rain", "will be raining", "is raining"],
+    correct: 1,
+    explain: "✅ 'Going to' — prediction based on EVIDENCE (you can SEE the clouds)! / Передбачення на основі видимих ознак!"
+  },
+  {
+    q: "This time tomorrow, I ___ on a beach in Spain! (В цей час завтра я буду лежати на пляжі!)",
+    opts: ["will lie", "am going to lie", "will be lying", "will have lied"],
+    correct: 2,
+    explain: "✅ 'Future Continuous' — action IN PROGRESS at a specific future moment! / Дія в процесі в конкретний момент майбутнього!"
+  },
+  {
+    q: "By the time you arrive, I ___ dinner. (До твого приходу я вже приготую вечерю.)",
+    opts: ["will cook", "will be cooking", "will have cooked", "am going to cook"],
+    correct: 2,
+    explain: "✅ 'Future Perfect' — action COMPLETED before a future deadline ('by the time')! / Дія завершена ДО певного моменту!"
+  },
+  {
+    q: "I ___ my friend for coffee tomorrow at 3pm — it's all arranged! (Я зустрічаюся з другом завтра о 15:00 — всe домовлено!)",
+    opts: ["will meet", "am going to meet", "am meeting", "will have met"],
+    correct: 2,
+    explain: "✅ 'Present Continuous' — fixed ARRANGEMENT with time confirmed! / Домовленість — час і місце вже визначені!"
+  },
+  {
+    q: "By next year, she ___ here for five years. (До наступного року вона вже 5 років працюватиме тут.)",
+    opts: ["will work", "will be working", "will have worked", "will have been working"],
+    correct: 3,
+    explain: "✅ 'Future Perfect Continuous' — emphasises the DURATION (5 years) up to a future point! / Наголос на тривалості дії!"
+  },
+  {
+    q: "Don't worry — I ___ help you move next Saturday. I promise! (Не хвилюйся — я допоможу тобі переїхати.)",
+    opts: ["am going to", "'ll", "am", "will have"],
+    correct: 1,
+    explain: "✅ 'Will' — making a PROMISE! / Обіцянка!"
+  },
+  {
+    q: "We ___ to Paris next month — the flights and hotel are already booked! (Ми летимо до Парижа наступного місяця — квитки і готель вже заброньовані!)",
+    opts: ["will fly", "are going to fly", "are flying", "will have flown"],
+    correct: 2,
+    explain: "✅ 'Present Continuous' — confirmed travel ARRANGEMENT (booked)! / Заброньована поїздка = Present Continuous!"
+  },
+  {
+    q: "At midnight, they ___ for 24 hours straight! (О опівночі вони вже 24 години братимуть участь у марафоні!)",
+    opts: ["will dance", "will be dancing", "will have danced", "will have been dancing"],
+    correct: 3,
+    explain: "✅ 'Future Perfect Continuous' — 24 hours is the DURATION up to the deadline (midnight)! / Тривалість до дедлайну!"
+  },
+  {
+    q: "___ you be using the computer tonight? I need it later. (Ти будеш користуватися комп'ютером сьогодні ввечері?)",
+    opts: ["Are", "Will", "Do", "Going to"],
+    correct: 1,
+    explain: "✅ 'Future Continuous' in a POLITE question — checking someone's plans without pressure! / Ввічливе запитання про плани!"
+  }
+];
+
+let answered = 0;
+let correct = 0;
+
+function buildQuiz() {
+  const container = document.getElementById('quiz-container');
+  container.innerHTML = '';
+  answered = 0;
+  correct = 0;
+  document.getElementById('quiz-score').textContent = '';
+
+  quizData.forEach((item, i) => {
+    const div = document.createElement('div');
+    div.className = 'quiz-q';
+    div.innerHTML = `
+      <div class="q-text">Q${i+1}. ${item.q}</div>
+      <div class="quiz-opts">
+        ${item.opts.map((opt, j) => `<button class="quiz-opt" onclick="checkAnswer(this, ${i}, ${j})">${opt}</button>`).join('')}
+      </div>
+      <div class="q-feedback" id="fb-${i}"></div>
+    `;
+    container.appendChild(div);
+  });
+}
+
+function checkAnswer(btn, qIndex, optIndex) {
+  const isCorrect = optIndex === quizData[qIndex].correct;
+  const allBtns = btn.parentElement.querySelectorAll('.quiz-opt');
+  allBtns.forEach((b, j) => {
+    b.classList.add('disabled');
+    if(j === quizData[qIndex].correct) b.classList.add('correct');
+  });
+  if(!isCorrect) btn.classList.add('wrong');
+  else correct++;
+  
+  const fb = document.getElementById(`fb-${qIndex}`);
+  fb.textContent = quizData[qIndex].explain;
+  fb.className = `q-feedback show ${isCorrect ? 'correct-fb' : 'wrong-fb'}`;
+  
+  answered++;
+  if(answered === quizData.length) {
+    const pct = Math.round((correct/quizData.length)*100);
+    const emoji = pct === 100 ? '🏆' : pct >= 70 ? '🌟' : pct >= 50 ? '👍' : '📚';
+    document.getElementById('quiz-score').textContent = `${emoji} Score: ${correct}/${quizData.length} (${pct}%)`;
+  }
+}
+
+function resetQuiz() {
+  buildQuiz();
+}
+
+buildQuiz();
+</script>
+
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+</body>
+</html>

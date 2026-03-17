@@ -1,0 +1,1495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Used To — English Grammar for Beginners</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ut-yellow: #FFD93D;
+    --ut-orange: #FF6B35;
+    --ut-blue: #4ECDC4;
+    --ut-purple: #A855F7;
+    --ut-green: #22C55E;
+    --ut-pink: #F472B6;
+    --ut-dark: #1a1a2e;
+    --ut-darker: #0f0f1a;
+    --ut-card: #16213e;
+    --ut-card2: #1a1f3a;
+    --text-light: #e2e8f0;
+    --text-muted: #94a3b8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--ut-darker);
+    color: var(--text-light);
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 40%, #16213e 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(78,205,196,.18) 0%, transparent 70%),
+                radial-gradient(ellipse 60% 40% at 80% 80%, rgba(255,107,53,.12) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-stars {
+    position: absolute; inset: 0; pointer-events: none;
+    overflow: hidden;
+  }
+  .star {
+    position: absolute;
+    width: 3px; height: 3px;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 3s infinite;
+  }
+  @keyframes twinkle {
+    0%,100%{opacity:.2} 50%{opacity:1}
+  }
+
+  .hero-badge {
+    background: rgba(78,205,196,.15);
+    border: 1px solid rgba(78,205,196,.4);
+    color: var(--ut-blue);
+    padding: 6px 18px;
+    border-radius: 50px;
+    font-size: .85rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: inline-block;
+    animation: fadeDown .8s ease both;
+  }
+  .hero h1 {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(2.8rem, 8vw, 5.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    animation: fadeDown .9s ease .1s both;
+  }
+  .hero h1 .highlight-y { color: var(--ut-yellow); }
+  .hero h1 .highlight-o { color: var(--ut-orange); }
+  .hero-sub {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: var(--text-muted);
+    margin-top: 16px;
+    max-width: 600px;
+    line-height: 1.7;
+    animation: fadeDown 1s ease .2s both;
+  }
+  .hero-magic {
+    margin-top: 40px;
+    background: rgba(255,217,61,.08);
+    border: 2px dashed rgba(255,217,61,.4);
+    border-radius: 20px;
+    padding: 24px 36px;
+    animation: fadeDown 1s ease .35s both;
+    max-width: 650px;
+  }
+  .hero-magic .label {
+    font-size: .78rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--ut-yellow);
+    margin-bottom: 10px;
+  }
+  .hero-magic p {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #fff;
+  }
+  .hero-magic .uk {
+    font-size: .95rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-top: 6px;
+  }
+
+  @keyframes fadeDown {
+    from { opacity:0; transform: translateY(-22px); }
+    to   { opacity:1; transform: translateY(0); }
+  }
+
+  /* ── SCROLL INDICATOR ── */
+  .scroll-hint {
+    position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    color: var(--text-muted); font-size: .8rem; animation: bounce 2s infinite;
+  }
+  .scroll-hint svg { width: 20px; height: 20px; }
+  @keyframes bounce {
+    0%,100%{transform: translateX(-50%) translateY(0)} 50%{transform: translateX(-50%) translateY(8px)}
+  }
+
+  /* ── OVERVIEW STRIP ── */
+  .overview {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    padding: 48px 24px;
+    background: var(--ut-darker);
+  }
+  .ov-card {
+    background: var(--ut-card);
+    border-radius: 18px;
+    padding: 20px 28px;
+    text-align: center;
+    flex: 1; min-width: 180px; max-width: 220px;
+    border-top: 4px solid transparent;
+    transition: transform .3s, box-shadow .3s;
+    cursor: default;
+  }
+  .ov-card:hover { transform: translateY(-6px); box-shadow: 0 12px 32px rgba(0,0,0,.4); }
+  .ov-card.c1 { border-color: var(--ut-orange); }
+  .ov-card.c2 { border-color: var(--ut-blue); }
+  .ov-card.c3 { border-color: var(--ut-green); }
+  .ov-card.c4 { border-color: var(--ut-purple); }
+  .ov-card .emoji { font-size: 2.2rem; margin-bottom: 10px; }
+  .ov-card .name { font-family: 'Baloo 2', cursive; font-weight: 800; font-size: 1.05rem; color: #fff; }
+  .ov-card .tag  { font-size: .8rem; color: var(--text-muted); margin-top: 4px; }
+
+  /* ── SECTION ── */
+  .section {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 48px 24px;
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .section-icon {
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.6rem;
+    flex-shrink: 0;
+  }
+  .section-header h2 {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    font-weight: 800;
+  }
+  .section-header .uk-title {
+    font-size: .9rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-top: 2px;
+  }
+
+  /* ── CONSTRUCTION CARD ── */
+  .con-card {
+    background: var(--ut-card);
+    border-radius: 24px;
+    overflow: hidden;
+    margin-bottom: 40px;
+    border: 1px solid rgba(255,255,255,.06);
+    animation: slideUp .5s ease both;
+  }
+  @keyframes slideUp {
+    from { opacity:0; transform: translateY(30px); }
+    to   { opacity:1; transform: translateY(0); }
+  }
+  .con-top {
+    padding: 28px 32px;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .con-emoji {
+    font-size: 3rem;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .con-info { flex: 1; min-width: 220px; }
+  .con-label {
+    font-size: .72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    margin-bottom: 6px;
+  }
+  .con-title {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: 800;
+    color: #fff;
+  }
+  .con-meaning {
+    margin-top: 10px;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-light);
+  }
+  .con-meaning .en { margin-bottom: 4px; }
+  .con-meaning .uk { color: var(--text-muted); font-style: italic; }
+
+  /* ── FORMULA BOX ── */
+  .formula-box {
+    background: rgba(0,0,0,.3);
+    border-radius: 14px;
+    padding: 18px 24px;
+    margin: 18px 0;
+    border-left: 4px solid;
+  }
+  .formula-box .f-label {
+    font-size: .72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    margin-bottom: 10px;
+    opacity: .7;
+  }
+  .formula {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.9;
+  }
+  .formula .var { opacity: .65; font-size: .9rem; }
+  .formula span.kw {
+    background: rgba(255,255,255,.12);
+    padding: 2px 8px;
+    border-radius: 6px;
+    color: #fff;
+  }
+
+  /* ── EXAMPLES GRID ── */
+  .ex-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 14px;
+    padding: 0 32px 28px;
+  }
+  .ex-card {
+    background: rgba(0,0,0,.25);
+    border-radius: 14px;
+    padding: 16px 18px;
+    border-left: 3px solid;
+    transition: transform .2s;
+  }
+  .ex-card:hover { transform: translateX(4px); }
+  .ex-en {
+    font-weight: 700;
+    font-size: .98rem;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+  .ex-uk {
+    font-size: .88rem;
+    color: var(--text-muted);
+    font-style: italic;
+    line-height: 1.5;
+  }
+  .magic-highlight {
+    background: rgba(255,217,61,.2);
+    color: var(--ut-yellow);
+    padding: 0 3px;
+    border-radius: 4px;
+    font-weight: 800;
+  }
+
+  /* ── DIVIDER ── */
+  .con-divider {
+    height: 1px;
+    background: rgba(255,255,255,.06);
+    margin: 0 32px;
+  }
+  .con-sub-title {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.05rem;
+    font-weight: 700;
+    padding: 18px 32px 10px;
+    color: #fff;
+  }
+
+  /* ── WHEN TO USE ── */
+  .when-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 12px;
+    padding: 0 32px 28px;
+  }
+  .when-item {
+    background: rgba(0,0,0,.2);
+    border-radius: 12px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .when-item .wi-icon { font-size: 1.4rem; flex-shrink: 0; }
+  .when-item .wi-text { font-size: .9rem; line-height: 1.5; }
+  .when-item .wi-uk  { font-size: .8rem; color: var(--text-muted); font-style: italic; margin-top: 3px; }
+
+  /* ── COMPARISON TABLE ── */
+  .compare-section {
+    background: var(--ut-card);
+    border-radius: 24px;
+    padding: 32px;
+    margin-bottom: 48px;
+    border: 1px solid rgba(255,255,255,.06);
+  }
+  .compare-section h2 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+  .compare-section .sub { color: var(--text-muted); font-style: italic; margin-bottom: 28px; }
+
+  .ctable {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: .92rem;
+  }
+  .ctable th {
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 800;
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    background: rgba(0,0,0,.3);
+  }
+  .ctable td {
+    padding: 14px 16px;
+    border-top: 1px solid rgba(255,255,255,.05);
+    vertical-align: top;
+    line-height: 1.6;
+  }
+  .ctable tr:hover td { background: rgba(255,255,255,.03); }
+  .ctable .c-form { font-weight: 800; color: #fff; font-family: 'Baloo 2', cursive; font-size: 1rem; }
+  .badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: .72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+  }
+  .b-orange { background: rgba(255,107,53,.2); color: var(--ut-orange); }
+  .b-blue   { background: rgba(78,205,196,.2); color: var(--ut-blue); }
+  .b-green  { background: rgba(34,197,94,.2);  color: var(--ut-green); }
+  .b-purple { background: rgba(168,85,247,.2); color: var(--ut-purple); }
+
+  /* ── MAGIC SENTENCE BLOCK ── */
+  .magic-section {
+    background: linear-gradient(135deg, rgba(255,217,61,.08), rgba(255,107,53,.06));
+    border: 2px solid rgba(255,217,61,.3);
+    border-radius: 24px;
+    padding: 36px;
+    margin-bottom: 48px;
+  }
+  .magic-section h2 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--ut-yellow);
+    margin-bottom: 6px;
+  }
+  .magic-section .sub { color: var(--text-muted); font-style: italic; margin-bottom: 28px; }
+  .magic-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .magic-item {
+    background: rgba(0,0,0,.3);
+    border-radius: 16px;
+    padding: 18px 20px;
+    border-left: 4px solid;
+    transition: transform .25s;
+  }
+  .magic-item:hover { transform: translateY(-3px); }
+  .mi-label {
+    font-size: .7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    margin-bottom: 8px;
+    opacity: .75;
+  }
+  .mi-sent {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.5;
+    margin-bottom: 6px;
+  }
+  .mi-uk {
+    font-size: .85rem;
+    color: var(--text-muted);
+    font-style: italic;
+    line-height: 1.5;
+  }
+  .mi-note {
+    font-size: .8rem;
+    color: #a0aec0;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255,255,255,.08);
+    line-height: 1.5;
+  }
+
+  /* ── QUIZ ── */
+  .quiz-section {
+    background: var(--ut-card);
+    border-radius: 24px;
+    padding: 36px;
+    margin-bottom: 48px;
+    border: 1px solid rgba(255,255,255,.06);
+  }
+  .quiz-section h2 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 6px;
+  }
+  .quiz-section .sub { color: var(--text-muted); font-style: italic; margin-bottom: 28px; }
+  .quiz-item {
+    background: rgba(0,0,0,.25);
+    border-radius: 16px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+  }
+  .quiz-q {
+    font-weight: 700;
+    font-size: .98rem;
+    margin-bottom: 14px;
+    color: #fff;
+  }
+  .quiz-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .quiz-btn {
+    background: rgba(255,255,255,.07);
+    border: 1.5px solid rgba(255,255,255,.12);
+    color: var(--text-light);
+    padding: 9px 18px;
+    border-radius: 10px;
+    font-family: 'Nunito', sans-serif;
+    font-size: .9rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all .2s;
+  }
+  .quiz-btn:hover { background: rgba(255,255,255,.14); transform: translateY(-1px); }
+  .quiz-btn.correct { background: rgba(34,197,94,.25); border-color: var(--ut-green); color: var(--ut-green); }
+  .quiz-btn.wrong   { background: rgba(239,68,68,.25);  border-color: #ef4444; color: #ef4444; }
+  .quiz-feedback {
+    margin-top: 12px;
+    font-size: .88rem;
+    font-weight: 700;
+    display: none;
+  }
+  .quiz-feedback.show { display: block; }
+  .quiz-score {
+    text-align: center;
+    margin-top: 24px;
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.4rem;
+    font-weight: 800;
+  }
+  #reset-quiz {
+    display: none;
+    margin: 16px auto 0;
+    background: var(--ut-yellow);
+    color: var(--ut-dark);
+    border: none;
+    padding: 12px 32px;
+    border-radius: 12px;
+    font-family: 'Baloo 2', cursive;
+    font-weight: 800;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform .2s;
+    display: none;
+  }
+  #reset-quiz:hover { transform: scale(1.04); }
+
+  /* ── TIPS ── */
+  .tips-section {
+    background: var(--ut-card);
+    border-radius: 24px;
+    padding: 36px;
+    margin-bottom: 48px;
+  }
+  .tips-section h2 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.8rem; font-weight: 800; margin-bottom: 24px;
+  }
+  .tip-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .tip-item {
+    background: rgba(0,0,0,.25);
+    border-radius: 14px;
+    padding: 18px 20px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .tip-icon { font-size: 1.6rem; flex-shrink: 0; }
+  .tip-text { font-size: .92rem; line-height: 1.6; }
+  .tip-text strong { color: #fff; }
+  .tip-text .uk { color: var(--text-muted); font-style: italic; font-size: .85rem; margin-top: 4px; display: block; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ut-dark);
+    text-align: center;
+    padding: 32px 24px;
+    color: var(--text-muted);
+    font-size: .85rem;
+    border-top: 1px solid rgba(255,255,255,.06);
+  }
+  footer strong { color: var(--ut-blue); }
+
+  /* ── SEPARATORS ── */
+  .separator {
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--sep-color, var(--ut-blue)), transparent);
+    margin: 0 auto 48px;
+    max-width: 300px;
+    border-radius: 3px;
+  }
+
+  /* Scroll-to-top button */
+  #scroll-top-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #1a1208;
+    border: 1.5px solid rgba(200,150,62,0.4);
+    color: #f5f0e8;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+    pointer-events: none;
+    z-index: 9998;
+  }
+  #scroll-top-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  #scroll-top-btn:hover {
+    background: #c8963e;
+    border-color: #c8963e;
+    color: #1a1208;
+  }
+
+  /* Color helpers */
+  .c-orange  { color: var(--ut-orange); }
+  .c-blue    { color: var(--ut-blue); }
+  .c-green   { color: var(--ut-green); }
+  .c-purple  { color: var(--ut-purple); }
+  .c-yellow  { color: var(--ut-yellow); }
+  .c-pink    { color: var(--ut-pink); }
+  .bg-orange { background: rgba(255,107,53,.1); }
+  .bg-blue   { background: rgba(78,205,196,.1); }
+  .bg-green  { background: rgba(34,197,94,.1); }
+  .bg-purple { background: rgba(168,85,247,.1); }
+
+  /* Formula wrapper */
+  .formula-wrap { padding: 0 32px; }
+
+  /* Scroll reveal */
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── MOBILE ── */
+  @media (max-width: 600px) {
+    /* Hero */
+    .hero { min-height: auto; padding: 56px 18px 64px; }
+    .hero h1 { font-size: 2.4rem; }
+    .hero-sub { font-size: .95rem; }
+    .hero-sub br { display: none; }
+    .hero-magic { padding: 18px 20px; margin-top: 28px; }
+    .hero-magic p { font-size: 1.05rem; }
+
+    /* Overview strip */
+    .overview { padding: 28px 14px; gap: 10px; }
+    .ov-card { min-width: 140px; padding: 14px 16px; }
+    .ov-card .emoji { font-size: 1.8rem; }
+    .ov-card .name { font-size: .95rem; }
+    .ov-card .tag { font-size: .72rem; }
+
+    /* Section */
+    .section { padding: 28px 14px; }
+
+    /* Construction card */
+    .con-card { border-radius: 18px; margin-bottom: 28px; }
+    .con-top { padding: 20px 18px; gap: 12px; }
+    .con-emoji { font-size: 2.2rem; }
+    .con-title { font-size: 1.4rem; }
+    .con-meaning { font-size: .92rem; }
+
+    /* Formula box */
+    .formula-box { padding: 14px 16px; margin: 14px 0; border-radius: 10px; }
+    .formula { font-size: .95rem; line-height: 1.8; }
+    .formula span.kw { padding: 2px 6px; }
+
+    /* Examples grid — single column on mobile */
+    .ex-grid { grid-template-columns: 1fr; gap: 10px; padding: 0 14px 20px; }
+    .ex-card { padding: 13px 15px; }
+    .ex-en { font-size: .92rem; }
+    .ex-uk { font-size: .82rem; }
+
+    /* Con sub-title */
+    .con-sub-title { font-size: .95rem; padding: 14px 18px 8px; }
+    .con-divider { margin: 0 18px; }
+
+    /* When grid */
+    .when-grid { grid-template-columns: 1fr; gap: 10px; padding: 0 14px 20px; }
+    .when-item { padding: 12px 14px; border-radius: 10px; }
+
+    /* Formula wrapper */
+    .formula-wrap { padding: 0 14px; }
+
+    /* Notice box inside card */
+    .formula-wrap > div[style*="border-radius: 12px"] {
+      font-size: .84rem;
+    }
+
+    /* Padding inside cards for formula — legacy fallback */
+    .con-card > div[style*="padding: 0 32px"] { padding: 0 14px !important; }
+
+    /* Magic section */
+    .magic-section { padding: 22px 16px; border-radius: 18px; margin-bottom: 28px; }
+    .magic-section h2 { font-size: 1.4rem; }
+    .magic-row { grid-template-columns: 1fr; gap: 12px; }
+    .magic-item { padding: 15px 16px; }
+    .mi-label { font-size: .68rem; }
+    .mi-sent { font-size: .95rem; }
+    .mi-uk { font-size: .82rem; }
+    .mi-note { font-size: .78rem; }
+
+    /* Comparison table — horizontal scroll */
+    .compare-section { padding: 20px 16px; border-radius: 18px; margin-bottom: 28px; }
+    .compare-section h2 { font-size: 1.4rem; }
+    .ctable th { padding: 10px 12px; font-size: .72rem; }
+    .ctable td { padding: 11px 12px; }
+
+    /* Prevent long words from overflowing */
+    body { word-break: break-word; }
+
+    /* Table scroll wrapper */
+    .compare-section > div { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .ctable { font-size: .8rem; min-width: 560px; }
+
+    /* Tips section */
+    .tips-section { padding: 22px 16px; border-radius: 18px; margin-bottom: 28px; }
+    .tips-section h2 { font-size: 1.4rem; margin-bottom: 16px; }
+    .tip-grid { grid-template-columns: 1fr; gap: 12px; }
+    .tip-item { padding: 14px 15px; gap: 10px; border-radius: 12px; }
+    .tip-icon { font-size: 1.3rem; }
+    .tip-text { font-size: .86rem; }
+
+    /* Quiz section */
+    .quiz-section { padding: 22px 16px; border-radius: 18px; margin-bottom: 28px; }
+    .quiz-section h2 { font-size: 1.4rem; }
+    .quiz-item { padding: 16px 15px; border-radius: 12px; }
+    .quiz-q { font-size: .9rem; margin-bottom: 12px; }
+    .quiz-btn { padding: 8px 14px; font-size: .84rem; border-radius: 8px; }
+    .quiz-options { gap: 8px; }
+    .quiz-score { font-size: 1.2rem; }
+    #reset-quiz { padding: 10px 24px; font-size: .92rem; }
+
+    /* Footer */
+    footer { padding: 24px 16px; font-size: .8rem; }
+
+    /* Scroll-to-top button — slightly smaller on mobile */
+    #scroll-top-btn { width: 40px; height: 40px; bottom: 20px; right: 16px; font-size: 16px; }
+
+    /* Section headers */
+    .section-header { gap: 12px; margin-bottom: 22px; }
+    .section-icon { width: 44px; height: 44px; font-size: 1.3rem; border-radius: 12px; }
+    .section-header h2 { font-size: 1.4rem; }
+  }
+
+  /* ── TABLET ── */
+  @media (min-width: 601px) and (max-width: 900px) {
+    .hero h1 { font-size: 3.2rem; }
+    .section { padding: 36px 20px; }
+    .con-top { padding: 22px 24px; }
+    .ex-grid { padding: 0 24px 22px; gap: 12px; }
+    .when-grid { padding: 0 24px 22px; }
+    .formula-box { padding: 16px 20px; }
+    .compare-section { padding: 24px; }
+    .magic-section { padding: 28px 24px; }
+    .tips-section { padding: 28px 24px; }
+    .quiz-section { padding: 28px 24px; }
+    .ctable { font-size: .85rem; }
+    .ctable th { padding: 10px 13px; }
+    .ctable td { padding: 12px 13px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════ HERO ══════════════════ -->
+<section class="hero">
+  <div class="hero-stars" id="stars"></div>
+
+  <div class="hero-badge">✨ English Grammar Guide</div>
+  <h1>
+    The Magic of<br>
+    <span class="highlight-y">Used</span> <span class="highlight-o">To</span>
+  </h1>
+  <p class="hero-sub">
+    Three powerful constructions that change how you talk about<br>
+    habits, states, and adapting to new things.<br>
+    <em>Три конструкції, що змінять твою англійську назавжди!</em>
+  </p>
+
+  <div class="hero-magic">
+    <div class="label">🪄 Our Magic Universal Sentence</div>
+    <p>I live in a big city.</p>
+    <p class="uk"><em>Я живу у великому місті.</em></p>
+  </div>
+
+  <div class="scroll-hint">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    Scroll to explore
+  </div>
+</section>
+
+<!-- ══════════════════ OVERVIEW ══════════════════ -->
+<div class="overview reveal">
+  <div class="ov-card c1">
+    <div class="emoji">🕰️</div>
+    <div class="name">used to</div>
+    <div class="tag">Past habits & states<br>Минулі звички</div>
+  </div>
+  <div class="ov-card c1">
+    <div class="emoji">🚫</div>
+    <div class="name">didn't use to</div>
+    <div class="tag">Negative past habits<br>Те, чого раніше не було</div>
+  </div>
+  <div class="ov-card c2">
+    <div class="emoji">⚙️</div>
+    <div class="name">be used to</div>
+    <div class="tag">Accustomed / familiar<br>Звик, звична справа</div>
+  </div>
+  <div class="ov-card c3">
+    <div class="emoji">🌱</div>
+    <div class="name">get used to</div>
+    <div class="tag">Process of adapting<br>Процес звикання</div>
+  </div>
+</div>
+
+<div class="section">
+
+<!-- ══════════════════ USED TO ══════════════════ -->
+<div class="con-card reveal" style="animation-delay:.1s">
+  <div class="con-top" style="background: linear-gradient(135deg, rgba(255,107,53,.15), rgba(255,107,53,.03))">
+    <div class="con-emoji">🕰️</div>
+    <div class="con-info">
+      <div class="con-label c-orange">Construction 1 · Конструкція 1</div>
+      <div class="con-title c-orange">USED TO <span style="font-size:1.2rem;color:#fff">/ DIDN'T USE TO</span></div>
+      <div class="con-meaning">
+        <div class="en">Something happened regularly in the past — <strong>but NOT anymore.</strong> It was a habit or a permanent state that has ended.</div>
+        <div class="uk">Щось регулярно відбувалось у минулому — <strong>але вже не відбувається.</strong> Це була звичка або постійний стан, який закінчився.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="formula-wrap">
+    <div class="formula-box" style="border-color: var(--ut-orange)">
+      <div class="f-label c-orange">📐 Formulas / Формули</div>
+      <div class="formula">
+        ✅ <span class="kw">Subject</span> + <span class="kw" style="color:var(--ut-orange)">used to</span> + <span class="kw">verb (base)</span><br>
+        <span class="var">&nbsp;&nbsp;&nbsp;Підмет + used to + дієслово (основна форма)</span><br><br>
+        ❌ <span class="kw">Subject</span> + <span class="kw" style="color:var(--ut-orange)">didn't use to</span> + <span class="kw">verb (base)</span><br>
+        <span class="var">&nbsp;&nbsp;&nbsp;Підмет + didn't use to + дієслово</span><br><br>
+        ❓ <span class="kw" style="color:var(--ut-orange)">Did</span> + <span class="kw">subject</span> + <span class="kw" style="color:var(--ut-orange)">use to</span> + <span class="kw">verb?</span><br>
+        <span class="var">&nbsp;&nbsp;&nbsp;Did + підмет + use to + дієслово?</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="con-sub-title">🌟 Examples with our magic sentence / Приклади з нашим магічним реченням</div>
+  <div class="ex-grid">
+    <div class="ex-card" style="border-color: var(--ut-orange)">
+      <div class="ex-en">I <span class="magic-highlight">used to live</span> in a big city.</div>
+      <div class="ex-uk">Я раніше жив(ла) у великому місті. <em>(але зараз — ні)</em></div>
+    </div>
+    <div class="ex-card" style="border-color: var(--ut-orange)">
+      <div class="ex-en">I <span class="magic-highlight">didn't use to live</span> in a big city. I lived in a village.</div>
+      <div class="ex-uk">Раніше я не жив(ла) у великому місті. Я жив(ла) у селі.</div>
+    </div>
+    <div class="ex-card" style="border-color: var(--ut-orange)">
+      <div class="ex-en"><span class="magic-highlight">Did</span> you <span class="magic-highlight">use to live</span> in a big city before?</div>
+      <div class="ex-uk">Ти раніше жив(ла) у великому місті?</div>
+    </div>
+  </div>
+
+  <div class="con-divider"></div>
+  <div class="con-sub-title">📚 More examples — Habits & Actions / Більше прикладів — звички й дії</div>
+  <div class="ex-grid">
+    <div class="ex-card" style="border-color: var(--ut-orange)">
+      <div class="ex-en">She <span class="magic-highlight">used to eat</span> fast food every day.</div>
+      <div class="ex-uk">Вона раніше щодня їла фастфуд. <em>(зараз — ні)</em></div>
+    </div>
+    <div class="ex-card" style="border-color: var(--ut-orange)">
+      <div class="ex-en">We <span class="magic-highlight">used to play</span> outside until dark.</div>
+      <div class="ex-uk">Ми раніше гралися надворі до темряви.</div>
+    </div>
+    <div class="ex-card" style="border-color: var(--ut-orange)">
+      <div class="ex-en">He <span class="magic-highlight">used to smoke</span>, but he quit.</div>
+      <div class="ex-uk">Він раніше курив, але кинув.</div>
+    </div>
+    <div class="ex-card" style="border-color: var(--ut-orange)">
+      <div class="ex-en">They <span class="magic-highlight">used to walk</span> to school every morning.</div>
+      <div class="ex-uk">Вони раніше ходили до школи пішки щоранку.</div>
+    </div>
+    <div class="ex-card" style="border-color: var(--ut-orange)">
+      <div class="ex-en">I <span class="magic-highlight">used to hate</span> vegetables as a child.</div>
+      <div class="ex-uk">Я в дитинстві терпіти не міг(ла) овочі.</div>
+    </div>
+    <div class="ex-card" style="border-color: var(--ut-orange)">
+      <div class="ex-en">My parents <span class="magic-highlight">used to read</span> me bedtime stories.</div>
+      <div class="ex-uk">Батьки раніше читали мені казки на ніч.</div>
+    </div>
+    <div class="ex-card" style="border-color: var(--ut-orange)">
+      <div class="ex-en">She <span class="magic-highlight">didn't use to like</span> coffee. Now she drinks three cups a day!</div>
+      <div class="ex-uk">Раніше їй не подобалась кава. Тепер вона п'є три чашки на день!</div>
+    </div>
+    <div class="ex-card" style="border-color: var(--ut-orange)">
+      <div class="ex-en">He <span class="magic-highlight">used to be</span> very shy. (permanent past state)</div>
+      <div class="ex-uk">Раніше він був дуже сором'язливим. <em>(минулий стан)</em></div>
+    </div>
+    <div class="ex-card" style="border-color: var(--ut-orange)">
+      <div class="ex-en">This building <span class="magic-highlight">used to be</span> a school.</div>
+      <div class="ex-uk">Раніше ця будівля була школою.</div>
+    </div>
+    <div class="ex-card" style="border-color: var(--ut-orange)">
+      <div class="ex-en">I <span class="magic-highlight">used to have</span> long hair.</div>
+      <div class="ex-uk">Раніше в мене було довге волосся.</div>
+    </div>
+    <div class="ex-card" style="border-color: var(--ut-orange)">
+      <div class="ex-en">We <span class="magic-highlight">used to go</span> to the cinema every Friday.</div>
+      <div class="ex-uk">Ми раніше ходили в кіно щоп'ятниці.</div>
+    </div>
+    <div class="ex-card" style="border-color: var(--ut-orange)">
+      <div class="ex-en">She <span class="magic-highlight">used to dream</span> of becoming an astronaut.</div>
+      <div class="ex-uk">Вона мріяла стати астронавтом.</div>
+    </div>
+  </div>
+
+  <div class="con-divider"></div>
+  <div class="con-sub-title">⏰ When to use / Коли використовувати</div>
+  <div class="when-grid" style="padding-bottom: 28px;">
+    <div class="when-item">
+      <div class="wi-icon">🔁</div>
+      <div class="wi-text">Repeated past actions that no longer happen<div class="wi-uk">Повторювані дії в минулому, які вже не відбуваються</div></div>
+    </div>
+    <div class="when-item">
+      <div class="wi-icon">😐</div>
+      <div class="wi-text">Past states (feelings, appearance, situations)<div class="wi-uk">Минулі стани (почуття, зовнішність, ситуації)</div></div>
+    </div>
+    <div class="when-item">
+      <div class="wi-icon">📖</div>
+      <div class="wi-text">Describing how things were different in the past<div class="wi-uk">Опис того, як все було інакше в минулому</div></div>
+    </div>
+    <div class="when-item">
+      <div class="wi-icon">👶</div>
+      <div class="wi-text">Talking about childhood memories<div class="wi-uk">Розповідь про спогади з дитинства</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ BE USED TO ══════════════════ -->
+<div class="con-card reveal" style="animation-delay:.2s">
+  <div class="con-top" style="background: linear-gradient(135deg, rgba(78,205,196,.15), rgba(78,205,196,.03))">
+    <div class="con-emoji">⚙️</div>
+    <div class="con-info">
+      <div class="con-label c-blue">Construction 2 · Конструкція 2</div>
+      <div class="con-title c-blue">BE USED TO</div>
+      <div class="con-meaning">
+        <div class="en">You are <strong>already accustomed</strong> to something. It is familiar to you. <strong>You don't find it strange or difficult anymore.</strong> It can be used in ANY tense (am/is/are/was/were used to).</div>
+        <div class="uk">Ти вже <strong>звик(ла)</strong> до чогось. Це тобі знайоме. <strong>Це більше не здається дивним чи складним.</strong> Можна використовувати в БУДЬ-ЯКОМУ часі.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="formula-wrap">
+    <div class="formula-box" style="border-color: var(--ut-blue)">
+      <div class="f-label c-blue">📐 Formulas / Формули</div>
+      <div class="formula">
+        ✅ <span class="kw">Subject</span> + <span class="kw" style="color:var(--ut-blue)">am/is/are/was/were used to</span> + <span class="kw">noun / verb+ing</span><br>
+        <span class="var">&nbsp;&nbsp;&nbsp;Підмет + am/is/are/was/were used to + іменник / дієслово+ing</span><br><br>
+        ❌ <span class="kw">Subject</span> + <span class="kw" style="color:var(--ut-blue)">am/is/are not used to</span> + <span class="kw">noun / verb+ing</span><br>
+        <span class="var">&nbsp;&nbsp;&nbsp;Підмет + am/is/are not used to + іменник / дієслово+ing</span><br><br>
+        ❓ <span class="kw" style="color:var(--ut-blue)">Are/Is/Was</span> + <span class="kw">subject</span> + <span class="kw" style="color:var(--ut-blue)">used to</span> + <span class="kw">noun / verb+ing?</span>
+      </div>
+    </div>
+    <div style="background: rgba(78,205,196,.1); border-radius: 12px; padding: 14px 18px; margin-bottom: 18px; font-size: .9rem;">
+      ⚠️ <strong>KEY:</strong> After <em>be used to</em>, you always use a <strong>noun</strong> or <strong>verb+ING</strong>, never base verb!<br>
+      <span style="color: var(--text-muted); font-style:italic;">⚠️ ВАЖЛИВО: Після <em>be used to</em> завжди іде <strong>іменник</strong> або <strong>дієслово+ING</strong>, ніколи основна форма!</span>
+    </div>
+  </div>
+
+  <div class="con-sub-title">🌟 Examples with our magic sentence / Приклади з магічним реченням</div>
+  <div class="ex-grid">
+    <div class="ex-card" style="border-color: var(--ut-blue)">
+      <div class="ex-en">I <span class="magic-highlight">am used to living</span> in a big city. It doesn't bother me.</div>
+      <div class="ex-uk">Я звик(ла) жити у великому місті. Мене це не турбує.</div>
+    </div>
+    <div class="ex-card" style="border-color: var(--ut-blue)">
+      <div class="ex-en">I <span class="magic-highlight">am not used to living</span> in a big city. It's so noisy!</div>
+      <div class="ex-uk">Я не звик(ла) жити у великому місті. Тут так гучно!</div>
+    </div>
+    <div class="ex-card" style="border-color: var(--ut-blue)">
+      <div class="ex-en"><span class="magic-highlight">Are</span> you <span class="magic-highlight">used to living</span> in a big city?</div>
+      <div class="ex-uk">Ти вже звик(ла) жити у великому місті?</div>
+    </div>
+  </div>
+
+  <div class="con-divider"></div>
+  <div class="con-sub-title">📚 More examples — all tenses! / Більше прикладів — всі часи!</div>
+  <div class="ex-grid">
+    <div class="ex-card" style="border-color: var(--ut-blue)">
+      <div class="ex-en">She <span class="magic-highlight">is used to</span> waking up early. (present)</div>
+      <div class="ex-uk">Вона звикла рано прокидатись. <em>(теперішнє)</em></div>
+    </div>
+    <div class="ex-card" style="border-color: var(--ut-blue)">
+      <div class="ex-en">He <span class="magic-highlight">was used to</span> the cold winters when he lived in Canada. (past)</div>
+      <div class="ex-uk">Він звик до холодних зим, коли жив у Канаді. <em>(минуле)</em></div>
+    </div>
+    <div class="ex-card" style="border-color: var(--ut-blue)">
+      <div class="ex-en">I <span class="magic-highlight">am used to</span> the noise. It doesn't bother me.</div>
+      <div class="ex-uk">Я звик(ла) до шуму. Це мене не турбує.</div>
+    </div>
+    <div class="ex-card" style="border-color: var(--ut-blue)">
+      <div class="ex-en">They <span class="magic-highlight">are not used to</span> eating spicy food.</div>
+      <div class="ex-uk">Вони не звикли їсти гостру їжу.</div>
+    </div>
+    <div class="ex-card" style="border-color: var(--ut-blue)">
+      <div class="ex-en">She <span class="magic-highlight">is used to</span> working long hours.</div>
+      <div class="ex-uk">Вона звикла до тривалого робочого дня.</div>
+    </div>
+    <div class="ex-card" style="border-color: var(--ut-blue)">
+      <div class="ex-en">I <span class="magic-highlight">am used to</span> speaking English every day.</div>
+      <div class="ex-uk">Я звик(ла) розмовляти англійською щодня.</div>
+    </div>
+    <div class="ex-card" style="border-color: var(--ut-blue)">
+      <div class="ex-en">He <span class="magic-highlight">is not used to</span> the traffic here. (with noun)</div>
+      <div class="ex-uk">Він не звик до трафіку тут. <em>(з іменником)</em></div>
+    </div>
+    <div class="ex-card" style="border-color: var(--ut-blue)">
+      <div class="ex-en">Dogs <span class="magic-highlight">are used to</span> sleeping during the day.</div>
+      <div class="ex-uk">Собаки звикли спати вдень.</div>
+    </div>
+    <div class="ex-card" style="border-color: var(--ut-blue)">
+      <div class="ex-en">She <span class="magic-highlight">was used to</span> hard work from a young age.</div>
+      <div class="ex-uk">Вона з молодості звикла до важкої праці.</div>
+    </div>
+    <div class="ex-card" style="border-color: var(--ut-blue)">
+      <div class="ex-en">By next year, I <span class="magic-highlight">will be used to</span> the new schedule.</div>
+      <div class="ex-uk">До наступного року я звикну до нового розкладу. <em>(майбутнє)</em></div>
+    </div>
+  </div>
+
+  <div class="con-divider"></div>
+  <div class="con-sub-title">⏰ When to use / Коли використовувати</div>
+  <div class="when-grid" style="padding-bottom: 28px;">
+    <div class="when-item">
+      <div class="wi-icon">✅</div>
+      <div class="wi-text">Something is <strong>already familiar</strong> — you don't find it difficult<div class="wi-uk">Щось вже <strong>знайоме</strong> — вам це не здається складним</div></div>
+    </div>
+    <div class="when-item">
+      <div class="wi-icon">🏠</div>
+      <div class="wi-text">Talking about a <strong>current state</strong> of being accustomed<div class="wi-uk">Говорити про <strong>поточний стан</strong> звичності</div></div>
+    </div>
+    <div class="when-item">
+      <div class="wi-icon">🌍</div>
+      <div class="wi-text">After moving to a new place or starting a new routine<div class="wi-uk">Після переїзду чи початку нового розпорядку</div></div>
+    </div>
+    <div class="when-item">
+      <div class="wi-icon">💪</div>
+      <div class="wi-text">Expressing comfort or discomfort with a situation<div class="wi-uk">Виражати зручність або дискомфорт від ситуації</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ GET USED TO ══════════════════ -->
+<div class="con-card reveal" style="animation-delay:.3s">
+  <div class="con-top" style="background: linear-gradient(135deg, rgba(34,197,94,.15), rgba(34,197,94,.03))">
+    <div class="con-emoji">🌱</div>
+    <div class="con-info">
+      <div class="con-label c-green">Construction 3 · Конструкція 3</div>
+      <div class="con-title c-green">GET USED TO</div>
+      <div class="con-meaning">
+        <div class="en">The <strong>process of becoming accustomed</strong> to something. You are adapting — it's a journey, not a destination. You are moving from "unfamiliar" to "familiar".</div>
+        <div class="uk"><strong>Процес звикання</strong> до чогось. Ти адаптуєшся — це подорож, а не кінцева точка. Ти рухаєшся від "незнайомого" до "знайомого".</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="formula-wrap">
+    <div class="formula-box" style="border-color: var(--ut-green)">
+      <div class="f-label c-green">📐 Formulas / Формули</div>
+      <div class="formula">
+        ✅ <span class="kw">Subject</span> + <span class="kw" style="color:var(--ut-green)">get/gets/got/will get used to</span> + <span class="kw">noun / verb+ing</span><br>
+        <span class="var">&nbsp;&nbsp;&nbsp;Підмет + get/gets/got/will get used to + іменник / дієслово+ing</span><br><br>
+        🔄 Common patterns:<br>
+        &nbsp;&nbsp;&nbsp;I'm getting used to… <span class="var">(зараз звикаю)</span><br>
+        &nbsp;&nbsp;&nbsp;I got used to… <span class="var">(звик у минулому)</span><br>
+        &nbsp;&nbsp;&nbsp;I'll get used to… <span class="var">(звикну в майбутньому)</span><br>
+        &nbsp;&nbsp;&nbsp;I need to get used to… <span class="var">(мені потрібно звикнути)</span>
+      </div>
+    </div>
+    <div style="background: rgba(34,197,94,.1); border-radius: 12px; padding: 14px 18px; margin-bottom: 18px; font-size: .9rem;">
+      💡 <strong>Think of it as a journey:</strong> be used to = you ARRIVED ✅ &nbsp;|&nbsp; get used to = you are TRAVELLING 🚶<br>
+      <span style="color: var(--text-muted); font-style:italic;">💡 Уявіть як подорож: be used to = ти ПРИБУВ ✅ &nbsp;|&nbsp; get used to = ти ЩЕ В ДОРОЗІ 🚶</span>
+    </div>
+  </div>
+
+  <div class="con-sub-title">🌟 Examples with our magic sentence / Приклади з магічним реченням</div>
+  <div class="ex-grid">
+    <div class="ex-card" style="border-color: var(--ut-green)">
+      <div class="ex-en">I'm <span class="magic-highlight">getting used to living</span> in a big city. It's getting easier!</div>
+      <div class="ex-uk">Я звикаю жити у великому місті. Стає легше!</div>
+    </div>
+    <div class="ex-card" style="border-color: var(--ut-green)">
+      <div class="ex-en">I <span class="magic-highlight">got used to living</span> in a big city after a few months.</div>
+      <div class="ex-uk">Я звик(ла) жити у великому місті після кількох місяців.</div>
+    </div>
+    <div class="ex-card" style="border-color: var(--ut-green)">
+      <div class="ex-en">I'll <span class="magic-highlight">get used to living</span> in a big city eventually, I'm sure.</div>
+      <div class="ex-uk">Я впевнений(а), що врешті-решт звикну жити у великому місті.</div>
+    </div>
+  </div>
+
+  <div class="con-divider"></div>
+  <div class="con-sub-title">📚 More examples — the journey of adapting! / Більше прикладів — подорож адаптації!</div>
+  <div class="ex-grid">
+    <div class="ex-card" style="border-color: var(--ut-green)">
+      <div class="ex-en">She's <span class="magic-highlight">getting used to</span> waking up early for work.</div>
+      <div class="ex-uk">Вона звикає рано вставати на роботу. <em>(процес зараз)</em></div>
+    </div>
+    <div class="ex-card" style="border-color: var(--ut-green)">
+      <div class="ex-en">He'll <span class="magic-highlight">get used to</span> the cold weather eventually.</div>
+      <div class="ex-uk">Він врешті звикне до холодної погоди. <em>(майбутнє)</em></div>
+    </div>
+    <div class="ex-card" style="border-color: var(--ut-green)">
+      <div class="ex-en">It took me a while, but I <span class="magic-highlight">got used to</span> driving on the left.</div>
+      <div class="ex-uk">Мені знадобився час, але я звик(ла) їздити ліворуч.</div>
+    </div>
+    <div class="ex-card" style="border-color: var(--ut-green)">
+      <div class="ex-en">I need to <span class="magic-highlight">get used to</span> eating less sugar.</div>
+      <div class="ex-uk">Мені потрібно звикнути їсти менше цукру.</div>
+    </div>
+    <div class="ex-card" style="border-color: var(--ut-green)">
+      <div class="ex-en">New students always <span class="magic-highlight">get used to</span> the school rules quickly.</div>
+      <div class="ex-uk">Нові учні завжди швидко звикають до шкільних правил.</div>
+    </div>
+    <div class="ex-card" style="border-color: var(--ut-green)">
+      <div class="ex-en">I'm slowly <span class="magic-highlight">getting used to</span> speaking in public.</div>
+      <div class="ex-uk">Я повільно звикаю виступати на публіці.</div>
+    </div>
+    <div class="ex-card" style="border-color: var(--ut-green)">
+      <div class="ex-en">She couldn't <span class="magic-highlight">get used to</span> the silence after moving to the country.</div>
+      <div class="ex-uk">Вона не могла звикнути до тиші після переїзду в село.</div>
+    </div>
+    <div class="ex-card" style="border-color: var(--ut-green)">
+      <div class="ex-en">You'll <span class="magic-highlight">get used to</span> using chopsticks with practice.</div>
+      <div class="ex-uk">Ти звикнеш їсти паличками з практикою.</div>
+    </div>
+    <div class="ex-card" style="border-color: var(--ut-green)">
+      <div class="ex-en">He <span class="magic-highlight">got used to</span> the new software after a week of training.</div>
+      <div class="ex-uk">Він звик до нового програмного забезпечення після тижня навчання.</div>
+    </div>
+    <div class="ex-card" style="border-color: var(--ut-green)">
+      <div class="ex-en">I'm <span class="magic-highlight">getting used to</span> the idea of living abroad.</div>
+      <div class="ex-uk">Я звикаю до думки про life за кордоном.</div>
+    </div>
+  </div>
+
+  <div class="con-divider"></div>
+  <div class="con-sub-title">⏰ When to use / Коли використовувати</div>
+  <div class="when-grid" style="padding-bottom: 28px;">
+    <div class="when-item">
+      <div class="wi-icon">🚶</div>
+      <div class="wi-text">You are <strong>in the process</strong> of adapting — not finished yet<div class="wi-uk">Ти <strong>в процесі</strong> адаптації — ще не завершив(ла)</div></div>
+    </div>
+    <div class="when-item">
+      <div class="wi-icon">🏁</div>
+      <div class="wi-text">You <strong>successfully adapted</strong> in the past<div class="wi-uk">Ти <strong>успішно адаптувався</strong> в минулому</div></div>
+    </div>
+    <div class="when-item">
+      <div class="wi-icon">🌅</div>
+      <div class="wi-text">You <strong>will adapt</strong> in the future<div class="wi-uk">Ти <strong>звикнеш</strong> в майбутньому</div></div>
+    </div>
+    <div class="when-item">
+      <div class="wi-icon">💡</div>
+      <div class="wi-text">Encouraging someone to adapt<div class="wi-uk">Підбадьорювати когось звикнути</div></div>
+    </div>
+  </div>
+</div>
+
+</div><!-- end .section -->
+
+<!-- ══════════════════ MAGIC SENTENCE BLOCK ══════════════════ -->
+<div class="section">
+<div class="magic-section reveal">
+  <h2>🪄 The Magic Sentence Transformed!</h2>
+  <p class="sub">Наше магічне речення «I live in a big city» у всіх конструкціях</p>
+  <div class="magic-row">
+    <div class="magic-item" style="border-color: var(--ut-orange)">
+      <div class="mi-label c-orange">🕰️ used to — Past Habit</div>
+      <div class="mi-sent">I <strong>used to live</strong> in a big city.</div>
+      <div class="mi-uk">Я раніше жив(ла) у великому місті.</div>
+      <div class="mi-note">💬 BUT NOW I don't. I moved away. Past habit, now finished.<br><em>АЛЕ ЗАРАЗ — ні. Переїхав(ла). Минула звичка, яка закінчилась.</em></div>
+    </div>
+    <div class="magic-item" style="border-color: var(--ut-orange)">
+      <div class="mi-label c-orange">🚫 didn't use to — Past Negative</div>
+      <div class="mi-sent">I <strong>didn't use to live</strong> in a big city.</div>
+      <div class="mi-uk">Раніше я не жив(ла) у великому місті.</div>
+      <div class="mi-note">💬 I lived in a small town, but now I live in a city.<br><em>Я жив(ла) у маленькому містечку, але зараз — у великому.</em></div>
+    </div>
+    <div class="magic-item" style="border-color: var(--ut-blue)">
+      <div class="mi-label c-blue">⚙️ am used to — Already Accustomed</div>
+      <div class="mi-sent">I <strong>am used to living</strong> in a big city.</div>
+      <div class="mi-uk">Я звик(ла) жити у великому місті.</div>
+      <div class="mi-note">💬 It's normal for me now. The noise, the traffic — no problem!<br><em>Для мене це нормально. Шум, трафік — не проблема!</em></div>
+    </div>
+    <div class="magic-item" style="border-color: var(--ut-blue)">
+      <div class="mi-label c-blue">⚙️ am not used to — Not Accustomed</div>
+      <div class="mi-sent">I <strong>am not used to living</strong> in a big city.</div>
+      <div class="mi-uk">Я не звик(ла) жити у великому місті.</div>
+      <div class="mi-note">💬 It's still strange and difficult for me.<br><em>Для мене це все ще дивно і складно.</em></div>
+    </div>
+    <div class="magic-item" style="border-color: var(--ut-green)">
+      <div class="mi-label c-green">🌱 getting used to — Adapting Now</div>
+      <div class="mi-sent">I'm <strong>getting used to living</strong> in a big city.</div>
+      <div class="mi-uk">Я звикаю жити у великому місті.</div>
+      <div class="mi-note">💬 It's getting easier day by day. Still in progress!<br><em>З кожним днем стає легше. Ще в процесі!</em></div>
+    </div>
+    <div class="magic-item" style="border-color: var(--ut-green)">
+      <div class="mi-label c-green">🌱 got used to — Adapted (Past)</div>
+      <div class="mi-sent">I <strong>got used to living</strong> in a big city.</div>
+      <div class="mi-uk">Я звик(ла) жити у великому місті.</div>
+      <div class="mi-note">💬 At some point in the past, the adaptation was completed.<br><em>Якийсь час тому адаптація завершилась.</em></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ══════════════════ COMPARISON TABLE ══════════════════ -->
+<div class="section">
+<div class="compare-section reveal">
+  <h2>🔍 Side-by-Side Comparison</h2>
+  <p class="sub">Порівняння всіх трьох конструкцій — чим вони відрізняються?</p>
+  <div style="overflow-x: auto;">
+  <table class="ctable">
+    <tr>
+      <th style="color:var(--ut-yellow)">Feature / Ознака</th>
+      <th style="color:var(--ut-orange)">🕰️ used to</th>
+      <th style="color:var(--ut-blue)">⚙️ be used to</th>
+      <th style="color:var(--ut-green)">🌱 get used to</th>
+    </tr>
+    <tr>
+      <td>Meaning / Значення</td>
+      <td>Past habit, no longer happens<br><em style="color:var(--text-muted)">Минула звичка, вже не існує</em></td>
+      <td>Already accustomed to something<br><em style="color:var(--text-muted)">Вже звик(ла) до чогось</em></td>
+      <td>Process of becoming accustomed<br><em style="color:var(--text-muted)">Процес звикання</em></td>
+    </tr>
+    <tr>
+      <td>Time / Час</td>
+      <td><span class="badge b-orange">PAST ONLY</span></td>
+      <td><span class="badge b-blue">ANY TENSE</span></td>
+      <td><span class="badge b-green">ANY TENSE</span></td>
+    </tr>
+    <tr>
+      <td>After the construction / Після конструкції</td>
+      <td><span class="badge b-orange">verb (base)</span></td>
+      <td><span class="badge b-blue">noun / verb+ing</span></td>
+      <td><span class="badge b-green">noun / verb+ing</span></td>
+    </tr>
+    <tr>
+      <td>State or Process? / Стан чи процес?</td>
+      <td>Refers to past state/habit</td>
+      <td>Current STATE ✅ (done!)</td>
+      <td>PROCESS 🚶 (ongoing)</td>
+    </tr>
+    <tr>
+      <td>Example / Приклад</td>
+      <td class="c-form">I used to eat meat.<br><em style="font-size:.8rem;color:var(--text-muted)">Я раніше їв м'ясо.</em></td>
+      <td class="c-form">I am used to eating meat.<br><em style="font-size:.8rem;color:var(--text-muted)">Я звик їсти м'ясо.</em></td>
+      <td class="c-form">I'm getting used to eating meat.<br><em style="font-size:.8rem;color:var(--text-muted)">Я звикаю їсти м'ясо.</em></td>
+    </tr>
+    <tr>
+      <td>Key Question / Ключове питання</td>
+      <td>Did I do this in the past?<br><em style="color:var(--text-muted)">Я це робив у минулому?</em></td>
+      <td>Am I comfortable with this NOW?<br><em style="color:var(--text-muted)">Мені комфортно з цим ЗАРАЗ?</em></td>
+      <td>Am I BECOMING comfortable?<br><em style="color:var(--text-muted)">Я СТАЮ комфортнішим?</em></td>
+    </tr>
+  </table>
+  </div>
+</div>
+</div>
+
+<!-- ══════════════════ TIPS ══════════════════ -->
+<div class="section">
+<div class="tips-section reveal">
+  <h2>💡 Common Mistakes & Tips / Типові помилки та поради</h2>
+  <div class="tip-grid">
+    <div class="tip-item">
+      <div class="tip-icon">⚠️</div>
+      <div class="tip-text">
+        <strong>❌ I am used to wake up early.</strong><br>
+        <strong>✅ I am used to waking up early.</strong><br>
+        After <em>be/get used to</em>, always use <strong>-ing</strong> or a noun, never base verb!
+        <span class="uk">Після be/get used to завжди -ing або іменник, ніколи основна форма дієслова!</span>
+      </div>
+    </div>
+    <div class="tip-item">
+      <div class="tip-icon">⚠️</div>
+      <div class="tip-text">
+        <strong>❌ I used to live in Paris. (still true today)</strong><br>
+        <strong>✅ I live in Paris. / I have lived in Paris for 5 years.</strong><br>
+        <em>Used to</em> means it's OVER. Don't use it for ongoing situations!
+        <span class="uk">Used to означає, що це ЗАКІНЧИЛОСЬ. Не використовуй для поточних ситуацій!</span>
+      </div>
+    </div>
+    <div class="tip-item">
+      <div class="tip-icon">💡</div>
+      <div class="tip-text">
+        <strong>be used to</strong> = destination ✅<br>
+        <strong>get used to</strong> = journey 🚶<br>
+        Think: be = finished adapting, get = still adapting!
+        <span class="uk">be = адаптація завершена, get = ще в процесі адаптації!</span>
+      </div>
+    </div>
+    <div class="tip-item">
+      <div class="tip-icon">💡</div>
+      <div class="tip-text">
+        <strong>used to</strong> has NO present tense form!<br>
+        For present habits, use: <strong>usually</strong>, <strong>always</strong>, Present Simple.
+        <span class="uk">used to не має форми теперішнього часу! Для теперішніх звичок використовуй: usually, always, Present Simple.</span>
+      </div>
+    </div>
+    <div class="tip-item">
+      <div class="tip-icon">🎯</div>
+      <div class="tip-text">
+        Quick test: Can you replace with <em>"in the past, but not now"</em>?<br>
+        → Use <strong>used to</strong>!<br>
+        Can you replace with <em>"I'm familiar with"</em>?<br>
+        → Use <strong>be/get used to</strong>!
+        <span class="uk">Швидкий тест: чи можна замінити на "у минулому, але не зараз"? → used to! Чи можна замінити на "я знайомий з"? → be/get used to!</span>
+      </div>
+    </div>
+    <div class="tip-item">
+      <div class="tip-icon">🔤</div>
+      <div class="tip-text">
+        <strong>Pronunciation tip:</strong> <em>used to</em> is pronounced <strong>/juːst tə/</strong>, not /juːzd/. The "d" sound is almost silent in natural speech!
+        <span class="uk">Вимова: used to вимовляється /juːst tə/, "d" майже не чути в природній мові!</span>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ══════════════════ QUIZ ══════════════════ -->
+<div class="section">
+<div class="quiz-section reveal">
+  <h2>🎮 Quick Quiz / Швидкий тест</h2>
+  <p class="sub">Перевір себе! Обери правильний варіант.</p>
+  <div id="quiz-container"></div>
+  <div class="quiz-score" id="quiz-score" style="display:none"></div>
+  <div style="text-align:center">
+    <button id="reset-quiz" onclick="resetQuiz()">🔄 Try Again / Спробувати ще раз</button>
+  </div>
+</div>
+</div>
+
+<!-- ══════════════════ FOOTER ══════════════════ -->
+<footer>
+  <div style="font-size:1.4rem; margin-bottom:12px">🕰️ ⚙️ 🌱</div>
+  <strong>Used To · Be Used To · Get Used To</strong><br>
+  <span style="margin-top: 6px; display:inline-block">Master these three and you'll sound like a native speaker! 🇬🇧<br>
+  <em>Засвой ці три конструкції і звучатимеш як носій мови!</em></span>
+</footer>
+
+<script>
+// ── Stars ──
+const starsEl = document.getElementById('stars');
+for (let i = 0; i < 60; i++) {
+  const s = document.createElement('div');
+  s.className = 'star';
+  s.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*100}%;width:${Math.random()*3+1}px;height:${Math.random()*3+1}px;animation-delay:${Math.random()*4}s;animation-duration:${2+Math.random()*3}s`;
+  starsEl.appendChild(s);
+}
+
+// ── Scroll Reveal ──
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ── Quiz ──
+const questions = [
+  {
+    q: "I _____ eat a lot of junk food, but now I'm healthy. 🍎\n(Я раніше їв багато шкідливої їжі, але тепер я здоровий.)",
+    options: ["used to", "am used to", "get used to", "was used to"],
+    correct: 0,
+    explanation: "✅ 'used to eat' — past habit that is now finished! / Минула звичка, яка закінчилась!"
+  },
+  {
+    q: "She _____ waking up at 6 AM. She does it every day! ⏰\n(Вона звикла прокидатись о 6 ранку. Вона робить це щодня!)",
+    options: ["used to", "is used to", "gets used to", "use to"],
+    correct: 1,
+    explanation: "✅ 'is used to waking' — she is ALREADY accustomed! / Вона вже звикла — це її нормальний стан!"
+  },
+  {
+    q: "He just moved to Japan. He's slowly _____ driving on the left. 🚗\n(Він щойно переїхав до Японії. Він поступово звикає їздити ліворуч.)",
+    options: ["used to", "is used to", "getting used to", "get use to"],
+    correct: 2,
+    explanation: "✅ 'getting used to driving' — the process of adapting is happening NOW! / Процес адаптації відбувається зараз!"
+  },
+  {
+    q: "This area _____ be a forest before the city was built. 🌳\n(Ця місцевість раніше була лісом до того, як збудували місто.)",
+    options: ["is used to", "gets used to", "used to", "get used to"],
+    correct: 2,
+    explanation: "✅ 'used to be' — past state that no longer exists! / Минулий стан, якого більше не існує!"
+  },
+  {
+    q: "Don't worry, you'll _____ the new schedule soon! 📅\n(Не хвилюйся, ти скоро звикнеш до нового розкладу!)",
+    options: ["used to", "be used to", "get used to", "using"],
+    correct: 2,
+    explanation: "✅ 'get used to' — future process of adapting! / Майбутній процес звикання!"
+  },
+  {
+    q: "I _____ the noise in New York now. It's fine! 🗽\n(Я вже звик до шуму в Нью-Йорку. Все гаразд!)",
+    options: ["used to", "am used to", "getting used to", "use to"],
+    correct: 1,
+    explanation: "✅ 'am used to the noise' — already accustomed, noun after it! / Вже звик — після be used to іде іменник!"
+  },
+  {
+    q: "She _____ have a dog. She misses it so much. 🐕\n(Раніше у неї був собака. Вона дуже сумує за ним.)",
+    options: ["is used to", "gets used to", "used to", "am used to"],
+    correct: 2,
+    explanation: "✅ 'used to have' — past state that has ended! / Минулий стан, якого більше немає!"
+  },
+  {
+    q: "It took months, but I finally _____ eating with chopsticks. 🥢\n(Знадобилося кілька місяців, але я нарешті звик їсти паличками.)",
+    options: ["used to", "am used to", "got used to", "getting used to"],
+    correct: 2,
+    explanation: "✅ 'got used to eating' — the adaptation process was completed in the past! / Процес адаптації завершився в минулому!"
+  }
+];
+
+let answered = 0;
+let correct = 0;
+
+function buildQuiz() {
+  const container = document.getElementById('quiz-container');
+  container.innerHTML = '';
+  answered = 0;
+  correct = 0;
+  document.getElementById('quiz-score').style.display = 'none';
+  document.getElementById('reset-quiz').style.display = 'none';
+
+  questions.forEach((q, i) => {
+    const div = document.createElement('div');
+    div.className = 'quiz-item';
+    div.id = `q${i}`;
+    div.innerHTML = `
+      <div class="quiz-q">${i+1}. ${q.q.replace(/\n/g,'<br>')}</div>
+      <div class="quiz-options">
+        ${q.options.map((opt,j) => `<button class="quiz-btn" onclick="answer(${i},${j})">${opt}</button>`).join('')}
+      </div>
+      <div class="quiz-feedback" id="fb${i}"></div>
+    `;
+    container.appendChild(div);
+  });
+}
+
+function answer(qi, selected) {
+  const q = questions[qi];
+  const item = document.getElementById(`q${qi}`);
+  const btns = item.querySelectorAll('.quiz-btn');
+  const fb = document.getElementById(`fb${qi}`);
+
+  btns.forEach(b => b.disabled = true);
+  btns[selected].classList.add(selected === q.correct ? 'correct' : 'wrong');
+  if (selected !== q.correct) btns[q.correct].classList.add('correct');
+
+  const isCorrect = selected === q.correct;
+  if (isCorrect) correct++;
+  fb.innerHTML = `${isCorrect ? '🎉' : '❌'} ${q.explanation}`;
+  fb.style.color = isCorrect ? 'var(--ut-green)' : '#ef4444';
+  fb.classList.add('show');
+
+  answered++;
+  if (answered === questions.length) {
+    const scoreEl = document.getElementById('quiz-score');
+    const pct = Math.round(correct/questions.length*100);
+    const msg = pct === 100 ? '🏆 Perfect! Відмінно!' : pct >= 75 ? '🎉 Great job! Чудова робота!' : pct >= 50 ? '👍 Not bad! Непогано!' : '📚 Keep practising! Продовжуй вчитися!';
+    scoreEl.innerHTML = `${msg}<br><span style="font-size:1.1rem;color:var(--text-muted)">${correct} / ${questions.length} correct (${pct}%)</span>`;
+    scoreEl.style.display = 'block';
+    document.getElementById('reset-quiz').style.display = 'inline-block';
+  }
+}
+
+function resetQuiz() { buildQuiz(); }
+
+buildQuiz();
+</script>
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+</body>
+</html>

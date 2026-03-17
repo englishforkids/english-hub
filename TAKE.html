@@ -1,0 +1,1716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TAKE — Magic Word Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --yellow: #FFD93D;
+    --orange: #FF6B35;
+    --red: #FF3366;
+    --blue: #4ECDC4;
+    --purple: #A855F7;
+    --green: #10B981;
+    --pink: #F472B6;
+    --dark: #1a1a2e;
+    --darker: #0f0f1e;
+    --light: #f8f8ff;
+    --card-bg: rgba(255,255,255,0.06);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--darker);
+    color: var(--light);
+    overflow-x: hidden;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f0f1e 0%, #1a1040 40%, #0a1628 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    padding: 40px 20px;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(255,107,53,0.15) 0%, transparent 70%);
+    top: -100px; left: -100px;
+    animation: pulse 4s ease-in-out infinite;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(78,205,196,0.12) 0%, transparent 70%);
+    bottom: -100px; right: -100px;
+    animation: pulse 4s ease-in-out infinite 2s;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.7; }
+  }
+
+  .hero-badge {
+    background: linear-gradient(135deg, var(--orange), var(--red));
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 8px 24px;
+    border-radius: 50px;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-word {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(100px, 22vw, 200px);
+    font-weight: 800;
+    line-height: 0.9;
+    background: linear-gradient(135deg, var(--yellow) 0%, var(--orange) 50%, var(--red) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    z-index: 2;
+    animation: heroFloat 3s ease-in-out infinite;
+    text-shadow: none;
+    filter: drop-shadow(0 0 40px rgba(255,107,53,0.4));
+  }
+
+  @keyframes heroFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+  }
+
+  .hero-phonetic {
+    font-size: 1.6rem;
+    color: var(--blue);
+    font-weight: 600;
+    margin: 8px 0 20px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-subtitle {
+    font-size: 1.15rem;
+    color: rgba(255,255,255,0.65);
+    max-width: 550px;
+    line-height: 1.6;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 32px;
+  }
+
+  .hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-tag {
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    border: 2px solid;
+    animation: tagBounce 2s ease-in-out infinite;
+  }
+  .hero-tag:nth-child(1) { border-color: var(--yellow); color: var(--yellow); animation-delay: 0s; }
+  .hero-tag:nth-child(2) { border-color: var(--blue); color: var(--blue); animation-delay: 0.2s; }
+  .hero-tag:nth-child(3) { border-color: var(--purple); color: var(--purple); animation-delay: 0.4s; }
+  .hero-tag:nth-child(4) { border-color: var(--green); color: var(--green); animation-delay: 0.6s; }
+  .hero-tag:nth-child(5) { border-color: var(--pink); color: var(--pink); animation-delay: 0.8s; }
+
+  @keyframes tagBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+
+  /* ===== SECTION BASICS ===== */
+  .section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 20px;
+  }
+
+  .section-title {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    font-weight: 800;
+    margin-bottom: 10px;
+    position: relative;
+    display: inline-block;
+  }
+
+  .section-title .emoji {
+    margin-right: 12px;
+    display: inline-block;
+    animation: wobble 2s ease-in-out infinite;
+  }
+
+  @keyframes wobble {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-10deg); }
+    75% { transform: rotate(10deg); }
+  }
+
+  .section-subtitle {
+    color: rgba(255,255,255,0.5);
+    font-size: 1rem;
+    margin-bottom: 36px;
+  }
+
+  .divider {
+    height: 3px;
+    background: linear-gradient(90deg, var(--orange), var(--red), transparent);
+    margin: 0 0 36px;
+    border-radius: 2px;
+    width: 80px;
+  }
+
+  /* ===== MEANING GRID ===== */
+  .meanings-bg {
+    background: linear-gradient(180deg, var(--darker) 0%, #12082a 100%);
+    padding: 60px 0;
+  }
+
+  .meaning-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 18px;
+  }
+
+  .meaning-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px;
+    padding: 24px;
+    transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+  .meaning-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    border-radius: 20px 20px 0 0;
+  }
+  .meaning-card.c1::before { background: linear-gradient(90deg, var(--yellow), var(--orange)); }
+  .meaning-card.c2::before { background: linear-gradient(90deg, var(--blue), var(--purple)); }
+  .meaning-card.c3::before { background: linear-gradient(90deg, var(--green), var(--blue)); }
+  .meaning-card.c4::before { background: linear-gradient(90deg, var(--red), var(--pink)); }
+  .meaning-card.c5::before { background: linear-gradient(90deg, var(--purple), var(--pink)); }
+  .meaning-card.c6::before { background: linear-gradient(90deg, var(--orange), var(--yellow)); }
+
+  .meaning-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(255,255,255,0.2);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  }
+
+  .meaning-icon { font-size: 2.2rem; margin-bottom: 10px; }
+  .meaning-en { font-size: 1.05rem; font-weight: 800; color: white; margin-bottom: 4px; }
+  .meaning-ua { font-size: 0.92rem; color: var(--yellow); font-weight: 700; margin-bottom: 10px; }
+  .meaning-desc { font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.55; }
+  .meaning-example { margin-top: 10px; font-size: 0.82rem; color: var(--blue); font-style: italic; }
+
+  /* ===== MAGIC SENTENCE ===== */
+  .magic-bg {
+    background: linear-gradient(135deg, #1a0a2e 0%, #0a1a2e 100%);
+    padding: 70px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .magic-bg::before {
+    content: '✨';
+    font-size: 200px;
+    position: absolute;
+    right: -40px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.04;
+  }
+
+  .magic-box {
+    background: linear-gradient(135deg, rgba(255,107,53,0.12), rgba(255,51,102,0.12));
+    border: 2px solid rgba(255,107,53,0.3);
+    border-radius: 24px;
+    padding: 36px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .magic-label {
+    font-size: 0.75rem;
+    font-weight: 900;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 14px;
+  }
+
+  .magic-sentence {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(1.3rem, 3.5vw, 1.9rem);
+    font-weight: 700;
+    color: white;
+    line-height: 1.4;
+    margin-bottom: 10px;
+  }
+
+  .magic-ua {
+    color: rgba(255,255,255,0.55);
+    font-size: 1rem;
+    font-style: italic;
+  }
+
+  .magic-transforms {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 14px;
+    margin-top: 28px;
+  }
+
+  .transform-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 16px;
+    padding: 18px 20px;
+    border-left: 4px solid;
+    transition: transform 0.2s;
+  }
+  .transform-card:hover { transform: translateX(6px); }
+  .transform-card:nth-child(1) { border-left-color: var(--yellow); }
+  .transform-card:nth-child(2) { border-left-color: var(--blue); }
+  .transform-card:nth-child(3) { border-left-color: var(--green); }
+  .transform-card:nth-child(4) { border-left-color: var(--red); }
+  .transform-card:nth-child(5) { border-left-color: var(--purple); }
+  .transform-card:nth-child(6) { border-left-color: var(--pink); }
+  .transform-card:nth-child(7) { border-left-color: var(--orange); }
+  .transform-card:nth-child(8) { border-left-color: var(--yellow); }
+
+  .tc-form {
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    opacity: 0.7;
+  }
+  .tc-en { font-size: 0.98rem; font-weight: 700; color: white; margin-bottom: 3px; }
+  .tc-ua { font-size: 0.85rem; color: rgba(255,255,255,0.5); }
+
+  /* ===== FORMULA BOX ===== */
+  .formula-section-bg {
+    background: var(--darker);
+    padding: 60px 0;
+  }
+
+  .formula-box {
+    background: linear-gradient(135deg, rgba(78,205,196,0.1), rgba(168,85,247,0.1));
+    border: 2px solid rgba(78,205,196,0.25);
+    border-radius: 20px;
+    padding: 28px 32px;
+    margin-bottom: 20px;
+    font-family: 'Baloo 2', cursive;
+  }
+
+  .formula-title {
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--blue);
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    margin-bottom: 12px;
+  }
+
+  .formula-text {
+    font-size: clamp(1rem, 2.5vw, 1.35rem);
+    font-weight: 700;
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .f-part {
+    padding: 5px 14px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 800;
+  }
+  .f-subject { background: rgba(255,217,61,0.2); color: var(--yellow); border: 1px solid rgba(255,217,61,0.3); }
+  .f-take { background: rgba(255,107,53,0.25); color: var(--orange); border: 1px solid rgba(255,107,53,0.4); }
+  .f-object { background: rgba(78,205,196,0.2); color: var(--blue); border: 1px solid rgba(78,205,196,0.3); }
+  .f-place { background: rgba(16,185,129,0.2); color: var(--green); border: 1px solid rgba(16,185,129,0.3); }
+  .f-time { background: rgba(168,85,247,0.2); color: var(--purple); border: 1px solid rgba(168,85,247,0.3); }
+  .f-plus { color: rgba(255,255,255,0.4); font-size: 1.1rem; }
+
+  /* ===== EXAMPLES ===== */
+  .examples-bg {
+    background: linear-gradient(180deg, #12082a 0%, var(--darker) 100%);
+    padding: 60px 0;
+  }
+
+  .examples-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+    gap: 16px;
+  }
+
+  .example-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 16px;
+    padding: 20px 22px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .example-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 32px rgba(0,0,0,0.35);
+  }
+
+  .ex-context {
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    padding: 4px 12px;
+    border-radius: 50px;
+    display: inline-block;
+  }
+  .ex-context.life { background: rgba(16,185,129,0.15); color: var(--green); }
+  .ex-context.school { background: rgba(78,205,196,0.15); color: var(--blue); }
+  .ex-context.travel { background: rgba(255,107,53,0.15); color: var(--orange); }
+  .ex-context.home { background: rgba(244,114,182,0.15); color: var(--pink); }
+  .ex-context.work { background: rgba(168,85,247,0.15); color: var(--purple); }
+  .ex-context.health { background: rgba(255,51,102,0.15); color: var(--red); }
+  .ex-context.time { background: rgba(255,217,61,0.15); color: var(--yellow); }
+  .ex-context.food { background: rgba(255,107,53,0.12); color: #ffaa44; }
+
+  .ex-en { font-size: 0.97rem; font-weight: 700; color: white; margin-bottom: 5px; line-height: 1.45; }
+  .ex-en span { color: var(--orange); }
+  .ex-ua { font-size: 0.85rem; color: rgba(255,255,255,0.5); }
+
+  /* ===== PHRASAL VERBS ===== */
+  .phrasal-bg {
+    background: linear-gradient(135deg, #0a1628 0%, #1a0a2e 100%);
+    padding: 70px 0;
+  }
+
+  .phrasal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 14px;
+  }
+
+  .phrasal-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 16px;
+    padding: 20px 22px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .phrasal-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 36px rgba(0,0,0,0.4);
+  }
+  .phrasal-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .phrasal-card:nth-child(6n+1)::after { background: linear-gradient(90deg, var(--yellow), var(--orange)); }
+  .phrasal-card:nth-child(6n+2)::after { background: linear-gradient(90deg, var(--blue), var(--purple)); }
+  .phrasal-card:nth-child(6n+3)::after { background: linear-gradient(90deg, var(--green), var(--blue)); }
+  .phrasal-card:nth-child(6n+4)::after { background: linear-gradient(90deg, var(--red), var(--pink)); }
+  .phrasal-card:nth-child(6n+5)::after { background: linear-gradient(90deg, var(--purple), var(--pink)); }
+  .phrasal-card:nth-child(6n+6)::after { background: linear-gradient(90deg, var(--orange), var(--yellow)); }
+
+  .pv-verb { font-family: 'Baloo 2', cursive; font-size: 1.25rem; font-weight: 800; color: white; margin-bottom: 4px; }
+  .pv-verb span { color: var(--orange); }
+  .pv-ua { font-size: 0.88rem; color: var(--yellow); font-weight: 700; margin-bottom: 8px; }
+  .pv-desc { font-size: 0.82rem; color: rgba(255,255,255,0.55); line-height: 1.5; margin-bottom: 8px; }
+  .pv-ex { font-size: 0.82rem; color: var(--blue); font-style: italic; }
+
+  /* ===== COLLOCATIONS ===== */
+  .coll-bg {
+    background: var(--darker);
+    padding: 70px 0;
+  }
+
+  .coll-category {
+    margin-bottom: 40px;
+  }
+
+  .coll-cat-title {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .coll-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 10px;
+  }
+
+  .coll-chip {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 12px 16px;
+    transition: all 0.2s;
+    cursor: default;
+  }
+  .coll-chip:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.2);
+    transform: scale(1.03);
+  }
+  .coll-en { font-size: 0.92rem; font-weight: 700; color: white; }
+  .coll-en span { color: var(--orange); }
+  .coll-ua { font-size: 0.78rem; color: rgba(255,255,255,0.45); margin-top: 2px; }
+
+  /* ===== WHEN TO USE ===== */
+  .when-bg {
+    background: linear-gradient(180deg, #12082a 0%, var(--darker) 100%);
+    padding: 60px 0;
+  }
+
+  .when-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+  }
+
+  .when-card {
+    border-radius: 20px;
+    padding: 26px;
+    position: relative;
+    overflow: hidden;
+  }
+  .when-card:nth-child(1) { background: linear-gradient(135deg, rgba(255,217,61,0.12), rgba(255,107,53,0.08)); border: 1px solid rgba(255,217,61,0.2); }
+  .when-card:nth-child(2) { background: linear-gradient(135deg, rgba(78,205,196,0.12), rgba(168,85,247,0.08)); border: 1px solid rgba(78,205,196,0.2); }
+  .when-card:nth-child(3) { background: linear-gradient(135deg, rgba(16,185,129,0.12), rgba(78,205,196,0.08)); border: 1px solid rgba(16,185,129,0.2); }
+  .when-card:nth-child(4) { background: linear-gradient(135deg, rgba(255,51,102,0.12), rgba(244,114,182,0.08)); border: 1px solid rgba(255,51,102,0.2); }
+  .when-card:nth-child(5) { background: linear-gradient(135deg, rgba(168,85,247,0.12), rgba(244,114,182,0.08)); border: 1px solid rgba(168,85,247,0.2); }
+  .when-card:nth-child(6) { background: linear-gradient(135deg, rgba(255,107,53,0.12), rgba(255,217,61,0.08)); border: 1px solid rgba(255,107,53,0.2); }
+
+  .when-icon { font-size: 2.5rem; margin-bottom: 12px; }
+  .when-title { font-size: 1rem; font-weight: 800; color: white; margin-bottom: 6px; }
+  .when-ua { font-size: 0.85rem; color: var(--yellow); font-weight: 600; margin-bottom: 8px; }
+  .when-desc { font-size: 0.83rem; color: rgba(255,255,255,0.55); line-height: 1.5; }
+
+  /* ===== FORMS TABLE ===== */
+  .forms-bg {
+    background: linear-gradient(135deg, #0a1628 0%, #12082a 100%);
+    padding: 60px 0;
+  }
+
+  .forms-box {
+    background: var(--card-bg);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 24px;
+    overflow: hidden;
+  }
+
+  .forms-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .forms-table th {
+    background: rgba(255,107,53,0.15);
+    color: var(--orange);
+    font-size: 0.8rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 16px 20px;
+    text-align: left;
+  }
+
+  .forms-table td {
+    padding: 14px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: 0.92rem;
+  }
+
+  .forms-table tr:last-child td { border-bottom: none; }
+
+  .forms-table tr:hover td { background: rgba(255,255,255,0.03); }
+
+  .form-en { font-weight: 700; color: white; }
+  .form-phonetic { color: var(--blue); font-size: 0.85rem; }
+  .form-ua { color: rgba(255,255,255,0.5); font-size: 0.85rem; }
+  .form-ex { color: rgba(255,255,255,0.4); font-size: 0.82rem; font-style: italic; }
+
+  /* ===== TIP BOX ===== */
+  .tip-box {
+    background: linear-gradient(135deg, rgba(255,217,61,0.1), rgba(255,107,53,0.08));
+    border: 2px solid rgba(255,217,61,0.25);
+    border-radius: 20px;
+    padding: 28px 32px;
+    margin: 24px 0;
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+  }
+  .tip-icon { font-size: 2rem; flex-shrink: 0; }
+  .tip-title { font-size: 0.8rem; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; color: var(--yellow); margin-bottom: 6px; }
+  .tip-text { font-size: 0.9rem; color: rgba(255,255,255,0.7); line-height: 1.6; }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    background: var(--darker);
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding: 40px 20px;
+    text-align: center;
+    color: rgba(255,255,255,0.25);
+    font-size: 0.85rem;
+  }
+  .footer span { color: var(--orange); }
+
+  /* ===== SCROLL ANIMATIONS ===== */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ===== BIG LIFE EXAMPLES ===== */
+  .life-section-bg {
+    background: linear-gradient(135deg, #0a1a2e 0%, #12082a 100%);
+    padding: 70px 0;
+  }
+
+  .life-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  @media (max-width: 640px) {
+    .life-row { grid-template-columns: 1fr; }
+  }
+
+  .life-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 16px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .life-card::before {
+    content: attr(data-emoji);
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 3rem;
+    opacity: 0.12;
+  }
+
+  .life-en { font-size: 0.97rem; font-weight: 700; color: white; margin-bottom: 4px; }
+  .life-en span { color: var(--orange); }
+  .life-ua { font-size: 0.83rem; color: rgba(255,255,255,0.45); }
+
+  /* Tags */
+  .section-tag {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--orange), var(--red));
+    color: white;
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 16px;
+    border-radius: 50px;
+    margin-bottom: 12px;
+  }
+
+  /* ===== MOBILE ===== */
+  @media (max-width: 768px) {
+
+    body { font-size: 15px; }
+    .section { padding: 40px 16px; }
+
+    /* Hero */
+    .hero { min-height: auto; padding: 52px 16px 44px; }
+    .hero-badge { font-size: 0.72rem; letter-spacing: 1.5px; padding: 6px 16px; margin-bottom: 16px; }
+    .hero-phonetic { font-size: 1.2rem; }
+    .hero-subtitle { font-size: 0.95rem; }
+    .hero-tags { gap: 7px; }
+    .hero-tag { font-size: 0.78rem; padding: 6px 14px; }
+
+    /* Section headers */
+    .section-title { font-size: 1.5rem; }
+    .section-subtitle { font-size: 0.88rem; }
+
+    /* Forms table — scroll wrapper */
+    .forms-box { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 16px; }
+    .forms-table { min-width: 560px; font-size: 0.82rem; }
+    .forms-table th { font-size: 0.7rem; padding: 12px 12px; }
+    .forms-table td { padding: 11px 12px; }
+
+    /* Tip box */
+    .tip-box { flex-direction: column; gap: 10px; padding: 20px 16px; }
+    .tip-icon { font-size: 1.6rem; }
+    .tip-text { font-size: 0.85rem; }
+
+    /* Meaning grid */
+    .meaning-grid { grid-template-columns: 1fr; gap: 12px; }
+    .meaning-card { padding: 18px; }
+    .meaning-icon { font-size: 1.8rem; }
+
+    /* Magic sentence */
+    .magic-box { padding: 22px 18px; }
+    .magic-sentence { font-size: 1.2rem; }
+    .magic-transforms { grid-template-columns: 1fr; gap: 10px; }
+    .transform-card { padding: 14px 16px; }
+
+    /* Formula */
+    .formula-box { padding: 20px 16px; }
+    .formula-text { gap: 6px; flex-wrap: wrap; }
+    .f-part { font-size: 0.82rem; padding: 4px 10px; }
+
+    /* When grid */
+    .when-grid { grid-template-columns: 1fr; gap: 12px; }
+    .when-card { padding: 20px; }
+
+    /* Examples grid */
+    .examples-grid { grid-template-columns: 1fr; gap: 10px; }
+    .example-card { padding: 16px 18px; }
+
+    /* Phrasal verbs grid */
+    .phrasal-grid { grid-template-columns: 1fr; gap: 10px; }
+    .phrasal-card { padding: 16px 18px; }
+    .pv-verb { font-size: 1.1rem; }
+
+    /* Collocations */
+    .coll-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+    .coll-chip { padding: 10px 12px; }
+    .coll-en { font-size: 0.82rem; }
+    .coll-ua { font-size: 0.72rem; }
+    .coll-cat-title { font-size: 1.1rem; }
+
+    /* Life rows */
+    .life-row { grid-template-columns: 1fr; gap: 10px; margin-bottom: 10px; }
+    .life-card { padding: 16px; }
+    .life-card::before { font-size: 2rem; opacity: 0.08; }
+
+    /* Footer */
+    .footer { padding: 28px 16px; font-size: 0.8rem; }
+
+    /* Scroll btn */
+    #scroll-top-btn { width: 40px; height: 40px; font-size: 16px; bottom: 20px; right: 16px; }
+  }
+
+  @media (max-width: 400px) {
+    .coll-grid { grid-template-columns: 1fr; }
+    .hero-tags { flex-direction: column; align-items: center; }
+  }
+
+  #scroll-top-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #1a1208;
+    border: 1.5px solid rgba(200,150,62,0.4);
+    color: #f5f0e8;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+    pointer-events: none;
+    z-index: 9998;
+  }
+  #scroll-top-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  #scroll-top-btn:hover {
+    background: #c8963e;
+    border-color: #c8963e;
+    color: #1a1208;
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">🔥 Magic English Word</div>
+  <div class="hero-word">TAKE</div>
+  <div class="hero-phonetic">/teɪk/</div>
+  <p class="hero-subtitle">
+    One of the most powerful verbs in English!<br>
+    <span style="color:rgba(255,255,255,0.35);">Одне з найпотужніших дієслів англійської мови!</span>
+  </p>
+  <div class="hero-tags">
+    <span class="hero-tag">Verb / Дієслово</span>
+    <span class="hero-tag">Irregular / Неправильне</span>
+    <span class="hero-tag">100+ meanings</span>
+    <span class="hero-tag">Super common</span>
+    <span class="hero-tag">A1–C2 level</span>
+  </div>
+</section>
+
+<!-- VERB FORMS -->
+<section class="forms-bg">
+  <div class="section">
+    <div class="section-tag">Verb Forms / Форми дієслова</div>
+    <h2 class="section-title"><span class="emoji">📋</span> How to use TAKE</h2>
+    <div class="divider"></div>
+    <div class="forms-box fade-in">
+      <table class="forms-table">
+        <thead>
+          <tr>
+            <th>Form</th>
+            <th>English</th>
+            <th>Sound / Вимова</th>
+            <th>Ukrainian / Україньська</th>
+            <th>Example / Приклад</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="form-ua">Base form / Інфінітив</td>
+            <td class="form-en">take</td>
+            <td class="form-phonetic">/teɪk/</td>
+            <td class="form-ua">брати / взяти</td>
+            <td class="form-ex">I want to take a photo.</td>
+          </tr>
+          <tr>
+            <td class="form-ua">Past Simple / Минулий час</td>
+            <td class="form-en">took</td>
+            <td class="form-phonetic">/tʊk/</td>
+            <td class="form-ua">взяв / взяла</td>
+            <td class="form-ex">She took the bus.</td>
+          </tr>
+          <tr>
+            <td class="form-ua">Past Participle / Дієприкметник</td>
+            <td class="form-en">taken</td>
+            <td class="form-phonetic">/ˈteɪkən/</td>
+            <td class="form-ua">взятий / прийнятий</td>
+            <td class="form-ex">He has taken my pen!</td>
+          </tr>
+          <tr>
+            <td class="form-ua">Present Participle / -ing форма</td>
+            <td class="form-en">taking</td>
+            <td class="form-phonetic">/ˈteɪkɪŋ/</td>
+            <td class="form-ua">беручи / приймаючи</td>
+            <td class="form-ex">I'm taking a shower now.</td>
+          </tr>
+          <tr>
+            <td class="form-ua">3rd person singular / he/she/it</td>
+            <td class="form-en">takes</td>
+            <td class="form-phonetic">/teɪks/</td>
+            <td class="form-ua">бере / займає</td>
+            <td class="form-ex">It takes 10 minutes.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tip-box fade-in">
+      <div class="tip-icon">⚠️</div>
+      <div>
+        <div class="tip-title">Irregular Verb! / Неправильне дієслово!</div>
+        <div class="tip-text">
+          <strong>take → took → taken</strong> — запам'ятай ці три форми! В англійській мові не можна казати "taked" або "tooked". Це неправильно! ❌<br>
+          <em>Remember these three forms! You can't say "taked" or "tooked". That's wrong!</em>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEANINGS -->
+<section class="meanings-bg">
+  <div class="section">
+    <div class="section-tag">Meanings / Значення</div>
+    <h2 class="section-title"><span class="emoji">💡</span> What does TAKE mean?</h2>
+    <p class="section-subtitle">Що означає слово TAKE? — Залежить від контексту!</p>
+    <div class="divider"></div>
+    <div class="meaning-grid">
+
+      <div class="meaning-card c1 fade-in">
+        <div class="meaning-icon">✋</div>
+        <div class="meaning-en">To grab / hold something</div>
+        <div class="meaning-ua">Брати / хапати щось</div>
+        <div class="meaning-desc">You use your hand to get something. / Ти використовуєш руку, щоб щось дістати.</div>
+        <div class="meaning-example">Take the book from the shelf. / Візьми книгу з полиці.</div>
+      </div>
+
+      <div class="meaning-card c2 fade-in">
+        <div class="meaning-icon">🚌</div>
+        <div class="meaning-en">To use transport</div>
+        <div class="meaning-ua">Їхати транспортом</div>
+        <div class="meaning-desc">To use a bus, train, plane etc. to go somewhere. / Їхати автобусом, потягом, літаком.</div>
+        <div class="meaning-example">Take the subway to school. / Їдь метро до школи.</div>
+      </div>
+
+      <div class="meaning-card c3 fade-in">
+        <div class="meaning-icon">⏱️</div>
+        <div class="meaning-en">To need time</div>
+        <div class="meaning-ua">Займати час</div>
+        <div class="meaning-desc">When something requires a certain amount of time. / Коли щось потребує певного часу.</div>
+        <div class="meaning-example">It takes 20 minutes. / Це займає 20 хвилин.</div>
+      </div>
+
+      <div class="meaning-card c4 fade-in">
+        <div class="meaning-icon">💊</div>
+        <div class="meaning-en">To swallow medicine</div>
+        <div class="meaning-ua">Приймати ліки</div>
+        <div class="meaning-desc">To eat or drink medicine. / Пити або їсти ліки.</div>
+        <div class="meaning-example">Take this pill twice a day. / Прийми цю таблетку двічі на день.</div>
+      </div>
+
+      <div class="meaning-card c5 fade-in">
+        <div class="meaning-icon">📸</div>
+        <div class="meaning-en">To capture / photograph</div>
+        <div class="meaning-ua">Фотографувати</div>
+        <div class="meaning-desc">To make a photo or video. / Зробити фото або відео.</div>
+        <div class="meaning-example">Take a selfie with me! / Зроби зі мною селфі!</div>
+      </div>
+
+      <div class="meaning-card c6 fade-in">
+        <div class="meaning-icon">🧘</div>
+        <div class="meaning-en">To do an activity</div>
+        <div class="meaning-ua">Займатись чимось</div>
+        <div class="meaning-desc">To do a class, shower, walk etc. / Відвідувати урок, прийняти душ, піти гуляти.</div>
+        <div class="meaning-example">Take a walk in the park. / Прогуляйся в парку.</div>
+      </div>
+
+      <div class="meaning-card c1 fade-in">
+        <div class="meaning-icon">📝</div>
+        <div class="meaning-en">To do a test / exam</div>
+        <div class="meaning-ua">Скласти тест / іспит</div>
+        <div class="meaning-desc">To sit and do a test in school. / Написати тест у школі.</div>
+        <div class="meaning-example">Take the English exam tomorrow. / Складай іспит з англійської завтра.</div>
+      </div>
+
+      <div class="meaning-card c2 fade-in">
+        <div class="meaning-icon">🍽️</div>
+        <div class="meaning-en">To accept / receive</div>
+        <div class="meaning-ua">Прийняти / отримати</div>
+        <div class="meaning-desc">To accept something given to you. / Прийняти щось, що тобі дають.</div>
+        <div class="meaning-example">Take my advice, please! / Послухай мою пораду, будь ласка!</div>
+      </div>
+
+      <div class="meaning-card c3 fade-in">
+        <div class="meaning-icon">😤</div>
+        <div class="meaning-en">To tolerate / endure</div>
+        <div class="meaning-ua">Терпіти / витримувати</div>
+        <div class="meaning-desc">To deal with something difficult. / Справлятись з чимось важким.</div>
+        <div class="meaning-example">I can't take this noise! / Я не можу терпіти цей шум!</div>
+      </div>
+
+      <div class="meaning-card c4 fade-in">
+        <div class="meaning-icon">🛑</div>
+        <div class="meaning-en">To steal / remove</div>
+        <div class="meaning-ua">Вкрасти / забрати</div>
+        <div class="meaning-desc">To take something without permission. / Взяти без дозволу.</div>
+        <div class="meaning-example">Someone took my lunch! / Хтось взяв мій обід!</div>
+      </div>
+
+      <div class="meaning-card c5 fade-in">
+        <div class="meaning-icon">🎓</div>
+        <div class="meaning-en">To study / attend a course</div>
+        <div class="meaning-ua">Вивчати / відвідувати курс</div>
+        <div class="meaning-desc">To study a subject at school or online. / Вивчати предмет у школі або онлайн.</div>
+        <div class="meaning-example">I'm taking Spanish lessons. / Я вчу іспанську мову.</div>
+      </div>
+
+      <div class="meaning-card c6 fade-in">
+        <div class="meaning-icon">🔢</div>
+        <div class="meaning-en">To subtract (math)</div>
+        <div class="meaning-ua">Відняти (математика)</div>
+        <div class="meaning-desc">To subtract numbers. / Відняти числа.</div>
+        <div class="meaning-example">Take 3 from 10 = 7. / 10 мінус 3 = 7.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MAGIC SENTENCE -->
+<section class="magic-bg">
+  <div class="section">
+    <div class="section-tag">Magic Sentence / Чарівне речення</div>
+    <h2 class="section-title"><span class="emoji">✨</span> One Sentence — Many Meanings!</h2>
+    <p class="section-subtitle">Одне речення — багато значень! Дивись, як воно змінюється:</p>
+    <div class="divider"></div>
+
+    <div class="magic-box fade-in">
+      <div class="magic-label">⭐ Universal Magic Sentence / Універсальне чарівне речення</div>
+      <div class="magic-sentence">I take _____________ .</div>
+      <div class="magic-ua">Я беру / приймаю / роблю _____________</div>
+    </div>
+
+    <div class="magic-transforms fade-in">
+      <div class="transform-card">
+        <div class="tc-form" style="color:var(--yellow)">🧍 Everyday action</div>
+        <div class="tc-en">I <strong style="color:var(--orange)">take</strong> a shower every morning.</div>
+        <div class="tc-ua">Я приймаю душ щоранку.</div>
+      </div>
+      <div class="transform-card">
+        <div class="tc-form" style="color:var(--blue)">🚌 Transport</div>
+        <div class="tc-en">I <strong style="color:var(--orange)">take</strong> the bus to school.</div>
+        <div class="tc-ua">Я їжджу автобусом до школи.</div>
+      </div>
+      <div class="transform-card">
+        <div class="tc-form" style="color:var(--green)">📸 Photo</div>
+        <div class="tc-en">I <strong style="color:var(--orange)">take</strong> photos with my phone.</div>
+        <div class="tc-ua">Я фотографую телефоном.</div>
+      </div>
+      <div class="transform-card">
+        <div class="tc-form" style="color:var(--red)">💊 Medicine</div>
+        <div class="tc-en">I <strong style="color:var(--orange)">take</strong> vitamins every day.</div>
+        <div class="tc-ua">Я приймаю вітаміни щодня.</div>
+      </div>
+      <div class="transform-card">
+        <div class="tc-form" style="color:var(--purple)">📝 Exam</div>
+        <div class="tc-en">I <strong style="color:var(--orange)">take</strong> my English exam on Monday.</div>
+        <div class="tc-ua">Я складаю іспит з англійської в понеділок.</div>
+      </div>
+      <div class="transform-card">
+        <div class="tc-form" style="color:var(--pink)">⏱️ Time</div>
+        <div class="tc-en">It <strong style="color:var(--orange)">takes</strong> me 5 minutes to get ready.</div>
+        <div class="tc-ua">Мені потрібно 5 хвилин, щоб зібратись.</div>
+      </div>
+      <div class="transform-card">
+        <div class="tc-form" style="color:var(--orange)">🛌 Break</div>
+        <div class="tc-en">I <strong style="color:var(--orange)">take</strong> a break after lunch.</div>
+        <div class="tc-ua">Я роблю перерву після обіду.</div>
+      </div>
+      <div class="transform-card">
+        <div class="tc-form" style="color:var(--yellow)">👟 Walk</div>
+        <div class="tc-en">I <strong style="color:var(--orange)">take</strong> a walk with my dog.</div>
+        <div class="tc-ua">Я гуляю з моїм собакою.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULA -->
+<section class="formula-section-bg">
+  <div class="section">
+    <div class="section-tag">Formulas / Формули</div>
+    <h2 class="section-title"><span class="emoji">🔬</span> How to Build Sentences</h2>
+    <p class="section-subtitle">Як будувати речення з TAKE</p>
+    <div class="divider"></div>
+
+    <div class="formula-box fade-in">
+      <div class="formula-title">📌 Formula 1 — Basic / Основна формула</div>
+      <div class="formula-text">
+        <span class="f-part f-subject">Subject (хто?)</span>
+        <span class="f-plus">+</span>
+        <span class="f-part f-take">TAKE / TAKES / TOOK</span>
+        <span class="f-plus">+</span>
+        <span class="f-part f-object">Object (що?)</span>
+      </div>
+    </div>
+
+    <div class="formula-box fade-in">
+      <div class="formula-title">📌 Formula 2 — With Time / З часом</div>
+      <div class="formula-text">
+        <span class="f-part f-subject">It</span>
+        <span class="f-plus">+</span>
+        <span class="f-part f-take">TAKES</span>
+        <span class="f-plus">+</span>
+        <span class="f-part f-time">time (час)</span>
+        <span class="f-plus">+</span>
+        <span class="f-part f-object">to do something</span>
+      </div>
+    </div>
+
+    <div class="formula-box fade-in">
+      <div class="formula-title">📌 Formula 3 — With Place / З місцем</div>
+      <div class="formula-text">
+        <span class="f-part f-subject">Subject</span>
+        <span class="f-plus">+</span>
+        <span class="f-part f-take">TAKE(S)</span>
+        <span class="f-plus">+</span>
+        <span class="f-part f-object">Object</span>
+        <span class="f-plus">+</span>
+        <span class="f-part f-place">to + Place (куди?)</span>
+      </div>
+    </div>
+
+    <div class="formula-box fade-in">
+      <div class="formula-title">📌 Formula 4 — With Activity / З активністю</div>
+      <div class="formula-text">
+        <span class="f-part f-subject">Subject</span>
+        <span class="f-plus">+</span>
+        <span class="f-part f-take">TAKE(S)</span>
+        <span class="f-plus">+</span>
+        <span class="f-part f-object">a + activity noun</span>
+      </div>
+    </div>
+
+    <div class="tip-box fade-in">
+      <div class="tip-icon">💡</div>
+      <div>
+        <div class="tip-title">Key Pattern / Ключовий патерн</div>
+        <div class="tip-text">
+          "Take + a + noun" — це дуже популярна комбінація! / This is a super popular combo!<br>
+          <strong>take a shower, take a break, take a walk, take a look, take a photo</strong><br>
+          <em>Запам'ятай: "take A shower" (не "take the shower"!)</em>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHEN TO USE -->
+<section class="when-bg">
+  <div class="section">
+    <div class="section-tag">When to Use / Коли вживати</div>
+    <h2 class="section-title"><span class="emoji">🎯</span> When do we use TAKE?</h2>
+    <p class="section-subtitle">Коли ми вживаємо TAKE?</p>
+    <div class="divider"></div>
+    <div class="when-grid">
+
+      <div class="when-card fade-in">
+        <div class="when-icon">🏠</div>
+        <div class="when-title">Daily Routines</div>
+        <div class="when-ua">Щоденні звички</div>
+        <div class="when-desc">Take a shower, take breakfast, take a nap — речі, які ти робиш щодня. Things you do every day.</div>
+      </div>
+
+      <div class="when-card fade-in">
+        <div class="when-icon">🚗</div>
+        <div class="when-title">Getting Somewhere</div>
+        <div class="when-ua">Дістатися кудись</div>
+        <div class="when-desc">Take the bus, take a taxi, take a plane — їхати якимось транспортом. Using any vehicle to go somewhere.</div>
+      </div>
+
+      <div class="when-card fade-in">
+        <div class="when-icon">🎓</div>
+        <div class="when-title">School & Learning</div>
+        <div class="when-ua">Школа та навчання</div>
+        <div class="when-desc">Take a class, take an exam, take notes — все про навчання. Everything related to studying.</div>
+      </div>
+
+      <div class="when-card fade-in">
+        <div class="when-icon">⚕️</div>
+        <div class="when-title">Health</div>
+        <div class="when-ua">Здоров'я</div>
+        <div class="when-desc">Take medicine, take a pill, take vitamins — про ліки та здоров'я. Anything about medicine.</div>
+      </div>
+
+      <div class="when-card fade-in">
+        <div class="when-icon">⏰</div>
+        <div class="when-title">Time & Duration</div>
+        <div class="when-ua">Час та тривалість</div>
+        <div class="when-desc">"It takes..." — коли щось займає час. When something requires time to do.</div>
+      </div>
+
+      <div class="when-card fade-in">
+        <div class="when-icon">🤝</div>
+        <div class="when-title">Decisions & Responsibility</div>
+        <div class="when-ua">Рішення та відповідальність</div>
+        <div class="when-desc">Take a decision, take responsibility, take control — про важливі дії в житті.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ALL LIFE EXAMPLES -->
+<section class="life-section-bg">
+  <div class="section">
+    <div class="section-tag">Real Life / Реальне життя</div>
+    <h2 class="section-title"><span class="emoji">🌍</span> TAKE in Real Life — 60+ Examples!</h2>
+    <p class="section-subtitle">TAKE у реальному житті — 60+ прикладів на всі випадки!</p>
+    <div class="divider"></div>
+
+    <!-- Morning Routine -->
+    <h3 style="font-family:'Baloo 2';font-size:1.2rem;color:var(--yellow);margin-bottom:14px;">☀️ Morning Routine / Ранкові звички</h3>
+    <div class="life-row fade-in">
+      <div class="life-card" data-emoji="🚿">
+        <div class="life-en">I <span>take</span> a cold shower every morning.</div>
+        <div class="life-ua">Я приймаю холодний душ щоранку.</div>
+      </div>
+      <div class="life-card" data-emoji="💊">
+        <div class="life-en">She <span>takes</span> vitamins with breakfast.</div>
+        <div class="life-ua">Вона приймає вітаміни на сніданок.</div>
+      </div>
+    </div>
+    <div class="life-row fade-in">
+      <div class="life-card" data-emoji="🐕">
+        <div class="life-en">He <span>takes</span> the dog for a walk at 7 am.</div>
+        <div class="life-ua">Він виводить собаку на прогулянку о 7 ранку.</div>
+      </div>
+      <div class="life-card" data-emoji="🚌">
+        <div class="life-en">They <span>take</span> the school bus every day.</div>
+        <div class="life-ua">Вони щодня їдуть шкільним автобусом.</div>
+      </div>
+    </div>
+
+    <!-- School -->
+    <h3 style="font-family:'Baloo 2';font-size:1.2rem;color:var(--blue);margin:24px 0 14px;">📚 School & Study / Школа</h3>
+    <div class="life-row fade-in">
+      <div class="life-card" data-emoji="📝">
+        <div class="life-en">We <span>take</span> a math test every Friday.</div>
+        <div class="life-ua">Ми складаємо тест з математики щоп'ятниці.</div>
+      </div>
+      <div class="life-card" data-emoji="✏️">
+        <div class="life-en">Don't forget to <span>take</span> notes in class!</div>
+        <div class="life-ua">Не забудь конспектувати на уроці!</div>
+      </div>
+    </div>
+    <div class="life-row fade-in">
+      <div class="life-card" data-emoji="🎓">
+        <div class="life-en">She is <span>taking</span> an online English course.</div>
+        <div class="life-ua">Вона проходить онлайн-курс англійської.</div>
+      </div>
+      <div class="life-card" data-emoji="⏱️">
+        <div class="life-en">The homework <span>took</span> me 2 hours.</div>
+        <div class="life-ua">Домашнє завдання зайняло в мене 2 години.</div>
+      </div>
+    </div>
+    <div class="life-row fade-in">
+      <div class="life-card" data-emoji="🧠">
+        <div class="life-en">It <span>takes</span> time to learn a new language.</div>
+        <div class="life-ua">Потрібен час, щоб вивчити нову мову.</div>
+      </div>
+      <div class="life-card" data-emoji="📖">
+        <div class="life-en"><span>Take</span> a look at this exercise.</div>
+        <div class="life-ua">Подивись на цю вправу.</div>
+      </div>
+    </div>
+
+    <!-- Travel -->
+    <h3 style="font-family:'Baloo 2';font-size:1.2rem;color:var(--orange);margin:24px 0 14px;">✈️ Travel & Transport / Подорожі</h3>
+    <div class="life-row fade-in">
+      <div class="life-card" data-emoji="🚇">
+        <div class="life-en"><span>Take</span> the subway — it's faster!</div>
+        <div class="life-ua">Їдь метро — це швидше!</div>
+      </div>
+      <div class="life-card" data-emoji="🛫">
+        <div class="life-en">We <span>took</span> a flight to Paris last summer.</div>
+        <div class="life-ua">Минулого літа ми летіли до Парижа.</div>
+      </div>
+    </div>
+    <div class="life-row fade-in">
+      <div class="life-card" data-emoji="🚕">
+        <div class="life-en"><span>Take</span> a taxi — we're late!</div>
+        <div class="life-ua">Бери таксі — ми запізнюємось!</div>
+      </div>
+      <div class="life-card" data-emoji="🗺️">
+        <div class="life-en">How long does it <span>take</span> to get to the airport?</div>
+        <div class="life-ua">Скільки часу потрібно, щоб дістатися до аеропорту?</div>
+      </div>
+    </div>
+    <div class="life-row fade-in">
+      <div class="life-card" data-emoji="🏖️">
+        <div class="life-en">We're <span>taking</span> a trip to the beach this weekend.</div>
+        <div class="life-ua">Цих вихідних ми їдемо на пляж.</div>
+      </div>
+      <div class="life-card" data-emoji="📸">
+        <div class="life-en">Let's <span>take</span> a selfie at the Eiffel Tower!</div>
+        <div class="life-ua">Давай зробимо селфі біля Ейфелевої вежі!</div>
+      </div>
+    </div>
+
+    <!-- Health -->
+    <h3 style="font-family:'Baloo 2';font-size:1.2rem;color:var(--green);margin:24px 0 14px;">💪 Health & Body / Здоров'я</h3>
+    <div class="life-row fade-in">
+      <div class="life-card" data-emoji="🌡️">
+        <div class="life-en">The nurse <span>took</span> my temperature.</div>
+        <div class="life-ua">Медсестра виміряла мою температуру.</div>
+      </div>
+      <div class="life-card" data-emoji="💊">
+        <div class="life-en"><span>Take</span> this medicine after dinner.</div>
+        <div class="life-ua">Прийми ці ліки після вечері.</div>
+      </div>
+    </div>
+    <div class="life-row fade-in">
+      <div class="life-card" data-emoji="😴">
+        <div class="life-en">I need to <span>take</span> a rest — I'm so tired!</div>
+        <div class="life-ua">Мені потрібно відпочити — я такий/а втомлений/а!</div>
+      </div>
+      <div class="life-card" data-emoji="🏃">
+        <div class="life-en">She <span>takes</span> a 30-minute run every evening.</div>
+        <div class="life-ua">Вона бігає по 30 хвилин щовечора.</div>
+      </div>
+    </div>
+
+    <!-- Decisions / Life -->
+    <h3 style="font-family:'Baloo 2';font-size:1.2rem;color:var(--purple);margin:24px 0 14px;">🧩 Decisions & Life / Рішення</h3>
+    <div class="life-row fade-in">
+      <div class="life-card" data-emoji="💡">
+        <div class="life-en"><span>Take</span> my advice — study every day!</div>
+        <div class="life-ua">Послухай мою пораду — вчись щодня!</div>
+      </div>
+      <div class="life-card" data-emoji="🏆">
+        <div class="life-en">She <span>took</span> first place in the competition!</div>
+        <div class="life-ua">Вона зайняла перше місце в конкурсі!</div>
+      </div>
+    </div>
+    <div class="life-row fade-in">
+      <div class="life-card" data-emoji="📞">
+        <div class="life-en">Can you <span>take</span> a message for me?</div>
+        <div class="life-ua">Можеш прийняти для мене повідомлення?</div>
+      </div>
+      <div class="life-card" data-emoji="💼">
+        <div class="life-en">I <span>took</span> a job at a new company.</div>
+        <div class="life-ua">Я влаштувався/лась на роботу в нову компанію.</div>
+      </div>
+    </div>
+    <div class="life-row fade-in">
+      <div class="life-card" data-emoji="😮">
+        <div class="life-en">I can't <span>take</span> it anymore! It's too loud!</div>
+        <div class="life-ua">Я більше не можу це терпіти! Занадто гучно!</div>
+      </div>
+      <div class="life-card" data-emoji="🙌">
+        <div class="life-en"><span>Take</span> a chance and try something new!</div>
+        <div class="life-ua">Ризикни і спробуй щось нове!</div>
+      </div>
+    </div>
+    <div class="life-row fade-in">
+      <div class="life-card" data-emoji="😰">
+        <div class="life-en">Don't <span>take</span> it personally.</div>
+        <div class="life-ua">Не сприймай це особисто.</div>
+      </div>
+      <div class="life-card" data-emoji="🎭">
+        <div class="life-en">She <span>takes</span> everything too seriously.</div>
+        <div class="life-ua">Вона сприймає все занадто серйозно.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHRASAL VERBS -->
+<section class="phrasal-bg">
+  <div class="section">
+    <div class="section-tag">Phrasal Verbs / Фразові дієслова</div>
+    <h2 class="section-title"><span class="emoji">🧩</span> Phrasal Verbs with TAKE</h2>
+    <p class="section-subtitle">Фразові дієслова з TAKE — дуже важливі!</p>
+    <div class="divider"></div>
+    <div class="phrasal-grid">
+
+      <div class="phrasal-card fade-in">
+        <div class="pv-verb"><span>take</span> off</div>
+        <div class="pv-ua">злітати / знімати / різко зростати</div>
+        <div class="pv-desc">1) A plane leaves the ground. / Літак злітає. 2) Remove clothing. / Знімати одяг. 3) Become very popular. / Стати популярним.</div>
+        <div class="pv-ex">The plane took off at 9 am. / She took off her shoes.</div>
+      </div>
+
+      <div class="phrasal-card fade-in">
+        <div class="pv-verb"><span>take</span> on</div>
+        <div class="pv-ua">брати на себе / наймати</div>
+        <div class="pv-desc">1) Accept new work or responsibility. / Брати нову роботу або відповідальність. 2) Hire someone. / Наймати когось.</div>
+        <div class="pv-ex">She took on too much work. / We're taking on new staff.</div>
+      </div>
+
+      <div class="phrasal-card fade-in">
+        <div class="pv-verb"><span>take</span> up</div>
+        <div class="pv-ua">починати хобі / займати місце/час</div>
+        <div class="pv-desc">1) Start a new hobby or activity. / Почати нове хобі. 2) Use space or time. / Займати місце або час.</div>
+        <div class="pv-ex">I took up painting. / This takes up too much space.</div>
+      </div>
+
+      <div class="phrasal-card fade-in">
+        <div class="pv-verb"><span>take</span> over</div>
+        <div class="pv-ua">перебирати контроль / захоплювати</div>
+        <div class="pv-desc">To get control of something. / Взяти контроль над чимось.</div>
+        <div class="pv-ex">The new CEO took over the company. / AI is taking over the world!</div>
+      </div>
+
+      <div class="phrasal-card fade-in">
+        <div class="pv-verb"><span>take</span> back</div>
+        <div class="pv-ua">повернути / відкликати слова</div>
+        <div class="pv-desc">1) Return something to a shop. / Повернути щось до магазину. 2) Say you didn't mean what you said. / Відкликати свої слова.</div>
+        <div class="pv-ex">I took back the shirt. / I take that back, sorry!</div>
+      </div>
+
+      <div class="phrasal-card fade-in">
+        <div class="pv-verb"><span>take</span> out</div>
+        <div class="pv-ua">виймати / замовляти їжу з собою / виводити</div>
+        <div class="pv-desc">1) Remove something from inside. / Виймати. 2) Get food to go. / Замовляти їжу додому. 3) Take someone on a date. / Виводити когось на побачення.</div>
+        <div class="pv-ex">Take out the trash! / Let's get takeout. / He took her out for dinner.</div>
+      </div>
+
+      <div class="phrasal-card fade-in">
+        <div class="pv-verb"><span>take</span> in</div>
+        <div class="pv-ua">розуміти / сприймати / давати притулок</div>
+        <div class="pv-desc">1) Absorb or understand information. / Сприймати інформацію. 2) Give shelter. / Давати притулок.</div>
+        <div class="pv-ex">She couldn't take in all the news. / They took in refugees.</div>
+      </div>
+
+      <div class="phrasal-card fade-in">
+        <div class="pv-verb"><span>take</span> apart</div>
+        <div class="pv-ua">розбирати на частини</div>
+        <div class="pv-desc">To disassemble something. / Розібрати щось на частини.</div>
+        <div class="pv-ex">He took apart the old radio. / Він розібрав старе радіо.</div>
+      </div>
+
+      <div class="phrasal-card fade-in">
+        <div class="pv-verb"><span>take</span> after</div>
+        <div class="pv-ua">бути схожим на (батьків)</div>
+        <div class="pv-desc">To look or behave like a parent or relative. / Бути схожим на батька або родича.</div>
+        <div class="pv-ex">She takes after her grandmother. / Вона схожа на свою бабусю.</div>
+      </div>
+
+      <div class="phrasal-card fade-in">
+        <div class="pv-verb"><span>take</span> down</div>
+        <div class="pv-ua">знімати / записувати / руйнувати</div>
+        <div class="pv-desc">1) Remove something from a wall/web. / Знімати. 2) Write something down. / Записати. 3) Defeat someone. / Перемогти.</div>
+        <div class="pv-ex">Take down that poster. / I took down his number.</div>
+      </div>
+
+      <div class="phrasal-card fade-in">
+        <div class="pv-verb"><span>take</span> away</div>
+        <div class="pv-ua">забирати / виносити їжу</div>
+        <div class="pv-desc">1) Remove something from someone. / Забрати. 2) Food to go (British English). / Їжа з собою.</div>
+        <div class="pv-ex">They took away my phone! / Let's get a takeaway.</div>
+      </div>
+
+      <div class="phrasal-card fade-in">
+        <div class="pv-verb"><span>take</span> to</div>
+        <div class="pv-ua">починати щось любити / звикати</div>
+        <div class="pv-desc">To start to like something or someone. / Починати любити або звикати до чогось.</div>
+        <div class="pv-ex">She took to painting quickly. / He took to his new teacher.</div>
+      </div>
+
+      <div class="phrasal-card fade-in">
+        <div class="pv-verb"><span>take</span> for granted</div>
+        <div class="pv-ua">не цінувати / сприймати як належне</div>
+        <div class="pv-desc">To not appreciate something. / Не цінувати те, що маєш.</div>
+        <div class="pv-ex">Don't take your health for granted. / Не сприймай своє здоров'я як щось само собою зрозуміле.</div>
+      </div>
+
+      <div class="phrasal-card fade-in">
+        <div class="pv-verb"><span>take</span> place</div>
+        <div class="pv-ua">відбуватися / мати місце</div>
+        <div class="pv-desc">When an event happens. / Коли подія відбувається.</div>
+        <div class="pv-ex">The concert takes place on Friday. / Концерт відбудеться в п'ятницю.</div>
+      </div>
+
+      <div class="phrasal-card fade-in">
+        <div class="pv-verb"><span>take</span> care of</div>
+        <div class="pv-ua">дбати про / доглядати</div>
+        <div class="pv-desc">To look after someone or something. / Доглядати за кимось або чимось.</div>
+        <div class="pv-ex">She takes care of her little brother. / Вона доглядає за своїм братиком.</div>
+      </div>
+
+      <div class="phrasal-card fade-in">
+        <div class="pv-verb"><span>take</span> part in</div>
+        <div class="pv-ua">брати участь у</div>
+        <div class="pv-desc">To participate in something. / Брати участь у чомусь.</div>
+        <div class="pv-ex">We all took part in the show. / Ми всі брали участь у виставі.</div>
+      </div>
+
+      <div class="phrasal-card fade-in">
+        <div class="pv-verb"><span>take</span> turns</div>
+        <div class="pv-ua">робити по черзі</div>
+        <div class="pv-desc">Each person does something one at a time. / Кожен робить щось по черзі.</div>
+        <div class="pv-ex">Let's take turns driving. / Давайте їхати по черзі.</div>
+      </div>
+
+      <div class="phrasal-card fade-in">
+        <div class="pv-verb"><span>take</span> effect</div>
+        <div class="pv-ua">починати діяти / набирати чинності</div>
+        <div class="pv-desc">When medicine or a law starts working. / Коли ліки або закон починають діяти.</div>
+        <div class="pv-ex">The medicine will take effect soon. / Ліки незабаром почнуть діяти.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- COLLOCATIONS -->
+<section class="coll-bg">
+  <div class="section">
+    <div class="section-tag">Collocations / Словосполучення</div>
+    <h2 class="section-title"><span class="emoji">🔗</span> TAKE + ...</h2>
+    <p class="section-subtitle">Найпопулярніші слова разом з TAKE</p>
+    <div class="divider"></div>
+
+    <!-- Activities -->
+    <div class="coll-category fade-in">
+      <div class="coll-cat-title"><span style="font-size:1.5rem">🏃</span> TAKE + Activity / Дії</div>
+      <div class="coll-grid">
+        <div class="coll-chip"><div class="coll-en"><span>take</span> a shower</div><div class="coll-ua">прийняти душ</div></div>
+        <div class="coll-chip"><div class="coll-en"><span>take</span> a bath</div><div class="coll-ua">прийняти ванну</div></div>
+        <div class="coll-chip"><div class="coll-en"><span>take</span> a walk</div><div class="coll-ua">прогулятися</div></div>
+        <div class="coll-chip"><div class="coll-en"><span>take</span> a break</div><div class="coll-ua">зробити перерву</div></div>
+        <div class="coll-chip"><div class="coll-en"><span>take</span> a nap</div><div class="coll-ua">подрімати</div></div>
+        <div class="coll-chip"><div class="coll-en"><span>take</span> a rest</div><div class="coll-ua">відпочити</div></div>
+        <div class="coll-chip"><div class="coll-en"><span>take</span> a run</div><div class="coll-ua">побігати</div></div>
+        <div class="coll-chip"><div class="coll-en"><span>take</span> a swim</div><div class="coll-ua">поплавати</div></div>
+        <div class="coll-chip"><div class="coll-en"><span>take</span> a trip</div><div class="coll-ua">поїхати в подорож</div></div>
+        <div class="coll-chip"><div class="coll-en"><span>take</span> a ride</div><div class="coll-ua">прокататися</div></div>
+        <div class="coll-chip"><div class="coll-en"><span>take</span> a deep breath</div><div class="coll-ua">глибоко вдихнути</div></div>
+        <div class="coll-chip"><div class="coll-en"><span>take</span> a step</div><div class="coll-ua">зробити крок</div></div>
+      </div>
+    </div>
+
+    <!-- Look & Notice -->
+    <div class="coll-category fade-in">
+      <div class="coll-cat-title"><span style="font-size:1.5rem">👀</span> TAKE + Look / Погляд</div>
+      <div class="coll-grid">
+        <div class="coll-chip"><div class="coll-en"><span>take</span> a look</div><div class="coll-ua">поглянути</div></div>
+        <div class="coll-chip"><div class="coll-en"><span>take</span> a photo</div><div class="coll-ua">зробити фото</div></div>
+        <div class="coll-chip"><div class="coll-en"><span>take</span> a picture</div><div class="coll-ua">зробити знімок</div></div>
+        <div class="coll-chip"><div class="coll-en"><span>take</span> a selfie</div><div class="coll-ua">зробити селфі</div></div>
+        <div class="coll-chip"><div class="coll-en"><span>take</span> note of</div><div class="coll-ua">взяти до уваги</div></div>
+        <div class="coll-chip"><div class="coll-en"><span>take</span> notes</div><div class="coll-ua">конспектувати</div></div>
+      </div>
+    </div>
+
+    <!-- School & Work -->
+    <div class="coll-category fade-in">
+      <div class="coll-cat-title"><span style="font-size:1.5rem">📚</span> TAKE + School & Work</div>
+      <div class="coll-grid">
+        <div class="coll-chip"><div class="coll-en"><span>take</span> an exam</div><div class="coll-ua">скласти іспит</div></div>
+        <div class="coll-chip"><div class="coll-en"><span>take</span> a test</div><div class="coll-ua">написати тест</div></div>
+        <div class="coll-chip"><div class="coll-en"><span>take</span> a class</div><div class="coll-ua">відвідати заняття</div></div>
+        <div class="coll-chip"><div class="coll-en"><span>take</span> a course</div><div class="coll-ua">пройти курс</div></div>
+        <div class="coll-chip"><div class="coll-en"><span>take</span> a lesson</div><div class="coll-ua">взяти урок</div></div>
+        <div class="coll-chip"><div class="coll-en"><span>take</span> a day off</div><div class="coll-ua">взяти вихідний</div></div>
+        <div class="coll-chip"><div class="coll-en"><span>take</span> a job</div><div class="coll-ua">влаштуватися на роботу</div></div>
+        <div class="coll-chip"><div class="coll-en"><span>take</span> leave</div><div class="coll-ua">взяти відпустку</div></div>
+      </div>
+    </div>
+
+    <!-- Decisions -->
+    <div class="coll-category fade-in">
+      <div class="coll-cat-title"><span style="font-size:1.5rem">🧠</span> TAKE + Decisions / Рішення</div>
+      <div class="coll-grid">
+        <div class="coll-chip"><div class="coll-en"><span>take</span> a decision</div><div class="coll-ua">прийняти рішення</div></div>
+        <div class="coll-chip"><div class="coll-en"><span>take</span> a chance</div><div class="coll-ua">ризикнути</div></div>
+        <div class="coll-chip"><div class="coll-en"><span>take</span> a risk</div><div class="coll-ua">взяти на себе ризик</div></div>
+        <div class="coll-chip"><div class="coll-en"><span>take</span> action</div><div class="coll-ua">діяти</div></div>
+        <div class="coll-chip"><div class="coll-en"><span>take</span> control</div><div class="coll-ua">взяти контроль</div></div>
+        <div class="coll-chip"><div class="coll-en"><span>take</span> responsibility</div><div class="coll-ua">взяти відповідальність</div></div>
+        <div class="coll-chip"><div class="coll-en"><span>take</span> the lead</div><div class="coll-ua">взяти ініціативу</div></div>
+        <div class="coll-chip"><div class="coll-en"><span>take</span> advantage of</div><div class="coll-ua">скористатися з</div></div>
+        <div class="coll-chip"><div class="coll-en"><span>take</span> the opportunity</div><div class="coll-ua">скористатися можливістю</div></div>
+        <div class="coll-chip"><div class="coll-en"><span>take</span> the initiative</div><div class="coll-ua">виявити ініціативу</div></div>
+      </div>
+    </div>
+
+    <!-- Transport -->
+    <div class="coll-category fade-in">
+      <div class="coll-cat-title"><span style="font-size:1.5rem">🚗</span> TAKE + Transport / Транспорт</div>
+      <div class="coll-grid">
+        <div class="coll-chip"><div class="coll-en"><span>take</span> the bus</div><div class="coll-ua">їхати автобусом</div></div>
+        <div class="coll-chip"><div class="coll-en"><span>take</span> the train</div><div class="coll-ua">їхати потягом</div></div>
+        <div class="coll-chip"><div class="coll-en"><span>take</span> the subway</div><div class="coll-ua">їхати метро</div></div>
+        <div class="coll-chip"><div class="coll-en"><span>take</span> a taxi</div><div class="coll-ua">взяти таксі</div></div>
+        <div class="coll-chip"><div class="coll-en"><span>take</span> a flight</div><div class="coll-ua">летіти рейсом</div></div>
+        <div class="coll-chip"><div class="coll-en"><span>take</span> the highway</div><div class="coll-ua">їхати автострадою</div></div>
+      </div>
+    </div>
+
+    <!-- Health -->
+    <div class="coll-category fade-in">
+      <div class="coll-cat-title"><span style="font-size:1.5rem">💊</span> TAKE + Health / Здоров'я</div>
+      <div class="coll-grid">
+        <div class="coll-chip"><div class="coll-en"><span>take</span> medicine</div><div class="coll-ua">приймати ліки</div></div>
+        <div class="coll-chip"><div class="coll-en"><span>take</span> a pill</div><div class="coll-ua">прийняти таблетку</div></div>
+        <div class="coll-chip"><div class="coll-en"><span>take</span> vitamins</div><div class="coll-ua">приймати вітаміни</div></div>
+        <div class="coll-chip"><div class="coll-en"><span>take</span> someone's temperature</div><div class="coll-ua">виміряти температуру</div></div>
+        <div class="coll-chip"><div class="coll-en"><span>take</span> someone's pulse</div><div class="coll-ua">виміряти пульс</div></div>
+        <div class="coll-chip"><div class="coll-en"><span>take</span> care</div><div class="coll-ua">бережи себе / дбай</div></div>
+      </div>
+    </div>
+
+    <!-- Feelings -->
+    <div class="coll-category fade-in">
+      <div class="coll-cat-title"><span style="font-size:1.5rem">😊</span> TAKE + Feelings / Почуття</div>
+      <div class="coll-grid">
+        <div class="coll-chip"><div class="coll-en"><span>take</span> pride in</div><div class="coll-ua">пишатися</div></div>
+        <div class="coll-chip"><div class="coll-en"><span>take</span> offense</div><div class="coll-ua">образитися</div></div>
+        <div class="coll-chip"><div class="coll-en"><span>take</span> comfort in</div><div class="coll-ua">знаходити втіху в</div></div>
+        <div class="coll-chip"><div class="coll-en"><span>take</span> interest in</div><div class="coll-ua">цікавитися</div></div>
+        <div class="coll-chip"><div class="coll-en"><span>take</span> pleasure in</div><div class="coll-ua">отримувати задоволення від</div></div>
+        <div class="coll-chip"><div class="coll-en"><span>take</span> something personally</div><div class="coll-ua">сприймати особисто</div></div>
+        <div class="coll-chip"><div class="coll-en"><span>take</span> something seriously</div><div class="coll-ua">сприймати серйозно</div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- BIG EXAMPLES TABLE -->
+<section class="examples-bg">
+  <div class="section">
+    <div class="section-tag">More Examples / Ще приклади</div>
+    <h2 class="section-title"><span class="emoji">📖</span> Even More Examples!</h2>
+    <p class="section-subtitle">Ще більше прикладів з TAKE — для кожного випадку!</p>
+    <div class="divider"></div>
+    <div class="examples-grid">
+
+      <div class="example-card fade-in"><span class="ex-context life">Everyday</span>
+        <div class="ex-en">Can you <span>take</span> out the trash, please?</div>
+        <div class="ex-ua">Можеш, будь ласка, винести сміття?</div>
+      </div>
+      <div class="example-card fade-in"><span class="ex-context school">School</span>
+        <div class="ex-en">Our teacher <span>takes</span> attendance every day.</div>
+        <div class="ex-ua">Наш вчитель щодня перевіряє присутність.</div>
+      </div>
+      <div class="example-card fade-in"><span class="ex-context travel">Travel</span>
+        <div class="ex-en">It <span>takes</span> 3 hours to drive there.</div>
+        <div class="ex-ua">Туди їхати 3 години.</div>
+      </div>
+      <div class="example-card fade-in"><span class="ex-context home">Home</span>
+        <div class="ex-en">Who <span>took</span> the last cookie?!</div>
+        <div class="ex-ua">Хто взяв останнє печиво?!</div>
+      </div>
+      <div class="example-card fade-in"><span class="ex-context work">Work</span>
+        <div class="ex-en">Let's <span>take</span> a quick 5-minute break.</div>
+        <div class="ex-ua">Давайте зробимо коротку 5-хвилинну перерву.</div>
+      </div>
+      <div class="example-card fade-in"><span class="ex-context health">Health</span>
+        <div class="ex-en"><span>Take</span> a deep breath and relax!</div>
+        <div class="ex-ua">Зроби глибокий вдих і розслабся!</div>
+      </div>
+      <div class="example-card fade-in"><span class="ex-context time">Time</span>
+        <div class="ex-en">How long does it <span>take</span> to learn English?</div>
+        <div class="ex-ua">Скільки часу потрібно, щоб вивчити англійську?</div>
+      </div>
+      <div class="example-card fade-in"><span class="ex-context food">Food</span>
+        <div class="ex-en">She <span>took</span> the last piece of pizza.</div>
+        <div class="ex-ua">Вона взяла останній шматок піци.</div>
+      </div>
+      <div class="example-card fade-in"><span class="ex-context life">Idiom</span>
+        <div class="ex-en"><span>Take</span> it easy, don't stress!</div>
+        <div class="ex-ua">Не напружуйся, будь спокійний/на!</div>
+      </div>
+      <div class="example-card fade-in"><span class="ex-context school">Study</span>
+        <div class="ex-en">It <span>takes</span> practice to get better.</div>
+        <div class="ex-ua">Потрібна практика, щоб стати кращим.</div>
+      </div>
+      <div class="example-card fade-in"><span class="ex-context travel">Trip</span>
+        <div class="ex-en">We <span>took</span> a road trip across the country.</div>
+        <div class="ex-ua">Ми здійснили поїздку автомобілем через всю країну.</div>
+      </div>
+      <div class="example-card fade-in"><span class="ex-context work">Career</span>
+        <div class="ex-en">She <span>took</span> the promotion with excitement.</div>
+        <div class="ex-ua">Вона з радістю прийняла підвищення.</div>
+      </div>
+      <div class="example-card fade-in"><span class="ex-context life">Family</span>
+        <div class="ex-en">My dad <span>takes</span> me to football practice.</div>
+        <div class="ex-ua">Тато відводить мене на тренування з футболу.</div>
+      </div>
+      <div class="example-card fade-in"><span class="ex-context home">Chores</span>
+        <div class="ex-en"><span>Take</span> these dishes to the kitchen.</div>
+        <div class="ex-ua">Віднеси ці тарілки на кухню.</div>
+      </div>
+      <div class="example-card fade-in"><span class="ex-context health">Fitness</span>
+        <div class="ex-en">It <span>takes</span> 21 days to form a new habit.</div>
+        <div class="ex-ua">Потрібно 21 день, щоб сформувати нову звичку.</div>
+      </div>
+      <div class="example-card fade-in"><span class="ex-context life">Surprise</span>
+        <div class="ex-en">The news <span>took</span> me by surprise.</div>
+        <div class="ex-ua">Новини застали мене зненацька.</div>
+      </div>
+      <div class="example-card fade-in"><span class="ex-context school">Sport</span>
+        <div class="ex-en">Our team <span>took</span> second place in the tournament.</div>
+        <div class="ex-ua">Наша команда зайняла друге місце на турнірі.</div>
+      </div>
+      <div class="example-card fade-in"><span class="ex-context life">Idiom</span>
+        <div class="ex-en">Don't <span>take</span> life too seriously.</div>
+        <div class="ex-ua">Не сприймай життя занадто серйозно.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div style="font-size:2rem;margin-bottom:12px">🎓</div>
+  <div>English Word Guide — <span>TAKE</span> — For Beginners & Young Learners</div>
+  <div style="margin-top:6px">Для початківців та молодих учнів 🇺🇦 🇬🇧</div>
+  <div style="margin-top:16px;font-size:0.75rem;opacity:0.4">
+    take · took · taken · taking · takes
+  </div>
+</footer>
+
+<script>
+  // Scroll animation
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, 60);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English Tenses – Time Travel Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;900&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --past: #FF6B6B;
+    --past-light: #FFE8E8;
+    --past-dark: #C0392B;
+    --present: #4ECDC4;
+    --present-light: #E0FAF8;
+    --present-dark: #16A085;
+    --future: #A78BFA;
+    --future-light: #EDE9FF;
+    --future-dark: #6D28D9;
+    --yellow: #FFD93D;
+    --dark: #1A1A2E;
+    --card-bg: #fff;
+    --text: #2D2D44;
+    --muted: #888;
+    --radius: 20px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: #F0F4FF;
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  header {
+    background: linear-gradient(135deg, #1A1A2E 0%, #16213E 50%, #0F3460 100%);
+    color: #fff;
+    padding: 60px 20px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(78,205,196,0.15) 0%, transparent 60%),
+                radial-gradient(circle at 80% 30%, rgba(167,139,250,0.15) 0%, transparent 60%);
+  }
+  .hero-emoji { font-size: 64px; display: block; margin-bottom: 16px; animation: float 3s ease-in-out infinite; }
+  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+  header h1 {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    letter-spacing: 1px;
+    position: relative;
+  }
+  header p {
+    margin-top: 14px;
+    font-size: 1.15rem;
+    opacity: .8;
+    max-width: 560px;
+    margin-inline: auto;
+    position: relative;
+  }
+
+  /* ── TIMELINE BANNER ── */
+  .timeline-banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    padding: 0 20px;
+    max-width: 800px;
+    margin: -30px auto 50px;
+    position: relative;
+    z-index: 10;
+  }
+  .tl-block {
+    flex: 1;
+    text-align: center;
+    padding: 18px 10px;
+    border-radius: 0;
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.1rem;
+    color: #fff;
+    transition: transform .2s;
+    cursor: default;
+  }
+  .tl-block:hover { transform: translateY(-4px); }
+  .tl-block:first-child { border-radius: 50px 0 0 50px; background: var(--past-dark); }
+  .tl-block:nth-child(2) { background: var(--present-dark); }
+  .tl-block:last-child { border-radius: 0 50px 50px 0; background: var(--future-dark); }
+  .tl-icon { font-size: 1.8rem; display: block; }
+  .tl-count { font-size: .8rem; opacity: .8; font-family: 'Nunito', sans-serif; font-weight: 600; margin-top: 2px; }
+
+  /* ── SENTENCE SPOTLIGHT ── */
+  .spotlight {
+    max-width: 760px;
+    margin: 0 auto 60px;
+    padding: 0 20px;
+    text-align: center;
+  }
+  .spotlight-label {
+    display: inline-block;
+    background: var(--yellow);
+    color: var(--dark);
+    font-weight: 900;
+    font-size: .85rem;
+    padding: 5px 16px;
+    border-radius: 50px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .spotlight h2 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+  }
+  .spotlight-box {
+    background: var(--dark);
+    color: #fff;
+    border-radius: var(--radius);
+    padding: 24px 30px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: .5px;
+  }
+  .spotlight-box span { color: var(--yellow); }
+
+  /* ── SECTION HEADERS ── */
+  .section-title {
+    max-width: 1100px;
+    margin: 0 auto 30px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .section-title .pill {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.4rem;
+    padding: 10px 30px;
+    border-radius: 50px;
+    color: #fff;
+    white-space: nowrap;
+  }
+  .section-title .line { flex: 1; height: 3px; border-radius: 3px; }
+  .past-theme .pill { background: var(--past-dark); }
+  .past-theme .line { background: var(--past-dark); }
+  .present-theme .pill { background: var(--present-dark); }
+  .present-theme .line { background: var(--present-dark); }
+  .future-theme .pill { background: var(--future-dark); }
+  .future-theme .line { background: var(--future-dark); }
+
+  /* ── GRID ── */
+  .grid {
+    max-width: 1100px;
+    margin: 0 auto 60px;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+    gap: 24px;
+  }
+
+  /* ── TENSE CARD ── */
+  .card {
+    background: #fff;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0,0,0,.08);
+    transition: transform .25s, box-shadow .25s;
+    display: flex;
+    flex-direction: column;
+  }
+  .card:hover { transform: translateY(-6px); box-shadow: 0 12px 36px rgba(0,0,0,.14); }
+
+  .card-header {
+    padding: 20px 22px 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .card-emoji { font-size: 2.2rem; flex-shrink: 0; }
+  .card-title { font-family: 'Fredoka One', cursive; font-size: 1.25rem; }
+  .card-subtitle { font-size: .8rem; opacity: .65; font-weight: 600; text-transform: uppercase; letter-spacing: .8px; }
+
+  .card-body { padding: 0 22px 22px; flex: 1; display: flex; flex-direction: column; gap: 14px; }
+
+  /* description */
+  .card-desc { font-size: .95rem; line-height: 1.55; color: #555; }
+
+  /* timeline visual */
+  .timeline-viz {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    height: 40px;
+    border-radius: 10px;
+    overflow: hidden;
+    font-size: .7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+  }
+  .tv-seg {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: rgba(255,255,255,.7);
+  }
+  .tv-seg.active { color: #fff; font-size: .85rem; }
+
+  /* formula */
+  .formula-box {
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: .88rem;
+    font-weight: 700;
+    line-height: 1.5;
+  }
+  .formula-box .label {
+    font-size: .7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 900;
+    opacity: .6;
+    margin-bottom: 4px;
+  }
+
+  /* examples */
+  .examples { display: flex; flex-direction: column; gap: 8px; }
+  .example {
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: .9rem;
+    line-height: 1.45;
+  }
+  .example .ex-label { font-size: .68rem; font-weight: 900; text-transform: uppercase; letter-spacing: .8px; margin-bottom: 3px; }
+  .example .ex-sentence { font-weight: 700; }
+  .example .ex-highlight { border-radius: 4px; padding: 0 3px; }
+
+  /* key signal words */
+  .signals {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .signal-tag {
+    font-size: .75rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 50px;
+    border: 2px solid currentColor;
+  }
+  .signals-label {
+    font-size: .7rem;
+    text-transform: uppercase;
+    letter-spacing: .8px;
+    font-weight: 900;
+    opacity: .5;
+    margin-bottom: 4px;
+  }
+
+  /* ── PAST COLORS ── */
+  .past .card-header { background: var(--past-light); }
+  .past .card-title { color: var(--past-dark); }
+  .past .tv-seg { background: #f5c6c6; }
+  .past .tv-seg.active { background: var(--past-dark); }
+  .past .formula-box { background: var(--past-light); color: var(--past-dark); }
+  .past .formula-box .label { color: var(--past-dark); }
+  .past .example { background: #FFF5F5; }
+  .past .example .ex-label { color: var(--past-dark); }
+  .past .example .ex-highlight { background: var(--past-light); color: var(--past-dark); }
+  .past .signal-tag { color: var(--past-dark); border-color: var(--past-dark); }
+  .past .signals-label { color: var(--past-dark); }
+
+  /* ── PRESENT COLORS ── */
+  .present .card-header { background: var(--present-light); }
+  .present .card-title { color: var(--present-dark); }
+  .present .tv-seg { background: #b2e8e4; }
+  .present .tv-seg.active { background: var(--present-dark); }
+  .present .formula-box { background: var(--present-light); color: var(--present-dark); }
+  .present .formula-box .label { color: var(--present-dark); }
+  .present .example { background: #F0FEFA; }
+  .present .example .ex-label { color: var(--present-dark); }
+  .present .example .ex-highlight { background: var(--present-light); color: var(--present-dark); }
+  .present .signal-tag { color: var(--present-dark); border-color: var(--present-dark); }
+  .present .signals-label { color: var(--present-dark); }
+
+  /* ── FUTURE COLORS ── */
+  .future .card-header { background: var(--future-light); }
+  .future .card-title { color: var(--future-dark); }
+  .future .tv-seg { background: #d8cfff; }
+  .future .tv-seg.active { background: var(--future-dark); }
+  .future .formula-box { background: var(--future-light); color: var(--future-dark); }
+  .future .formula-box .label { color: var(--future-dark); }
+  .future .example { background: #F5F2FF; }
+  .future .example .ex-label { color: var(--future-dark); }
+  .future .example .ex-highlight { background: var(--future-light); color: var(--future-dark); }
+  .future .signal-tag { color: var(--future-dark); border-color: var(--future-dark); }
+  .future .signals-label { color: var(--future-dark); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--dark);
+    color: rgba(255,255,255,.5);
+    text-align: center;
+    padding: 30px 20px;
+    font-size: .85rem;
+  }
+  footer strong { color: var(--yellow); }
+
+  /* animations */
+  .card { opacity: 0; transform: translateY(30px); animation: slideUp .5s forwards; }
+  @keyframes slideUp { to { opacity:1; transform:none; } }
+  .card:nth-child(1) { animation-delay: .05s }
+  .card:nth-child(2) { animation-delay: .1s }
+  .card:nth-child(3) { animation-delay: .15s }
+  .card:nth-child(4) { animation-delay: .2s }
+
+  /* ── RESPONSIVE ── */
+
+  /* tablet */
+  @media (max-width: 768px) {
+    header { padding: 44px 18px 60px; }
+    header h1 { font-size: 2.2rem; }
+    header p { font-size: 1rem; }
+    .timeline-banner { margin: -24px auto 40px; }
+    .tl-block { font-size: .95rem; padding: 14px 8px; }
+    .tl-icon { font-size: 1.5rem; }
+    .spotlight { margin-bottom: 44px; }
+    .section-title { padding: 0 16px; margin-bottom: 22px; }
+    .section-title .pill { font-size: 1.1rem; padding: 8px 22px; }
+    .grid { padding: 0 16px; gap: 18px; margin-bottom: 50px; }
+    .table-wrap { padding: 0 16px; }
+    .table-wrap > div { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  }
+
+  /* mobile */
+  @media (max-width: 520px) {
+    html { font-size: 15px; }
+
+    header { padding: 36px 14px 52px; }
+    .hero-emoji { font-size: 52px; }
+    header h1 { font-size: 1.8rem; }
+    header p { font-size: .88rem; }
+
+    .timeline-banner { flex-direction: column; border-radius: 16px; margin: -16px 14px 36px; gap: 0; }
+    .tl-block:first-child { border-radius: 16px 16px 0 0; }
+    .tl-block:nth-child(2) { border-radius: 0; }
+    .tl-block:last-child { border-radius: 0 0 16px 16px; }
+    .tl-block { padding: 12px 16px; display: flex; align-items: center; gap: 10px; font-size: .95rem; }
+    .tl-icon { font-size: 1.4rem; display: inline; }
+    .tl-count { margin-top: 0; font-size: .78rem; margin-left: auto; }
+
+    .spotlight { padding: 0 14px; margin-bottom: 36px; }
+    .spotlight h2 { font-size: 1.25rem; }
+    .spotlight-box { font-size: 1rem; padding: 18px 20px; }
+
+    .section-title { padding: 0 14px; margin-bottom: 16px; gap: 10px; }
+    .section-title .pill { font-size: .95rem; padding: 7px 18px; }
+
+    .grid { grid-template-columns: 1fr; padding: 0 14px; gap: 14px; margin-bottom: 40px; }
+
+    .card-header { padding: 14px 16px 12px; gap: 11px; }
+    .card-emoji { font-size: 1.9rem; }
+    .card-title { font-size: 1.05rem; }
+    .card-subtitle { font-size: .72rem; }
+
+    .card-body { padding: 0 16px 16px; gap: 11px; }
+    .card-desc { font-size: .87rem; }
+
+    .timeline-viz { height: 32px; font-size: .6rem; }
+    .tv-seg.active { font-size: .72rem; }
+
+    .formula-box { padding: 10px 12px; font-size: .82rem; }
+    .formula-box .label { font-size: .62rem; }
+
+    .example { padding: 9px 12px; }
+    .example .ex-label { font-size: .62rem; }
+    .example .ex-sentence { font-size: .86rem; }
+
+    .signals-label { font-size: .62rem; }
+    .signal-tag { font-size: .72rem; padding: 2px 9px; }
+
+    /* table scrolls sideways */
+    .table-wrap { padding: 0 14px; margin-bottom: 44px; }
+    .table-wrap > div,
+    .table-box > div { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { min-width: 520px; font-size: .82rem; }
+    th { padding: 9px 12px; font-size: .68rem; }
+    td { padding: 8px 12px; }
+    .table-head { font-size: 1rem; padding: 16px 18px; }
+
+    footer { padding: 20px 14px; font-size: .8rem; }
+    #scroll-top-btn { bottom: 18px; right: 16px; width: 40px; height: 40px; font-size: 16px; }
+  }
+  #scroll-top-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #1a1208;
+    border: 1.5px solid rgba(200,150,62,0.4);
+    color: #f5f0e8;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+    pointer-events: none;
+    z-index: 9998;
+  }
+  #scroll-top-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  #scroll-top-btn:hover {
+    background: #c8963e;
+    border-color: #c8963e;
+    color: #1a1208;
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header>
+  <span class="hero-emoji">⏰</span>
+  <h1>English Tenses</h1>
+  <p>A friendly guide to traveling through time with words — for kids, teens & everyone!</p>
+</header>
+
+<!-- TIMELINE BANNER -->
+<div class="timeline-banner">
+  <div class="tl-block">
+    <span class="tl-icon">⏪</span>
+    PAST
+    <div class="tl-count">4 tenses</div>
+  </div>
+  <div class="tl-block">
+    <span class="tl-icon">⏺</span>
+    PRESENT
+    <div class="tl-count">4 tenses</div>
+  </div>
+  <div class="tl-block">
+    <span class="tl-icon">⏩</span>
+    FUTURE
+    <div class="tl-count">4 tenses</div>
+  </div>
+</div>
+
+<!-- SPOTLIGHT -->
+<div class="spotlight">
+  <span class="spotlight-label">⭐ Our Hero Sentence</span>
+  <h2>One sentence — all 12 tenses!</h2>
+  <p style="margin-bottom:14px;color:#666">Watch how <strong>"I eat pizza"</strong> changes as we travel through time 🍕</p>
+  <div class="spotlight-box">
+    Subject: <span>I</span> &nbsp;·&nbsp; Action: <span>eat</span> &nbsp;·&nbsp; Object: <span>pizza</span>
+  </div>
+</div>
+
+<!-- ══════════ PAST ══════════ -->
+<div class="section-title past-theme">
+  <div class="pill">⏪ Past Tenses</div>
+  <div class="line"></div>
+</div>
+
+<div class="grid">
+
+  <!-- Past Simple -->
+  <div class="card past">
+    <div class="card-header">
+      <div class="card-emoji">📖</div>
+      <div>
+        <div class="card-title">Past Simple</div>
+        <div class="card-subtitle">Something finished</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p class="card-desc">Used for actions that started <strong>and finished</strong> in the past. It's done. Over. Finished!</p>
+      <div class="timeline-viz">
+        <div class="tv-seg active" style="flex:1.5">PAST ✓</div>
+        <div class="tv-seg">NOW</div>
+        <div class="tv-seg">FUTURE</div>
+      </div>
+      <div class="formula-box">
+        <div class="label">📐 Formula</div>
+        Subject + <strong>verb-ed</strong> / <strong>irregular past</strong>
+      </div>
+      <div class="examples">
+        <div class="example">
+          <div class="ex-label">🍕 Hero sentence</div>
+          <div class="ex-sentence">I <span class="ex-highlight">ate</span> pizza yesterday.</div>
+        </div>
+        <div class="example">
+          <div class="ex-label">💬 Another example</div>
+          <div class="ex-sentence">She <span class="ex-highlight">watched</span> a movie last night.</div>
+        </div>
+      </div>
+      <div>
+        <div class="signals-label">🔑 Signal words</div>
+        <div class="signals">
+          <span class="signal-tag">yesterday</span>
+          <span class="signal-tag">last week</span>
+          <span class="signal-tag">ago</span>
+          <span class="signal-tag">in 2010</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Past Continuous -->
+  <div class="card past">
+    <div class="card-header">
+      <div class="card-emoji">🎥</div>
+      <div>
+        <div class="card-title">Past Continuous</div>
+        <div class="card-subtitle">In progress in the past</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p class="card-desc">An action was <strong>in progress</strong> at a specific moment in the past — like hitting the "pause" button on a film.</p>
+      <div class="timeline-viz">
+        <div class="tv-seg active" style="flex:1.5">PAST ~~~</div>
+        <div class="tv-seg">NOW</div>
+        <div class="tv-seg">FUTURE</div>
+      </div>
+      <div class="formula-box">
+        <div class="label">📐 Formula</div>
+        Subject + <strong>was/were</strong> + <strong>verb-ing</strong>
+      </div>
+      <div class="examples">
+        <div class="example">
+          <div class="ex-label">🍕 Hero sentence</div>
+          <div class="ex-sentence">I <span class="ex-highlight">was eating</span> pizza at 7 pm.</div>
+        </div>
+        <div class="example">
+          <div class="ex-label">💬 Another example</div>
+          <div class="ex-sentence">They <span class="ex-highlight">were playing</span> when it rained.</div>
+        </div>
+      </div>
+      <div>
+        <div class="signals-label">🔑 Signal words</div>
+        <div class="signals">
+          <span class="signal-tag">at that moment</span>
+          <span class="signal-tag">while</span>
+          <span class="signal-tag">when</span>
+          <span class="signal-tag">all day</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Past Perfect -->
+  <div class="card past">
+    <div class="card-header">
+      <div class="card-emoji">🏁</div>
+      <div>
+        <div class="card-title">Past Perfect</div>
+        <div class="card-subtitle">Before another past event</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p class="card-desc">Something happened <strong>before</strong> another past event. It's like the "older" past — it happened first!</p>
+      <div class="timeline-viz">
+        <div class="tv-seg active" style="flex:.8">1st ✓</div>
+        <div class="tv-seg active" style="flex:.8">2nd ✓</div>
+        <div class="tv-seg">NOW</div>
+        <div class="tv-seg">FUTURE</div>
+      </div>
+      <div class="formula-box">
+        <div class="label">📐 Formula</div>
+        Subject + <strong>had</strong> + <strong>past participle</strong>
+      </div>
+      <div class="examples">
+        <div class="example">
+          <div class="ex-label">🍕 Hero sentence</div>
+          <div class="ex-sentence">I <span class="ex-highlight">had eaten</span> pizza before she arrived.</div>
+        </div>
+        <div class="example">
+          <div class="ex-label">💬 Another example</div>
+          <div class="ex-sentence">He <span class="ex-highlight">had left</span> before the party started.</div>
+        </div>
+      </div>
+      <div>
+        <div class="signals-label">🔑 Signal words</div>
+        <div class="signals">
+          <span class="signal-tag">before</span>
+          <span class="signal-tag">after</span>
+          <span class="signal-tag">already</span>
+          <span class="signal-tag">by the time</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Past Perfect Continuous -->
+  <div class="card past">
+    <div class="card-header">
+      <div class="card-emoji">⏳</div>
+      <div>
+        <div class="card-title">Past Perfect Continuous</div>
+        <div class="card-subtitle">Duration before a past moment</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p class="card-desc">An action was happening <strong>for a while</strong> before another past event. Focus on how long it lasted!</p>
+      <div class="timeline-viz">
+        <div class="tv-seg active" style="flex:1.5">≈≈≈ then ✓</div>
+        <div class="tv-seg">NOW</div>
+        <div class="tv-seg">FUTURE</div>
+      </div>
+      <div class="formula-box">
+        <div class="label">📐 Formula</div>
+        Subject + <strong>had been</strong> + <strong>verb-ing</strong>
+      </div>
+      <div class="examples">
+        <div class="example">
+          <div class="ex-label">🍕 Hero sentence</div>
+          <div class="ex-sentence">I <span class="ex-highlight">had been eating</span> pizza for an hour when she called.</div>
+        </div>
+        <div class="example">
+          <div class="ex-label">💬 Another example</div>
+          <div class="ex-sentence">She <span class="ex-highlight">had been studying</span> for 3 hours when she fell asleep.</div>
+        </div>
+      </div>
+      <div>
+        <div class="signals-label">🔑 Signal words</div>
+        <div class="signals">
+          <span class="signal-tag">for</span>
+          <span class="signal-tag">since</span>
+          <span class="signal-tag">how long</span>
+          <span class="signal-tag">before</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end past grid -->
+
+<!-- ══════════ PRESENT ══════════ -->
+<div class="section-title present-theme">
+  <div class="pill">⏺ Present Tenses</div>
+  <div class="line"></div>
+</div>
+
+<div class="grid">
+
+  <!-- Present Simple -->
+  <div class="card present">
+    <div class="card-header">
+      <div class="card-emoji">🔄</div>
+      <div>
+        <div class="card-title">Present Simple</div>
+        <div class="card-subtitle">Habits & facts</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p class="card-desc">Used for <strong>habits</strong>, routines, and facts that are always true. Things you do regularly!</p>
+      <div class="timeline-viz">
+        <div class="tv-seg">PAST</div>
+        <div class="tv-seg active">← NOW →</div>
+        <div class="tv-seg">FUTURE</div>
+      </div>
+      <div class="formula-box">
+        <div class="label">📐 Formula</div>
+        Subject + <strong>base verb</strong> (he/she/it → <strong>+s</strong>)
+      </div>
+      <div class="examples">
+        <div class="example">
+          <div class="ex-label">🍕 Hero sentence</div>
+          <div class="ex-sentence">I <span class="ex-highlight">eat</span> pizza every Friday.</div>
+        </div>
+        <div class="example">
+          <div class="ex-label">💬 Another example</div>
+          <div class="ex-sentence">The sun <span class="ex-highlight">rises</span> in the east.</div>
+        </div>
+      </div>
+      <div>
+        <div class="signals-label">🔑 Signal words</div>
+        <div class="signals">
+          <span class="signal-tag">always</span>
+          <span class="signal-tag">usually</span>
+          <span class="signal-tag">every day</span>
+          <span class="signal-tag">never</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Present Continuous -->
+  <div class="card present">
+    <div class="card-header">
+      <div class="card-emoji">🎬</div>
+      <div>
+        <div class="card-title">Present Continuous</div>
+        <div class="card-subtitle">Happening right now</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p class="card-desc">Something is <strong>happening at this very moment</strong>. Picture yourself describing what you see!</p>
+      <div class="timeline-viz">
+        <div class="tv-seg">PAST</div>
+        <div class="tv-seg active">~~NOW~~</div>
+        <div class="tv-seg">FUTURE</div>
+      </div>
+      <div class="formula-box">
+        <div class="label">📐 Formula</div>
+        Subject + <strong>am/is/are</strong> + <strong>verb-ing</strong>
+      </div>
+      <div class="examples">
+        <div class="example">
+          <div class="ex-label">🍕 Hero sentence</div>
+          <div class="ex-sentence">I <span class="ex-highlight">am eating</span> pizza right now.</div>
+        </div>
+        <div class="example">
+          <div class="ex-label">💬 Another example</div>
+          <div class="ex-sentence">She <span class="ex-highlight">is reading</span> a book at the moment.</div>
+        </div>
+      </div>
+      <div>
+        <div class="signals-label">🔑 Signal words</div>
+        <div class="signals">
+          <span class="signal-tag">right now</span>
+          <span class="signal-tag">at the moment</span>
+          <span class="signal-tag">look!</span>
+          <span class="signal-tag">currently</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Present Perfect -->
+  <div class="card present">
+    <div class="card-header">
+      <div class="card-emoji">🔗</div>
+      <div>
+        <div class="card-title">Present Perfect</div>
+        <div class="card-subtitle">Past with present result</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p class="card-desc">Something happened in the past but it <strong>matters now</strong> — the result affects the present moment.</p>
+      <div class="timeline-viz">
+        <div class="tv-seg active" style="flex:1.2">PAST ✓</div>
+        <div class="tv-seg" style="width:4px;flex:0;background:var(--present-dark)"></div>
+        <div class="tv-seg active">→ NOW</div>
+        <div class="tv-seg">FUTURE</div>
+      </div>
+      <div class="formula-box">
+        <div class="label">📐 Formula</div>
+        Subject + <strong>have/has</strong> + <strong>past participle</strong>
+      </div>
+      <div class="examples">
+        <div class="example">
+          <div class="ex-label">🍕 Hero sentence</div>
+          <div class="ex-sentence">I <span class="ex-highlight">have eaten</span> pizza — I'm full now!</div>
+        </div>
+        <div class="example">
+          <div class="ex-label">💬 Another example</div>
+          <div class="ex-sentence">She <span class="ex-highlight">has broken</span> her phone. (It's broken now.)</div>
+        </div>
+      </div>
+      <div>
+        <div class="signals-label">🔑 Signal words</div>
+        <div class="signals">
+          <span class="signal-tag">just</span>
+          <span class="signal-tag">already</span>
+          <span class="signal-tag">yet</span>
+          <span class="signal-tag">ever</span>
+          <span class="signal-tag">never</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Present Perfect Continuous -->
+  <div class="card present">
+    <div class="card-header">
+      <div class="card-emoji">🏃</div>
+      <div>
+        <div class="card-title">Present Perfect Continuous</div>
+        <div class="card-subtitle">Still ongoing from the past</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p class="card-desc">Something <strong>started in the past</strong> and is <strong>still happening</strong> (or just stopped, with visible results).</p>
+      <div class="timeline-viz">
+        <div class="tv-seg active" style="flex:1.2">PAST ≈≈≈</div>
+        <div class="tv-seg active">≈ NOW</div>
+        <div class="tv-seg">FUTURE</div>
+      </div>
+      <div class="formula-box">
+        <div class="label">📐 Formula</div>
+        Subject + <strong>have/has been</strong> + <strong>verb-ing</strong>
+      </div>
+      <div class="examples">
+        <div class="example">
+          <div class="ex-label">🍕 Hero sentence</div>
+          <div class="ex-sentence">I <span class="ex-highlight">have been eating</span> pizza for two hours!</div>
+        </div>
+        <div class="example">
+          <div class="ex-label">💬 Another example</div>
+          <div class="ex-sentence">He <span class="ex-highlight">has been running</span> since morning. (He's sweaty!)</div>
+        </div>
+      </div>
+      <div>
+        <div class="signals-label">🔑 Signal words</div>
+        <div class="signals">
+          <span class="signal-tag">for</span>
+          <span class="signal-tag">since</span>
+          <span class="signal-tag">all day</span>
+          <span class="signal-tag">lately</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end present grid -->
+
+<!-- ══════════ FUTURE ══════════ -->
+<div class="section-title future-theme">
+  <div class="pill">⏩ Future Tenses</div>
+  <div class="line"></div>
+</div>
+
+<div class="grid">
+
+  <!-- Future Simple -->
+  <div class="card future">
+    <div class="card-header">
+      <div class="card-emoji">🚀</div>
+      <div>
+        <div class="card-title">Future Simple</div>
+        <div class="card-subtitle">Decision or prediction</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p class="card-desc">Used for <strong>quick decisions</strong>, promises, or predictions. You decide as you speak!</p>
+      <div class="timeline-viz">
+        <div class="tv-seg">PAST</div>
+        <div class="tv-seg">NOW</div>
+        <div class="tv-seg active">FUTURE →</div>
+      </div>
+      <div class="formula-box">
+        <div class="label">📐 Formula</div>
+        Subject + <strong>will</strong> + <strong>base verb</strong>
+      </div>
+      <div class="examples">
+        <div class="example">
+          <div class="ex-label">🍕 Hero sentence</div>
+          <div class="ex-sentence">I <span class="ex-highlight">will eat</span> pizza tonight.</div>
+        </div>
+        <div class="example">
+          <div class="ex-label">💬 Another example</div>
+          <div class="ex-sentence">It <span class="ex-highlight">will rain</span> tomorrow, I think.</div>
+        </div>
+      </div>
+      <div>
+        <div class="signals-label">🔑 Signal words</div>
+        <div class="signals">
+          <span class="signal-tag">tomorrow</span>
+          <span class="signal-tag">next year</span>
+          <span class="signal-tag">soon</span>
+          <span class="signal-tag">I think</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Future Continuous -->
+  <div class="card future">
+    <div class="card-header">
+      <div class="card-emoji">🛸</div>
+      <div>
+        <div class="card-title">Future Continuous</div>
+        <div class="card-subtitle">In progress in the future</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p class="card-desc">An action will be <strong>in progress</strong> at a specific moment in the future. It's the "pause" button, but tomorrow!</p>
+      <div class="timeline-viz">
+        <div class="tv-seg">PAST</div>
+        <div class="tv-seg">NOW</div>
+        <div class="tv-seg active">~~FUTURE~~</div>
+      </div>
+      <div class="formula-box">
+        <div class="label">📐 Formula</div>
+        Subject + <strong>will be</strong> + <strong>verb-ing</strong>
+      </div>
+      <div class="examples">
+        <div class="example">
+          <div class="ex-label">🍕 Hero sentence</div>
+          <div class="ex-sentence">I <span class="ex-highlight">will be eating</span> pizza at 8 pm tomorrow.</div>
+        </div>
+        <div class="example">
+          <div class="ex-label">💬 Another example</div>
+          <div class="ex-sentence">This time next week, she <span class="ex-highlight">will be flying</span> to Paris.</div>
+        </div>
+      </div>
+      <div>
+        <div class="signals-label">🔑 Signal words</div>
+        <div class="signals">
+          <span class="signal-tag">at this time tomorrow</span>
+          <span class="signal-tag">this time next week</span>
+          <span class="signal-tag">while</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Future Perfect -->
+  <div class="card future">
+    <div class="card-header">
+      <div class="card-emoji">🏆</div>
+      <div>
+        <div class="card-title">Future Perfect</div>
+        <div class="card-subtitle">Completed before a future point</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p class="card-desc">Something <strong>will be finished</strong> before a specific point in the future. Imagine looking back from the future!</p>
+      <div class="timeline-viz">
+        <div class="tv-seg">PAST</div>
+        <div class="tv-seg">NOW</div>
+        <div class="tv-seg active">FUT. ✓</div>
+        <div class="tv-seg active">then →</div>
+      </div>
+      <div class="formula-box">
+        <div class="label">📐 Formula</div>
+        Subject + <strong>will have</strong> + <strong>past participle</strong>
+      </div>
+      <div class="examples">
+        <div class="example">
+          <div class="ex-label">🍕 Hero sentence</div>
+          <div class="ex-sentence">I <span class="ex-highlight">will have eaten</span> pizza by 9 pm.</div>
+        </div>
+        <div class="example">
+          <div class="ex-label">💬 Another example</div>
+          <div class="ex-sentence">By June, she <span class="ex-highlight">will have finished</span> school.</div>
+        </div>
+      </div>
+      <div>
+        <div class="signals-label">🔑 Signal words</div>
+        <div class="signals">
+          <span class="signal-tag">by then</span>
+          <span class="signal-tag">by the time</span>
+          <span class="signal-tag">before</span>
+          <span class="signal-tag">by 2030</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Future Perfect Continuous -->
+  <div class="card future">
+    <div class="card-header">
+      <div class="card-emoji">🌌</div>
+      <div>
+        <div class="card-title">Future Perfect Continuous</div>
+        <div class="card-subtitle">Duration up to a future point</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p class="card-desc">Shows <strong>how long</strong> an action will have been going on by a certain future time. All about the duration!</p>
+      <div class="timeline-viz">
+        <div class="tv-seg">PAST</div>
+        <div class="tv-seg active">≈≈≈ NOW</div>
+        <div class="tv-seg active">≈≈ by then</div>
+      </div>
+      <div class="formula-box">
+        <div class="label">📐 Formula</div>
+        Subject + <strong>will have been</strong> + <strong>verb-ing</strong>
+      </div>
+      <div class="examples">
+        <div class="example">
+          <div class="ex-label">🍕 Hero sentence</div>
+          <div class="ex-sentence">By midnight, I <span class="ex-highlight">will have been eating</span> pizza for 4 hours! 😂</div>
+        </div>
+        <div class="example">
+          <div class="ex-label">💬 Another example</div>
+          <div class="ex-sentence">By 2030, she <span class="ex-highlight">will have been teaching</span> for 20 years.</div>
+        </div>
+      </div>
+      <div>
+        <div class="signals-label">🔑 Signal words</div>
+        <div class="signals">
+          <span class="signal-tag">by then</span>
+          <span class="signal-tag">for ... years</span>
+          <span class="signal-tag">by the time</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end future grid -->
+
+<!-- QUICK REFERENCE TABLE -->
+<div class="table-wrap" style="max-width:900px;margin:0 auto 60px;">
+  <div style="background:#fff;border-radius:var(--radius);box-shadow:0 4px 24px rgba(0,0,0,.08);overflow:hidden;">
+    <div class="table-head" style="background:var(--dark);color:#fff;padding:20px 24px;font-family:'Fredoka One',cursive;font-size:1.3rem;">
+      🍕 Quick Reference: "I eat pizza" across all 12 tenses
+    </div>
+    <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;">
+      <table style="width:100%;border-collapse:collapse;font-size:.9rem;min-width:420px;">
+        <thead>
+          <tr style="background:#F0F4FF;">
+            <th style="padding:12px 16px;text-align:left;font-weight:900;color:#555;width:180px">Tense</th>
+            <th style="padding:12px 16px;text-align:left;font-weight:900;color:#555">Sentence</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-top:1px solid #eee;"><td style="padding:10px 16px;color:var(--past-dark);font-weight:700;">Past Simple</td><td style="padding:10px 16px;">I <strong>ate</strong> pizza.</td></tr>
+          <tr style="border-top:1px solid #eee;background:#FAFAFA;"><td style="padding:10px 16px;color:var(--past-dark);font-weight:700;">Past Continuous</td><td style="padding:10px 16px;">I <strong>was eating</strong> pizza.</td></tr>
+          <tr style="border-top:1px solid #eee;"><td style="padding:10px 16px;color:var(--past-dark);font-weight:700;">Past Perfect</td><td style="padding:10px 16px;">I <strong>had eaten</strong> pizza.</td></tr>
+          <tr style="border-top:1px solid #eee;background:#FAFAFA;"><td style="padding:10px 16px;color:var(--past-dark);font-weight:700;">Past Perfect Cont.</td><td style="padding:10px 16px;">I <strong>had been eating</strong> pizza.</td></tr>
+          <tr style="border-top:2px solid #eee;"><td style="padding:10px 16px;color:var(--present-dark);font-weight:700;">Present Simple</td><td style="padding:10px 16px;">I <strong>eat</strong> pizza.</td></tr>
+          <tr style="border-top:1px solid #eee;background:#FAFAFA;"><td style="padding:10px 16px;color:var(--present-dark);font-weight:700;">Present Continuous</td><td style="padding:10px 16px;">I <strong>am eating</strong> pizza.</td></tr>
+          <tr style="border-top:1px solid #eee;"><td style="padding:10px 16px;color:var(--present-dark);font-weight:700;">Present Perfect</td><td style="padding:10px 16px;">I <strong>have eaten</strong> pizza.</td></tr>
+          <tr style="border-top:1px solid #eee;background:#FAFAFA;"><td style="padding:10px 16px;color:var(--present-dark);font-weight:700;">Present Perfect Cont.</td><td style="padding:10px 16px;">I <strong>have been eating</strong> pizza.</td></tr>
+          <tr style="border-top:2px solid #eee;"><td style="padding:10px 16px;color:var(--future-dark);font-weight:700;">Future Simple</td><td style="padding:10px 16px;">I <strong>will eat</strong> pizza.</td></tr>
+          <tr style="border-top:1px solid #eee;background:#FAFAFA;"><td style="padding:10px 16px;color:var(--future-dark);font-weight:700;">Future Continuous</td><td style="padding:10px 16px;">I <strong>will be eating</strong> pizza.</td></tr>
+          <tr style="border-top:1px solid #eee;"><td style="padding:10px 16px;color:var(--future-dark);font-weight:700;">Future Perfect</td><td style="padding:10px 16px;">I <strong>will have eaten</strong> pizza.</td></tr>
+          <tr style="border-top:1px solid #eee;background:#FAFAFA;"><td style="padding:10px 16px;color:var(--future-dark);font-weight:700;">Future Perfect Cont.</td><td style="padding:10px 16px;">I <strong>will have been eating</strong> pizza.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<footer>
+  Made with ❤️ for English learners everywhere &nbsp;·&nbsp; <strong>12 tenses · 1 pizza · endless possibilities! 🍕</strong>
+</footer>
+
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+</body>
+</html>

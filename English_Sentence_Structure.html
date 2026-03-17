@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English Sentence Structure 🧩</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --yellow: #FFD93D;
+    --orange: #FF6B35;
+    --pink: #FF6B9D;
+    --purple: #A855F7;
+    --blue: #3B82F6;
+    --cyan: #06B6D4;
+    --green: #10B981;
+    --red: #EF4444;
+    --dark: #1E1B4B;
+    --light: #F0F4FF;
+    --white: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: #F0F4FF;
+    color: #1E1B4B;
+    overflow-x: hidden;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    background: linear-gradient(135deg, #1E1B4B 0%, #312E81 50%, #4C1D95 100%);
+    padding: 60px 20px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 20% 50%, rgba(168,85,247,.3) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(59,130,246,.3) 0%, transparent 60%);
+  }
+  .hero-emoji {
+    font-size: 80px;
+    display: block;
+    margin-bottom: 16px;
+    animation: bounce 2s infinite;
+  }
+  @keyframes bounce {
+    0%,100%{ transform: translateY(0); }
+    50%{ transform: translateY(-12px); }
+  }
+  .hero h1 {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(2rem, 6vw, 4rem);
+    font-weight: 800;
+    color: #fff;
+    position: relative;
+    line-height: 1.2;
+  }
+  .hero h1 span { color: var(--yellow); }
+  .hero-sub {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,.8);
+    margin-top: 12px;
+    position: relative;
+  }
+  .hero-sub em { color: var(--cyan); font-style: normal; font-weight: 700; }
+  .wave {
+    position: absolute; bottom: -2px; left: 0; width: 100%;
+    height: 60px;
+    background: #F0F4FF;
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+
+  /* ─── LAYOUT ─── */
+  .container { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+  .section { padding: 60px 20px; }
+  .section-title {
+    font-family: 'Baloo 2', cursive;
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-sub {
+    font-size: .95rem;
+    color: #6B7280;
+    margin-bottom: 32px;
+    line-height: 1.5;
+  }
+
+  /* ─── CORE SENTENCE ─── */
+  .core-box {
+    background: var(--dark);
+    border-radius: 24px;
+    padding: 36px;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .core-box::after {
+    content: '⭐';
+    position: absolute; top:-20px; right:-20px;
+    font-size: 100px; opacity: .08;
+  }
+  .core-label {
+    font-size: .8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--yellow);
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+  .core-sentence {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(1.4rem, 4vw, 2.2rem);
+    font-weight: 800;
+    color: var(--yellow);
+    margin-bottom: 12px;
+  }
+  .core-ua {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,.7);
+    font-style: italic;
+  }
+  .word-pills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 24px;
+  }
+  .pill {
+    padding: 8px 20px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: .95rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+  .pill span { font-size: .7rem; font-weight: 600; opacity: .7; }
+  .pill-s { background: var(--pink); color: #fff; }
+  .pill-v { background: var(--orange); color: #fff; }
+  .pill-o { background: var(--blue); color: #fff; }
+  .pill-p { background: var(--green); color: #fff; }
+  .pill-t { background: var(--purple); color: #fff; }
+
+  /* ─── CARDS ─── */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+  .card {
+    border-radius: 20px;
+    padding: 28px;
+    position: relative;
+    overflow: hidden;
+    transition: transform .2s;
+  }
+  .card:hover { transform: translateY(-4px); }
+  .card-icon { font-size: 48px; margin-bottom: 12px; display: block; }
+  .card-num {
+    position: absolute; top: 20px; right: 20px;
+    font-family: 'Baloo 2', cursive;
+    font-size: 3rem;
+    font-weight: 800;
+    opacity: .12;
+  }
+  .card h3 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-bottom: 4px;
+  }
+  .card .ua { font-size: .85rem; opacity: .7; margin-bottom: 14px; font-style: italic; }
+  .card p { font-size: .92rem; line-height: 1.6; }
+
+  .card-1 { background: #FFF1F2; }
+  .card-2 { background: #FFF7ED; }
+  .card-3 { background: #F0FDF4; }
+  .card-4 { background: #EFF6FF; }
+  .card-5 { background: #FAF5FF; }
+  .card-6 { background: #ECFDF5; }
+
+  /* ─── FORMULA BOX ─── */
+  .formula {
+    background: var(--dark);
+    color: var(--yellow);
+    border-radius: 14px;
+    padding: 14px 20px;
+    font-family: 'Baloo 2', cursive;
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 12px 0;
+    letter-spacing: .5px;
+  }
+  .formula .fa { color: rgba(255,255,255,.5); font-size: .8rem; font-family: 'Nunito', sans-serif; font-weight: 600; }
+
+  /* ─── EXAMPLE BLOCK ─── */
+  .example {
+    background: #fff;
+    border-left: 5px solid var(--blue);
+    border-radius: 0 12px 12px 0;
+    padding: 14px 18px;
+    margin: 10px 0;
+    font-size: .92rem;
+    line-height: 1.7;
+  }
+  .example strong { color: var(--blue); font-size: 1.02rem; }
+  .example .ua-ex { color: #6B7280; font-style: italic; font-size: .88rem; }
+
+  .ex-orange { border-color: var(--orange); }
+  .ex-orange strong { color: var(--orange); }
+  .ex-pink { border-color: var(--pink); }
+  .ex-pink strong { color: var(--pink); }
+  .ex-purple { border-color: var(--purple); }
+  .ex-purple strong { color: var(--purple); }
+  .ex-green { border-color: var(--green); }
+  .ex-green strong { color: var(--green); }
+  .ex-cyan { border-color: var(--cyan); }
+  .ex-cyan strong { color: var(--cyan); }
+
+  /* ─── SECTIONS bg ─── */
+  .bg-white { background: #fff; }
+  .bg-light { background: #F0F4FF; }
+  .bg-dark { background: var(--dark); }
+  .bg-dark .section-title { color: #fff; }
+  .bg-dark .section-sub { color: rgba(255,255,255,.6); }
+
+  /* ─── TRANSFORM TABLE ─── */
+  .transform-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 12px 0;
+    flex-wrap: wrap;
+  }
+  .tr-badge {
+    padding: 4px 14px;
+    border-radius: 999px;
+    font-size: .8rem;
+    font-weight: 700;
+    white-space: nowrap;
+    min-width: 90px;
+    text-align: center;
+  }
+  .tr-base { background: var(--yellow); color: var(--dark); }
+  .tr-q { background: var(--blue); color: #fff; }
+  .tr-tag { background: var(--pink); color: #fff; }
+  .tr-cleft { background: var(--purple); color: #fff; }
+  .tr-emph { background: var(--orange); color: #fff; }
+  .tr-inv { background: var(--cyan); color: var(--dark); }
+  .tr-text {
+    flex: 1;
+    background: #fff;
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-size: .92rem;
+    font-weight: 600;
+    min-width: 200px;
+  }
+  .tr-ua { color: #6B7280; font-weight: 400; font-style: italic; font-size: .85rem; }
+  .arrow { font-size: 1.2rem; color: #CBD5E1; }
+
+  /* ─── HIGHLIGHT WORD ─── */
+  .hw-s { color: var(--pink); font-weight: 900; }
+  .hw-v { color: var(--orange); font-weight: 900; }
+  .hw-o { color: var(--blue); font-weight: 900; }
+  .hw-p { color: var(--green); font-weight: 900; }
+  .hw-t { color: var(--purple); font-weight: 900; }
+
+  /* ─── LEGEND ─── */
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 16px 0 24px;
+  }
+  .legend-item {
+    display: flex; align-items: center; gap: 6px;
+    font-size: .82rem; font-weight: 700;
+  }
+  .legend-dot {
+    width: 14px; height: 14px;
+    border-radius: 4px;
+  }
+
+  /* ─── TIP BOX ─── */
+  .tip {
+    background: linear-gradient(135deg, #FFF9C4, #FFF3B0);
+    border-radius: 16px;
+    padding: 20px 24px;
+    margin: 24px 0;
+    font-size: .92rem;
+    line-height: 1.6;
+    border-left: 5px solid var(--yellow);
+  }
+  .tip-title { font-weight: 800; font-size: 1rem; margin-bottom: 6px; }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    background: var(--dark);
+    color: rgba(255,255,255,.6);
+    text-align: center;
+    padding: 40px 20px;
+    font-size: .9rem;
+  }
+  .footer strong { color: var(--yellow); }
+
+  /* ─── RESPONSIVE ─── */
+
+  /* Tablet */
+  @media(max-width:768px){
+    .section { padding: 40px 16px; }
+    .section-title { font-size: 1.5rem; gap: 8px; flex-wrap: wrap; }
+    .section-sub { font-size: .88rem; }
+    .cards-grid { grid-template-columns: 1fr; gap: 16px; }
+    .card { padding: 22px 18px; }
+    .card-icon { font-size: 36px; margin-bottom: 8px; }
+    .core-box { padding: 24px 18px; }
+    .formula { font-size: .9rem; padding: 12px 16px; word-break: break-word; }
+    .tip { padding: 16px 18px; font-size: .88rem; }
+  }
+
+  /* Mobile */
+  @media(max-width:600px){
+    /* Hero */
+    .hero { padding: 40px 16px 70px; }
+    .hero-emoji { font-size: 56px; }
+    .hero-sub { font-size: .9rem; }
+
+    /* Container */
+    .container { padding: 0 14px; }
+
+    /* Core sentence box */
+    .core-box { padding: 20px 14px; border-radius: 16px; }
+    .core-sentence { font-size: 1.1rem; word-break: break-word; }
+    .core-ua { font-size: .9rem; }
+    .word-pills { gap: 8px; }
+    .pill { padding: 6px 14px; font-size: .82rem; }
+    .pill span { font-size: .65rem; }
+
+    /* Legend */
+    .legend { gap: 8px; }
+    .legend-item { font-size: .78rem; }
+
+    /* Examples */
+    .example { padding: 12px 14px; font-size: .86rem; word-break: break-word; }
+    .example strong { font-size: .92rem; }
+    .example .ua-ex { font-size: .82rem; }
+
+    /* Formula */
+    .formula { font-size: .82rem; letter-spacing: 0; word-break: break-word; white-space: normal; }
+    .formula .fa { font-size: .75rem; }
+
+    /* Tip */
+    .tip { padding: 14px 14px; font-size: .84rem; }
+    .tip-title { font-size: .9rem; }
+
+    /* Transform table — scroll wrapper */
+    .transforms-scroll-wrapper {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 14px;
+      padding-bottom: 8px;
+    }
+    .transforms-scroll-wrapper::-webkit-scrollbar { height: 4px; }
+    .transforms-scroll-wrapper::-webkit-scrollbar-thumb { background: rgba(255,255,255,.25); border-radius: 4px; }
+
+    .transform-row {
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: flex-start;
+      min-width: 480px;
+      gap: 8px;
+    }
+    .tr-badge { font-size: .72rem; min-width: 76px; padding: 4px 10px; }
+    .tr-text { font-size: .82rem; padding: 8px 12px; min-width: 0; }
+    .tr-ua { font-size: .78rem; }
+    .arrow { font-size: 1rem; flex-shrink: 0; padding-top: 10px; }
+
+    /* Cards */
+    .card { padding: 18px 16px; border-radius: 16px; }
+    .card h3 { font-size: 1.1rem; }
+    .card p { font-size: .86rem; }
+    .card-num { font-size: 2.2rem; }
+
+    /* Section title */
+    .section-title { font-size: 1.3rem; }
+
+    /* Footer */
+    .footer { padding: 30px 16px; font-size: .84rem; }
+  }
+
+  /* Very small screens */
+  @media(max-width:360px){
+    .hero-emoji { font-size: 44px; }
+    .core-sentence { font-size: .95rem; }
+    .transform-row { min-width: 420px; }
+  }
+
+#scroll-top-btn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #1a1208;
+  border: 1.5px solid rgba(200,150,62,0.4);
+  color: #f5f0e8;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+  pointer-events: none;
+  z-index: 9998;
+}
+#scroll-top-btn.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+#scroll-top-btn:hover {
+  background: #c8963e;
+  border-color: #c8963e;
+  color: #1a1208;
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     HERO
+════════════════════════════════════════════ -->
+<header class="hero">
+  <span class="hero-emoji">🧩</span>
+  <h1>English <span>Sentence Structure</span></h1>
+  <p class="hero-sub">Learn how to build any sentence in English — <em>from basic to boss level!</em><br>
+  Вчимося будувати будь-яке речення англійською — від простого до складного!</p>
+  <div class="wave"></div>
+</header>
+
+<!-- ═══════════════════════════════════════════
+     CORE SENTENCE
+════════════════════════════════════════════ -->
+<section class="section bg-light">
+  <div class="container">
+    <div class="section-title">🌟 Our Magic Sentence</div>
+    <p class="section-sub">
+      We'll use ONE sentence throughout this whole lesson and watch how it changes!<br>
+      <em>Ми використаємо ОДНЕ речення і будемо дивитися, як воно змінюється!</em>
+    </p>
+
+    <div class="core-box">
+      <div class="core-label">✦ The Core Sentence ✦</div>
+      <div class="core-sentence">"Tom drinks coffee every morning."</div>
+      <div class="core-ua">«Том п'є каву кожного ранку.»</div>
+      <div class="word-pills">
+        <div class="pill pill-s">Tom <span>Subject / Підмет</span></div>
+        <div class="pill pill-v">drinks <span>Verb / Дієслово</span></div>
+        <div class="pill pill-o">coffee <span>Object / Додаток</span></div>
+        <div class="pill pill-t">every morning <span>Time / Час</span></div>
+      </div>
+    </div>
+
+    <div class="legend">
+      <div class="legend-item"><div class="legend-dot" style="background:var(--pink)"></div> S = Subject (хто?)</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--orange)"></div> V = Verb (що робить?)</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--blue)"></div> O = Object (що? кого?)</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div> P = Place (де?)</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--purple)"></div> T = Time (коли?)</div>
+    </div>
+
+    <div class="tip">
+      <div class="tip-title">🔑 The Golden Rule of English Word Order</div>
+      English almost ALWAYS follows this pattern:<br>
+      <strong>Subject → Verb → Object → Place → Time</strong><br>
+      <em>Англійська майже ЗАВЖДИ дотримується цього порядку: Підмет → Дієслово → Додаток → Місце → Час</em>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     1. WORD ORDER
+════════════════════════════════════════════ -->
+<section class="section bg-white">
+  <div class="container">
+    <div class="section-title">📐 1. Word Order <span style="font-size:1rem;color:#6B7280;font-weight:400"> — Порядок слів</span></div>
+    <p class="section-sub">
+      Unlike Ukrainian, English word order is FIXED. You can't just rearrange words!<br>
+      <em>На відміну від української, в англійській порядок слів ФІКСОВАНИЙ. Не можна переставляти слова як хочеш!</em>
+    </p>
+
+    <div class="formula">
+      S &nbsp;+&nbsp; V &nbsp;+&nbsp; O &nbsp;+&nbsp; (Place) &nbsp;+&nbsp; (Time)
+      <div class="fa">Підмет + Дієслово + Додаток + (Місце) + (Час)</div>
+    </div>
+
+    <div class="example">
+      <strong>✅ <span class="hw-s">Tom</span> <span class="hw-v">drinks</span> <span class="hw-o">coffee</span> <span class="hw-t">every morning</span>.</strong><br>
+      <div class="ua-ex">✅ Том п'є каву кожного ранку. — <em>Правильно!</em></div>
+    </div>
+    <div class="example ex-orange">
+      <strong>❌ Every morning coffee drinks Tom.</strong><br>
+      <div class="ua-ex">❌ Неправильно! Хоча в українській так можна сказати, в англійській — ні.</div>
+    </div>
+    <div class="example ex-green">
+      <strong>✅ <span class="hw-s">She</span> <span class="hw-v">reads</span> <span class="hw-o">books</span> <span class="hw-p">at home</span> <span class="hw-t">on weekends</span>.</strong><br>
+      <div class="ua-ex">✅ Вона читає книжки вдома на вихідних.</div>
+    </div>
+
+    <div class="tip">
+      <div class="tip-title">💡 Remember / Запам'ятай</div>
+      Adverbs of frequency (always, usually, often, never) go <strong>BEFORE the main verb</strong> but <strong>AFTER "be"</strong>.<br>
+      <em>Прислівники частоти (завжди, зазвичай, часто, ніколи) ставляться ПЕРЕД основним дієсловом, але ПІСЛЯ «to be».</em><br><br>
+      <strong>Tom always drinks coffee.</strong> ✅ &nbsp;|&nbsp; <strong>Tom is always tired.</strong> ✅
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     2. QUESTIONS
+════════════════════════════════════════════ -->
+<section class="section bg-light">
+  <div class="container">
+    <div class="section-title">❓ 2. Questions (Inversion) <span style="font-size:1rem;color:#6B7280;font-weight:400"> — Питання</span></div>
+    <p class="section-sub">
+      To make a question, we <strong>invert</strong> (swap) the auxiliary verb and the subject.<br>
+      <em>Щоб поставити запитання, ми <strong>переставляємо</strong> допоміжне дієслово і підмет місцями.</em>
+    </p>
+
+    <div class="formula">
+      Aux/Do &nbsp;+&nbsp; S &nbsp;+&nbsp; V &nbsp;+&nbsp; O &nbsp;?
+      <div class="fa">Допоміжне дієслово + Підмет + Основне дієслово + Додаток?</div>
+    </div>
+
+    <div class="example">
+      <strong>Statement: <span class="hw-s">Tom</span> <span class="hw-v">drinks</span> coffee every morning.</strong><br>
+      <div class="ua-ex">Твердження: Том п'є каву кожного ранку.</div>
+    </div>
+    <div class="example ex-pink">
+      <strong>Yes/No Question: <span class="hw-v">Does</span> <span class="hw-s">Tom</span> <span class="hw-v">drink</span> coffee every morning?</strong><br>
+      <div class="ua-ex">❓ Так/Ні: Том п'є каву кожного ранку?</div>
+    </div>
+    <div class="example ex-pink">
+      <strong>Wh-Question: <span style="color:var(--pink);font-weight:900">What</span> <span class="hw-v">does</span> <span class="hw-s">Tom</span> <span class="hw-v">drink</span> every morning?</strong><br>
+      <div class="ua-ex">❓ Що-запитання: Що Том п'є кожного ранку?</div>
+    </div>
+    <div class="example ex-pink">
+      <strong>Wh-Question: <span style="color:var(--pink);font-weight:900">When</span> <span class="hw-v">does</span> <span class="hw-s">Tom</span> <span class="hw-v">drink</span> coffee?</strong><br>
+      <div class="ua-ex">❓ Коли Том п'є каву?</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     3. TAG QUESTIONS
+════════════════════════════════════════════ -->
+<section class="section bg-white">
+  <div class="container">
+    <div class="section-title">🏷️ 3. Tag Questions <span style="font-size:1rem;color:#6B7280;font-weight:400"> — Розділові запитання</span></div>
+    <p class="section-sub">
+      Tag questions are little questions added to the end of a statement to check or confirm something.<br>
+      <em>Розділові запитання — це маленькі запитання в кінці речення для підтвердження чи перевірки.</em>
+    </p>
+
+    <div class="formula">
+      Positive statement &nbsp;+&nbsp; negative tag &nbsp;?<br>
+      Negative statement &nbsp;+&nbsp; positive tag &nbsp;?
+      <div class="fa">Стверджувальне речення + заперечний хвостик? / Заперечне речення + стверджувальний хвостик?</div>
+    </div>
+
+    <div class="example ex-purple">
+      <strong>Tom drinks coffee every morning, <span class="hw-t">doesn't he</span>?</strong><br>
+      <div class="ua-ex">Том п'є каву кожного ранку, чи не так?</div>
+    </div>
+    <div class="example ex-purple">
+      <strong>Tom doesn't drink tea, <span class="hw-t">does he</span>?</strong><br>
+      <div class="ua-ex">Том не п'є чай, правда?</div>
+    </div>
+    <div class="example ex-purple">
+      <strong>Tom is drinking coffee, <span class="hw-t">isn't he</span>?</strong><br>
+      <div class="ua-ex">Том п'є каву (зараз), правда?</div>
+    </div>
+
+    <div class="tip">
+      <div class="tip-title">🔑 The Rule / Правило</div>
+      <strong>+</strong> statement → <strong>−</strong> tag &nbsp;|&nbsp; <strong>−</strong> statement → <strong>+</strong> tag<br>
+      <em>Стверджувальне речення → заперечний хвостик | Заперечне речення → стверджувальний хвостик</em><br><br>
+      The tag ALWAYS uses the <strong>same auxiliary verb</strong> as the main clause!<br>
+      <em>Хвостик ЗАВЖДИ використовує ТЕ САМЕ допоміжне дієслово, що й основне речення!</em>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     4. CLEFT SENTENCES
+════════════════════════════════════════════ -->
+<section class="section bg-light">
+  <div class="container">
+    <div class="section-title">🔍 4. Cleft Sentences <span style="font-size:1rem;color:#6B7280;font-weight:400"> — Розщеплені речення</span></div>
+    <p class="section-sub">
+      Cleft sentences let us HIGHLIGHT one part of the sentence — put a spotlight on it!<br>
+      <em>Розщеплені речення дозволяють ВИДІЛИТИ одну частину речення — поставити на неї прожектор!</em>
+    </p>
+
+    <div class="formula">
+      It + be &nbsp;+&nbsp; [FOCUS] &nbsp;+&nbsp; who/that + rest of sentence
+      <div class="fa">It + be + [НАГОЛОС] + who/that + решта речення</div>
+    </div>
+
+    <div class="example">
+      <strong>Base: Tom drinks coffee every morning.</strong><br>
+      <div class="ua-ex">Основне: Том п'є каву кожного ранку.</div>
+    </div>
+    <div class="example ex-cyan">
+      <strong>Focus on WHO: It was <span class="hw-s">Tom</span> who drinks coffee every morning.</strong><br>
+      <div class="ua-ua ua-ex">Наголос на ХТО: Саме <strong>Том</strong> п'є каву кожного ранку.</div>
+    </div>
+    <div class="example ex-cyan">
+      <strong>Focus on WHAT: It is <span class="hw-o">coffee</span> that Tom drinks every morning.</strong><br>
+      <div class="ua-ex">Наголос на ЩО: Саме <strong>каву</strong> п'є Том кожного ранку.</div>
+    </div>
+    <div class="example ex-cyan">
+      <strong>Focus on WHEN: It is <span class="hw-t">every morning</span> that Tom drinks coffee.</strong><br>
+      <div class="ua-ex">Наголос на КОЛИ: Саме <strong>кожного ранку</strong> Том п'є каву.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     5. EMPHATIC STRUCTURES
+════════════════════════════════════════════ -->
+<section class="section bg-white">
+  <div class="container">
+    <div class="section-title">💥 5. Emphatic Structures <span style="font-size:1rem;color:#6B7280;font-weight:400"> — Емфатичні конструкції</span></div>
+    <p class="section-sub">
+      We use "do/does/did" to give EXTRA stress or emphasis to a statement.<br>
+      <em>Ми використовуємо «do/does/did», щоб ПІДСИЛИТИ твердження або наказ.</em>
+    </p>
+
+    <div class="formula">
+      S &nbsp;+&nbsp; DO/DOES/DID &nbsp;+&nbsp; base verb &nbsp;+&nbsp; O
+      <div class="fa">Підмет + DO/DOES/DID + основне дієслово (інфінітив) + Додаток</div>
+    </div>
+
+    <div class="example">
+      <strong>Normal: Tom drinks coffee every morning.</strong><br>
+      <div class="ua-ex">Звичайне: Том п'є каву кожного ранку.</div>
+    </div>
+    <div class="example ex-orange">
+      <strong>Emphatic: Tom <span class="hw-v">DOES drink</span> coffee every morning! (I'm serious!)</strong><br>
+      <div class="ua-ex">💥 Емфатичне: Том СПРАВДІ п'є каву кожного ранку! (Я серйозно!)</div>
+    </div>
+    <div class="example ex-orange">
+      <strong>Past Emphatic: Tom <span class="hw-v">DID drink</span> coffee that morning.</strong><br>
+      <div class="ua-ex">💥 Минулий час: Том СПРАВДІ пив каву того ранку.</div>
+    </div>
+    <div class="example ex-orange">
+      <strong>Imperative: <span class="hw-v">Do come in</span>! / <span class="hw-v">Do try</span> the coffee!</strong><br>
+      <div class="ua-ex">💥 Наказ з «Do»: Та заходьте ж! / Та спробуйте каву!</div>
+    </div>
+
+    <div class="tip">
+      <div class="tip-title">💡 When to use it / Коли використовувати</div>
+      Use emphatic "do" when someone doubts you, or when you want to be very persuasive!<br>
+      <em>Використовуй емфатичний «do», коли хтось сумнівається або коли хочеш бути дуже переконливим!</em>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     6. INVERSION
+════════════════════════════════════════════ -->
+<section class="section bg-light">
+  <div class="container">
+    <div class="section-title">🔄 6. Inversion <span style="font-size:1rem;color:#6B7280;font-weight:400"> — Інверсія</span></div>
+    <p class="section-sub">
+      Inversion = putting the auxiliary verb BEFORE the subject, usually for dramatic effect or after negative adverbs.<br>
+      <em>Інверсія = допоміжне дієслово ПЕРЕД підметом. Використовується для драматичного ефекту або після заперечних прислівників.</em>
+    </p>
+
+    <div class="formula">
+      Negative adverb &nbsp;+&nbsp; Aux/V &nbsp;+&nbsp; S &nbsp;+&nbsp; main verb…
+      <div class="fa">Заперечний прислівник + Допоміжне дієслово + Підмет + Основне дієслово…</div>
+    </div>
+
+    <div class="example">
+      <strong>Normal: Tom has never drunk such good coffee.</strong><br>
+      <div class="ua-ex">Звичайне: Том ніколи не пив такої гарної кави.</div>
+    </div>
+    <div class="example ex-green">
+      <strong><span class="hw-t">Never</span> <span class="hw-v">has</span> <span class="hw-s">Tom</span> drunk such good coffee!</strong><br>
+      <div class="ua-ex">🎭 Ніколи ще Том не пив такої гарної кави!</div>
+    </div>
+    <div class="example ex-green">
+      <strong><span class="hw-t">Rarely</span> <span class="hw-v">does</span> <span class="hw-s">Tom</span> drink tea.</strong><br>
+      <div class="ua-ex">🎭 Рідко Том п'є чай.</div>
+    </div>
+    <div class="example ex-green">
+      <strong><span class="hw-t">Not only</span> <span class="hw-v">does</span> <span class="hw-s">Tom</span> drink coffee, but he also makes it for others.</strong><br>
+      <div class="ua-ex">🎭 Том не тільки п'є каву, а й готує її для інших.</div>
+    </div>
+    <div class="example ex-green">
+      <strong><span class="hw-t">Hardly</span> <span class="hw-v">had</span> <span class="hw-s">Tom</span> sat down when the coffee arrived.</strong><br>
+      <div class="ua-ex">🎭 Ледве Том сів, як принесли каву.</div>
+    </div>
+
+    <div class="tip">
+      <div class="tip-title">⚠️ Common inversion triggers / Типові слова для інверсії</div>
+      <strong>Never, Rarely, Seldom, Hardly, Barely, Not only, No sooner, Little, Only then</strong><br>
+      <em>Ніколи, Рідко, Рідко, Ледве, Майже не, Не тільки, Не встиг, Мало, Тільки тоді</em><br><br>
+      These are mostly used in <strong>formal writing or literature</strong> — they sound very elegant!<br>
+      <em>Переважно використовуються у <strong>формальному письмі або літературі</strong> — звучить дуже елегантно!</em>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     BIG TRANSFORMATION TABLE
+════════════════════════════════════════════ -->
+<section class="section bg-dark">
+  <div class="container">
+    <div class="section-title">🚀 All Transformations at a Glance</div>
+    <p class="section-sub">Watch our magic sentence "Tom drinks coffee every morning" change into all forms!<br>
+    <em>Дивіться, як наше речення «Tom drinks coffee every morning» набуває різних форм!</em></p>
+
+    <div class="transforms-scroll-wrapper">
+    <div class="transform-row">
+      <div class="tr-badge tr-base">Base / Основа</div>
+      <div class="arrow">→</div>
+      <div class="tr-text">Tom drinks coffee every morning.<br><span class="tr-ua">Том п'є каву кожного ранку.</span></div>
+    </div>
+    <div class="transform-row">
+      <div class="tr-badge tr-q">Question</div>
+      <div class="arrow">→</div>
+      <div class="tr-text">Does Tom drink coffee every morning?<br><span class="tr-ua">Том п'є каву кожного ранку?</span></div>
+    </div>
+    <div class="transform-row">
+      <div class="tr-badge tr-tag">Tag Q</div>
+      <div class="arrow">→</div>
+      <div class="tr-text">Tom drinks coffee every morning, doesn't he?<br><span class="tr-ua">Том п'є каву кожного ранку, чи не так?</span></div>
+    </div>
+    <div class="transform-row">
+      <div class="tr-badge tr-cleft">Cleft</div>
+      <div class="arrow">→</div>
+      <div class="tr-text">It is <u>Tom</u> who drinks coffee every morning.<br><span class="tr-ua">Саме <u>Том</u> п'є каву кожного ранку.</span></div>
+    </div>
+    <div class="transform-row">
+      <div class="tr-badge tr-emph">Emphatic</div>
+      <div class="arrow">→</div>
+      <div class="tr-text">Tom <u>does drink</u> coffee every morning!<br><span class="tr-ua">Том СПРАВДІ п'є каву кожного ранку!</span></div>
+    </div>
+    <div class="transform-row">
+      <div class="tr-badge tr-inv">Inversion</div>
+      <div class="arrow">→</div>
+      <div class="tr-text">Never has Tom missed his morning coffee!<br><span class="tr-ua">Ніколи ще Том не пропускав свою ранкову каву!</span></div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     TOPIC CARDS SUMMARY
+════════════════════════════════════════════ -->
+<section class="section bg-light">
+  <div class="container">
+    <div class="section-title">📚 Quick Reference Cards</div>
+    <p class="section-sub">Your cheat-sheet for all 6 structures! / Твоя шпаргалка для всіх 6 структур!</p>
+    <div class="cards-grid">
+
+      <div class="card card-1">
+        <span class="card-num">1</span>
+        <span class="card-icon">📐</span>
+        <h3>Word Order</h3>
+        <div class="ua">Порядок слів</div>
+        <p><strong>S + V + O + Place + Time</strong><br>
+        Fixed order — you can't rearrange!<br><em>Фіксований порядок — не можна міняти!</em></p>
+      </div>
+
+      <div class="card card-2">
+        <span class="card-num">2</span>
+        <span class="card-icon">❓</span>
+        <h3>Questions</h3>
+        <div class="ua">Питальні речення</div>
+        <p><strong>Aux + S + V + O?</strong><br>
+        Swap aux verb and subject.<br><em>Переставляємо допоміжне дієслово і підмет.</em></p>
+      </div>
+
+      <div class="card card-3">
+        <span class="card-num">3</span>
+        <span class="card-icon">🏷️</span>
+        <h3>Tag Questions</h3>
+        <div class="ua">Розділові запитання</div>
+        <p><strong>+ statement → − tag?</strong><br>
+        Short confirmation question at the end.<br><em>Коротке запитання-підтвердження в кінці.</em></p>
+      </div>
+
+      <div class="card card-4">
+        <span class="card-num">4</span>
+        <span class="card-icon">🔍</span>
+        <h3>Cleft Sentences</h3>
+        <div class="ua">Розщеплені речення</div>
+        <p><strong>It is [X] who/that…</strong><br>
+        Spotlight on one element.<br><em>Наголос на одному елементі.</em></p>
+      </div>
+
+      <div class="card card-5">
+        <span class="card-num">5</span>
+        <span class="card-icon">💥</span>
+        <h3>Emphatic Do</h3>
+        <div class="ua">Емфатичне «do»</div>
+        <p><strong>S + DO/DOES/DID + V</strong><br>
+        Extra stress on the verb.<br><em>Додатковий наголос на дієслові.</em></p>
+      </div>
+
+      <div class="card card-6">
+        <span class="card-num">6</span>
+        <span class="card-icon">🔄</span>
+        <h3>Inversion</h3>
+        <div class="ua">Інверсія</div>
+        <p><strong>Never/Rarely + Aux + S…</strong><br>
+        Dramatic effect in formal English.<br><em>Драматичний ефект у формальній мові.</em></p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════ -->
+<footer class="footer">
+  <div style="font-size:2rem;margin-bottom:12px">☕ 🧩 📚</div>
+  <p>Now you can transform any sentence like a <strong>grammar wizard</strong>!<br>
+  <em style="color:rgba(255,255,255,.5)">Тепер ти можеш трансформувати будь-яке речення як <strong style="color:var(--yellow)">граматичний чарівник</strong>!</em></p>
+  <p style="margin-top:16px;font-size:.8rem;opacity:.5">English Sentence Structure Guide — Made with ❤️ for learners</p>
+</footer>
+
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+</body>
+</html>

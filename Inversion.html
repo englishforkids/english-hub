@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grammar Magic: Inversion & Adverbials</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;900&family=Baloo+2:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FFF9F0;
+    --yellow: #FFD166;
+    --coral: #EF476F;
+    --teal: #06D6A0;
+    --navy: #073B4C;
+    --blue: #118AB2;
+    --purple: #9B5DE5;
+    --orange: #FF6B35;
+    --card-shadow: 0 8px 30px rgba(7,59,76,0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--navy);
+    overflow-x: hidden;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--navy);
+    padding: 60px 20px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: rgba(6,214,160,0.08);
+    top: -200px; left: -100px;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: rgba(255,209,102,0.07);
+    bottom: -150px; right: -50px;
+  }
+
+  .hero-emoji { font-size: 80px; display: block; margin-bottom: 16px; animation: bounce 2s infinite; }
+  @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+
+  .hero h1 {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.2;
+  }
+  .hero h1 span { color: var(--yellow); }
+  .hero p {
+    color: rgba(255,255,255,0.7);
+    font-size: 1.1rem;
+    margin-top: 12px;
+  }
+
+  .container { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+
+  /* BASE SENTENCE */
+  .base-section {
+    background: var(--yellow);
+    padding: 40px 20px;
+    text-align: center;
+  }
+  .base-section h2 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+  .base-sentence {
+    display: inline-block;
+    background: white;
+    border: 3px solid var(--navy);
+    border-radius: 16px;
+    padding: 18px 32px;
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin: 12px 0;
+    box-shadow: 6px 6px 0 var(--navy);
+  }
+  .base-ukrainian {
+    font-size: 1rem;
+    color: var(--navy);
+    opacity: 0.75;
+    font-style: italic;
+  }
+
+  /* SECTION */
+  .section {
+    padding: 60px 20px;
+  }
+  .section:nth-child(odd) { background: white; }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .section-icon {
+    width: 64px; height: 64px;
+    border-radius: 18px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 32px;
+    flex-shrink: 0;
+  }
+  .icon-coral { background: #FFEEF2; }
+  .icon-teal  { background: #E8FFF7; }
+  .icon-purple{ background: #F4EDFF; }
+
+  .section-title h2 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.8rem;
+    font-weight: 800;
+  }
+  .section-title .subtitle-en { color: var(--navy); font-size: 1rem; }
+  .section-title .subtitle-ua { color: #888; font-size: 0.9rem; font-style: italic; }
+
+  /* CARD */
+  .card {
+    background: white;
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 20px;
+    border: 2px solid transparent;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(7,59,76,0.16); }
+  .card-coral  { border-color: var(--coral); }
+  .card-teal   { border-color: var(--teal); }
+  .card-purple { border-color: var(--purple); }
+  .card-blue   { border-color: var(--blue); }
+
+  .card-label {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 4px 12px;
+    border-radius: 100px;
+    margin-bottom: 12px;
+  }
+  .label-coral  { background: #FFEEF2; color: var(--coral); }
+  .label-teal   { background: #E8FFF7; color: #048A68; }
+  .label-purple { background: #F4EDFF; color: var(--purple); }
+  .label-blue   { background: #E8F5FB; color: var(--blue); }
+  .label-navy   { background: #E8EDF0; color: var(--navy); }
+
+  .card p { line-height: 1.7; margin-bottom: 10px; font-size: 0.95rem; }
+  .card p:last-child { margin-bottom: 0; }
+
+  /* FORMULA */
+  .formula-box {
+    background: var(--navy);
+    color: white;
+    border-radius: 16px;
+    padding: 20px 24px;
+    margin: 20px 0;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  .formula-box .f-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--yellow);
+    margin-bottom: 8px;
+    display: block;
+  }
+  .formula-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+  .f-coral  { color: #FFB3C6; }
+  .f-teal   { color: #7FFFD4; }
+  .f-yellow { color: var(--yellow); }
+  .f-orange { color: #FFB07C; }
+
+  /* COMPARE TABLE */
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 16px 0;
+  }
+  @media(max-width: 600px) { .compare-grid { grid-template-columns: 1fr; } }
+
+  .compare-cell {
+    border-radius: 14px;
+    padding: 18px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  .before { background: #FFF3F0; border: 2px solid #FFCBB8; }
+  .after  { background: #EDFFF7; border: 2px solid #A8EDD4; }
+  .compare-cell .cell-label {
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    display: block;
+  }
+  .before .cell-label { color: var(--orange); }
+  .after  .cell-label { color: #048A68; }
+  .sentence-big {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--navy);
+  }
+  .sentence-ua {
+    font-size: 0.85rem;
+    color: #666;
+    font-style: italic;
+    margin-top: 4px;
+  }
+
+  /* HIGHLIGHT inside sentences */
+  .hl-coral  { color: var(--coral); font-weight: 800; }
+  .hl-teal   { color: #048A68; font-weight: 800; }
+  .hl-purple { color: var(--purple); font-weight: 800; }
+  .hl-blue   { color: var(--blue); font-weight: 800; }
+
+  /* WHY BOX */
+  .why-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    background: #FFFBEA;
+    border: 2px solid var(--yellow);
+    border-radius: 14px;
+    padding: 18px;
+    margin-top: 20px;
+  }
+  .why-box .why-icon { font-size: 28px; flex-shrink: 0; margin-top: 2px; }
+  .why-box p { font-size: 0.92rem; line-height: 1.6; }
+  .why-box strong { color: var(--navy); }
+
+  /* INFOGRAPHIC strips */
+  .flow-strip {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  .flow-item {
+    background: white;
+    border: 2px solid currentColor;
+    border-radius: 12px;
+    padding: 10px 18px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-align: center;
+    min-width: 80px;
+  }
+  .flow-arrow {
+    font-size: 1.4rem;
+    padding: 0 8px;
+    color: #aaa;
+  }
+
+  .tag-coral   { color: var(--coral); }
+  .tag-blue    { color: var(--blue); }
+  .tag-teal    { color: #048A68; }
+  .tag-purple  { color: var(--purple); }
+
+  /* GRID 2 */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media(max-width: 650px) { .two-col { grid-template-columns: 1fr; } }
+
+  /* EXAMPLES */
+  .example-num {
+    display: inline-flex;
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    align-items: center; justify-content: center;
+    font-weight: 800; font-size: 0.85rem;
+    margin-right: 8px;
+    color: white;
+    flex-shrink: 0;
+  }
+  .num-coral  { background: var(--coral); }
+  .num-teal   { background: var(--teal); color: var(--navy); }
+  .num-purple { background: var(--purple); }
+
+  .example-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 4px;
+    margin-bottom: 12px;
+  }
+  .example-row div { flex: 1; }
+  .ex-en { font-weight: 700; font-size: 0.98rem; line-height: 1.5; }
+  .ex-ua { font-size: 0.85rem; color: #666; font-style: italic; }
+
+  /* BADGE grid */
+  .badge-row { display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0; }
+  .badge {
+    border-radius: 100px;
+    padding: 6px 16px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    border: 2px solid currentColor;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 32px 20px;
+    font-size: 0.9rem;
+  }
+  footer span { color: var(--yellow); }
+
+  #scroll-top-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #1a1208;
+    border: 1.5px solid rgba(200,150,62,0.4);
+    color: #f5f0e8;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+    pointer-events: none;
+    z-index: 9998;
+  }
+  #scroll-top-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  #scroll-top-btn:hover {
+    background: #c8963e;
+    border-color: #c8963e;
+    color: #1a1208;
+  }
+
+  /* Dark summary cards */
+  .dark-card {
+    border-radius: 16px;
+    padding: 20px 24px;
+  }
+  .dark-label {
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .dark-sentence {
+    font-size: 1.05rem;
+    font-weight: 700;
+    word-break: break-word;
+  }
+  .dark-ua {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.6);
+    font-style: italic;
+    margin-top: 4px;
+  }
+
+  /* Animations */
+  .section { animation: fadeUp 0.5s ease both; }
+  @keyframes fadeUp { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:none; } }
+
+  /* ===== MOBILE RESPONSIVE ===== */
+  @media (max-width: 600px) {
+    .hero { padding: 40px 16px 56px; }
+    .hero-emoji { font-size: 56px; }
+    .hero p { font-size: 0.95rem; }
+
+    .base-section { padding: 28px 16px; }
+    .base-sentence { font-size: 1.05rem; padding: 14px 18px; }
+
+    .section { padding: 40px 16px; }
+    .container { padding: 0 4px; }
+
+    .section-header { gap: 12px; margin-bottom: 22px; }
+    .section-icon { width: 52px; height: 52px; font-size: 26px; border-radius: 14px; }
+    .section-title h2 { font-size: 1.4rem; }
+
+    .card { padding: 18px 16px; }
+
+    .formula-box { padding: 16px 14px; }
+    .formula-text { font-size: 0.95rem; line-height: 1.9; word-break: break-word; }
+
+    .compare-grid { grid-template-columns: 1fr; gap: 12px; }
+    .compare-cell { padding: 14px; font-size: 0.88rem; }
+    .sentence-big { font-size: 0.93rem; }
+
+    .two-col { grid-template-columns: 1fr; gap: 14px; }
+
+    .flow-strip { gap: 4px; }
+    .flow-item { padding: 8px 12px; font-size: 0.8rem; min-width: 60px; }
+    .flow-arrow { font-size: 1.1rem; padding: 0 4px; }
+
+    .badge-row { gap: 8px; }
+    .badge { padding: 5px 12px; font-size: 0.8rem; }
+
+    .example-row { gap: 6px; margin-bottom: 14px; }
+    .ex-en { font-size: 0.92rem; }
+    .ex-ua { font-size: 0.82rem; }
+
+    .why-box { padding: 14px; gap: 10px; }
+    .why-box .why-icon { font-size: 22px; }
+    .why-box p { font-size: 0.87rem; }
+
+    #scroll-top-btn { width: 40px; height: 40px; font-size: 16px; bottom: 20px; right: 16px; }
+    footer { padding: 24px 16px; font-size: 0.85rem; }
+
+    .dark-card { padding: 14px 14px; }
+    .dark-sentence { font-size: 0.93rem; }
+    .dark-ua { font-size: 0.82rem; }
+    .dark-section h2 { font-size: 1.5rem !important; }
+  }
+
+  @media (max-width: 400px) {
+    .hero h1 { font-size: 1.6rem; }
+    .section-title h2 { font-size: 1.2rem; }
+    .base-sentence { font-size: 0.95rem; padding: 12px 14px; }
+    .formula-text { font-size: 0.87rem; }
+    .ex-en { font-size: 0.88rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <span class="hero-emoji">🔀</span>
+  <h1>Grammar <span>Magic</span>:<br>Flipping English Sentences!</h1>
+  <p>Inversion · Negative Adverbials · Limiting Adverbials — explained simply 🇬🇧🇺🇦</p>
+</div>
+
+<!-- BASE SENTENCE -->
+<div class="base-section">
+  <div class="container">
+    <h2>🌟 Our Base Sentence / Наше базове речення</h2>
+    <div class="base-sentence">
+      She <strong>had never</strong> seen such a beautiful sunset.
+    </div>
+    <div class="base-ukrainian">Вона ніколи не бачила такого прекрасного заходу сонця.</div>
+    <p style="margin-top:12px; font-size:0.92rem; color:#555;">We'll transform this one sentence three ways to see the magic! ✨<br><em>Ми перетворимо це речення трьома способами, щоб побачити магію!</em></p>
+  </div>
+</div>
+
+<!-- =================== SECTION 1: INVERSION =================== -->
+<div class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon icon-coral">🔄</div>
+      <div class="section-title">
+        <h2 style="color:var(--coral)">1. Inversion</h2>
+        <div class="subtitle-en">Flipping the subject and auxiliary verb for emphasis</div>
+        <div class="subtitle-ua">Переставляємо підмет та допоміжне дієслово для виразності</div>
+      </div>
+    </div>
+
+    <!-- WHAT IS IT -->
+    <div class="card card-coral">
+      <span class="card-label label-coral">What is it? / Що це?</span>
+      <p>
+        <strong>English:</strong> Inversion means we <em>flip</em> the normal word order. Instead of saying <em>Subject → Verb</em>, we say <em>Verb → Subject</em>. We do this to make a sentence sound MORE dramatic, formal, or surprising. You'll see it a lot in books, speeches, and advanced writing.
+      </p>
+      <p>
+        <strong>Українською:</strong> Інверсія — це коли ми міняємо місцями підмет (хто діє) та допоміжне дієслово. Замість звичного порядку, ставимо дієслово на перше місце. Це робить речення більш виразним, урочистим або несподіваним. Часто зустрічається в книгах, промовах.
+      </p>
+    </div>
+
+    <!-- FORMULA -->
+    <div class="formula-box">
+      <span class="f-label">📐 Formula / Формула</span>
+      <div class="formula-text">
+        Normal: &nbsp;&nbsp;<span class="f-yellow">Subject</span> + <span class="f-teal">Auxiliary</span> + <span class="f-orange">Verb</span> ...<br>
+        Inverted: <span class="f-coral">Negative/Adverb</span> + <span class="f-teal">Auxiliary</span> + <span class="f-yellow">Subject</span> + <span class="f-orange">Verb</span> ...
+      </div>
+    </div>
+
+    <!-- WORD ORDER FLOW -->
+    <div class="flow-strip">
+      <div class="flow-item tag-coral">Never</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-item tag-blue">HAD</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-item tag-teal">she</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-item tag-purple">seen...</div>
+    </div>
+
+    <!-- COMPARE -->
+    <div class="compare-grid">
+      <div class="compare-cell before">
+        <span class="cell-label">😴 Normal (ordinary) / Звичайне</span>
+        <div class="sentence-big">She <span class="hl-coral">had never</span> seen such a beautiful sunset.</div>
+        <div class="sentence-ua">Вона <span class="hl-coral">ніколи не</span> бачила такого прекрасного заходу.</div>
+      </div>
+      <div class="compare-cell after">
+        <span class="cell-label">✨ Inverted (dramatic!) / Інвертоване</span>
+        <div class="sentence-big"><span class="hl-teal">Never had</span> she seen such a beautiful sunset!</div>
+        <div class="sentence-ua"><span class="hl-teal">Ніколи</span> вона не <span class="hl-teal">бачила</span> такого прекрасного заходу!</div>
+      </div>
+    </div>
+
+    <!-- TWO EXAMPLES -->
+    <div class="card" style="border-color:#E0E0E0; margin-top:8px;">
+      <span class="card-label label-navy">📝 2 More Examples / Ще 2 приклади</span>
+
+      <div class="example-row">
+        <span class="example-num num-coral">1</span>
+        <div>
+          <div class="ex-en">Normal: She <span class="hl-coral">rarely</span> spoke in public. &nbsp;→&nbsp; Inverted: <span class="hl-coral">Rarely did</span> she speak in public.</div>
+          <div class="ex-ua">Вона рідко говорила публічно. → Рідко вона говорила публічно. <em>(дуже урочисто!)</em></div>
+        </div>
+      </div>
+
+      <div class="example-row">
+        <span class="example-num num-coral">2</span>
+        <div>
+          <div class="ex-en">Normal: He <span class="hl-coral">had never</span> felt so alive. &nbsp;→&nbsp; Inverted: <span class="hl-coral">Never had</span> he felt so alive!</div>
+          <div class="ex-ua">Він ніколи не почувався таким живим. → Ніколи він так не відчував себе живим!</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="why-box">
+      <div class="why-icon">💡</div>
+      <p><strong>Remember / Запам'ятай:</strong> Inversion = flipping verb before subject after a negative/adverb. It's like adding an exclamation mark to your sentence! <em>Інверсія = дієслово йде перед підметом після заперечення/прислівника. Це як додати знак оклику до речення!</em></p>
+    </div>
+  </div>
+</div>
+
+<!-- =================== SECTION 2: NEGATIVE ADVERBIALS =================== -->
+<div class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon icon-teal">🚫</div>
+      <div class="section-title">
+        <h2 style="color:#048A68">2. Negative Adverbials</h2>
+        <div class="subtitle-en">Negative words at the start that FORCE inversion</div>
+        <div class="subtitle-ua">Заперечні слова на початку, що ВИМАГАЮТЬ інверсії</div>
+      </div>
+    </div>
+
+    <div class="card card-teal">
+      <span class="card-label label-teal">What is it? / Що це?</span>
+      <p>
+        <strong>English:</strong> Negative Adverbials are special <em>negative words or phrases</em> placed at the START of a sentence. When you do this, the verb and subject MUST swap (inversion is required!). These words include: <strong>Never, Rarely, Seldom, Not only, No sooner, Hardly, Scarcely, Little, Barely, Hardly ever, Under no circumstances</strong>…
+      </p>
+      <p>
+        <strong>Українською:</strong> Заперечні прислівники — це особливі <em>заперечні слова або фрази</em>, які ставляться НА ПОЧАТОК речення. Коли ви це робите, підмет і дієслово ОБОВ'ЯЗКОВО міняються місцями (інверсія є обов'язковою!). До таких слів відносяться: Never, Rarely, Seldom, Not only, Hardly та інші.
+      </p>
+    </div>
+
+    <!-- BADGES -->
+    <div class="badge-row">
+      <span class="badge" style="color:var(--coral)">Never</span>
+      <span class="badge" style="color:#048A68">Rarely</span>
+      <span class="badge" style="color:var(--purple)">Seldom</span>
+      <span class="badge" style="color:var(--blue)">Hardly</span>
+      <span class="badge" style="color:var(--orange)">Not only</span>
+      <span class="badge" style="color:#C0392B">No sooner</span>
+      <span class="badge" style="color:#7D3C98">Little</span>
+      <span class="badge" style="color:#117A65">Scarcely</span>
+      <span class="badge" style="color:#1A6B5A">Barely</span>
+      <span class="badge" style="color:#0E6655">Hardly ever</span>
+      <span class="badge" style="color:#922B21">Under no circumstances</span>
+    </div>
+
+    <!-- FORMULA -->
+    <div class="formula-box">
+      <span class="f-label">📐 Formula / Формула</span>
+      <div class="formula-text">
+        <span class="f-coral">Negative Adverbial</span> + <span class="f-teal">Auxiliary Verb</span> + <span class="f-yellow">Subject</span> + <span class="f-orange">Main Verb</span> + rest...
+      </div>
+    </div>
+
+    <!-- OUR BASE SENTENCE TRANSFORMED -->
+    <div class="compare-grid">
+      <div class="compare-cell before">
+        <span class="cell-label">😐 Without / Без негативного прислівника</span>
+        <div class="sentence-big">She had <span class="hl-coral">never</span> seen such a beautiful sunset.</div>
+        <div class="sentence-ua">Вона <span class="hl-coral">ніколи</span> не бачила такого заходу.</div>
+      </div>
+      <div class="compare-cell after">
+        <span class="cell-label">🔥 With Negative Adverbial / З ним!</span>
+        <div class="sentence-big"><span class="hl-teal">Never had</span> she seen such a beautiful sunset!</div>
+        <div class="sentence-ua"><span class="hl-teal">Ніколи</span> вона не бачила такого прекрасного заходу!</div>
+      </div>
+    </div>
+
+    <div class="card" style="border-color:#E0E0E0; margin-top:8px;">
+      <span class="card-label label-teal">📝 2 More Examples / Ще 2 приклади</span>
+
+      <div class="example-row">
+        <span class="example-num num-teal">1</span>
+        <div>
+          <div class="ex-en"><span class="hl-teal">Rarely does</span> she leave the house before 9 am.</div>
+          <div class="ex-ua"><span class="hl-teal">Рідко</span> вона виходить з дому до 9 ранку. <em>(= майже ніколи)</em></div>
+        </div>
+      </div>
+
+      <div class="example-row">
+        <span class="example-num num-teal">2</span>
+        <div>
+          <div class="ex-en"><span class="hl-teal">Not only did</span> she see the sunset, but she also took photos.</div>
+          <div class="ex-ua"><span class="hl-teal">Не тільки</span> вона побачила захід, але й сфотографувала його.</div>
+        </div>
+      </div>
+
+      <div class="example-row">
+        <span class="example-num num-teal">3</span>
+        <div>
+          <div class="ex-en"><span class="hl-teal">Under no circumstances would</span> she miss such a beautiful sunset.</div>
+          <div class="ex-ua"><span class="hl-teal">За жодних обставин</span> вона б не пропустила такого прекрасного заходу.</div>
+        </div>
+      </div>
+
+      <div class="example-row" style="margin-top:4px;">
+        <span class="example-num num-teal" style="background:#0E6655">4</span>
+        <div>
+          <div class="ex-en"><span class="hl-teal">Barely had</span> she sat down when the sky turned golden.</div>
+          <div class="ex-ua"><span class="hl-teal">Ледве</span> вона сіла, як небо стало золотим.</div>
+        </div>
+      </div>
+
+      <div class="example-row">
+        <span class="example-num num-teal">3</span>
+        <div>
+          <div class="ex-en"><span class="hl-teal">Barely had</span> she sat down when the sunset began.</div>
+          <div class="ex-ua"><span class="hl-teal">Ледве</span> вона сіла, як почався захід сонця. <em>(barely = ледве / ледь)</em></div>
+        </div>
+      </div>
+
+      <div class="example-row">
+        <span class="example-num num-teal">4</span>
+        <div>
+          <div class="ex-en"><span class="hl-teal">Hardly ever does</span> she miss a sunset like that.</div>
+          <div class="ex-ua"><span class="hl-teal">Майже ніколи</span> вона не пропускає такий захід. <em>(hardly ever = майже ніколи)</em></div>
+        </div>
+      </div>
+
+      <div class="example-row">
+        <span class="example-num num-teal">5</span>
+        <div>
+          <div class="ex-en"><span class="hl-teal">Under no circumstances would</span> she leave before the sunset ended.</div>
+          <div class="ex-ua"><span class="hl-teal">За жодних обставин</span> вона не пішла б до завершення заходу. <em>(= absolutely never / категорично ніколи)</em></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="why-box">
+      <div class="why-icon">⚡</div>
+      <p><strong>Key rule / Головне правило:</strong> Negative adverbial at the start = ALWAYS use inversion! Think of it as a "power word" that changes the sentence structure. <em>Заперечний прислівник на початку = ЗАВЖДИ інверсія! Уявляй це як "слово-сила", що змінює структуру речення.</em></p>
+    </div>
+  </div>
+</div>
+
+<!-- =================== SECTION 3: LIMITING ADVERBIALS =================== -->
+<div class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon icon-purple">🎯</div>
+      <div class="section-title">
+        <h2 style="color:var(--purple)">3. Limiting Adverbials</h2>
+        <div class="subtitle-en">Words that set a condition or limit + trigger inversion</div>
+        <div class="subtitle-ua">Слова, що обмежують умову або час + викликають інверсію</div>
+      </div>
+    </div>
+
+    <div class="card card-purple">
+      <span class="card-label label-purple">What is it? / Що це?</span>
+      <p>
+        <strong>English:</strong> Limiting Adverbials set a <em>boundary</em> or <em>condition</em> on when or how something happens. When placed at the start of a sentence, they also require inversion. Key words: <strong>Only when, Only if, Only then, Only after, Only by, Not until</strong>…
+      </p>
+      <p>
+        <strong>Українською:</strong> Обмежувальні прислівники встановлюють <em>межу або умову</em> — коли або як щось відбувається. Коли вони стоять на початку речення, вони теж вимагають інверсію. Ключові слова: Only when, Only if, Only then, Only after, Not until…
+      </p>
+    </div>
+
+    <!-- BADGES -->
+    <div class="badge-row">
+      <span class="badge" style="color:var(--purple)">Only when</span>
+      <span class="badge" style="color:#6C3483">Only if</span>
+      <span class="badge" style="color:#9B59B6">Only then</span>
+      <span class="badge" style="color:#8E44AD">Only after</span>
+      <span class="badge" style="color:#5B2C6F">Only by</span>
+      <span class="badge" style="color:#C0392B">Not until</span>
+      <span class="badge" style="color:#7D6608">Only once</span>
+    </div>
+
+    <!-- FORMULA -->
+    <div class="formula-box">
+      <span class="f-label">📐 Formula / Формула</span>
+      <div class="formula-text">
+        <span class="f-coral">Limiting Adverbial</span> + <span class="f-teal">Auxiliary</span> + <span class="f-yellow">Subject</span> + <span class="f-orange">Verb</span> + rest...<br>
+        <span style="font-size:0.85rem; opacity:0.7">Example: "Only when + did + subject + verb"</span>
+      </div>
+    </div>
+
+    <!-- BASE SENTENCE TRANSFORMED -->
+    <div class="compare-grid">
+      <div class="compare-cell before">
+        <span class="cell-label">😐 Normal / Звичайне</span>
+        <div class="sentence-big">She appreciated the sunset <span class="hl-purple">only when</span> she was alone.</div>
+        <div class="sentence-ua">Вона цінувала захід сонця <span class="hl-purple">лише тоді, коли</span> була сама.</div>
+      </div>
+      <div class="compare-cell after">
+        <span class="cell-label">🎯 With Limiting Adverbial / З ним!</span>
+        <div class="sentence-big"><span class="hl-purple">Only when she was alone did</span> she appreciate the sunset.</div>
+        <div class="sentence-ua"><span class="hl-purple">Лише тоді, коли вона була сама</span>, вона цінувала захід сонця.</div>
+      </div>
+    </div>
+
+    <div class="card" style="border-color:#E0E0E0; margin-top:8px;">
+      <span class="card-label label-purple">📝 2 More Examples / Ще 2 приклади</span>
+
+      <div class="example-row">
+        <span class="example-num num-purple">1</span>
+        <div>
+          <div class="ex-en"><span class="hl-purple">Only then did</span> she realise how beautiful the sunset was.</div>
+          <div class="ex-ua"><span class="hl-purple">Лише тоді</span> вона зрозуміла, наскільки прекрасним був захід сонця.</div>
+        </div>
+      </div>
+
+      <div class="example-row">
+        <span class="example-num num-purple">2</span>
+        <div>
+          <div class="ex-en"><span class="hl-purple">Not until she saw</span> the sunset <span class="hl-purple">did</span> she stop walking.</div>
+          <div class="ex-ua"><span class="hl-purple">Лише побачивши</span> захід сонця, вона зупинилася.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="why-box">
+      <div class="why-icon">🎯</div>
+      <p><strong>Key idea / Ключова ідея:</strong> Limiting adverbials say "ONLY under this condition…" and then the sentence flips. They add weight and importance to the condition. <em>Обмежувальні прислівники кажуть "ТІЛЬКИ за цієї умови…" і речення перевертається. Вони надають ваги й важливості умові.</em></p>
+    </div>
+  </div>
+</div>
+
+<!-- =================== BIG COMPARISON =================== -->
+<div class="section dark-section" style="background: var(--navy); color: white;">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:36px;">
+      <div style="font-size:48px; margin-bottom:8px;">🗺️</div>
+      <h2 style="font-family:'Baloo 2',cursive; font-size:2rem; color:var(--yellow);">All 3 Together / Усі три разом</h2>
+      <p style="color:rgba(255,255,255,0.7);">One sunset sentence, three different transformations!</p>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:16px;">
+
+      <!-- BASE -->
+      <div class="dark-card" style="background:rgba(255,255,255,0.08); border:2px solid rgba(255,255,255,0.15);">
+        <div class="dark-label" style="color:var(--yellow);">🌟 BASE SENTENCE / БАЗОВЕ</div>
+        <div class="dark-sentence">She had never seen such a beautiful sunset.</div>
+        <div class="dark-ua">Вона ніколи не бачила такого прекрасного заходу сонця.</div>
+      </div>
+
+      <!-- INVERSION -->
+      <div class="dark-card" style="background:rgba(239,71,111,0.15); border:2px solid rgba(239,71,111,0.4);">
+        <div class="dark-label" style="color:#FFB3C6;">🔄 INVERSION</div>
+        <div class="dark-sentence"><span style="color:#FFB3C6">Never had</span> she seen such a beautiful sunset!</div>
+        <div class="dark-ua">Ніколи вона не бачила такого прекрасного заходу! <em>(dramatic / драматично)</em></div>
+      </div>
+
+      <!-- NEGATIVE ADVERBIAL -->
+      <div class="dark-card" style="background:rgba(6,214,160,0.12); border:2px solid rgba(6,214,160,0.35);">
+        <div class="dark-label" style="color:#7FFFD4;">🚫 NEGATIVE ADVERBIAL</div>
+        <div class="dark-sentence"><span style="color:#7FFFD4">Never had</span> she seen such a beautiful sunset — <span style="color:#7FFFD4">nor had</span> anyone else!</div>
+        <div class="dark-ua">Ніколи вона не бачила такого заходу — і ніхто інший теж! <em>(stronger negative / сильніше заперечення)</em></div>
+      </div>
+
+      <!-- LIMITING ADVERBIAL -->
+      <div class="dark-card" style="background:rgba(155,93,229,0.15); border:2px solid rgba(155,93,229,0.4);">
+        <div class="dark-label" style="color:#D7BAFF;">🎯 LIMITING ADVERBIAL</div>
+        <div class="dark-sentence"><span style="color:#D7BAFF">Only when she was alone did</span> she ever see such a beautiful sunset.</div>
+        <div class="dark-ua">Лише тоді, коли вона була сама, їй вдавалося бачити такий прекрасний захід. <em>(condition / умова)</em></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- QUICK REFERENCE -->
+<div class="section">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:32px;">
+      <div style="font-size:40px; margin-bottom:8px;">📋</div>
+      <h2 style="font-family:'Baloo 2',cursive; font-size:1.8rem;">Quick Reference Cheat Sheet</h2>
+      <p style="color:#888; font-style:italic;">Шпаргалка для швидкого запам'ятовування</p>
+    </div>
+
+    <div class="two-col">
+      <div class="card card-coral">
+        <div style="font-size:2rem; margin-bottom:8px;">🔄</div>
+        <strong style="font-size:1rem; color:var(--coral)">Inversion</strong>
+        <p style="margin-top:8px; font-size:0.9rem;">Verb comes BEFORE subject for dramatic effect<br><em>Дієслово іде ПЕРЕД підметом для виразності</em></p>
+        <div style="margin-top:10px; background:#FFF0F4; border-radius:10px; padding:10px; font-size:0.85rem; font-weight:700; color:var(--navy);">Never + had + she + seen...</div>
+      </div>
+
+      <div class="card card-teal">
+        <div style="font-size:2rem; margin-bottom:8px;">🚫</div>
+        <strong style="font-size:1rem; color:#048A68">Negative Adverbials</strong>
+        <p style="margin-top:8px; font-size:0.9rem;">Negative word at START forces inversion<br><em>Заперечне слово на початку = обов'язкова інверсія</em></p>
+        <div style="margin-top:10px; background:#EDFFF7; border-radius:10px; padding:10px; font-size:0.85rem; font-weight:700; color:var(--navy);">Rarely / Never / Seldom / Hardly / Barely / Hardly ever / Under no circumstances...</div>
+      </div>
+
+      <div class="card card-purple">
+        <div style="font-size:2rem; margin-bottom:8px;">🎯</div>
+        <strong style="font-size:1rem; color:var(--purple)">Limiting Adverbials</strong>
+        <p style="margin-top:8px; font-size:0.9rem;">Condition word at START forces inversion<br><em>Слово-умова на початку = обов'язкова інверсія</em></p>
+        <div style="margin-top:10px; background:#F4EDFF; border-radius:10px; padding:10px; font-size:0.85rem; font-weight:700; color:var(--navy);">Only when / Only if / Not until...</div>
+      </div>
+
+      <div class="card" style="border-color:var(--yellow);">
+        <div style="font-size:2rem; margin-bottom:8px;">🧠</div>
+        <strong style="font-size:1rem; color:#B7860B">The Golden Rule</strong>
+        <p style="margin-top:8px; font-size:0.9rem;">All three use inversion! The difference is <em>why</em> and <em>when</em>.<br><em>Усі три використовують інверсію! Різниця — у причині та ситуації.</em></p>
+        <div style="margin-top:10px; background:#FFFBEA; border-radius:10px; padding:10px; font-size:0.85rem; font-weight:700; color:var(--navy);">Special word → Verb → Subject → ...</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  Made with ❤️ for English learners 🇬🇧🇺🇦 &nbsp;|&nbsp; <span>Grammar Magic</span>
+</footer>
+
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+
+</body>
+</html>

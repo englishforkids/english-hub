@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Geography in English 🌍</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sky: #4ECDC4;
+    --ocean: #1A535C;
+    --sun: #FFE66D;
+    --land: #6BCB77;
+    --mountain: #845EC2;
+    --sand: #FFF3B0;
+    --coral: #FF6B6B;
+    --white: #FFFDF7;
+    --dark: #1E2D40;
+    --card-shadow: 0 8px 32px rgba(30,45,64,0.13);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: linear-gradient(160deg, #e0f7fa 0%, #b2ebf2 30%, #e8f5e9 60%, #fff9c4 100%);
+    min-height: 100vh;
+    color: var(--dark);
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, var(--ocean) 0%, #2a7b9b 40%, var(--sky) 100%);
+    padding: 56px 24px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content:'';
+    position:absolute; bottom:0; left:0; right:0; height:60px;
+    background: var(--white);
+    clip-path: ellipse(60% 100% at 50% 100%);
+  }
+  .hero-emoji { font-size: 4rem; display:block; animation: float 3s ease-in-out infinite; }
+  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
+  .hero h1 {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(2rem,6vw,3.6rem);
+    color: var(--sun);
+    text-shadow: 3px 3px 0 var(--ocean);
+    margin: 12px 0 8px;
+    letter-spacing:1px;
+  }
+  .hero p {
+    color: #d0f4f7;
+    font-size: clamp(1rem,2.5vw,1.25rem);
+    max-width: 600px;
+    margin: 0 auto;
+    font-weight: 600;
+  }
+
+  /* LAYOUT */
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+  section { padding: 48px 0 32px; }
+  .section-title {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 28px;
+    color: var(--ocean);
+  }
+  .section-title .icon {
+    width: 48px; height: 48px; border-radius: 50%;
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.6rem; flex-shrink:0;
+  }
+
+  /* VOCAB CARDS */
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
+    gap: 18px;
+  }
+  .vocab-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 22px 16px 18px;
+    box-shadow: var(--card-shadow);
+    text-align: center;
+    transition: transform .25s, box-shadow .25s;
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+  }
+  .vocab-card::before {
+    content:'';
+    position:absolute;top:0;left:0;right:0;height:6px;
+    background: var(--grad,linear-gradient(90deg,var(--sky),var(--land)));
+  }
+  .vocab-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(30,45,64,0.18); }
+  .vocab-card .emoji { font-size:2.8rem; display:block; margin-bottom:10px; }
+  .vocab-card .en { font-family:'Baloo 2',cursive; font-size:1.25rem; color:var(--ocean); font-weight:800; }
+  .vocab-card .ua { font-size:.9rem; color:#5a7a8a; font-weight:600; margin-top:4px; }
+  .vocab-card .example { font-size:.82rem; color:#888; margin-top:8px; font-style:italic; background:#f0fbfc; border-radius:10px; padding:6px 10px; }
+
+  /* PHRASES TABLE */
+  .phrase-table {
+    width:100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+  }
+  .phrase-table thead th {
+    font-family:'Baloo 2',cursive;
+    font-size:1rem;
+    padding: 12px 18px;
+    text-align:left;
+    color: var(--white);
+    background: var(--ocean);
+  }
+  .phrase-table thead th:first-child { border-radius:16px 0 0 16px; }
+  .phrase-table thead th:last-child { border-radius:0 16px 16px 0; }
+  .phrase-table tbody tr { background: var(--white); box-shadow: 0 3px 12px rgba(0,0,0,.07); }
+  .phrase-table tbody td {
+    padding: 14px 18px;
+    font-size: .97rem;
+  }
+  .phrase-table tbody td:first-child { border-radius:16px 0 0 16px; font-weight:700; color:var(--ocean); }
+  .phrase-table tbody td:last-child { border-radius: 0 16px 16px 0; color:#556; font-weight:600; }
+  .phrase-table tbody td:nth-child(2) { color:#333; }
+  .phrase-table tbody tr:hover td { background:#f0fffe; }
+
+  /* INFOGRAPHIC - COMPASS */
+  .infographic-wrap {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  .compass-box {
+    background: var(--white);
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: var(--card-shadow);
+    min-width: 280px;
+    flex:1;
+    max-width:360px;
+    text-align:center;
+  }
+  .compass {
+    width: 200px; height: 200px;
+    margin: 0 auto 20px;
+    position: relative;
+    background: radial-gradient(circle, #e8f8f5 60%, #b2ebf2 100%);
+    border-radius: 50%;
+    border: 4px solid var(--sky);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .compass-center { width:24px; height:24px; background:var(--coral); border-radius:50%; z-index:2; border:3px solid var(--white); }
+  .compass-dir {
+    position:absolute; font-family:'Baloo 2',cursive; font-size:1.1rem; font-weight:800; color:var(--ocean);
+    background:var(--sun); border-radius:50%; width:36px; height:36px; display:flex; align-items:center; justify-content:center;
+    box-shadow: 0 2px 8px rgba(0,0,0,.15);
+  }
+  .dir-N { top:8px; left:50%; transform:translateX(-50%); color:var(--coral); }
+  .dir-S { bottom:8px; left:50%; transform:translateX(-50%); }
+  .dir-E { right:8px; top:50%; transform:translateY(-50%); }
+  .dir-W { left:8px; top:50%; transform:translateY(-50%); }
+
+  .directions-list { list-style:none; text-align:left; }
+  .directions-list li {
+    display:flex; align-items:center; gap:12px;
+    padding: 10px 14px; border-radius:12px; margin-bottom:8px;
+    background: #f5fdfe; border-left: 4px solid var(--sky);
+    font-weight:700;
+  }
+  .directions-list li .en-d { color:var(--ocean); min-width:80px; }
+  .directions-list li .ua-d { color:#6a8a9a; font-weight:600; font-size:.92rem; }
+
+  /* LANDFORMS */
+  .landforms-grid {
+    display:grid;
+    grid-template-columns: repeat(auto-fill,minmax(240px,1fr));
+    gap:20px;
+  }
+  .landform-card {
+    border-radius:20px;
+    padding: 24px 20px;
+    box-shadow: var(--card-shadow);
+    display:flex; gap:16px; align-items:flex-start;
+    transition: transform .2s;
+  }
+  .landform-card:hover { transform:translateY(-4px); }
+  .lf-icon { font-size:2.5rem; flex-shrink:0; }
+  .lf-body .en { font-family:'Baloo 2',cursive; font-size:1.15rem; color:var(--ocean); font-weight:800; }
+  .lf-body .ua { font-size:.88rem; color:#6a8a9a; font-weight:600; }
+  .lf-body .def { font-size:.85rem; color:#555; margin-top:6px; line-height:1.5; }
+
+  /* DIALOGUE */
+  .dialogue-box {
+    background: var(--white);
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: var(--card-shadow);
+    max-width: 750px;
+    margin: 0 auto;
+  }
+  .dialogue-box h3 {
+    font-family:'Baloo 2',cursive; font-size:1.3rem;
+    color:var(--ocean); margin-bottom:20px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .bubble-row { display:flex; gap:12px; margin-bottom:18px; align-items:flex-end; }
+  .bubble-row.right { flex-direction:row-reverse; }
+  .avatar {
+    width:42px; height:42px; border-radius:50%; flex-shrink:0;
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.4rem;
+  }
+  .av-a { background:#d0f4f0; }
+  .av-b { background:#ffd6d6; }
+  .bubble {
+    max-width:400px; padding: 14px 18px;
+    border-radius:18px;
+    font-size:.95rem; line-height:1.55;
+    box-shadow: 0 2px 10px rgba(0,0,0,.08);
+  }
+  .bubble-row:not(.right) .bubble { border-bottom-left-radius:4px; background:#e8f8f5; }
+  .bubble-row.right .bubble { border-bottom-right-radius:4px; background:#fff0f0; }
+  .bubble .speaker { font-family:'Baloo 2',cursive; font-size:.8rem; color:#999; margin-bottom:4px; }
+  .bubble .en-line { color:var(--ocean); font-weight:700; }
+  .bubble .ua-line { color:#888; font-size:.85rem; margin-top:3px; font-style:italic; }
+
+  /* TIPS BOX */
+  .tips-grid { display:grid; grid-template-columns: repeat(auto-fill,minmax(260px,1fr)); gap:20px; }
+  .tip-card {
+    border-radius:20px; padding:22px;
+    display:flex; gap:14px; align-items:flex-start;
+    box-shadow: var(--card-shadow);
+  }
+  .tip-num {
+    font-family:'Baloo 2',cursive; font-size:2rem; font-weight:900;
+    color: var(--white); width:48px; height:48px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+    background: var(--ocean);
+  }
+  .tip-text .tip-en { font-weight:800; color:var(--ocean); font-size:1rem; }
+  .tip-text .tip-ua { font-size:.88rem; color:#667; font-weight:600; margin-top:4px; }
+  .tip-text p { font-size:.87rem; color:#555; margin-top:6px; line-height:1.5; }
+
+  /* QUIZ */
+  .quiz-section {
+    background: linear-gradient(135deg, var(--ocean) 0%, #2a7b9b 100%);
+    border-radius:28px; padding:40px 32px;
+    color:var(--white);
+    box-shadow: 0 12px 40px rgba(26,83,92,.3);
+    max-width:700px; margin: 0 auto;
+  }
+  .quiz-section h2 { font-family:'Baloo 2',cursive; font-size:1.8rem; color:var(--sun); margin-bottom:6px; }
+  .quiz-section p { color:#b2ebf2; font-weight:600; margin-bottom:28px; }
+  .q-item { background:rgba(255,255,255,.1); border-radius:16px; padding:20px; margin-bottom:16px; }
+  .q-item .question { font-weight:800; font-size:1.05rem; margin-bottom:14px; color:var(--sun); }
+  .q-options { display:flex; flex-wrap:wrap; gap:10px; }
+  .q-opt {
+    background: rgba(255,255,255,.15); border:2px solid rgba(255,255,255,.25);
+    border-radius:12px; padding:9px 18px; font-size:.92rem; font-weight:700;
+    cursor:pointer; transition: all .2s; color:var(--white);
+  }
+  .q-opt:hover { background:rgba(255,230,109,.25); border-color:var(--sun); color:var(--sun); }
+  .q-opt.correct { background:rgba(107,203,119,.35); border-color:var(--land); color:#c8ffca; }
+  .q-opt.wrong { background:rgba(255,107,107,.35); border-color:var(--coral); color:#ffd0d0; }
+  .q-feedback { margin-top:10px; font-size:.88rem; font-style:italic; color:#d0fde8; min-height:20px; }
+
+  /* FOOTER */
+  footer {
+    text-align:center; padding:36px 24px 48px;
+    font-size:.9rem; color:#7a9aaa;
+    font-weight:600;
+  }
+  footer span { color:var(--coral); }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width:8px; }
+  ::-webkit-scrollbar-track { background:#e0f7fa; }
+  ::-webkit-scrollbar-thumb { background:var(--sky); border-radius:4px; }
+
+  /* BADGE */
+  .badge {
+    display:inline-block; background:var(--sun); color:var(--ocean);
+    font-family:'Baloo 2',cursive; font-size:.85rem; font-weight:800;
+    padding:4px 14px; border-radius:20px; margin-bottom:8px;
+    box-shadow:0 2px 8px rgba(255,230,109,.4);
+    letter-spacing:.5px;
+  }
+
+  #scroll-top-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #1a1208;
+    border: 1.5px solid rgba(200,150,62,0.4);
+    color: #f5f0e8;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+    pointer-events: none;
+    z-index: 9998;
+  }
+  #scroll-top-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  #scroll-top-btn:hover {
+    background: #c8963e;
+    border-color: #c8963e;
+    color: #1a1208;
+  }
+
+  @media(max-width:768px) {
+    .container { padding: 0 14px; }
+    section { padding: 32px 0 20px; }
+    .hero { padding: 36px 16px 64px; }
+    .hero-emoji { font-size: 3rem; }
+    .section-title { font-size: 1.3rem; gap: 8px; margin-bottom: 18px; }
+    .section-title .icon { width: 38px; height: 38px; font-size: 1.3rem; }
+    .vocab-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .vocab-card { padding: 16px 12px 14px; }
+    .vocab-card .emoji { font-size: 2.2rem; }
+    .vocab-card .en { font-size: 1.05rem; }
+    .vocab-card .example { font-size: .78rem; }
+    .infographic-wrap { flex-direction: column; gap: 16px; }
+    .compass-box { max-width: 100%; min-width: unset; padding: 20px 16px; }
+    .compass { width: 160px; height: 160px; }
+    .directions-list li { flex-wrap: wrap; gap: 6px; font-size: .9rem; padding: 8px 12px; }
+    .directions-list li span:last-child { display: none; }
+    .phrase-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 16px; }
+    .phrase-table { display: table; min-width: 560px; border-spacing: 0 8px; }
+    .phrase-table thead th { font-size: .88rem; padding: 10px 12px; }
+    .phrase-table tbody td { font-size: .85rem; padding: 11px 12px; }
+    .landforms-grid { grid-template-columns: 1fr; gap: 14px; }
+    .landform-card { padding: 18px 16px; }
+    .lf-icon { font-size: 2rem; }
+    .lf-body .en { font-size: 1.05rem; }
+    .lf-body .def { font-size: .82rem; }
+    .dialogue-box { padding: 18px 12px; border-radius: 18px; }
+    .dialogue-box h3 { font-size: 1.1rem; }
+    .bubble { max-width: 260px; padding: 11px 14px; font-size: .88rem; }
+    .avatar { width: 34px; height: 34px; font-size: 1.1rem; }
+    .bubble .ua-line { font-size: .78rem; }
+    .tips-grid { grid-template-columns: 1fr; gap: 14px; }
+    .tip-card { padding: 16px; }
+    .tip-num { width: 40px; height: 40px; font-size: 1.6rem; }
+    .tip-text .tip-en { font-size: .93rem; }
+    .tip-text .tip-ua { font-size: .82rem; }
+    .tip-text p { font-size: .82rem; }
+    .quiz-section { padding: 22px 14px; border-radius: 20px; }
+    .quiz-section h2 { font-size: 1.4rem; }
+    .q-item { padding: 16px 14px; }
+    .q-item .question { font-size: .93rem; }
+    .q-options { flex-direction: column; gap: 8px; }
+    .q-opt { width: 100%; text-align: left; padding: 10px 16px; font-size: .9rem; }
+    .q-feedback { font-size: .82rem; }
+    #scroll-top-btn { bottom: 16px; right: 16px; width: 40px; height: 40px; font-size: 16px; }
+    footer { padding: 24px 16px 36px; font-size: .82rem; }
+  }
+
+  @media(max-width:400px) {
+    .vocab-grid { grid-template-columns: 1fr; }
+    .bubble { max-width: 210px; }
+    .section-title { font-size: 1.1rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <span class="hero-emoji">🌍</span>
+  <h1>Geography in English</h1>
+  <p>Вивчай, як говорити про географію англійською 🗺️ Просто, весело й зрозуміло!</p>
+</div>
+
+<div class="container">
+
+  <!-- SECTION 1: KEY VOCABULARY -->
+  <section>
+    <div class="section-title">
+      <div class="icon" style="background:#d0f4f0;">🔤</div>
+      Key Vocabulary — Основні слова
+    </div>
+    <p style="margin-bottom:22px;color:#5a7a8a;font-weight:600;">Натисни на картку, щоб побачити приклад / Click a card to see an example!</p>
+    <div class="vocab-grid">
+
+      <div class="vocab-card" style="--grad:linear-gradient(90deg,#4ECDC4,#1A535C)">
+        <span class="emoji">🌊</span>
+        <div class="en">Ocean / Sea</div>
+        <div class="ua">Океан / Море</div>
+        <div class="example">"The Pacific Ocean is the largest in the world."</div>
+      </div>
+
+      <div class="vocab-card" style="--grad:linear-gradient(90deg,#6BCB77,#44a350)">
+        <span class="emoji">⛰️</span>
+        <div class="en">Mountain</div>
+        <div class="ua">Гора</div>
+        <div class="example">"Mount Everest is the highest mountain on Earth."</div>
+      </div>
+
+      <div class="vocab-card" style="--grad:linear-gradient(90deg,#FFE66D,#f5c200)">
+        <span class="emoji">🏜️</span>
+        <div class="en">Desert</div>
+        <div class="ua">Пустеля</div>
+        <div class="example">"The Sahara Desert is in Africa."</div>
+      </div>
+
+      <div class="vocab-card" style="--grad:linear-gradient(90deg,#845EC2,#6b3fa0)">
+        <span class="emoji">🏝️</span>
+        <div class="en">Island</div>
+        <div class="ua">Острів</div>
+        <div class="example">"Australia is both a country and an island."</div>
+      </div>
+
+      <div class="vocab-card" style="--grad:linear-gradient(90deg,#FF6B6B,#d94f4f)">
+        <span class="emoji">🌋</span>
+        <div class="en">Volcano</div>
+        <div class="ua">Вулкан</div>
+        <div class="example">"The volcano erupted last year."</div>
+      </div>
+
+      <div class="vocab-card" style="--grad:linear-gradient(90deg,#4ECDC4,#845EC2)">
+        <span class="emoji">🏞️</span>
+        <div class="en">Valley</div>
+        <div class="ua">Долина</div>
+        <div class="example">"The valley is surrounded by mountains."</div>
+      </div>
+
+      <div class="vocab-card" style="--grad:linear-gradient(90deg,#6BCB77,#4ECDC4)">
+        <span class="emoji">🌲</span>
+        <div class="en">Forest / Jungle</div>
+        <div class="ua">Ліс / Джунглі</div>
+        <div class="example">"The Amazon jungle is in South America."</div>
+      </div>
+
+      <div class="vocab-card" style="--grad:linear-gradient(90deg,#FF6B6B,#FFE66D)">
+        <span class="emoji">🌊</span>
+        <div class="en">River / Lake</div>
+        <div class="ua">Річка / Озеро</div>
+        <div class="example">"The Nile is the longest river in Africa."</div>
+      </div>
+
+      <div class="vocab-card" style="--grad:linear-gradient(90deg,#1A535C,#4ECDC4)">
+        <span class="emoji">🗺️</span>
+        <div class="en">Continent</div>
+        <div class="ua">Континент</div>
+        <div class="example">"Europe is a continent with many countries."</div>
+      </div>
+
+      <div class="vocab-card" style="--grad:linear-gradient(90deg,#FFE66D,#6BCB77)">
+        <span class="emoji">🏔️</span>
+        <div class="en">Cliff / Coast</div>
+        <div class="ua">Скеля / Узбережжя</div>
+        <div class="example">"The coast of Ireland has beautiful cliffs."</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 2: DIRECTIONS -->
+  <section>
+    <div class="section-title">
+      <div class="icon" style="background:#fff3b0;">🧭</div>
+      Directions — Напрямки
+    </div>
+    <div class="infographic-wrap">
+      <div class="compass-box">
+        <div class="badge">COMPASS ROSE 🧭</div>
+        <div class="compass">
+          <div class="compass-dir dir-N">N</div>
+          <div class="compass-dir dir-S">S</div>
+          <div class="compass-dir dir-E">E</div>
+          <div class="compass-dir dir-W">W</div>
+          <div class="compass-center"></div>
+        </div>
+        <p style="color:#5a7a8a;font-size:.9rem;font-weight:600;">Компас показує 4 головні сторони світу</p>
+      </div>
+      <div class="compass-box" style="flex:2; max-width:500px;">
+        <div class="badge">DIRECTIONS 🗺️</div>
+        <br>
+        <ul class="directions-list">
+          <li><span class="en-d">🔴 North (N)</span><span class="ua-d">— Північ</span><span style="color:#999;font-size:.82rem;margin-left:auto">Poland is <b>north</b> of Ukraine</span></li>
+          <li><span class="en-d">⬇️ South (S)</span><span class="ua-d">— Південь</span><span style="color:#999;font-size:.82rem;margin-left:auto">Greece is in <b>southern</b> Europe</span></li>
+          <li><span class="en-d">➡️ East (E)</span><span class="ua-d">— Схід</span><span style="color:#999;font-size:.82rem;margin-left:auto">Japan is in <b>East</b> Asia</span></li>
+          <li><span class="en-d">⬅️ West (W)</span><span class="ua-d">— Захід</span><span style="color:#999;font-size:.82rem;margin-left:auto">France is in <b>Western</b> Europe</span></li>
+          <li><span class="en-d">↗️ Northeast</span><span class="ua-d">— Північний схід</span><span style="color:#999;font-size:.82rem;margin-left:auto">Finland is in <b>northeast</b> Europe</span></li>
+          <li><span class="en-d">↙️ Southwest</span><span class="ua-d">— Південний захід</span><span style="color:#999;font-size:.82rem;margin-left:auto">Spain is in <b>southwest</b> Europe</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: USEFUL PHRASES -->
+  <section>
+    <div class="section-title">
+      <div class="icon" style="background:#ffd6d6;">💬</div>
+      Useful Phrases — Корисні фрази
+    </div>
+    <p style="margin-bottom:18px;color:#5a7a8a;font-weight:600;">Фрази, які допоможуть тобі говорити про географію!</p>
+    <div style="overflow-x:auto; -webkit-overflow-scrolling:touch; border-radius:16px;">
+      <table class="phrase-table">
+        <thead>
+          <tr>
+            <th>🇬🇧 English Phrase</th>
+            <th>🇺🇦 Значення українською</th>
+            <th>💡 Example / Приклад</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>... is located in ...</td>
+            <td>... знаходиться у ...</td>
+            <td>Ukraine <b>is located in</b> Eastern Europe.</td>
+          </tr>
+          <tr>
+            <td>... is bordered by ...</td>
+            <td>... межує з ...</td>
+            <td>Germany <b>is bordered by</b> France and Poland.</td>
+          </tr>
+          <tr>
+            <td>... flows through ...</td>
+            <td>... протікає через ...</td>
+            <td>The Danube <b>flows through</b> 10 countries.</td>
+          </tr>
+          <tr>
+            <td>It covers an area of ...</td>
+            <td>Він(вона) займає площу ...</td>
+            <td><b>It covers an area of</b> 600,000 km².</td>
+          </tr>
+          <tr>
+            <td>The capital city is ...</td>
+            <td>Столиця — це ...</td>
+            <td><b>The capital city of</b> Ukraine <b>is</b> Kyiv.</td>
+          </tr>
+          <tr>
+            <td>It is situated on ...</td>
+            <td>Воно розташоване на ...</td>
+            <td>London <b>is situated on</b> the River Thames.</td>
+          </tr>
+          <tr>
+            <td>... stretches from ... to ...</td>
+            <td>... простягається від ... до ...</td>
+            <td>The Alps <b>stretch from</b> France <b>to</b> Austria.</td>
+          </tr>
+          <tr>
+            <td>... has a population of ...</td>
+            <td>... має населення ...</td>
+            <td>China <b>has a population of</b> 1.4 billion.</td>
+          </tr>
+          <tr>
+            <td>... is surrounded by ...</td>
+            <td>... оточений(-а) ...</td>
+            <td>Italy <b>is surrounded by</b> the sea on three sides.</td>
+          </tr>
+          <tr>
+            <td>The climate is ...</td>
+            <td>Клімат є ...</td>
+            <td><b>The climate</b> in the Sahara <b>is</b> hot and dry.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- SECTION 4: LANDFORMS -->
+  <section>
+    <div class="section-title">
+      <div class="icon" style="background:#e8d5ff;">🏔️</div>
+      Landforms & Nature — Форми рельєфу
+    </div>
+    <div class="landforms-grid">
+
+      <div class="landform-card" style="background:linear-gradient(135deg,#e8f8f5,#d0f4ee)">
+        <div class="lf-icon">⛰️</div>
+        <div class="lf-body">
+          <div class="en">Mountain Range</div>
+          <div class="ua">Гірський хребет</div>
+          <div class="def">A series of mountains. <br><i>Ряд гір поруч.</i><br>"The Carpathian mountain range is in Ukraine."</div>
+        </div>
+      </div>
+
+      <div class="landform-card" style="background:linear-gradient(135deg,#fff9d0,#fff3b0)">
+        <div class="lf-icon">🌾</div>
+        <div class="lf-body">
+          <div class="en">Plain / Steppe</div>
+          <div class="ua">Рівнина / Степ</div>
+          <div class="def">Flat, open land. <br><i>Пласка відкрита місцевість.</i><br>"Ukraine has vast plains and steppes."</div>
+        </div>
+      </div>
+
+      <div class="landform-card" style="background:linear-gradient(135deg,#ffe8e8,#ffd0d0)">
+        <div class="lf-icon">🏜️</div>
+        <div class="lf-body">
+          <div class="en">Desert</div>
+          <div class="ua">Пустеля</div>
+          <div class="def">Very dry area with little rain. <br><i>Дуже суха місцевість.</i><br>"The Gobi Desert is in Asia."</div>
+        </div>
+      </div>
+
+      <div class="landform-card" style="background:linear-gradient(135deg,#e8f0ff,#d0deff)">
+        <div class="lf-icon">🏞️</div>
+        <div class="lf-body">
+          <div class="en">Canyon / Gorge</div>
+          <div class="ua">Каньйон / Ущелина</div>
+          <div class="def">A deep valley with steep sides. <br><i>Глибока долина з крутими схилами.</i><br>"The Grand Canyon is in the USA."</div>
+        </div>
+      </div>
+
+      <div class="landform-card" style="background:linear-gradient(135deg,#d0ffe8,#b2f5d0)">
+        <div class="lf-icon">🌿</div>
+        <div class="lf-body">
+          <div class="en">Rainforest / Jungle</div>
+          <div class="ua">Тропічний ліс / Джунглі</div>
+          <div class="def">Dense tropical forest with heavy rain. <br><i>Густий тропічний ліс.</i><br>"The Amazon rainforest is in Brazil."</div>
+        </div>
+      </div>
+
+      <div class="landform-card" style="background:linear-gradient(135deg,#e0f0ff,#c8e4ff)">
+        <div class="lf-icon">🧊</div>
+        <div class="lf-body">
+          <div class="en">Glacier / Iceberg</div>
+          <div class="ua">Льодовик / Айсберг</div>
+          <div class="def">Huge mass of ice. <br><i>Величезна маса льоду.</i><br>"Many glaciers are found in Antarctica."</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 5: SAMPLE DIALOGUE -->
+  <section>
+    <div class="section-title">
+      <div class="icon" style="background:#ffd6d6;">🗣️</div>
+      Sample Dialogue — Приклад діалогу
+    </div>
+    <div class="dialogue-box">
+      <h3>🎓 Talking about geography / Говоримо про географію</h3>
+
+      <div class="bubble-row">
+        <div class="avatar av-a">👩</div>
+        <div class="bubble">
+          <div class="speaker">Anna</div>
+          <div class="en-line">Where is Ukraine located?</div>
+          <div class="ua-line">Де знаходиться Україна?</div>
+        </div>
+      </div>
+
+      <div class="bubble-row right">
+        <div class="avatar av-b">👦</div>
+        <div class="bubble">
+          <div class="speaker">Ben</div>
+          <div class="en-line">Ukraine is located in Eastern Europe. It is bordered by Russia, Poland, and Romania.</div>
+          <div class="ua-line">Україна знаходиться у Східній Європі. Вона межує з Росією, Польщею та Румунією.</div>
+        </div>
+      </div>
+
+      <div class="bubble-row">
+        <div class="avatar av-a">👩</div>
+        <div class="bubble">
+          <div class="speaker">Anna</div>
+          <div class="en-line">What is the capital city of Ukraine?</div>
+          <div class="ua-line">Яка столиця України?</div>
+        </div>
+      </div>
+
+      <div class="bubble-row right">
+        <div class="avatar av-b">👦</div>
+        <div class="bubble">
+          <div class="speaker">Ben</div>
+          <div class="en-line">The capital city is Kyiv. It is situated on the Dnipro River.</div>
+          <div class="ua-line">Столиця — Київ. Він розташований на річці Дніпро.</div>
+        </div>
+      </div>
+
+      <div class="bubble-row">
+        <div class="avatar av-a">👩</div>
+        <div class="bubble">
+          <div class="speaker">Anna</div>
+          <div class="en-line">Does Ukraine have mountains or is it mostly flat?</div>
+          <div class="ua-line">В Україні є гори, чи вона переважно рівнинна?</div>
+        </div>
+      </div>
+
+      <div class="bubble-row right">
+        <div class="avatar av-b">👦</div>
+        <div class="bubble">
+          <div class="speaker">Ben</div>
+          <div class="en-line">It has both! The Carpathian mountain range is in the west, and the rest of the country has vast plains and steppes.</div>
+          <div class="ua-line">І те, і інше! Карпатський гірський хребет знаходиться на заході, а решта країни — великі рівнини та степи.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 6: TIPS -->
+  <section>
+    <div class="section-title">
+      <div class="icon" style="background:#fff3b0;">💡</div>
+      Tips to Remember — Поради
+    </div>
+    <div class="tips-grid">
+      <div class="tip-card" style="background:linear-gradient(135deg,#e8f8f5,#d0f4ee)">
+        <div class="tip-num">1</div>
+        <div class="tip-text">
+          <div class="tip-en">Use "is located in" for countries & cities</div>
+          <div class="tip-ua">Використовуй «is located in» для країн і міст</div>
+          <p>"Spain <b>is located in</b> southern Europe."</p>
+        </div>
+      </div>
+      <div class="tip-card" style="background:linear-gradient(135deg,#fff9d0,#fff3b0)">
+        <div class="tip-num">2</div>
+        <div class="tip-text">
+          <div class="tip-en">Use "flows through" for rivers</div>
+          <div class="tip-ua">Використовуй «flows through» для річок</div>
+          <p>"The Rhine <b>flows through</b> Germany."</p>
+        </div>
+      </div>
+      <div class="tip-card" style="background:linear-gradient(135deg,#ffe8e8,#ffd0d0)">
+        <div class="tip-num">3</div>
+        <div class="tip-text">
+          <div class="tip-en">Add adjectives: vast, deep, high, steep, tropical</div>
+          <div class="tip-ua">Додавай прикметники: величезний, глибокий, тропічний</div>
+          <p>"A <b>vast</b> steppe", "a <b>deep</b> canyon"</p>
+        </div>
+      </div>
+      <div class="tip-card" style="background:linear-gradient(135deg,#e8d5ff,#d8b4fe)">
+        <div class="tip-num">4</div>
+        <div class="tip-text">
+          <div class="tip-en">North / South / East / West → Northern etc.</div>
+          <div class="tip-ua">Північний, Південний, Східний, Західний</div>
+          <p>"<b>Northern</b> Europe", "<b>South</b>ern Africa"</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: MINI QUIZ -->
+  <section>
+    <div class="section-title">
+      <div class="icon" style="background:#d0ffe8;">🎮</div>
+      Mini Quiz — Мінівікторина
+    </div>
+    <div class="quiz-section">
+      <h2>🧠 Test your knowledge!</h2>
+      <p>Перевір, що ти засвоїв(-ла)!</p>
+
+      <div class="q-item" id="q1">
+        <div class="question">1. Which phrase do we use for rivers? / Яку фразу ми використовуємо для річок?</div>
+        <div class="q-options">
+          <button class="q-opt" onclick="answer(this,'wrong','q1')">is bordered by</button>
+          <button class="q-opt" onclick="answer(this,'correct','q1')">flows through</button>
+          <button class="q-opt" onclick="answer(this,'wrong','q1')">is surrounded by</button>
+        </div>
+        <div class="q-feedback" id="fb1"></div>
+      </div>
+
+      <div class="q-item" id="q2">
+        <div class="question">2. What does "is bordered by" mean? / Що означає "is bordered by"?</div>
+        <div class="q-options">
+          <button class="q-opt" onclick="answer(this,'wrong','q2')">знаходиться у</button>
+          <button class="q-opt" onclick="answer(this,'wrong','q2')">протікає через</button>
+          <button class="q-opt" onclick="answer(this,'correct','q2')">межує з</button>
+        </div>
+        <div class="q-feedback" id="fb2"></div>
+      </div>
+
+      <div class="q-item" id="q3">
+        <div class="question">3. "E" on a compass stands for... / "E" на компасі означає...</div>
+        <div class="q-options">
+          <button class="q-opt" onclick="answer(this,'wrong','q3')">⬅️ West (Захід)</button>
+          <button class="q-opt" onclick="answer(this,'correct','q3')">➡️ East (Схід)</button>
+          <button class="q-opt" onclick="answer(this,'wrong','q3')">⬇️ South (Південь)</button>
+        </div>
+        <div class="q-feedback" id="fb3"></div>
+      </div>
+
+      <div class="q-item" id="q4">
+        <div class="question">4. How do you say "Гора" in English? / Як "Гора" англійською?</div>
+        <div class="q-options">
+          <button class="q-opt" onclick="answer(this,'wrong','q4')">River</button>
+          <button class="q-opt" onclick="answer(this,'wrong','q4')">Desert</button>
+          <button class="q-opt" onclick="answer(this,'correct','q4')">Mountain</button>
+        </div>
+        <div class="q-feedback" id="fb4"></div>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  Made with <span>♥</span> for geography learners 🌍 | Keep exploring the world in English!
+</footer>
+
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+<script>
+  const feedbacks = {
+    q1: { correct: "✅ Correct! 'Flows through' is perfect for rivers. Молодець! 🌊", wrong: "❌ Not quite! The answer is 'flows through'. Спробуй ще!" },
+    q2: { correct: "✅ Right! 'Is bordered by' = межує з. Чудово! 🎉", wrong: "❌ Oops! 'Is bordered by' means межує з. Спробуй!" },
+    q3: { correct: "✅ Yes! E = East = Схід. Great job! 🧭", wrong: "❌ Not right! E = East = Схід. Try again!" },
+    q4: { correct: "✅ Perfect! Mountain = Гора. You're amazing! ⛰️", wrong: "❌ Almost! Mountain = Гора. Спробуй ще раз!" }
+  };
+  const answered = {};
+  function answer(btn, type, qid) {
+    if (answered[qid]) return;
+    answered[qid] = true;
+    btn.classList.add(type);
+    document.getElementById('fb' + qid.replace('q','')).textContent = feedbacks[qid][type];
+  }
+</script>
+
+</body>
+</html>

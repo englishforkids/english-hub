@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English Conditionals | Умовні речення</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F3FF;
+    --c0: #FF6B6B;
+    --c1: #4D96FF;
+    --c2: #A855F7;
+    --c3: #22C55E;
+    --accent: #FFD93D;
+    --dark: #1E1B3A;
+    --text: #333158;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ═══════════ HERO ═══════════ */
+  .hero {
+    background: linear-gradient(150deg, #1E1B3A 0%, #3B1F6A 50%, #6C2FA8 100%);
+    padding: 64px 20px 100px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-stars {
+    position: absolute; inset: 0; pointer-events: none;
+    background-image:
+      radial-gradient(circle, rgba(255,255,255,0.18) 1px, transparent 1px),
+      radial-gradient(circle, rgba(255,255,255,0.10) 1px, transparent 1px);
+    background-size: 60px 60px, 37px 37px;
+    background-position: 0 0, 20px 20px;
+  }
+  .hero-sun {
+    font-size: 72px;
+    display: block;
+    margin-bottom: 12px;
+    animation: spin-glow 4s ease-in-out infinite;
+    position: relative;
+    z-index: 1;
+  }
+  @keyframes spin-glow {
+    0%,100%{transform:scale(1) rotate(-5deg); filter:drop-shadow(0 0 12px #FFD93D);}
+    50%{transform:scale(1.1) rotate(5deg); filter:drop-shadow(0 0 30px #FFD93D);}
+  }
+  .hero h1 {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(2rem, 6vw, 4rem);
+    color: white;
+    line-height: 1.1;
+    position: relative; z-index: 1;
+  }
+  .hero h1 .ua {
+    display: block;
+    font-size: clamp(1rem, 3vw, 1.6rem);
+    color: #C4B5FD;
+    font-weight: 600;
+    margin-top: 6px;
+  }
+  .hero-desc {
+    margin: 20px auto 0;
+    max-width: 620px;
+    position: relative; z-index: 1;
+  }
+  .hero-desc p {
+    color: rgba(255,255,255,0.85);
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    line-height: 1.7;
+  }
+  .hero-desc .ua-text {
+    color: #C4B5FD;
+    font-size: clamp(0.8rem, 2vw, 0.95rem);
+    font-style: italic;
+    margin-top: 4px;
+  }
+  .wave-bottom { display: block; width: 100%; margin-top: -2px; }
+
+  /* ═══════════ WHAT ARE CONDITIONALS ═══════════ */
+  .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+
+  .what-section { padding: 50px 20px 20px; }
+  .section-heading {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    text-align: center;
+    color: var(--dark);
+    margin-bottom: 24px;
+  }
+  .section-heading .ua { display: block; font-size: 0.65em; color: #7C69A4; font-weight: 600; margin-top: 2px; }
+
+  .what-card {
+    background: white;
+    border-radius: 28px;
+    padding: 30px 32px;
+    box-shadow: 0 8px 40px rgba(108,47,168,0.1);
+    border: 3px solid #EDE9FF;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .bilingual-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .lang-block {}
+  .lang-label {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 0.72rem; font-weight: 800; letter-spacing: 2px;
+    text-transform: uppercase; margin-bottom: 10px;
+    padding: 3px 10px; border-radius: 30px;
+  }
+  .lang-label.en { background: #DBEAFE; color: #1D4ED8; }
+  .lang-label.ua { background: #EDE9FF; color: #6C2FA8; }
+  .lang-block p { font-size: 0.97rem; line-height: 1.7; color: var(--text); }
+  .lang-block strong { color: var(--dark); }
+  .formula-highlight {
+    margin-top: 20px;
+    background: linear-gradient(135deg, #EDE9FF, #DBEAFE);
+    border-radius: 16px;
+    padding: 16px 20px;
+    text-align: center;
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(1rem, 3vw, 1.3rem);
+    font-weight: 700;
+    color: #3B1F6A;
+  }
+
+  /* ═══════════ MAGIC SENTENCE ═══════════ */
+  .magic-section { padding: 30px 20px; }
+  .magic-card {
+    background: linear-gradient(135deg, #FFD93D 0%, #FF9A3C 100%);
+    border-radius: 28px;
+    padding: 30px 32px;
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto;
+    box-shadow: 0 10px 40px rgba(255,154,60,0.3);
+    position: relative; overflow: hidden;
+  }
+  .magic-card::before {
+    content: '✨';
+    position: absolute; top: -20px; right: -10px;
+    font-size: 100px; opacity: 0.15;
+  }
+  .magic-label {
+    font-size: 0.78rem; font-weight: 800; letter-spacing: 2px;
+    text-transform: uppercase; color: rgba(0,0,0,0.45); margin-bottom: 8px;
+  }
+  .magic-emoji { font-size: 3rem; display: block; margin-bottom: 8px; }
+  .magic-en {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(1.3rem, 4vw, 1.9rem);
+    font-weight: 800;
+    color: #1A0A00;
+  }
+  .magic-ua {
+    margin-top: 8px;
+    color: rgba(0,0,0,0.55);
+    font-size: 1rem;
+    font-style: italic;
+  }
+  .magic-note {
+    margin-top: 14px;
+    background: rgba(255,255,255,0.35);
+    border-radius: 12px;
+    padding: 10px 16px;
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: rgba(0,0,0,0.65);
+  }
+
+  /* ═══════════ CONDITIONALS ═══════════ */
+  .types-heading { padding: 40px 20px 10px; }
+  .cards-wrap {
+    display: grid;
+    gap: 36px;
+    padding: 20px 20px 60px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .cond-card {
+    background: white;
+    border-radius: 32px;
+    overflow: hidden;
+    box-shadow: 0 10px 50px rgba(0,0,0,0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .cond-card:hover { transform: translateY(-5px); box-shadow: 0 20px 60px rgba(0,0,0,0.12); }
+
+  /* CARD HEADER */
+  .ch { padding: 26px 30px 22px; display: flex; align-items: center; gap: 18px; }
+  .ch-num {
+    width: 60px; height: 60px; border-radius: 18px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Baloo 2', cursive; font-size: 1.6rem; font-weight: 800;
+    color: white; flex-shrink: 0;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+  }
+  .ch-info h3 { font-family: 'Baloo 2', cursive; font-size: 1.45rem; line-height: 1.1; }
+  .ch-info .en-name { }
+  .ch-info .ua-name { font-size: 0.9rem; font-weight: 600; margin-top: 3px; opacity: 0.6; }
+
+  /* CARD BODY */
+  .cb { padding: 0 30px 30px; }
+
+  /* MEANING */
+  .meaning-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+  .meaning-block {
+    border-radius: 16px; padding: 14px 16px;
+    font-size: 0.92rem; line-height: 1.6;
+  }
+  .meaning-block .mlabel { font-size: 0.72rem; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 6px; opacity: 0.55; }
+
+  /* FORMULA */
+  .formula-wrap { border-radius: 16px; padding: 18px 20px; margin-bottom: 22px; }
+  .flabel { font-size: 0.72rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; opacity: 0.55; }
+  .formula-row {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+    font-family: 'Baloo 2', cursive; font-size: clamp(0.82rem, 2.2vw, 1rem); font-weight: 700;
+  }
+  .f-if { padding: 6px 14px; border-radius: 10px; color: white; }
+  .f-verb { padding: 6px 14px; border-radius: 10px; }
+  .f-arrow { font-size: 1.3rem; opacity: 0.45; }
+  .f-res { padding: 6px 14px; border-radius: 10px; }
+  .formula-ua { margin-top: 10px; font-size: 0.83rem; opacity: 0.6; font-style: italic; }
+
+  /* EXAMPLES */
+  .ex-label { font-size: 0.72rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; opacity: 0.45; margin-bottom: 12px; }
+  .ex-item { display: flex; gap: 14px; margin-bottom: 16px; align-items: flex-start; }
+  .ex-ico { font-size: 1.8rem; flex-shrink: 0; margin-top: 4px; }
+  .ex-bubble {
+    border-radius: 18px; padding: 14px 18px; flex: 1;
+  }
+  .ex-bubble .ex-en { font-size: 1.02rem; font-weight: 700; line-height: 1.5; }
+  .ex-bubble .ex-ua { font-size: 0.88rem; margin-top: 5px; opacity: 0.65; font-style: italic; line-height: 1.5; }
+  .ex-bubble .ex-tip { font-size: 0.82rem; margin-top: 6px; font-weight: 600; }
+
+  /* ═══════════ TRANSFORMATION TABLE ═══════════ */
+  .transform-section {
+    background: linear-gradient(150deg, #1E1B3A 0%, #3B1F6A 100%);
+    padding: 55px 20px 65px;
+  }
+  .transform-section .section-heading { color: white; }
+  .transform-section .section-heading .ua { color: #C4B5FD; }
+  .transform-sub { text-align: center; color: rgba(255,255,255,0.6); margin: -16px 0 32px; font-size: 0.95rem; line-height: 1.6; }
+
+  .transform-table {
+    max-width: 820px; margin: 0 auto;
+    border-collapse: separate; border-spacing: 0 12px;
+    width: 100%;
+  }
+  .th-row th {
+    color: rgba(255,255,255,0.4);
+    font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase;
+    padding: 0 16px 8px; text-align: left; font-weight: 700;
+  }
+  .tr-row td {
+    background: rgba(255,255,255,0.07);
+    padding: 16px 18px;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .tr-row td:first-child { border-radius: 16px 0 0 16px; }
+  .tr-row td:last-child { border-radius: 0 16px 16px 0; border-left: none; }
+  .tr-row td:not(:first-child):not(:last-child) { border-left: none; }
+  .tr-row:hover td { background: rgba(255,255,255,0.13); }
+  .t-badge {
+    display: inline-block; border-radius: 10px;
+    padding: 5px 12px; font-size: 0.8rem; font-weight: 800;
+    white-space: nowrap;
+  }
+  .t-sentence { color: white; font-size: clamp(0.85rem, 2.2vw, 0.98rem); line-height: 1.5; }
+  .t-sentence .hl { border-radius: 6px; padding: 1px 6px; font-weight: 800; }
+  .t-ua { color: rgba(255,255,255,0.45); font-size: 0.82rem; font-style: italic; line-height: 1.5; }
+
+  /* ═══════════ TIPS ═══════════ */
+  .tips-section { padding: 50px 20px 60px; }
+  .tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 20px; max-width: 900px; margin: 0 auto;
+  }
+  .tip-card {
+    border-radius: 24px; padding: 26px 20px; text-align: center;
+    transition: transform 0.2s;
+  }
+  .tip-card:hover { transform: scale(1.03); }
+  .tip-ico { font-size: 2.6rem; display: block; margin-bottom: 10px; }
+  .tip-card h4 { font-family: 'Baloo 2', cursive; font-size: 1.05rem; margin-bottom: 4px; }
+  .tip-card .tip-ua { font-size: 0.8rem; opacity: 0.6; font-style: italic; margin-bottom: 10px; }
+  .tip-card p { font-size: 0.87rem; line-height: 1.55; opacity: 0.8; }
+
+  /* ═══════════ FOOTER ═══════════ */
+  footer {
+    background: var(--dark); text-align: center;
+    padding: 28px 20px; color: rgba(255,255,255,0.4); font-size: 0.88rem;
+  }
+  footer span { color: #FFD93D; }
+
+  /* ═══════════ COLOR THEMES ═══════════ */
+  /* ZERO - Red/Coral */
+  .c0 .ch { background: linear-gradient(135deg, #FFF0F0, #FFE5D0); }
+  .c0 .ch-num { background: linear-gradient(135deg, #FF6B6B, #FF8E53); }
+  .c0 h3.en-name { color: #C0392B; }
+  .c0 .meaning-block { background: #FFF5F5; }
+  .c0 .meaning-block .mlabel { color: #C0392B; }
+  .c0 .formula-wrap { background: #FFF5F5; }
+  .c0 .f-if { background: #FF6B6B; }
+  .c0 .f-verb { background: #FFE5E5; color: #C0392B; }
+  .c0 .f-res { background: #FFE5E5; color: #C0392B; }
+  .c0 .ex-bubble { background: #FFF5F5; }
+  .c0 .ex-tip { color: #C0392B; }
+  .t0 .t-badge { background: rgba(255,107,107,0.2); color: #FF6B6B; }
+  .t0 .hl { background: rgba(255,107,107,0.25); color: #FF8080; }
+  .tip-c0 { background: #FFF0F0; color: #7A1A1A; }
+
+  /* FIRST - Blue */
+  .c1 .ch { background: linear-gradient(135deg, #E8F4FF, #EEF9FF); }
+  .c1 .ch-num { background: linear-gradient(135deg, #4D96FF, #00C2CB); }
+  .c1 h3.en-name { color: #1A56B0; }
+  .c1 .meaning-block { background: #F0F8FF; }
+  .c1 .meaning-block .mlabel { color: #1A56B0; }
+  .c1 .formula-wrap { background: #F0F8FF; }
+  .c1 .f-if { background: #4D96FF; }
+  .c1 .f-verb { background: #DBEAFE; color: #1A56B0; }
+  .c1 .f-res { background: #DBEAFE; color: #1A56B0; }
+  .c1 .ex-bubble { background: #F0F8FF; }
+  .c1 .ex-tip { color: #1A56B0; }
+  .t1 .t-badge { background: rgba(77,150,255,0.2); color: #4D96FF; }
+  .t1 .hl { background: rgba(77,150,255,0.25); color: #60A5FA; }
+  .tip-c1 { background: #EFF6FF; color: #1E3A8A; }
+
+  /* SECOND - Purple */
+  .c2 .ch { background: linear-gradient(135deg, #F5F0FF, #FDF0FF); }
+  .c2 .ch-num { background: linear-gradient(135deg, #A855F7, #EC4899); }
+  .c2 h3.en-name { color: #7B2D8B; }
+  .c2 .meaning-block { background: #FAF5FF; }
+  .c2 .meaning-block .mlabel { color: #7B2D8B; }
+  .c2 .formula-wrap { background: #FAF5FF; }
+  .c2 .f-if { background: #A855F7; }
+  .c2 .f-verb { background: #EDE9FE; color: #7B2D8B; }
+  .c2 .f-res { background: #EDE9FE; color: #7B2D8B; }
+  .c2 .ex-bubble { background: #FAF5FF; }
+  .c2 .ex-tip { color: #7B2D8B; }
+  .t2 .t-badge { background: rgba(168,85,247,0.2); color: #C084FC; }
+  .t2 .hl { background: rgba(168,85,247,0.25); color: #C084FC; }
+  .tip-c2 { background: #F5F0FF; color: #4A0E6E; }
+
+  /* THIRD - Green */
+  .c3 .ch { background: linear-gradient(135deg, #EDFFF5, #F0FFF8); }
+  .c3 .ch-num { background: linear-gradient(135deg, #22C55E, #84CC16); }
+  .c3 h3.en-name { color: #166534; }
+  .c3 .meaning-block { background: #F0FFF4; }
+  .c3 .meaning-block .mlabel { color: #166534; }
+  .c3 .formula-wrap { background: #F0FFF4; }
+  .c3 .f-if { background: #22C55E; }
+  .c3 .f-verb { background: #DCFCE7; color: #166534; }
+  .c3 .f-res { background: #DCFCE7; color: #166534; }
+  .c3 .ex-bubble { background: #F0FFF4; }
+  .c3 .ex-tip { color: #166534; }
+  .t3 .t-badge { background: rgba(34,197,94,0.2); color: #4ADE80; }
+  .t3 .hl { background: rgba(34,197,94,0.25); color: #4ADE80; }
+  .tip-c3 { background: #EDFFF5; color: #0A3D1E; }
+
+  /* ═══════════ TABLET ═══════════ */
+  @media (max-width: 768px) {
+    .what-card { padding: 22px 20px; }
+    .cb { padding: 0 20px 24px; }
+    .ch { padding: 20px 20px 16px; }
+    .magic-card { padding: 24px 20px; }
+    .cards-wrap { padding: 16px 16px 48px; gap: 24px; }
+    .tips-grid { gap: 14px; }
+  }
+
+  /* ═══════════ MOBILE ═══════════ */
+  @media (max-width: 600px) {
+    .hero { padding: 44px 16px 72px; }
+    .hero-sun { font-size: 52px; }
+    .hero h1 { font-size: 1.85rem; }
+    .hero h1 .ua { font-size: 1rem; }
+    .hero-desc p { font-size: 0.9rem; }
+    .hero-desc .ua-text { font-size: 0.8rem; }
+    .what-section { padding: 36px 14px 16px; }
+    .magic-section { padding: 20px 14px; }
+    .types-heading { padding: 28px 14px 6px; }
+    .tips-section { padding: 36px 14px 48px; }
+    .transform-section { padding: 40px 14px 50px; }
+    .section-heading { font-size: 1.35rem; margin-bottom: 18px; }
+    .section-heading .ua { font-size: 0.75em; }
+    .what-card { padding: 18px 16px; border-radius: 20px; border-width: 2px; }
+    .bilingual-row { grid-template-columns: 1fr; gap: 14px; }
+    .lang-block p { font-size: 0.9rem; }
+    .formula-highlight { font-size: 0.88rem; padding: 12px 14px; border-radius: 12px; }
+    .magic-card { padding: 22px 16px; border-radius: 20px; }
+    .magic-label { font-size: 0.7rem; letter-spacing: 1px; }
+    .magic-emoji { font-size: 2.4rem; }
+    .magic-en { font-size: 1.2rem; }
+    .magic-ua { font-size: 0.88rem; }
+    .magic-note { font-size: 0.82rem; padding: 10px 12px; }
+    .cards-wrap { padding: 12px 14px 44px; gap: 20px; }
+    .cond-card { border-radius: 22px; }
+    .cond-card:hover { transform: none; }
+    .ch { padding: 18px 16px 14px; gap: 12px; flex-direction: row; align-items: center; text-align: left; }
+    .ch-num { width: 48px; height: 48px; border-radius: 14px; font-size: 1.3rem; }
+    .ch-info h3 { font-size: 1.15rem; }
+    .ch-info .ua-name { font-size: 0.78rem; }
+    .cb { padding: 0 16px 20px; }
+    .meaning-grid { grid-template-columns: 1fr; gap: 10px; margin-bottom: 16px; }
+    .meaning-block { padding: 12px 14px; font-size: 0.88rem; border-radius: 14px; }
+    .meaning-block .mlabel { font-size: 0.68rem; }
+    .formula-wrap { padding: 14px 14px; margin-bottom: 18px; border-radius: 14px; }
+    .flabel { font-size: 0.68rem; margin-bottom: 8px; }
+    .formula-row { gap: 6px; font-size: 0.82rem; flex-wrap: wrap; }
+    .f-if, .f-verb, .f-res { padding: 5px 10px; border-radius: 8px; }
+    .formula-ua { font-size: 0.78rem; margin-top: 8px; }
+    .ex-label { font-size: 0.68rem; margin-bottom: 10px; }
+    .ex-item { gap: 10px; margin-bottom: 12px; }
+    .ex-ico { font-size: 1.5rem; }
+    .ex-bubble { padding: 12px 14px; border-radius: 14px; }
+    .ex-bubble .ex-en { font-size: 0.93rem; }
+    .ex-bubble .ex-ua { font-size: 0.82rem; }
+    .ex-bubble .ex-tip { font-size: 0.78rem; }
+    .transform-sub { font-size: 0.85rem; margin-bottom: 22px; }
+    .table-scroll-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 16px;
+      box-shadow: inset -10px 0 16px -10px rgba(0,0,0,0.3);
+    }
+    .transform-table { min-width: 560px; border-spacing: 0 10px; }
+    .th-row th { font-size: 0.66rem; padding: 0 12px 6px; }
+    .tr-row td { padding: 12px 14px; }
+    .tr-row td:first-child { border-radius: 12px 0 0 12px; }
+    .tr-row td:last-child { border-radius: 0 12px 12px 0; }
+    .t-badge { font-size: 0.72rem; padding: 4px 9px; }
+    .t-sentence { font-size: 0.85rem; }
+    .t-ua { font-size: 0.76rem; }
+    .tips-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .tip-card { padding: 18px 14px; border-radius: 18px; }
+    .tip-ico { font-size: 2rem; }
+    .tip-card h4 { font-size: 0.95rem; }
+    .tip-card .tip-ua { font-size: 0.72rem; }
+    .tip-card p { font-size: 0.8rem; }
+    footer { font-size: 0.82rem; padding: 22px 16px; }
+    #scroll-top-btn { bottom: 20px; right: 16px; width: 40px; height: 40px; font-size: 16px; }
+  }
+
+  @media (max-width: 380px) {
+    .tips-grid { grid-template-columns: 1fr; }
+    .ch { gap: 10px; }
+    .ch-num { width: 42px; height: 42px; font-size: 1.1rem; }
+    .formula-row { font-size: 0.76rem; }
+    .magic-en { font-size: 1.05rem; }
+  }
+
+  #scroll-top-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #1a1208;
+    border: 1.5px solid rgba(200,150,62,0.4);
+    color: #f5f0e8;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+    pointer-events: none;
+    z-index: 9998;
+  }
+  #scroll-top-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  #scroll-top-btn:hover {
+    background: #c8963e;
+    border-color: #c8963e;
+    color: #1a1208;
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ HERO ═══ -->
+<header class="hero">
+  <div class="hero-stars"></div>
+  <span class="hero-sun">☀️</span>
+  <h1>
+    English Conditionals
+    <span class="ua">Умовні речення англійською</span>
+  </h1>
+  <div class="hero-desc">
+    <p>Learn when to say <em>"If... then..."</em> — for facts, plans, dreams & regrets!</p>
+    <p class="ua-text">Дізнайся, коли казати «Якщо... то...» — для фактів, планів, мрій і жалкувань!</p>
+  </div>
+</header>
+<svg class="wave-bottom" viewBox="0 0 1440 70" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0,40 C400,80 1000,0 1440,40 L1440,70 L0,70 Z" fill="#F7F3FF"/>
+</svg>
+
+<!-- ═══ WHAT ARE CONDITIONALS ═══ -->
+<section class="what-section">
+  <div class="container">
+    <h2 class="section-heading">
+      🤔 What are Conditionals?
+      <span class="ua">Що таке умовні речення?</span>
+    </h2>
+    <div class="what-card">
+      <div class="bilingual-row">
+        <div class="lang-block">
+          <div class="lang-label en">🇬🇧 English</div>
+          <p>A <strong>conditional sentence</strong> has two parts: a <strong>condition</strong> (the "IF" part) and a <strong>result</strong> (what happens because of it). Together they create an <em>if → then</em> relationship.</p>
+        </div>
+        <div class="lang-block">
+          <div class="lang-label ua">🇺🇦 Українська</div>
+          <p><strong>Умовне речення</strong> складається з двох частин: <strong>умови</strong> (частина «ЯКЩО») та <strong>результату</strong> (що стається через це). Разом вони утворюють зв'язок <em>якщо → то</em>.</p>
+        </div>
+      </div>
+      <div class="formula-highlight">
+        IF [condition / умова] &nbsp;→&nbsp; [result / результат]
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MAGIC SENTENCE ═══ -->
+<section class="magic-section">
+  <div class="container">
+    <div class="magic-card">
+      <div class="magic-label">🌟 Our Universal Sentence · Наше універсальне речення</div>
+      <span class="magic-emoji">☀️</span>
+      <div class="magic-en">"The sun / shine"</div>
+      <div class="magic-ua">«Сонце / світити»</div>
+      <div class="magic-note">
+        We'll use <strong>the sun</strong> and <strong>going to the beach</strong> in every example below — watch how the verbs change!<br>
+        <span style="color:rgba(0,0,0,0.45);">Ми будемо використовувати «сонце» і «похід на пляж» у кожному прикладі — спостерігай, як змінюються дієслова!</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOUR CONDITIONALS ═══ -->
+<div class="types-heading">
+  <h2 class="section-heading">
+    The 4 Types · <span style="color:#6C2FA8;">4 Типи умовних речень</span>
+  </h2>
+</div>
+
+<div class="cards-wrap">
+
+  <!-- ══ ZERO ══ -->
+  <div class="cond-card c0">
+    <div class="ch">
+      <div class="ch-num">0</div>
+      <div class="ch-info">
+        <h3 class="en-name">Zero Conditional</h3>
+        <div class="ua-name">Нульовий тип · завжди правда</div>
+      </div>
+    </div>
+    <div class="cb">
+      <div class="meaning-grid">
+        <div class="meaning-block">
+          <div class="mlabel">🇬🇧 When to use it</div>
+          For <strong>general truths and facts</strong> that are always true — like science rules. It happens <em>every single time</em>.
+        </div>
+        <div class="meaning-block">
+          <div class="mlabel">🇺🇦 Коли вживати</div>
+          Для <strong>загальних істин і фактів</strong>, які завжди правдиві — як закони природи. Це відбувається <em>кожного разу</em>.
+        </div>
+      </div>
+      <div class="formula-wrap">
+        <div class="flabel">📐 Formula · Формула</div>
+        <div class="formula-row">
+          <span class="f-if">IF</span>
+          <span class="f-verb">Subject + Present Simple</span>
+          <span class="f-arrow">→</span>
+          <span class="f-res">Subject + Present Simple</span>
+        </div>
+        <div class="formula-ua">Якщо + теперішній простий час → теперішній простий час</div>
+      </div>
+      <div class="ex-label">✏️ Examples · Приклади</div>
+      <div class="ex-item">
+        <span class="ex-ico">☀️</span>
+        <div class="ex-bubble">
+          <div class="ex-en">If the sun <u>shines</u>, ice <u>melts</u>.</div>
+          <div class="ex-ua">Якщо сонце <u>світить</u>, лід <u>тане</u>.</div>
+          <div class="ex-tip">✅ Always true! A fact of nature. · Завжди правда! Факт природи.</div>
+        </div>
+      </div>
+      <div class="ex-item">
+        <span class="ex-ico">💧</span>
+        <div class="ex-bubble">
+          <div class="ex-en">If you <u>heat</u> water to 100°C, it <u>boils</u>.</div>
+          <div class="ex-ua">Якщо <u>нагріти</u> воду до 100°C, вона <u>закипає</u>.</div>
+          <div class="ex-tip">✅ Science rule — no exceptions! · Закон науки — без винятків!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ FIRST ══ -->
+  <div class="cond-card c1">
+    <div class="ch">
+      <div class="ch-num">1st</div>
+      <div class="ch-info">
+        <h3 class="en-name">First Conditional</h3>
+        <div class="ua-name">Перший тип · реальне майбутнє</div>
+      </div>
+    </div>
+    <div class="cb">
+      <div class="meaning-grid">
+        <div class="meaning-block">
+          <div class="mlabel">🇬🇧 When to use it</div>
+          For things that <strong>can really happen</strong> in the future. You believe it's possible — maybe even likely!
+        </div>
+        <div class="meaning-block">
+          <div class="mlabel">🇺🇦 Коли вживати</div>
+          Для речей, які <strong>можуть справді трапитись</strong> у майбутньому. Ти вважаєш, що це можливо — можливо, навіть імовірно!
+        </div>
+      </div>
+      <div class="formula-wrap">
+        <div class="flabel">📐 Formula · Формула</div>
+        <div class="formula-row">
+          <span class="f-if">IF</span>
+          <span class="f-verb">Subject + Present Simple</span>
+          <span class="f-arrow">→</span>
+          <span class="f-res">Subject + WILL + verb</span>
+        </div>
+        <div class="formula-ua">Якщо + теперішній простий → will + інфінітив</div>
+      </div>
+      <div class="ex-label">✏️ Examples · Приклади</div>
+      <div class="ex-item">
+        <span class="ex-ico">☀️</span>
+        <div class="ex-bubble">
+          <div class="ex-en">If the sun <u>shines</u> tomorrow, we <u>will go</u> to the beach.</div>
+          <div class="ex-ua">Якщо завтра <u>буде</u> сонячно, ми <u>підемо</u> на пляж.</div>
+          <div class="ex-tip">🎯 Real plan! We're genuinely thinking about it. · Реальний план!</div>
+        </div>
+      </div>
+      <div class="ex-item">
+        <span class="ex-ico">📚</span>
+        <div class="ex-bubble">
+          <div class="ex-en">If you <u>study</u> hard, you <u>will pass</u> the exam.</div>
+          <div class="ex-ua">Якщо ти <u>будеш</u> старанно вчитись, ти <u>здаси</u> іспит.</div>
+          <div class="ex-tip">🎯 Real possibility — study now, pass later! · Реальна можливість!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SECOND ══ -->
+  <div class="cond-card c2">
+    <div class="ch">
+      <div class="ch-num">2nd</div>
+      <div class="ch-info">
+        <h3 class="en-name">Second Conditional</h3>
+        <div class="ua-name">Другий тип · уявна/малоймовірна ситуація</div>
+      </div>
+    </div>
+    <div class="cb">
+      <div class="meaning-grid">
+        <div class="meaning-block">
+          <div class="mlabel">🇬🇧 When to use it</div>
+          For <strong>imaginary, unlikely or impossible</strong> situations now or in the future. You're dreaming or hypothesizing!
+        </div>
+        <div class="meaning-block">
+          <div class="mlabel">🇺🇦 Коли вживати</div>
+          Для <strong>уявних, малоймовірних або неможливих</strong> ситуацій зараз або в майбутньому. Ти мрієш або фантазуєш!
+        </div>
+      </div>
+      <div class="formula-wrap">
+        <div class="flabel">📐 Formula · Формула</div>
+        <div class="formula-row">
+          <span class="f-if">IF</span>
+          <span class="f-verb">Subject + Past Simple</span>
+          <span class="f-arrow">→</span>
+          <span class="f-res">Subject + WOULD + verb</span>
+        </div>
+        <div class="formula-ua">Якщо + минулий простий → would + інфінітив</div>
+      </div>
+      <div class="ex-label">✏️ Examples · Приклади</div>
+      <div class="ex-item">
+        <span class="ex-ico">☀️</span>
+        <div class="ex-bubble">
+          <div class="ex-en">If the sun <u>shone</u> every day, I <u>would go</u> to the beach all the time.</div>
+          <div class="ex-ua">Якби сонце <u>світило</u> щодня, я <u>ходив би</u> на пляж весь час.</div>
+          <div class="ex-tip">💭 It doesn't shine every day — just a dream! · Це просто мрія!</div>
+        </div>
+      </div>
+      <div class="ex-item">
+        <span class="ex-ico">🦋</span>
+        <div class="ex-bubble">
+          <div class="ex-en">If I <u>had</u> wings, I <u>would fly</u> to school.</div>
+          <div class="ex-ua">Якби я <u>мав</u> крила, я <u>літав би</u> до школи.</div>
+          <div class="ex-tip">💭 Imaginary — I have no wings (sadly 😄) · Уявна ситуація!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ THIRD ══ -->
+  <div class="cond-card c3">
+    <div class="ch">
+      <div class="ch-num">3rd</div>
+      <div class="ch-info">
+        <h3 class="en-name">Third Conditional</h3>
+        <div class="ua-name">Третій тип · жалкування про минуле</div>
+      </div>
+    </div>
+    <div class="cb">
+      <div class="meaning-grid">
+        <div class="meaning-block">
+          <div class="mlabel">🇬🇧 When to use it</div>
+          For <strong>past situations that didn't happen</strong>. You imagine: "What if things had been different?" It's about regret.
+        </div>
+        <div class="meaning-block">
+          <div class="mlabel">🇺🇦 Коли вживати</div>
+          Для <strong>минулих ситуацій, які не трапились</strong>. Ти уявляєш: «А що, якби все було інакше?» Це про жалкування.
+        </div>
+      </div>
+      <div class="formula-wrap">
+        <div class="flabel">📐 Formula · Формула</div>
+        <div class="formula-row">
+          <span class="f-if">IF</span>
+          <span class="f-verb">Subject + HAD + past participle</span>
+          <span class="f-arrow">→</span>
+          <span class="f-res">WOULD HAVE + past participle</span>
+        </div>
+        <div class="formula-ua">Якщо + had + дієприкметник → would have + дієприкметник</div>
+      </div>
+      <div class="ex-label">✏️ Examples · Приклади</div>
+      <div class="ex-item">
+        <span class="ex-ico">☀️</span>
+        <div class="ex-bubble">
+          <div class="ex-en">If the sun <u>had shone</u> that day, we <u>would have gone</u> to the beach.</div>
+          <div class="ex-ua">Якби того дня <u>було</u> сонячно, ми <u>пішли б</u> на пляж.</div>
+          <div class="ex-tip">🕰️ But it didn't shine. We stayed home. Past regret! · Але так не сталось. Жалкуємо!</div>
+        </div>
+      </div>
+      <div class="ex-item">
+        <span class="ex-ico">📖</span>
+        <div class="ex-bubble">
+          <div class="ex-en">If I <u>had studied</u> more, I <u>would have passed</u> the test.</div>
+          <div class="ex-ua">Якби я <u>вчився</u> більше, я <u>склав би</u> тест.</div>
+          <div class="ex-tip">🕰️ I didn't study enough. I failed. I regret it! · Не вчився — не склав. Шкода!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══ TRANSFORMATION TABLE ═══ -->
+<section class="transform-section">
+  <h2 class="section-heading">
+    ✨ Watch the Magic Sentence Change!
+    <span class="ua">Дивись, як змінюється одне речення!</span>
+  </h2>
+  <p class="transform-sub">
+    Same idea — the sun &amp; the beach — but the verbs change everything.<br>
+    <span style="color:rgba(255,255,255,0.4)">Та сама ідея — сонце і пляж — але дієслова змінюють усе.</span>
+  </p>
+  <div class="table-scroll-wrap">
+  <table class="transform-table">
+    <tr class="th-row">
+      <th>Type · Тип</th>
+      <th>Sentence · Речення</th>
+      <th>Ukrainian · Переклад</th>
+    </tr>
+    <tr class="tr-row t0">
+      <td><span class="t-badge">0 · Факт</span></td>
+      <td class="t-sentence">If <span class="hl">the sun shines</span>, the temperature <span class="hl">rises</span>.</td>
+      <td class="t-ua">Якщо сонце <em>світить</em>, температура <em>підвищується</em>.</td>
+    </tr>
+    <tr class="tr-row t1">
+      <td><span class="t-badge">1st · Можливо</span></td>
+      <td class="t-sentence">If <span class="hl">the sun shines</span> tomorrow, we <span class="hl">will go</span> to the beach.</td>
+      <td class="t-ua">Якщо завтра <em>буде сонячно</em>, ми <em>підемо</em> на пляж.</td>
+    </tr>
+    <tr class="tr-row t2">
+      <td><span class="t-badge">2nd · Мрія</span></td>
+      <td class="t-sentence">If <span class="hl">the sun shone</span> every day, I <span class="hl">would go</span> to the beach all the time.</td>
+      <td class="t-ua">Якби сонце <em>світило</em> щодня, я <em>ходив би</em> на пляж весь час.</td>
+    </tr>
+    <tr class="tr-row t3">
+      <td><span class="t-badge">3rd · Жалкування</span></td>
+      <td class="t-sentence">If <span class="hl">the sun had shone</span> that day, we <span class="hl">would have gone</span> to the beach.</td>
+      <td class="t-ua">Якби того дня <em>було сонячно</em>, ми <em>пішли б</em> на пляж.</td>
+    </tr>
+  </table>
+  </div>
+</section>
+
+<!-- ═══ MEMORY TIPS ═══ -->
+<section class="tips-section">
+  <h2 class="section-heading">
+    🧠 Quick Memory Tips
+    <span class="ua">Підказки для запам'ятовування</span>
+  </h2>
+  <div class="tips-grid container">
+    <div class="tip-card tip-c0">
+      <span class="tip-ico">🔁</span>
+      <h4>Zero = Always True</h4>
+      <div class="tip-ua">Нуль = Завжди правда</div>
+      <p>Both verbs → <strong>present simple</strong>. Think: science facts &amp; nature rules!</p>
+    </div>
+    <div class="tip-card tip-c1">
+      <span class="tip-ico">🚀</span>
+      <h4>1st = Real Future</h4>
+      <div class="tip-ua">1-й = Реальне майбутнє</div>
+      <p>IF + present → <strong>WILL</strong> + verb. A genuine plan or possibility!</p>
+    </div>
+    <div class="tip-card tip-c2">
+      <span class="tip-ico">💭</span>
+      <h4>2nd = Dreaming Now</h4>
+      <div class="tip-ua">2-й = Мрія зараз</div>
+      <p>IF + past → <strong>WOULD</strong> + verb. Imagining an unlikely world!</p>
+    </div>
+    <div class="tip-card tip-c3">
+      <span class="tip-ico">🕰️</span>
+      <h4>3rd = Past Regret</h4>
+      <div class="tip-ua">3-й = Жалкування про минуле</div>
+      <p>IF + <strong>had</strong> + past participle → <strong>would have</strong>. Rewriting history!</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Made with ❤️ for English learners &amp; Ukrainian students &nbsp;|&nbsp; <span>Keep going, you've got this! 🌟</span>
+</footer>
+
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+
+</body>
+</html>

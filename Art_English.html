@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎨 Talking About Art in English</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,700;0,900;1,300&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FFF8EE;
+    --warm-white: #FFFCF7;
+    --gold: #E8A020;
+    --deep-gold: #C07010;
+    --terracotta: #C85A38;
+    --sage: #5A7A5A;
+    --dusty-blue: #4A6A8A;
+    --plum: #7A3A6A;
+    --charcoal: #2A2420;
+    --mid-gray: #6A5A50;
+    --light-line: #E8D8C8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    color: var(--charcoal);
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--charcoal);
+    padding: 70px 24px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 20% 30%, rgba(232,160,32,.18) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 60% at 80% 70%, rgba(200,90,56,.15) 0%, transparent 70%);
+  }
+  .hero-palette {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 28px;
+    position: relative;
+  }
+  .palette-dot {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    animation: pop .5s ease backwards;
+  }
+  .palette-dot:nth-child(1){ background:#E8A020; animation-delay:.1s }
+  .palette-dot:nth-child(2){ background:#C85A38; animation-delay:.2s }
+  .palette-dot:nth-child(3){ background:#5A7A5A; animation-delay:.3s }
+  .palette-dot:nth-child(4){ background:#4A6A8A; animation-delay:.4s }
+  .palette-dot:nth-child(5){ background:#7A3A6A; animation-delay:.5s }
+  .palette-dot:nth-child(6){ background:#C8A060; animation-delay:.6s }
+  @keyframes pop {
+    from { transform: scale(0); opacity: 0 }
+    to   { transform: scale(1); opacity: 1 }
+  }
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2.6rem, 7vw, 5rem);
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.05;
+    position: relative;
+  }
+  .hero h1 span { color: var(--gold); }
+  .hero-sub {
+    margin-top: 14px;
+    color: rgba(255,255,255,.65);
+    font-size: 1.05rem;
+    font-weight: 300;
+    position: relative;
+  }
+  .hero-badges {
+    display: flex; flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 28px;
+    position: relative;
+  }
+  .badge {
+    background: rgba(255,255,255,.1);
+    border: 1px solid rgba(255,255,255,.2);
+    color: #fff;
+    padding: 6px 16px;
+    border-radius: 99px;
+    font-size: .85rem;
+  }
+
+  /* ── LAYOUT ── */
+  .container { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+  section { padding: 60px 20px; }
+
+  /* ── SECTION TITLE ── */
+  .section-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .section-title span { color: var(--terracotta); }
+  .section-subtitle {
+    color: var(--mid-gray);
+    font-size: .95rem;
+    margin-bottom: 36px;
+  }
+  .divider {
+    width: 50px; height: 3px;
+    background: var(--gold);
+    border-radius: 2px;
+    margin-bottom: 12px;
+  }
+
+  /* ── INTRO CARDS ── */
+  .intro-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    max-width: 900px; margin: 0 auto;
+  }
+  .intro-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 28px 24px;
+    border-top: 4px solid var(--gold);
+    box-shadow: 0 4px 20px rgba(42,36,32,.07);
+    transition: transform .25s, box-shadow .25s;
+  }
+  .intro-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(42,36,32,.12); }
+  .intro-card:nth-child(2) { border-color: var(--terracotta); }
+  .intro-card:nth-child(3) { border-color: var(--dusty-blue); }
+  .intro-card:nth-child(4) { border-color: var(--sage); }
+  .intro-card .icon { font-size: 2.4rem; margin-bottom: 14px; }
+  .intro-card h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.2rem; font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .intro-card p { font-size: .9rem; color: var(--mid-gray); line-height: 1.6; }
+  .uk-note { font-size: .8rem; color: var(--plum); margin-top: 6px; font-style: italic; }
+
+  /* ── VOCABULARY SECTION ── */
+  .vocab-section { background: var(--charcoal); color: #fff; }
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+    max-width: 900px; margin: 0 auto;
+  }
+  .vocab-card {
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 16px;
+    padding: 20px;
+    transition: background .2s;
+  }
+  .vocab-card:hover { background: rgba(255,255,255,.1); }
+  .vocab-en {
+    font-family: 'Fraunces', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+  .vocab-pron {
+    font-size: .8rem;
+    color: rgba(255,255,255,.5);
+    margin-bottom: 8px;
+    font-style: italic;
+  }
+  .vocab-uk { font-size: .9rem; color: rgba(255,255,255,.8); }
+  .vocab-example {
+    margin-top: 8px;
+    font-size: .82rem;
+    color: rgba(255,255,255,.5);
+    border-top: 1px solid rgba(255,255,255,.08);
+    padding-top: 8px;
+    line-height: 1.5;
+  }
+
+  /* ── PHRASES SECTION ── */
+  .phrases-section { background: var(--warm-white); }
+  .phrase-category { margin-bottom: 40px; }
+  .cat-label {
+    display: inline-block;
+    padding: 4px 14px;
+    border-radius: 99px;
+    font-size: .78rem;
+    font-weight: 600;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .cat-describe { background: #FFF0D0; color: var(--deep-gold); }
+  .cat-opinion  { background: #FFE8E0; color: var(--terracotta); }
+  .cat-compare  { background: #E0EEE0; color: var(--sage); }
+  .cat-ask      { background: #E0EAF4; color: var(--dusty-blue); }
+
+  .phrase-list { display: flex; flex-direction: column; gap: 12px; }
+  .phrase-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    background: #fff;
+    border-radius: 14px;
+    padding: 16px 20px;
+    box-shadow: 0 2px 10px rgba(42,36,32,.05);
+    border-left: 4px solid transparent;
+    transition: transform .2s;
+  }
+  .phrase-item:hover { transform: translateX(4px); }
+  .cat-describe + .phrase-list .phrase-item { border-color: var(--gold); }
+  .cat-opinion  + .phrase-list .phrase-item { border-color: var(--terracotta); }
+  .cat-compare  + .phrase-list .phrase-item { border-color: var(--sage); }
+  .cat-ask      + .phrase-list .phrase-item { border-color: var(--dusty-blue); }
+
+  .phrase-en {
+    font-weight: 600;
+    font-size: .95rem;
+    line-height: 1.5;
+  }
+  .phrase-uk {
+    font-size: .88rem;
+    color: var(--mid-gray);
+    line-height: 1.5;
+  }
+  .phrase-uk em { color: var(--plum); font-style: italic; }
+
+  @media(max-width:540px){
+    .phrase-item { grid-template-columns: 1fr; }
+    .phrase-uk { border-top: 1px solid var(--light-line); padding-top: 8px; }
+  }
+
+  /* ── INFOGRAPHIC: ARTWORK ANATOMY ── */
+  .anatomy-section { background: #F4EDE0; }
+  .anatomy-wrap {
+    max-width: 800px; margin: 0 auto;
+    position: relative;
+  }
+  .artwork-svg-container {
+    position: relative;
+    background: #fff;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 8px 40px rgba(42,36,32,.12);
+    padding: 28px;
+  }
+  .artwork-frame {
+    width: 100%;
+    max-width: 520px;
+    display: block;
+    margin: 0 auto;
+  }
+  .label-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin-top: 24px;
+  }
+  .label-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background: var(--cream);
+    border-radius: 12px;
+    padding: 14px;
+  }
+  .label-num {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: var(--charcoal);
+    color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: .78rem; font-weight: 700;
+    flex-shrink: 0;
+  }
+  .label-text strong { font-size: .95rem; display: block; }
+  .label-text span { font-size: .8rem; color: var(--mid-gray); }
+
+  /* ── DIALOGUE SECTION ── */
+  .dialogue-section { background: var(--warm-white); }
+  .dialogue-box {
+    max-width: 700px; margin: 0 auto;
+    background: #fff;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 6px 30px rgba(42,36,32,.08);
+  }
+  .dialogue-header {
+    background: var(--charcoal);
+    color: #fff;
+    padding: 16px 24px;
+    font-size: .85rem;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .dot-row { display: flex; gap: 6px; }
+  .dot-row span {
+    width: 10px; height: 10px; border-radius: 50%;
+  }
+  .dot-row span:nth-child(1){ background:#E85050; }
+  .dot-row span:nth-child(2){ background:#E8C050; }
+  .dot-row span:nth-child(3){ background:#50C850; }
+  .dialogue-body { padding: 24px; display: flex; flex-direction: column; gap: 18px; }
+  .bubble-wrap { display: flex; flex-direction: column; gap: 4px; }
+  .bubble-wrap.right { align-items: flex-end; }
+  .speaker-name { font-size: .72rem; color: var(--mid-gray); padding: 0 12px; }
+  .bubble {
+    max-width: 85%;
+    padding: 12px 18px;
+    border-radius: 18px;
+    font-size: .92rem;
+    line-height: 1.6;
+  }
+  .bubble.emma {
+    background: #EEF4FF;
+    border-bottom-left-radius: 4px;
+  }
+  .bubble.liam {
+    background: #FFF3E0;
+    border-bottom-right-radius: 4px;
+  }
+  .bubble .highlight { color: var(--terracotta); font-weight: 600; }
+  .bubble-uk {
+    font-size: .78rem;
+    color: var(--plum);
+    padding: 0 12px;
+    font-style: italic;
+  }
+
+  /* ── TIPS SECTION ── */
+  .tips-section { background: var(--charcoal); }
+  .tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    max-width: 900px; margin: 0 auto;
+  }
+  .tip-card {
+    background: rgba(255,255,255,.07);
+    border-radius: 20px;
+    padding: 28px 24px;
+    position: relative;
+    overflow: hidden;
+    transition: background .2s;
+  }
+  .tip-card:hover { background: rgba(255,255,255,.11); }
+  .tip-number {
+    font-family: 'Fraunces', serif;
+    font-size: 4rem;
+    font-weight: 900;
+    color: rgba(255,255,255,.07);
+    position: absolute;
+    top: 8px; right: 16px;
+    line-height: 1;
+  }
+  .tip-icon { font-size: 1.8rem; margin-bottom: 14px; }
+  .tip-card h3 { color: var(--gold); font-size: 1.05rem; margin-bottom: 8px; }
+  .tip-card p { color: rgba(255,255,255,.7); font-size: .88rem; line-height: 1.6; }
+  .tip-card .uk-tip { color: rgba(255,255,255,.45); font-size: .8rem; margin-top: 6px; font-style: italic; }
+
+  /* ── MINI QUIZ ── */
+  .quiz-section { background: #F4EDE0; }
+  .quiz-box {
+    max-width: 680px; margin: 0 auto;
+    background: #fff;
+    border-radius: 24px;
+    padding: 36px;
+    box-shadow: 0 6px 30px rgba(42,36,32,.08);
+  }
+  .quiz-q {
+    margin-bottom: 28px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--light-line);
+  }
+  .quiz-q:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .quiz-q .q-text {
+    font-weight: 600;
+    margin-bottom: 12px;
+    font-size: 1rem;
+  }
+  .q-text span { color: var(--mid-gray); font-weight: 400; font-size: .85rem; }
+  .options { display: flex; flex-wrap: wrap; gap: 8px; }
+  .opt {
+    padding: 8px 18px;
+    border-radius: 99px;
+    font-size: .88rem;
+    cursor: pointer;
+    border: 2px solid var(--light-line);
+    background: #fff;
+    transition: all .2s;
+    user-select: none;
+  }
+  .opt:hover { border-color: var(--gold); background: #FFF8EE; }
+  .opt.correct { border-color: var(--sage); background: #E8F4E8; color: var(--sage); }
+  .opt.wrong   { border-color: var(--terracotta); background: #FFE8E0; color: var(--terracotta); }
+  .feedback { margin-top: 10px; font-size: .85rem; display: none; }
+  .feedback.show { display: block; }
+  .feedback.ok  { color: var(--sage); }
+  .feedback.no  { color: var(--terracotta); }
+
+  /* ── ART TYPES ── */
+  .arttype-section { background: var(--warm-white); }
+  .arttype-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 16px;
+    max-width: 900px; margin: 0 auto;
+  }
+  .arttype-card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 22px 16px;
+    text-align: center;
+    box-shadow: 0 3px 14px rgba(42,36,32,.06);
+    transition: transform .25s, box-shadow .25s;
+    cursor: default;
+  }
+  .arttype-card:hover { transform: translateY(-5px); box-shadow: 0 10px 28px rgba(42,36,32,.1); }
+  .arttype-card .at-icon { font-size: 2.6rem; margin-bottom: 10px; }
+  .arttype-card .at-en { font-family: 'Fraunces', serif; font-size: 1.05rem; font-weight: 700; }
+  .arttype-card .at-uk { font-size: .8rem; color: var(--mid-gray); margin-top: 4px; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--charcoal);
+    color: rgba(255,255,255,.4);
+    text-align: center;
+    padding: 32px 20px;
+    font-size: .82rem;
+  }
+  footer span { color: var(--gold); }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity .6s ease, transform .6s ease;
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  #scroll-top-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #1a1208;
+    border: 1.5px solid rgba(200,150,62,0.4);
+    color: #f5f0e8;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+    pointer-events: none;
+    z-index: 9998;
+  }
+  #scroll-top-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  #scroll-top-btn:hover {
+    background: #c8963e;
+    border-color: #c8963e;
+    color: #1a1208;
+  }
+
+  /* ══════════════════════════════════════
+     MOBILE RESPONSIVE — max-width: 600px
+  ══════════════════════════════════════ */
+  @media (max-width: 600px) {
+
+    /* Global */
+    body { font-size: 15px; }
+    section { padding: 40px 14px; }
+    .container { padding: 0 14px; }
+
+    /* Hero */
+    .hero { padding: 48px 16px 40px; }
+    .hero h1 { font-size: 2.2rem; }
+    .hero-sub { font-size: .92rem; }
+    .hero-badges { gap: 7px; }
+    .badge { font-size: .78rem; padding: 5px 12px; }
+    .palette-dot { width: 16px; height: 16px; }
+
+    /* Section titles */
+    .section-title { font-size: 1.7rem; }
+
+    /* Intro cards — single column */
+    .intro-grid {
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    .intro-card { padding: 22px 18px; }
+
+    /* Vocab cards — single column */
+    .vocab-grid {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    .vocab-card { padding: 16px; }
+    .vocab-en { font-size: 1.15rem; }
+
+    /* Art types — 2 columns */
+    .arttype-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    .arttype-card { padding: 16px 10px; }
+    .arttype-card .at-icon { font-size: 2rem; }
+    .arttype-card .at-en { font-size: .92rem; }
+
+    /* Phrases — single column (override grid) */
+    .phrase-item {
+      grid-template-columns: 1fr;
+      gap: 0;
+      padding: 14px 16px;
+    }
+    .phrase-uk { border-top: 1px solid var(--light-line); padding-top: 8px; margin-top: 6px; }
+    .phrase-en { font-size: .9rem; }
+    .cat-label { font-size: .73rem; }
+
+    /* Anatomy infographic */
+    .artwork-svg-container { padding: 14px; border-radius: 16px; }
+    .label-list {
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .label-item { padding: 12px; }
+    .label-text strong { font-size: .88rem; }
+    .label-text span { font-size: .75rem; }
+
+    /* Dialogue */
+    .dialogue-box { border-radius: 16px; }
+    .dialogue-body { padding: 16px 14px; gap: 14px; }
+    .bubble { font-size: .86rem; padding: 10px 14px; max-width: 95%; }
+    .bubble-uk { font-size: .74rem; padding: 0 8px; }
+    .dialogue-header { padding: 12px 16px; font-size: .8rem; }
+
+    /* Tips grid — single column */
+    .tips-grid {
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    .tip-card { padding: 22px 18px; }
+    .tip-number { font-size: 3rem; }
+
+    /* Adjectives grid — 2 columns */
+    .adj-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 10px !important;
+    }
+
+    /* Quiz */
+    .quiz-box { padding: 22px 16px; border-radius: 16px; }
+    .quiz-q .q-text { font-size: .92rem; }
+    .options { gap: 7px; }
+    .opt { font-size: .82rem; padding: 7px 14px; }
+
+    /* Scroll-to-top button */
+    #scroll-top-btn {
+      bottom: 16px;
+      right: 16px;
+      width: 40px;
+      height: 40px;
+      font-size: 16px;
+    }
+
+    /* Tip note box (gold border) */
+    div[style*="border-left:4px solid var(--gold)"] {
+      padding: 16px !important;
+      border-radius: 12px !important;
+    }
+  }
+
+  /* Tablet tweaks — 601px to 768px */
+  @media (min-width: 601px) and (max-width: 768px) {
+    .intro-grid { grid-template-columns: repeat(2, 1fr); }
+    .vocab-grid { grid-template-columns: repeat(2, 1fr); }
+    .arttype-grid { grid-template-columns: repeat(3, 1fr); }
+    .tips-grid { grid-template-columns: repeat(2, 1fr); }
+    .hero h1 { font-size: 3rem; }
+    .phrase-item { grid-template-columns: 1fr; }
+    .phrase-uk { border-top: 1px solid var(--light-line); padding-top: 8px; margin-top: 6px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="hero-palette">
+    <div class="palette-dot"></div><div class="palette-dot"></div>
+    <div class="palette-dot"></div><div class="palette-dot"></div>
+    <div class="palette-dot"></div><div class="palette-dot"></div>
+  </div>
+  <h1>Talking About<br><span>Art</span> in English</h1>
+  <p class="hero-sub">Як говорити про мистецтво англійською · A guide for beginners & teens</p>
+  <div class="hero-badges">
+    <span class="badge">🎨 Vocabulary / Словник</span>
+    <span class="badge">💬 Phrases / Фрази</span>
+    <span class="badge">🗣 Dialogues / Діалоги</span>
+    <span class="badge">✏️ Mini Quiz</span>
+  </div>
+</section>
+
+<!-- ═══ WHY ═══ -->
+<section style="background:var(--warm-white)">
+  <div class="container">
+    <div class="divider"></div>
+    <h2 class="section-title reveal">Why talk about <span>art?</span></h2>
+    <p class="section-subtitle reveal">Навіщо говорити про мистецтво?</p>
+    <div class="intro-grid">
+      <div class="intro-card reveal">
+        <div class="icon">🏛</div>
+        <h3>Museums & Galleries</h3>
+        <p>When you visit a museum abroad, you need words to ask questions and share thoughts.</p>
+        <p class="uk-note">Коли ти відвідуєш музей за кордоном — потрібні слова, щоб запитати та висловити думки.</p>
+      </div>
+      <div class="intro-card reveal">
+        <div class="icon">📚</div>
+        <h3>School & Exams</h3>
+        <p>Art description tasks appear in English exams — IELTS, TOEFL, Cambridge and more.</p>
+        <p class="uk-note">Опис картин зустрічається в іспитах — IELTS, TOEFL, Cambridge та ін.</p>
+      </div>
+      <div class="intro-card reveal">
+        <div class="icon">🌍</div>
+        <h3>Travel & Culture</h3>
+        <p>Art is everywhere — street murals, sculptures, architecture. Talk about what you see!</p>
+        <p class="uk-note">Мистецтво скрізь — вуличні фрески, скульптури, архітектура. Говори про те, що бачиш!</p>
+      </div>
+      <div class="intro-card reveal">
+        <div class="icon">🤝</div>
+        <h3>Make Friends</h3>
+        <p>Sharing opinions about art is a great way to connect with people from around the world.</p>
+        <p class="uk-note">Ділитися думками про мистецтво — чудовий спосіб подружитися з людьми з різних країн.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ART TYPES ═══ -->
+<section class="arttype-section">
+  <div class="container">
+    <div class="divider"></div>
+    <h2 class="section-title reveal">Types of <span>Art</span></h2>
+    <p class="section-subtitle reveal">Типи мистецтва — вивчи назви!</p>
+    <div class="arttype-grid">
+      <div class="arttype-card reveal"><div class="at-icon">🖼</div><div class="at-en">Painting</div><div class="at-uk">Живопис / картина</div></div>
+      <div class="arttype-card reveal"><div class="at-icon">✏️</div><div class="at-en">Drawing</div><div class="at-uk">Малюнок / рисунок</div></div>
+      <div class="arttype-card reveal"><div class="at-icon">🗿</div><div class="at-en">Sculpture</div><div class="at-uk">Скульптура</div></div>
+      <div class="arttype-card reveal"><div class="at-icon">📸</div><div class="at-en">Photography</div><div class="at-uk">Фотографія</div></div>
+      <div class="arttype-card reveal"><div class="at-icon">🖨</div><div class="at-en">Print / Printmaking</div><div class="at-uk">Гравюра / друк</div></div>
+      <div class="arttype-card reveal"><div class="at-icon">🏛</div><div class="at-en">Architecture</div><div class="at-uk">Архітектура</div></div>
+      <div class="arttype-card reveal"><div class="at-icon">🎭</div><div class="at-en">Performance Art</div><div class="at-uk">Перформанс</div></div>
+      <div class="arttype-card reveal"><div class="at-icon">🎬</div><div class="at-en">Film / Video Art</div><div class="at-uk">Кіно / відеоарт</div></div>
+      <div class="arttype-card reveal"><div class="at-icon">🖌</div><div class="at-en">Fresco / Mural</div><div class="at-uk">Фреска / мурал</div></div>
+      <div class="arttype-card reveal"><div class="at-icon">🎨</div><div class="at-en">Abstract Art</div><div class="at-uk">Абстрактне мистецтво</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ VOCABULARY ═══ -->
+<section class="vocab-section">
+  <div class="container">
+    <div class="divider" style="background:var(--gold)"></div>
+    <h2 class="section-title reveal" style="color:#fff">Key <span style="color:var(--gold)">Vocabulary</span></h2>
+    <p class="section-subtitle reveal" style="color:rgba(255,255,255,.55)">Ключові слова — запам'ятай їх першими</p>
+    <div class="vocab-grid">
+      <div class="vocab-card reveal">
+        <div class="vocab-en">Artwork / Work of art</div>
+        <div class="vocab-pron">/ˈɑːt.wɜːk/</div>
+        <div class="vocab-uk">🇺🇦 Витвір мистецтва</div>
+        <div class="vocab-example">💬 "This <em>artwork</em> was created in 1889."</div>
+      </div>
+      <div class="vocab-card reveal">
+        <div class="vocab-en">Artist / Painter</div>
+        <div class="vocab-pron">/ˈɑː.tɪst/ · /ˈpeɪn.tər/</div>
+        <div class="vocab-uk">🇺🇦 Художник / маляр</div>
+        <div class="vocab-example">💬 "Van Gogh is my favourite <em>artist</em>."</div>
+      </div>
+      <div class="vocab-card reveal">
+        <div class="vocab-en">Canvas</div>
+        <div class="vocab-pron">/ˈkæn.vəs/</div>
+        <div class="vocab-uk">🇺🇦 Полотно / канва</div>
+        <div class="vocab-example">💬 "He painted on a large <em>canvas</em>."</div>
+      </div>
+      <div class="vocab-card reveal">
+        <div class="vocab-en">Foreground / Background</div>
+        <div class="vocab-pron">/ˈfɔː.ɡraʊnd/ · /ˈbæk.ɡraʊnd/</div>
+        <div class="vocab-uk">🇺🇦 Передній / задній план</div>
+        <div class="vocab-example">💬 "There's a tree in the <em>foreground</em>."</div>
+      </div>
+      <div class="vocab-card reveal">
+        <div class="vocab-en">Composition</div>
+        <div class="vocab-pron">/ˌkɒm.pəˈzɪʃ.ən/</div>
+        <div class="vocab-uk">🇺🇦 Композиція</div>
+        <div class="vocab-example">💬 "The <em>composition</em> is very balanced."</div>
+      </div>
+      <div class="vocab-card reveal">
+        <div class="vocab-en">Colour / Shade / Hue</div>
+        <div class="vocab-pron">/kʌlər/ · /ʃeɪd/ · /hjuː/</div>
+        <div class="vocab-uk">🇺🇦 Колір / відтінок / тон</div>
+        <div class="vocab-example">💬 "The warm <em>hues</em> give it energy."</div>
+      </div>
+      <div class="vocab-card reveal">
+        <div class="vocab-en">Light &amp; Shadow</div>
+        <div class="vocab-pron">/laɪt/ · /ˈʃæd.əʊ/</div>
+        <div class="vocab-uk">🇺🇦 Світло та тінь</div>
+        <div class="vocab-example">💬 "The <em>light</em> comes from the left side."</div>
+      </div>
+      <div class="vocab-card reveal">
+        <div class="vocab-en">Texture</div>
+        <div class="vocab-pron">/ˈteks.tʃər/</div>
+        <div class="vocab-uk">🇺🇦 Фактура / текстура</div>
+        <div class="vocab-example">💬 "You can see the rough <em>texture</em> of the paint."</div>
+      </div>
+      <div class="vocab-card reveal">
+        <div class="vocab-en">Portrait / Landscape / Still life</div>
+        <div class="vocab-pron">/ˈpɔː.trɪt/ · /ˈlænd.skeɪp/</div>
+        <div class="vocab-uk">🇺🇦 Портрет / пейзаж / натюрморт</div>
+        <div class="vocab-example">💬 "It's a beautiful <em>landscape</em> painting."</div>
+      </div>
+      <div class="vocab-card reveal">
+        <div class="vocab-en">Style / Technique</div>
+        <div class="vocab-pron">/staɪl/ · /tekˈniːk/</div>
+        <div class="vocab-uk">🇺🇦 Стиль / техніка</div>
+        <div class="vocab-example">💬 "His <em>style</em> is very realistic."</div>
+      </div>
+      <div class="vocab-card reveal">
+        <div class="vocab-en">Masterpiece</div>
+        <div class="vocab-pron">/ˈmɑː.stə.piːs/</div>
+        <div class="vocab-uk">🇺🇦 Шедевр</div>
+        <div class="vocab-example">💬 "The Mona Lisa is a <em>masterpiece</em>."</div>
+      </div>
+      <div class="vocab-card reveal">
+        <div class="vocab-en">Exhibit / Exhibition</div>
+        <div class="vocab-pron">/ɪɡˈzɪb.ɪt/ · /ˌeks.ɪˈbɪʃ.ən/</div>
+        <div class="vocab-uk">🇺🇦 Виставляти / виставка</div>
+        <div class="vocab-example">💬 "Let's visit the new <em>exhibition</em>!"</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ANATOMY INFOGRAPHIC ═══ -->
+<section class="anatomy-section">
+  <div class="container">
+    <div class="divider"></div>
+    <h2 class="section-title reveal">Parts of a <span>Painting</span></h2>
+    <p class="section-subtitle reveal">Частини картини — як описати що де знаходиться</p>
+    <div class="anatomy-wrap">
+      <div class="artwork-svg-container reveal">
+        <!-- SVG Painting Illustration -->
+        <svg class="artwork-frame" viewBox="0 0 520 340" xmlns="http://www.w3.org/2000/svg">
+          <!-- Frame -->
+          <rect x="10" y="10" width="500" height="320" rx="8" fill="#3A2A1A" />
+          <rect x="22" y="22" width="476" height="296" rx="4" fill="#87CEEB" />
+          <!-- Sky gradient -->
+          <defs>
+            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#5599CC"/>
+              <stop offset="100%" stop-color="#AAD4EE"/>
+            </linearGradient>
+            <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#7AB848"/>
+              <stop offset="100%" stop-color="#5A8830"/>
+            </linearGradient>
+          </defs>
+          <rect x="22" y="22" width="476" height="200" fill="url(#sky)" />
+          <!-- Mountains (background) -->
+          <polygon points="80,220 160,120 240,220" fill="#8899AA" opacity=".7"/>
+          <polygon points="200,220 300,100 400,220" fill="#99AABB" opacity=".6"/>
+          <polygon points="320,220 400,130 480,220" fill="#8899AA" opacity=".7"/>
+          <!-- Ground -->
+          <rect x="22" y="222" width="476" height="96" fill="url(#ground)" rx="0"/>
+          <!-- Sun -->
+          <circle cx="420" cy="70" r="28" fill="#FFD050" opacity=".9"/>
+          <circle cx="420" cy="70" r="20" fill="#FFE080"/>
+          <!-- Clouds -->
+          <ellipse cx="130" cy="65" rx="45" ry="22" fill="#fff" opacity=".85"/>
+          <ellipse cx="158" cy="60" rx="30" ry="18" fill="#fff" opacity=".9"/>
+          <ellipse cx="100" cy="68" rx="28" ry="16" fill="#fff" opacity=".8"/>
+          <!-- Tree (foreground) -->
+          <rect x="78" y="195" width="12" height="80" fill="#5A3A1A"/>
+          <ellipse cx="84" cy="185" rx="32" ry="36" fill="#2D6A2D"/>
+          <ellipse cx="70" cy="200" rx="22" ry="26" fill="#3A8030"/>
+          <ellipse cx="98" cy="202" rx="20" ry="24" fill="#2A6020"/>
+          <!-- Flower field (foreground) -->
+          <ellipse cx="200" cy="290" rx="80" ry="18" fill="#88CC44" opacity=".6"/>
+          <circle cx="180" cy="278" r="5" fill="#FF5050"/>
+          <circle cx="205" cy="272" r="5" fill="#FFCC00"/>
+          <circle cx="230" cy="280" r="5" fill="#FF5050"/>
+          <circle cx="155" cy="282" r="4" fill="#CC44CC"/>
+          <circle cx="215" cy="285" r="4" fill="#FFCC00"/>
+          <circle cx="195" cy="265" r="4" fill="#FF8844"/>
+          <!-- House (midground) -->
+          <rect x="320" y="190" width="80" height="50" fill="#D4A060"/>
+          <polygon points="308,192 410,192 360,155" fill="#AA4030"/>
+          <rect x="345" y="210" width="18" height="30" fill="#7A5020"/>
+          <rect x="326" y="200" width="22" height="18" fill="#88C8E8"/>
+          <rect x="372" y="200" width="22" height="18" fill="#88C8E8"/>
+          <!-- Labels -->
+          <!-- 1 foreground -->
+          <circle cx="150" cy="305" r="12" fill="#2A2420"/>
+          <text x="150" y="309" text-anchor="middle" font-size="11" fill="#fff" font-weight="bold">1</text>
+          <!-- 2 midground -->
+          <circle cx="362" cy="175" r="12" fill="#2A2420"/>
+          <text x="362" y="179" text-anchor="middle" font-size="11" fill="#fff" font-weight="bold">2</text>
+          <!-- 3 background -->
+          <circle cx="300" cy="105" r="12" fill="#2A2420"/>
+          <text x="300" y="109" text-anchor="middle" font-size="11" fill="#fff" font-weight="bold">3</text>
+          <!-- 4 light source -->
+          <circle cx="420" cy="48" r="12" fill="#E8A020"/>
+          <text x="420" y="52" text-anchor="middle" font-size="11" fill="#fff" font-weight="bold">4</text>
+          <!-- 5 shadows -->
+          <ellipse cx="84" cy="248" rx="32" ry="7" fill="rgba(0,0,0,.25)"/>
+          <circle cx="60" cy="255" r="12" fill="#4A6A8A"/>
+          <text x="60" y="259" text-anchor="middle" font-size="11" fill="#fff" font-weight="bold">5</text>
+          <!-- 6 sky / atmosphere -->
+          <circle cx="60" cy="45" r="12" fill="#5A7A5A"/>
+          <text x="60" y="49" text-anchor="middle" font-size="11" fill="#fff" font-weight="bold">6</text>
+        </svg>
+
+        <div class="label-list">
+          <div class="label-item reveal">
+            <div class="label-num">1</div>
+            <div class="label-text">
+              <strong>Foreground — передній план</strong>
+              <span>The part closest to the viewer. Найближча до глядача частина.</span>
+            </div>
+          </div>
+          <div class="label-item reveal">
+            <div class="label-num">2</div>
+            <div class="label-text">
+              <strong>Midground — середній план</strong>
+              <span>Between front and back. Між переднім і заднім планом.</span>
+            </div>
+          </div>
+          <div class="label-item reveal">
+            <div class="label-num">3</div>
+            <div class="label-text">
+              <strong>Background — задній план</strong>
+              <span>The farthest part of the scene. Найдальша частина сцени.</span>
+            </div>
+          </div>
+          <div class="label-item reveal">
+            <div class="label-num" style="background:var(--gold)">4</div>
+            <div class="label-text">
+              <strong>Light source — джерело світла</strong>
+              <span>Where the light comes from. Звідки падає світло.</span>
+            </div>
+          </div>
+          <div class="label-item reveal">
+            <div class="label-num" style="background:var(--dusty-blue)">5</div>
+            <div class="label-text">
+              <strong>Shadow — тінь</strong>
+              <span>Dark areas created by blocked light. Темні ділянки від відсутності світла.</span>
+            </div>
+          </div>
+          <div class="label-item reveal">
+            <div class="label-num" style="background:var(--sage)">6</div>
+            <div class="label-text">
+              <strong>Atmosphere — атмосфера</strong>
+              <span>The overall mood and feeling. Загальний настрій і відчуття.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PHRASES ═══ -->
+<section class="phrases-section">
+  <div class="container">
+    <div class="divider"></div>
+    <h2 class="section-title reveal">Useful <span>Phrases</span></h2>
+    <p class="section-subtitle reveal">Корисні фрази — використовуй у будь-якій розмові про мистецтво</p>
+
+    <!-- DESCRIBE -->
+    <div class="phrase-category reveal">
+      <span class="cat-label cat-describe">🖌 Describing — Опис</span>
+      <div class="phrase-list">
+        <div class="phrase-item">
+          <div class="phrase-en">The painting shows / depicts…</div>
+          <div class="phrase-uk">Картина показує / зображує… <em>(use when describing what you see)</em></div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">In the foreground / background, there is…</div>
+          <div class="phrase-uk">На передньому / задньому плані є… <em>(вказати де щось знаходиться)</em></div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">The colours are warm / cool / bright / muted.</div>
+          <div class="phrase-uk">Кольори теплі / холодні / яскраві / приглушені. <em>(опис палітри)</em></div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">The artist uses bold / delicate brushstrokes.</div>
+          <div class="phrase-uk">Художник використовує сміливі / ніжні мазки пензля.</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">The scene takes place in… (a forest / a city / a room).</div>
+          <div class="phrase-uk">Сцена відбувається в… (лісі / місті / кімнаті).</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- OPINION -->
+    <div class="phrase-category reveal">
+      <span class="cat-label cat-opinion">💬 Giving Opinions — Власна думка</span>
+      <div class="phrase-list">
+        <div class="phrase-item">
+          <div class="phrase-en">I think / I feel / I believe this work…</div>
+          <div class="phrase-uk">Я думаю / відчуваю / вважаю, що ця робота… <em>(починати речення)</em></div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">What I like most about it is…</div>
+          <div class="phrase-uk">Що мені найбільше подобається — це… <em>(виділити деталь)</em></div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">It makes me feel (calm / excited / sad / curious).</div>
+          <div class="phrase-uk">Вона змушує мене відчувати (спокій / збудження / смуток / цікавість).</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">In my opinion, the most striking element is…</div>
+          <div class="phrase-uk">На мою думку, найвражаючий елемент — це…</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">I find this painting (beautiful / unusual / powerful / mysterious).</div>
+          <div class="phrase-uk">Я вважаю цю картину (красивою / незвичайною / потужною / загадковою).</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPARE -->
+    <div class="phrase-category reveal">
+      <span class="cat-label cat-compare">🔄 Comparing — Порівняння</span>
+      <div class="phrase-list">
+        <div class="phrase-item">
+          <div class="phrase-en">This work reminds me of… / It is similar to…</div>
+          <div class="phrase-uk">Ця робота нагадує мені… / Вона схожа на… <em>(порівняти з іншим твором)</em></div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">Unlike [other artwork], this one…</div>
+          <div class="phrase-uk">На відміну від [іншого твору], цей… <em>(контраст)</em></div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">Both paintings share a sense of…</div>
+          <div class="phrase-uk">Обидві картини мають відчуття… <em>(спільна риса)</em></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ASK -->
+    <div class="phrase-category reveal">
+      <span class="cat-label cat-ask">❓ Asking Questions — Запитання</span>
+      <div class="phrase-list">
+        <div class="phrase-item">
+          <div class="phrase-en">What do you think this painting is about?</div>
+          <div class="phrase-uk">Як ти думаєш, про що ця картина?</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">Who is the artist / When was it painted?</div>
+          <div class="phrase-uk">Хто художник? / Коли це написали?</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">What style does this belong to?</div>
+          <div class="phrase-uk">До якого стилю це належить?</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">Could you tell me more about this work?</div>
+          <div class="phrase-uk">Чи можете ви розповісти більше про цю роботу? <em>(в музеї)</em></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ADJECTIVES INFOGRAPHIC ═══ -->
+<section style="background:#F4EDE0">
+  <div class="container">
+    <div class="divider"></div>
+    <h2 class="section-title reveal">Art <span>Adjectives</span></h2>
+    <p class="section-subtitle reveal">Прикметники для опису мистецтва — зроби свою мову багатшою!</p>
+
+    <div class="adj-grid" style="max-width:860px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:14px">
+      <!-- mood -->
+      <div style="background:#fff;border-radius:16px;padding:18px;box-shadow:0 3px 12px rgba(42,36,32,.06)" class="reveal">
+        <div style="font-size:1.5rem;margin-bottom:8px">😌</div>
+        <div style="font-weight:700;color:var(--dusty-blue)">Calm</div>
+        <div style="font-size:.8rem;color:var(--mid-gray)">спокійний</div>
+      </div>
+      <div style="background:#fff;border-radius:16px;padding:18px;box-shadow:0 3px 12px rgba(42,36,32,.06)" class="reveal">
+        <div style="font-size:1.5rem;margin-bottom:8px">⚡</div>
+        <div style="font-weight:700;color:var(--terracotta)">Dynamic</div>
+        <div style="font-size:.8rem;color:var(--mid-gray)">динамічний</div>
+      </div>
+      <div style="background:#fff;border-radius:16px;padding:18px;box-shadow:0 3px 12px rgba(42,36,32,.06)" class="reveal">
+        <div style="font-size:1.5rem;margin-bottom:8px">🌑</div>
+        <div style="font-weight:700;color:var(--plum)">Mysterious</div>
+        <div style="font-size:.8rem;color:var(--mid-gray)">загадковий</div>
+      </div>
+      <div style="background:#fff;border-radius:16px;padding:18px;box-shadow:0 3px 12px rgba(42,36,32,.06)" class="reveal">
+        <div style="font-size:1.5rem;margin-bottom:8px">🌈</div>
+        <div style="font-weight:700;color:var(--gold)">Vibrant</div>
+        <div style="font-size:.8rem;color:var(--mid-gray)">яскравий, живий</div>
+      </div>
+      <div style="background:#fff;border-radius:16px;padding:18px;box-shadow:0 3px 12px rgba(42,36,32,.06)" class="reveal">
+        <div style="font-size:1.5rem;margin-bottom:8px">🤍</div>
+        <div style="font-weight:700;color:#888">Delicate</div>
+        <div style="font-size:.8rem;color:var(--mid-gray)">ніжний, витончений</div>
+      </div>
+      <div style="background:#fff;border-radius:16px;padding:18px;box-shadow:0 3px 12px rgba(42,36,32,.06)" class="reveal">
+        <div style="font-size:1.5rem;margin-bottom:8px">💪</div>
+        <div style="font-weight:700;color:var(--charcoal)">Powerful</div>
+        <div style="font-size:.8rem;color:var(--mid-gray)">потужний, сильний</div>
+      </div>
+      <div style="background:#fff;border-radius:16px;padding:18px;box-shadow:0 3px 12px rgba(42,36,32,.06)" class="reveal">
+        <div style="font-size:1.5rem;margin-bottom:8px">🎭</div>
+        <div style="font-weight:700;color:var(--terracotta)">Dramatic</div>
+        <div style="font-size:.8rem;color:var(--mid-gray)">драматичний</div>
+      </div>
+      <div style="background:#fff;border-radius:16px;padding:18px;box-shadow:0 3px 12px rgba(42,36,32,.06)" class="reveal">
+        <div style="font-size:1.5rem;margin-bottom:8px">🎠</div>
+        <div style="font-weight:700;color:var(--sage)">Playful</div>
+        <div style="font-size:.8rem;color:var(--mid-gray)">грайливий</div>
+      </div>
+      <div style="background:#fff;border-radius:16px;padding:18px;box-shadow:0 3px 12px rgba(42,36,32,.06)" class="reveal">
+        <div style="font-size:1.5rem;margin-bottom:8px">🏔</div>
+        <div style="font-weight:700;color:var(--dusty-blue)">Majestic</div>
+        <div style="font-size:.8rem;color:var(--mid-gray)">величний</div>
+      </div>
+      <div style="background:#fff;border-radius:16px;padding:18px;box-shadow:0 3px 12px rgba(42,36,32,.06)" class="reveal">
+        <div style="font-size:1.5rem;margin-bottom:8px">😢</div>
+        <div style="font-weight:700;color:var(--plum)">Melancholic</div>
+        <div style="font-size:.8rem;color:var(--mid-gray)">меланхолійний</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ DIALOGUE ═══ -->
+<section class="dialogue-section">
+  <div class="container">
+    <div class="divider"></div>
+    <h2 class="section-title reveal">Sample <span>Dialogue</span></h2>
+    <p class="section-subtitle reveal">Зразок діалогу — ось так можна говорити в музеї!</p>
+
+    <div class="dialogue-box reveal">
+      <div class="dialogue-header">
+        <div class="dot-row"><span></span><span></span><span></span></div>
+        <span style="margin-left:8px">🏛 At the Art Gallery / В галереї</span>
+      </div>
+      <div class="dialogue-body">
+
+        <div class="bubble-wrap">
+          <span class="speaker-name">Emma 👩</span>
+          <div class="bubble emma">Wow, <span class="highlight">what do you think</span> about this painting?</div>
+          <div class="bubble-uk">Ого, <em>що ти думаєш</em> про цю картину?</div>
+        </div>
+
+        <div class="bubble-wrap right">
+          <span class="speaker-name" style="text-align:right">Liam 👦</span>
+          <div class="bubble liam">It's incredible! <span class="highlight">The colours are so vibrant.</span> I love all the blues and golds.</div>
+          <div class="bubble-uk">Неймовірно! <em>Кольори такі яскраві.</em> Я люблю всі ці сині та золоті тони.</div>
+        </div>
+
+        <div class="bubble-wrap">
+          <span class="speaker-name">Emma 👩</span>
+          <div class="bubble emma">Yes! And look — <span class="highlight">in the foreground there's</span> a woman reading a book. <span class="highlight">She looks very calm.</span></div>
+          <div class="bubble-uk">Так! І дивись — <em>на передньому плані є</em> жінка, яка читає книжку. <em>Вона виглядає дуже спокійно.</em></div>
+        </div>
+
+        <div class="bubble-wrap right">
+          <span class="speaker-name" style="text-align:right">Liam 👦</span>
+          <div class="bubble liam"><span class="highlight">I think the artist wanted to show</span> the beauty of everyday life. <span class="highlight">It makes me feel</span> peaceful.</div>
+          <div class="bubble-uk"><em>Я думаю, художник хотів показати</em> красу повсякденного життя. <em>Це змушує мене відчувати</em> спокій.</div>
+        </div>
+
+        <div class="bubble-wrap">
+          <span class="speaker-name">Emma 👩</span>
+          <div class="bubble emma"><span class="highlight">I find it</span> really beautiful, but also a bit mysterious. <span class="highlight">What style does this belong to?</span></div>
+          <div class="bubble-uk"><em>Я вважаю це</em> дуже красивим, але також трохи загадковим. <em>До якого стилю це належить?</em></div>
+        </div>
+
+        <div class="bubble-wrap right">
+          <span class="speaker-name" style="text-align:right">Liam 👦</span>
+          <div class="bubble liam">The sign says it's Impressionism. <span class="highlight">The brushstrokes are loose and expressive — </span>that's typical of this style.</div>
+          <div class="bubble-uk">На табличці написано, що це імпресіонізм. <em>Мазки вільні та виразні —</em> це типово для цього стилю.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <div style="max-width:700px;margin:24px auto 0;background:#FFF8EE;border-radius:16px;padding:20px 24px;border-left:4px solid var(--gold)" class="reveal">
+      <strong>🔑 Highlighted phrases / Виділені фрази:</strong>
+      <p style="margin-top:8px;font-size:.88rem;line-height:1.8;color:var(--mid-gray)">
+        The <span style="color:var(--terracotta);font-weight:600">red phrases</span> above are the key patterns you can reuse in any conversation about art. Learn them by heart! 
+        <br><em style="color:var(--plum)">Червоні фрази — це ключові шаблони, які можна використовувати в будь-якій розмові про мистецтво. Вивчи їх напам'ять!</em>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TIPS ═══ -->
+<section class="tips-section">
+  <div class="container">
+    <div class="divider" style="background:var(--gold)"></div>
+    <h2 class="section-title reveal" style="color:#fff">Top <span style="color:var(--gold)">Tips</span> for Beginners</h2>
+    <p class="section-subtitle reveal" style="color:rgba(255,255,255,.5)">Топ-поради для початківців</p>
+    <div class="tips-grid">
+      <div class="tip-card reveal">
+        <div class="tip-number">1</div>
+        <div class="tip-icon">📝</div>
+        <h3>Start with "I think…"</h3>
+        <p>Even if you're unsure, starting with "I think" or "I feel" lets you share any idea confidently.</p>
+        <p class="uk-tip">Починай з "I think" або "I feel" — це звучить впевнено, навіть коли не певний.</p>
+      </div>
+      <div class="tip-card reveal">
+        <div class="tip-number">2</div>
+        <div class="tip-icon">🎨</div>
+        <h3>Describe colours first</h3>
+        <p>Colours are the easiest thing to talk about. Start there — warm, cool, bright, dark, soft…</p>
+        <p class="uk-tip">Кольори — найлегше, з чого почати. Warm (теплі), cool (холодні), bright (яскраві).</p>
+      </div>
+      <div class="tip-card reveal">
+        <div class="tip-number">3</div>
+        <div class="tip-icon">🗺</div>
+        <h3>Use "there is / there are"</h3>
+        <p>"In the foreground there is a tree." Simple, clear, and always correct!</p>
+        <p class="uk-tip">"In the foreground there is…" — проста конструкція, яка завжди звучить правильно!</p>
+      </div>
+      <div class="tip-card reveal">
+        <div class="tip-number">4</div>
+        <div class="tip-icon">😊</div>
+        <h3>Talk about your feelings</h3>
+        <p>"It makes me feel…" is one of the most powerful sentences. Use it every time!</p>
+        <p class="uk-tip">"It makes me feel…" — одне з найсильніших речень. Використовуй щоразу!</p>
+      </div>
+      <div class="tip-card reveal">
+        <div class="tip-number">5</div>
+        <div class="tip-icon">❓</div>
+        <h3>Ask questions</h3>
+        <p>Don't just wait — ask! "What do you think?" keeps the conversation going.</p>
+        <p class="uk-tip">Не жди — запитуй! "What do you think?" підтримує розмову.</p>
+      </div>
+      <div class="tip-card reveal">
+        <div class="tip-number">6</div>
+        <div class="tip-icon">🔁</div>
+        <h3>Practice with real art</h3>
+        <p>Pick any painting on Google Arts & Culture and describe it using today's phrases!</p>
+        <p class="uk-tip">Вибери будь-яку картину в Google Arts & Culture і опиши її цими фразами!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MINI QUIZ ═══ -->
+<section class="quiz-section">
+  <div class="container">
+    <div class="divider"></div>
+    <h2 class="section-title reveal">Quick <span>Quiz</span> 🧠</h2>
+    <p class="section-subtitle reveal">Перевір себе! Choose the best answer.</p>
+    <div class="quiz-box reveal">
+
+      <div class="quiz-q" id="q1">
+        <div class="q-text">1. You want to say the closest part of the painting. You say: <span>/ Хочеш описати найближчу частину картини.</span></div>
+        <div class="options">
+          <div class="opt" onclick="check(this,'q1',false)">"In the background…"</div>
+          <div class="opt" onclick="check(this,'q1',true)">"In the foreground…"</div>
+          <div class="opt" onclick="check(this,'q1',false)">"In the shadow…"</div>
+        </div>
+        <div class="feedback" id="q1-fb"></div>
+      </div>
+
+      <div class="quiz-q" id="q2">
+        <div class="q-text">2. How do you share your personal feeling about a painting? <span>/ Як поділитись особистим враженням?</span></div>
+        <div class="options">
+          <div class="opt" onclick="check(this,'q2',false)">"The artist used oil paint."</div>
+          <div class="opt" onclick="check(this,'q2',true)">"It makes me feel calm."</div>
+          <div class="opt" onclick="check(this,'q2',false)">"The canvas is large."</div>
+        </div>
+        <div class="feedback" id="q2-fb"></div>
+      </div>
+
+      <div class="quiz-q" id="q3">
+        <div class="q-text">3. What is a "masterpiece"? <span>/ Що таке "masterpiece"?</span></div>
+        <div class="options">
+          <div class="opt" onclick="check(this,'q3',false)">Художній інструмент</div>
+          <div class="opt" onclick="check(this,'q3',false)">Назва стилю</div>
+          <div class="opt" onclick="check(this,'q3',true)">Шедевр</div>
+        </div>
+        <div class="feedback" id="q3-fb"></div>
+      </div>
+
+      <div class="quiz-q" id="q4">
+        <div class="q-text">4. You want to give an opinion politely. Which is best? <span>/ Як ввічливо висловити думку?</span></div>
+        <div class="options">
+          <div class="opt" onclick="check(this,'q4',false)">"This painting is bad."</div>
+          <div class="opt" onclick="check(this,'q4',true)">"In my opinion, the most striking element is the colour."</div>
+          <div class="opt" onclick="check(this,'q4',false)">"I don't know."</div>
+        </div>
+        <div class="feedback" id="q4-fb"></div>
+      </div>
+
+      <div class="quiz-q" id="q5">
+        <div class="q-text">5. "Vibrant colours" means: <span>/ "Vibrant colours" означає:</span></div>
+        <div class="options">
+          <div class="opt" onclick="check(this,'q5',false)">Приглушені кольори</div>
+          <div class="opt" onclick="check(this,'q5',false)">Темні кольори</div>
+          <div class="opt" onclick="check(this,'q5',true)">Яскраві, живі кольори</div>
+        </div>
+        <div class="feedback" id="q5-fb"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  Made with <span>♥</span> to help you talk about art in English · Створено для тих, хто вчиться говорити про мистецтво
+</footer>
+
+<script>
+  // Quiz logic
+  const feedbackMsg = {
+    correct: ["✅ Perfect! / Чудово!", "✅ That's right! / Правильно!", "✅ Excellent! / Відмінно!", "✅ Great job! / Молодець!"],
+    wrong: ["❌ Not quite. / Не зовсім.", "❌ Try again! / Спробуй ще!", "❌ Almost! / Майже!"]
+  };
+  function check(el, qId, isCorrect) {
+    const q = document.getElementById(qId);
+    if (q.dataset.answered) return;
+    q.dataset.answered = 'yes';
+    const opts = q.querySelectorAll('.opt');
+    opts.forEach(o => o.style.pointerEvents = 'none');
+    const fb = document.getElementById(qId + '-fb');
+    if (isCorrect) {
+      el.classList.add('correct');
+      const msgs = feedbackMsg.correct;
+      fb.textContent = msgs[Math.floor(Math.random()*msgs.length)];
+      fb.className = 'feedback show ok';
+    } else {
+      el.classList.add('wrong');
+      const msgs = feedbackMsg.wrong;
+      fb.textContent = msgs[Math.floor(Math.random()*msgs.length)];
+      fb.className = 'feedback show no';
+      // Show correct
+      opts.forEach(o => { if(o.onclick.toString().includes('true')) o.classList.add('correct'); });
+    }
+  }
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 60);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(r => obs.observe(r));
+</script>
+
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+</body>
+</html>

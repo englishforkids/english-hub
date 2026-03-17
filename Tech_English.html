@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tech Talk English 🚀</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0f1a;
+    --card: #161929;
+    --card2: #1c2035;
+    --accent1: #7c3aed;
+    --accent2: #06b6d4;
+    --accent3: #f59e0b;
+    --accent4: #10b981;
+    --accent5: #f43f5e;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --en: #7dd3fc;
+    --uk: #86efac;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  header {
+    position: relative;
+    text-align: center;
+    padding: 70px 20px 60px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0d0f1a 0%, #1a0533 50%, #0d1f2d 100%);
+  }
+
+  .stars { position: absolute; inset: 0; pointer-events: none; }
+  .star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle var(--d, 3s) ease-in-out infinite alternate;
+  }
+  @keyframes twinkle {
+    from { opacity: 0.2; transform: scale(1); }
+    to   { opacity: 1;   transform: scale(1.4); }
+  }
+
+  .header-rocket {
+    font-size: 5rem;
+    animation: float 3s ease-in-out infinite;
+    display: block;
+    margin-bottom: 16px;
+  }
+  @keyframes float {
+    0%,100% { transform: translateY(0) rotate(-5deg); }
+    50%      { transform: translateY(-12px) rotate(5deg); }
+  }
+
+  h1 {
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    font-weight: 900;
+    letter-spacing: -1px;
+    background: linear-gradient(90deg, #7c3aed, #06b6d4, #f59e0b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 10px;
+  }
+
+  .header-sub { font-size: 1.2rem; color: var(--muted); max-width: 560px; margin: 0 auto 24px; }
+
+  .badge-row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 16px; }
+  .badge { padding: 6px 16px; border-radius: 999px; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.5px; }
+  .badge-purple { background: #4c1d95; color: #c4b5fd; }
+  .badge-cyan   { background: #164e63; color: #67e8f9; }
+  .badge-amber  { background: #78350f; color: #fcd34d; }
+
+  main { max-width: 960px; margin: 0 auto; padding: 0 20px 80px; }
+
+  .section-title {
+    display: flex; align-items: center; gap: 14px;
+    margin: 56px 0 24px;
+  }
+  .section-title .icon {
+    font-size: 2rem; width: 54px; height: 54px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 16px; flex-shrink: 0;
+  }
+  .section-title h2 { font-size: 1.6rem; font-weight: 800; }
+  .section-title p { font-size: 0.9rem; color: var(--muted); margin-top: 2px; }
+
+  .card {
+    background: var(--card); border-radius: 20px; padding: 24px 28px;
+    margin-bottom: 16px; border: 1px solid rgba(255,255,255,0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.4); }
+
+  .bi { display: flex; gap: 14px; align-items: flex-start; flex-wrap: wrap; }
+  .bi-en, .bi-uk { flex: 1; min-width: 200px; border-radius: 12px; padding: 12px 16px; }
+  .bi-en { background: rgba(125,211,252,0.07); border-left: 3px solid var(--en); }
+  .bi-uk { background: rgba(134,239,172,0.07); border-left: 3px solid var(--uk); }
+
+  .lang-tag { font-size: 0.7rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 5px; }
+  .lang-tag.en { color: var(--en); }
+  .lang-tag.uk { color: var(--uk); }
+  .bi-en p, .bi-uk p { font-size: 0.95rem; }
+
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 14px;
+  }
+  .vocab-card {
+    background: var(--card2); border-radius: 16px; padding: 18px 20px;
+    border: 1px solid rgba(255,255,255,0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: default; position: relative; overflow: hidden;
+  }
+  .vocab-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 3px; background: var(--stripe, var(--accent1)); border-radius: 999px;
+  }
+  .vocab-card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
+  .vocab-word { font-family: 'Space Mono', monospace; font-size: 1rem; font-weight: 700; color: var(--stripe, var(--accent1)); margin-bottom: 4px; }
+  .vocab-tr { font-size: 0.78rem; color: var(--muted); font-style: italic; margin-bottom: 8px; }
+  .vocab-def { font-size: 0.88rem; color: var(--text); }
+  .vocab-uk  { font-size: 0.82rem; color: var(--uk); margin-top: 4px; }
+
+  .phrase-block {
+    background: var(--card); border-radius: 20px; padding: 22px 26px;
+    margin-bottom: 14px; border: 1px solid rgba(255,255,255,0.06);
+    display: flex; gap: 16px; align-items: flex-start;
+    transition: transform 0.2s;
+  }
+  .phrase-block:hover { transform: translateX(6px); }
+  .phrase-emoji { font-size: 1.8rem; flex-shrink: 0; margin-top: 2px; }
+  .phrase-en { font-family: 'Space Mono', monospace; font-size: 1rem; font-weight: 700; color: var(--en); margin-bottom: 4px; }
+  .phrase-uk { font-size: 0.9rem; color: var(--uk); margin-bottom: 6px; }
+  .phrase-example { font-size: 0.85rem; color: var(--muted); font-style: italic; }
+  .phrase-ex-uk  { font-size: 0.82rem; color: #a3e635; margin-top: 2px; font-style: italic; }
+
+  .dialogue { background: var(--card); border-radius: 20px; padding: 28px; border: 1px solid rgba(255,255,255,0.06); }
+  .dialogue-title { font-size: 0.85rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; }
+  .msg { display: flex; gap: 12px; margin-bottom: 18px; align-items: flex-start; }
+  .msg.right { flex-direction: row-reverse; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; }
+  .avatar-a { background: linear-gradient(135deg, #4c1d95, #7c3aed); }
+  .avatar-b { background: linear-gradient(135deg, #164e63, #06b6d4); }
+  .bubble { border-radius: 18px; padding: 12px 16px; max-width: 78%; }
+  .bubble-a { background: #1e1042; border-top-left-radius: 4px; }
+  .bubble-b { background: #062a36; border-top-right-radius: 4px; }
+  .msg.right .bubble { border-top-left-radius: 18px; border-top-right-radius: 4px; }
+  .bubble p { font-size: 0.92rem; margin-bottom: 3px; }
+  .bubble .tr { font-size: 0.78rem; color: var(--muted); font-style: italic; }
+
+  .infographic { background: var(--card); border-radius: 24px; padding: 32px; border: 1px solid rgba(255,255,255,0.06); }
+  .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 8px; }
+  .info-item { background: var(--card2); border-radius: 16px; padding: 20px; text-align: center; border: 1px solid rgba(255,255,255,0.05); transition: transform 0.2s; }
+  .info-item:hover { transform: scale(1.04); }
+  .info-item .big { font-size: 2.4rem; margin-bottom: 8px; }
+  .info-item h3 { font-size: 1rem; font-weight: 800; margin-bottom: 4px; }
+  .info-item p  { font-size: 0.82rem; color: var(--muted); }
+
+  .tip {
+    background: linear-gradient(135deg, var(--card) 0%, #131d2e 100%);
+    border-radius: 16px; padding: 18px 22px; margin-bottom: 12px;
+    border-left: 4px solid var(--tip-color, var(--accent3));
+    display: flex; gap: 14px; align-items: flex-start;
+  }
+  .tip-icon { font-size: 1.4rem; flex-shrink: 0; }
+  .tip h4 { font-size: 0.95rem; font-weight: 800; margin-bottom: 3px; color: var(--tip-color, var(--accent3)); }
+  .tip p  { font-size: 0.87rem; color: var(--muted); }
+
+  .cat-row { display: flex; gap: 12px; flex-wrap: wrap; }
+  .cat-pill { padding: 10px 20px; border-radius: 999px; font-size: 0.88rem; font-weight: 700; cursor: default; transition: transform 0.2s; border: 1px solid rgba(255,255,255,0.08); }
+  .cat-pill:hover { transform: scale(1.08); }
+
+  .opinion-scale { display: flex; align-items: center; border-radius: 12px; overflow: hidden; margin: 8px 0 16px; border: 1px solid rgba(255,255,255,0.06); }
+  .op-cell { flex: 1; padding: 14px 8px; text-align: center; font-size: 0.78rem; font-weight: 700; transition: opacity 0.2s; cursor: default; }
+  .op-cell:hover { opacity: 0.8; }
+
+  .quiz-section { background: linear-gradient(135deg, #1e0a3c, #0a1f2e); border-radius: 24px; padding: 36px; text-align: center; border: 1px solid rgba(124,58,237,0.3); margin-top: 48px; }
+  .quiz-section h2 { font-size: 1.8rem; font-weight: 900; margin-bottom: 10px; }
+  .quiz-section p  { color: var(--muted); margin-bottom: 24px; }
+  .quiz-q { background: var(--card); border-radius: 16px; padding: 20px 24px; margin-bottom: 16px; text-align: left; border: 1px solid rgba(255,255,255,0.06); }
+  .quiz-q p { font-size: 1rem; font-weight: 700; margin-bottom: 12px; }
+  .quiz-opts { display: flex; gap: 8px; flex-wrap: wrap; }
+  .quiz-opt { padding: 8px 18px; border-radius: 999px; font-size: 0.87rem; font-weight: 600; background: var(--card2); border: 1px solid rgba(255,255,255,0.1); cursor: pointer; color: var(--text); transition: background 0.2s, transform 0.15s; }
+  .quiz-opt:hover { transform: scale(1.05); }
+  .quiz-opt.correct { background: #064e3b; border-color: #10b981; color: #6ee7b7; }
+  .quiz-opt.wrong   { background: #4c0519; border-color: #f43f5e; color: #fda4af; }
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: #4c1d95; border-radius: 3px; }
+
+  footer { text-align: center; padding: 32px 20px; color: var(--muted); font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.05); }
+  footer span { color: var(--accent1); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    header { padding: 48px 16px 40px; }
+    .header-rocket { font-size: 3.8rem; }
+    h1 { font-size: 2rem; letter-spacing: -0.5px; }
+    .header-sub { font-size: 1rem; }
+    .badge-row { gap: 7px; }
+    .badge { font-size: 0.75rem; padding: 5px 12px; }
+    main { padding: 0 14px 60px; }
+    .section-title { margin: 36px 0 16px; gap: 10px; }
+    .section-title .icon { width: 44px; height: 44px; font-size: 1.5rem; border-radius: 12px; }
+    .section-title h2 { font-size: 1.25rem; }
+    .section-title p { font-size: 0.8rem; }
+    .card { padding: 16px 16px; border-radius: 14px; }
+    .infographic { padding: 18px 14px; border-radius: 16px; }
+    .bi { flex-direction: column; gap: 10px; }
+    .bi-en, .bi-uk { min-width: unset; width: 100%; }
+    .vocab-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .vocab-card { padding: 14px 14px; border-radius: 12px; }
+    .vocab-word { font-size: 0.9rem; }
+    .vocab-def, .vocab-uk { font-size: 0.8rem; }
+    .info-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .info-item { padding: 14px 10px; border-radius: 12px; }
+    .info-item .big { font-size: 1.8rem; }
+    .info-item h3 { font-size: 0.88rem; }
+    .info-item p { font-size: 0.75rem; }
+    .phrase-block { padding: 14px 14px; border-radius: 14px; gap: 10px; }
+    .phrase-emoji { font-size: 1.4rem; }
+    .phrase-en { font-size: 0.88rem; }
+    .phrase-uk { font-size: 0.82rem; }
+    .phrase-example, .phrase-ex-uk { font-size: 0.78rem; }
+    .dialogue { padding: 18px 14px; border-radius: 14px; }
+    .bubble { max-width: 88%; padding: 10px 12px; }
+    .bubble p { font-size: 0.84rem; }
+    .bubble .tr { font-size: 0.72rem; }
+    .avatar { width: 32px; height: 32px; font-size: 1.1rem; }
+    .opinion-scale { overflow-x: auto; -webkit-overflow-scrolling: touch; flex-direction: row; }
+    .op-cell { min-width: 80px; flex-shrink: 0; padding: 10px 6px; font-size: 0.7rem; }
+    .cat-row { gap: 8px; }
+    .cat-pill { font-size: 0.78rem; padding: 8px 14px; }
+    .tip { padding: 14px 14px; border-radius: 12px; gap: 10px; }
+    .tip-icon { font-size: 1.2rem; }
+    .tip h4 { font-size: 0.88rem; }
+    .tip p { font-size: 0.8rem; }
+    .quiz-section { padding: 22px 14px; border-radius: 16px; }
+    .quiz-section h2 { font-size: 1.4rem; }
+    .quiz-q { padding: 14px 14px; border-radius: 12px; }
+    .quiz-q p { font-size: 0.9rem; }
+    .quiz-opts { gap: 7px; }
+    .quiz-opt { font-size: 0.8rem; padding: 7px 14px; }
+    footer { font-size: 0.78rem; padding: 24px 14px; }
+    #scroll-top-btn { bottom: 18px; right: 16px; width: 40px; height: 40px; font-size: 16px; }
+  }
+
+  @media (max-width: 380px) {
+    .vocab-grid { grid-template-columns: 1fr; }
+    .info-grid  { grid-template-columns: 1fr; }
+    h1 { font-size: 1.7rem; }
+  }
+
+  #scroll-top-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #1a1208;
+    border: 1.5px solid rgba(200,150,62,0.4);
+    color: #f5f0e8;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+    pointer-events: none;
+    z-index: 9998;
+  }
+  #scroll-top-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  #scroll-top-btn:hover {
+    background: #c8963e;
+    border-color: #c8963e;
+    color: #1a1208;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="stars" id="stars"></div>
+  <span class="header-rocket">🚀</span>
+  <h1>Tech Talk English</h1>
+  <p class="header-sub">Learn how to talk about technology in English — easily, clearly, and confidently!</p>
+  <p style="color:var(--uk);font-size:1rem;margin-top:4px;">Навчись говорити про технології англійською — легко й впевнено!</p>
+  <div class="badge-row">
+    <span class="badge badge-purple">🎯 Beginners / Початківці</span>
+    <span class="badge badge-cyan">🇬🇧 English + 🇺🇦 Ukrainian</span>
+    <span class="badge badge-amber">✨ Interactive / Інтерактивно</span>
+  </div>
+</header>
+
+<main>
+
+  <!-- WHY -->
+  <div class="section-title">
+    <div class="icon" style="background:linear-gradient(135deg,#4c1d95,#7c3aed)">🌍</div>
+    <div>
+      <h2>Why talk about Technology?</h2>
+      <p>Навіщо говорити про технології?</p>
+    </div>
+  </div>
+
+  <div class="infographic">
+    <div class="info-grid">
+      <div class="info-item">
+        <div class="big">💼</div>
+        <h3>Jobs &amp; Career</h3>
+        <p>Робота і кар'єра — більшість сучасних вакансій пов'язані з технологіями</p>
+      </div>
+      <div class="info-item">
+        <div class="big">🌐</div>
+        <h3>Internet &amp; Social Media</h3>
+        <p>Інтернет і соцмережі — спілкування з людьми по всьому світу</p>
+      </div>
+      <div class="info-item">
+        <div class="big">🎓</div>
+        <h3>School &amp; Learning</h3>
+        <p>Школа і навчання — онлайн-уроки, застосунки, освітні платформи</p>
+      </div>
+      <div class="info-item">
+        <div class="big">🎮</div>
+        <h3>Games &amp; Fun</h3>
+        <p>Ігри та розваги — відеоігри, стрімінг, AR і VR</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- KEY VOCABULARY -->
+  <div class="section-title">
+    <div class="icon" style="background:linear-gradient(135deg,#0e7490,#06b6d4)">📚</div>
+    <div>
+      <h2>Key Tech Vocabulary</h2>
+      <p>Ключові слова про технології</p>
+    </div>
+  </div>
+
+  <div class="vocab-grid">
+    <div class="vocab-card" style="--stripe:#7c3aed">
+      <div class="vocab-word">Device</div>
+      <div class="vocab-tr">/dɪˈvaɪs/</div>
+      <div class="vocab-def">A gadget or machine (phone, laptop…)</div>
+      <div class="vocab-uk">🇺🇦 Пристрій (телефон, ноутбук…)</div>
+    </div>
+    <div class="vocab-card" style="--stripe:#06b6d4">
+      <div class="vocab-word">App</div>
+      <div class="vocab-tr">/æp/</div>
+      <div class="vocab-def">A software application</div>
+      <div class="vocab-uk">🇺🇦 Застосунок / програма</div>
+    </div>
+    <div class="vocab-card" style="--stripe:#f59e0b">
+      <div class="vocab-word">Upload</div>
+      <div class="vocab-tr">/ˈʌpləʊd/</div>
+      <div class="vocab-def">Send a file to the internet</div>
+      <div class="vocab-uk">🇺🇦 Завантажити (в інтернет)</div>
+    </div>
+    <div class="vocab-card" style="--stripe:#10b981">
+      <div class="vocab-word">Download</div>
+      <div class="vocab-tr">/ˈdaʊnləʊd/</div>
+      <div class="vocab-def">Get a file from the internet</div>
+      <div class="vocab-uk">🇺🇦 Завантажити (з інтернету)</div>
+    </div>
+    <div class="vocab-card" style="--stripe:#f43f5e">
+      <div class="vocab-word">Password</div>
+      <div class="vocab-tr">/ˈpɑːswɜːd/</div>
+      <div class="vocab-def">Secret code to log in</div>
+      <div class="vocab-uk">🇺🇦 Пароль для входу</div>
+    </div>
+    <div class="vocab-card" style="--stripe:#a78bfa">
+      <div class="vocab-word">Wi-Fi</div>
+      <div class="vocab-tr">/ˈwaɪfaɪ/</div>
+      <div class="vocab-def">Wireless internet connection</div>
+      <div class="vocab-uk">🇺🇦 Бездротовий інтернет</div>
+    </div>
+    <div class="vocab-card" style="--stripe:#34d399">
+      <div class="vocab-word">Update</div>
+      <div class="vocab-tr">/ˈʌpdeɪt/</div>
+      <div class="vocab-def">Install a new version of software</div>
+      <div class="vocab-uk">🇺🇦 Оновити програму</div>
+    </div>
+    <div class="vocab-card" style="--stripe:#fb923c">
+      <div class="vocab-word">Bug</div>
+      <div class="vocab-tr">/bʌɡ/</div>
+      <div class="vocab-def">An error in a program</div>
+      <div class="vocab-uk">🇺🇦 Помилка у програмі</div>
+    </div>
+    <div class="vocab-card" style="--stripe:#e879f9">
+      <div class="vocab-word">Crash</div>
+      <div class="vocab-tr">/kræʃ/</div>
+      <div class="vocab-def">When a program suddenly stops</div>
+      <div class="vocab-uk">🇺🇦 Коли програма раптово зависає</div>
+    </div>
+    <div class="vocab-card" style="--stripe:#38bdf8">
+      <div class="vocab-word">Cloud</div>
+      <div class="vocab-tr">/klaʊd/</div>
+      <div class="vocab-def">Online storage space</div>
+      <div class="vocab-uk">🇺🇦 Хмарне сховище в інтернеті</div>
+    </div>
+    <div class="vocab-card" style="--stripe:#facc15">
+      <div class="vocab-word">Hack</div>
+      <div class="vocab-tr">/hæk/</div>
+      <div class="vocab-def">Unauthorized access to a system</div>
+      <div class="vocab-uk">🇺🇦 Незаконний доступ до системи</div>
+    </div>
+    <div class="vocab-card" style="--stripe:#4ade80">
+      <div class="vocab-word">Swipe</div>
+      <div class="vocab-tr">/swaɪp/</div>
+      <div class="vocab-def">Move finger across the screen</div>
+      <div class="vocab-uk">🇺🇦 Провести пальцем по екрану</div>
+    </div>
+  </div>
+
+  <!-- PHRASES -->
+  <div class="section-title">
+    <div class="icon" style="background:linear-gradient(135deg,#78350f,#f59e0b)">💬</div>
+    <div>
+      <h2>Useful Phrases</h2>
+      <p>Корисні фрази для розмови</p>
+    </div>
+  </div>
+
+  <p style="color:var(--muted);font-weight:700;margin-bottom:12px;font-size:0.85rem;letter-spacing:1px;text-transform:uppercase;">🆘 Asking for help / Просимо допомоги</p>
+
+  <div class="phrase-block">
+    <div class="phrase-emoji">❓</div>
+    <div>
+      <div class="phrase-en">How do I…?</div>
+      <div class="phrase-uk">Як мені…?</div>
+      <div class="phrase-example">"How do I connect to Wi-Fi?"</div>
+      <div class="phrase-ex-uk">"Як мені підключитися до Wi-Fi?"</div>
+    </div>
+  </div>
+
+  <div class="phrase-block">
+    <div class="phrase-emoji">🛑</div>
+    <div>
+      <div class="phrase-en">My [device] isn't working.</div>
+      <div class="phrase-uk">Мій [пристрій] не працює.</div>
+      <div class="phrase-example">"My laptop isn't working."</div>
+      <div class="phrase-ex-uk">"Мій ноутбук не працює."</div>
+    </div>
+  </div>
+
+  <div class="phrase-block">
+    <div class="phrase-emoji">🔌</div>
+    <div>
+      <div class="phrase-en">It's not connecting / loading.</div>
+      <div class="phrase-uk">Воно не підключається / не завантажується.</div>
+      <div class="phrase-example">"The app is not loading."</div>
+      <div class="phrase-ex-uk">"Застосунок не завантажується."</div>
+    </div>
+  </div>
+
+  <div class="phrase-block">
+    <div class="phrase-emoji">🔄</div>
+    <div>
+      <div class="phrase-en">Have you tried turning it off and on again?</div>
+      <div class="phrase-uk">Ти пробував вимкнути та знову увімкнути?</div>
+      <div class="phrase-example">Classic tech advice 😄</div>
+      <div class="phrase-ex-uk">Класична порада з техніки 😄</div>
+    </div>
+  </div>
+
+  <p style="color:var(--muted);font-weight:700;margin:20px 0 12px;font-size:0.85rem;letter-spacing:1px;text-transform:uppercase;">🗣️ Describing technology / Описуємо технології</p>
+
+  <div class="phrase-block">
+    <div class="phrase-emoji">⚡</div>
+    <div>
+      <div class="phrase-en">It's fast / slow / easy / complicated.</div>
+      <div class="phrase-uk">Це швидко / повільно / легко / складно.</div>
+      <div class="phrase-example">"This new phone is super fast!"</div>
+      <div class="phrase-ex-uk">"Цей новий телефон дуже швидкий!"</div>
+    </div>
+  </div>
+
+  <div class="phrase-block">
+    <div class="phrase-emoji">💡</div>
+    <div>
+      <div class="phrase-en">I use [app/device] for…</div>
+      <div class="phrase-uk">Я використовую [застосунок/пристрій] для…</div>
+      <div class="phrase-example">"I use Duolingo for learning languages."</div>
+      <div class="phrase-ex-uk">"Я використовую Duolingo для вивчення мов."</div>
+    </div>
+  </div>
+
+  <div class="phrase-block">
+    <div class="phrase-emoji">🤩</div>
+    <div>
+      <div class="phrase-en">This is amazing / useful / annoying.</div>
+      <div class="phrase-uk">Це дивовижно / корисно / дратує.</div>
+      <div class="phrase-example">"AI assistants are amazing but sometimes annoying."</div>
+      <div class="phrase-ex-uk">"AI-асистенти дивовижні, але іноді дратують."</div>
+    </div>
+  </div>
+
+  <p style="color:var(--muted);font-weight:700;margin:20px 0 12px;font-size:0.85rem;letter-spacing:1px;text-transform:uppercase;">🎤 Giving opinions / Висловлюємо думку</p>
+
+  <div class="phrase-block">
+    <div class="phrase-emoji">🧠</div>
+    <div>
+      <div class="phrase-en">In my opinion, technology…</div>
+      <div class="phrase-uk">На мою думку, технології…</div>
+      <div class="phrase-example">"In my opinion, technology makes life easier."</div>
+      <div class="phrase-ex-uk">"На мою думку, технології роблять життя простішим."</div>
+    </div>
+  </div>
+
+  <div class="phrase-block">
+    <div class="phrase-emoji">⚖️</div>
+    <div>
+      <div class="phrase-en">On one hand… On the other hand…</div>
+      <div class="phrase-uk">З одного боку… З іншого боку…</div>
+      <div class="phrase-example">"On one hand, phones help us. On the other hand, we spend too much time on them."</div>
+      <div class="phrase-ex-uk">"З одного боку, телефони допомагають. З іншого — ми проводимо на них забагато часу."</div>
+    </div>
+  </div>
+
+  <div class="phrase-block">
+    <div class="phrase-emoji">🤔</div>
+    <div>
+      <div class="phrase-en">I think / I believe / I feel that…</div>
+      <div class="phrase-uk">Я думаю / вважаю / відчуваю, що…</div>
+      <div class="phrase-example">"I believe AI will change everything."</div>
+      <div class="phrase-ex-uk">"Я вважаю, що штучний інтелект змінить усе."</div>
+    </div>
+  </div>
+
+  <!-- OPINION SCALE -->
+  <div class="section-title">
+    <div class="icon" style="background:linear-gradient(135deg,#064e3b,#10b981)">📊</div>
+    <div>
+      <h2>Opinion Scale</h2>
+      <p>Шкала думок — від згоди до незгоди</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <p style="margin-bottom:14px;font-size:0.88rem;color:var(--muted);">Use these words to show how strongly you agree or disagree / Використовуй ці слова, щоб показати згоду чи незгоду:</p>
+    <div class="opinion-scale">
+      <div class="op-cell" style="background:#064e3b;color:#6ee7b7">✅<br>Totally agree<br><span style="font-size:0.7rem;font-weight:400">Повністю згоден</span></div>
+      <div class="op-cell" style="background:#0c4a2e;color:#86efac">👍<br>Agree<br><span style="font-size:0.7rem;font-weight:400">Згоден</span></div>
+      <div class="op-cell" style="background:#1e293b;color:#94a3b8">😐<br>Not sure<br><span style="font-size:0.7rem;font-weight:400">Не впевнений</span></div>
+      <div class="op-cell" style="background:#4c1b1b;color:#fca5a5">👎<br>Disagree<br><span style="font-size:0.7rem;font-weight:400">Не згоден</span></div>
+      <div class="op-cell" style="background:#4c0519;color:#fda4af">❌<br>Totally disagree<br><span style="font-size:0.7rem;font-weight:400">Зовсім не згоден</span></div>
+    </div>
+    <div class="bi" style="margin-top:12px">
+      <div class="bi-en">
+        <div class="lang-tag en">🇬🇧 Example</div>
+        <p>"I totally agree that social media is addictive."<br>"I'm not sure if robots will replace humans."</p>
+      </div>
+      <div class="bi-uk">
+        <div class="lang-tag uk">🇺🇦 Приклад</div>
+        <p>"Я повністю згоден, що соцмережі викликають залежність."<br>"Я не впевнений, чи замінять роботи людей."</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIALOGUE -->
+  <div class="section-title">
+    <div class="icon" style="background:linear-gradient(135deg,#701a75,#e879f9)">🎭</div>
+    <div>
+      <h2>Sample Dialogue</h2>
+      <p>Приклад діалогу про технології</p>
+    </div>
+  </div>
+
+  <div class="dialogue">
+    <div class="dialogue-title">💬 Two friends talking about AI / Двоє друзів говорять про штучний інтелект</div>
+
+    <div class="msg">
+      <div class="avatar avatar-a">👧</div>
+      <div class="bubble bubble-a">
+        <p>Hey! Have you tried that new AI app? It's incredible!</p>
+        <p class="tr">Гей! Ти пробував цей новий AI-застосунок? Він неймовірний!</p>
+      </div>
+    </div>
+
+    <div class="msg right">
+      <div class="avatar avatar-b">👦</div>
+      <div class="bubble bubble-b">
+        <p>Yes! I use it for homework. It helps me write essays.</p>
+        <p class="tr">Так! Я використовую його для домашніх завдань. Він допомагає писати есе.</p>
+      </div>
+    </div>
+
+    <div class="msg">
+      <div class="avatar avatar-a">👧</div>
+      <div class="bubble bubble-a">
+        <p>Really? In my opinion, it's useful, but we should think for ourselves too.</p>
+        <p class="tr">Справді? На мою думку, це корисно, але ми також маємо думати самостійно.</p>
+      </div>
+    </div>
+
+    <div class="msg right">
+      <div class="avatar avatar-b">👦</div>
+      <div class="bubble bubble-b">
+        <p>I agree. On one hand, AI saves time. On the other hand, it can make us lazy.</p>
+        <p class="tr">Згоден. З одного боку, AI економить час. З іншого — може зробити нас лінивими.</p>
+      </div>
+    </div>
+
+    <div class="msg">
+      <div class="avatar avatar-a">👧</div>
+      <div class="bubble bubble-a">
+        <p>Exactly! I think technology is amazing, but we need to use it wisely.</p>
+        <p class="tr">Точно! Я думаю, що технології дивовижні, але їх потрібно використовувати мудро.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOPICS -->
+  <div class="section-title">
+    <div class="icon" style="background:linear-gradient(135deg,#7f1d1d,#f43f5e)">🔥</div>
+    <div>
+      <h2>Hot Tech Topics to Discuss</h2>
+      <p>Гарячі теми про технології для обговорення</p>
+    </div>
+  </div>
+
+  <div class="cat-row" style="margin-bottom:24px">
+    <div class="cat-pill" style="background:#1e1042;color:#c4b5fd;border-color:#4c1d95">🤖 Artificial Intelligence / Штучний інтелект</div>
+    <div class="cat-pill" style="background:#0c2a36;color:#67e8f9;border-color:#0e7490">🎮 Video Games / Відеоігри</div>
+    <div class="cat-pill" style="background:#2d1b00;color:#fcd34d;border-color:#78350f">📱 Social Media / Соцмережі</div>
+    <div class="cat-pill" style="background:#052e16;color:#6ee7b7;border-color:#064e3b">🌱 Green Tech / Зелені технології</div>
+    <div class="cat-pill" style="background:#450a0a;color:#fca5a5;border-color:#7f1d1d">🔒 Cybersecurity / Кібербезпека</div>
+    <div class="cat-pill" style="background:#2e1065;color:#e9d5ff;border-color:#6b21a8">🚀 Space Tech / Космічні технології</div>
+    <div class="cat-pill" style="background:#082f49;color:#bae6fd;border-color:#0369a1">🌐 Internet of Things / Інтернет речей</div>
+    <div class="cat-pill" style="background:#1a1a00;color:#fef08a;border-color:#713f12">🥽 VR &amp; AR / Віртуальна реальність</div>
+  </div>
+
+  <div class="card">
+    <p style="font-weight:800;margin-bottom:16px;">💡 Starter questions for any topic / Стартові питання для будь-якої теми:</p>
+    <div class="bi">
+      <div class="bi-en">
+        <div class="lang-tag en">🇬🇧 English</div>
+        <p>• Do you think [topic] is good or bad?<br>• How does [topic] affect your life?<br>• What are the advantages and disadvantages?<br>• What will [topic] look like in 10 years?<br>• Would you like to work in [field]?</p>
+      </div>
+      <div class="bi-uk">
+        <div class="lang-tag uk">🇺🇦 Переклад</div>
+        <p>• Ти думаєш, що [тема] — добре чи погано?<br>• Як [тема] впливає на твоє життя?<br>• Які плюси і мінуси?<br>• Як [тема] виглядатиме через 10 років?<br>• Ти хотів би працювати у [сфері]?</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIPS -->
+  <div class="section-title">
+    <div class="icon" style="background:linear-gradient(135deg,#065f46,#34d399)">⭐</div>
+    <div>
+      <h2>Top Tips for Speaking</h2>
+      <p>Топ-поради для розмови англійською</p>
+    </div>
+  </div>
+
+  <div class="tip" style="--tip-color:#f59e0b">
+    <div class="tip-icon">🔁</div>
+    <div>
+      <h4>Use linking words / Використовуй з'єднувальні слова</h4>
+      <p>Also, However, Because, For example, In addition, Therefore — these make your speech flow naturally. / Ці слова роблять мовлення плавним і логічним.</p>
+    </div>
+  </div>
+
+  <div class="tip" style="--tip-color:#06b6d4">
+    <div class="tip-icon">🎯</div>
+    <div>
+      <h4>Don't be afraid to make mistakes / Не бійся помилок</h4>
+      <p>Every mistake helps you learn. Native speakers make mistakes too! / Кожна помилка допомагає вчитися. Навіть носії мови помиляються!</p>
+    </div>
+  </div>
+
+  <div class="tip" style="--tip-color:#10b981">
+    <div class="tip-icon">👂</div>
+    <div>
+      <h4>Listen to tech content in English / Слухай контент про технології</h4>
+      <p>YouTube tech channels, podcasts, even video game commentary — all great practice! / YouTube-канали, подкасти, навіть ігровий коментар — усе це чудова практика!</p>
+    </div>
+  </div>
+
+  <div class="tip" style="--tip-color:#f43f5e">
+    <div class="tip-icon">📝</div>
+    <div>
+      <h4>Learn words in context / Вчи слова у контексті</h4>
+      <p>Instead of memorizing lists, learn phrases: "I need to charge my device" is better than just "charge". / Замість списків запам'ятовуй фрази з контекстом.</p>
+    </div>
+  </div>
+
+  <div class="tip" style="--tip-color:#a78bfa">
+    <div class="tip-icon">🗣️</div>
+    <div>
+      <h4>Practice speaking aloud / Практикуй вимову вголос</h4>
+      <p>Talk to yourself, repeat phrases, record your voice and listen back. / Говори сам з собою, повторюй фрази, записуй свій голос і слухай.</p>
+    </div>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="quiz-section">
+    <h2>🎮 Quick Quiz!</h2>
+    <p>Test your tech vocabulary — натисни на правильну відповідь!</p>
+
+    <div class="quiz-q">
+      <p>1. What does "to download" mean? / Що означає "to download"?</p>
+      <div class="quiz-opts">
+        <button class="quiz-opt" onclick="answer(this,false)">Send a file to the internet</button>
+        <button class="quiz-opt" onclick="answer(this,true)">Get a file from the internet ✓</button>
+        <button class="quiz-opt" onclick="answer(this,false)">Delete a file</button>
+      </div>
+    </div>
+
+    <div class="quiz-q">
+      <p>2. Which word means "помилка у програмі" (error in a program)?</p>
+      <div class="quiz-opts">
+        <button class="quiz-opt" onclick="answer(this,false)">Crash</button>
+        <button class="quiz-opt" onclick="answer(this,false)">Update</button>
+        <button class="quiz-opt" onclick="answer(this,true)">Bug ✓</button>
+        <button class="quiz-opt" onclick="answer(this,false)">Cloud</button>
+      </div>
+    </div>
+
+    <div class="quiz-q">
+      <p>3. Complete: "In my _____, technology is amazing." / Доповни речення:</p>
+      <div class="quiz-opts">
+        <button class="quiz-opt" onclick="answer(this,false)">brain</button>
+        <button class="quiz-opt" onclick="answer(this,true)">opinion ✓</button>
+        <button class="quiz-opt" onclick="answer(this,false)">device</button>
+      </div>
+    </div>
+
+    <div class="quiz-q">
+      <p>4. "My laptop isn't _____ — it stopped suddenly." / Мій ноутбук…</p>
+      <div class="quiz-opts">
+        <button class="quiz-opt" onclick="answer(this,false)">uploading</button>
+        <button class="quiz-opt" onclick="answer(this,false)">swiping</button>
+        <button class="quiz-opt" onclick="answer(this,true)">working ✓</button>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  Made with ❤️ for English learners 🇺🇦 &nbsp;|&nbsp; <span>Tech Talk English</span> &nbsp;|&nbsp; Keep practising every day! 🚀
+</footer>
+
+<script>
+  // Generate stars
+  const starsEl = document.getElementById('stars');
+  for (let i = 0; i < 80; i++) {
+    const s = document.createElement('div');
+    s.className = 'star';
+    const size = Math.random() * 3 + 1;
+    s.style.cssText = `width:${size}px;height:${size}px;top:${Math.random()*100}%;left:${Math.random()*100}%;--d:${(Math.random()*4+2).toFixed(1)}s;animation-delay:${(Math.random()*5).toFixed(1)}s;`;
+    starsEl.appendChild(s);
+  }
+
+  // Quiz handler
+  function answer(btn, correct) {
+    const group = btn.closest('.quiz-opts');
+    if (group.dataset.answered) return;
+    group.dataset.answered = '1';
+    btn.classList.add(correct ? 'correct' : 'wrong');
+    if (!correct) {
+      group.querySelectorAll('.quiz-opt').forEach(b => {
+        if (b.textContent.includes('✓')) b.classList.add('correct');
+      });
+    }
+  }
+</script>
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+</body>
+</html>

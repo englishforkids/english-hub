@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🗣️ Каркас мислення англійською</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sky: #4FC3F7;
+    --coral: #FF7043;
+    --mint: #4DB6AC;
+    --lemon: #FFD54F;
+    --lavender: #9575CD;
+    --rose: #F06292;
+    --lime: #AED581;
+    --navy: #1A237E;
+    --bg: #FFF8F0;
+    --card-shadow: 0 8px 32px rgba(0,0,0,0.10);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    background-image:
+      radial-gradient(circle at 10% 10%, #FFE0B2 0%, transparent 40%),
+      radial-gradient(circle at 90% 20%, #E1F5FE 0%, transparent 40%),
+      radial-gradient(circle at 50% 90%, #F3E5F5 0%, transparent 40%);
+    min-height: 100vh;
+    color: #2d2d2d;
+  }
+
+  /* HERO */
+  .hero {
+    text-align: center;
+    padding: 60px 20px 40px;
+    position: relative;
+  }
+  .hero-emoji {
+    font-size: 80px;
+    display: block;
+    animation: bounce 2s infinite;
+    margin-bottom: 10px;
+  }
+  @keyframes bounce {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-14px); }
+  }
+  .hero h1 {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(2rem, 6vw, 3.8rem);
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1.1;
+    margin-bottom: 14px;
+  }
+  .hero h1 span { color: var(--coral); }
+  .hero p {
+    font-size: 1.15rem;
+    color: #555;
+    max-width: 520px;
+    margin: 0 auto 30px;
+    line-height: 1.6;
+  }
+
+  /* PROGRESS BAR decor */
+  .divider {
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    margin: 10px auto 40px;
+  }
+  .divider span { width: 12px; height: 12px; border-radius: 50%; display: inline-block; animation: pop 1.2s infinite alternate; }
+  .divider span:nth-child(1) { background: var(--coral); animation-delay: 0s; }
+  .divider span:nth-child(2) { background: var(--lemon); animation-delay: .2s; }
+  .divider span:nth-child(3) { background: var(--mint); animation-delay: .4s; }
+  .divider span:nth-child(4) { background: var(--lavender); animation-delay: .6s; }
+  .divider span:nth-child(5) { background: var(--rose); animation-delay: .8s; }
+  @keyframes pop { from { transform: scale(1); } to { transform: scale(1.5); } }
+
+  /* GRID */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 28px;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+  }
+
+  /* CARD */
+  .card {
+    background: white;
+    border-radius: 24px;
+    padding: 28px 26px;
+    box-shadow: var(--card-shadow);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.25s, box-shadow 0.25s;
+    border-top: 6px solid var(--card-color, #4FC3F7);
+  }
+  .card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(0,0,0,0.14); }
+
+  .card-emoji {
+    font-size: 2.8rem;
+    display: inline-block;
+    margin-bottom: 8px;
+    background: var(--card-bg, #E1F5FE);
+    border-radius: 16px;
+    padding: 8px 14px;
+  }
+  .card h2 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .card .subtitle {
+    font-size: 0.82rem;
+    color: #888;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 16px;
+  }
+
+  /* PHRASES */
+  .phrases { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+  .phrase {
+    background: var(--pill-bg, #E3F2FD);
+    color: var(--pill-text, #1565C0);
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.15s, background 0.15s;
+    border: none;
+    font-family: 'Nunito', sans-serif;
+    display: inline-block;
+  }
+  .phrase:hover { transform: scale(1.08); background: var(--pill-hover, #BBDEFB); }
+
+  /* EXAMPLE BLOCK */
+  .example-block {
+    background: var(--card-bg, #E1F5FE);
+    border-radius: 14px;
+    padding: 14px 16px;
+    font-size: 0.93rem;
+    color: #333;
+    line-height: 1.65;
+    position: relative;
+  }
+  .example-block .label {
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: var(--card-color, #4FC3F7);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .example-block em { font-style: normal; font-weight: 800; color: var(--card-color, #0288D1); }
+
+  /* FORMULA CARD */
+  .formula {
+    display: flex; flex-direction: column; gap: 10px; margin-top: 8px;
+  }
+  .formula-step {
+    display: flex; align-items: flex-start; gap: 12px;
+    background: var(--card-bg, #E1F5FE);
+    border-radius: 12px;
+    padding: 10px 14px;
+    font-size: 0.9rem;
+  }
+  .formula-step .num {
+    background: var(--card-color, #4FC3F7);
+    color: white;
+    border-radius: 50%;
+    width: 26px; height: 26px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 900;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .formula-step strong { display: block; font-weight: 800; color: var(--navy); }
+  .formula-step span { color: #555; font-size: 0.85rem; }
+
+  /* TIPS */
+  .tip {
+    background: linear-gradient(135deg, var(--card-color, #4FC3F7) 0%, var(--card-bg-dark, #0288D1) 100%);
+    color: white;
+    border-radius: 14px;
+    padding: 12px 16px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    margin-top: 12px;
+    display: flex; gap: 8px; align-items: flex-start;
+  }
+  .tip .tip-icon { font-size: 1.2rem; }
+
+  /* SYSTEM CARD */
+  .system-card {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, #1A237E 0%, #283593 60%, #3949AB 100%);
+    border-radius: 28px;
+    padding: 36px 32px;
+    color: white;
+    box-shadow: 0 12px 48px rgba(26,35,126,0.3);
+  }
+  .system-card h2 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--lemon);
+    margin: 14px 0 8px;
+  }
+  .system-card p { color: #C5CAE9; margin-bottom: 20px; }
+  .system-steps { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+  .sys-step {
+    background: rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 18px;
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,0.15);
+    transition: background 0.2s;
+  }
+  .sys-step:hover { background: rgba(255,255,255,0.18); }
+  .sys-step .s-num {
+    font-family: 'Baloo 2', cursive;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--lemon);
+    display: block;
+    line-height: 1;
+  }
+  .sys-step strong { display: block; font-size: 0.95rem; margin: 4px 0 4px; color: white; }
+  .sys-step p { font-size: 0.82rem; color: #C5CAE9; margin: 0; }
+
+  /* TOAST */
+  .toast {
+    position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%) translateY(80px);
+    background: var(--navy);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: transform 0.3s cubic-bezier(.34,1.56,.64,1);
+    z-index: 9999;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  .toast.show { transform: translateX(-50%) translateY(0); }
+
+  #scroll-top-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #1a1208;
+    border: 1.5px solid rgba(200,150,62,0.4);
+    color: #f5f0e8;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+    pointer-events: none;
+    z-index: 9998;
+  }
+  #scroll-top-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  #scroll-top-btn:hover {
+    background: #c8963e;
+    border-color: #c8963e;
+    color: #1a1208;
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 600px) {
+    body { font-size: 15px; }
+
+    .hero { padding: 36px 16px 24px; }
+    .hero-emoji { font-size: 56px; }
+    .hero p { font-size: 1rem; }
+
+    .grid {
+      grid-template-columns: 1fr;
+      gap: 18px;
+      padding: 0 14px 48px;
+    }
+
+    .card { padding: 20px 16px; border-radius: 18px; }
+    .card:hover { transform: none; box-shadow: var(--card-shadow); }
+    .card-emoji { font-size: 2.2rem; padding: 6px 10px; }
+    .card h2 { font-size: 1.1rem; }
+
+    .phrases { gap: 6px; }
+    .phrase {
+      font-size: 0.83rem;
+      padding: 5px 12px;
+      max-width: 100%;
+      white-space: normal;
+      text-align: left;
+    }
+
+    .example-block { font-size: 0.87rem; padding: 12px 13px; }
+
+    .formula-step { font-size: 0.85rem; padding: 9px 12px; gap: 10px; }
+    .formula-step .num { width: 24px; height: 24px; font-size: 0.8rem; }
+
+    .tip { font-size: 0.83rem; padding: 10px 13px; }
+
+    .system-card { padding: 24px 16px; border-radius: 20px; }
+    .system-card h2 { font-size: 1.4rem; }
+    .system-steps { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .sys-step { padding: 13px 12px; }
+    .sys-step .s-num { font-size: 1.5rem; }
+    .sys-step strong { font-size: 0.85rem; }
+    .sys-step p { font-size: 0.78rem; }
+
+    .toast {
+      font-size: 0.82rem;
+      padding: 10px 16px;
+      max-width: calc(100vw - 32px);
+      white-space: normal;
+      text-align: center;
+    }
+
+    #scroll-top-btn { bottom: 16px; right: 16px; width: 40px; height: 40px; font-size: 16px; }
+  }
+
+  @media (max-width: 380px) {
+    .system-steps { grid-template-columns: 1fr; }
+  }
+
+  footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.85rem;
+    color: #aaa;
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <span class="hero-emoji">🗣️</span>
+  <h1>Говори англійською<br><span>впевнено та красиво!</span></h1>
+  <p>Натискай на фрази — вони скопіюються! Вивчай шаблони, тренуйся щодня і твоя англійська злетить 🚀</p>
+  <div class="divider">
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+</div>
+
+<div class="grid">
+
+  <!-- 1. Opinion -->
+  <div class="card" style="--card-color:#FF7043;--card-bg:#FBE9E7;--pill-bg:#FBE9E7;--pill-text:#BF360C;--pill-hover:#FFCCBC;">
+    <span class="card-emoji" style="background:#FBE9E7;">💬</span>
+    <h2>Висловлення думки</h2>
+    <div class="subtitle">Як починати відповідь</div>
+    <div class="phrases">
+      <button class="phrase" onclick="copy(this)">I think…</button>
+      <button class="phrase" onclick="copy(this)">I believe…</button>
+      <button class="phrase" onclick="copy(this)">I feel that…</button>
+      <button class="phrase" onclick="copy(this)">In my opinion…</button>
+      <button class="phrase" onclick="copy(this)">From my point of view…</button>
+      <button class="phrase" onclick="copy(this)">The way I see it…</button>
+      <button class="phrase" onclick="copy(this)">If you ask me…</button>
+      <button class="phrase" onclick="copy(this)">Personally, I…</button>
+    </div>
+    <div class="example-block" style="background:#FBE9E7;">
+      <span class="label" style="color:#FF7043;">✨ Приклад</span>
+      <em>In my opinion,</em> discipline matters more than motivation.
+    </div>
+  </div>
+
+  <!-- 2. Explain deeper -->
+  <div class="card" style="--card-color:#9575CD;--card-bg:#EDE7F6;--pill-bg:#EDE7F6;--pill-text:#4527A0;--pill-hover:#D1C4E9;">
+    <span class="card-emoji" style="background:#EDE7F6;">🔍</span>
+    <h2>Поглиблення думки</h2>
+    <div class="subtitle">Пояснюй та перефразовуй</div>
+    <div class="phrases">
+      <button class="phrase" onclick="copy(this)">What I mean is…</button>
+      <button class="phrase" onclick="copy(this)">To put it differently…</button>
+      <button class="phrase" onclick="copy(this)">In other words…</button>
+      <button class="phrase" onclick="copy(this)">Let me put it this way…</button>
+      <button class="phrase" onclick="copy(this)">Basically…</button>
+      <button class="phrase" onclick="copy(this)">Essentially…</button>
+      <button class="phrase" onclick="copy(this)">The main point is…</button>
+    </div>
+    <div class="example-block" style="background:#EDE7F6;">
+      <span class="label" style="color:#9575CD;">✨ Приклад</span>
+      I think discipline is key. <em>What I mean is,</em> motivation comes and goes, but discipline keeps you moving.
+    </div>
+  </div>
+
+  <!-- 3. Agree -->
+  <div class="card" style="--card-color:#4DB6AC;--card-bg:#E0F2F1;--pill-bg:#E0F2F1;--pill-text:#00695C;--pill-hover:#B2DFDB;">
+    <span class="card-emoji" style="background:#E0F2F1;">👍</span>
+    <h2>Погоджуєшся</h2>
+    <div class="subtitle">Коли хочеш підтримати</div>
+    <div class="phrases">
+      <button class="phrase" onclick="copy(this)">I completely agree.</button>
+      <button class="phrase" onclick="copy(this)">Absolutely.</button>
+      <button class="phrase" onclick="copy(this)">That makes sense.</button>
+      <button class="phrase" onclick="copy(this)">Exactly.</button>
+      <button class="phrase" onclick="copy(this)">I couldn't agree more.</button>
+      <button class="phrase" onclick="copy(this)">That's a good point.</button>
+      <button class="phrase" onclick="copy(this)">Fair enough.</button>
+      <button class="phrase" onclick="copy(this)">You've got a point there.</button>
+    </div>
+    <div class="tip" style="background:linear-gradient(135deg,#4DB6AC,#00695C);">
+      <span class="tip-icon">💡</span>
+      Використовуй "That's a valid argument" — звучить дуже про!
+    </div>
+  </div>
+
+  <!-- 4. Disagree -->
+  <div class="card" style="--card-color:#F06292;--card-bg:#FCE4EC;--pill-bg:#FCE4EC;--pill-text:#880E4F;--pill-hover:#F8BBD0;">
+    <span class="card-emoji" style="background:#FCE4EC;">🤔</span>
+    <h2>Не погоджуєшся (м'яко)</h2>
+    <div class="subtitle">Заперечуй ввічливо</div>
+    <div class="phrases">
+      <button class="phrase" onclick="copy(this)">I'm not sure I agree.</button>
+      <button class="phrase" onclick="copy(this)">I see it differently.</button>
+      <button class="phrase" onclick="copy(this)">I wouldn't say that.</button>
+      <button class="phrase" onclick="copy(this)">I respectfully disagree.</button>
+      <button class="phrase" onclick="copy(this)">I'm not convinced that…</button>
+      <button class="phrase" onclick="copy(this)">I don't quite see it that way.</button>
+    </div>
+    <div class="example-block" style="background:#FCE4EC;">
+      <span class="label" style="color:#F06292;">✨ Приклад</span>
+      I see your point, but <em>I'm not convinced that</em> online education can fully replace traditional learning.
+    </div>
+  </div>
+
+  <!-- 5. Reactions -->
+  <div class="card" style="--card-color:#FFD54F;--card-bg:#FFFDE7;--pill-bg:#FFFDE7;--pill-text:#E65100;--pill-hover:#FFF9C4;">
+    <span class="card-emoji" style="background:#FFFDE7;">😲</span>
+    <h2>Емоційні реакції</h2>
+    <div class="subtitle">Подив, співчуття, підтримка</div>
+    <div class="phrases">
+      <button class="phrase" onclick="copy(this)">Really?</button>
+      <button class="phrase" onclick="copy(this)">No way!</button>
+      <button class="phrase" onclick="copy(this)">That's crazy!</button>
+      <button class="phrase" onclick="copy(this)">You're kidding!</button>
+      <button class="phrase" onclick="copy(this)">I'm sorry to hear that.</button>
+      <button class="phrase" onclick="copy(this)">That must be tough.</button>
+      <button class="phrase" onclick="copy(this)">I can imagine how you feel.</button>
+      <button class="phrase" onclick="copy(this)">You've got this!</button>
+      <button class="phrase" onclick="copy(this)">Well done!</button>
+      <button class="phrase" onclick="copy(this)">That's impressive!</button>
+    </div>
+  </div>
+
+  <!-- 6. Story starters -->
+  <div class="card" style="--card-color:#4FC3F7;--card-bg:#E1F5FE;--pill-bg:#E1F5FE;--pill-text:#01579B;--pill-hover:#B3E5FC;">
+    <span class="card-emoji" style="background:#E1F5FE;">📖</span>
+    <h2>Як починати історію</h2>
+    <div class="subtitle">Захоплюй увагу з першого слова</div>
+    <div class="phrases">
+      <button class="phrase" onclick="copy(this)">So, the other day…</button>
+      <button class="phrase" onclick="copy(this)">You won't believe what happened…</button>
+      <button class="phrase" onclick="copy(this)">Guess what…</button>
+      <button class="phrase" onclick="copy(this)">It all started when…</button>
+      <button class="phrase" onclick="copy(this)">Let me tell you about…</button>
+      <button class="phrase" onclick="copy(this)">I remember once…</button>
+      <button class="phrase" onclick="copy(this)">There was this time when…</button>
+    </div>
+    <div class="example-block" style="background:#E1F5FE;">
+      <span class="label" style="color:#4FC3F7;">✨ Приклад</span>
+      <em>So, the other day</em> I had a lesson and something funny happened…
+    </div>
+  </div>
+
+  <!-- 7. Structure -->
+  <div class="card" style="--card-color:#AED581;--card-bg:#F1F8E9;--pill-bg:#F1F8E9;--pill-text:#33691E;--pill-hover:#DCEDC8;">
+    <span class="card-emoji" style="background:#F1F8E9;">🏗️</span>
+    <h2>Структура відповіді</h2>
+    <div class="subtitle">Формула для будь-якої відповіді</div>
+    <div class="formula">
+      <div class="formula-step" style="background:#F1F8E9;">
+        <div class="num" style="background:#AED581;color:#33691E;">1</div>
+        <div><strong>Opinion — Думка</strong><span>I think… / In my opinion…</span></div>
+      </div>
+      <div class="formula-step" style="background:#F1F8E9;">
+        <div class="num" style="background:#AED581;color:#33691E;">2</div>
+        <div><strong>Explanation — Пояснення</strong><span>The reason is…</span></div>
+      </div>
+      <div class="formula-step" style="background:#F1F8E9;">
+        <div class="num" style="background:#AED581;color:#33691E;">3</div>
+        <div><strong>Example — Приклад</strong><span>For example…</span></div>
+      </div>
+      <div class="formula-step" style="background:#F1F8E9;">
+        <div class="num" style="background:#AED581;color:#33691E;">4</div>
+        <div><strong>Conclusion — Висновок</strong><span>So overall…</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8. Compare -->
+  <div class="card" style="--card-color:#FF8A65;--card-bg:#FBE9E7;--pill-bg:#FBE9E7;--pill-text:#BF360C;--pill-hover:#FFCCBC;">
+    <span class="card-emoji" style="background:#FBE9E7;">⚖️</span>
+    <h2>Порівняння</h2>
+    <div class="subtitle">Розкажи обидві сторони</div>
+    <div class="phrases">
+      <button class="phrase" onclick="copy(this)">On the one hand…</button>
+      <button class="phrase" onclick="copy(this)">On the other hand…</button>
+      <button class="phrase" onclick="copy(this)">Compared to…</button>
+      <button class="phrase" onclick="copy(this)">In contrast…</button>
+      <button class="phrase" onclick="copy(this)">Whereas…</button>
+      <button class="phrase" onclick="copy(this)">Similarly…</button>
+      <button class="phrase" onclick="copy(this)">Unlike…</button>
+    </div>
+    <div class="example-block" style="background:#FBE9E7;">
+      <span class="label" style="color:#FF8A65;">✨ Приклад</span>
+      <em>On the one hand,</em> online learning is convenient. <em>On the other hand,</em> it lacks real social interaction.
+    </div>
+  </div>
+
+  <!-- 9. Buy time -->
+  <div class="card" style="--card-color:#7986CB;--card-bg:#E8EAF6;--pill-bg:#E8EAF6;--pill-text:#283593;--pill-hover:#C5CAE9;">
+    <span class="card-emoji" style="background:#E8EAF6;">⏱️</span>
+    <h2>Виграти час</h2>
+    <div class="subtitle">B2–C1 лайфхак для розмови</div>
+    <div class="phrases">
+      <button class="phrase" onclick="copy(this)">That's an interesting question.</button>
+      <button class="phrase" onclick="copy(this)">Let me think about that.</button>
+      <button class="phrase" onclick="copy(this)">I've never thought about it before, but…</button>
+      <button class="phrase" onclick="copy(this)">It depends on what you mean by…</button>
+      <button class="phrase" onclick="copy(this)">That's hard to say.</button>
+      <button class="phrase" onclick="copy(this)">I guess it depends.</button>
+      <button class="phrase" onclick="copy(this)">I'm not entirely sure, but…</button>
+    </div>
+    <div class="tip" style="background:linear-gradient(135deg,#7986CB,#283593);">
+      <span class="tip-icon">🏆</span>
+      Ніколи не мовчи! Ці фрази показують, що ти думаєш — це плюс!
+    </div>
+  </div>
+
+  <!-- 10. Sound natural -->
+  <div class="card" style="--card-color:#4DD0E1;--card-bg:#E0F7FA;--pill-bg:#E0F7FA;--pill-text:#006064;--pill-hover:#B2EBF2;">
+    <span class="card-emoji" style="background:#E0F7FA;">🌊</span>
+    <h2>Звучати природньо</h2>
+    <div class="subtitle">Фрази справжніх носіїв</div>
+    <div class="phrases">
+      <button class="phrase" onclick="copy(this)">To be honest…</button>
+      <button class="phrase" onclick="copy(this)">To be fair…</button>
+      <button class="phrase" onclick="copy(this)">At the end of the day…</button>
+      <button class="phrase" onclick="copy(this)">In the long run…</button>
+      <button class="phrase" onclick="copy(this)">Sooner or later…</button>
+      <button class="phrase" onclick="copy(this)">As far as I know…</button>
+      <button class="phrase" onclick="copy(this)">At the same time…</button>
+    </div>
+  </div>
+
+  <!-- 11. About yourself -->
+  <div class="card" style="--card-color:#F48FB1;--card-bg:#FCE4EC;--pill-bg:#FCE4EC;--pill-text:#880E4F;--pill-hover:#F8BBD0;">
+    <span class="card-emoji" style="background:#FCE4EC;">🙋</span>
+    <h2>Розповідаєш про себе</h2>
+    <div class="subtitle">Особисті фрази</div>
+    <div class="phrases">
+      <button class="phrase" onclick="copy(this)">I've always been interested in…</button>
+      <button class="phrase" onclick="copy(this)">I tend to…</button>
+      <button class="phrase" onclick="copy(this)">I used to…</button>
+      <button class="phrase" onclick="copy(this)">I'm the kind of person who…</button>
+      <button class="phrase" onclick="copy(this)">I'm trying to…</button>
+      <button class="phrase" onclick="copy(this)">I've recently started…</button>
+      <button class="phrase" onclick="copy(this)">I struggle with…</button>
+      <button class="phrase" onclick="copy(this)">One thing I've realised is…</button>
+    </div>
+  </div>
+
+  <!-- 12. Logic & C1 -->
+  <div class="card" style="--card-color:#81C784;--card-bg:#E8F5E9;--pill-bg:#E8F5E9;--pill-text:#1B5E20;--pill-hover:#C8E6C9;">
+    <span class="card-emoji" style="background:#E8F5E9;">🧠</span>
+    <h2>Логіка і аргументи</h2>
+    <div class="subtitle">C1-рівень</div>
+    <div class="phrases">
+      <button class="phrase" onclick="copy(this)">First of all…</button>
+      <button class="phrase" onclick="copy(this)">What's more…</button>
+      <button class="phrase" onclick="copy(this)">Moreover…</button>
+      <button class="phrase" onclick="copy(this)">As a result…</button>
+      <button class="phrase" onclick="copy(this)">Therefore…</button>
+      <button class="phrase" onclick="copy(this)">In conclusion…</button>
+      <button class="phrase" onclick="copy(this)">The key issue here is…</button>
+      <button class="phrase" onclick="copy(this)">It all comes down to…</button>
+      <button class="phrase" onclick="copy(this)">One could argue that…</button>
+    </div>
+  </div>
+
+  <!-- C1 Example -->
+  <div class="card" style="--card-color:#FF7043;--card-bg:#FBE9E7;--pill-bg:#FBE9E7;--pill-text:#BF360C;--pill-hover:#FFCCBC; grid-column: span 1;">
+    <span class="card-emoji" style="background:#FBE9E7;">🌟</span>
+    <h2>C1 відповідь — приклад</h2>
+    <div class="subtitle">Повна відповідь на будь-яке питання</div>
+    <div class="example-block" style="background:#FBE9E7;font-size:0.9rem;line-height:1.8;">
+      <span class="label" style="color:#FF7043;">🎯 Готова відповідь</span>
+      <em>That's an interesting question.</em><br>
+      <em>I think</em> it really depends on the situation.<br>
+      <em>On the one hand,</em> technology makes our lives easier.<br>
+      <em>On the other hand,</em> it creates new problems.<br>
+      <em>What I mean is</em> that we become more dependent on it.<br>
+      <em>So overall,</em> I'd say it's a double-edged sword.
+    </div>
+  </div>
+
+  <!-- SYSTEM -->
+  <div class="system-card">
+    <span style="font-size:3rem;">🚀</span>
+    <h2>Твоя система тренування</h2>
+    <p>Дотримуйся цього плану — і за 4 тижні помітиш величезний прогрес!</p>
+    <div class="system-steps">
+      <div class="sys-step">
+        <span class="s-num">1</span>
+        <strong>Вибирай 10 шаблонів</strong>
+        <p>Щотижня обирай нові 10 фраз для практики</p>
+      </div>
+      <div class="sys-step">
+        <span class="s-num">2</span>
+        <strong>Говори 5 хвилин щодня</strong>
+        <p>Будь-яка тема — використовуй свої фрази вголос</p>
+      </div>
+      <div class="sys-step">
+        <span class="s-num">3</span>
+        <strong>Записуй себе</strong>
+        <p>Прослухай — де звучить природно, де ні</p>
+      </div>
+      <div class="sys-step">
+        <span class="s-num">4</span>
+        <strong>Повторюй теми</strong>
+        <p>Та сама тема, але іншими шаблонами — прогрес гарантований!</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>Натисни на будь-яку фразу, щоб скопіювати 📋 · Вчись кожен день · You've got this! 💪</footer>
+
+<div class="toast" id="toast">📋 Скопійовано!</div>
+
+<script>
+  function copy(btn) {
+    const text = btn.textContent;
+    navigator.clipboard.writeText(text).catch(() => {});
+    
+    btn.style.transform = 'scale(1.2)';
+    setTimeout(() => { btn.style.transform = ''; }, 200);
+
+    const toast = document.getElementById('toast');
+    toast.textContent = '📋 «' + text + '» скопійовано!';
+    toast.classList.add('show');
+    clearTimeout(window._toastTimer);
+    window._toastTimer = setTimeout(() => toast.classList.remove('show'), 2200);
+  }
+</script>
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,1736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English Quantifiers 📦 Квантифікатори</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f0e17;
+    --card: #1a1929;
+    --card2: #201f35;
+    --accent1: #ff6b6b;
+    --accent2: #ffd166;
+    --accent3: #06d6a0;
+    --accent4: #118ab2;
+    --accent5: #c77dff;
+    --accent6: #ff9f1c;
+    --text: #fffffe;
+    --muted: #a7a9be;
+    --some: #06d6a0;
+    --any: #118ab2;
+    --many: #ff6b6b;
+    --much: #c77dff;
+    --alot: #ffd166;
+    --few: #ff9f1c;
+    --little: #f72585;
+    --afew: #4cc9f0;
+    --alittle: #7bed9f;
+    --several: #ff6b6b;
+    --enough: #a8dadc;
+    --no: #ef233c;
+    --every: #52b788;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Nunito', sans-serif;
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #1a1929 0%, #0f0e17 50%, #1c1b36 100%);
+    padding: 60px 20px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 20% 50%, rgba(199,125,255,.15) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(6,214,160,.12) 0%, transparent 50%);
+  }
+  .hero-title {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(2.2rem, 6vw, 4.5rem);
+    font-weight: 800;
+    background: linear-gradient(135deg, #ffd166, #ff6b6b, #c77dff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    z-index: 1;
+    line-height: 1.1;
+  }
+  .hero-sub {
+    font-size: 1.15rem;
+    color: var(--muted);
+    margin-top: 12px;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-emoji-row {
+    font-size: 2.5rem;
+    margin: 20px 0 10px;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  /* CONTAINER */
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+  /* MAGIC SENTENCE */
+  .magic-box {
+    background: linear-gradient(135deg, #1a1929, #2a2050);
+    border: 2px solid #c77dff44;
+    border-radius: 24px;
+    padding: 32px;
+    margin: 40px auto;
+    max-width: 900px;
+    text-align: center;
+    position: relative;
+  }
+  .magic-box::before {
+    content: '✨ Magic Sentence / Чарівне речення ✨';
+    position: absolute;
+    top: -14px; left: 50%; transform: translateX(-50%);
+    background: linear-gradient(90deg, #c77dff, #4cc9f0);
+    color: #fff;
+    font-size: .85rem;
+    font-weight: 800;
+    padding: 4px 18px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  .magic-sentence {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(1.2rem, 3vw, 1.9rem);
+    font-weight: 700;
+    color: #ffd166;
+    margin-bottom: 10px;
+  }
+  .magic-ua {
+    color: var(--muted);
+    font-size: 1rem;
+  }
+  .magic-note {
+    margin-top: 14px;
+    font-size: .92rem;
+    color: #a7a9be;
+    font-style: italic;
+  }
+
+  /* OVERVIEW GRID */
+  .section-title {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    font-weight: 800;
+    margin: 50px 0 24px;
+    text-align: center;
+  }
+
+  .overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 14px;
+    margin-bottom: 50px;
+  }
+  .ov-card {
+    border-radius: 18px;
+    padding: 18px 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform .2s, box-shadow .2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .ov-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,.4); }
+  .ov-word {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.35rem;
+    font-weight: 800;
+  }
+  .ov-ua { font-size: .82rem; opacity: .8; margin-top: 4px; }
+  .ov-type { font-size: .75rem; margin-top: 6px; font-weight: 700; opacity: .7; text-transform: uppercase; letter-spacing: .05em; }
+
+  /* QUANTIFIER CARDS */
+  .q-section { margin: 60px 0; }
+  .q-card {
+    background: var(--card);
+    border-radius: 28px;
+    padding: 36px;
+    margin-bottom: 32px;
+    border-left: 6px solid;
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow .2s;
+  }
+  .q-card:hover { box-shadow: 0 16px 50px rgba(0,0,0,.5); }
+  .q-card::after {
+    content: attr(data-emoji);
+    position: absolute;
+    right: 28px; top: 28px;
+    font-size: 3.5rem;
+    opacity: .18;
+  }
+  .q-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  .q-word {
+    font-family: 'Baloo 2', cursive;
+    font-size: 2.2rem;
+    font-weight: 800;
+  }
+  .q-badge {
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: .8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    background: rgba(255,255,255,.1);
+  }
+  .q-meaning {
+    font-size: 1rem;
+    color: var(--muted);
+    margin-bottom: 18px;
+  }
+  .q-meaning strong { color: #ffd166; }
+
+  /* FORMULA BOX */
+  .formula {
+    background: rgba(0,0,0,.3);
+    border-radius: 14px;
+    padding: 14px 20px;
+    margin: 14px 0;
+    font-family: monospace;
+    font-size: .95rem;
+    border: 1px solid rgba(255,255,255,.08);
+  }
+  .formula span { color: #4cc9f0; font-weight: 700; }
+  .formula .plus { color: #ffd166; }
+
+  /* EXAMPLES */
+  .examples-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 12px;
+    margin-top: 16px;
+  }
+  .ex-card {
+    background: rgba(0,0,0,.25);
+    border-radius: 14px;
+    padding: 14px 16px;
+    border: 1px solid rgba(255,255,255,.06);
+  }
+  .ex-en {
+    font-weight: 700;
+    font-size: .95rem;
+    margin-bottom: 5px;
+    color: #fffffe;
+  }
+  .ex-ua {
+    font-size: .85rem;
+    color: var(--muted);
+  }
+  .ex-highlight {
+    font-weight: 900;
+  }
+
+  /* MAGIC SENTENCE TRANSFORMS */
+  .transform-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: .9rem;
+  }
+  .transform-table th {
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 800;
+    background: rgba(255,255,255,.07);
+    color: var(--muted);
+    font-size: .78rem;
+    text-transform: uppercase;
+    letter-spacing: .07em;
+  }
+  .transform-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid rgba(255,255,255,.05);
+    vertical-align: top;
+  }
+  .transform-table tr:last-child td { border-bottom: none; }
+  .t-word { font-weight: 800; font-size: 1rem; font-family: 'Baloo 2', cursive; }
+  .t-sent { font-weight: 600; }
+  .t-ua { color: var(--muted); font-size: .82rem; }
+
+  /* COMPARISON TABLE */
+  .comp-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: .9rem;
+    overflow-x: auto;
+  }
+  .comp-table th {
+    padding: 12px 16px;
+    background: rgba(255,255,255,.07);
+    font-weight: 800;
+    text-align: left;
+    font-size: .82rem;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--muted);
+  }
+  .comp-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(255,255,255,.05);
+    vertical-align: top;
+  }
+  .comp-table tr:hover td { background: rgba(255,255,255,.03); }
+  .table-wrap { overflow-x: auto; border-radius: 18px; }
+
+  /* INFOGRAPHIC */
+  .spectrum {
+    background: var(--card);
+    border-radius: 22px;
+    padding: 28px;
+    margin: 30px 0;
+    overflow-x: auto;
+  }
+  .spectrum-title {
+    font-weight: 800;
+    font-size: 1.05rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: .08em;
+  }
+  .spectrum-bar {
+    display: flex;
+    align-items: stretch;
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    min-height: 54px;
+  }
+  .spec-seg {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 8px 6px;
+    font-size: .78rem;
+    font-weight: 800;
+    text-align: center;
+    min-width: 60px;
+  }
+  .spec-seg span { font-size: .65rem; font-weight: 600; opacity: .8; }
+
+  /* TIPS */
+  .tip-box {
+    background: linear-gradient(135deg, rgba(255,209,102,.08), rgba(199,125,255,.08));
+    border: 1px solid rgba(255,209,102,.25);
+    border-radius: 18px;
+    padding: 20px 24px;
+    margin: 20px 0;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .tip-icon { font-size: 1.8rem; flex-shrink: 0; }
+  .tip-text { font-size: .92rem; line-height: 1.65; }
+  .tip-text strong { color: #ffd166; }
+
+  /* SCROLL REVEAL */
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* NAVIGATION */
+  .nav-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin: 30px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(15,14,23,.92);
+    backdrop-filter: blur(14px);
+    padding: 14px 20px;
+    border-bottom: 1px solid rgba(255,255,255,.06);
+  }
+  .nav-pill {
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: .82rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all .2s;
+    background: rgba(255,255,255,.07);
+    color: var(--muted);
+    text-decoration: none;
+    border: 1px solid transparent;
+  }
+  .nav-pill:hover { background: rgba(255,255,255,.14); color: #fff; }
+
+  /* QUIZ */
+  .quiz-section {
+    background: var(--card);
+    border-radius: 28px;
+    padding: 36px;
+    margin: 60px 0;
+  }
+  .quiz-q {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+  .quiz-blank { border-bottom: 3px solid #c77dff; padding: 0 12px; min-width: 80px; display: inline-block; }
+  .quiz-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+  .quiz-opt {
+    padding: 8px 20px;
+    border-radius: 20px;
+    background: rgba(255,255,255,.08);
+    cursor: pointer;
+    font-weight: 700;
+    font-size: .9rem;
+    transition: all .2s;
+    border: 2px solid transparent;
+  }
+  .quiz-opt:hover { background: rgba(255,255,255,.15); }
+  .quiz-opt.correct { background: rgba(6,214,160,.2); border-color: #06d6a0; color: #06d6a0; }
+  .quiz-opt.wrong { background: rgba(239,35,60,.15); border-color: #ef233c; color: #ef233c; }
+  .quiz-result { font-size: .9rem; min-height: 24px; font-weight: 700; }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--muted);
+    font-size: .85rem;
+    border-top: 1px solid rgba(255,255,255,.06);
+    margin-top: 60px;
+  }
+
+  #scroll-top-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #1a1208;
+    border: 1.5px solid rgba(200,150,62,0.4);
+    color: #f5f0e8;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+    pointer-events: none;
+    z-index: 9998;
+  }
+  #scroll-top-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  #scroll-top-btn:hover {
+    background: #c8963e;
+    border-color: #c8963e;
+    color: #1a1208;
+  }
+
+  /* ===== TABLET ===== */
+  @media (max-width: 768px) {
+    .container { padding: 0 14px; }
+    .hero { padding: 40px 16px 28px; }
+    .hero-emoji-row { font-size: 1.8rem; gap: 10px; }
+    .overview-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; }
+    .q-card { padding: 22px 18px; }
+    .q-word { font-size: 1.7rem; }
+    .q-card::after { font-size: 2.5rem; right: 16px; top: 16px; opacity: .12; }
+    .examples-grid { grid-template-columns: 1fr 1fr; }
+    .magic-box { padding: 26px 18px; margin: 28px auto; }
+    .magic-sentence { font-size: 1.1rem; }
+    .quiz-section { padding: 24px 18px; }
+    .spectrum { padding: 18px 14px; }
+    .spec-seg { font-size: .7rem; min-width: 46px; }
+    .tip-box { padding: 14px 16px; gap: 10px; }
+    .tip-icon { font-size: 1.4rem; }
+    .tip-text { font-size: .88rem; }
+  }
+
+  /* ===== MOBILE ===== */
+  @media (max-width: 480px) {
+    .container { padding: 0 12px; }
+
+    .hero { padding: 32px 14px 22px; }
+    .hero-emoji-row { font-size: 1.5rem; gap: 8px; margin: 12px 0 6px; }
+    .hero-sub { font-size: .9rem; }
+
+    /* Nav — horizontal scroll strip */
+    .nav-pills {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      justify-content: flex-start;
+      gap: 7px;
+      padding: 10px 12px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .nav-pills::-webkit-scrollbar { display: none; }
+    .nav-pill {
+      flex-shrink: 0;
+      padding: 5px 12px;
+      font-size: .75rem;
+      white-space: nowrap;
+    }
+
+    .section-title { font-size: 1.3rem; margin: 36px 0 16px; }
+
+    /* Overview — 2 columns */
+    .overview-grid { grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 32px; }
+    .ov-card { padding: 12px 10px; }
+    .ov-word { font-size: 1.05rem; }
+    .ov-ua { font-size: .72rem; }
+    .ov-type { font-size: .65rem; }
+
+    /* Q cards */
+    .q-card { padding: 18px 14px; border-radius: 20px; margin-bottom: 20px; }
+    .q-card::after { display: none; }
+    .q-header { gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
+    .q-word { font-size: 1.55rem; }
+    .q-badge { font-size: .7rem; padding: 3px 10px; }
+    .q-meaning { font-size: .88rem; }
+
+    .formula { font-size: .78rem; padding: 10px 12px; border-radius: 10px; overflow-x: auto; word-break: break-word; }
+
+    /* Examples — 1 column */
+    .examples-grid { grid-template-columns: 1fr; gap: 8px; }
+    .ex-card { padding: 11px 13px; border-radius: 11px; }
+    .ex-en { font-size: .88rem; }
+    .ex-ua { font-size: .78rem; }
+
+    .tip-box { padding: 12px 13px; gap: 9px; border-radius: 14px; }
+    .tip-icon { font-size: 1.2rem; }
+    .tip-text { font-size: .82rem; line-height: 1.55; }
+
+    .magic-box { padding: 22px 14px; border-radius: 18px; margin: 20px auto; }
+    .magic-box::before { font-size: .7rem; padding: 3px 10px; white-space: normal; text-align: center; left: 10%; width: 80%; transform: none; }
+    .magic-sentence { font-size: .98rem; }
+    .magic-ua { font-size: .84rem; }
+    .magic-note { font-size: .78rem; }
+
+    /* Spectrum — scrollable */
+    .spectrum { padding: 14px 10px; border-radius: 16px; }
+    .spectrum-title { font-size: .72rem; margin-bottom: 12px; }
+    .spectrum-bar { min-width: 320px; }
+    .spec-seg { font-size: .62rem; min-width: 40px; padding: 6px 3px; }
+    .spec-seg span { font-size: .55rem; }
+
+    /* Tables — horizontal scroll */
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .transform-table, .comp-table { font-size: .75rem; min-width: 540px; }
+    .transform-table th, .transform-table td,
+    .comp-table th, .comp-table td { padding: 7px 9px; }
+
+    /* Real-life grid — 1 column */
+    .real-life-grid { grid-template-columns: 1fr !important; }
+
+    .quiz-section { padding: 18px 14px; border-radius: 20px; margin: 36px 0; }
+    .quiz-q { font-size: .95rem; }
+    .quiz-opt { padding: 7px 14px; font-size: .82rem; }
+    .quiz-result { font-size: .85rem; }
+
+    footer { padding: 28px 14px; font-size: .8rem; }
+    footer div:first-child { font-size: 1.2rem; }
+
+    #scroll-top-btn { bottom: 16px; right: 16px; width: 40px; height: 40px; font-size: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-emoji-row">
+    <span>📦</span><span>🔢</span><span>⚖️</span><span>🍎</span><span>💧</span>
+  </div>
+  <h1 class="hero-title">QUANTIFIERS<br>Квантифікатори</h1>
+  <p class="hero-sub">How much? How many? / Скільки? Яка кількість?<br>
+  Повний гід для початківців — English + Українська</p>
+</div>
+
+<!-- NAV -->
+<nav class="nav-pills">
+  <a class="nav-pill" href="#intro">📖 Intro</a>
+  <a class="nav-pill" href="#some-any">SOME / ANY</a>
+  <a class="nav-pill" href="#many-much">MANY / MUCH</a>
+  <a class="nav-pill" href="#alot">A LOT OF</a>
+  <a class="nav-pill" href="#few-little">FEW / LITTLE</a>
+  <a class="nav-pill" href="#afew-alittle">A FEW / A LITTLE</a>
+  <a class="nav-pill" href="#several">SEVERAL</a>
+  <a class="nav-pill" href="#enough">ENOUGH</a>
+  <a class="nav-pill" href="#no">NO / NONE</a>
+  <a class="nav-pill" href="#every-all">EVERY / ALL</a>
+  <a class="nav-pill" href="#comparison">📊 Table</a>
+  <a class="nav-pill" href="#magic">✨ Magic</a>
+  <a class="nav-pill" href="#quiz">🧩 Quiz</a>
+</nav>
+
+<div class="container">
+
+<!-- INTRO -->
+<div id="intro" class="reveal">
+  <h2 class="section-title">🤔 What are Quantifiers? / Що таке квантифікатори?</h2>
+
+  <div class="tip-box">
+    <div class="tip-icon">💡</div>
+    <div class="tip-text">
+      <strong>English:</strong> Quantifiers are words that tell us <strong>HOW MUCH</strong> or <strong>HOW MANY</strong> of something there is. They come before nouns and answer the question "how much?" or "how many?"<br><br>
+      <strong>Українська:</strong> Квантифікатори — це слова, які говорять нам <strong>СКІЛЬКИ</strong> чогось є. Вони стоять перед іменниками й відповідають на питання «скільки?»
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <div class="tip-icon">🍎</div>
+    <div class="tip-text">
+      <strong>KEY RULE / ГОЛОВНЕ ПРАВИЛО:</strong><br>
+      🔢 <strong>Countable nouns (злічувані)</strong> — things you can count: apples, cats, books, friends → use <strong>MANY, FEW, A FEW, SEVERAL</strong><br>
+      💧 <strong>Uncountable nouns (незлічувані)</strong> — things you can't count: water, money, time, advice → use <strong>MUCH, LITTLE, A LITTLE</strong><br>
+      ⚖️ <strong>Both / Обидва:</strong> some, any, a lot of, lots of, enough, no, plenty of
+    </div>
+  </div>
+</div>
+
+<!-- OVERVIEW GRID -->
+<div class="overview-grid reveal">
+  <div class="ov-card" style="background: linear-gradient(135deg, #06d6a033, #06d6a011); border: 1.5px solid #06d6a055;">
+    <div class="ov-word" style="color: var(--some);">SOME</div>
+    <div class="ov-ua">якийсь / трохи / кілька</div>
+    <div class="ov-type">✅ + sentences</div>
+  </div>
+  <div class="ov-card" style="background: linear-gradient(135deg, #118ab233, #118ab211); border: 1.5px solid #118ab255;">
+    <div class="ov-word" style="color: var(--any);">ANY</div>
+    <div class="ov-ua">якийсь / будь-який</div>
+    <div class="ov-type">❓ ? &amp; ❌ — sentences</div>
+  </div>
+  <div class="ov-card" style="background: linear-gradient(135deg, #ff6b6b33, #ff6b6b11); border: 1.5px solid #ff6b6b55;">
+    <div class="ov-word" style="color: var(--many);">MANY</div>
+    <div class="ov-ua">багато (злічувані)</div>
+    <div class="ov-type">🔢 countable</div>
+  </div>
+  <div class="ov-card" style="background: linear-gradient(135deg, #c77dff33, #c77dff11); border: 1.5px solid #c77dff55;">
+    <div class="ov-word" style="color: var(--much);">MUCH</div>
+    <div class="ov-ua">багато (незлічувані)</div>
+    <div class="ov-type">💧 uncountable</div>
+  </div>
+  <div class="ov-card" style="background: linear-gradient(135deg, #ffd16633, #ffd16611); border: 1.5px solid #ffd16655;">
+    <div class="ov-word" style="color: var(--alot);">A LOT OF</div>
+    <div class="ov-ua">багато (будь-які)</div>
+    <div class="ov-type">⚖️ both</div>
+  </div>
+  <div class="ov-card" style="background: linear-gradient(135deg, #ff9f1c33, #ff9f1c11); border: 1.5px solid #ff9f1c55;">
+    <div class="ov-word" style="color: var(--few);">FEW</div>
+    <div class="ov-ua">мало (і це погано)</div>
+    <div class="ov-type">🔢 countable</div>
+  </div>
+  <div class="ov-card" style="background: linear-gradient(135deg, #f7258533, #f7258511); border: 1.5px solid #f7258555;">
+    <div class="ov-word" style="color: var(--little);">LITTLE</div>
+    <div class="ov-ua">мало (і це погано)</div>
+    <div class="ov-type">💧 uncountable</div>
+  </div>
+  <div class="ov-card" style="background: linear-gradient(135deg, #4cc9f033, #4cc9f011); border: 1.5px solid #4cc9f055;">
+    <div class="ov-word" style="color: var(--afew);">A FEW</div>
+    <div class="ov-ua">кілька (достатньо)</div>
+    <div class="ov-type">🔢 countable</div>
+  </div>
+  <div class="ov-card" style="background: linear-gradient(135deg, #7bed9f33, #7bed9f11); border: 1.5px solid #7bed9f55;">
+    <div class="ov-word" style="color: var(--alittle);">A LITTLE</div>
+    <div class="ov-ua">трохи (достатньо)</div>
+    <div class="ov-type">💧 uncountable</div>
+  </div>
+  <div class="ov-card" style="background: linear-gradient(135deg, #a8dadc33, #a8dadc11); border: 1.5px solid #a8dadc55;">
+    <div class="ov-word" style="color: var(--enough);">ENOUGH</div>
+    <div class="ov-ua">достатньо</div>
+    <div class="ov-type">⚖️ both</div>
+  </div>
+  <div class="ov-card" style="background: linear-gradient(135deg, #ef233c33, #ef233c11); border: 1.5px solid #ef233c55;">
+    <div class="ov-word" style="color: var(--no);">NO / NONE</div>
+    <div class="ov-ua">жодного / нічого</div>
+    <div class="ov-type">⚖️ both</div>
+  </div>
+  <div class="ov-card" style="background: linear-gradient(135deg, #52b78833, #52b78811); border: 1.5px solid #52b78855;">
+    <div class="ov-word" style="color: var(--every);">EVERY / ALL</div>
+    <div class="ov-ua">кожен / усі</div>
+    <div class="ov-type">⚖️ both</div>
+  </div>
+</div>
+
+<!-- ===================== SOME / ANY ===================== -->
+<div id="some-any" class="q-section reveal">
+  <h2 class="section-title" style="color: var(--some);">🟢 SOME &amp; ANY</h2>
+
+  <!-- SOME -->
+  <div class="q-card" style="border-color: var(--some);" data-emoji="🍎">
+    <div class="q-header">
+      <span class="q-word" style="color: var(--some);">SOME</span>
+      <span class="q-badge" style="color: var(--some);">⚖️ Both types</span>
+    </div>
+    <p class="q-meaning">
+      <strong>English:</strong> "Some" means <strong>a certain amount, not zero, not all</strong>. We use it in positive (affirmative) sentences. It says "there IS something."<br>
+      <strong>Українська:</strong> «Some» означає <strong>«якась кількість, не нуль, не все»</strong>. Вживається в <strong>стверджувальних</strong> реченнях. Каже «щось ТАЄ».
+    </p>
+    <div class="formula">
+      <span>SOME</span> <span class="plus">+</span> <span>countable plural</span> &nbsp;→&nbsp; <em>some apples, some friends</em><br>
+      <span>SOME</span> <span class="plus">+</span> <span>uncountable</span> &nbsp;&nbsp;&nbsp;→&nbsp; <em>some water, some time</em>
+    </div>
+    <div class="tip-box" style="margin: 14px 0;">
+      <div class="tip-icon">⚡</div>
+      <div class="tip-text"><strong>Special use:</strong> In OFFERS &amp; REQUESTS we also use SOME:<br>
+      <em>Would you like <strong>some</strong> tea? / Can I have <strong>some</strong> help?</em><br>
+      <strong>Особливе вживання:</strong> У пропозиціях і проханнях теж вживаємо SOME.</div>
+    </div>
+    <div class="examples-grid">
+      <div class="ex-card">
+        <div class="ex-en">I have <span class="ex-highlight" style="color:var(--some);">some</span> apples.</div>
+        <div class="ex-ua">У мене є кілька яблук.</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">She drank <span class="ex-highlight" style="color:var(--some);">some</span> water.</div>
+        <div class="ex-ua">Вона випила трохи води.</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">There are <span class="ex-highlight" style="color:var(--some);">some</span> cookies on the table.</div>
+        <div class="ex-ua">На столі є кілька печива.</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">I need <span class="ex-highlight" style="color:var(--some);">some</span> advice.</div>
+        <div class="ex-ua">Мені потрібна якась порада.</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">We bought <span class="ex-highlight" style="color:var(--some);">some</span> new clothes.</div>
+        <div class="ex-ua">Ми купили якийсь новий одяг.</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">Would you like <span class="ex-highlight" style="color:var(--some);">some</span> coffee?</div>
+        <div class="ex-ua">Хотіли б ви трохи кави? (пропозиція)</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">He gave me <span class="ex-highlight" style="color:var(--some);">some</span> money.</div>
+        <div class="ex-ua">Він дав мені трохи грошей.</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">I have <span class="ex-highlight" style="color:var(--some);">some</span> good news!</div>
+        <div class="ex-ua">У мене є гарна новина!</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ANY -->
+  <div class="q-card" style="border-color: var(--any);" data-emoji="❓">
+    <div class="q-header">
+      <span class="q-word" style="color: var(--any);">ANY</span>
+      <span class="q-badge" style="color: var(--any);">⚖️ Both types</span>
+    </div>
+    <p class="q-meaning">
+      <strong>English:</strong> "Any" is used in <strong>negative sentences and questions</strong>. It also means "it doesn't matter which one" — ANY one is fine!<br>
+      <strong>Українська:</strong> «Any» вживається у <strong>заперечних реченнях і запитаннях</strong>. Також означає «будь-який» — не важливо який!
+    </p>
+    <div class="formula">
+      <span>NOT + ANY</span> <span class="plus">=</span> zero, nothing → <em>I don't have any apples</em><br>
+      <span>ANY</span> <span class="plus">?</span> in questions → <em>Do you have any apples?</em><br>
+      <span>ANY</span> = "it doesn't matter which" → <em>Take any book you like!</em>
+    </div>
+    <div class="examples-grid">
+      <div class="ex-card">
+        <div class="ex-en">I don't have <span class="ex-highlight" style="color:var(--any);">any</span> apples.</div>
+        <div class="ex-ua">У мене немає жодного яблука.</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">Do you have <span class="ex-highlight" style="color:var(--any);">any</span> water?</div>
+        <div class="ex-ua">У тебе є хоч трохи води?</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">There isn't <span class="ex-highlight" style="color:var(--any);">any</span> milk left.</div>
+        <div class="ex-ua">Молока більше не залишилось.</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">Is there <span class="ex-highlight" style="color:var(--any);">any</span> homework today?</div>
+        <div class="ex-ua">Є сьогодні якесь домашнє завдання?</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">You can eat <span class="ex-highlight" style="color:var(--any);">any</span> cake you want!</div>
+        <div class="ex-ua">Ти можеш з'їсти будь-який торт!</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">She didn't say <span class="ex-highlight" style="color:var(--any);">any</span>thing.</div>
+        <div class="ex-ua">Вона нічого не сказала.</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">Do you have <span class="ex-highlight" style="color:var(--any);">any</span> friends here?</div>
+        <div class="ex-ua">У тебе тут є хоч якісь друзі?</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">Call me at <span class="ex-highlight" style="color:var(--any);">any</span> time!</div>
+        <div class="ex-ua">Телефонуй мені будь-коли!</div>
+      </div>
+    </div>
+    <div class="tip-box" style="margin-top: 16px;">
+      <div class="tip-icon">🔁</div>
+      <div class="tip-text">
+        <strong>SOME vs ANY summary / Порівняння:</strong><br>
+        ✅ I have <strong>some</strong> friends. (Yes, I do!)<br>
+        ❌ I don't have <strong>any</strong> friends. (Zero!)<br>
+        ❓ Do you have <strong>any</strong> friends? (I'm asking...)<br>
+        🎁 Would you like <strong>some</strong> help? (offer)
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== MANY / MUCH ===================== -->
+<div id="many-much" class="q-section reveal">
+  <h2 class="section-title">🔴 MANY &amp; MUCH</h2>
+
+  <div class="q-card" style="border-color: var(--many);" data-emoji="🍎">
+    <div class="q-header">
+      <span class="q-word" style="color: var(--many);">MANY</span>
+      <span class="q-badge" style="color: var(--many);">🔢 Countable only!</span>
+    </div>
+    <p class="q-meaning">
+      <strong>English:</strong> "Many" = a large number of things you CAN count. Used mostly in questions and negative sentences (though also in positives).<br>
+      <strong>Українська:</strong> «Many» = велика кількість речей, які МОЖНА ПОРАХУВАТИ. Найчастіше — у запитаннях і запереченнях.
+    </p>
+    <div class="formula">
+      <span>MANY</span> <span class="plus">+</span> <span>countable PLURAL noun</span><br>
+      many apples / many friends / many books / many mistakes
+    </div>
+    <div class="examples-grid">
+      <div class="ex-card">
+        <div class="ex-en">How <span class="ex-highlight" style="color:var(--many);">many</span> apples do you have?</div>
+        <div class="ex-ua">Скільки яблук у тебе є?</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">I don't have <span class="ex-highlight" style="color:var(--many);">many</span> friends.</div>
+        <div class="ex-ua">У мене не так багато друзів.</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">She has <span class="ex-highlight" style="color:var(--many);">many</span> books at home.</div>
+        <div class="ex-ua">У неї вдома є багато книжок.</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">There are <span class="ex-highlight" style="color:var(--many);">many</span> stars in the sky.</div>
+        <div class="ex-ua">На небі є багато зірок.</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">I've made <span class="ex-highlight" style="color:var(--many);">many</span> mistakes.</div>
+        <div class="ex-ua">Я зробив багато помилок.</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">Not <span class="ex-highlight" style="color:var(--many);">many</span> people know this.</div>
+        <div class="ex-ua">Не багато людей знають це.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="q-card" style="border-color: var(--much);" data-emoji="💧">
+    <div class="q-header">
+      <span class="q-word" style="color: var(--much);">MUCH</span>
+      <span class="q-badge" style="color: var(--much);">💧 Uncountable only!</span>
+    </div>
+    <p class="q-meaning">
+      <strong>English:</strong> "Much" = a large amount of something you CANNOT count. Mostly in questions and negative sentences.<br>
+      <strong>Українська:</strong> «Much» = велика кількість чогось, що НЕ МОЖНА ПОРАХУВАТИ. Переважно в запитаннях і запереченнях.
+    </p>
+    <div class="formula">
+      <span>MUCH</span> <span class="plus">+</span> <span>uncountable noun</span><br>
+      much water / much time / much money / much noise / much homework
+    </div>
+    <div class="examples-grid">
+      <div class="ex-card">
+        <div class="ex-en">How <span class="ex-highlight" style="color:var(--much);">much</span> water do you drink?</div>
+        <div class="ex-ua">Скільки води ти п'єш?</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">I don't have <span class="ex-highlight" style="color:var(--much);">much</span> time.</div>
+        <div class="ex-ua">У мене не багато часу.</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">There's too <span class="ex-highlight" style="color:var(--much);">much</span> noise!</div>
+        <div class="ex-ua">Занадто багато шуму!</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">She doesn't eat <span class="ex-highlight" style="color:var(--much);">much</span> sugar.</div>
+        <div class="ex-ua">Вона не їсть багато цукру.</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">How <span class="ex-highlight" style="color:var(--much);">much</span> does it cost?</div>
+        <div class="ex-ua">Скільки це коштує?</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">We don't have <span class="ex-highlight" style="color:var(--much);">much</span> homework today.</div>
+        <div class="ex-ua">Сьогодні у нас не багато домашнього завдання.</div>
+      </div>
+    </div>
+    <div class="tip-box" style="margin-top: 16px;">
+      <div class="tip-icon">🧠</div>
+      <div class="tip-text">
+        <strong>Memory trick / Запам'ятай:</strong><br>
+        MANY = you can count → <em>many <u>apples</u>, many <u>cats</u></em> (1, 2, 3...)<br>
+        MUCH = you can't count → <em>much <u>water</u>, much <u>love</u></em> (can't say "one water")<br>
+        🎯 Both used in: questions (<em>How many/much...?</em>) and negatives (<em>not many/much</em>)
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== A LOT OF ===================== -->
+<div id="alot" class="q-section reveal">
+  <h2 class="section-title" style="color: var(--alot);">🟡 A LOT OF / LOTS OF / PLENTY OF</h2>
+
+  <div class="q-card" style="border-color: var(--alot);" data-emoji="📦">
+    <div class="q-header">
+      <span class="q-word" style="color: var(--alot);">A LOT OF / LOTS OF</span>
+      <span class="q-badge" style="color: var(--alot);">⚖️ Both!</span>
+    </div>
+    <p class="q-meaning">
+      <strong>English:</strong> "A lot of" / "Lots of" = a large quantity. Works with <strong>BOTH countable and uncountable</strong> nouns. Mostly used in <strong>positive sentences</strong>. More <strong>informal</strong> than "many/much".<br>
+      <strong>Українська:</strong> «A lot of» / «Lots of» = велика кількість. Працює з ОБОМА типами іменників. Переважно в стверджувальних реченнях. Більш <strong>розмовне</strong>, ніж many/much.
+    </p>
+    <div class="formula">
+      <span>A LOT OF / LOTS OF</span> <span class="plus">+</span> <span>countable plural</span> → <em>a lot of apples</em><br>
+      <span>A LOT OF / LOTS OF</span> <span class="plus">+</span> <span>uncountable</span> &nbsp;→ <em>a lot of water</em>
+    </div>
+    <div class="examples-grid">
+      <div class="ex-card">
+        <div class="ex-en">I have <span class="ex-highlight" style="color:var(--alot);">a lot of</span> apples.</div>
+        <div class="ex-ua">У мене багато яблук.</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">She drinks <span class="ex-highlight" style="color:var(--alot);">a lot of</span> water.</div>
+        <div class="ex-ua">Вона п'є багато води.</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">We have <span class="ex-highlight" style="color:var(--alot);">lots of</span> fun together.</div>
+        <div class="ex-ua">Нам разом дуже весело.</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">There are <span class="ex-highlight" style="color:var(--alot);">a lot of</span> people here.</div>
+        <div class="ex-ua">Тут є багато людей.</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">He spends <span class="ex-highlight" style="color:var(--alot);">a lot of</span> money on games.</div>
+        <div class="ex-ua">Він витрачає багато грошей на ігри.</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">I have <span class="ex-highlight" style="color:var(--alot);">lots of</span> homework today!</div>
+        <div class="ex-ua">У мене сьогодні багато домашніх завдань!</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">They have <span class="ex-highlight" style="color:var(--alot);">a lot of</span> experience.</div>
+        <div class="ex-ua">У них багато досвіду.</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">There's <span class="ex-highlight" style="color:var(--alot);">plenty of</span> food for everyone.</div>
+        <div class="ex-ua">Їжі вистачить на всіх. (plenty of = навіть більше ніж достатньо)</div>
+      </div>
+    </div>
+    <div class="tip-box" style="margin-top: 16px;">
+      <div class="tip-icon">🎓</div>
+      <div class="tip-text">
+        <strong>Formal vs Informal / Офіційне vs Розмовне:</strong><br>
+        😊 Conversation: "I have <strong>a lot of</strong> friends." (natural, casual)<br>
+        📝 Essay/Writing: "I have <strong>many</strong> friends." (more formal)<br>
+        Tons of / heaps of / loads of = навіть більш розмовні варіанти!
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== FEW / LITTLE ===================== -->
+<div id="few-little" class="q-section reveal">
+  <h2 class="section-title">🟠 FEW &amp; LITTLE — "Not enough!"</h2>
+
+  <div class="spectrum">
+    <div class="spectrum-title">Spectrum of quantity / Шкала кількості</div>
+    <div style="margin-bottom: 12px; color: var(--muted); font-size: .82rem; text-align: center;">🔢 Countable nouns (apples, friends, books...)</div>
+    <div class="spectrum-bar">
+      <div class="spec-seg" style="background:#ef233c; flex: .5;">NO<span>0️⃣</span></div>
+      <div class="spec-seg" style="background:#c1440e;">FEW<span>😟 not enough</span></div>
+      <div class="spec-seg" style="background:#4cc9f0; color:#000;">A FEW<span>😊 some</span></div>
+      <div class="spec-seg" style="background:#06d6a0; color:#000;">SOME<span>👍 ok</span></div>
+      <div class="spec-seg" style="background:#ffd166; color:#000; flex: 1.5;">MANY / A LOT OF<span>😮 many!</span></div>
+    </div>
+    <div style="margin: 16px 0 8px; color: var(--muted); font-size: .82rem; text-align: center;">💧 Uncountable nouns (water, time, money...)</div>
+    <div class="spectrum-bar">
+      <div class="spec-seg" style="background:#ef233c; flex: .5;">NO<span>0️⃣</span></div>
+      <div class="spec-seg" style="background:#c1440e;">LITTLE<span>😟 not enough</span></div>
+      <div class="spec-seg" style="background:#7bed9f; color:#000;">A LITTLE<span>😊 some</span></div>
+      <div class="spec-seg" style="background:#06d6a0; color:#000;">SOME<span>👍 ok</span></div>
+      <div class="spec-seg" style="background:#c77dff; flex: 1.5;">MUCH / A LOT OF<span>😮 a lot!</span></div>
+    </div>
+  </div>
+
+  <div class="q-card" style="border-color: var(--few);" data-emoji="😟">
+    <div class="q-header">
+      <span class="q-word" style="color: var(--few);">FEW</span>
+      <span class="q-badge" style="color: var(--few);">🔢 Countable</span>
+      <span class="q-badge" style="background: rgba(239,35,60,.15); color: #ef233c;">😟 Negative feeling</span>
+    </div>
+    <p class="q-meaning">
+      <strong>English:</strong> "Few" = almost none, not enough. It has a <strong>NEGATIVE/SAD</strong> feeling — we are saying there is NOT ENOUGH.<br>
+      <strong>Українська:</strong> «Few» = майже нічого, недостатньо. Має <strong>НЕГАТИВНИЙ/СУМНИЙ</strong> відтінок — ми кажемо, що цього НЕДОСТАТНЬО.
+    </p>
+    <div class="formula">
+      <span>FEW</span> <span class="plus">+</span> <span>countable plural</span> → "not enough, sadly"<br>
+      few friends / few chances / few students / few options
+    </div>
+    <div class="examples-grid">
+      <div class="ex-card">
+        <div class="ex-en">I have <span class="ex-highlight" style="color:var(--few);">few</span> apples. 😔</div>
+        <div class="ex-ua">У мене майже немає яблук. (сумно)</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">She has <span class="ex-highlight" style="color:var(--few);">few</span> friends at school.</div>
+        <div class="ex-ua">У неї мало друзів у школі. (це проблема)</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">There are <span class="ex-highlight" style="color:var(--few);">few</span> seats left.</div>
+        <div class="ex-ua">Залишилось дуже мало місць.</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en"><span class="ex-highlight" style="color:var(--few);">Few</span> people know the answer.</div>
+        <div class="ex-ua">Дуже мало людей знають відповідь.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="q-card" style="border-color: var(--little);" data-emoji="💧">
+    <div class="q-header">
+      <span class="q-word" style="color: var(--little);">LITTLE</span>
+      <span class="q-badge" style="color: var(--little);">💧 Uncountable</span>
+      <span class="q-badge" style="background: rgba(239,35,60,.15); color: #ef233c;">😟 Negative feeling</span>
+    </div>
+    <p class="q-meaning">
+      <strong>English:</strong> "Little" = almost none, not enough (for uncountable nouns). Same sad/negative feeling as "few."<br>
+      <strong>Українська:</strong> «Little» = майже нічого, недостатньо (для незлічуваних іменників). Той самий сумний/негативний відтінок, що й «few».
+    </p>
+    <div class="formula">
+      <span>LITTLE</span> <span class="plus">+</span> <span>uncountable</span> → "not enough, sadly"<br>
+      little water / little time / little hope / little money
+    </div>
+    <div class="examples-grid">
+      <div class="ex-card">
+        <div class="ex-en">I have <span class="ex-highlight" style="color:var(--little);">little</span> time today. 😔</div>
+        <div class="ex-ua">Сьогодні у мене мало часу. (на жаль)</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">There is <span class="ex-highlight" style="color:var(--little);">little</span> hope.</div>
+        <div class="ex-ua">Надії майже немає.</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">She has <span class="ex-highlight" style="color:var(--little);">little</span> money left.</div>
+        <div class="ex-ua">У неї залишилось мало грошей.</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">There's <span class="ex-highlight" style="color:var(--little);">little</span> water in the bottle.</div>
+        <div class="ex-ua">У пляшці мало води.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== A FEW / A LITTLE ===================== -->
+<div id="afew-alittle" class="q-section reveal">
+  <h2 class="section-title">🩵 A FEW &amp; A LITTLE — "Enough!"</h2>
+
+  <div class="q-card" style="border-color: var(--afew);" data-emoji="😊">
+    <div class="q-header">
+      <span class="q-word" style="color: var(--afew);">A FEW</span>
+      <span class="q-badge" style="color: var(--afew);">🔢 Countable</span>
+      <span class="q-badge" style="background: rgba(6,214,160,.15); color: var(--some);">😊 Positive feeling</span>
+    </div>
+    <p class="q-meaning">
+      <strong>English:</strong> "A few" = some, not many — but it's OK! It has a <strong>POSITIVE/NEUTRAL</strong> feeling. We have SOMETHING, not nothing.<br>
+      <strong>Українська:</strong> «A few» = кілька, небагато — але це нормально! Має <strong>ПОЗИТИВНИЙ/НЕЙТРАЛЬНИЙ</strong> відтінок. У нас є ЩОСЬ, а не нічого.
+    </p>
+    <div class="formula">
+      <span>A FEW</span> <span class="plus">+</span> <span>countable plural</span> → "some, it's ok 😊"<br>
+      a few friends / a few minutes / a few apples
+    </div>
+    <div class="examples-grid">
+      <div class="ex-card">
+        <div class="ex-en">I have <span class="ex-highlight" style="color:var(--afew);">a few</span> apples. 😊</div>
+        <div class="ex-ua">У мене є кілька яблук. (добре!)</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">Wait <span class="ex-highlight" style="color:var(--afew);">a few</span> minutes, please.</div>
+        <div class="ex-ua">Зачекай кілька хвилин, будь ласка.</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">I have <span class="ex-highlight" style="color:var(--afew);">a few</span> good ideas.</div>
+        <div class="ex-ua">У мене є кілька гарних ідей.</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">She made <span class="ex-highlight" style="color:var(--afew);">a few</span> new friends.</div>
+        <div class="ex-ua">Вона познайомилась з кількома новими друзями.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="q-card" style="border-color: var(--alittle);" data-emoji="✅">
+    <div class="q-header">
+      <span class="q-word" style="color: var(--alittle);">A LITTLE</span>
+      <span class="q-badge" style="color: var(--alittle);">💧 Uncountable</span>
+      <span class="q-badge" style="background: rgba(6,214,160,.15); color: var(--some);">😊 Positive feeling</span>
+    </div>
+    <p class="q-meaning">
+      <strong>English:</strong> "A little" = a small amount, but enough — positive feeling! (for uncountable nouns)<br>
+      <strong>Українська:</strong> «A little» = трохи, але достатньо — позитивний відтінок! (для незлічуваних іменників)
+    </p>
+    <div class="formula">
+      <span>A LITTLE</span> <span class="plus">+</span> <span>uncountable</span> → "some, it's ok 😊"<br>
+      a little water / a little time / a little money
+    </div>
+    <div class="examples-grid">
+      <div class="ex-card">
+        <div class="ex-en">I have <span class="ex-highlight" style="color:var(--alittle);">a little</span> time today. 😊</div>
+        <div class="ex-ua">Сьогодні у мене є трохи часу. (добре!)</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">Can I have <span class="ex-highlight" style="color:var(--alittle);">a little</span> water?</div>
+        <div class="ex-ua">Можна мені трохи води?</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">She speaks <span class="ex-highlight" style="color:var(--alittle);">a little</span> English.</div>
+        <div class="ex-ua">Вона трохи розмовляє англійською.</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">I have <span class="ex-highlight" style="color:var(--alittle);">a little</span> money saved.</div>
+        <div class="ex-ua">Я трохи заощадив грошей.</div>
+      </div>
+    </div>
+    <div class="tip-box" style="margin-top: 16px;">
+      <div class="tip-icon">⚡</div>
+      <div class="tip-text">
+        <strong>The KEY difference / Ключова різниця — "a" changes everything!</strong><br>
+        😟 I have <strong>few</strong> friends. = Мало, недостатньо. Це проблема!<br>
+        😊 I have <strong>a few</strong> friends. = Кілька є. Нормально!<br><br>
+        😟 I have <strong>little</strong> time. = Майже немає. Погано!<br>
+        😊 I have <strong>a little</strong> time. = Трохи є. Добре!
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== SEVERAL ===================== -->
+<div id="several" class="q-section reveal">
+  <div class="q-card" style="border-color: var(--several);" data-emoji="🔢">
+    <div class="q-header">
+      <span class="q-word" style="color: var(--several);">SEVERAL</span>
+      <span class="q-badge" style="color: var(--several);">🔢 Countable only</span>
+    </div>
+    <p class="q-meaning">
+      <strong>English:</strong> "Several" = more than two but not very many (usually 3–7). It's more than "a few" but less than "many". Always positive/neutral.<br>
+      <strong>Українська:</strong> «Several» = більше двох, але не дуже багато (зазвичай 3–7). Більше ніж «a few», але менше ніж «many». Завжди нейтральний відтінок.
+    </p>
+    <div class="formula">
+      <span>SEVERAL</span> <span class="plus">+</span> <span>countable plural</span><br>
+      several apples / several times / several people / several days
+    </div>
+    <div class="examples-grid">
+      <div class="ex-card">
+        <div class="ex-en">I've been there <span class="ex-highlight" style="color:var(--several);">several</span> times.</div>
+        <div class="ex-ua">Я був там кілька разів.</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en"><span class="ex-highlight" style="color:var(--several);">Several</span> students failed the test.</div>
+        <div class="ex-ua">Кілька студентів провалили тест.</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">She called me <span class="ex-highlight" style="color:var(--several);">several</span> times.</div>
+        <div class="ex-ua">Вона зателефонувала мені кілька разів.</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">We waited <span class="ex-highlight" style="color:var(--several);">several</span> hours.</div>
+        <div class="ex-ua">Ми чекали кілька годин.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== ENOUGH ===================== -->
+<div id="enough" class="q-section reveal">
+  <div class="q-card" style="border-color: var(--enough);" data-emoji="⚖️">
+    <div class="q-header">
+      <span class="q-word" style="color: var(--enough);">ENOUGH</span>
+      <span class="q-badge" style="color: var(--enough);">⚖️ Both types</span>
+    </div>
+    <p class="q-meaning">
+      <strong>English:</strong> "Enough" = exactly the right amount, neither too much nor too little. Can go BEFORE nouns, but AFTER adjectives/adverbs!<br>
+      <strong>Українська:</strong> «Enough» = рівно стільки, скільки потрібно. Стоїть ПЕРЕД іменниками, але ПІСЛЯ прикметників/прислівників!
+    </p>
+    <div class="formula">
+      <span>ENOUGH</span> <span class="plus">+</span> <span>noun</span> → <em>enough water, enough time, enough apples</em><br>
+      adjective/adverb <span class="plus">+</span> <span>ENOUGH</span> → <em>big enough, fast enough, good enough</em>
+    </div>
+    <div class="examples-grid">
+      <div class="ex-card">
+        <div class="ex-en">I have <span class="ex-highlight" style="color:var(--enough);">enough</span> apples.</div>
+        <div class="ex-ua">У мене достатньо яблук.</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">Do we have <span class="ex-highlight" style="color:var(--enough);">enough</span> time?</div>
+        <div class="ex-ua">У нас достатньо часу?</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">Is the soup hot <span class="ex-highlight" style="color:var(--enough);">enough</span>?</div>
+        <div class="ex-ua">Суп достатньо гарячий?</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">You're not old <span class="ex-highlight" style="color:var(--enough);">enough</span> to drive.</div>
+        <div class="ex-ua">Ти ще недостатньо дорослий, щоб водити.</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">She's good <span class="ex-highlight" style="color:var(--enough);">enough</span> to win!</div>
+        <div class="ex-ua">Вона достатньо хороша, щоб перемогти!</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">I don't have <span class="ex-highlight" style="color:var(--enough);">enough</span> money.</div>
+        <div class="ex-ua">У мене не вистачає грошей.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== NO / NONE ===================== -->
+<div id="no" class="q-section reveal">
+  <div class="q-card" style="border-color: var(--no);" data-emoji="🚫">
+    <div class="q-header">
+      <span class="q-word" style="color: var(--no);">NO / NONE / NEITHER</span>
+      <span class="q-badge" style="color: var(--no);">⚖️ Both types</span>
+    </div>
+    <p class="q-meaning">
+      <strong>English:</strong> "No" = zero, not any (before nouns). "None" = not any (alone, without a noun). "Neither" = not one and not the other (of TWO things).<br>
+      <strong>Українська:</strong> «No» = нуль, жодного (перед іменниками). «None» = жодного (без іменника). «Neither» = ні один, ні другий (з ДВОХ речей).
+    </p>
+    <div class="formula">
+      <span>NO</span> <span class="plus">+</span> <span>noun</span> → <em>no apples, no water, no problem!</em><br>
+      <span>NONE</span> alone → <em>"How many? — None."</em><br>
+      <span>NEITHER</span> (of two) → <em>neither option is good</em>
+    </div>
+    <div class="examples-grid">
+      <div class="ex-card">
+        <div class="ex-en">I have <span class="ex-highlight" style="color:var(--no);">no</span> apples.</div>
+        <div class="ex-ua">У мене немає жодного яблука.</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">There is <span class="ex-highlight" style="color:var(--no);">no</span> water left.</div>
+        <div class="ex-ua">Не залишилось жодної краплі води.</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">"How many friends?" — "<span class="ex-highlight" style="color:var(--no);">None</span>."</div>
+        <div class="ex-ua">«Скільки друзів?» — «Жодного.»</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en"><span class="ex-highlight" style="color:var(--no);">Neither</span> answer is correct.</div>
+        <div class="ex-ua">Жодна з двох відповідей не вірна.</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">There's <span class="ex-highlight" style="color:var(--no);">no</span> time to waste!</div>
+        <div class="ex-ua">Нема часу витрачати даремно!</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en"><span class="ex-highlight" style="color:var(--no);">None</span> of my friends came.</div>
+        <div class="ex-ua">Жоден з моїх друзів не прийшов.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== EVERY / ALL ===================== -->
+<div id="every-all" class="q-section reveal">
+  <div class="q-card" style="border-color: var(--every);" data-emoji="🌍">
+    <div class="q-header">
+      <span class="q-word" style="color: var(--every);">EVERY / ALL / BOTH</span>
+    </div>
+    <p class="q-meaning">
+      <strong>English:</strong> "Every" = each one separately. "All" = the whole group together. "Both" = two things together.<br>
+      <strong>Українська:</strong> «Every» = кожен окремо. «All» = вся група разом. «Both» = обидва разом.
+    </p>
+    <div class="formula">
+      <span>EVERY</span> <span class="plus">+</span> <span>singular noun</span> → <em>every apple, every day, every student</em><br>
+      <span>ALL</span> <span class="plus">+</span> <span>plural / uncountable</span> → <em>all apples, all water</em><br>
+      <span>BOTH</span> (only 2 things) → <em>both apples (of the two)</em>
+    </div>
+    <div class="examples-grid">
+      <div class="ex-card">
+        <div class="ex-en"><span class="ex-highlight" style="color:var(--every);">Every</span> student passed the exam.</div>
+        <div class="ex-ua">Кожен студент склав іспит.</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en"><span class="ex-highlight" style="color:var(--every);">All</span> students passed the exam.</div>
+        <div class="ex-ua">Усі студенти склали іспит.</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">I eat <span class="ex-highlight" style="color:var(--every);">every</span> day.</div>
+        <div class="ex-ua">Я їм кожного дня.</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en"><span class="ex-highlight" style="color:var(--every);">Both</span> options are good.</div>
+        <div class="ex-ua">Обидва варіанти хороші.</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">She read <span class="ex-highlight" style="color:var(--every);">all</span> the books.</div>
+        <div class="ex-ua">Вона прочитала всі книжки.</div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-en">I like <span class="ex-highlight" style="color:var(--every);">both</span> of them!</div>
+        <div class="ex-ua">Мені подобаються обидва!</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== COMPARISON TABLE ===================== -->
+<div id="comparison" class="reveal">
+  <h2 class="section-title">📊 Full Comparison Table / Повна порівняльна таблиця</h2>
+  <div class="table-wrap">
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>Word</th>
+          <th>Meaning / Значення</th>
+          <th>Countable? 🔢</th>
+          <th>Uncountable? 💧</th>
+          <th>Feeling / Відтінок</th>
+          <th>Use in / Вживається</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong style="color:var(--some);">SOME</strong></td>
+          <td>якась кількість / some amount</td>
+          <td>✅ yes (plural)</td>
+          <td>✅ yes</td>
+          <td>😊 neutral/positive</td>
+          <td>+ affirmative, offers</td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--any);">ANY</strong></td>
+          <td>будь-який / any at all</td>
+          <td>✅ yes (plural)</td>
+          <td>✅ yes</td>
+          <td>😐 neutral</td>
+          <td>? questions, ❌ negatives</td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--many);">MANY</strong></td>
+          <td>багато (злічувані) / many</td>
+          <td>✅ YES only</td>
+          <td>❌ no</td>
+          <td>😐 neutral</td>
+          <td>?, ❌, + (formal)</td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--much);">MUCH</strong></td>
+          <td>багато (незлічувані) / much</td>
+          <td>❌ no</td>
+          <td>✅ YES only</td>
+          <td>😐 neutral</td>
+          <td>?, ❌, + (formal)</td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--alot);">A LOT OF</strong></td>
+          <td>багато / lots</td>
+          <td>✅ yes</td>
+          <td>✅ yes</td>
+          <td>😮 informal</td>
+          <td>+ affirmative mostly</td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--few);">FEW</strong></td>
+          <td>мало (замало) / not enough</td>
+          <td>✅ YES only</td>
+          <td>❌ no</td>
+          <td>😟 NEGATIVE</td>
+          <td>+ (negative meaning)</td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--little);">LITTLE</strong></td>
+          <td>мало (замало) / not enough</td>
+          <td>❌ no</td>
+          <td>✅ YES only</td>
+          <td>😟 NEGATIVE</td>
+          <td>+ (negative meaning)</td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--afew);">A FEW</strong></td>
+          <td>кілька / some (ok!)</td>
+          <td>✅ YES only</td>
+          <td>❌ no</td>
+          <td>😊 POSITIVE</td>
+          <td>+ affirmative</td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--alittle);">A LITTLE</strong></td>
+          <td>трохи / some (ok!)</td>
+          <td>❌ no</td>
+          <td>✅ YES only</td>
+          <td>😊 POSITIVE</td>
+          <td>+ affirmative</td>
+        </tr>
+        <tr>
+          <td><strong style="color:#ff9f1c;">SEVERAL</strong></td>
+          <td>кілька (3–7)</td>
+          <td>✅ YES only</td>
+          <td>❌ no</td>
+          <td>😊 neutral</td>
+          <td>+ affirmative</td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--enough);">ENOUGH</strong></td>
+          <td>достатньо</td>
+          <td>✅ yes</td>
+          <td>✅ yes</td>
+          <td>✅ just right</td>
+          <td>before nouns, after adj</td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--no);">NO</strong></td>
+          <td>жодного / zero</td>
+          <td>✅ yes</td>
+          <td>✅ yes</td>
+          <td>❌ zero/negative</td>
+          <td>before nouns</td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--every);">EVERY</strong></td>
+          <td>кожен (окремо)</td>
+          <td>✅ singular</td>
+          <td>❌ no</td>
+          <td>💯 all individually</td>
+          <td>+ affirmative</td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--every);">ALL</strong></td>
+          <td>всі (разом)</td>
+          <td>✅ plural</td>
+          <td>✅ yes</td>
+          <td>💯 whole group</td>
+          <td>+ affirmative</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- MAGIC SENTENCE TRANSFORMS -->
+<div id="magic" class="reveal" style="margin: 60px 0;">
+  <h2 class="section-title">✨ Magic Sentence Transformations</h2>
+  <div class="magic-box">
+    <div class="magic-sentence">I have ___ apples / water. 🍎 / 💧</div>
+    <div class="magic-ua">У мене є ___ яблук / води.</div>
+    <div class="magic-note">Watch how the same idea changes meaning with each quantifier!<br>Подивись, як одне речення змінює значення залежно від квантифікатора!</div>
+  </div>
+
+  <div class="table-wrap" style="margin-top: 24px;">
+    <table class="transform-table">
+      <thead>
+        <tr>
+          <th>Quantifier</th>
+          <th>🍎 With Apples (countable)</th>
+          <th>💧 With Water (uncountable)</th>
+          <th>Meaning / Відтінок</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="t-word" style="color:var(--some);">SOME</td>
+          <td class="t-sent">I have <strong>some</strong> apples. <span class="t-ua">Є кілька яблук.</span></td>
+          <td class="t-sent">I have <strong>some</strong> water. <span class="t-ua">Є трохи води.</span></td>
+          <td>😊 There is a certain amount</td>
+        </tr>
+        <tr>
+          <td class="t-word" style="color:var(--any);">ANY</td>
+          <td class="t-sent">I don't have <strong>any</strong> apples. <span class="t-ua">Немає жодного.</span></td>
+          <td class="t-sent">I don't have <strong>any</strong> water. <span class="t-ua">Немає й краплі.</span></td>
+          <td>❌ Zero / In questions</td>
+        </tr>
+        <tr>
+          <td class="t-word" style="color:var(--many);">MANY</td>
+          <td class="t-sent">I have <strong>many</strong> apples. <span class="t-ua">Багато яблук.</span></td>
+          <td class="t-sent" style="opacity:.4;">❌ NOT with water</td>
+          <td>😮 Large number (count.)</td>
+        </tr>
+        <tr>
+          <td class="t-word" style="color:var(--much);">MUCH</td>
+          <td class="t-sent" style="opacity:.4;">❌ NOT with apples</td>
+          <td class="t-sent">I have <strong>much</strong> water. <span class="t-ua">Багато води.</span></td>
+          <td>😮 Large amount (uncount.)</td>
+        </tr>
+        <tr>
+          <td class="t-word" style="color:var(--alot);">A LOT OF</td>
+          <td class="t-sent">I have <strong>a lot of</strong> apples. <span class="t-ua">Багато яблук.</span></td>
+          <td class="t-sent">I have <strong>a lot of</strong> water. <span class="t-ua">Багато води.</span></td>
+          <td>🎉 Both! Informal</td>
+        </tr>
+        <tr>
+          <td class="t-word" style="color:var(--few);">FEW</td>
+          <td class="t-sent">I have <strong>few</strong> apples. 😔 <span class="t-ua">Майже немає.</span></td>
+          <td class="t-sent" style="opacity:.4;">❌ NOT with water</td>
+          <td>😟 Not enough! (count.)</td>
+        </tr>
+        <tr>
+          <td class="t-word" style="color:var(--little);">LITTLE</td>
+          <td class="t-sent" style="opacity:.4;">❌ NOT with apples</td>
+          <td class="t-sent">I have <strong>little</strong> water. 😔 <span class="t-ua">Майже немає.</span></td>
+          <td>😟 Not enough! (uncount.)</td>
+        </tr>
+        <tr>
+          <td class="t-word" style="color:var(--afew);">A FEW</td>
+          <td class="t-sent">I have <strong>a few</strong> apples. 😊 <span class="t-ua">Є кілька.</span></td>
+          <td class="t-sent" style="opacity:.4;">❌ NOT with water</td>
+          <td>😊 Some, it's fine! (count.)</td>
+        </tr>
+        <tr>
+          <td class="t-word" style="color:var(--alittle);">A LITTLE</td>
+          <td class="t-sent" style="opacity:.4;">❌ NOT with apples</td>
+          <td class="t-sent">I have <strong>a little</strong> water. 😊 <span class="t-ua">Трохи є.</span></td>
+          <td>😊 Some, it's fine! (uncount.)</td>
+        </tr>
+        <tr>
+          <td class="t-word" style="color:var(--enough);">ENOUGH</td>
+          <td class="t-sent">I have <strong>enough</strong> apples. ✅ <span class="t-ua">Достатньо.</span></td>
+          <td class="t-sent">I have <strong>enough</strong> water. ✅ <span class="t-ua">Достатньо.</span></td>
+          <td>✅ Just the right amount</td>
+        </tr>
+        <tr>
+          <td class="t-word" style="color:var(--no);">NO</td>
+          <td class="t-sent">I have <strong>no</strong> apples. 🚫 <span class="t-ua">Жодного.</span></td>
+          <td class="t-sent">I have <strong>no</strong> water. 🚫 <span class="t-ua">Жодної краплі.</span></td>
+          <td>🚫 Zero, absolutely none</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- REAL LIFE SCENARIOS -->
+<div class="reveal" style="margin: 60px 0;">
+  <h2 class="section-title">🌍 Real Life Examples / Приклади з реального життя</h2>
+
+  <div class="real-life-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px;">
+
+    <div style="background: var(--card); border-radius: 22px; padding: 24px; border-top: 4px solid #ffd166;">
+      <div style="font-size: 1.5rem; margin-bottom: 12px;">🛒 Shopping / Магазин</div>
+      <div class="ex-card" style="margin-bottom: 8px;"><div class="ex-en">Can I have <strong style="color:var(--some);">some</strong> bread, please?</div><div class="ex-ua">Можна мені трохи хліба?</div></div>
+      <div class="ex-card" style="margin-bottom: 8px;"><div class="ex-en">Do you have <strong style="color:var(--any);">any</strong> milk?</div><div class="ex-ua">У вас є молоко?</div></div>
+      <div class="ex-card" style="margin-bottom: 8px;"><div class="ex-en">I don't have <strong style="color:var(--enough);">enough</strong> money.</div><div class="ex-ua">Мені не вистачає грошей.</div></div>
+      <div class="ex-card"><div class="ex-en">There are <strong style="color:var(--alot);">a lot of</strong> deals today!</div><div class="ex-ua">Сьогодні багато акцій!</div></div>
+    </div>
+
+    <div style="background: var(--card); border-radius: 22px; padding: 24px; border-top: 4px solid #06d6a0;">
+      <div style="font-size: 1.5rem; margin-bottom: 12px;">🏫 School / Школа</div>
+      <div class="ex-card" style="margin-bottom: 8px;"><div class="ex-en">I have <strong style="color:var(--alot);">a lot of</strong> homework today.</div><div class="ex-ua">Сьогодні в мене багато домашнього завдання.</div></div>
+      <div class="ex-card" style="margin-bottom: 8px;"><div class="ex-en">Not <strong style="color:var(--many);">many</strong> students passed.</div><div class="ex-ua">Небагато студентів склали.</div></div>
+      <div class="ex-card" style="margin-bottom: 8px;"><div class="ex-en">I have <strong style="color:var(--afew);">a few</strong> good ideas.</div><div class="ex-ua">Є кілька непоганих ідей.</div></div>
+      <div class="ex-card"><div class="ex-en">There's <strong style="color:var(--little);">little</strong> time left!</div><div class="ex-ua">Залишилось мало часу!</div></div>
+    </div>
+
+    <div style="background: var(--card); border-radius: 22px; padding: 24px; border-top: 4px solid #c77dff;">
+      <div style="font-size: 1.5rem; margin-bottom: 12px;">🍽️ Food / Їжа</div>
+      <div class="ex-card" style="margin-bottom: 8px;"><div class="ex-en">Would you like <strong style="color:var(--some);">some</strong> soup?</div><div class="ex-ua">Хочете трохи супу?</div></div>
+      <div class="ex-card" style="margin-bottom: 8px;"><div class="ex-en">There's <strong style="color:var(--enough);">enough</strong> pizza for everyone.</div><div class="ex-ua">Піци вистачить на всіх.</div></div>
+      <div class="ex-card" style="margin-bottom: 8px;"><div class="ex-en">Don't put too <strong style="color:var(--much);">much</strong> salt!</div><div class="ex-ua">Не клади занадто багато солі!</div></div>
+      <div class="ex-card"><div class="ex-en">I ate <strong style="color:var(--alittle);">a little</strong> cake.</div><div class="ex-ua">Я з'їв трохи торта.</div></div>
+    </div>
+
+    <div style="background: var(--card); border-radius: 22px; padding: 24px; border-top: 4px solid #4cc9f0;">
+      <div style="font-size: 1.5rem; margin-bottom: 12px;">👫 Friends / Друзі</div>
+      <div class="ex-card" style="margin-bottom: 8px;"><div class="ex-en">I have <strong style="color:var(--afew);">a few</strong> close friends.</div><div class="ex-ua">У мене є кілька близьких друзів.</div></div>
+      <div class="ex-card" style="margin-bottom: 8px;"><div class="ex-en">She has <strong style="color:var(--few);">few</strong> people she trusts.</div><div class="ex-ua">Мало людей, яким вона довіряє.</div></div>
+      <div class="ex-card" style="margin-bottom: 8px;"><div class="ex-en"><strong style="color:var(--every);">Every</strong> friend matters!</div><div class="ex-ua">Кожен друг важливий!</div></div>
+      <div class="ex-card"><div class="ex-en">I don't have <strong style="color:var(--any);">any</strong> enemies. 😄</div><div class="ex-ua">У мене немає ворогів.</div></div>
+    </div>
+
+    <div style="background: var(--card); border-radius: 22px; padding: 24px; border-top: 4px solid #ff6b6b;">
+      <div style="font-size: 1.5rem; margin-bottom: 12px;">🌤️ Weather / Погода</div>
+      <div class="ex-card" style="margin-bottom: 8px;"><div class="ex-en">There's <strong style="color:var(--some);">some</strong> snow outside.</div><div class="ex-ua">Надворі є трохи снігу.</div></div>
+      <div class="ex-card" style="margin-bottom: 8px;"><div class="ex-en">There isn't <strong style="color:var(--much);">much</strong> wind today.</div><div class="ex-ua">Сьогодні не дуже вітряно.</div></div>
+      <div class="ex-card" style="margin-bottom: 8px;"><div class="ex-en">There are <strong style="color:var(--alot);">a lot of</strong> clouds.</div><div class="ex-ua">Хмар дуже багато.</div></div>
+      <div class="ex-card"><div class="ex-en">There's <strong style="color:var(--no);">no</strong> rain today!</div><div class="ex-ua">Сьогодні дощу немає!</div></div>
+    </div>
+
+    <div style="background: var(--card); border-radius: 22px; padding: 24px; border-top: 4px solid #52b788;">
+      <div style="font-size: 1.5rem; margin-bottom: 12px;">🎮 Hobbies / Хобі</div>
+      <div class="ex-card" style="margin-bottom: 8px;"><div class="ex-en">I have <strong style="color:var(--alot);">lots of</strong> video games.</div><div class="ex-ua">У мене є купа відеоігор.</div></div>
+      <div class="ex-card" style="margin-bottom: 8px;"><div class="ex-en">I don't have <strong style="color:var(--much);">much</strong> free time.</div><div class="ex-ua">У мене мало вільного часу.</div></div>
+      <div class="ex-card" style="margin-bottom: 8px;"><div class="ex-en">I've read <strong style="color:var(--several);">several</strong> books this month.</div><div class="ex-ua">Цього місяця я прочитав кілька книжок.</div></div>
+      <div class="ex-card"><div class="ex-en">Do you have <strong style="color:var(--any);">any</strong> hobbies?</div><div class="ex-ua">У тебе є якесь хобі?</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- QUIZ -->
+<div id="quiz" class="quiz-section reveal">
+  <h2 class="section-title" style="margin-top: 0;">🧩 Quick Quiz / Швидкий тест</h2>
+  <p style="text-align:center; color: var(--muted); margin-bottom: 30px;">Choose the correct quantifier! / Вибери правильний квантифікатор!</p>
+  <div id="quiz-container"></div>
+  <div style="text-align:center; margin-top: 24px;">
+    <button onclick="resetQuiz()" style="background: linear-gradient(135deg, #c77dff, #4cc9f0); color: #fff; border: none; padding: 12px 32px; border-radius: 25px; font-size: 1rem; font-weight: 800; cursor: pointer; font-family: 'Nunito', sans-serif;">🔄 Try Again / Ще раз</button>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<footer>
+  <div style="font-size: 1.5rem; margin-bottom: 10px;">📦 Quantifiers Mastered! / Квантифікатори опановані! 🎉</div>
+  <div>English Grammar for Beginners · Граматика англійської для початківців</div>
+</footer>
+
+<script>
+// SCROLL REVEAL
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+}, { threshold: 0.08 });
+revealEls.forEach(el => io.observe(el));
+
+// QUIZ
+const questions = [
+  { q: "I don't have ___ time today.", blank: "much", options: ["many", "much", "a few", "several"], correct: 1, ua: "У мене немає часу (незлічуване)" },
+  { q: "There are ___ cookies left. (only 2 or 3 — not enough 😔)", blank: "few", options: ["few", "a few", "little", "a little"], correct: 0, ua: "Мало печива (недостатньо, сумно)" },
+  { q: "Would you like ___ tea? ☕", blank: "some", options: ["any", "many", "some", "few"], correct: 2, ua: "Пропозиція → some" },
+  { q: "Do you have ___ brothers or sisters?", blank: "any", options: ["some", "any", "much", "little"], correct: 1, ua: "Питання → any" },
+  { q: "I have ___ friends here. 😊 (a small number — it's OK)", blank: "a few", options: ["few", "a few", "little", "no"], correct: 1, ua: "Кілька (позитивно)" },
+  { q: "She doesn't drink ___ coffee.", blank: "much", options: ["many", "several", "much", "few"], correct: 2, ua: "Coffee = незлічуване → much" },
+  { q: "___ student in the class passed. (= each one)", blank: "Every", options: ["All", "Every", "Both", "Some"], correct: 1, ua: "Кожен окремо → every" },
+  { q: "I have ___ money. I can buy a car! 🚗 (a large amount)", blank: "enough", options: ["little", "few", "enough", "no"], correct: 2, ua: "Достатньо → enough" },
+  { q: "How ___ people came to the party?", blank: "many", options: ["much", "many", "little", "a little"], correct: 1, ua: "People = злічувані → many" },
+  { q: "There is ___ hope left. 😔 (almost none)", blank: "little", options: ["few", "little", "a little", "a few"], correct: 1, ua: "Hope = незлічуване, негативно → little" },
+];
+
+let score = 0;
+let answered = new Array(questions.length).fill(false);
+
+function buildQuiz() {
+  const c = document.getElementById('quiz-container');
+  c.innerHTML = '';
+  score = 0;
+  answered = new Array(questions.length).fill(false);
+  questions.forEach((q, i) => {
+    const div = document.createElement('div');
+    div.style.cssText = 'margin-bottom:28px; padding:20px; background:rgba(255,255,255,.04); border-radius:18px;';
+    div.innerHTML = `
+      <div class="quiz-q" style="margin-bottom:14px;">
+        <span style="color:var(--muted); font-size:.8rem; margin-right:8px;">${i+1}/${questions.length}</span>
+        ${q.q.replace(q.blank, '<span class="quiz-blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>')}
+        <div style="font-size:.8rem; color:var(--muted); margin-top:6px;">${q.ua}</div>
+      </div>
+      <div class="quiz-options" id="opts-${i}">
+        ${q.options.map((o, j) => `<button class="quiz-opt" onclick="answer(${i},${j},${q.correct})">${o}</button>`).join('')}
+      </div>
+      <div class="quiz-result" id="res-${i}"></div>
+    `;
+    c.appendChild(div);
+  });
+}
+
+function answer(qi, chosen, correct) {
+  if (answered[qi]) return;
+  answered[qi] = true;
+  const opts = document.querySelectorAll(`#opts-${qi} .quiz-opt`);
+  const res = document.getElementById(`res-${qi}`);
+  opts.forEach((o, i) => {
+    if (i === correct) o.classList.add('correct');
+    else if (i === chosen) o.classList.add('wrong');
+    o.style.pointerEvents = 'none';
+  });
+  if (chosen === correct) {
+    res.innerHTML = '✅ Correct! / Правильно!';
+    res.style.color = '#06d6a0';
+    score++;
+  } else {
+    res.innerHTML = `❌ The answer is: <strong>${questions[qi].options[correct]}</strong>`;
+    res.style.color = '#ff6b6b';
+  }
+  const done = answered.filter(Boolean).length;
+  if (done === questions.length) {
+    setTimeout(() => {
+      const pct = Math.round((score/questions.length)*100);
+      const msg = pct >= 80 ? '🏆 Excellent!' : pct >= 60 ? '👍 Good job!' : '📚 Keep studying!';
+      document.getElementById('quiz-container').insertAdjacentHTML('afterend',
+        `<div style="text-align:center; margin:20px 0; padding:20px; background:linear-gradient(135deg,rgba(199,125,255,.15),rgba(76,201,240,.15)); border-radius:20px;">
+          <div style="font-size:2rem; margin-bottom:8px;">${msg}</div>
+          <div style="font-size:1.2rem; font-weight:800;">${score}/${questions.length} — ${pct}%</div>
+        </div>`
+      );
+    }, 400);
+  }
+}
+
+function resetQuiz() {
+  const old = document.querySelector('.quiz-section > div:last-of-type');
+  if (old && old.style.textAlign === 'center' && old !== document.querySelector('.quiz-section > div:first-of-type')) {
+    // remove score display if present
+  }
+  buildQuiz();
+}
+
+buildQuiz();
+
+// smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+</script>
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+
+</body>
+</html>

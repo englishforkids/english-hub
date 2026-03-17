@@ -1,0 +1,1697 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English Tenses — Часи Англійської Мови</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ps: #FF6B6B;
+    --pc: #4ECDC4;
+    --past: #A78BFA;
+    --pp: #F59E0B;
+    --fut: #3B82F6;
+    --going: #10B981;
+    --bg: #FFF9F0;
+    --dark: #1A1A2E;
+    --card: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--dark);
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #1A1A2E 0%, #16213E 50%, #0F3460 100%);
+    color: white;
+    text-align: center;
+    padding: 60px 20px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-emoji { font-size: 4rem; display: block; margin-bottom: 16px; animation: bounce 2s infinite; }
+  @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+  .hero h1 { font-family: 'Baloo 2', sans-serif; font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; margin-bottom: 8px; }
+  .hero p { font-size: 1.15rem; opacity: 0.85; max-width: 600px; margin: 0 auto 24px; }
+  .hero-badge { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); border-radius: 50px; padding: 8px 24px; font-size: 0.9rem; }
+
+  /* INTRO SECTION */
+  .intro-section {
+    max-width: 960px; margin: 0 auto; padding: 50px 20px 10px;
+  }
+  .intro-headline {
+    font-family: 'Baloo 2', sans-serif; font-size: clamp(1.6rem, 4vw, 2.4rem);
+    font-weight: 800; text-align: center; margin-bottom: 10px;
+  }
+  .intro-sub {
+    text-align: center; color: #666; font-size: 1rem; margin-bottom: 36px;
+  }
+  .intro-big-idea {
+    background: linear-gradient(135deg, #1A1A2E, #0F3460);
+    color: white; border-radius: 24px; padding: 36px 40px;
+    margin-bottom: 28px; position: relative; overflow: hidden;
+  }
+  .intro-big-idea::before {
+    content: '💬';
+    position: absolute; right: 30px; bottom: 20px; font-size: 7rem; opacity: 0.08;
+  }
+  .intro-big-idea h2 {
+    font-family: 'Baloo 2', sans-serif; font-size: 1.5rem; font-weight: 800; margin-bottom: 12px;
+    display: flex; gap: 10px; align-items: center;
+  }
+  .intro-big-idea p { font-size: 1rem; line-height: 1.7; opacity: 0.9; margin-bottom: 14px; }
+  .intro-big-idea p:last-child { margin-bottom: 0; }
+  .intro-big-idea strong { color: #FCD34D; }
+
+  .intro-cards {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px;
+    margin-bottom: 28px;
+  }
+  .intro-card {
+    background: white; border-radius: 20px; padding: 24px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+    border-top: 5px solid currentColor;
+    transition: transform 0.2s;
+  }
+  .intro-card:hover { transform: translateY(-4px); }
+  .intro-card .ic-icon { font-size: 2rem; margin-bottom: 10px; display: block; }
+  .intro-card h3 { font-weight: 800; font-size: 1rem; margin-bottom: 6px; }
+  .intro-card p { font-size: 0.88rem; color: #555; line-height: 1.6; }
+
+  .emphasis-box {
+    background: #fffbeb; border: 2px solid #F59E0B; border-radius: 20px;
+    padding: 28px 32px; margin-bottom: 28px;
+  }
+  .emphasis-box h2 {
+    font-family: 'Baloo 2', sans-serif; font-size: 1.4rem; font-weight: 800;
+    color: #D97706; margin-bottom: 14px; display: flex; gap: 8px; align-items: center;
+  }
+  .emphasis-box p { font-size: 0.95rem; line-height: 1.75; color: #444; margin-bottom: 12px; }
+  .emphasis-box p:last-child { margin-bottom: 0; }
+  .emphasis-box strong { color: #D97706; }
+
+  .same-story {
+    background: white; border-radius: 20px; padding: 28px 32px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.07); margin-bottom: 10px;
+  }
+  .same-story h2 {
+    font-family: 'Baloo 2', sans-serif; font-size: 1.3rem; font-weight: 800; margin-bottom: 6px;
+  }
+  .same-story .ss-sub { color: #666; font-size: 0.9rem; margin-bottom: 20px; }
+  .story-rows { display: flex; flex-direction: column; gap: 10px; }
+  .story-row {
+    display: grid; grid-template-columns: 160px 1fr;
+    gap: 12px; align-items: center;
+    background: #f9f9f9; border-radius: 12px; padding: 14px 18px;
+  }
+  .story-tense {
+    font-size: 0.75rem; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 0.5px; color: white; padding: 5px 10px;
+    border-radius: 8px; text-align: center;
+  }
+  .story-content .story-en { font-weight: 700; font-size: 0.95rem; }
+  .story-content .story-uk { font-size: 0.82rem; color: #666; margin-top: 2px; }
+  .story-content .story-focus { font-size: 0.78rem; color: #999; font-style: italic; margin-top: 2px; }
+
+  @media (max-width: 600px) {
+    .story-row { grid-template-columns: 1fr; }
+    .intro-big-idea { padding: 24px 20px; }
+    .emphasis-box, .same-story { padding: 20px 18px; }
+  }
+
+  /* TIMELINE */
+  .timeline-section {
+    padding: 50px 20px 30px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .section-title { font-family: 'Baloo 2', sans-serif; font-size: 1.8rem; font-weight: 800; margin-bottom: 8px; }
+  .section-sub { color: #666; margin-bottom: 30px; font-size: 1rem; }
+
+  .timeline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 20px 10px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.08);
+  }
+  .tl-item {
+    display: flex; flex-direction: column; align-items: center;
+    min-width: 100px; gap: 6px;
+  }
+  .tl-dot {
+    width: 48px; height: 48px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem; font-weight: 900; color: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    position: relative; z-index: 1;
+  }
+  .tl-line { flex: 1; height: 4px; min-width: 20px; }
+  .tl-label { font-size: 0.65rem; font-weight: 700; text-align: center; color: #555; text-transform: uppercase; letter-spacing: 0.5px; }
+
+  /* UNIVERSAL SENTENCE */
+  .universal {
+    max-width: 900px; margin: 30px auto; padding: 0 20px;
+  }
+  .universal-box {
+    background: linear-gradient(135deg, #1A1A2E, #0F3460);
+    color: white; border-radius: 24px; padding: 36px;
+    position: relative; overflow: hidden;
+  }
+  .universal-box::after {
+    content: '⭐';
+    position: absolute; right: 30px; top: 20px; font-size: 5rem; opacity: 0.1;
+  }
+  .universal-box h2 { font-family: 'Baloo 2', sans-serif; font-size: 1.5rem; margin-bottom: 6px; }
+  .universal-box .sub { opacity: 0.7; margin-bottom: 24px; font-size: 0.95rem; }
+  .universal-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px;
+  }
+  .u-card {
+    background: rgba(255,255,255,0.1); border-radius: 14px; padding: 16px;
+    border: 1px solid rgba(255,255,255,0.15); transition: transform 0.2s;
+  }
+  .u-card:hover { transform: translateY(-3px); background: rgba(255,255,255,0.15); }
+  .u-tag { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; opacity: 0.7; margin-bottom: 6px; }
+  .u-sent { font-size: 1rem; font-weight: 700; }
+  .u-uk { font-size: 0.85rem; opacity: 0.75; margin-top: 3px; }
+
+  /* TENSE CARDS */
+  .tenses { max-width: 960px; margin: 0 auto; padding: clamp(10px,3vw,20px); display: flex; flex-direction: column; gap: 40px; }
+
+  .tense-card {
+    background: var(--card);
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+  }
+  .tense-card:hover { transform: translateY(-4px); }
+
+  .tense-header {
+    padding: 28px 32px 22px;
+    color: white;
+    position: relative; overflow: hidden;
+  }
+  .tense-header::before {
+    content: attr(data-emoji);
+    position: absolute; right: 24px; top: 50%; transform: translateY(-50%);
+    font-size: 5rem; opacity: 0.2;
+  }
+  .tense-name { font-family: 'Baloo 2', sans-serif; font-size: 1.8rem; font-weight: 800; }
+  .tense-name-uk { font-size: 1rem; opacity: 0.85; margin-top: 2px; }
+  .tense-tagline { margin-top: 8px; font-size: 0.95rem; opacity: 0.9; max-width: 500px; }
+
+  .tense-body { padding: 28px 32px; }
+
+  /* WHEN TO USE */
+  .use-title { font-weight: 800; font-size: 1rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .use-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-bottom: 24px; }
+  .use-item {
+    border-radius: 12px; padding: 14px 16px;
+    border-left: 4px solid currentColor;
+    background: #f9f9ff;
+    font-size: 0.88rem;
+  }
+  .use-item strong { display: block; font-weight: 700; font-size: 0.95rem; margin-bottom: 3px; }
+  .use-item em { color: #666; font-style: normal; font-size: 0.82rem; }
+
+  /* FORMULA */
+  .formula-section { margin-bottom: 24px; }
+  .formula-label { font-weight: 800; font-size: 1rem; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+  .formulas { display: flex; flex-direction: column; gap: 8px; }
+  .formula-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .f-type { font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; width: 80px; color: #888; }
+  .formula-box {
+    display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
+    background: #f4f4f8; border-radius: 10px; padding: 10px 16px;
+    font-weight: 700; font-size: 0.92rem;
+  }
+  .f-plus { color: #aaa; }
+  .f-word { padding: 3px 10px; border-radius: 6px; color: white; font-size: 0.88rem; }
+
+  /* SIGNAL WORDS */
+  .signals { margin-bottom: 24px; }
+  .signals-label { font-weight: 800; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+  .signals-wrap { display: flex; flex-wrap: wrap; gap: 8px; }
+  .signal-chip {
+    padding: 5px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 600;
+    color: white;
+  }
+
+  /* EXAMPLES */
+  .examples-section { margin-bottom: 8px; }
+  .examples-label { font-weight: 800; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .example-list { display: flex; flex-direction: column; gap: 10px; }
+  .example-item {
+    display: grid; grid-template-columns: 28px 1fr;
+    gap: 10px; align-items: start;
+    background: #f9f9f9; border-radius: 12px; padding: 14px 16px;
+  }
+  .ex-icon { font-size: 1.1rem; }
+  .ex-content {}
+  .ex-en { font-weight: 700; font-size: 0.98rem; }
+  .ex-uk { font-size: 0.85rem; color: #666; margin-top: 2px; }
+  .ex-note { font-size: 0.78rem; color: #999; margin-top: 3px; font-style: italic; }
+
+  /* NEGATION / QUESTION TABLES */
+  .neg-q { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 20px; }
+  .neg-box, .q-box {
+    border-radius: 14px; padding: 16px;
+  }
+  .neg-box { background: #fff0f0; }
+  .q-box { background: #f0f4ff; }
+  .nq-title { font-weight: 800; font-size: 0.9rem; margin-bottom: 10px; display: flex; gap: 6px; align-items: center; }
+  .nq-sent { font-size: 0.88rem; font-weight: 600; margin-bottom: 3px; }
+  .nq-uk { font-size: 0.78rem; color: #888; }
+
+  /* SHORT ANSWERS */
+  .short-ans { background: #f0fff4; border-radius: 14px; padding: 16px; margin-top: 12px; }
+  .short-ans .nq-title { color: #059669; }
+  .short-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .short-item { font-size: 0.88rem; }
+  .short-item span { font-weight: 700; }
+
+  /* MISTAKES SECTION */
+  .mistakes {
+    background: linear-gradient(135deg, #fff7ed, #fef3c7);
+    border-radius: 14px; padding: 18px; margin-top: 12px;
+    border: 2px dashed #F59E0B;
+  }
+  .mistakes h4 { color: #D97706; font-weight: 800; margin-bottom: 10px; display: flex; gap: 6px; }
+  .mistake-item { display: flex; gap: 10px; margin-bottom: 8px; align-items: flex-start; }
+  .m-wrong { color: #EF4444; font-size: 0.88rem; }
+  .m-right { color: #059669; font-size: 0.88rem; }
+  .m-arr { color: #aaa; padding-top: 2px; }
+
+  /* FOOTER */
+  footer {
+    text-align: center; padding: 50px 20px;
+    background: #1A1A2E; color: rgba(255,255,255,0.6); font-size: 0.9rem;
+  }
+  footer strong { color: white; }
+
+  /* COLOR SCHEMES */
+  .ps-color .tense-header { background: linear-gradient(135deg, #FF6B6B, #ee5a24); }
+  .pc-color .tense-header { background: linear-gradient(135deg, #4ECDC4, #00b09b); }
+  .past-color .tense-header { background: linear-gradient(135deg, #A78BFA, #7C3AED); }
+  .pp-color .tense-header { background: linear-gradient(135deg, #F59E0B, #D97706); }
+  .fut-color .tense-header { background: linear-gradient(135deg, #3B82F6, #1D4ED8); }
+  .going-color .tense-header { background: linear-gradient(135deg, #10B981, #059669); }
+
+  .ps-color .use-item { color: #FF6B6B; }
+  .pc-color .use-item { color: #4ECDC4; }
+  .past-color .use-item { color: #A78BFA; }
+  .pp-color .use-item { color: #F59E0B; }
+  .fut-color .use-item { color: #3B82F6; }
+  .going-color .use-item { color: #10B981; }
+
+  .ps-fw { background: #FF6B6B; }
+  .pc-fw { background: #4ECDC4; }
+  .past-fw { background: #A78BFA; }
+  .pp-fw { background: #F59E0B; }
+  .fut-fw { background: #3B82F6; }
+  .going-fw { background: #10B981; }
+
+  .ps-chip { background: #FF6B6B; }
+  .pc-chip { background: #4ECDC4; }
+  .past-chip { background: #A78BFA; }
+  .pp-chip { background: #F59E0B; }
+  .fut-chip { background: #3B82F6; }
+  .going-chip { background: #10B981; }
+
+  @media (max-width: 640px) {
+
+    /* Global */
+    body { font-size: 15px; }
+
+    /* Hero */
+    .hero { padding: 40px 16px 56px; }
+    .hero-emoji { font-size: 3rem; }
+    .hero p { font-size: 1rem; }
+    .hero-badge { font-size: 0.8rem; padding: 7px 16px; }
+
+    /* Intro section */
+    .intro-section { padding: 32px 14px 8px; }
+    .intro-big-idea { padding: 22px 18px; }
+    .intro-big-idea::before { display: none; }
+    .intro-big-idea h2 { font-size: 1.2rem; }
+    .intro-big-idea p { font-size: 0.9rem; }
+    .intro-cards { grid-template-columns: 1fr; gap: 12px; }
+    .intro-card { padding: 18px; }
+    .emphasis-box { padding: 18px 16px; }
+    .emphasis-box h2 { font-size: 1.15rem; }
+    .emphasis-box p { font-size: 0.88rem; }
+    .same-story { padding: 18px 14px; }
+    .story-row { grid-template-columns: 1fr; gap: 8px; }
+    .story-tense { width: fit-content; }
+
+    /* Timeline */
+    .timeline-section { padding: 30px 14px 20px; }
+    .section-title { font-size: 1.35rem; }
+    .timeline { padding: 16px 8px; }
+    .tl-item { min-width: 72px; }
+    .tl-dot { width: 38px; height: 38px; font-size: 1.1rem; }
+    .tl-label { font-size: 0.55rem; }
+    .tl-line { min-width: 10px; }
+
+    /* Universal box */
+    .universal { padding: 0 14px; }
+    .universal-box { padding: 22px 18px; border-radius: 18px; }
+    .universal-box::after { display: none; }
+    .universal-box h2 { font-size: 1.15rem; }
+    .universal-grid { grid-template-columns: 1fr; }
+
+    /* Tense cards */
+    .tenses { padding: 14px; gap: 28px; }
+    .tense-header { padding: 20px 18px 16px; }
+    .tense-header::before { font-size: 3.5rem; opacity: 0.15; right: 12px; }
+    .tense-name { font-size: 1.45rem; }
+    .tense-name-uk { font-size: 0.9rem; }
+    .tense-tagline { font-size: 0.85rem; }
+    .tense-body { padding: 18px 14px; }
+
+    /* Use grid */
+    .use-grid { grid-template-columns: 1fr; }
+    .use-item { font-size: 0.85rem; }
+
+    /* Formula rows */
+    .formula-row { flex-direction: column; align-items: flex-start; gap: 6px; }
+    .f-type { width: auto; }
+    .formula-box { width: 100%; font-size: 0.85rem; padding: 8px 12px; flex-wrap: wrap; }
+    .f-word { font-size: 0.82rem; padding: 3px 8px; }
+
+    /* Signal chips */
+    .signals-wrap { gap: 6px; }
+    .signal-chip { font-size: 0.78rem; padding: 4px 11px; }
+
+    /* Examples */
+    .example-item { padding: 12px; gap: 8px; }
+    .ex-en { font-size: 0.92rem; }
+    .ex-uk { font-size: 0.8rem; }
+    .ex-note { font-size: 0.74rem; }
+
+    /* Negation / Question boxes */
+    .neg-q { grid-template-columns: 1fr; gap: 10px; }
+    .nq-sent { font-size: 0.85rem; }
+    .nq-uk { font-size: 0.76rem; }
+
+    /* Short answers */
+    .short-grid { grid-template-columns: 1fr; gap: 6px; }
+    .short-item { font-size: 0.85rem; }
+
+    /* Mistakes */
+    .mistakes { padding: 14px; }
+    .m-wrong, .m-right { font-size: 0.83rem; }
+
+    /* Footer */
+    footer { padding: 36px 16px; font-size: 0.85rem; }
+    #scroll-top-btn { bottom: 18px; right: 16px; width: 40px; height: 40px; font-size: 16px; }
+  }
+  #scroll-top-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #1a1208;
+    border: 1.5px solid rgba(200,150,62,0.4);
+    color: #f5f0e8;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+    pointer-events: none;
+    z-index: 9998;
+  }
+  #scroll-top-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  #scroll-top-btn:hover {
+    background: #c8963e;
+    border-color: #c8963e;
+    color: #1a1208;
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <span class="hero-emoji">📚</span>
+  <h1>English Tenses</h1>
+  <p>Часи англійської мови — просто, зрозуміло та весело!<br>Simple, clear, and fun for everyone!</p>
+  <div class="hero-badge">🇬🇧 English + 🇺🇦 Ukrainian explanations</div>
+</div>
+
+<!-- INTRO SECTION -->
+<div class="intro-section">
+
+  <div class="intro-headline">🤔 What are tenses? / Що таке часи?</div>
+  <div class="intro-sub">And why do we even need them? / І навіщо вони взагалі потрібні?</div>
+
+  <div class="intro-big-idea">
+    <h2>💡 The Big Idea / Головна ідея</h2>
+    <p>
+      In English, <strong>tenses are not just about "when" something happens.</strong>
+      They're about <strong>what you want to highlight</strong> — what you want the listener to focus on.<br>
+      В англійській мові <strong>часи — це не лише про "коли" щось відбувається.</strong>
+      Це про те, <strong>що ти хочеш підкреслити</strong> — на що звернути увагу слухача.
+    </p>
+    <p>
+      Think of tenses as a <strong>camera lens</strong>: the same event can be shown in different ways depending on what matters to you right now.<br>
+      Уяви часи як <strong>об'єктив камери</strong>: одну й ту саму подію можна показати по-різному, залежно від того, що важливо для тебе в цю мить.
+    </p>
+    <p>
+      👉 You ate pizza. Simple fact. But <em>did you just eat it? Do you eat it regularly? Have you ever tried it? Are you about to eat it?</em> — <strong>each answer is a different tense.</strong><br>
+      👉 Ти їв піцу. Простий факт. Але <em>ти щойно їв? Їси регулярно? Вже їв колись? Ось-ось зʼїш?</em> — <strong>кожна відповідь — інший час.</strong>
+    </p>
+  </div>
+
+  <div class="intro-cards">
+    <div class="intro-card" style="color:#FF6B6B;">
+      <span class="ic-icon">🔁</span>
+      <h3>To talk about habits / Про звички</h3>
+      <p>Tenses help you say if something happens regularly, just once, or is always true.<br><em>Часи допомагають сказати, чи щось відбувається регулярно, одноразово або завжди.</em></p>
+    </div>
+    <div class="intro-card" style="color:#4ECDC4;">
+      <span class="ic-icon">⚡</span>
+      <h3>To show the moment / Показати момент</h3>
+      <p>Is it happening RIGHT NOW? Or did it already finish? Tenses make this clear instantly.<br><em>Відбувається прямо зараз чи вже закінчилось? Часи показують це миттєво.</em></p>
+    </div>
+    <div class="intro-card" style="color:#F59E0B;">
+      <span class="ic-icon">🔗</span>
+      <h3>To connect past &amp; present / Звʼязок минулого і теперішнього</h3>
+      <p>Did something happen before AND still matters now? There's a tense for that.<br><em>Щось сталося раніше і досі важливо? Для цього є окремий час.</em></p>
+    </div>
+    <div class="intro-card" style="color:#3B82F6;">
+      <span class="ic-icon">🎯</span>
+      <h3>To express intent / Виразити намір</h3>
+      <p>Are you planning something? Making a promise? Guessing? Each has its own form.<br><em>Плануєш щось? Обіцяєш? Вгадуєш? Кожне має свою форму.</em></p>
+    </div>
+  </div>
+
+  <div class="emphasis-box">
+    <h2>🔑 The KEY insight — Ключове розуміння</h2>
+    <p>
+      Many students think: <em>"I just need to remember the rules."</em>
+      But the real secret is: <strong>tenses express your perspective — your focus.</strong><br>
+      Багато учнів думають: <em>"Мені просто треба вивчити правила."</em>
+      Але справжній секрет у тому, що <strong>часи виражають твою точку зору — твій фокус.</strong>
+    </p>
+    <p>
+      Compare these two sentences about the SAME event:<br>
+      Порівняй ці два речення про ОДН У й ту саму подію:
+    </p>
+    <p>
+      🟣 <strong>"I lost my keys."</strong> (Past Simple) — focuses on the <strong>event</strong>. It happened. Done.<br>
+      <em>Фокус на події. Сталось. Все.</em>
+    </p>
+    <p>
+      🟡 <strong>"I have lost my keys!"</strong> (Present Perfect) — focuses on the <strong>result NOW</strong>. I can't get in!<br>
+      <em>Фокус на результаті ЗАРАЗ. Я не можу зайти!</em>
+    </p>
+    <p>
+      👉 <strong>Same event. Different message. Different tense.</strong><br>
+      <em>Та сама подія. Різне повідомлення. Різний час.</em>
+    </p>
+  </div>
+
+  <div class="same-story">
+    <h2>📽️ One Story, Six Lenses / Одна історія — шість кутів зору</h2>
+    <div class="ss-sub">The verb "to go to the gym" shown through all 6 tenses — and what each one emphasizes</div>
+    <div class="story-rows">
+      <div class="story-row">
+        <div class="story-tense" style="background:#FF6B6B;">Present Simple</div>
+        <div class="story-content">
+          <div class="story-en">I <strong>go</strong> to the gym every Monday.</div>
+          <div class="story-uk">Я ходжу до спортзалу щопонеділка.</div>
+          <div class="story-focus">📌 Emphasizes: this is my regular habit / Підкреслює: це моя регулярна звичка</div>
+        </div>
+      </div>
+      <div class="story-row">
+        <div class="story-tense" style="background:#4ECDC4;">Present Continuous</div>
+        <div class="story-content">
+          <div class="story-en">I <strong>am going</strong> to the gym right now.</div>
+          <div class="story-uk">Я зараз іду до спортзалу.</div>
+          <div class="story-focus">⚡ Emphasizes: this action is in progress at this moment / Підкреслює: дія відбувається прямо зараз</div>
+        </div>
+      </div>
+      <div class="story-row">
+        <div class="story-tense" style="background:#A78BFA;">Past Simple</div>
+        <div class="story-content">
+          <div class="story-en">I <strong>went</strong> to the gym yesterday.</div>
+          <div class="story-uk">Вчора я ходив до спортзалу.</div>
+          <div class="story-focus">📖 Emphasizes: a completed event at a specific time / Підкреслює: завершена подія у конкретний час</div>
+        </div>
+      </div>
+      <div class="story-row">
+        <div class="story-tense" style="background:#F59E0B;">Present Perfect</div>
+        <div class="story-content">
+          <div class="story-en">I <strong>have gone</strong> to the gym three times this week!</div>
+          <div class="story-uk">Цього тижня я вже ходив до спортзалу тричі!</div>
+          <div class="story-focus">🔗 Emphasizes: the result or experience that matters NOW / Підкреслює: результат, важливий для теперішнього моменту</div>
+        </div>
+      </div>
+      <div class="story-row">
+        <div class="story-tense" style="background:#10B981;">Be Going To</div>
+        <div class="story-content">
+          <div class="story-en">I <strong>am going to</strong> go to the gym after school.</div>
+          <div class="story-uk">Я збираюся піти до спортзалу після школи.</div>
+          <div class="story-focus">🗓️ Emphasizes: I already planned this / Підкреслює: я вже це запланував раніше</div>
+        </div>
+      </div>
+      <div class="story-row">
+        <div class="story-tense" style="background:#3B82F6;">Future Simple</div>
+        <div class="story-content">
+          <div class="story-en">I <strong>will go</strong> to the gym if I feel better.</div>
+          <div class="story-uk">Я піду до спортзалу, якщо відчую себе краще.</div>
+          <div class="story-focus">🚀 Emphasizes: an open future decision or prediction / Підкреслює: відкрите рішення або прогноз про майбутнє</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- TIMELINE -->
+<div class="timeline-section">
+  <div class="section-title">⏳ Timeline of Tenses — Лінія часу</div>
+  <div class="section-sub">Де кожен час знаходиться у часі / Where each tense sits in time</div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#A78BFA">📖</div>
+      <div class="tl-label">Past Simple<br>Минулий</div>
+    </div>
+    <div class="tl-line" style="background:#ddd"></div>
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#F59E0B">✅</div>
+      <div class="tl-label">Present Perfect<br>Теперішній<br>перфект</div>
+    </div>
+    <div class="tl-line" style="background:#ddd"></div>
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#FF6B6B">📌</div>
+      <div class="tl-label">Present Simple<br>Теп. простий</div>
+    </div>
+    <div class="tl-line" style="background:#ddd"></div>
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#4ECDC4">🔄</div>
+      <div class="tl-label">Present Cont.<br>Теп. тривалий</div>
+    </div>
+    <div class="tl-line" style="background:#ddd"></div>
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#10B981">🗓️</div>
+      <div class="tl-label">Going to<br>Найб. план</div>
+    </div>
+    <div class="tl-line" style="background:#ddd"></div>
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#3B82F6">🚀</div>
+      <div class="tl-label">Future Simple<br>Майбутній</div>
+    </div>
+  </div>
+</div>
+
+<!-- UNIVERSAL SENTENCE -->
+<div class="universal">
+  <div class="universal-box">
+    <h2>🌟 One Sentence, Six Tenses — Одне речення, шість часів</h2>
+    <p class="sub">Watch how "eat pizza" changes across all tenses / Дивись як "їсти піцу" змінюється</p>
+    <div class="universal-grid">
+      <div class="u-card">
+        <div class="u-tag" style="color:#FF9999">Present Simple</div>
+        <div class="u-sent">I <u>eat</u> pizza every Friday.</div>
+        <div class="u-uk">Я їм піцу щоп'ятниці.</div>
+      </div>
+      <div class="u-card">
+        <div class="u-tag" style="color:#80E8E3">Present Continuous</div>
+        <div class="u-sent">I <u>am eating</u> pizza now.</div>
+        <div class="u-uk">Я зараз їм піцу.</div>
+      </div>
+      <div class="u-card">
+        <div class="u-tag" style="color:#C4B5FD">Past Simple</div>
+        <div class="u-sent">I <u>ate</u> pizza yesterday.</div>
+        <div class="u-uk">Я їв піцу вчора.</div>
+      </div>
+      <div class="u-card">
+        <div class="u-tag" style="color:#FCD34D">Present Perfect</div>
+        <div class="u-sent">I <u>have eaten</u> pizza today.</div>
+        <div class="u-uk">Я вже їв піцу сьогодні.</div>
+      </div>
+      <div class="u-card">
+        <div class="u-tag" style="color:#93C5FD">Future Simple</div>
+        <div class="u-sent">I <u>will eat</u> pizza tomorrow.</div>
+        <div class="u-uk">Я їстиму піцу завтра.</div>
+      </div>
+      <div class="u-card">
+        <div class="u-tag" style="color:#6EE7B7">Going to</div>
+        <div class="u-sent">I <u>am going to eat</u> pizza tonight.</div>
+        <div class="u-uk">Я збираюся їсти піцу ввечері.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TENSE CARDS -->
+<div class="tenses">
+
+  <!-- =================== PRESENT SIMPLE =================== -->
+  <div class="tense-card ps-color">
+    <div class="tense-header" data-emoji="📌">
+      <div class="tense-name">Present Simple</div>
+      <div class="tense-name-uk">Теперішній простий час</div>
+      <div class="tense-tagline">For habits, facts, and routines / Для звичок, фактів і розпорядку дня</div>
+    </div>
+    <div class="tense-body">
+
+      <div class="use-title">🎯 When do we use it? / Коли вживаємо?</div>
+      <div class="use-grid">
+        <div class="use-item"><strong>🔁 Habits & Routines</strong><em>Звички та розпорядок дня</em><br>Things you do regularly<br><i>Те, що робиш регулярно</i></div>
+        <div class="use-item"><strong>🌍 Facts & Truths</strong><em>Факти та істини</em><br>Things that are always true<br><i>Завжди правдиві речі</i></div>
+        <div class="use-item"><strong>🗓️ Schedules</strong><em>Розклад</em><br>Fixed timetables (trains, classes)<br><i>Фіксований розклад</i></div>
+        <div class="use-item"><strong>💭 Feelings & Opinions</strong><em>Почуття та думки</em><br>With: like, love, hate, think, know<br><i>З: подобається, знаю, думаю</i></div>
+      </div>
+
+      <div class="formula-section">
+        <div class="formula-label">📐 Formula / Формула</div>
+        <div class="formulas">
+          <div class="formula-row">
+            <div class="f-type">✅ (+)</div>
+            <div class="formula-box">
+              <span class="f-word ps-fw">Subject</span>
+              <span class="f-plus">+</span>
+              <span class="f-word ps-fw">verb</span>
+              <span style="font-size:0.8rem; color:#888">(he/she/it → verb+s)</span>
+            </div>
+          </div>
+          <div class="formula-row">
+            <div class="f-type">❌ (−)</div>
+            <div class="formula-box">
+              <span class="f-word ps-fw">Subject</span>
+              <span class="f-plus">+</span>
+              <span class="f-word" style="background:#aaa">don't / doesn't</span>
+              <span class="f-plus">+</span>
+              <span class="f-word ps-fw">verb</span>
+            </div>
+          </div>
+          <div class="formula-row">
+            <div class="f-type">❓ (?)</div>
+            <div class="formula-box">
+              <span class="f-word" style="background:#aaa">Do / Does</span>
+              <span class="f-plus">+</span>
+              <span class="f-word ps-fw">subject</span>
+              <span class="f-plus">+</span>
+              <span class="f-word ps-fw">verb</span>
+              <span class="f-plus">?</span>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:10px; background:#fff0f0; border-radius:10px; padding:12px; font-size:0.88rem;">
+          ⚠️ <strong>He / She / It rule:</strong> Add <strong>-s</strong> or <strong>-es</strong> to the verb!<br>
+          <span style="color:#888">Правило he/she/it: додай -s або -es до дієслова!</span><br>
+          <span style="color:#FF6B6B">I play → She <strong>plays</strong> | I go → He <strong>goes</strong> | I watch → It <strong>watches</strong></span>
+        </div>
+      </div>
+
+      <div class="signals">
+        <div class="signals-label">⏰ Signal Words / Слова-підказки</div>
+        <div class="signals-wrap">
+          <span class="signal-chip ps-chip">always / завжди</span>
+          <span class="signal-chip ps-chip">usually / зазвичай</span>
+          <span class="signal-chip ps-chip">often / часто</span>
+          <span class="signal-chip ps-chip">sometimes / іноді</span>
+          <span class="signal-chip ps-chip">never / ніколи</span>
+          <span class="signal-chip ps-chip">every day / щодня</span>
+          <span class="signal-chip ps-chip">on Mondays</span>
+          <span class="signal-chip ps-chip">once a week</span>
+        </div>
+      </div>
+
+      <div class="examples-section">
+        <div class="examples-label">💬 Examples / Приклади</div>
+        <div class="example-list">
+          <div class="example-item">
+            <div class="ex-icon">✅</div>
+            <div class="ex-content">
+              <div class="ex-en">She <strong>reads</strong> books every evening.</div>
+              <div class="ex-uk">Вона читає книги щовечора.</div>
+              <div class="ex-note">Habit — звичка (she → reads with -s)</div>
+            </div>
+          </div>
+          <div class="example-item">
+            <div class="ex-icon">✅</div>
+            <div class="ex-content">
+              <div class="ex-en">The sun <strong>rises</strong> in the east.</div>
+              <div class="ex-uk">Сонце сходить на сході.</div>
+              <div class="ex-note">Fact — факт</div>
+            </div>
+          </div>
+          <div class="example-item">
+            <div class="ex-icon">✅</div>
+            <div class="ex-content">
+              <div class="ex-en">My train <strong>leaves</strong> at 8:00 tomorrow.</div>
+              <div class="ex-uk">Мій потяг відправляється о 8:00 завтра.</div>
+              <div class="ex-note">Schedule — розклад</div>
+            </div>
+          </div>
+          <div class="example-item">
+            <div class="ex-icon">❌</div>
+            <div class="ex-content">
+              <div class="ex-en">He <strong>doesn't like</strong> spicy food.</div>
+              <div class="ex-uk">Він не любить гостру їжу.</div>
+            </div>
+          </div>
+          <div class="example-item">
+            <div class="ex-icon">❓</div>
+            <div class="ex-content">
+              <div class="ex-en"><strong>Do</strong> you speak English?</div>
+              <div class="ex-uk">Ти розмовляєш англійською?</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="neg-q">
+        <div class="neg-box">
+          <div class="nq-title">❌ Negation / Заперечення</div>
+          <div class="nq-sent">I <strong>don't</strong> eat meat. (I / You / We / They)</div>
+          <div class="nq-uk">Я не їм м'яса.</div>
+          <div style="height:8px"></div>
+          <div class="nq-sent">She <strong>doesn't</strong> eat meat. (He / She / It)</div>
+          <div class="nq-uk">Вона не їсть м'яса.</div>
+        </div>
+        <div class="q-box">
+          <div class="nq-title" style="color:#3B82F6">❓ Questions / Питання</div>
+          <div class="nq-sent"><strong>Do</strong> they work here?</div>
+          <div class="nq-uk">Вони тут працюють?</div>
+          <div style="height:8px"></div>
+          <div class="nq-sent"><strong>Does</strong> she work here?</div>
+          <div class="nq-uk">Вона тут працює?</div>
+        </div>
+      </div>
+
+      <div class="short-ans">
+        <div class="nq-title" style="color:#059669">✅ Short Answers / Короткі відповіді</div>
+        <div class="short-grid">
+          <div class="short-item"><span>Yes, I do. / Yes, she does.</span></div>
+          <div class="short-item"><span>No, I don't. / No, she doesn't.</span></div>
+        </div>
+      </div>
+
+      <div class="mistakes">
+        <h4>⚠️ Common Mistakes / Типові помилки</h4>
+        <div class="mistake-item">
+          <div class="m-wrong">✗ She <u>play</u> tennis.</div>
+          <div class="m-arr">→</div>
+          <div class="m-right">✓ She <u>plays</u> tennis. (he/she/it needs -s)</div>
+        </div>
+        <div class="mistake-item">
+          <div class="m-wrong">✗ He <u>don't</u> like cats.</div>
+          <div class="m-arr">→</div>
+          <div class="m-right">✓ He <u>doesn't</u> like cats.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =================== PRESENT CONTINUOUS =================== -->
+  <div class="tense-card pc-color">
+    <div class="tense-header" data-emoji="🔄">
+      <div class="tense-name">Present Continuous</div>
+      <div class="tense-name-uk">Теперішній тривалий час</div>
+      <div class="tense-tagline">Happening RIGHT NOW or around now / Відбувається ПРЯМО ЗАРАЗ або в цей період</div>
+    </div>
+    <div class="tense-body">
+
+      <div class="use-title">🎯 When do we use it? / Коли вживаємо?</div>
+      <div class="use-grid">
+        <div class="use-item"><strong>⚡ Right now</strong><em>Прямо зараз</em><br>Look! She is dancing!<br><i>Дивись! Вона танцює!</i></div>
+        <div class="use-item"><strong>📅 These days / This period</strong><em>В цей час / Нині</em><br>I'm learning guitar this month<br><i>Цього місяця вчуся грати</i></div>
+        <div class="use-item"><strong>📆 Future plans (fixed)</strong><em>Заплановане майбутнє</em><br>I'm meeting her tomorrow<br><i>Зустрічаюсь з нею завтра</i></div>
+        <div class="use-item"><strong>😤 Annoying habits</strong><em>Дратівливі звички</em><br>He is always losing his keys!<br><i>Він завжди губить ключі!</i></div>
+      </div>
+
+      <div class="formula-section">
+        <div class="formula-label">📐 Formula / Формула</div>
+        <div class="formulas">
+          <div class="formula-row">
+            <div class="f-type">✅ (+)</div>
+            <div class="formula-box">
+              <span class="f-word pc-fw">Subject</span>
+              <span class="f-plus">+</span>
+              <span class="f-word" style="background:#aaa">am / is / are</span>
+              <span class="f-plus">+</span>
+              <span class="f-word pc-fw">verb+ing</span>
+            </div>
+          </div>
+          <div class="formula-row">
+            <div class="f-type">❌ (−)</div>
+            <div class="formula-box">
+              <span class="f-word pc-fw">Subject</span>
+              <span class="f-plus">+</span>
+              <span class="f-word" style="background:#aaa">am/is/are not</span>
+              <span class="f-plus">+</span>
+              <span class="f-word pc-fw">verb+ing</span>
+            </div>
+          </div>
+          <div class="formula-row">
+            <div class="f-type">❓ (?)</div>
+            <div class="formula-box">
+              <span class="f-word" style="background:#aaa">Am / Is / Are</span>
+              <span class="f-plus">+</span>
+              <span class="f-word pc-fw">subject</span>
+              <span class="f-plus">+</span>
+              <span class="f-word pc-fw">verb+ing</span>
+              <span class="f-plus">?</span>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:10px; background:#e0faf8; border-radius:10px; padding:12px; font-size:0.88rem;">
+          ⚠️ <strong>am/is/are + verb+ing:</strong><br>
+          <span style="color:#888">I am, He/She/It is, You/We/They are</span><br>
+          <span style="color:#4ECDC4">run→<strong>running</strong> | dance→<strong>dancing</strong> | sit→<strong>sitting</strong></span>
+        </div>
+      </div>
+
+      <div style="margin-bottom:20px; background:#e0faf8; border-radius:14px; padding:16px; font-size:0.88rem;">
+        <strong>🚫 Stative Verbs — НЕ вживаються з Continuous!</strong><br>
+        <span style="color:#888">Ці дієслова зазвичай не можна вживати з -ing</span><br><br>
+        <strong>know, like, love, hate, want, need, see, hear, smell, taste, own, have (possess)</strong><br><br>
+        <span style="color:#EF4444">✗ I am knowing the answer.</span>  →  <span style="color:#059669">✓ I know the answer.</span>
+      </div>
+
+      <div class="signals">
+        <div class="signals-label">⏰ Signal Words / Слова-підказки</div>
+        <div class="signals-wrap">
+          <span class="signal-chip pc-chip">now / зараз</span>
+          <span class="signal-chip pc-chip">right now / прямо зараз</span>
+          <span class="signal-chip pc-chip">at the moment</span>
+          <span class="signal-chip pc-chip">Look! / Дивись!</span>
+          <span class="signal-chip pc-chip">Listen!</span>
+          <span class="signal-chip pc-chip">currently / наразі</span>
+          <span class="signal-chip pc-chip">today / сьогодні</span>
+          <span class="signal-chip pc-chip">this week</span>
+        </div>
+      </div>
+
+      <div class="examples-section">
+        <div class="examples-label">💬 Examples / Приклади</div>
+        <div class="example-list">
+          <div class="example-item">
+            <div class="ex-icon">✅</div>
+            <div class="ex-content">
+              <div class="ex-en">Look! The dog <strong>is running</strong> in the park.</div>
+              <div class="ex-uk">Дивись! Собака бігає в парку.</div>
+              <div class="ex-note">Happening right now — відбувається зараз</div>
+            </div>
+          </div>
+          <div class="example-item">
+            <div class="ex-icon">✅</div>
+            <div class="ex-content">
+              <div class="ex-en">I <strong>am studying</strong> for my exam this week.</div>
+              <div class="ex-uk">Цього тижня я готуюся до іспиту.</div>
+              <div class="ex-note">Around now — в цей час</div>
+            </div>
+          </div>
+          <div class="example-item">
+            <div class="ex-icon">✅</div>
+            <div class="ex-content">
+              <div class="ex-en">We <strong>are meeting</strong> the team on Monday.</div>
+              <div class="ex-uk">У понеділок ми зустрічаємось з командою.</div>
+              <div class="ex-note">Fixed future plan — запланована зустріч</div>
+            </div>
+          </div>
+          <div class="example-item">
+            <div class="ex-icon">❌</div>
+            <div class="ex-content">
+              <div class="ex-en">She <strong>isn't sleeping</strong> right now.</div>
+              <div class="ex-uk">Вона зараз не спить.</div>
+            </div>
+          </div>
+          <div class="example-item">
+            <div class="ex-icon">❓</div>
+            <div class="ex-content">
+              <div class="ex-en"><strong>Are</strong> you <strong>listening</strong> to me?</div>
+              <div class="ex-uk">Ти мене слухаєш?</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mistakes">
+        <h4>⚠️ Common Mistakes / Типові помилки</h4>
+        <div class="mistake-item">
+          <div class="m-wrong">✗ I am <u>liking</u> chocolate.</div>
+          <div class="m-arr">→</div>
+          <div class="m-right">✓ I <u>like</u> chocolate. (stative verb)</div>
+        </div>
+        <div class="mistake-item">
+          <div class="m-wrong">✗ She <u>is work</u> now.</div>
+          <div class="m-arr">→</div>
+          <div class="m-right">✓ She <u>is working</u> now. (need +ing)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =================== PAST SIMPLE =================== -->
+  <div class="tense-card past-color">
+    <div class="tense-header" data-emoji="📖">
+      <div class="tense-name">Past Simple</div>
+      <div class="tense-name-uk">Минулий простий час</div>
+      <div class="tense-tagline">Completed actions in the past / Завершені дії в минулому</div>
+    </div>
+    <div class="tense-body">
+
+      <div class="use-title">🎯 When do we use it? / Коли вживаємо?</div>
+      <div class="use-grid">
+        <div class="use-item"><strong>✔️ Completed actions</strong><em>Завершені дії</em><br>I visited Paris last summer<br><i>Відвідав Париж минулого літа</i></div>
+        <div class="use-item"><strong>📖 Stories & narratives</strong><em>Розповіді та події</em><br>She opened the door and saw...<br><i>Відкрила двері й побачила...</i></div>
+        <div class="use-item"><strong>🔁 Repeated past habits</strong><em>Минулі звички</em><br>We always played here as kids<br><i>Ми завжди тут гралися</i></div>
+        <div class="use-item"><strong>⏱️ With specific time</strong><em>З конкретним часом</em><br>She called at 9 pm yesterday<br><i>Зателефонувала вчора о 9</i></div>
+      </div>
+
+      <div class="formula-section">
+        <div class="formula-label">📐 Formula / Формула</div>
+        <div class="formulas">
+          <div class="formula-row">
+            <div class="f-type">✅ (+)</div>
+            <div class="formula-box">
+              <span class="f-word past-fw">Subject</span>
+              <span class="f-plus">+</span>
+              <span class="f-word past-fw">verb-ed / 2nd form</span>
+            </div>
+          </div>
+          <div class="formula-row">
+            <div class="f-type">❌ (−)</div>
+            <div class="formula-box">
+              <span class="f-word past-fw">Subject</span>
+              <span class="f-plus">+</span>
+              <span class="f-word" style="background:#aaa">didn't</span>
+              <span class="f-plus">+</span>
+              <span class="f-word past-fw">verb (base)</span>
+            </div>
+          </div>
+          <div class="formula-row">
+            <div class="f-type">❓ (?)</div>
+            <div class="formula-box">
+              <span class="f-word" style="background:#aaa">Did</span>
+              <span class="f-plus">+</span>
+              <span class="f-word past-fw">subject</span>
+              <span class="f-plus">+</span>
+              <span class="f-word past-fw">verb (base)</span>
+              <span class="f-plus">?</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-bottom:20px; background:#f3f0ff; border-radius:14px; padding:16px; font-size:0.88rem;">
+        <strong>📝 Regular vs Irregular Verbs / Правильні та неправильні дієслова</strong><br><br>
+        <strong>Regular:</strong> just add <strong>-ed</strong> → play→<strong>played</strong>, watch→<strong>watched</strong>, work→<strong>worked</strong><br>
+        <strong>Irregular:</strong> special 2nd forms → go→<strong>went</strong>, eat→<strong>ate</strong>, see→<strong>saw</strong>, buy→<strong>bought</strong>, come→<strong>came</strong>, take→<strong>took</strong>, make→<strong>made</strong>
+      </div>
+
+      <div class="signals">
+        <div class="signals-label">⏰ Signal Words / Слова-підказки</div>
+        <div class="signals-wrap">
+          <span class="signal-chip past-chip">yesterday / вчора</span>
+          <span class="signal-chip past-chip">last week / минулого тижня</span>
+          <span class="signal-chip past-chip">ago / тому</span>
+          <span class="signal-chip past-chip">in 2020</span>
+          <span class="signal-chip past-chip">this morning (completed)</span>
+          <span class="signal-chip past-chip">when I was a kid</span>
+        </div>
+      </div>
+
+      <div class="examples-section">
+        <div class="examples-label">💬 Examples / Приклади</div>
+        <div class="example-list">
+          <div class="example-item">
+            <div class="ex-icon">✅</div>
+            <div class="ex-content">
+              <div class="ex-en">I <strong>watched</strong> a great movie last night.</div>
+              <div class="ex-uk">Минулої ночі я дивився чудовий фільм.</div>
+              <div class="ex-note">Regular verb — правильне дієслово</div>
+            </div>
+          </div>
+          <div class="example-item">
+            <div class="ex-icon">✅</div>
+            <div class="ex-content">
+              <div class="ex-en">She <strong>went</strong> to London two years ago.</div>
+              <div class="ex-uk">Вона їздила до Лондона два роки тому.</div>
+              <div class="ex-note">Irregular verb — неправильне дієслово (go→went)</div>
+            </div>
+          </div>
+          <div class="example-item">
+            <div class="ex-icon">✅</div>
+            <div class="ex-content">
+              <div class="ex-en">We <strong>played</strong> football every weekend when we were young.</div>
+              <div class="ex-uk">Коли ми були молодими, грали у футбол щовихідних.</div>
+              <div class="ex-note">Past habit — минула звичка</div>
+            </div>
+          </div>
+          <div class="example-item">
+            <div class="ex-icon">❌</div>
+            <div class="ex-content">
+              <div class="ex-en">He <strong>didn't come</strong> to the party.</div>
+              <div class="ex-uk">Він не прийшов на вечірку.</div>
+            </div>
+          </div>
+          <div class="example-item">
+            <div class="ex-icon">❓</div>
+            <div class="ex-content">
+              <div class="ex-en"><strong>Did</strong> you <strong>see</strong> that film?</div>
+              <div class="ex-uk">Ти бачив той фільм?</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mistakes">
+        <h4>⚠️ Common Mistakes / Типові помилки</h4>
+        <div class="mistake-item">
+          <div class="m-wrong">✗ I <u>didn't went</u> there.</div>
+          <div class="m-arr">→</div>
+          <div class="m-right">✓ I <u>didn't go</u> there. (base form after didn't)</div>
+        </div>
+        <div class="mistake-item">
+          <div class="m-wrong">✗ Did she <u>went</u>?</div>
+          <div class="m-arr">→</div>
+          <div class="m-right">✓ Did she <u>go</u>? (base form after did)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =================== PRESENT PERFECT =================== -->
+  <div class="tense-card pp-color">
+    <div class="tense-header" data-emoji="✅">
+      <div class="tense-name">Present Perfect</div>
+      <div class="tense-name-uk">Теперішній перфект</div>
+      <div class="tense-tagline">Past actions connected to NOW / Дії минулого, пов'язані з ЗАРАЗ</div>
+    </div>
+    <div class="tense-body">
+
+      <div class="use-title">🎯 When do we use it? / Коли вживаємо?</div>
+      <div class="use-grid">
+        <div class="use-item"><strong>🔗 Life experience</strong><em>Досвід у житті</em><br>Have you ever been to Japan?<br><i>Ти коли-небудь був у Японії?</i></div>
+        <div class="use-item"><strong>🆕 Recent news / results</strong><em>Свіжі новини / результати</em><br>She has just won the race!<br><i>Вона щойно виграла гонку!</i></div>
+        <div class="use-item"><strong>⏳ Unfinished time</strong><em>Незакінчений час</em><br>I've worked here for 3 years<br><i>Я тут працюю вже 3 роки</i></div>
+        <div class="use-item"><strong>🔁 Repeated experience</strong><em>Повторюваний досвід</em><br>I have seen that movie 3 times<br><i>Бачив той фільм 3 рази</i></div>
+        <div class="use-item" style="border-left-color:#F59E0B; background:#fffbeb; grid-column: 1 / -1;"><strong>🌉 Past → Present connection</strong><em>Місток між минулим і теперішнім</em><br>Something happened in the past and <strong>its result or effect is felt NOW</strong>.<br><i>Щось сталося в минулому, і <strong>результат або вплив відчувається ЗАРАЗ</strong>.</i></div>
+      </div>
+
+      <!-- BRIDGE VISUAL -->
+      <div style="margin-bottom:24px; background: linear-gradient(135deg, #fffbeb, #fef9ee); border-radius:20px; padding:28px 28px 24px; border: 2px solid #F59E0B; position:relative; overflow:hidden;">
+        <div style="position:absolute; right:20px; top:16px; font-size:4rem; opacity:0.08;">🌉</div>
+        <div style="font-weight:800; font-size:1.05rem; margin-bottom:6px; color:#D97706; display:flex; align-items:center; gap:8px;">🌉 The Bridge Rule — Правило містка</div>
+        <p style="font-size:0.92rem; color:#555; margin-bottom:18px; line-height:1.65;">
+          Present Perfect is the <strong style="color:#D97706">"bridge tense"</strong> — the action happened in the past, but <strong style="color:#D97706">its result exists right now</strong>. That's what makes it different from Past Simple.<br>
+          <span style="color:#888">Present Perfect — це <strong>час-місток</strong>: дія сталася в минулому, але <strong>її результат існує прямо зараз</strong>. Саме це відрізняє його від Past Simple.</span>
+        </p>
+
+        <!-- Bridge diagram -->
+        <div style="display:flex; align-items:center; justify-content:center; margin-bottom:20px; flex-wrap:wrap; gap:10px;">
+          <div style="background:#A78BFA; color:white; border-radius:14px; padding:14px 20px; text-align:center; font-weight:700; font-size:0.88rem; min-width:130px;">
+            <div style="font-size:1.3rem; margin-bottom:4px;">📖</div>
+            PAST<br><span style="font-weight:400; font-size:0.78rem; opacity:0.85;">Минуле</span><br>
+            <span style="font-size:0.78rem; margin-top:4px; display:block; background:rgba(255,255,255,0.2); border-radius:6px; padding:3px 6px;">action happened</span>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:center; gap:4px; padding:0 8px;">
+            <div style="font-size:1.6rem;">🌉</div>
+            <div style="width:80px; height:4px; background: linear-gradient(90deg, #A78BFA, #F59E0B); border-radius:4px;"></div>
+            <div style="font-size:0.7rem; color:#888; text-align:center; font-weight:700; text-transform:uppercase; letter-spacing:0.5px;">Present<br>Perfect</div>
+          </div>
+          <div style="background:#F59E0B; color:white; border-radius:14px; padding:14px 20px; text-align:center; font-weight:700; font-size:0.88rem; min-width:130px;">
+            <div style="font-size:1.3rem; margin-bottom:4px;">⚡</div>
+            NOW<br><span style="font-weight:400; font-size:0.78rem; opacity:0.85;">Зараз</span><br>
+            <span style="font-size:0.78rem; margin-top:4px; display:block; background:rgba(255,255,255,0.2); border-radius:6px; padding:3px 6px;">result still matters</span>
+          </div>
+        </div>
+
+        <!-- Bridge examples -->
+        <div style="display:flex; flex-direction:column; gap:10px;">
+
+          <div style="background:white; border-radius:14px; padding:16px 18px; display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px; align-items:start;">
+            <div>
+              <div style="font-size:0.7rem; font-weight:800; text-transform:uppercase; letter-spacing:0.5px; color:#A78BFA; margin-bottom:4px;">📖 PAST action</div>
+              <div style="font-weight:700; font-size:0.92rem;">I lost my keys.</div>
+              <div style="font-size:0.8rem; color:#999; margin-top:2px;">(sometime before — колись раніше)</div>
+            </div>
+            <div>
+              <div style="font-size:0.7rem; font-weight:800; text-transform:uppercase; letter-spacing:0.5px; color:#F59E0B; margin-bottom:4px;">⚡ PRESENT result</div>
+              <div style="font-weight:700; font-size:0.92rem;">I can't get into my flat!</div>
+              <div style="font-size:0.8rem; color:#999; margin-top:2px;">(NOW — прямо зараз)</div>
+            </div>
+            <div style="grid-column:1/-1; background:#fffbeb; border-radius:10px; padding:10px 14px; font-size:0.88rem;">
+              🌉 <strong>"I <span style="color:#F59E0B">have lost</span> my keys"</strong> — tells the listener: something happened AND it affects this moment.<br>
+              <span style="color:#888; font-size:0.82rem;">Повідомляє: щось сталось І це впливає на цей момент.</span>
+            </div>
+          </div>
+
+          <div style="background:white; border-radius:14px; padding:16px 18px; display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px; align-items:start;">
+            <div>
+              <div style="font-size:0.7rem; font-weight:800; text-transform:uppercase; letter-spacing:0.5px; color:#A78BFA; margin-bottom:4px;">📖 PAST action</div>
+              <div style="font-weight:700; font-size:0.92rem;">She studied medicine.</div>
+              <div style="font-size:0.8rem; color:#999; margin-top:2px;">(in the past — у минулому)</div>
+            </div>
+            <div>
+              <div style="font-size:0.7rem; font-weight:800; text-transform:uppercase; letter-spacing:0.5px; color:#F59E0B; margin-bottom:4px;">⚡ PRESENT result</div>
+              <div style="font-weight:700; font-size:0.92rem;">She is a doctor now!</div>
+              <div style="font-size:0.8rem; color:#999; margin-top:2px;">(NOW — прямо зараз)</div>
+            </div>
+            <div style="grid-column:1/-1; background:#fffbeb; border-radius:10px; padding:10px 14px; font-size:0.88rem;">
+              🌉 <strong>"She <span style="color:#F59E0B">has studied</span> medicine"</strong> → her past study shaped who she is today.<br>
+              <span style="color:#888; font-size:0.82rem;">Навчання у минулому сформувало те, ким вона є сьогодні.</span>
+            </div>
+          </div>
+
+          <div style="background:white; border-radius:14px; padding:16px 18px; display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px; align-items:start;">
+            <div>
+              <div style="font-size:0.7rem; font-weight:800; text-transform:uppercase; letter-spacing:0.5px; color:#A78BFA; margin-bottom:4px;">📖 PAST action</div>
+              <div style="font-weight:700; font-size:0.92rem;">It rained.</div>
+              <div style="font-size:0.8rem; color:#999; margin-top:2px;">(earlier today — раніше сьогодні)</div>
+            </div>
+            <div>
+              <div style="font-size:0.7rem; font-weight:800; text-transform:uppercase; letter-spacing:0.5px; color:#F59E0B; margin-bottom:4px;">⚡ PRESENT result</div>
+              <div style="font-weight:700; font-size:0.92rem;">The streets are wet.</div>
+              <div style="font-size:0.8rem; color:#999; margin-top:2px;">(visible NOW — видно зараз)</div>
+            </div>
+            <div style="grid-column:1/-1; background:#fffbeb; border-radius:10px; padding:10px 14px; font-size:0.88rem;">
+              🌉 <strong>"It <span style="color:#F59E0B">has rained</span>"</strong> — you can see the result right now, even if you don't know exactly when.<br>
+              <span style="color:#888; font-size:0.82rem;">Результат видно прямо зараз, навіть якщо не знаєш, коли саме пішов дощ.</span>
+            </div>
+          </div>
+
+        </div>
+
+        <div style="margin-top:16px; background:rgba(245,158,11,0.1); border-radius:12px; padding:14px 16px; font-size:0.88rem; border-left:4px solid #F59E0B;">
+          💡 <strong>Ask yourself / Запитай себе:</strong> "Does the past action still matter right now? Is there a visible result, a feeling, or a consequence in this moment?"<br>
+          <span style="color:#888">«Чи ця минула дія досі важлива зараз? Чи є видимий результат, відчуття або наслідок у цю мить?»</span><br>
+          If YES → <strong style="color:#F59E0B">use Present Perfect 🌉</strong> / Якщо ТАК → <strong style="color:#F59E0B">вживай Present Perfect</strong>
+        </div>
+      </div>
+
+      <div style="margin-bottom:20px; background:#fffbeb; border-radius:14px; padding:16px; font-size:0.88rem; border: 2px solid #F59E0B;">
+        <strong>🆚 Present Perfect vs Past Simple — Key Difference / Ключова різниця</strong><br><br>
+        <strong style="color:#F59E0B">Present Perfect:</strong> no specific time / без конкретного часу → <em>"I have visited Rome."</em><br>
+        <strong style="color:#A78BFA">Past Simple:</strong> specific time mentioned / конкретний час → <em>"I visited Rome <u>in 2019</u>."</em><br><br>
+        💡 If you say WHEN → use Past Simple! / Якщо кажеш КОЛИ → Past Simple!
+      </div>
+
+      <div class="formula-section">
+        <div class="formula-label">📐 Formula / Формула</div>
+        <div class="formulas">
+          <div class="formula-row">
+            <div class="f-type">✅ (+)</div>
+            <div class="formula-box">
+              <span class="f-word pp-fw">Subject</span>
+              <span class="f-plus">+</span>
+              <span class="f-word" style="background:#aaa">have / has</span>
+              <span class="f-plus">+</span>
+              <span class="f-word pp-fw">past participle (3rd form)</span>
+            </div>
+          </div>
+          <div class="formula-row">
+            <div class="f-type">❌ (−)</div>
+            <div class="formula-box">
+              <span class="f-word pp-fw">Subject</span>
+              <span class="f-plus">+</span>
+              <span class="f-word" style="background:#aaa">haven't / hasn't</span>
+              <span class="f-plus">+</span>
+              <span class="f-word pp-fw">past participle</span>
+            </div>
+          </div>
+          <div class="formula-row">
+            <div class="f-type">❓ (?)</div>
+            <div class="formula-box">
+              <span class="f-word" style="background:#aaa">Have / Has</span>
+              <span class="f-plus">+</span>
+              <span class="f-word pp-fw">subject</span>
+              <span class="f-plus">+</span>
+              <span class="f-word pp-fw">past participle</span>
+              <span class="f-plus">?</span>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:10px; background:#fffbeb; border-radius:10px; padding:12px; font-size:0.88rem;">
+          <strong>have/has:</strong> I/You/We/They → <strong>have</strong> | He/She/It → <strong>has</strong><br>
+          <span style="color:#888">Past participle = 3rd form: eat→<strong>eaten</strong>, go→<strong>gone</strong>, see→<strong>seen</strong>, write→<strong>written</strong></span>
+        </div>
+      </div>
+
+      <div class="signals">
+        <div class="signals-label">⏰ Signal Words / Слова-підказки</div>
+        <div class="signals-wrap">
+          <span class="signal-chip pp-chip">just / щойно</span>
+          <span class="signal-chip pp-chip">already / вже</span>
+          <span class="signal-chip pp-chip">yet / ще (в питаннях/запереченнях)</span>
+          <span class="signal-chip pp-chip">ever / коли-небудь</span>
+          <span class="signal-chip pp-chip">never / ніколи</span>
+          <span class="signal-chip pp-chip">for / протягом</span>
+          <span class="signal-chip pp-chip">since / з (певного часу)</span>
+          <span class="signal-chip pp-chip">recently / нещодавно</span>
+        </div>
+      </div>
+
+      <div class="examples-section">
+        <div class="examples-label">💬 Examples / Приклади</div>
+        <div class="example-list">
+          <div class="example-item">
+            <div class="ex-icon">✅</div>
+            <div class="ex-content">
+              <div class="ex-en">I <strong>have just finished</strong> my homework.</div>
+              <div class="ex-uk">Я щойно закінчив домашнє завдання.</div>
+              <div class="ex-note">Just completed — щойно завершено</div>
+            </div>
+          </div>
+          <div class="example-item">
+            <div class="ex-icon">✅</div>
+            <div class="ex-content">
+              <div class="ex-en">She <strong>has lived</strong> in Kyiv for 10 years.</div>
+              <div class="ex-uk">Вона живе у Києві вже 10 років.</div>
+              <div class="ex-note">Unfinished situation — незакінчена ситуація</div>
+            </div>
+          </div>
+          <div class="example-item">
+            <div class="ex-icon">✅</div>
+            <div class="ex-content">
+              <div class="ex-en"><strong>Have</strong> you ever <strong>tried</strong> sushi?</div>
+              <div class="ex-uk">Ти коли-небудь пробував суші?</div>
+              <div class="ex-note">Life experience — досвід у житті</div>
+            </div>
+          </div>
+          <div class="example-item">
+            <div class="ex-icon">❌</div>
+            <div class="ex-content">
+              <div class="ex-en">I <strong>haven't seen</strong> him yet.</div>
+              <div class="ex-uk">Я ще його не бачив.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:#fffbeb; border-radius:14px; padding:16px; margin-top:12px; font-size:0.88rem;">
+        <strong>🔑 for vs since / "протягом" та "з":</strong><br>
+        <strong>for</strong> + period of time (відрізок часу): for 2 hours, for a week, for 10 years<br>
+        <strong>since</strong> + point in time (конкретна точка часу): since Monday, since 2020, since I was a child
+      </div>
+
+      <div class="mistakes">
+        <h4>⚠️ Common Mistakes / Типові помилки</h4>
+        <div class="mistake-item">
+          <div class="m-wrong">✗ I have seen him yesterday.</div>
+          <div class="m-arr">→</div>
+          <div class="m-right">✓ I <u>saw</u> him yesterday. (specific time → Past Simple)</div>
+        </div>
+        <div class="mistake-item">
+          <div class="m-wrong">✗ She has <u>went</u> home.</div>
+          <div class="m-arr">→</div>
+          <div class="m-right">✓ She has <u>gone</u> home. (3rd form, not 2nd!)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =================== FUTURE SIMPLE =================== -->
+  <div class="tense-card fut-color">
+    <div class="tense-header" data-emoji="🚀">
+      <div class="tense-name">Future Simple</div>
+      <div class="tense-name-uk">Майбутній простий час</div>
+      <div class="tense-tagline">Decisions, predictions & promises / Рішення, прогнози і обіцянки</div>
+    </div>
+    <div class="tense-body">
+
+      <div class="use-title">🎯 When do we use it? / Коли вживаємо?</div>
+      <div class="use-grid">
+        <div class="use-item"><strong>💡 Spontaneous decisions</strong><em>Спонтанні рішення</em><br>"I'll help you!" (decided now)<br><i>Вирішили прямо зараз</i></div>
+        <div class="use-item"><strong>🔮 Predictions / Forecasts</strong><em>Прогнози</em><br>I think it will rain tomorrow<br><i>Думаю, завтра буде дощ</i></div>
+        <div class="use-item"><strong>🤝 Promises & offers</strong><em>Обіцянки та пропозиції</em><br>I'll always love you ❤️<br><i>Я завжди буду тебе любити</i></div>
+        <div class="use-item"><strong>⚡ Threats & warnings</strong><em>Попередження</em><br>If you don't stop, I'll call mum!<br><i>Якщо не зупинишся, покличу маму!</i></div>
+      </div>
+
+      <div class="formula-section">
+        <div class="formula-label">📐 Formula / Формула</div>
+        <div class="formulas">
+          <div class="formula-row">
+            <div class="f-type">✅ (+)</div>
+            <div class="formula-box">
+              <span class="f-word fut-fw">Subject</span>
+              <span class="f-plus">+</span>
+              <span class="f-word" style="background:#aaa">will</span>
+              <span class="f-plus">+</span>
+              <span class="f-word fut-fw">verb (base)</span>
+            </div>
+          </div>
+          <div class="formula-row">
+            <div class="f-type">❌ (−)</div>
+            <div class="formula-box">
+              <span class="f-word fut-fw">Subject</span>
+              <span class="f-plus">+</span>
+              <span class="f-word" style="background:#aaa">won't</span>
+              <span class="f-plus">+</span>
+              <span class="f-word fut-fw">verb (base)</span>
+            </div>
+          </div>
+          <div class="formula-row">
+            <div class="f-type">❓ (?)</div>
+            <div class="formula-box">
+              <span class="f-word" style="background:#aaa">Will</span>
+              <span class="f-plus">+</span>
+              <span class="f-word fut-fw">subject</span>
+              <span class="f-plus">+</span>
+              <span class="f-word fut-fw">verb (base)</span>
+              <span class="f-plus">?</span>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:10px; background:#eff6ff; border-radius:10px; padding:12px; font-size:0.88rem;">
+          <strong>will</strong> = однакове для ВСІХ осіб! / Same for ALL persons!<br>
+          I will, you will, he/she/it will, we will, they will<br>
+          <span style="color:#3B82F6">Короткі форми: I'll, you'll, he'll, she'll, we'll, they'll | won't = will not</span>
+        </div>
+      </div>
+
+      <div class="signals">
+        <div class="signals-label">⏰ Signal Words / Слова-підказки</div>
+        <div class="signals-wrap">
+          <span class="signal-chip fut-chip">tomorrow / завтра</span>
+          <span class="signal-chip fut-chip">next week / наступного тижня</span>
+          <span class="signal-chip fut-chip">in 2030</span>
+          <span class="signal-chip fut-chip">soon / незабаром</span>
+          <span class="signal-chip fut-chip">I think... / я думаю...</span>
+          <span class="signal-chip fut-chip">probably / мабуть</span>
+          <span class="signal-chip fut-chip">I'm sure / я впевнений</span>
+        </div>
+      </div>
+
+      <div class="examples-section">
+        <div class="examples-label">💬 Examples / Приклади</div>
+        <div class="example-list">
+          <div class="example-item">
+            <div class="ex-icon">✅</div>
+            <div class="ex-content">
+              <div class="ex-en">Don't worry, I <strong>'ll help</strong> you with that!</div>
+              <div class="ex-uk">Не хвилюйся, я допоможу тобі з цим!</div>
+              <div class="ex-note">Spontaneous decision / offer — спонтанне рішення</div>
+            </div>
+          </div>
+          <div class="example-item">
+            <div class="ex-icon">✅</div>
+            <div class="ex-content">
+              <div class="ex-en">I think robots <strong>will replace</strong> many jobs in the future.</div>
+              <div class="ex-uk">Думаю, роботи замінять багато робочих місць у майбутньому.</div>
+              <div class="ex-note">Prediction — прогноз</div>
+            </div>
+          </div>
+          <div class="example-item">
+            <div class="ex-icon">✅</div>
+            <div class="ex-content">
+              <div class="ex-en">I <strong>won't forget</strong> your birthday, I promise!</div>
+              <div class="ex-uk">Я не забуду твій день народження, обіцяю!</div>
+              <div class="ex-note">Promise — обіцянка</div>
+            </div>
+          </div>
+          <div class="example-item">
+            <div class="ex-icon">❓</div>
+            <div class="ex-content">
+              <div class="ex-en"><strong>Will</strong> you <strong>come</strong> to the party?</div>
+              <div class="ex-uk">Ти прийдеш на вечірку?</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="short-ans">
+        <div class="nq-title" style="color:#059669">✅ Short Answers / Короткі відповіді</div>
+        <div class="short-grid">
+          <div class="short-item"><span>Yes, I will. / Yes, she will.</span></div>
+          <div class="short-item"><span>No, I won't. / No, he won't.</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =================== BE GOING TO =================== -->
+  <div class="tense-card going-color">
+    <div class="tense-header" data-emoji="🗓️">
+      <div class="tense-name">Be Going To</div>
+      <div class="tense-name-uk">Майбутнє: плани та наміри</div>
+      <div class="tense-tagline">Plans, intentions & obvious predictions / Плани, наміри та очевидні прогнози</div>
+    </div>
+    <div class="tense-body">
+
+      <div class="use-title">🎯 When do we use it? / Коли вживаємо?</div>
+      <div class="use-grid">
+        <div class="use-item"><strong>📅 Plans & Intentions</strong><em>Плани та наміри</em><br>I'm going to study medicine<br><i>Збираюся вивчати медицину</i></div>
+        <div class="use-item"><strong>👁️ Evidence-based predictions</strong><em>Очевидні прогнози</em><br>Look at those clouds! It's going to rain!<br><i>Ось-ось піде дощ! (бачимо хмари)</i></div>
+        <div class="use-item"><strong>💬 Decisions already made</strong><em>Вже прийняті рішення</em><br>We're going to move to a new city<br><i>Ми вже вирішили переїхати</i></div>
+        <div class="use-item"><strong>🎯 Near future intentions</strong><em>Наміри на найближче майбутнє</em><br>She's going to call you later<br><i>Вона збирається зателефонувати</i></div>
+      </div>
+
+      <div style="margin-bottom:20px; background:#d1fae5; border-radius:14px; padding:16px; font-size:0.88rem; border: 2px solid #10B981;">
+        <strong>🆚 Will vs Going to — Key Difference / Ключова різниця</strong><br><br>
+        <strong style="color:#3B82F6">Will:</strong> spontaneous decision (decides NOW) / спонтанне рішення (вирішив ЗАРАЗ)<br>
+        → <em>"The phone is ringing." — "I'll answer it!"</em><br><br>
+        <strong style="color:#10B981">Going to:</strong> pre-planned intention (decided BEFORE) / вже заплановано (вирішив РАНІШЕ)<br>
+        → <em>"I'm going to call her tonight." (I planned this earlier)</em>
+      </div>
+
+      <div class="formula-section">
+        <div class="formula-label">📐 Formula / Формула</div>
+        <div class="formulas">
+          <div class="formula-row">
+            <div class="f-type">✅ (+)</div>
+            <div class="formula-box">
+              <span class="f-word going-fw">Subject</span>
+              <span class="f-plus">+</span>
+              <span class="f-word" style="background:#aaa">am/is/are</span>
+              <span class="f-plus">+</span>
+              <span class="f-word going-fw">going to</span>
+              <span class="f-plus">+</span>
+              <span class="f-word going-fw">verb</span>
+            </div>
+          </div>
+          <div class="formula-row">
+            <div class="f-type">❌ (−)</div>
+            <div class="formula-box">
+              <span class="f-word going-fw">Subject</span>
+              <span class="f-plus">+</span>
+              <span class="f-word" style="background:#aaa">am/is/are not</span>
+              <span class="f-plus">+</span>
+              <span class="f-word going-fw">going to</span>
+              <span class="f-plus">+</span>
+              <span class="f-word going-fw">verb</span>
+            </div>
+          </div>
+          <div class="formula-row">
+            <div class="f-type">❓ (?)</div>
+            <div class="formula-box">
+              <span class="f-word" style="background:#aaa">Am/Is/Are</span>
+              <span class="f-plus">+</span>
+              <span class="f-word going-fw">subject</span>
+              <span class="f-plus">+</span>
+              <span class="f-word going-fw">going to</span>
+              <span class="f-plus">+</span>
+              <span class="f-word going-fw">verb</span>
+              <span class="f-plus">?</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="signals">
+        <div class="signals-label">⏰ Signal Words / Слова-підказки</div>
+        <div class="signals-wrap">
+          <span class="signal-chip going-chip">tonight / сьогодні ввечері</span>
+          <span class="signal-chip going-chip">this summer / цього літа</span>
+          <span class="signal-chip going-chip">next year / наступного року</span>
+          <span class="signal-chip going-chip">soon / незабаром</span>
+          <span class="signal-chip going-chip">Look! / Дивись! (evidence)</span>
+        </div>
+      </div>
+
+      <div class="examples-section">
+        <div class="examples-label">💬 Examples / Приклади</div>
+        <div class="example-list">
+          <div class="example-item">
+            <div class="ex-icon">✅</div>
+            <div class="ex-content">
+              <div class="ex-en">I <strong>am going to</strong> start gym next Monday.</div>
+              <div class="ex-uk">Я збираюся почати ходити до спортзалу наступного понеділка.</div>
+              <div class="ex-note">Pre-planned intention — вже заплановано</div>
+            </div>
+          </div>
+          <div class="example-item">
+            <div class="ex-icon">✅</div>
+            <div class="ex-content">
+              <div class="ex-en">Look at him! He <strong>'s going to fall</strong>!</div>
+              <div class="ex-uk">Дивись на нього! Він зараз впаде!</div>
+              <div class="ex-note">Evidence-based prediction — очевидно з ситуації</div>
+            </div>
+          </div>
+          <div class="example-item">
+            <div class="ex-icon">✅</div>
+            <div class="ex-content">
+              <div class="ex-en">They <strong>are going to get</strong> married in June.</div>
+              <div class="ex-uk">Вони одружуються у червні. (вже вирішено)</div>
+            </div>
+          </div>
+          <div class="example-item">
+            <div class="ex-icon">❌</div>
+            <div class="ex-content">
+              <div class="ex-en">She <strong>isn't going to</strong> take that job.</div>
+              <div class="ex-uk">Вона не збирається брати цю роботу.</div>
+            </div>
+          </div>
+          <div class="example-item">
+            <div class="ex-icon">❓</div>
+            <div class="ex-content">
+              <div class="ex-en"><strong>Are</strong> you <strong>going to</strong> visit your grandma?</div>
+              <div class="ex-uk">Ти збираєшся відвідати бабусю?</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="short-ans">
+        <div class="nq-title" style="color:#059669">✅ Short Answers / Короткі відповіді</div>
+        <div class="short-grid">
+          <div class="short-item"><span>Yes, I am. / Yes, she is.</span></div>
+          <div class="short-item"><span>No, I'm not. / No, he isn't.</span></div>
+        </div>
+      </div>
+
+      <div class="mistakes">
+        <h4>⚠️ Common Mistakes / Типові помилки</h4>
+        <div class="mistake-item">
+          <div class="m-wrong">✗ I am going to <u>going</u> there.</div>
+          <div class="m-arr">→</div>
+          <div class="m-right">✓ I am going to <u>go</u> there. (base verb!)</div>
+        </div>
+        <div class="mistake-item">
+          <div class="m-wrong">✗ He <u>is gonna</u> win. (written English)</div>
+          <div class="m-arr">→</div>
+          <div class="m-right">✓ He <u>is going to</u> win. (formal writing)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- QUICK COMPARISON TABLE -->
+<!-- QUICK COMPARISON TABLE -->
+<div style="max-width:960px; margin:40px auto; padding:0 14px;">
+  <div style="background:white; border-radius:24px; padding:clamp(16px,4vw,32px); box-shadow:0 8px 40px rgba(0,0,0,0.1);">
+    <div class="section-title" style="text-align:left; margin-bottom:6px;">📊 Quick Reference / Швидке порівняння</div>
+    <p style="color:#666; margin-bottom:20px; font-size:0.95rem;">All 6 tenses at a glance / Усі 6 часів одним поглядом</p>
+    <p style="display:none; color:#aaa; font-size:0.75rem; margin-bottom:6px;" id="table-hint">← scroll sideways →</p>
+    <div style="overflow-x:auto; -webkit-overflow-scrolling:touch;" onscroll="document.getElementById('table-hint').style.display='none'">
+      <table style="width:100%; min-width:520px; border-collapse:collapse; font-size:0.88rem;">
+        <thead>
+          <tr style="background:#f4f4f8;">
+            <th style="padding:12px; text-align:left; border-radius:10px 0 0 10px; font-weight:800;">Tense / Час</th>
+            <th style="padding:12px; text-align:left; font-weight:800;">Use / Вживання</th>
+            <th style="padding:12px; text-align:left; font-weight:800;">Key Signal</th>
+            <th style="padding:12px; text-align:left; border-radius:0 10px 10px 0; font-weight:800;">Example</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid #f0f0f0;">
+            <td style="padding:12px;"><span style="background:#FF6B6B; color:white; padding:3px 10px; border-radius:6px; font-weight:700; font-size:0.8rem;">Present Simple</span></td>
+            <td style="padding:12px;">Habits, facts / Звички, факти</td>
+            <td style="padding:12px; color:#888;">every day, always</td>
+            <td style="padding:12px;">She <strong>plays</strong> piano.</td>
+          </tr>
+          <tr style="border-bottom:1px solid #f0f0f0; background:#fafafa;">
+            <td style="padding:12px;"><span style="background:#4ECDC4; color:white; padding:3px 10px; border-radius:6px; font-weight:700; font-size:0.8rem;">Present Cont.</span></td>
+            <td style="padding:12px;">Right now / Прямо зараз</td>
+            <td style="padding:12px; color:#888;">now, at the moment</td>
+            <td style="padding:12px;">She <strong>is playing</strong> now.</td>
+          </tr>
+          <tr style="border-bottom:1px solid #f0f0f0;">
+            <td style="padding:12px;"><span style="background:#A78BFA; color:white; padding:3px 10px; border-radius:6px; font-weight:700; font-size:0.8rem;">Past Simple</span></td>
+            <td style="padding:12px;">Completed past / Минула дія</td>
+            <td style="padding:12px; color:#888;">yesterday, ago, in 2020</td>
+            <td style="padding:12px;">She <strong>played</strong> yesterday.</td>
+          </tr>
+          <tr style="border-bottom:1px solid #f0f0f0; background:#fafafa;">
+            <td style="padding:12px;"><span style="background:#F59E0B; color:white; padding:3px 10px; border-radius:6px; font-weight:700; font-size:0.8rem;">Present Perfect</span></td>
+            <td style="padding:12px;">Experience / Досвід, результат</td>
+            <td style="padding:12px; color:#888;">just, already, ever, for, since</td>
+            <td style="padding:12px;">She <strong>has played</strong> twice.</td>
+          </tr>
+          <tr style="border-bottom:1px solid #f0f0f0;">
+            <td style="padding:12px;"><span style="background:#3B82F6; color:white; padding:3px 10px; border-radius:6px; font-weight:700; font-size:0.8rem;">Future Simple</span></td>
+            <td style="padding:12px;">Decisions, predictions / Рішення, прогнози</td>
+            <td style="padding:12px; color:#888;">tomorrow, I think, probably</td>
+            <td style="padding:12px;">She <strong>will play</strong> tomorrow.</td>
+          </tr>
+          <tr>
+            <td style="padding:12px;"><span style="background:#10B981; color:white; padding:3px 10px; border-radius:6px; font-weight:700; font-size:0.8rem;">Going to</span></td>
+            <td style="padding:12px;">Plans, intentions / Плани, наміри</td>
+            <td style="padding:12px; color:#888;">tonight, this summer, Look!</td>
+            <td style="padding:12px;">She <strong>is going to play</strong> tonight.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div style="font-size:2rem; margin-bottom:12px;">🎓</div>
+  <strong>You've got this! Ти впораєшся!</strong><br>
+  Practice every day — and English tenses will become easy! 💪<br>
+  Практикуй щодня — і часи стануть легкими!
+</footer>
+
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+  // Show table scroll hint on narrow screens
+  if (window.innerWidth < 640) {
+    var hint = document.getElementById('table-hint');
+    if (hint) hint.style.display = 'block';
+  }
+</script>
+
+</body>
+</html>

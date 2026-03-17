@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tense Consistency — English Grammar for Everyone!</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --yellow: #FFD93D;
+    --orange: #FF6B35;
+    --pink: #FF6B9D;
+    --blue: #4ECDC4;
+    --purple: #A78BFA;
+    --green: #6BCB77;
+    --dark: #1a1a2e;
+    --light: #FFFBF0;
+    --card-bg: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--light);
+    color: var(--dark);
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    padding: 60px 20px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(78,205,196,.25) 0%, transparent 60%),
+                radial-gradient(circle at 80% 30%, rgba(255,107,157,.2) 0%, transparent 55%);
+  }
+  .hero-emoji { font-size: 5rem; display: block; margin-bottom: 16px; animation: float 3s ease-in-out infinite; }
+  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
+
+  .hero h1 {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(2.4rem, 6vw, 4.5rem);
+    color: #fff;
+    line-height: 1.1;
+    position: relative;
+  }
+  .hero h1 span { color: var(--yellow); }
+  .hero-sub {
+    font-size: 1.2rem;
+    color: rgba(255,255,255,.8);
+    margin-top: 14px;
+    position: relative;
+  }
+
+  /* ── LAYOUT ── */
+  .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+  section { padding: 60px 0; }
+
+  /* ── SECTION HEADINGS ── */
+  .section-label {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.9rem;
+    margin-bottom: 28px;
+  }
+  .section-label .badge {
+    background: var(--yellow); color: var(--dark);
+    border-radius: 50px; padding: 4px 18px;
+    font-size: 1rem;
+  }
+
+  /* ── WHAT IS CARD ── */
+  .big-card {
+    background: var(--dark);
+    color: #fff;
+    border-radius: 24px;
+    padding: 36px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .big-card::after {
+    content: '🕐';
+    position: absolute; right: -10px; bottom: -20px;
+    font-size: 9rem; opacity: .08;
+  }
+  .big-card p { font-size: 1.1rem; line-height: 1.8; margin-bottom: 14px; }
+  .big-card .uk { color: var(--yellow); font-weight: 700; }
+  .big-card .en { color: var(--blue); }
+
+  /* ── TIMELINE / TENSE CHART ── */
+  .timeline-wrap {
+    background: linear-gradient(135deg, #f8f4ff 0%, #fff0f8 100%);
+    border-radius: 24px;
+    padding: 36px;
+    box-shadow: 0 8px 30px rgba(167,139,250,.15);
+  }
+  .timeline-row {
+    display: flex; align-items: stretch; gap: 0;
+    margin: 24px 0;
+  }
+  .tense-block {
+    flex: 1;
+    border-radius: 16px;
+    padding: 20px 16px;
+    text-align: center;
+    position: relative;
+    transition: transform .25s;
+    cursor: default;
+  }
+  .tense-block:hover { transform: translateY(-6px); }
+  .tense-block .icon { font-size: 2.4rem; display: block; margin-bottom: 8px; }
+  .tense-block h3 { font-family: 'Fredoka One', cursive; font-size: 1.25rem; margin-bottom: 6px; }
+  .tense-block p { font-size: .82rem; line-height: 1.5; }
+  .tense-block small { display: block; margin-top: 8px; font-weight: 800; font-size: .78rem; opacity: .7; }
+  .past-b { background: #FFE8CC; color: #7c4a00; }
+  .present-b { background: #C8F7C5; color: #1a5c12; }
+  .future-b { background: #C8E6FF; color: #0a3d6e; }
+
+  .arrow-sep { display: flex; align-items: center; padding: 0 8px; }
+  .arrow-sep::after { content: '→'; font-size: 1.8rem; color: #ccc; }
+
+  /* ── FORMULA BOX ── */
+  .formula-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 20px; }
+  .formula-card {
+    border-radius: 18px; padding: 24px 22px;
+    position: relative; overflow: hidden;
+  }
+  .formula-card h4 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.2rem; margin-bottom: 10px;
+  }
+  .formula-card .formula {
+    background: rgba(0,0,0,.07);
+    border-radius: 10px; padding: 10px 14px;
+    font-family: monospace; font-size: .95rem;
+    font-weight: 700; letter-spacing: .5px;
+    margin-bottom: 12px;
+  }
+  .formula-card ul { list-style: none; }
+  .formula-card ul li { padding: 4px 0; font-size: .88rem; }
+  .formula-card ul li::before { content: '✦ '; }
+  .fc-past { background: #FFF0E0; color: #7c4a00; }
+  .fc-present { background: #E8FFEA; color: #1a5c12; }
+  .fc-future { background: #E0F0FF; color: #0a3d6e; }
+
+  /* ── SENTENCE TRANSFORMER ── */
+  .transformer {
+    background: var(--dark);
+    border-radius: 24px;
+    padding: 40px;
+    color: #fff;
+    overflow: hidden;
+    position: relative;
+  }
+  .transformer::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 70% 30%, rgba(78,205,196,.15) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .transformer h3 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.6rem; margin-bottom: 8px; color: var(--yellow);
+  }
+  .transformer .base-sentence {
+    font-size: 1.4rem; font-weight: 800;
+    background: var(--yellow); color: var(--dark);
+    border-radius: 10px; display: inline-block;
+    padding: 8px 22px; margin: 16px 0 28px;
+  }
+  .tense-rows { display: flex; flex-direction: column; gap: 14px; }
+  .tense-row-item {
+    display: grid; grid-template-columns: 140px 1fr 1fr;
+    gap: 12px; align-items: center;
+  }
+  .tense-tag {
+    border-radius: 50px; padding: 6px 14px;
+    font-weight: 800; font-size: .85rem; text-align: center;
+  }
+  .tense-row-item .sent-en {
+    background: rgba(255,255,255,.07);
+    border-radius: 10px; padding: 10px 14px;
+    font-size: .95rem; color: var(--blue);
+    font-weight: 700;
+  }
+  .tense-row-item .sent-uk {
+    background: rgba(255,255,255,.07);
+    border-radius: 10px; padding: 10px 14px;
+    font-size: .9rem; color: var(--yellow);
+    font-style: italic;
+  }
+  @media(max-width:620px){
+    .tense-row-item { grid-template-columns: 1fr; }
+  }
+
+  /* ── CONSISTENCY SECTION ── */
+  .consistency-demo {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+  }
+  @media(max-width:640px){ .consistency-demo { grid-template-columns: 1fr; } }
+  .demo-box { border-radius: 18px; padding: 24px; }
+  .demo-box h4 { font-family: 'Fredoka One', cursive; font-size: 1.1rem; margin-bottom: 14px; }
+  .demo-box p { font-size: .95rem; line-height: 1.7; margin-bottom: 8px; }
+  .demo-box p:last-child { margin-bottom: 0; }
+  .demo-box em { font-style: normal; font-weight: 800; }
+  .wrong-box { background: #FFE8E8; color: #7c0000; border: 2.5px solid #ff6b6b; }
+  .right-box { background: #E8FFE8; color: #1a5c00; border: 2.5px solid #6bcb77; }
+  .wrong-box h4::before { content: '❌ '; }
+  .right-box h4::before { content: '✅ '; }
+  .highlight-wrong { background: #ff6b6b; color: #fff; border-radius: 4px; padding: 1px 5px; }
+  .highlight-right { background: #6bcb77; color: #fff; border-radius: 4px; padding: 1px 5px; }
+
+
+
+  /* ── INFOGRAPHIC STRIP ── */
+  .rules-strip { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin: 30px 0; }
+  .rule-chip {
+    background: #fff; border-radius: 50px; padding: 14px 22px;
+    display: flex; align-items: center; gap: 10px;
+    font-weight: 700; font-size: .95rem;
+    box-shadow: 0 4px 14px rgba(0,0,0,.08);
+    border: 2px solid transparent;
+    transition: transform .2s;
+  }
+  .rule-chip:hover { transform: scale(1.04); }
+  .rule-chip .num {
+    width: 32px; height: 32px;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-family: 'Fredoka One', cursive; font-size: 1rem; color: #fff; flex-shrink: 0;
+  }
+  .rc1 { border-color: var(--orange); } .rc1 .num { background: var(--orange); }
+  .rc2 { border-color: var(--blue); }   .rc2 .num { background: var(--blue); }
+  .rc3 { border-color: var(--pink); }   .rc3 .num { background: var(--pink); }
+  .rc4 { border-color: var(--purple); } .rc4 .num { background: var(--purple); }
+  .rc5 { border-color: var(--green); }  .rc5 .num { background: var(--green); }
+
+  /* ── MINI QUIZ ── */
+  .quiz-card {
+    background: linear-gradient(135deg, var(--dark) 0%, #16213e 100%);
+    border-radius: 24px; padding: 36px 40px; color: #fff;
+  }
+  .quiz-card h3 { font-family: 'Fredoka One', cursive; font-size: 1.6rem; color: var(--yellow); margin-bottom: 6px; }
+  .quiz-q { background: rgba(255,255,255,.06); border-radius: 14px; padding: 22px; margin-top: 20px; }
+  .quiz-q p { font-size: 1.05rem; margin-bottom: 14px; font-weight: 600; }
+  .quiz-options { display: flex; flex-wrap: wrap; gap: 10px; }
+  .quiz-btn {
+    border: 2px solid rgba(255,255,255,.2);
+    background: transparent; color: #fff;
+    border-radius: 50px; padding: 8px 22px;
+    cursor: pointer; font-family: 'Nunito', sans-serif;
+    font-size: .95rem; font-weight: 700;
+    transition: all .2s;
+  }
+  .quiz-btn:hover { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.5); }
+  .quiz-btn.correct { background: var(--green); border-color: var(--green); color: #fff; }
+  .quiz-btn.wrong   { background: #ff6b6b; border-color: #ff6b6b; color: #fff; }
+  .quiz-feedback { margin-top: 12px; font-weight: 700; font-size: 1rem; min-height: 24px; }
+  .quiz-feedback.ok  { color: var(--green); }
+  .quiz-feedback.err { color: #ff9090; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--dark); color: rgba(255,255,255,.5);
+    text-align: center; padding: 30px 20px;
+    font-size: .9rem;
+  }
+
+  /* ── BG DECO ── */
+  .bg-deco { background: linear-gradient(180deg, #f8f4ff 0%, var(--light) 100%); }
+
+  /* divider */
+  .wave { width: 100%; overflow: hidden; line-height: 0; }
+  .wave svg { display: block; }
+
+/* ── MOBILE RESPONSIVE ── */
+@media (max-width: 768px) {
+
+  /* Sections */
+  section { padding: 36px 0; }
+  .container { padding: 0 16px; }
+
+  /* Hero */
+  .hero { padding: 40px 16px 56px; }
+  .hero-emoji { font-size: 3.5rem; }
+  .hero-sub { font-size: 1rem; }
+
+  /* Section labels */
+  .section-label {
+    font-size: 1.4rem;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+  .section-label .badge { font-size: .85rem; padding: 3px 14px; }
+
+  /* Big card */
+  .big-card { padding: 24px 20px; }
+  .big-card p { font-size: 1rem; }
+
+  /* Timeline — stack vertically */
+  .timeline-wrap { padding: 20px 16px; }
+  .timeline-row { flex-direction: column; gap: 10px; }
+  .arrow-sep { justify-content: center; padding: 0; }
+  .arrow-sep::after { content: '↓'; font-size: 1.4rem; }
+  .tense-block { padding: 16px 14px; }
+  .tense-block .icon { font-size: 1.8rem; }
+  .tense-block h3 { font-size: 1.1rem; }
+
+  /* Formula grid — single column */
+  .formula-grid { grid-template-columns: 1fr; }
+  .formula-card { padding: 20px 18px; }
+
+  /* Transformer */
+  .transformer { padding: 24px 18px; overflow-x: auto; }
+  .transformer h3 { font-size: 1.3rem; }
+  .transformer .base-sentence { font-size: 1.1rem; padding: 7px 16px; }
+
+  /* Tense row header grid — also responsive */
+  .tense-rows { gap: 10px; }
+  .tense-row-item { grid-template-columns: 1fr; gap: 8px; }
+  .tense-tag { border-radius: 10px; text-align: left; }
+  .tense-row-item .sent-en,
+  .tense-row-item .sent-uk { font-size: .88rem; padding: 8px 12px; }
+
+  /* Header row above tense rows */
+  .tense-rows + div,
+  [style*="grid-template-columns: 140px"] { display: none; }
+
+  /* Consistency demo — single column */
+  .consistency-demo { grid-template-columns: 1fr; gap: 14px; }
+  .demo-box { padding: 18px 16px; }
+  .demo-box p { font-size: .88rem; }
+
+  /* Rules strip */
+  .rules-strip { gap: 10px; }
+  .rule-chip { font-size: .85rem; padding: 10px 16px; width: 100%; }
+
+  /* Quiz */
+  .quiz-card { padding: 24px 18px; }
+  .quiz-card h3 { font-size: 1.3rem; }
+  .quiz-q { padding: 16px; }
+  .quiz-q p { font-size: .95rem; }
+  .quiz-btn { padding: 8px 16px; font-size: .88rem; width: 100%; text-align: center; }
+  .quiz-options { flex-direction: column; }
+
+  /* Cheat sheet inner grid */
+  .transformer ~ div,
+  [style*="grid-template-columns: repeat(auto-fit"] { grid-template-columns: 1fr !important; }
+
+  /* Scroll button */
+  #scroll-top-btn { bottom: 18px; right: 18px; width: 40px; height: 40px; font-size: 16px; }
+}
+
+@media (max-width: 480px) {
+  .hero h1 { font-size: 2rem; }
+  .hero-sub { font-size: .92rem; }
+  .section-label { font-size: 1.2rem; }
+  .big-card p { font-size: .93rem; line-height: 1.7; }
+  .formula-card .formula { font-size: .85rem; }
+  .transformer .base-sentence { font-size: 1rem; }
+}
+
+/* Horizontal scroll for transformer table on very small screens */
+.transformer-scroll-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+#scroll-top-btn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #1a1208;
+  border: 1.5px solid rgba(200,150,62,0.4);
+  color: #f5f0e8;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+  pointer-events: none;
+  z-index: 9998;
+}
+#scroll-top-btn.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+#scroll-top-btn:hover {
+  background: #c8963e;
+  border-color: #c8963e;
+  color: #1a1208;
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <span class="hero-emoji">⏰</span>
+  <h1>Tense <span>Consistency</span><br>in English</h1>
+  <p class="hero-sub">Узгодженість часів — просто, весело, зрозуміло! 🇺🇦🇬🇧</p>
+</div>
+
+<!-- WHAT IS IT -->
+<section>
+  <div class="container">
+    <div class="section-label">🤔 What is it? <span class="badge">Що це?</span></div>
+    <div class="big-card">
+      <p class="en">📌 <strong>Tense Consistency</strong> means using the <em>same tense</em> (time period) throughout a sentence, paragraph, or story — unless you have a good reason to change it. Think of it like a <em>timeline train</em>: all the verbs sit in the same "carriage" of time!</p>
+      <p class="uk">📌 <span class="uk"><strong>Узгодженість часів</strong> — це правило, яке каже: якщо ти розповідаєш про минуле — використовуй минулий час до кінця. Якщо про теперішнє — теперішній. Не "стрибай" між часами без причини! Уяви потяг часу: всі дієслова мають їхати в одному вагоні. 🚂</span></p>
+      <p class="en">💡 It makes your writing <em>clear</em> and <em>logical</em> — like a smooth movie, not a glitchy video.</p>
+      <p class="uk">💡 <span class="uk">Це робить твоє мовлення чітким і логічним — як плавний фільм, а не глючне відео 🎬</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- THE 3 TENSES -->
+<section class="bg-deco">
+  <div class="container">
+    <div class="section-label">🚦 The 3 Main Tenses <span class="badge">3 Основні Часи</span></div>
+    <div class="timeline-wrap">
+
+      <div class="timeline-row">
+        <div class="tense-block past-b">
+          <span class="icon">🔙</span>
+          <h3>PAST</h3>
+          <p><strong>Минулий час</strong> — things that already happened</p>
+          <small>Yesterday • Last week • In 2020 • Вчора</small>
+        </div>
+        <div class="arrow-sep"></div>
+        <div class="tense-block present-b">
+          <span class="icon">🟢</span>
+          <h3>PRESENT</h3>
+          <p><strong>Теперішній час</strong> — things happening now or always</p>
+          <small>Now • Every day • Always • Зараз</small>
+        </div>
+        <div class="arrow-sep"></div>
+        <div class="tense-block future-b">
+          <span class="icon">🔜</span>
+          <h3>FUTURE</h3>
+          <p><strong>Майбутній час</strong> — things that will happen</p>
+          <small>Tomorrow • Next year • Soon • Завтра</small>
+        </div>
+      </div>
+
+      <div style="background:#fff;border-radius:14px;padding:20px 24px;margin-top:20px;text-align:center;">
+        <p style="font-size:1rem;font-weight:700;">🇺🇦 Узгодженість = всі дієслова в реченні (або абзаці) мають бути <em>в одному часі</em>, якщо дія відбувається одночасно.</p>
+        <p style="font-size:1rem;margin-top:8px;">🇬🇧 Consistency = all verbs in one sentence/paragraph stay in the <em>same tense</em> if the actions happen at the same time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULAS -->
+<section>
+  <div class="container">
+    <div class="section-label">🧮 Formulas <span class="badge">Формули</span></div>
+    <div class="formula-grid">
+
+      <div class="formula-card fc-past">
+        <h4>🔙 PAST Tense</h4>
+        <div class="formula">Subject + V-ed / V2<br>I + walked / went</div>
+        <ul>
+          <li>She <strong>cooked</strong> dinner and <strong>watched</strong> TV.</li>
+          <li>Вона <strong>готувала</strong> і <strong>дивилася</strong> ТБ.</li>
+          <li>They <strong>played</strong> and <strong>laughed</strong>.</li>
+          <li>Вони <strong>грали</strong> та <strong>сміялися</strong>.</li>
+        </ul>
+      </div>
+
+      <div class="formula-card fc-present">
+        <h4>🟢 PRESENT Tense</h4>
+        <div class="formula">Subject + V1 (+ -s/es)<br>She + walks / He + goes</div>
+        <ul>
+          <li>He <strong>studies</strong> and <strong>plays</strong> guitar.</li>
+          <li>Він <strong>навчається</strong> і <strong>грає</strong> на гітарі.</li>
+          <li>I <strong>wake up</strong> and <strong>make</strong> coffee.</li>
+          <li>Я <strong>прокидаюся</strong> і <strong>роблю</strong> каву.</li>
+        </ul>
+      </div>
+
+      <div class="formula-card fc-future">
+        <h4>🔜 FUTURE Tense</h4>
+        <div class="formula">Subject + will + V1<br>I + will + go / she will eat</div>
+        <ul>
+          <li>She <strong>will come</strong> and <strong>will bring</strong> food.</li>
+          <li>Вона <strong>прийде</strong> і <strong>принесе</strong> їжу.</li>
+          <li>They <strong>will sing</strong> and <strong>will dance</strong>.</li>
+          <li>Вони <strong>будуть співати</strong> і <strong>танцювати</strong>.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ONE SENTENCE TRANSFORMER -->
+<section class="bg-deco">
+  <div class="container">
+    <div class="section-label">🔄 The Magic Sentence <span class="badge">Одне речення — всі часи!</span></div>
+    <div class="transformer">
+      <h3>🎩 Universal Sentence Transformer</h3>
+      <p style="color:rgba(255,255,255,.7);margin-bottom:8px;">Watch how ONE sentence changes through time — all with the same meaning, just different tenses!</p>
+      <p style="color:rgba(255,255,255,.7);">Дивись, як ОДНЕ речення змінюється в різних часах — той самий сенс, але інший час!</p>
+      <div class="base-sentence">🐶 The dog / my friend / I — eat / clean / go</div>
+
+      <div class="transformer-scroll-wrap">
+      <div style="display:grid;grid-template-columns:140px 1fr 1fr;gap:12px;margin-bottom:12px;padding:0 0 8px;border-bottom:1px solid rgba(255,255,255,.1);min-width:480px;">
+        <span style="font-size:.8rem;font-weight:800;color:rgba(255,255,255,.5);text-transform:uppercase;">Tense / Час</span>
+        <span style="font-size:.8rem;font-weight:800;color:rgba(78,205,196,.7);text-transform:uppercase;">🇬🇧 English</span>
+        <span style="font-size:.8rem;font-weight:800;color:rgba(255,217,61,.7);text-transform:uppercase;">🇺🇦 Ukrainian</span>
+      </div>
+
+      <div class="tense-rows" style="min-width:480px;">
+        <div class="tense-row-item">
+          <span class="tense-tag" style="background:#FFE8CC;color:#7c4a00;">🔙 Past Simple</span>
+          <div class="sent-en">The dog <strong>ate</strong> its food and <strong>slept</strong> all day.</div>
+          <div class="sent-uk">Собака <strong>їла</strong> свою їжу і <strong>спала</strong> весь день.</div>
+        </div>
+        <div class="tense-row-item">
+          <span class="tense-tag" style="background:#FFD6F0;color:#7c0057;">🔙 Past Continuous</span>
+          <div class="sent-en">The dog <strong>was eating</strong> its food and <strong>was sleeping</strong> all day.</div>
+          <div class="sent-uk">Собака <strong>їла</strong> їжу і <strong>спала</strong> (процес) весь день.</div>
+        </div>
+        <div class="tense-row-item">
+          <span class="tense-tag" style="background:#C8F7C5;color:#1a5c12;">🟢 Present Simple</span>
+          <div class="sent-en">The dog <strong>eats</strong> its food and <strong>sleeps</strong> all day.</div>
+          <div class="sent-uk">Собака <strong>їсть</strong> свою їжу і <strong>спить</strong> весь день.</div>
+        </div>
+        <div class="tense-row-item">
+          <span class="tense-tag" style="background:#b6f5d0;color:#0a5c2a;">🟢 Present Continuous</span>
+          <div class="sent-en">The dog <strong>is eating</strong> its food and <strong>is sleeping</strong> right now.</div>
+          <div class="sent-uk">Собака <strong>їсть</strong> зараз і <strong>спить</strong> прямо зараз.</div>
+        </div>
+        <div class="tense-row-item">
+          <span class="tense-tag" style="background:#C8E6FF;color:#0a3d6e;">🔜 Future Simple</span>
+          <div class="sent-en">The dog <strong>will eat</strong> its food and <strong>will sleep</strong> all day.</div>
+          <div class="sent-uk">Собака <strong>з'їсть</strong> свою їжу і <strong>буде спати</strong> весь день.</div>
+        </div>
+        <div class="tense-row-item">
+          <span class="tense-tag" style="background:#d4e8ff;color:#0a2d5e;">🔜 Future Continuous</span>
+          <div class="sent-en">The dog <strong>will be eating</strong> and <strong>will be sleeping</strong> tomorrow.</div>
+          <div class="sent-uk">Собака <strong>буде їсти</strong> і <strong>буде спати</strong> завтра (весь день).</div>
+        </div>
+        <div class="tense-row-item">
+          <span class="tense-tag" style="background:#f0e0ff;color:#4a0080;">✨ Present Perfect</span>
+          <div class="sent-en">The dog <strong>has eaten</strong> its food and <strong>has slept</strong> all day.</div>
+          <div class="sent-uk">Собака <strong>вже з'їла</strong> їжу і <strong>поспала</strong> весь день (результат).</div>
+        </div>
+      </div>
+      </div><!-- end transformer-scroll-wrap -->
+    </div>
+  </div>
+</section>
+<section>
+  <div class="container">
+    <div class="section-label">⚠️ The Rules <span class="badge">Правила</span></div>
+
+    <div class="rules-strip">
+      <div class="rule-chip rc1"><span class="num">1</span> Pick ONE tense per story / Обери ОДИН час</div>
+      <div class="rule-chip rc2"><span class="num">2</span> Don't mix past + present randomly</div>
+      <div class="rule-chip rc3"><span class="num">3</span> Time words help you choose! Yesterday → Past</div>
+      <div class="rule-chip rc4"><span class="num">4</span> You CAN switch — if time truly changes</div>
+      <div class="rule-chip rc5"><span class="num">5</span> Re-read your text and check verbs! ✓</div>
+    </div>
+
+    <div class="consistency-demo">
+      <div class="demo-box wrong-box">
+        <h4>INCONSISTENT (помилка!)</h4>
+        <p>Yesterday I <span class="highlight-wrong">go</span> to the park.<br>I <span class="highlight-wrong">see</span> my friend there.<br>We <strong>talked</strong> for an hour.</p>
+        <p style="font-size:.82rem;margin-top:12px;">🇺🇦 Вчора я <span class="highlight-wrong">йду</span> в парк. Я <span class="highlight-wrong">бачу</span> друга. Ми говорили годину. ← Перемішано!</p>
+      </div>
+      <div class="demo-box right-box">
+        <h4>CONSISTENT (правильно!)</h4>
+        <p>Yesterday I <span class="highlight-right">went</span> to the park.<br>I <span class="highlight-right">saw</span> my friend there.<br>We <span class="highlight-right">talked</span> for an hour.</p>
+        <p style="font-size:.82rem;margin-top:12px;">🇺🇦 Вчора я <span class="highlight-right">пішла</span> в парк. Я <span class="highlight-right">побачила</span> друга. Ми <span class="highlight-right">говорили</span> годину. ← Все Past!</p>
+      </div>
+    </div>
+
+    <div style="margin-top:20px;" class="consistency-demo">
+      <div class="demo-box wrong-box">
+        <h4>INCONSISTENT (story)</h4>
+        <p>She <strong>was cooking</strong> dinner when suddenly the phone <span class="highlight-wrong">rings</span> and she <span class="highlight-wrong">drops</span> the pan.</p>
+        <p style="font-size:.82rem;margin-top:8px;">🇺🇦 Вона готувала вечерю, коли раптом телефон <span class="highlight-wrong">дзвонить</span> і вона <span class="highlight-wrong">кидає</span> каструлю. ← Past + Present!?</p>
+      </div>
+      <div class="demo-box right-box">
+        <h4>CONSISTENT (story)</h4>
+        <p>She <strong>was cooking</strong> dinner when suddenly the phone <span class="highlight-right">rang</span> and she <span class="highlight-right">dropped</span> the pan.</p>
+        <p style="font-size:.82rem;margin-top:8px;">🇺🇦 Вона готувала вечерю, коли раптом телефон <span class="highlight-right">задзвонив</span> і вона <span class="highlight-right">впустила</span> каструлю. ← Все Past!</p>
+      </div>
+    </div>
+
+    <div style="background:#FFF9E0;border-radius:18px;padding:24px 28px;margin-top:20px;border-left:6px solid var(--yellow);">
+      <p style="font-weight:800;font-size:1rem;margin-bottom:10px;">🔑 WHEN can you switch tenses? / Коли можна змінювати час?</p>
+      <p style="font-size:.95rem;line-height:1.8;"><strong>✅ OK:</strong> "When I <em>was</em> young, I <em>loved</em> chocolate. Now I <em>prefer</em> coffee." — past story → present fact<br>
+      🇺🇦 Коли я <em>була</em> маленькою, я <em>любила</em> шоколад. Зараз я <em>надаю перевагу</em> каві. ← Різний час, але логічно!</p>
+      <p style="font-size:.95rem;line-height:1.8;margin-top:8px;"><strong>✅ OK:</strong> "Scientists say the Earth <em>is</em> round." — reporting a permanent truth (always present)<br>
+      🇺🇦 Вчені кажуть, що Земля <em>є</em> круглою. ← Вічна істина = теперішній час завжди.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- MINI QUIZ -->
+<section>
+  <div class="container">
+    <div class="section-label">🎮 Quick Quiz <span class="badge">Перевір себе!</span></div>
+    <div class="quiz-card">
+      <h3>🧪 Test Your Tense Consistency!</h3>
+      <p style="color:rgba(255,255,255,.65);">Pick the consistent version of each sentence. Обери правильний варіант!</p>
+
+      <div class="quiz-q" id="q1">
+        <p>1. Yesterday, she _____ to school and _____ her friends. (consistent past)</p>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="answer(this,'wrong',1)">went … sees</button>
+          <button class="quiz-btn" onclick="answer(this,'correct',1)">went … met</button>
+          <button class="quiz-btn" onclick="answer(this,'wrong',1)">goes … met</button>
+        </div>
+        <div class="quiz-feedback" id="f1"></div>
+      </div>
+
+      <div class="quiz-q" id="q2">
+        <p>2. Every morning I _____ up, _____ breakfast, and _____ to work.</p>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="answer(this,'wrong',2)">woke … had … went</button>
+          <button class="quiz-btn" onclick="answer(this,'wrong',2)">wake … had … go</button>
+          <button class="quiz-btn" onclick="answer(this,'correct',2)">wake … have … go</button>
+        </div>
+        <div class="quiz-feedback" id="f2"></div>
+      </div>
+
+      <div class="quiz-q" id="q3">
+        <p>3. Tomorrow we _____ out and _____ a movie. (future)</p>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="answer(this,'correct',3)">will hang … watch</button>
+          <button class="quiz-btn" onclick="answer(this,'wrong',3)">hung … watch</button>
+          <button class="quiz-btn" onclick="answer(this,'wrong',3)">hang … watched</button>
+        </div>
+        <div class="quiz-feedback" id="f3"></div>
+      </div>
+
+      <div class="quiz-q" id="q4">
+        <p>4. She ran out of ideas, so she _____ a break.</p>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="answer(this,'wrong',4)">takes</button>
+          <button class="quiz-btn" onclick="answer(this,'correct',4)">took</button>
+          <button class="quiz-btn" onclick="answer(this,'wrong',4)">will take</button>
+        </div>
+        <div class="quiz-feedback" id="f4"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SUMMARY CHEATSHEET -->
+<section class="bg-deco">
+  <div class="container">
+    <div class="section-label">📋 Quick Cheat Sheet <span class="badge">Шпаргалка</span></div>
+    <div style="background:var(--dark);border-radius:24px;padding:clamp(20px,4vw,36px);color:#fff;">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;">
+        <div>
+          <p style="font-family:'Fredoka One',cursive;font-size:1.2rem;color:var(--yellow);margin-bottom:12px;">⏰ Time Words → Tense</p>
+          <p style="font-size:.9rem;line-height:2;">
+            🔙 yesterday, last year, ago → <strong>Past</strong><br>
+            🟢 every day, usually, now → <strong>Present</strong><br>
+            🔜 tomorrow, next week, soon → <strong>Future</strong><br>
+            ✨ already, just, yet, ever → <strong>Present Perfect</strong>
+          </p>
+        </div>
+        <div>
+          <p style="font-family:'Fredoka One',cursive;font-size:1.2rem;color:var(--blue);margin-bottom:12px;">✅ The Golden Rule</p>
+          <p style="font-size:.9rem;line-height:1.9;color:rgba(255,255,255,.8);">
+            Same time → Same tense.<br>
+            Only change if the <em>time truly changes</em>.<br>
+            Use time words as your guide.<br>
+            Always re-read and check your verbs!<br>
+            🇺🇦 Однаковий час → Однакове дієслово.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Made with 💛💙 for Ukrainian English learners · Tense Consistency Made Simple</p>
+  <p style="margin-top:6px;font-size:.8rem;">Every sentence you write — stay in your time! 🚂</p>
+</footer>
+
+<script>
+  const messages = {
+    correct: ["🎉 Perfect! Excellent! Ти молодець!", "✅ That's right! Правильно!", "🌟 Amazing! Чудово!"],
+    wrong:   ["❌ Not quite! Спробуй ще! Think about the time word.", "🤔 Almost! Look at the tense again!", "❌ Nope! Hint: stay in the same time!"]
+  };
+  const answered = {};
+  function answer(btn, type, qNum) {
+    if (answered[qNum]) return;
+    answered[qNum] = true;
+    const opts = btn.closest('.quiz-q').querySelectorAll('.quiz-btn');
+    opts.forEach(b => b.disabled = true);
+    btn.classList.add(type === 'correct' ? 'correct' : 'wrong');
+    const fb = document.getElementById('f' + qNum);
+    const pool = messages[type];
+    fb.textContent = pool[Math.floor(Math.random() * pool.length)];
+    fb.className = 'quiz-feedback ' + (type === 'correct' ? 'ok' : 'err');
+  }
+</script>
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+</body>
+</html>

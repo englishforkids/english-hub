@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎮 Gaming in English</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f0f1a;
+    --card: #1a1a2e;
+    --card2: #16213e;
+    --accent1: #ff6b6b;
+    --accent2: #ffd93d;
+    --accent3: #6bcb77;
+    --accent4: #4d96ff;
+    --accent5: #c77dff;
+    --text: #f0f0ff;
+    --muted: #a0a0c0;
+    --radius: 20px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Nunito', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* STARS BG */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 10% 20%, #fff8 0%, transparent 100%),
+      radial-gradient(1px 1px at 30% 60%, #fff5 0%, transparent 100%),
+      radial-gradient(1px 1px at 50% 10%, #fff6 0%, transparent 100%),
+      radial-gradient(1px 1px at 70% 80%, #fff4 0%, transparent 100%),
+      radial-gradient(1px 1px at 90% 40%, #fff7 0%, transparent 100%),
+      radial-gradient(1px 1px at 20% 90%, #fff5 0%, transparent 100%),
+      radial-gradient(1px 1px at 60% 50%, #fff3 0%, transparent 100%),
+      radial-gradient(1px 1px at 80% 15%, #fff6 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* HERO */
+  .hero {
+    text-align: center;
+    padding: 60px 20px 40px;
+    position: relative;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--accent4), var(--accent5));
+    color: #fff;
+    font-family: 'Fredoka One', cursive;
+    font-size: 0.9rem;
+    padding: 6px 18px;
+    border-radius: 30px;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  .hero h1 {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(2.4rem, 7vw, 4.5rem);
+    line-height: 1.1;
+    background: linear-gradient(135deg, var(--accent2), var(--accent1), var(--accent5));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 16px;
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    color: var(--muted);
+    max-width: 500px;
+    margin: 0 auto 10px;
+    line-height: 1.6;
+  }
+
+  .hero-ua {
+    font-size: 0.95rem;
+    color: #7070a0;
+    font-style: italic;
+  }
+
+  .pixel-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 2.5rem;
+    margin: 30px 0;
+    animation: pulse-icons 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes pulse-icons {
+    from { transform: scale(1); }
+    to { transform: scale(1.08); }
+  }
+
+  /* SECTION TITLES */
+  .section-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.9rem;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-ua {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 24px;
+    font-style: italic;
+  }
+
+  /* GAME TYPES GRID */
+  .types-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 60px;
+  }
+
+  .type-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 24px 18px;
+    text-align: center;
+    border: 2px solid transparent;
+    transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .type-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.3s;
+    border-radius: var(--radius);
+  }
+
+  .type-card:hover { transform: translateY(-6px); }
+
+  .type-card.c1 { border-color: #ff6b6b33; }
+  .type-card.c1:hover { border-color: var(--accent1); box-shadow: 0 8px 30px #ff6b6b30; }
+  .type-card.c2 { border-color: #ffd93d33; }
+  .type-card.c2:hover { border-color: var(--accent2); box-shadow: 0 8px 30px #ffd93d30; }
+  .type-card.c3 { border-color: #6bcb7733; }
+  .type-card.c3:hover { border-color: var(--accent3); box-shadow: 0 8px 30px #6bcb7730; }
+  .type-card.c4 { border-color: #4d96ff33; }
+  .type-card.c4:hover { border-color: var(--accent4); box-shadow: 0 8px 30px #4d96ff30; }
+  .type-card.c5 { border-color: #c77dff33; }
+  .type-card.c5:hover { border-color: var(--accent5); box-shadow: 0 8px 30px #c77dff30; }
+
+  .type-icon { font-size: 3rem; margin-bottom: 10px; display: block; }
+  .type-en { font-family: 'Fredoka One', cursive; font-size: 1.2rem; margin-bottom: 4px; }
+  .type-ua-small { font-size: 0.8rem; color: var(--muted); }
+
+  /* VOCAB SECTION */
+  section { margin-bottom: 60px; }
+
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 14px;
+  }
+
+  .vocab-card {
+    background: var(--card);
+    border-radius: 14px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    border-left: 4px solid;
+    transition: transform 0.2s;
+  }
+
+  .vocab-card:hover { transform: translateX(4px); }
+
+  .vocab-emoji { font-size: 1.6rem; flex-shrink: 0; margin-top: 2px; }
+
+  .vocab-en {
+    font-weight: 800;
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 2px;
+  }
+
+  .vocab-transcription {
+    font-size: 0.78rem;
+    color: var(--accent4);
+    margin-bottom: 4px;
+    font-style: italic;
+  }
+
+  .vocab-ua {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+
+  /* PHRASE CARDS */
+  .phrases-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .phrase-card {
+    background: var(--card);
+    border-radius: 14px;
+    padding: 18px 22px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 14px;
+    align-items: center;
+    border: 1.5px solid #ffffff0f;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .phrase-card:hover {
+    border-color: #ffffff25;
+    box-shadow: 0 4px 20px #0007;
+  }
+
+  .phrase-num {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fredoka One', cursive;
+    font-size: 1rem;
+    flex-shrink: 0;
+    color: #fff;
+  }
+
+  .phrase-en {
+    font-weight: 700;
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+
+  .phrase-ua {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+
+  .phrase-example {
+    font-size: 0.82rem;
+    color: #6060a0;
+    font-style: italic;
+  }
+
+  /* CONVERSATION BUBBLE SECTION */
+  .chat-box {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 28px;
+    border: 1.5px solid #ffffff0d;
+  }
+
+  .chat-msg {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 18px;
+    align-items: flex-start;
+  }
+
+  .chat-msg.right {
+    flex-direction: row-reverse;
+  }
+
+  .chat-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+
+  .av-blue { background: linear-gradient(135deg, #4d96ff, #2d6aff); }
+  .av-pink { background: linear-gradient(135deg, #ff6b6b, #ff3a6e); }
+
+  .chat-bubble {
+    max-width: 75%;
+    border-radius: 18px;
+    padding: 12px 16px;
+  }
+
+  .bubble-blue { background: #1e3a6e; }
+  .bubble-pink { background: #4a1a2e; }
+
+  .bubble-en {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+
+  .bubble-ua {
+    font-size: 0.8rem;
+    color: #8080b0;
+    font-style: italic;
+  }
+
+  .chat-name {
+    font-size: 0.72rem;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+
+  /* INFOGRAPHIC: GAME ACTIONS */
+  .actions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+  }
+
+  .action-pill {
+    border-radius: 14px;
+    padding: 16px 12px;
+    text-align: center;
+    border: 2px solid;
+  }
+
+  .action-icon { font-size: 2rem; margin-bottom: 8px; display: block; }
+  .action-en { font-weight: 800; font-size: 0.95rem; }
+  .action-ua { font-size: 0.75rem; color: var(--muted); margin-top: 4px; }
+
+  /* QUIZ SECTION */
+  .quiz-box {
+    background: linear-gradient(135deg, #1a1a3e, #2a1a3e);
+    border-radius: var(--radius);
+    padding: 30px;
+    border: 2px solid #c77dff44;
+    text-align: center;
+  }
+
+  .quiz-question {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+  }
+
+  .quiz-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    max-width: 500px;
+    margin: 0 auto 20px;
+  }
+
+  .quiz-btn {
+    background: #ffffff10;
+    border: 2px solid #ffffff20;
+    color: #fff;
+    border-radius: 12px;
+    padding: 12px 16px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .quiz-btn:hover { background: #ffffff25; border-color: var(--accent5); }
+  .quiz-btn.correct { background: #1a4a2a; border-color: var(--accent3); color: var(--accent3); }
+  .quiz-btn.wrong { background: #4a1a1a; border-color: var(--accent1); color: var(--accent1); }
+
+  .quiz-feedback {
+    font-size: 1rem;
+    min-height: 28px;
+    font-weight: 700;
+  }
+
+  #quiz-next {
+    display: none;
+    background: linear-gradient(135deg, var(--accent5), var(--accent4));
+    border: none;
+    color: #fff;
+    border-radius: 12px;
+    padding: 10px 28px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 14px;
+    transition: transform 0.2s;
+  }
+
+  #quiz-next:hover { transform: scale(1.05); }
+
+  /* TIPS BOX */
+  .tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+  }
+
+  .tip-card {
+    border-radius: 16px;
+    padding: 20px;
+    border: 2px solid;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .tip-card::after {
+    content: attr(data-emoji);
+    position: absolute;
+    right: -10px;
+    bottom: -10px;
+    font-size: 4rem;
+    opacity: 0.12;
+    line-height: 1;
+  }
+
+  .tip-title { font-weight: 800; font-size: 1rem; margin-bottom: 6px; }
+  .tip-text { font-size: 0.85rem; color: var(--muted); line-height: 1.5; }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: #3a3a6a;
+    font-size: 0.85rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* SCROLL REVEAL */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* PROGRESS BAR */
+  .progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent2), var(--accent1), var(--accent5));
+    z-index: 999;
+    transition: width 0.1s;
+  }
+
+  /* divider */
+  .divider {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #ffffff15, transparent);
+    margin: 20px 0 40px;
+  }
+
+  /* ── MOBILE: up to 600px ── */
+  @media (max-width: 600px) {
+    html, body { overflow-x: hidden; }
+    .container { padding: 0 14px; }
+    .hero { padding: 40px 14px 28px; }
+    .hero h1 { font-size: 2rem; }
+    .hero-sub { font-size: 0.95rem; }
+    .pixel-row { font-size: 1.8rem; gap: 12px; }
+    .section-title { font-size: 1.4rem; }
+    .types-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .type-card { padding: 16px 10px; }
+    .type-icon { font-size: 2.2rem; }
+    .type-en { font-size: 1rem; }
+    .vocab-grid { grid-template-columns: 1fr; gap: 10px; }
+    .vocab-card { padding: 12px 14px; }
+    .actions-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .action-pill { padding: 12px 8px; }
+    .action-icon { font-size: 1.6rem; }
+    .action-en { font-size: 0.85rem; }
+    .phrase-card { padding: 14px 14px; gap: 10px; }
+    .phrase-en { font-size: 0.92rem; }
+    .phrase-num { width: 30px; height: 30px; font-size: 0.85rem; }
+    .chat-box { padding: 18px 14px; }
+    .chat-bubble { max-width: 88%; }
+    .bubble-en { font-size: 0.88rem; }
+    .bubble-ua { font-size: 0.75rem; }
+    .chat-avatar { width: 34px; height: 34px; font-size: 1.1rem; }
+    .quiz-box { padding: 20px 14px; }
+    .quiz-question { font-size: 1.15rem; margin-bottom: 16px; }
+    .quiz-options { grid-template-columns: 1fr; gap: 10px; }
+    .quiz-btn { font-size: 0.9rem; padding: 11px 12px; }
+    .tips-grid { grid-template-columns: 1fr; gap: 12px; }
+    .tip-card { padding: 16px; }
+    #scroll-top-btn { bottom: 18px; right: 16px; width: 40px; height: 40px; font-size: 16px; }
+    table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; width: 100%; }
+  }
+
+  /* ── TABLET: 601–768px ── */
+  @media (min-width: 601px) and (max-width: 768px) {
+    .hero h1 { font-size: 2.8rem; }
+    .types-grid { grid-template-columns: repeat(3, 1fr); }
+    .vocab-grid { grid-template-columns: repeat(2, 1fr); }
+    .actions-grid { grid-template-columns: repeat(3, 1fr); }
+    .tips-grid { grid-template-columns: repeat(2, 1fr); }
+    table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  }
+
+  #scroll-top-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #1a1208;
+    border: 1.5px solid rgba(200,150,62,0.4);
+    color: #f5f0e8;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+    pointer-events: none;
+    z-index: 9998;
+  }
+  #scroll-top-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  #scroll-top-btn:hover {
+    background: #c8963e;
+    border-color: #c8963e;
+    color: #1a1208;
+  }
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progress"></div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">🎮 ENGLISH FOR GAMERS</div>
+  <h1>Talk About Games<br>in English!</h1>
+  <p class="hero-sub">Learn words & phrases to talk about video games, board games, mobile games & quizzes.</p>
+  <p class="hero-ua">Навчись говорити про ігри англійською — слова, фрази та приклади для початківців!</p>
+  <div class="pixel-row">🕹️ 🎲 📱 🧩 🏆 ❓ 🎯</div>
+</div>
+
+<div class="container">
+
+  <!-- TYPES OF GAMES -->
+  <section class="reveal">
+    <div class="section-title">🗂️ Types of Games</div>
+    <div class="section-ua">Типи ігор — як їх називати англійською</div>
+    <div class="types-grid">
+      <div class="type-card c1">
+        <span class="type-icon">🖥️</span>
+        <div class="type-en">Video Game</div>
+        <div class="type-ua-small">Відеогра / Комп'ютерна гра</div>
+      </div>
+      <div class="type-card c2">
+        <span class="type-icon">📱</span>
+        <div class="type-en">Mobile Game</div>
+        <div class="type-ua-small">Мобільна гра</div>
+      </div>
+      <div class="type-card c3">
+        <span class="type-icon">🎲</span>
+        <div class="type-en">Board Game</div>
+        <div class="type-ua-small">Настільна гра</div>
+      </div>
+      <div class="type-card c4">
+        <span class="type-icon">❓</span>
+        <div class="type-en">Quiz / Trivia</div>
+        <div class="type-ua-small">Вікторина / Квіз</div>
+      </div>
+      <div class="type-card c5">
+        <span class="type-icon">🃏</span>
+        <div class="type-en">Card Game</div>
+        <div class="type-ua-small">Карткова гра</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- VOCABULARY -->
+  <section class="reveal">
+    <div class="section-title">📖 Key Vocabulary</div>
+    <div class="section-ua">Ключові слова — вивчи їх першими!</div>
+    <div class="vocab-grid">
+
+      <div class="vocab-card" style="border-color: var(--accent1);">
+        <span class="vocab-emoji">🏆</span>
+        <div>
+          <div class="vocab-en">to win</div>
+          <div class="vocab-transcription">/wɪn/</div>
+          <div class="vocab-ua">вигравати — <em>"I want to win!"</em></div>
+        </div>
+      </div>
+
+      <div class="vocab-card" style="border-color: var(--accent2);">
+        <span class="vocab-emoji">💀</span>
+        <div>
+          <div class="vocab-en">to lose</div>
+          <div class="vocab-transcription">/luːz/</div>
+          <div class="vocab-ua">програвати — <em>"We lost the match."</em></div>
+        </div>
+      </div>
+
+      <div class="vocab-card" style="border-color: var(--accent3);">
+        <span class="vocab-emoji">🎮</span>
+        <div>
+          <div class="vocab-en">to play</div>
+          <div class="vocab-transcription">/pleɪ/</div>
+          <div class="vocab-ua">грати — <em>"Let's play together!"</em></div>
+        </div>
+      </div>
+
+      <div class="vocab-card" style="border-color: var(--accent4);">
+        <span class="vocab-emoji">⭐</span>
+        <div>
+          <div class="vocab-en">score / points</div>
+          <div class="vocab-transcription">/skɔːr/ /pɔɪnts/</div>
+          <div class="vocab-ua">рахунок / очки — <em>"My score is 500!"</em></div>
+        </div>
+      </div>
+
+      <div class="vocab-card" style="border-color: var(--accent5);">
+        <span class="vocab-emoji">🔁</span>
+        <div>
+          <div class="vocab-en">level / stage</div>
+          <div class="vocab-transcription">/ˈlevəl/ /steɪdʒ/</div>
+          <div class="vocab-ua">рівень — <em>"I'm on level 10."</em></div>
+        </div>
+      </div>
+
+      <div class="vocab-card" style="border-color: var(--accent1);">
+        <span class="vocab-emoji">💥</span>
+        <div>
+          <div class="vocab-en">boss</div>
+          <div class="vocab-transcription">/bɒs/</div>
+          <div class="vocab-ua">бос (сильний ворог) — <em>"I beat the boss!"</em></div>
+        </div>
+      </div>
+
+      <div class="vocab-card" style="border-color: var(--accent2);">
+        <span class="vocab-emoji">👤</span>
+        <div>
+          <div class="vocab-en">character / hero</div>
+          <div class="vocab-transcription">/ˈkærəktər/</div>
+          <div class="vocab-ua">персонаж / герой — <em>"My character is a wizard."</em></div>
+        </div>
+      </div>
+
+      <div class="vocab-card" style="border-color: var(--accent3);">
+        <span class="vocab-emoji">🤝</span>
+        <div>
+          <div class="vocab-en">teammate / opponent</div>
+          <div class="vocab-transcription">/ˈtiːmmeɪt/</div>
+          <div class="vocab-ua">партнер по команді / суперник</div>
+        </div>
+      </div>
+
+      <div class="vocab-card" style="border-color: var(--accent4);">
+        <span class="vocab-emoji">🗺️</span>
+        <div>
+          <div class="vocab-en">map / world</div>
+          <div class="vocab-transcription">/mæp/</div>
+          <div class="vocab-ua">карта / ігровий світ</div>
+        </div>
+      </div>
+
+      <div class="vocab-card" style="border-color: var(--accent5);">
+        <span class="vocab-emoji">🛒</span>
+        <div>
+          <div class="vocab-en">item / weapon / shield</div>
+          <div class="vocab-transcription">/ˈaɪtəm/</div>
+          <div class="vocab-ua">предмет / зброя / щит</div>
+        </div>
+      </div>
+
+      <div class="vocab-card" style="border-color: var(--accent1);">
+        <span class="vocab-emoji">🔧</span>
+        <div>
+          <div class="vocab-en">to upgrade / to unlock</div>
+          <div class="vocab-transcription">/ˈʌnlɒk/</div>
+          <div class="vocab-ua">прокачати / розблокувати</div>
+        </div>
+      </div>
+
+      <div class="vocab-card" style="border-color: var(--accent2);">
+        <span class="vocab-emoji">⏸️</span>
+        <div>
+          <div class="vocab-en">to pause / to quit</div>
+          <div class="vocab-transcription">/pɔːz/ /kwɪt/</div>
+          <div class="vocab-ua">поставити на паузу / вийти з гри</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- GAME ACTIONS INFOGRAPHIC -->
+  <section class="reveal">
+    <div class="section-title">⚡ Game Actions</div>
+    <div class="section-ua">Ігрові дії — що ти робиш під час гри</div>
+    <div class="actions-grid">
+      <div class="action-pill" style="border-color: #ff6b6b44; background: #ff6b6b0d;">
+        <span class="action-icon">🗡️</span>
+        <div class="action-en">attack</div>
+        <div class="action-ua">атакувати</div>
+      </div>
+      <div class="action-pill" style="border-color: #ffd93d44; background: #ffd93d0d;">
+        <span class="action-icon">🛡️</span>
+        <div class="action-en">defend / block</div>
+        <div class="action-ua">захищатися</div>
+      </div>
+      <div class="action-pill" style="border-color: #6bcb7744; background: #6bcb770d;">
+        <span class="action-icon">🏃</span>
+        <div class="action-en">run / escape</div>
+        <div class="action-ua">тікати</div>
+      </div>
+      <div class="action-pill" style="border-color: #4d96ff44; background: #4d96ff0d;">
+        <span class="action-icon">🤔</span>
+        <div class="action-en">solve / guess</div>
+        <div class="action-ua">вирішувати / вгадувати</div>
+      </div>
+      <div class="action-pill" style="border-color: #c77dff44; background: #c77dff0d;">
+        <span class="action-icon">🏗️</span>
+        <div class="action-en">build / craft</div>
+        <div class="action-ua">будувати / майструвати</div>
+      </div>
+      <div class="action-pill" style="border-color: #ff6b6b44; background: #ff6b6b0d;">
+        <span class="action-icon">🔍</span>
+        <div class="action-en">explore / discover</div>
+        <div class="action-ua">досліджувати</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- USEFUL PHRASES -->
+  <section class="reveal">
+    <div class="section-title">💬 Useful Phrases</div>
+    <div class="section-ua">Корисні фрази — говори про ігри як справжній геймер!</div>
+    <div class="phrases-list">
+
+      <div class="phrase-card">
+        <div class="phrase-num" style="background: linear-gradient(135deg, var(--accent1), #ff3a6e);">1</div>
+        <div>
+          <div class="phrase-en">What's your favourite game?</div>
+          <div class="phrase-ua">🇺🇦 Яка у тебе улюблена гра?</div>
+          <div class="phrase-example">→ "My favourite game is Minecraft."</div>
+        </div>
+      </div>
+
+      <div class="phrase-card">
+        <div class="phrase-num" style="background: linear-gradient(135deg, var(--accent2), #ffb300);">2</div>
+        <div>
+          <div class="phrase-en">Do you want to play together?</div>
+          <div class="phrase-ua">🇺🇦 Хочеш пограти разом?</div>
+          <div class="phrase-example">→ "Do you want to play together online?"</div>
+        </div>
+      </div>
+
+      <div class="phrase-card">
+        <div class="phrase-num" style="background: linear-gradient(135deg, var(--accent3), #2daa4a);">3</div>
+        <div>
+          <div class="phrase-en">How do you play this game?</div>
+          <div class="phrase-ua">🇺🇦 Як грати в цю гру?</div>
+          <div class="phrase-example">→ "How do you play chess?" — "You need to capture the king!"</div>
+        </div>
+      </div>
+
+      <div class="phrase-card">
+        <div class="phrase-num" style="background: linear-gradient(135deg, var(--accent4), #1a5aff);">4</div>
+        <div>
+          <div class="phrase-en">I'm on level ___.</div>
+          <div class="phrase-ua">🇺🇦 Я на рівні ___.</div>
+          <div class="phrase-example">→ "I'm on level 25. It's so hard!"</div>
+        </div>
+      </div>
+
+      <div class="phrase-card">
+        <div class="phrase-num" style="background: linear-gradient(135deg, var(--accent5), #7a00ff);">5</div>
+        <div>
+          <div class="phrase-en">I beat the game! / I finished the game!</div>
+          <div class="phrase-ua">🇺🇦 Я пройшов гру!</div>
+          <div class="phrase-example">→ "I finally beat the final boss!"</div>
+        </div>
+      </div>
+
+      <div class="phrase-card">
+        <div class="phrase-num" style="background: linear-gradient(135deg, var(--accent1), #ff8c00);">6</div>
+        <div>
+          <div class="phrase-en">That game is so fun / boring / addictive!</div>
+          <div class="phrase-ua">🇺🇦 Ця гра така цікава / нудна / затягує!</div>
+          <div class="phrase-example">→ "Candy Crush is super addictive!"</div>
+        </div>
+      </div>
+
+      <div class="phrase-card">
+        <div class="phrase-num" style="background: linear-gradient(135deg, var(--accent3), #00aa88);">7</div>
+        <div>
+          <div class="phrase-en">Whose turn is it?</div>
+          <div class="phrase-ua">🇺🇦 Чия черга?</div>
+          <div class="phrase-example">→ "It's your turn!" / "It's my turn now."</div>
+        </div>
+      </div>
+
+      <div class="phrase-card">
+        <div class="phrase-num" style="background: linear-gradient(135deg, var(--accent4), var(--accent5));">8</div>
+        <div>
+          <div class="phrase-en">I know the answer! / I have no idea.</div>
+          <div class="phrase-ua">🇺🇦 Я знаю відповідь! / Не маю поняття.</div>
+          <div class="phrase-example">→ Used in quiz games like trivia!</div>
+        </div>
+      </div>
+
+      <div class="phrase-card">
+        <div class="phrase-num" style="background: linear-gradient(135deg, #ff6b6b, #c77dff);">9</div>
+        <div>
+          <div class="phrase-en">Good game! / Well played!</div>
+          <div class="phrase-ua">🇺🇦 Гарна гра! / Добре зіграно! (GG / WP)</div>
+          <div class="phrase-example">→ Say this after a match ends — it's polite! 🤝</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SAMPLE CONVERSATION -->
+  <section class="reveal">
+    <div class="section-title">🗣️ Real Conversation</div>
+    <div class="section-ua">Приклад живої розмови про ігри англійською</div>
+    <div class="chat-box">
+
+      <div class="chat-msg">
+        <div class="chat-avatar av-blue">😎</div>
+        <div>
+          <div class="chat-name">Alex</div>
+          <div class="chat-bubble bubble-blue">
+            <div class="bubble-en">Hey! Do you play any video games?</div>
+            <div class="bubble-ua">Привіт! Ти граєш у відеоігри?</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="chat-msg right">
+        <div class="chat-avatar av-pink">🎀</div>
+        <div>
+          <div class="chat-name">Sofia</div>
+          <div class="chat-bubble bubble-pink">
+            <div class="bubble-en">Yes! I love mobile games. I'm addicted to this puzzle game!</div>
+            <div class="bubble-ua">Так! Я обожнюю мобільні ігри. Я залипаю в цю гру-головоломку!</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="chat-msg">
+        <div class="chat-avatar av-blue">😎</div>
+        <div>
+          <div class="chat-name">Alex</div>
+          <div class="chat-bubble bubble-blue">
+            <div class="bubble-en">Cool! What level are you on?</div>
+            <div class="bubble-ua">Клас! На якому ти рівні?</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="chat-msg right">
+        <div class="chat-avatar av-pink">🎀</div>
+        <div>
+          <div class="chat-name">Sofia</div>
+          <div class="chat-bubble bubble-pink">
+            <div class="bubble-en">I'm on level 48! It's really hard. Do you want to try?</div>
+            <div class="bubble-ua">Я на рівні 48! Це дуже складно. Хочеш спробувати?</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="chat-msg">
+        <div class="chat-avatar av-blue">😎</div>
+        <div>
+          <div class="chat-name">Alex</div>
+          <div class="chat-bubble bubble-blue">
+            <div class="bubble-en">Sure! I prefer board games, but I'll give it a go!</div>
+            <div class="bubble-ua">Звісно! Я більше люблю настільні ігри, але спробую!</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="chat-msg right">
+        <div class="chat-avatar av-pink">🎀</div>
+        <div>
+          <div class="chat-name">Sofia</div>
+          <div class="chat-bubble bubble-pink">
+            <div class="bubble-en">Go for it! Good luck! 🍀</div>
+            <div class="bubble-ua">Давай! Удачі!</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- QUIZ SECTION -->
+  <section class="reveal">
+    <div class="section-title">🧠 Mini Quiz!</div>
+    <div class="section-ua">Перевір себе! Choose the correct translation:</div>
+    <div class="quiz-box">
+      <div class="quiz-question" id="q-text">Loading...</div>
+      <div class="quiz-options" id="q-options"></div>
+      <div class="quiz-feedback" id="q-feedback"></div>
+      <button id="quiz-next" onclick="nextQuestion()">Next ➡️</button>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- TIPS -->
+  <section class="reveal">
+    <div class="section-title">💡 Learning Tips</div>
+    <div class="section-ua">Поради — як швидше вивчити ігрову англійську</div>
+    <div class="tips-grid">
+      <div class="tip-card" data-emoji="🎮" style="border-color: var(--accent1); background: #ff6b6b0a;">
+        <div class="tip-title" style="color: var(--accent1);">Play in English!</div>
+        <div class="tip-text">Постав мову гри на English. Ти будеш читати слова сотні разів — і запам'ятаєш!</div>
+      </div>
+      <div class="tip-card" data-emoji="📺" style="border-color: var(--accent2); background: #ffd93d0a;">
+        <div class="tip-title" style="color: var(--accent2);">Watch streamers!</div>
+        <div class="tip-text">Дивись стрімерів або YouTubers англійською. Це весело і корисно одночасно!</div>
+      </div>
+      <div class="tip-card" data-emoji="🗣️" style="border-color: var(--accent3); background: #6bcb770a;">
+        <div class="tip-title" style="color: var(--accent3);">Talk to players!</div>
+        <div class="tip-text">Пиши або говори з онлайн-гравцями в чаті англійською. Практика — найкраще навчання!</div>
+      </div>
+      <div class="tip-card" data-emoji="📝" style="border-color: var(--accent4); background: #4d96ff0a;">
+        <div class="tip-title" style="color: var(--accent4);">Write new words!</div>
+        <div class="tip-text">Записуй нові ігрові слова в блокнот або додаток. Переглядай їх щодня 5 хвилин.</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  Made with 🎮 for Ukrainian English learners • Gaming vocabulary guide
+</footer>
+
+<script>
+  // Progress bar
+  window.addEventListener('scroll', () => {
+    const scrolled = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+    document.getElementById('progress').style.width = scrolled + '%';
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // QUIZ
+  const questions = [
+    { q: '🏆  "to win"', options: ['вигравати', 'втрачати', 'грати', 'будувати'], correct: 0 },
+    { q: '💬  "Whose turn is it?"', options: ['Скільки очок?', 'Чия черга?', 'Що трапилось?', 'Де карта?'], correct: 1 },
+    { q: '🎮  "level"', options: ['персонаж', 'карта', 'рівень', 'команда'], correct: 2 },
+    { q: '🛡️  "to defend"', options: ['атакувати', 'тікати', 'будувати', 'захищатися'], correct: 3 },
+    { q: '💬  "Good game!"', options: ['Мені нудно!', 'Гарна гра!', 'Я загубився!', 'Допоможи!'], correct: 1 },
+    { q: '🔧  "to unlock"', options: ['знайти', 'зламати', 'розблокувати', 'закрити'], correct: 2 },
+    { q: '💬  "I have no idea."', options: ['Знаю!', 'Не маю поняття.', 'Легко!', 'Моя черга!'], correct: 1 },
+    { q: '👤  "opponent"', options: ['партнер', 'персонаж', 'суперник', 'бос'], correct: 2 },
+  ];
+
+  let current = 0, answered = false;
+
+  function shuffle(arr) { return arr.sort(() => Math.random() - 0.5); }
+
+  function loadQuestion() {
+    answered = false;
+    const q = questions[current];
+    document.getElementById('q-text').textContent = q.q;
+    document.getElementById('q-feedback').textContent = '';
+    document.getElementById('quiz-next').style.display = 'none';
+
+    const optContainer = document.getElementById('q-options');
+    optContainer.innerHTML = '';
+
+    const indices = [0, 1, 2, 3];
+    indices.forEach(i => {
+      const btn = document.createElement('button');
+      btn.className = 'quiz-btn';
+      btn.textContent = q.options[i];
+      btn.onclick = () => checkAnswer(i, btn);
+      optContainer.appendChild(btn);
+    });
+  }
+
+  function checkAnswer(idx, btn) {
+    if (answered) return;
+    answered = true;
+    const q = questions[current];
+    const btns = document.querySelectorAll('.quiz-btn');
+
+    if (idx === q.correct) {
+      btn.classList.add('correct');
+      document.getElementById('q-feedback').innerHTML = '<span style="color: #6bcb77;">✅ Correct! Правильно!</span>';
+    } else {
+      btn.classList.add('wrong');
+      btns[q.correct].classList.add('correct');
+      document.getElementById('q-feedback').innerHTML = '<span style="color: #ff6b6b;">❌ Not quite! The right answer is highlighted.</span>';
+    }
+
+    const nextBtn = document.getElementById('quiz-next');
+    nextBtn.style.display = 'inline-block';
+    if (current === questions.length - 1) nextBtn.textContent = '🔄 Restart';
+  }
+
+  function nextQuestion() {
+    current = (current + 1) % questions.length;
+    loadQuestion();
+  }
+
+  loadQuestion();
+</script>
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+</body>
+</html>

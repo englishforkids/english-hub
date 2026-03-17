@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Talking About School 🏫 | Школа англійською</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sky: #4FC3F7;
+    --sun: #FFD54F;
+    --grass: #81C784;
+    --coral: #FF7043;
+    --lavender: #CE93D8;
+    --mint: #80CBC4;
+    --navy: #1A237E;
+    --cream: #FFFDE7;
+    --white: #FFFFFF;
+    --soft-bg: #F0F7FF;
+    --card-shadow: 0 8px 32px rgba(26,35,126,0.10);
+    --radius: 22px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--soft-bg);
+    color: #222;
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #1A237E 0%, #283593 40%, #3949AB 70%, #5C6BC0 100%);
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 20px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -80px;
+    width: 320px; height: 320px;
+    background: rgba(255,213,79,0.13);
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -60px;
+    width: 260px; height: 260px;
+    background: rgba(79,195,247,0.13);
+    border-radius: 50%;
+  }
+
+  .hero-emoji {
+    font-size: 72px;
+    animation: bounce 2s infinite;
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  @keyframes bounce {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+
+  .hero h1 {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(2rem, 6vw, 3.4rem);
+    font-weight: 800;
+    color: #fff;
+    text-align: center;
+    line-height: 1.15;
+  }
+
+  .hero h1 span { color: var(--sun); }
+
+  .hero-sub {
+    margin-top: 12px;
+    font-size: 1.1rem;
+    color: #C5CAE9;
+    text-align: center;
+    font-weight: 600;
+  }
+
+  /* WAVE */
+  .wave {
+    display: block;
+    width: 100%;
+    height: 60px;
+    background: var(--soft-bg);
+    clip-path: ellipse(55% 100% at 50% 100%);
+    margin-top: -2px;
+  }
+
+  /* SECTIONS */
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 18px 60px;
+  }
+
+  .section-title {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.7rem;
+    font-weight: 800;
+    color: var(--navy);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 42px 0 18px;
+  }
+
+  .section-title .badge {
+    background: var(--sun);
+    color: var(--navy);
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 3px 10px;
+    border-radius: 50px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  /* VOCAB GRID */
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
+    gap: 14px;
+    margin-bottom: 10px;
+  }
+
+  .vocab-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 18px 14px 14px;
+    text-align: center;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.18s, box-shadow 0.18s;
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .vocab-card:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 16px 40px rgba(26,35,126,0.15);
+  }
+
+  .vocab-card .icon { font-size: 2.2rem; margin-bottom: 6px; display: block; }
+  .vocab-card .en {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--navy);
+    display: block;
+  }
+  .vocab-card .ua {
+    font-size: 0.82rem;
+    color: #666;
+    margin-top: 3px;
+    display: block;
+  }
+
+  .vocab-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    border-radius: 22px 22px 0 0;
+  }
+
+  .color-sky::before { background: var(--sky); }
+  .color-sun::before { background: var(--sun); }
+  .color-grass::before { background: var(--grass); }
+  .color-coral::before { background: var(--coral); }
+  .color-lavender::before { background: var(--lavender); }
+  .color-mint::before { background: var(--mint); }
+
+  /* PHRASE CARDS */
+  .phrase-block {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 22px 24px;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 14px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    border-left: 6px solid var(--sky);
+    transition: transform 0.15s;
+  }
+  .phrase-block:hover { transform: translateX(4px); }
+  .phrase-block.coral { border-color: var(--coral); }
+  .phrase-block.grass { border-color: var(--grass); }
+  .phrase-block.lavender { border-color: var(--lavender); }
+  .phrase-block.mint { border-color: var(--mint); }
+  .phrase-block.sun { border-color: var(--sun); }
+
+  .phrase-icon { font-size: 1.8rem; flex-shrink: 0; margin-top: 2px; }
+
+  .phrase-en {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--navy);
+    display: block;
+  }
+  .phrase-ua {
+    font-size: 0.88rem;
+    color: #555;
+    margin-top: 3px;
+    display: block;
+    font-style: italic;
+  }
+  .phrase-example {
+    margin-top: 7px;
+    font-size: 0.9rem;
+    color: #333;
+    background: #F0F7FF;
+    padding: 7px 12px;
+    border-radius: 10px;
+    line-height: 1.45;
+  }
+  .phrase-example em { color: #1A237E; font-style: normal; font-weight: 700; }
+
+  /* QUESTION-ANSWER DIALOGUES */
+  .dialogue-box {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 14px;
+  }
+
+  .dialogue-title {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .bubble-wrap { display: flex; flex-direction: column; gap: 10px; }
+
+  .bubble {
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+  }
+
+  .bubble.right { flex-direction: row-reverse; }
+
+  .bubble-avatar {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+  .avatar-a { background: #E3F2FD; }
+  .avatar-b { background: #F3E5F5; }
+
+  .bubble-text {
+    max-width: 78%;
+    padding: 10px 14px;
+    border-radius: 18px;
+    font-size: 0.92rem;
+    line-height: 1.45;
+  }
+  .bubble.left .bubble-text {
+    background: #E3F2FD;
+    border-bottom-left-radius: 4px;
+  }
+  .bubble.right .bubble-text {
+    background: #F3E5F5;
+    border-bottom-right-radius: 4px;
+    text-align: right;
+  }
+  .bubble-text strong { display: block; font-size: 0.95rem; color: #1A237E; }
+  .bubble-text span { font-size: 0.78rem; color: #888; display: block; margin-top: 2px; }
+
+  /* INFOGRAPHIC: SCHOOL DAY */
+  .timeline {
+    position: relative;
+    padding-left: 40px;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 16px; top: 0; bottom: 0;
+    width: 4px;
+    background: linear-gradient(to bottom, var(--sky), var(--lavender), var(--coral));
+    border-radius: 4px;
+  }
+  .timeline-item {
+    position: relative;
+    background: var(--white);
+    border-radius: 16px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+    box-shadow: var(--card-shadow);
+  }
+  .timeline-dot {
+    position: absolute;
+    left: -32px;
+    top: 18px;
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    border: 4px solid var(--white);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+  .timeline-time {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 4px;
+  }
+  .timeline-en {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--navy);
+  }
+  .timeline-ua {
+    font-size: 0.82rem;
+    color: #777;
+    margin-top: 2px;
+  }
+
+  /* QUIZ */
+  .quiz-section {
+    background: linear-gradient(135deg, #1A237E, #3949AB);
+    border-radius: var(--radius);
+    padding: 30px 24px;
+    color: white;
+    margin-top: 42px;
+  }
+  .quiz-section h2 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin-bottom: 6px;
+  }
+  .quiz-section .sub {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-bottom: 22px;
+  }
+
+  .quiz-q {
+    background: rgba(255,255,255,0.10);
+    border-radius: 16px;
+    padding: 18px 20px;
+    margin-bottom: 16px;
+  }
+  .quiz-question {
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 12px;
+  }
+  .quiz-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .quiz-btn {
+    background: rgba(255,255,255,0.15);
+    border: 2px solid rgba(255,255,255,0.3);
+    color: white;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    padding: 8px 16px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.18s;
+  }
+  .quiz-btn:hover { background: rgba(255,255,255,0.28); }
+  .quiz-btn.correct { background: #66BB6A; border-color: #66BB6A; }
+  .quiz-btn.wrong { background: #EF5350; border-color: #EF5350; }
+  .quiz-feedback {
+    margin-top: 10px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    opacity: 0;
+    transition: opacity 0.2s;
+    min-height: 20px;
+  }
+  .quiz-feedback.show { opacity: 1; }
+
+  /* SUBJECTS WHEEL */
+  .subjects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 12px;
+  }
+  .subject-pill {
+    background: var(--white);
+    border-radius: 50px;
+    padding: 12px 16px;
+    text-align: center;
+    box-shadow: var(--card-shadow);
+    font-weight: 700;
+    transition: transform 0.15s;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .subject-pill:hover { transform: scale(1.05); }
+  .subject-pill .s-en {
+    font-family: 'Baloo 2', cursive;
+    font-size: 0.95rem;
+    color: var(--navy);
+  }
+  .subject-pill .s-ua { font-size: 0.75rem; color: #888; }
+  .subject-pill .s-icon { font-size: 1.4rem; }
+
+  /* TIP BOX */
+  .tip-box {
+    background: linear-gradient(120deg, #FFF9C4, #FFF3E0);
+    border-radius: var(--radius);
+    padding: 20px 22px;
+    border-left: 6px solid var(--sun);
+    margin-bottom: 14px;
+    box-shadow: 0 4px 16px rgba(255,213,79,0.2);
+  }
+  .tip-title {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1rem;
+    font-weight: 800;
+    color: #E65100;
+    margin-bottom: 6px;
+  }
+  .tip-body { font-size: 0.9rem; color: #444; line-height: 1.6; }
+
+  /* FEELINGS */
+  .feelings-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+  .feeling-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 14px 16px;
+    box-shadow: var(--card-shadow);
+    text-align: center;
+    flex: 1;
+    min-width: 120px;
+    transition: transform 0.15s;
+  }
+  .feeling-card:hover { transform: translateY(-4px); }
+  .feeling-card .f-icon { font-size: 2rem; margin-bottom: 6px; }
+  .feeling-card .f-en { font-family: 'Baloo 2', cursive; font-weight: 700; color: var(--navy); font-size: 0.95rem; }
+  .feeling-card .f-ua { font-size: 0.78rem; color: #888; }
+
+  /* FOOTER */
+  .footer {
+    text-align: center;
+    padding: 32px 20px;
+    background: var(--navy);
+    color: #9FA8DA;
+    font-size: 0.88rem;
+  }
+  .footer strong { color: var(--sun); }
+
+  /* RESPONSIVE — таблиці зі скролом */
+  .table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 12px;
+  }
+  .table-wrap table {
+    min-width: 480px;
+    width: 100%;
+  }
+
+  /* ── TABLET (≤768px) ── */
+  @media (max-width: 768px) {
+    .hero { padding: 36px 16px 48px; }
+    .hero h1 { font-size: 1.9rem; }
+    .hero-sub { font-size: 0.95rem; }
+    .hero-emoji { font-size: 56px; }
+
+    .container { padding: 0 14px 48px; }
+
+    .section-title { font-size: 1.35rem; flex-wrap: wrap; gap: 8px; }
+
+    .vocab-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .vocab-card { padding: 14px 10px 10px; }
+    .vocab-card .icon { font-size: 1.8rem; }
+    .vocab-card .en { font-size: 0.9rem; }
+    .vocab-card .ua { font-size: 0.75rem; }
+
+    .subjects-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+
+    .phrase-block { padding: 16px 16px; gap: 12px; }
+    .phrase-icon { font-size: 1.5rem; }
+    .phrase-en { font-size: 1rem; }
+
+    .dialogue-box { padding: 18px 16px; }
+    .bubble-text { max-width: 88%; font-size: 0.88rem; }
+
+    .feelings-row { gap: 8px; }
+    .feeling-card { min-width: 100px; padding: 12px 10px; }
+
+    .quiz-section { padding: 24px 18px; }
+    .quiz-options { flex-direction: column; }
+    .quiz-btn { width: 100%; text-align: left; }
+
+    .timeline { padding-left: 34px; }
+  }
+
+  /* ── MOBILE (≤480px) ── */
+  @media (max-width: 480px) {
+    .hero { padding: 28px 14px 40px; min-height: auto; }
+    .hero h1 { font-size: 1.5rem; }
+    .hero-emoji { font-size: 44px; margin-bottom: 8px; }
+    .hero-sub { font-size: 0.85rem; }
+
+    .container { padding: 0 12px 40px; }
+
+    .section-title { font-size: 1.15rem; margin: 30px 0 14px; }
+    .section-title .badge { font-size: 0.65rem; padding: 2px 8px; }
+
+    .vocab-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+    .vocab-card { padding: 12px 8px 10px; border-radius: 14px; }
+    .vocab-card .icon { font-size: 1.6rem; margin-bottom: 4px; }
+    .vocab-card .en { font-size: 0.85rem; }
+    .vocab-card .ua { font-size: 0.72rem; }
+
+    .subjects-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+    .subject-pill { border-radius: 14px; padding: 10px 12px; }
+    .subject-pill .s-icon { font-size: 1.2rem; }
+    .subject-pill .s-en { font-size: 0.85rem; }
+    .subject-pill .s-ua { font-size: 0.7rem; }
+
+    .phrase-block { flex-direction: column; gap: 6px; padding: 14px 14px; border-radius: 16px; }
+    .phrase-icon { font-size: 1.4rem; }
+    .phrase-en { font-size: 0.95rem; }
+    .phrase-ua { font-size: 0.82rem; }
+    .phrase-example { font-size: 0.82rem; padding: 6px 10px; }
+
+    .dialogue-box { padding: 16px 12px; border-radius: 16px; }
+    .dialogue-title { font-size: 0.9rem; }
+    .bubble-avatar { width: 30px; height: 30px; font-size: 1.1rem; }
+    .bubble-text { max-width: 90%; font-size: 0.82rem; padding: 8px 11px; }
+    .bubble-text strong { font-size: 0.85rem; }
+    .bubble-text span { font-size: 0.72rem; }
+
+    .timeline { padding-left: 28px; }
+    .timeline::before { left: 10px; }
+    .timeline-item { padding: 12px 14px; border-radius: 12px; }
+    .timeline-dot { left: -26px; width: 16px; height: 16px; }
+    .timeline-time { font-size: 0.7rem; }
+    .timeline-en { font-size: 0.9rem; }
+    .timeline-ua { font-size: 0.75rem; }
+
+    .feelings-row { gap: 6px; }
+    .feeling-card { min-width: 80px; padding: 10px 8px; border-radius: 14px; }
+    .feeling-card .f-icon { font-size: 1.6rem; }
+    .feeling-card .f-en { font-size: 0.82rem; }
+    .feeling-card .f-ua { font-size: 0.7rem; }
+
+    .tip-box { padding: 14px 16px; border-radius: 16px; }
+    .tip-title { font-size: 0.9rem; }
+    .tip-body { font-size: 0.82rem; }
+
+    .quiz-section { padding: 20px 14px; border-radius: 16px; }
+    .quiz-section h2 { font-size: 1.25rem; }
+    .quiz-section .sub { font-size: 0.82rem; }
+    .quiz-q { padding: 14px 14px; border-radius: 12px; }
+    .quiz-question { font-size: 0.9rem; }
+    .quiz-options { flex-direction: column; gap: 6px; }
+    .quiz-btn { width: 100%; text-align: left; font-size: 0.85rem; padding: 10px 14px; }
+    .quiz-feedback { font-size: 0.8rem; }
+
+    /* Magic sentences */
+    .container > div:last-of-type { border-radius: 16px; padding: 18px 14px; }
+
+    .footer { padding: 24px 14px; font-size: 0.8rem; }
+  }
+
+#scroll-top-btn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #1a1208;
+  border: 1.5px solid rgba(200,150,62,0.4);
+  color: #f5f0e8;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+  pointer-events: none;
+  z-index: 9998;
+}
+#scroll-top-btn.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+#scroll-top-btn:hover {
+  background: #c8963e;
+  border-color: #c8963e;
+  color: #1a1208;
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <span class="hero-emoji">🏫</span>
+  <h1>Talking About <span>School</span><br>Школа англійською</h1>
+  <p class="hero-sub">Для початківців · For beginners · 🇬🇧 + 🇺🇦</p>
+</div>
+<div class="wave"></div>
+
+<div class="container">
+
+  <!-- SECTION 1: VOCABULARY -->
+  <div class="section-title">🗂️ Key Words — Ключові слова <span class="badge">Vocabulary</span></div>
+  <p style="margin-bottom:16px;color:#555;font-size:0.95rem;">Learn the most important school words first! / Спочатку вивчи найважливіші слова про школу!</p>
+
+  <div class="vocab-grid">
+    <div class="vocab-card color-sky"><span class="icon">📚</span><span class="en">school</span><span class="ua">школа</span></div>
+    <div class="vocab-card color-sun"><span class="icon">🏛️</span><span class="en">classroom</span><span class="ua">клас, кімната</span></div>
+    <div class="vocab-card color-grass"><span class="icon">👩‍🏫</span><span class="en">teacher</span><span class="ua">вчитель/ка</span></div>
+    <div class="vocab-card color-coral"><span class="icon">🎒</span><span class="en">student</span><span class="ua">учень/учениця</span></div>
+    <div class="vocab-card color-lavender"><span class="icon">📖</span><span class="en">lesson</span><span class="ua">урок</span></div>
+    <div class="vocab-card color-mint"><span class="icon">✏️</span><span class="en">homework</span><span class="ua">домашнє завдання</span></div>
+    <div class="vocab-card color-sky"><span class="icon">🗓️</span><span class="en">timetable</span><span class="ua">розклад</span></div>
+    <div class="vocab-card color-sun"><span class="icon">🍽️</span><span class="en">break / lunch</span><span class="ua">перерва / обід</span></div>
+    <div class="vocab-card color-grass"><span class="icon">📝</span><span class="en">test / exam</span><span class="ua">контрольна / іспит</span></div>
+    <div class="vocab-card color-coral"><span class="icon">📓</span><span class="en">notebook</span><span class="ua">зошит</span></div>
+    <div class="vocab-card color-lavender"><span class="icon">📐</span><span class="en">ruler</span><span class="ua">лінійка</span></div>
+    <div class="vocab-card color-mint"><span class="icon">🖊️</span><span class="en">pen / pencil</span><span class="ua">ручка / олівець</span></div>
+    <div class="vocab-card color-sky"><span class="icon">🏃</span><span class="en">PE (Sport)</span><span class="ua">фізкультура</span></div>
+    <div class="vocab-card color-sun"><span class="icon">🎨</span><span class="en">Art</span><span class="ua">малювання</span></div>
+    <div class="vocab-card color-grass"><span class="icon">🔢</span><span class="en">Maths</span><span class="ua">математика</span></div>
+    <div class="vocab-card color-coral"><span class="icon">🔬</span><span class="en">Science</span><span class="ua">природознавство</span></div>
+  </div>
+
+  <!-- SECTION 2: SUBJECTS -->
+  <div class="section-title">📚 School Subjects — Шкільні предмети <span class="badge">Subjects</span></div>
+  <div class="subjects-grid">
+    <div class="subject-pill"><span class="s-icon">🔢</span><span class="s-en">Maths</span><span class="s-ua">Математика</span></div>
+    <div class="subject-pill"><span class="s-icon">🌍</span><span class="s-en">Geography</span><span class="s-ua">Географія</span></div>
+    <div class="subject-pill"><span class="s-icon">📜</span><span class="s-en">History</span><span class="s-ua">Історія</span></div>
+    <div class="subject-pill"><span class="s-icon">🔬</span><span class="s-en">Science</span><span class="s-ua">Природознавство</span></div>
+    <div class="subject-pill"><span class="s-icon">🎨</span><span class="s-en">Art</span><span class="s-ua">Малювання</span></div>
+    <div class="subject-pill"><span class="s-icon">🎵</span><span class="s-en">Music</span><span class="s-ua">Музика</span></div>
+    <div class="subject-pill"><span class="s-icon">🏃</span><span class="s-en">PE</span><span class="s-ua">Фізкультура</span></div>
+    <div class="subject-pill"><span class="s-icon">🇬🇧</span><span class="s-en">English</span><span class="s-ua">Англійська</span></div>
+    <div class="subject-pill"><span class="s-icon">💻</span><span class="s-en">IT</span><span class="s-ua">Інформатика</span></div>
+    <div class="subject-pill"><span class="s-icon">📐</span><span class="s-en">Design &amp; Tech</span><span class="s-ua">Технологія</span></div>
+  </div>
+
+  <!-- SECTION 3: USEFUL PHRASES -->
+  <div class="section-title">💬 Useful Phrases — Корисні фрази <span class="badge">Speaking</span></div>
+  <p style="margin-bottom:16px;color:#555;font-size:0.95rem;">These phrases help you talk about school every day! / Ці фрази допоможуть тобі говорити про школу щодня!</p>
+
+  <div class="phrase-block">
+    <span class="phrase-icon">❓</span>
+    <div>
+      <span class="phrase-en">What school do you go to?</span>
+      <span class="phrase-ua">До якої школи ти ходиш?</span>
+      <div class="phrase-example">— I go to <em>School №5</em> in Kyiv. / Я ходжу до <em>школи №5</em> у Києві.</div>
+    </div>
+  </div>
+
+  <div class="phrase-block coral">
+    <span class="phrase-icon">📅</span>
+    <div>
+      <span class="phrase-en">What grade / year are you in?</span>
+      <span class="phrase-ua">У якому ти класі?</span>
+      <div class="phrase-example">— I'm in <em>grade 6</em>. / Я у <em>6-му класі</em>.</div>
+    </div>
+  </div>
+
+  <div class="phrase-block grass">
+    <span class="phrase-icon">❤️</span>
+    <div>
+      <span class="phrase-en">What is your favourite subject?</span>
+      <span class="phrase-ua">Який твій улюблений предмет?</span>
+      <div class="phrase-example">— My favourite subject is <em>English</em>. It's so fun! / Мій улюблений предмет — <em>англійська</em>. Це так цікаво!</div>
+    </div>
+  </div>
+
+  <div class="phrase-block lavender">
+    <span class="phrase-icon">😴</span>
+    <div>
+      <span class="phrase-en">Which subject do you find difficult / boring?</span>
+      <span class="phrase-ua">Який предмет тобі здається важким / нудним?</span>
+      <div class="phrase-example">— I find <em>Maths</em> a bit difficult. / Мені <em>математика</em> трохи важка.</div>
+    </div>
+  </div>
+
+  <div class="phrase-block mint">
+    <span class="phrase-icon">🕗</span>
+    <div>
+      <span class="phrase-en">What time does school start / finish?</span>
+      <span class="phrase-ua">О котрій починається / закінчується школа?</span>
+      <div class="phrase-example">— School starts at <em>8 o'clock</em> and finishes at <em>3 pm</em>. / Школа починається о <em>8-й</em> і закінчується о <em>3-й</em>.</div>
+    </div>
+  </div>
+
+  <div class="phrase-block sun">
+    <span class="phrase-icon">📝</span>
+    <div>
+      <span class="phrase-en">Have you done your homework?</span>
+      <span class="phrase-ua">Ти зробив(ла) домашнє завдання?</span>
+      <div class="phrase-example">— Yes, I <em>did it yesterday</em>. / Так, я зробив(ла) <em>вчора ввечері</em>.</div>
+    </div>
+  </div>
+
+  <div class="phrase-block">
+    <span class="phrase-icon">👍</span>
+    <div>
+      <span class="phrase-en">How did your test go?</span>
+      <span class="phrase-ua">Як пройшла твоя контрольна?</span>
+      <div class="phrase-example">— It went <em>really well</em>! I got a good mark. / Пройшла <em>дуже добре</em>! Я отримав(ла) гарну оцінку.</div>
+    </div>
+  </div>
+
+  <div class="phrase-block coral">
+    <span class="phrase-icon">🏫</span>
+    <div>
+      <span class="phrase-en">How many lessons do you have today?</span>
+      <span class="phrase-ua">Скільки у тебе сьогодні уроків?</span>
+      <div class="phrase-example">— I have <em>six lessons</em> today. / Сьогодні у мене <em>шість уроків</em>.</div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: IN THE CLASSROOM -->
+  <div class="section-title">🗣️ In the Classroom — У класі <span class="badge">Classroom talk</span></div>
+  <p style="margin-bottom:16px;color:#555;font-size:0.95rem;">What do students and teachers say? / Що кажуть учні та вчителі?</p>
+
+  <div class="phrase-block grass">
+    <span class="phrase-icon">🙋</span>
+    <div>
+      <span class="phrase-en">Can I ask a question, please?</span>
+      <span class="phrase-ua">Можна поставити запитання?</span>
+    </div>
+  </div>
+
+  <div class="phrase-block lavender">
+    <span class="phrase-icon">🚻</span>
+    <div>
+      <span class="phrase-en">Can I go to the toilet, please?</span>
+      <span class="phrase-ua">Можна вийти до туалету?</span>
+    </div>
+  </div>
+
+  <div class="phrase-block mint">
+    <span class="phrase-icon">🤔</span>
+    <div>
+      <span class="phrase-en">I don't understand. Can you repeat that?</span>
+      <span class="phrase-ua">Я не розумію. Можете повторити?</span>
+    </div>
+  </div>
+
+  <div class="phrase-block sun">
+    <span class="phrase-icon">📣</span>
+    <div>
+      <span class="phrase-en">Open your books to page 24, please.</span>
+      <span class="phrase-ua">Відкрийте підручники на сторінці 24, будь ласка.</span>
+      <div class="phrase-example"><em>(This is what the teacher says!) / Це каже вчитель!</em></div>
+    </div>
+  </div>
+
+  <div class="phrase-block coral">
+    <span class="phrase-icon">🤫</span>
+    <div>
+      <span class="phrase-en">Please be quiet! / Listen carefully!</span>
+      <span class="phrase-ua">Тихіше, будь ласка! / Слухайте уважно!</span>
+    </div>
+  </div>
+
+  <!-- SECTION 5: DIALOGUE -->
+  <div class="section-title">🎭 Example Dialogues — Приклади діалогів <span class="badge">Dialogue</span></div>
+
+  <div class="dialogue-box">
+    <div class="dialogue-title">💬 Dialogue 1: Two friends talking about school / Двоє друзів розмовляють про школу</div>
+    <div class="bubble-wrap">
+      <div class="bubble left">
+        <div class="bubble-avatar avatar-a">😊</div>
+        <div class="bubble-text">
+          <strong>Alex:</strong> Hey! What lessons did you have today?
+          <span>Привіт! Які уроки у тебе були сьогодні?</span>
+        </div>
+      </div>
+      <div class="bubble right">
+        <div class="bubble-avatar avatar-b">🙂</div>
+        <div class="bubble-text">
+          <strong>Mia:</strong> I had English, Maths and Art. I love Art!
+          <span>Я мала англійську, математику та малювання. Я люблю малювання!</span>
+        </div>
+      </div>
+      <div class="bubble left">
+        <div class="bubble-avatar avatar-a">😊</div>
+        <div class="bubble-text">
+          <strong>Alex:</strong> Cool! Do you have a lot of homework?
+          <span>Круто! У тебе багато домашнього завдання?</span>
+        </div>
+      </div>
+      <div class="bubble right">
+        <div class="bubble-avatar avatar-b">🙂</div>
+        <div class="bubble-text">
+          <strong>Mia:</strong> Yes, I have to write an essay for English class. It's not easy!
+          <span>Так, мені треба написати есе з англійської. Це непросто!</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dialogue-box">
+    <div class="dialogue-title">💬 Dialogue 2: Describing your school / Описуєш свою школу</div>
+    <div class="bubble-wrap">
+      <div class="bubble left">
+        <div class="bubble-avatar avatar-a">👦</div>
+        <div class="bubble-text">
+          <strong>Tom:</strong> Tell me about your school!
+          <span>Розкажи мені про свою школу!</span>
+        </div>
+      </div>
+      <div class="bubble right">
+        <div class="bubble-avatar avatar-b">👧</div>
+        <div class="bubble-text">
+          <strong>Lena:</strong> My school is big and has a great sports hall. There are 30 students in my class.
+          <span>Моя школа велика і має чудовий спортивний зал. У моєму класі 30 учнів.</span>
+        </div>
+      </div>
+      <div class="bubble left">
+        <div class="bubble-avatar avatar-a">👦</div>
+        <div class="bubble-text">
+          <strong>Tom:</strong> Do you like your teachers?
+          <span>Тобі подобаються твої вчителі?</span>
+        </div>
+      </div>
+      <div class="bubble right">
+        <div class="bubble-avatar avatar-b">👧</div>
+        <div class="bubble-text">
+          <strong>Lena:</strong> Yes! My English teacher is very kind and funny. She makes lessons interesting.
+          <span>Так! Моя вчителька з англійської дуже добра і смішна. Вона робить уроки цікавими.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 6: SCHOOL DAY TIMELINE -->
+  <div class="section-title">🕐 A Typical School Day — Типовий шкільний день <span class="badge">Infographic</span></div>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot" style="background:#4FC3F7;"></div>
+      <div class="timeline-time">8:00 am</div>
+      <div class="timeline-en">☀️ School starts. I arrive at school.</div>
+      <div class="timeline-ua">Школа починається. Я приходжу до школи.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot" style="background:#81C784;"></div>
+      <div class="timeline-time">8:10 am</div>
+      <div class="timeline-en">📢 Registration / Morning assembly</div>
+      <div class="timeline-ua">Реєстрація / Ранкова лінійка</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot" style="background:#FFD54F;"></div>
+      <div class="timeline-time">8:30 – 12:30</div>
+      <div class="timeline-en">📖 Morning lessons (4 lessons of 45 min each)</div>
+      <div class="timeline-ua">Ранкові уроки (4 уроки по 45 хвилин)</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot" style="background:#CE93D8;"></div>
+      <div class="timeline-time">10:30 am</div>
+      <div class="timeline-en">🍎 Short break — I eat a snack and chat with friends</div>
+      <div class="timeline-ua">Коротка перерва — їм перекус і спілкуюся з друзями</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot" style="background:#FF7043;"></div>
+      <div class="timeline-time">12:30 pm</div>
+      <div class="timeline-en">🍽️ Lunch break — We eat in the cafeteria</div>
+      <div class="timeline-ua">Обідня перерва — обідаємо у їдальні</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot" style="background:#80CBC4;"></div>
+      <div class="timeline-time">1:00 – 3:00 pm</div>
+      <div class="timeline-en">📚 Afternoon lessons</div>
+      <div class="timeline-ua">Уроки після обіду</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot" style="background:#1A237E;"></div>
+      <div class="timeline-time">3:00 pm</div>
+      <div class="timeline-en">🎉 School finishes! Time to go home.</div>
+      <div class="timeline-ua">Школа закінчується! Час іти додому.</div>
+    </div>
+  </div>
+
+  <!-- SECTION 7: FEELINGS ABOUT SCHOOL -->
+  <div class="section-title">💭 How Do You Feel About School? — Як ти ставишся до школи? <span class="badge">Feelings</span></div>
+
+  <div class="feelings-row">
+    <div class="feeling-card"><div class="f-icon">😍</div><div class="f-en">I love school!</div><div class="f-ua">Я люблю школу!</div></div>
+    <div class="feeling-card"><div class="f-icon">😊</div><div class="f-en">School is okay.</div><div class="f-ua">Школа нічого.</div></div>
+    <div class="feeling-card"><div class="f-icon">😐</div><div class="f-en">It's boring sometimes.</div><div class="f-ua">Іноді нудно.</div></div>
+    <div class="feeling-card"><div class="f-icon">😓</div><div class="f-en">School is stressful.</div><div class="f-ua">Школа — це стрес.</div></div>
+    <div class="feeling-card"><div class="f-icon">🤩</div><div class="f-en">I love learning!</div><div class="f-ua">Я люблю вчитися!</div></div>
+  </div>
+
+  <div class="phrase-block grass" style="margin-top:6px;">
+    <span class="phrase-icon">💡</span>
+    <div>
+      <span class="phrase-en">How to use these feelings in a sentence:</span>
+      <span class="phrase-ua">Як використовувати ці почуття у реченні:</span>
+      <div class="phrase-example">
+        — School is <em>fun</em> because I have great friends. / Школа <em>весела</em>, бо у мене чудові друзі.<br>
+        — I find <em>English</em> exciting, but <em>Maths</em> is quite challenging. / Мені <em>англійська</em> цікава, але <em>математика</em> — складна.<br>
+        — I'm <em>nervous</em> about the exam tomorrow! / Я <em>хвилююся</em> через іспит завтра!
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 8: TIPS -->
+  <div class="section-title">💡 Smart Tips — Корисні поради <span class="badge">Tips</span></div>
+
+  <div class="tip-box">
+    <div class="tip-title">✅ Tip 1: Use "I go to..." not "I attend to..."</div>
+    <div class="tip-body">
+      <strong>Say:</strong> "I go to school at 8 am." ✅<br>
+      <strong>Don't say:</strong> "I attend to school at 8 am." ❌<br>
+      <em style="color:#888">Ми кажемо "go to school", а не "attend to school"!</em>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <div class="tip-title">✅ Tip 2: "Have" a lesson vs. "Do" a subject</div>
+    <div class="tip-body">
+      <strong>I have a Maths lesson today.</strong> ✅ (у мене є урок математики)<br>
+      <strong>I study / do Maths.</strong> ✅ (я вивчаю / займаюся математикою)<br>
+      <em style="color:#888">Обидва варіанти правильні — але в різних ситуаціях!</em>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <div class="tip-title">✅ Tip 3: Talking about marks / grades</div>
+    <div class="tip-body">
+      🇬🇧 In the UK: <strong>A, B, C, D</strong> (A = відмінно)<br>
+      🇺🇸 In the USA: <strong>A, B, C, D, F</strong> (F = двійка!)<br>
+      🇺🇦 In Ukraine: <strong>12, 10, 7, 4...</strong> (12 = відмінно)<br><br>
+      — "I got an <em>A</em> on my test!" 🎉 = Я отримав(ла) відмінну оцінку!<br>
+      — "I passed the exam." = Я склав(ла) іспит.
+    </div>
+  </div>
+
+  <!-- QUIZ SECTION -->
+  <div class="quiz-section">
+    <h2>🧠 Quick Quiz — Швидкий тест!</h2>
+    <p class="sub">Test your knowledge! Choose the correct answer. / Перевір себе! Обери правильну відповідь.</p>
+
+    <div class="quiz-q" id="q1">
+      <div class="quiz-question">1. What do you say when you want to ask a question in class?<br><em style="opacity:0.7;font-size:0.85rem;">Що ти кажеш, коли хочеш поставити запитання на уроці?</em></div>
+      <div class="quiz-options">
+        <button class="quiz-btn" onclick="answer(this,'q1',false)">Question, please!</button>
+        <button class="quiz-btn" onclick="answer(this,'q1',true)">Can I ask a question, please?</button>
+        <button class="quiz-btn" onclick="answer(this,'q1',false)">I want question.</button>
+      </div>
+      <div class="quiz-feedback" id="q1-fb"></div>
+    </div>
+
+    <div class="quiz-q" id="q2">
+      <div class="quiz-question">2. How do you say "домашнє завдання" in English?<br><em style="opacity:0.7;font-size:0.85rem;">Як "домашнє завдання" по-англійськи?</em></div>
+      <div class="quiz-options">
+        <button class="quiz-btn" onclick="answer(this,'q2',false)">housework</button>
+        <button class="quiz-btn" onclick="answer(this,'q2',false)">classwork</button>
+        <button class="quiz-btn" onclick="answer(this,'q2',true)">homework</button>
+      </div>
+      <div class="quiz-feedback" id="q2-fb"></div>
+    </div>
+
+    <div class="quiz-q" id="q3">
+      <div class="quiz-question">3. Choose the correct sentence: / Обери правильне речення:</div>
+      <div class="quiz-options">
+        <button class="quiz-btn" onclick="answer(this,'q3',false)">I attend to school at 8.</button>
+        <button class="quiz-btn" onclick="answer(this,'q3',true)">I go to school at 8.</button>
+        <button class="quiz-btn" onclick="answer(this,'q3',false)">I am go school at 8.</button>
+      </div>
+      <div class="quiz-feedback" id="q3-fb"></div>
+    </div>
+
+    <div class="quiz-q" id="q4">
+      <div class="quiz-question">4. What subject is this? 🔬 Який це предмет?</div>
+      <div class="quiz-options">
+        <button class="quiz-btn" onclick="answer(this,'q4',false)">History</button>
+        <button class="quiz-btn" onclick="answer(this,'q4',false)">Art</button>
+        <button class="quiz-btn" onclick="answer(this,'q4',true)">Science</button>
+      </div>
+      <div class="quiz-feedback" id="q4-fb"></div>
+    </div>
+  </div>
+
+  <!-- SECTION: MAGIC SENTENCES -->
+  <div class="section-title" style="margin-top:42px;">✨ Magic Sentences — Чарівні речення <span class="badge">Try it!</span></div>
+  <p style="margin-bottom:16px;color:#555;font-size:0.95rem;">Fill in the blanks with your own information! / Заповни пропуски своєю інформацією!</p>
+
+  <div style="background:white;border-radius:var(--radius);padding:24px;box-shadow:var(--card-shadow);">
+    <div style="margin-bottom:18px;">
+      <div style="font-family:'Baloo 2',cursive;font-weight:700;color:var(--navy);font-size:1.05rem;margin-bottom:8px;">🎓 About your school:</div>
+      <div style="background:#F0F7FF;border-radius:12px;padding:14px 16px;font-size:0.95rem;line-height:1.8;">
+        My name is <span style="border-bottom:2px dashed #4FC3F7;padding:0 30px;">____</span>.<br>
+        I go to <span style="border-bottom:2px dashed #4FC3F7;padding:0 50px;">____</span> school.<br>
+        I am in grade <span style="border-bottom:2px dashed #4FC3F7;padding:0 20px;">____</span>.<br>
+        My favourite subject is <span style="border-bottom:2px dashed #FF7043;padding:0 60px;">____</span> because it is <span style="border-bottom:2px dashed #FF7043;padding:0 40px;">____</span>.<br>
+        I find <span style="border-bottom:2px dashed #CE93D8;padding:0 50px;">____</span> a bit difficult.<br>
+        My school starts at <span style="border-bottom:2px dashed #81C784;padding:0 20px;">____</span> and finishes at <span style="border-bottom:2px dashed #81C784;padding:0 20px;">____</span>.
+      </div>
+    </div>
+
+    <div style="background:#FFF9C4;border-radius:12px;padding:14px 16px;font-size:0.88rem;color:#555;">
+      <strong style="color:#E65100;">📌 Example / Приклад:</strong><br>
+      My name is <em>Olena</em>. I go to <em>City</em> school. I am in grade <em>7</em>. My favourite subject is <em>English</em> because it is <em>exciting</em>. I find <em>Maths</em> a bit difficult. My school starts at <em>8 am</em> and finishes at <em>3 pm</em>.
+    </div>
+  </div>
+
+</div><!-- end container -->
+
+<div class="footer">
+  <strong>🏫 Talking About School</strong> · Школа англійською<br>
+  <span style="opacity:0.6;font-size:0.8rem;">For beginner English learners · Для початківців · 🇬🇧 🇺🇦</span>
+</div>
+
+<script>
+  function answer(btn, qid, isCorrect) {
+    const q = document.getElementById(qid);
+    const btns = q.querySelectorAll('.quiz-btn');
+    const fb = document.getElementById(qid + '-fb');
+    btns.forEach(b => b.disabled = true);
+    btn.classList.add(isCorrect ? 'correct' : 'wrong');
+    if (!isCorrect) {
+      btns.forEach(b => {
+        if (b.onclick.toString().includes('true')) b.classList.add('correct');
+      });
+    }
+    fb.textContent = isCorrect
+      ? '✅ Correct! Well done! / Правильно! Молодець!'
+      : '❌ Not quite! Look at the correct answer in green. / Не зовсім! Подивись на правильну відповідь зеленим.';
+    fb.classList.add('show');
+  }
+</script>
+
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+
+</body>
+</html>

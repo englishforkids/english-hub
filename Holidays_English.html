@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Holidays & Vacations in English 🌴</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sun: #FFD166;
+    --ocean: #06D6A0;
+    --sky: #118AB2;
+    --coral: #EF476F;
+    --sand: #FFF3E0;
+    --dark: #073B4C;
+    --mint: #C8F7EE;
+    --lavender: #E8D5FF;
+    --peach: #FFE5D9;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: linear-gradient(135deg, #E0F7FA 0%, #FFF8E1 50%, #FCE4EC 100%);
+    color: var(--dark);
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(160deg, var(--sky) 0%, var(--ocean) 60%, var(--sun) 100%);
+    padding: 60px 20px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    bottom: -2px; left: 0; right: 0;
+    height: 60px;
+    background: linear-gradient(135deg, #E0F7FA 0%, #FFF8E1 50%, #FCE4EC 100%);
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+
+  .hero-emojis {
+    font-size: 3.5rem;
+    letter-spacing: 8px;
+    animation: float 3s ease-in-out infinite;
+    display: block;
+    margin-bottom: 18px;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+
+  .hero h1 {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    color: white;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+
+  .hero .subtitle {
+    font-size: 1.15rem;
+    color: rgba(255,255,255,0.92);
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+
+  .hero .ua {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.78);
+    font-style: italic;
+  }
+
+  /* CONTAINER */
+  .container { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+
+  /* SECTION TITLES */
+  .section-title {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.9rem;
+    font-weight: 800;
+    margin: 50px 0 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-ua {
+    font-size: 0.95rem;
+    color: #777;
+    font-style: italic;
+    margin-bottom: 24px;
+  }
+
+  /* VOCABULARY GRID */
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .vocab-card {
+    background: white;
+    border-radius: 20px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+    transition: transform 0.25s, box-shadow 0.25s;
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .vocab-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 5px;
+    border-radius: 20px 20px 0 0;
+  }
+
+  .vocab-card.blue::after   { background: var(--sky); }
+  .vocab-card.green::after  { background: var(--ocean); }
+  .vocab-card.yellow::after { background: var(--sun); }
+  .vocab-card.pink::after   { background: var(--coral); }
+  .vocab-card.purple::after { background: #9B72CF; }
+
+  .vocab-card:hover { transform: translateY(-6px); box-shadow: 0 14px 36px rgba(0,0,0,0.13); }
+
+  .vocab-card .emoji { font-size: 2.4rem; margin-bottom: 10px; display: block; }
+  .vocab-card .en { font-weight: 800; font-size: 1.05rem; color: var(--dark); margin-bottom: 4px; }
+  .vocab-card .ua { font-size: 0.88rem; color: #888; }
+  .vocab-card .example { font-size: 0.82rem; color: #AAA; margin-top: 6px; font-style: italic; }
+
+  /* PHRASE CARDS */
+  .phrase-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+
+  .phrase-card {
+    background: white;
+    border-radius: 18px;
+    padding: 18px 22px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 16px;
+    align-items: start;
+    transition: transform 0.2s;
+  }
+
+  .phrase-card:hover { transform: translateX(6px); }
+
+  .phrase-card .icon {
+    font-size: 2rem;
+    line-height: 1;
+    padding-top: 2px;
+  }
+
+  .phrase-card .en-phrase {
+    font-weight: 800;
+    font-size: 1.05rem;
+    color: var(--dark);
+    margin-bottom: 3px;
+  }
+
+  .phrase-card .ua-phrase {
+    font-size: 0.9rem;
+    color: #888;
+    font-style: italic;
+    margin-bottom: 5px;
+  }
+
+  .phrase-card .example-sentence {
+    font-size: 0.88rem;
+    background: var(--sand);
+    padding: 6px 12px;
+    border-radius: 10px;
+    color: #555;
+    border-left: 3px solid var(--sun);
+  }
+
+  /* DIALOGUE BOX */
+  .dialogue {
+    background: white;
+    border-radius: 24px;
+    padding: 28px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.09);
+    margin-bottom: 16px;
+  }
+
+  .dialogue-title {
+    font-weight: 800;
+    font-size: 1rem;
+    margin-bottom: 18px;
+    color: var(--sky);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .msg {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 14px;
+    align-items: flex-start;
+  }
+
+  .msg.right { flex-direction: row-reverse; }
+
+  .avatar {
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .msg.left .avatar { background: #E3F2FD; }
+  .msg.right .avatar { background: #FFF3E0; }
+
+  .bubble {
+    max-width: 78%;
+    padding: 12px 18px;
+    border-radius: 18px;
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+
+  .msg.left .bubble {
+    background: #EEF9FF;
+    border-top-left-radius: 4px;
+  }
+
+  .msg.right .bubble {
+    background: #FFF8E1;
+    border-top-right-radius: 4px;
+    text-align: right;
+  }
+
+  .bubble .en-b { font-weight: 700; color: var(--dark); }
+  .bubble .ua-b { font-size: 0.82rem; color: #999; font-style: italic; }
+
+  /* INFOGRAPHIC: QUESTION STARTERS */
+  .question-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+
+  .q-card {
+    border-radius: 18px;
+    padding: 18px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .q-card.c1 { background: linear-gradient(135deg, #E3F2FD, #BBDEFB); }
+  .q-card.c2 { background: linear-gradient(135deg, #E8F5E9, #C8E6C9); }
+  .q-card.c3 { background: linear-gradient(135deg, #FFF8E1, #FFECB3); }
+  .q-card.c4 { background: linear-gradient(135deg, #FCE4EC, #F8BBD0); }
+  .q-card.c5 { background: linear-gradient(135deg, #EDE7F6, #D1C4E9); }
+  .q-card.c6 { background: linear-gradient(135deg, #E0F7FA, #B2EBF2); }
+
+  .q-starter {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--dark);
+    margin-bottom: 8px;
+  }
+
+  .q-examples { list-style: none; }
+  .q-examples li {
+    font-size: 0.88rem;
+    padding: 3px 0;
+    color: #444;
+  }
+  .q-examples li::before { content: "→ "; color: var(--sky); font-weight: 700; }
+
+  /* TIPS BOX */
+  .tip-box {
+    background: linear-gradient(135deg, #073B4C, #118AB2);
+    border-radius: 24px;
+    padding: 28px 32px;
+    color: white;
+    margin-bottom: 16px;
+  }
+
+  .tip-box h3 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 14px;
+  }
+
+  .tip-item {
+    background: rgba(255,255,255,0.12);
+    border-radius: 14px;
+    padding: 14px;
+    backdrop-filter: blur(4px);
+  }
+
+  .tip-item .tip-icon { font-size: 1.8rem; margin-bottom: 6px; display: block; }
+  .tip-item .tip-en { font-weight: 700; font-size: 0.95rem; margin-bottom: 3px; }
+  .tip-item .tip-ua { font-size: 0.82rem; opacity: 0.75; font-style: italic; }
+
+  /* WORD BANK */
+  .word-bank {
+    background: white;
+    border-radius: 24px;
+    padding: 26px;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+    margin-bottom: 16px;
+  }
+
+  .tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .tag {
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.92rem;
+    cursor: default;
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.3;
+  }
+
+  .tag:hover { transform: scale(1.08); }
+  .tag .tag-ua { font-size: 0.72rem; font-weight: 400; opacity: 0.7; }
+
+  .tag.t1 { background: #E3F2FD; color: #1565C0; }
+  .tag.t2 { background: #E8F5E9; color: #2E7D32; }
+  .tag.t3 { background: #FFF3E0; color: #E65100; }
+  .tag.t4 { background: #FCE4EC; color: #880E4F; }
+  .tag.t5 { background: #EDE7F6; color: #4527A0; }
+  .tag.t6 { background: #E0F7FA; color: #006064; }
+
+  /* QUIZ */
+  .quiz-section {
+    background: linear-gradient(135deg, #FFF8E1, #FCE4EC);
+    border-radius: 24px;
+    padding: 28px;
+    margin-bottom: 16px;
+  }
+
+  .quiz-q {
+    background: white;
+    border-radius: 16px;
+    padding: 18px;
+    margin-bottom: 14px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.07);
+  }
+
+  .quiz-q .q-text { font-weight: 800; margin-bottom: 12px; font-size: 1rem; }
+  .quiz-options { display: flex; flex-wrap: wrap; gap: 8px; }
+
+  .opt-btn {
+    padding: 8px 18px;
+    border-radius: 50px;
+    border: 2px solid #E0E0E0;
+    background: white;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .opt-btn:hover { border-color: var(--sky); background: #EEF9FF; }
+  .opt-btn.correct { background: #E8F5E9; border-color: var(--ocean); color: #2E7D32; }
+  .opt-btn.wrong { background: #FCE4EC; border-color: var(--coral); color: #880E4F; }
+
+  .quiz-feedback { margin-top: 10px; font-size: 0.88rem; font-weight: 700; display: none; }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 40px 20px 50px;
+    color: #AAA;
+    font-size: 0.9rem;
+  }
+
+  footer span { font-size: 1.4rem; display: block; margin-bottom: 8px; }
+
+  /* RESPONSIVE */
+  /* ── MOBILE: tablet ── */
+  @media (max-width: 768px) {
+    .hero { padding: 40px 16px 60px; }
+    .hero-emojis { font-size: 2.4rem; letter-spacing: 4px; }
+    .section-title { font-size: 1.5rem; flex-wrap: wrap; gap: 6px; }
+    .vocab-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .question-grid { grid-template-columns: repeat(2, 1fr); }
+    .tips-grid { grid-template-columns: repeat(2, 1fr); }
+    .dialogue { padding: 20px 16px; }
+    .bubble { max-width: 90%; font-size: 0.9rem; }
+    .tip-box { padding: 22px 18px; }
+    .word-bank { padding: 18px; }
+    .quiz-section { padding: 20px 16px; }
+    .quiz-options { flex-direction: column; }
+    .opt-btn { width: 100%; text-align: left; }
+  }
+
+  /* ── MOBILE: phone ── */
+  @media (max-width: 480px) {
+    body { overflow-x: hidden; }
+    .container { padding: 0 12px; }
+    .hero { padding: 32px 12px 50px; }
+    .hero-emojis { font-size: 1.9rem; letter-spacing: 2px; }
+    .hero .subtitle { font-size: 1rem; }
+    .section-title { font-size: 1.25rem; margin: 36px 0 6px; }
+    .section-ua { font-size: 0.88rem; margin-bottom: 16px; }
+    .vocab-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .vocab-card { padding: 14px 10px; }
+    .vocab-card .emoji { font-size: 1.9rem; }
+    .vocab-card .en { font-size: 0.92rem; }
+    .vocab-card .ua { font-size: 0.8rem; }
+    .vocab-card .example { font-size: 0.75rem; }
+    .phrase-list { gap: 10px; }
+    .phrase-card { grid-template-columns: 1fr; padding: 14px 16px; }
+    .phrase-card .icon { display: none; }
+    .phrase-card .en-phrase { font-size: 0.97rem; }
+    .phrase-card .ua-phrase { font-size: 0.85rem; }
+    .phrase-card .example-sentence { font-size: 0.82rem; }
+    .question-grid { grid-template-columns: 1fr; gap: 10px; }
+    .q-starter { font-size: 1.1rem; }
+    .q-examples li { font-size: 0.85rem; }
+    .dialogue { padding: 16px 12px; border-radius: 18px; }
+    .dialogue-title { font-size: 0.88rem; }
+    .msg { gap: 8px; }
+    .avatar { width: 34px; height: 34px; font-size: 1.2rem; }
+    .bubble { max-width: 86%; padding: 10px 14px; font-size: 0.87rem; border-radius: 14px; }
+    .bubble .ua-b { font-size: 0.78rem; }
+    .tip-box { padding: 18px 14px; border-radius: 18px; }
+    .tip-box h3 { font-size: 1.2rem; }
+    .tips-grid { grid-template-columns: 1fr; gap: 10px; }
+    .tip-item { padding: 12px; }
+    .tip-item .tip-icon { font-size: 1.5rem; }
+    .tip-item .tip-en { font-size: 0.88rem; }
+    .tip-item .tip-ua { font-size: 0.78rem; }
+    .word-bank { padding: 14px; border-radius: 18px; }
+    .tag-cloud { gap: 8px; }
+    .tag { padding: 6px 12px; font-size: 0.84rem; }
+    .tag .tag-ua { font-size: 0.68rem; }
+    .quiz-section { padding: 16px 12px; border-radius: 18px; }
+    .quiz-q { padding: 14px; border-radius: 14px; }
+    .quiz-q .q-text { font-size: 0.93rem; }
+    .quiz-options { flex-direction: column; gap: 6px; }
+    .opt-btn { width: 100%; text-align: left; padding: 10px 14px; font-size: 0.88rem; border-radius: 12px; }
+    .quiz-feedback { font-size: 0.82rem; }
+    footer { padding: 28px 16px 40px; font-size: 0.85rem; }
+  }
+
+  #scroll-top-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #1a1208;
+    border: 1.5px solid rgba(200,150,62,0.4);
+    color: #f5f0e8;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+    pointer-events: none;
+    z-index: 9998;
+  }
+  #scroll-top-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  #scroll-top-btn:hover {
+    background: #c8963e;
+    border-color: #c8963e;
+    color: #1a1208;
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <span class="hero-emojis">✈️ 🏖️ 🎄 🗺️ 🎡</span>
+  <h1>Holidays &amp; Vacations<br>in English</h1>
+  <p class="subtitle">How to talk about free time, trips &amp; celebrations!</p>
+  <p class="ua">Як говорити про канікули, подорожі та свята англійською мовою</p>
+</div>
+
+<div class="container">
+
+  <!-- ═══ SECTION 1: KEY VOCABULARY ═══ -->
+  <div class="section-title" style="color: var(--sky);">📚 Key Words <span style="font-size:1rem;color:#aaa;font-weight:400">— Ключові слова</span></div>
+  <p class="section-ua">Вивчи ці слова — вони допоможуть говорити про канікули й свята!</p>
+
+  <div class="vocab-grid">
+    <div class="vocab-card blue">
+      <span class="emoji">🏖️</span>
+      <div class="en">vacation / holiday</div>
+      <div class="ua">канікули / свято</div>
+      <div class="example">"I love summer vacation!"</div>
+    </div>
+    <div class="vocab-card green">
+      <span class="emoji">✈️</span>
+      <div class="en">trip / journey</div>
+      <div class="ua">поїздка / подорож</div>
+      <div class="example">"We went on a trip to Spain."</div>
+    </div>
+    <div class="vocab-card yellow">
+      <span class="emoji">🛫</span>
+      <div class="en">to travel</div>
+      <div class="ua">подорожувати</div>
+      <div class="example">"I want to travel the world!"</div>
+    </div>
+    <div class="vocab-card pink">
+      <span class="emoji">🏨</span>
+      <div class="en">hotel / resort</div>
+      <div class="ua">готель / курорт</div>
+      <div class="example">"We stayed at a nice hotel."</div>
+    </div>
+    <div class="vocab-card purple">
+      <span class="emoji">🗺️</span>
+      <div class="en">destination</div>
+      <div class="ua">місце призначення</div>
+      <div class="example">"Our destination was Paris."</div>
+    </div>
+    <div class="vocab-card blue">
+      <span class="emoji">🎒</span>
+      <div class="en">to pack (a bag)</div>
+      <div class="ua">пакувати (валізу)</div>
+      <div class="example">"Don't forget to pack sunscreen!"</div>
+    </div>
+    <div class="vocab-card green">
+      <span class="emoji">🏕️</span>
+      <div class="en">camping</div>
+      <div class="ua">кемпінг / похід</div>
+      <div class="example">"We went camping in the mountains."</div>
+    </div>
+    <div class="vocab-card yellow">
+      <span class="emoji">🎠</span>
+      <div class="en">sightseeing</div>
+      <div class="ua">огляд визначних місць</div>
+      <div class="example">"We did a lot of sightseeing."</div>
+    </div>
+    <div class="vocab-card pink">
+      <span class="emoji">📸</span>
+      <div class="en">souvenir</div>
+      <div class="ua">сувенір</div>
+      <div class="example">"I bought souvenirs for my friends."</div>
+    </div>
+    <div class="vocab-card purple">
+      <span class="emoji">🎇</span>
+      <div class="en">celebration</div>
+      <div class="ua">святкування</div>
+      <div class="example">"The New Year celebration was amazing!"</div>
+    </div>
+  </div>
+
+  <!-- ═══ SECTION 2: HOLIDAYS LIST ═══ -->
+  <div class="section-title" style="color: var(--coral);">🎉 Main Holidays <span style="font-size:1rem;color:#aaa;font-weight:400">— Головні свята</span></div>
+  <p class="section-ua">Ось як називаються популярні свята англійською мовою:</p>
+
+  <div class="word-bank">
+    <div class="tag-cloud">
+      <div class="tag t1">🎄 Christmas<span class="tag-ua">Різдво</span></div>
+      <div class="tag t2">🎆 New Year's Day<span class="tag-ua">Новий рік</span></div>
+      <div class="tag t3">🐰 Easter<span class="tag-ua">Великдень</span></div>
+      <div class="tag t4">🎃 Halloween<span class="tag-ua">Геловін</span></div>
+      <div class="tag t5">🦃 Thanksgiving<span class="tag-ua">День подяки</span></div>
+      <div class="tag t6">💝 Valentine's Day<span class="tag-ua">День Валентина</span></div>
+      <div class="tag t1">🎇 New Year's Eve<span class="tag-ua">Переддень Нового року</span></div>
+      <div class="tag t2">🌸 Spring Break<span class="tag-ua">Весняні канікули</span></div>
+      <div class="tag t3">☀️ Summer vacation<span class="tag-ua">Літні канікули</span></div>
+      <div class="tag t4">🍂 Autumn break<span class="tag-ua">Осінні канікули</span></div>
+      <div class="tag t5">❄️ Winter break<span class="tag-ua">Зимові канікули</span></div>
+      <div class="tag t6">🎂 Birthday<span class="tag-ua">День народження</span></div>
+    </div>
+  </div>
+
+  <!-- ═══ SECTION 3: USEFUL PHRASES ═══ -->
+  <div class="section-title" style="color: var(--ocean);">💬 Useful Phrases <span style="font-size:1rem;color:#aaa;font-weight:400">— Корисні фрази</span></div>
+  <p class="section-ua">Ці фрази допоможуть тобі розповісти про свята та поставити запитання:</p>
+
+  <div class="phrase-list">
+
+    <div class="phrase-card">
+      <div class="icon">🗓️</div>
+      <div>
+        <div class="en-phrase">What are you doing for the holidays?</div>
+        <div class="ua-phrase">Що ти робитимеш на свята?</div>
+        <div class="example-sentence">— What are you doing for the holidays? — We're going to visit my grandparents!</div>
+      </div>
+    </div>
+
+    <div class="phrase-card">
+      <div class="icon">✈️</div>
+      <div>
+        <div class="en-phrase">We're going on vacation to…</div>
+        <div class="ua-phrase">Ми їдемо у відпустку / на канікули до…</div>
+        <div class="example-sentence">— We're going on vacation to Italy next week!</div>
+      </div>
+    </div>
+
+    <div class="phrase-card">
+      <div class="icon">🏖️</div>
+      <div>
+        <div class="en-phrase">I spent my holiday / vacation in…</div>
+        <div class="ua-phrase">Я провів(ла) свята / канікули в…</div>
+        <div class="example-sentence">— I spent my holiday in the mountains. It was breathtaking!</div>
+      </div>
+    </div>
+
+    <div class="phrase-card">
+      <div class="icon">😊</div>
+      <div>
+        <div class="en-phrase">We had a great time!</div>
+        <div class="ua-phrase">Ми чудово провели час!</div>
+        <div class="example-sentence">— How was your trip? — Amazing! We had a great time!</div>
+      </div>
+    </div>
+
+    <div class="phrase-card">
+      <div class="icon">🎁</div>
+      <div>
+        <div class="en-phrase">We celebrated… / We decorated…</div>
+        <div class="ua-phrase">Ми святкували… / Ми прикрашали…</div>
+        <div class="example-sentence">— We celebrated Christmas and decorated the tree together.</div>
+      </div>
+    </div>
+
+    <div class="phrase-card">
+      <div class="icon">🌍</div>
+      <div>
+        <div class="en-phrase">My favourite holiday destination is…</div>
+        <div class="ua-phrase">Моє улюблене місце для відпочинку — це…</div>
+        <div class="example-sentence">— My favourite holiday destination is the seaside.</div>
+      </div>
+    </div>
+
+    <div class="phrase-card">
+      <div class="icon">🤩</div>
+      <div>
+        <div class="en-phrase">The highlight of the trip was…</div>
+        <div class="ua-phrase">Найяскравіший момент поїздки — це…</div>
+        <div class="example-sentence">— The highlight of the trip was seeing the Eiffel Tower!</div>
+      </div>
+    </div>
+
+    <div class="phrase-card">
+      <div class="icon">😞</div>
+      <div>
+        <div class="en-phrase">I can't wait for the holidays!</div>
+        <div class="ua-phrase">Я не можу дочекатися канікул!</div>
+        <div class="example-sentence">— Only 3 days left! I can't wait for the holidays!</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ═══ SECTION 4: QUESTION STARTERS ═══ -->
+  <div class="section-title" style="color: #9B72CF);">❓ How to Ask Questions <span style="font-size:1rem;color:#aaa;font-weight:400">— Як ставити запитання</span></div>
+  <p class="section-ua">Використовуй ці питальні слова, щоб дізнатися про чиїсь свята:</p>
+
+  <div class="question-grid">
+    <div class="q-card c1">
+      <div class="q-starter">Where…?</div>
+      <div style="font-size:0.8rem;color:#555;margin-bottom:8px;font-style:italic">Де? / Куди?</div>
+      <ul class="q-examples">
+        <li>Where did you go?</li>
+        <li>Where are you travelling?</li>
+      </ul>
+    </div>
+    <div class="q-card c2">
+      <div class="q-starter">What…?</div>
+      <div style="font-size:0.8rem;color:#555;margin-bottom:8px;font-style:italic">Що?</div>
+      <ul class="q-examples">
+        <li>What did you do there?</li>
+        <li>What was it like?</li>
+      </ul>
+    </div>
+    <div class="q-card c3">
+      <div class="q-starter">When…?</div>
+      <div style="font-size:0.8rem;color:#555;margin-bottom:8px;font-style:italic">Коли?</div>
+      <ul class="q-examples">
+        <li>When did you travel?</li>
+        <li>When is your holiday?</li>
+      </ul>
+    </div>
+    <div class="q-card c4">
+      <div class="q-starter">Who…?</div>
+      <div style="font-size:0.8rem;color:#555;margin-bottom:8px;font-style:italic">Хто? / З ким?</div>
+      <ul class="q-examples">
+        <li>Who did you go with?</li>
+        <li>Who celebrates this?</li>
+      </ul>
+    </div>
+    <div class="q-card c5">
+      <div class="q-starter">How…?</div>
+      <div style="font-size:0.8rem;color:#555;margin-bottom:8px;font-style:italic">Як?</div>
+      <ul class="q-examples">
+        <li>How was your holiday?</li>
+        <li>How long did you stay?</li>
+      </ul>
+    </div>
+    <div class="q-card c6">
+      <div class="q-starter">Did you…?</div>
+      <div style="font-size:0.8rem;color:#555;margin-bottom:8px;font-style:italic">Ти…? / Ви…?</div>
+      <ul class="q-examples">
+        <li>Did you enjoy it?</li>
+        <li>Did you try local food?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ═══ SECTION 5: DIALOGUE ═══ -->
+  <div class="section-title" style="color: var(--coral);">🗣️ Example Dialogue <span style="font-size:1rem;color:#aaa;font-weight:400">— Приклад діалогу</span></div>
+  <p class="section-ua">Ось як може виглядати розмова між двома друзями після канікул:</p>
+
+  <div class="dialogue">
+    <div class="dialogue-title">🎙️ Back to school after summer — Повернення до школи після літа</div>
+
+    <div class="msg left">
+      <div class="avatar">😊</div>
+      <div class="bubble">
+        <div class="en-b">Hey! How was your summer vacation?</div>
+        <div class="ua-b">Привіт! Як пройшли твої літні канікули?</div>
+      </div>
+    </div>
+
+    <div class="msg right">
+      <div class="avatar">🙂</div>
+      <div class="bubble">
+        <div class="en-b">It was amazing! We went to Greece for two weeks.</div>
+        <div class="ua-b">Це було неймовірно! Ми поїхали до Греції на два тижні.</div>
+      </div>
+    </div>
+
+    <div class="msg left">
+      <div class="avatar">😊</div>
+      <div class="bubble">
+        <div class="en-b">Wow! What did you do there?</div>
+        <div class="ua-b">Вау! Що ви там робили?</div>
+      </div>
+    </div>
+
+    <div class="msg right">
+      <div class="avatar">🙂</div>
+      <div class="bubble">
+        <div class="en-b">We went swimming, visited ancient ruins, and tried delicious Greek food. The highlight was watching the sunset in Santorini!</div>
+        <div class="ua-b">Ми купалися, відвідали стародавні руїни та куштували смачну грецьку їжу. Найяскравіший момент — захід сонця на Санторіні!</div>
+      </div>
+    </div>
+
+    <div class="msg left">
+      <div class="avatar">😊</div>
+      <div class="bubble">
+        <div class="en-b">That sounds fantastic! Did you buy any souvenirs?</div>
+        <div class="ua-b">Звучить чудово! Ти купував(ла) якісь сувеніри?</div>
+      </div>
+    </div>
+
+    <div class="msg right">
+      <div class="avatar">🙂</div>
+      <div class="bubble">
+        <div class="en-b">Yes! I got a little owl figurine for my mum and some olive oil for my dad. I can't wait to go back!</div>
+        <div class="ua-b">Так! Я купила маленьку фігурку сови для мами і оливкову олію для тата. Не можу дочекатися, коли повернуся туди!</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SECTION 6: ADJECTIVES ═══ -->
+  <div class="section-title" style="color: var(--sky);">✨ Describing Words <span style="font-size:1rem;color:#aaa;font-weight:400">— Слова-описи</span></div>
+  <p class="section-ua">Ці прикметники зроблять твою розповідь про канікули набагато яскравішою!</p>
+
+  <div class="word-bank">
+    <div class="tag-cloud">
+      <div class="tag t3">🤩 amazing<span class="tag-ua">вражаючий</span></div>
+      <div class="tag t2">😄 wonderful<span class="tag-ua">чудовий</span></div>
+      <div class="tag t1">🎉 fantastic<span class="tag-ua">фантастичний</span></div>
+      <div class="tag t4">😎 relaxing<span class="tag-ua">розслаблюючий</span></div>
+      <div class="tag t5">🏔️ breathtaking<span class="tag-ua">захоплюючий</span></div>
+      <div class="tag t6">👀 unforgettable<span class="tag-ua">незабутній</span></div>
+      <div class="tag t3">🍽️ delicious<span class="tag-ua">смачний</span></div>
+      <div class="tag t1">😂 funny<span class="tag-ua">кумедний</span></div>
+      <div class="tag t2">💤 exhausting<span class="tag-ua">виснажливий</span></div>
+      <div class="tag t4">😐 boring<span class="tag-ua">нудний</span></div>
+      <div class="tag t5">🌟 exciting<span class="tag-ua">захопливий</span></div>
+      <div class="tag t6">🙁 disappointing<span class="tag-ua">розчаровуючий</span></div>
+    </div>
+  </div>
+
+  <!-- ═══ SECTION 7: TIPS ═══ -->
+  <div class="tip-box">
+    <h3>💡 Pro Tips for Talking About Holidays / Поради для розмови про свята</h3>
+    <div class="tips-grid">
+      <div class="tip-item">
+        <span class="tip-icon">📖</span>
+        <div class="tip-en">Use Past Simple for finished trips</div>
+        <div class="tip-ua">Past Simple — для завершених поїздок: "We went...", "I saw..."</div>
+      </div>
+      <div class="tip-item">
+        <span class="tip-icon">🔮</span>
+        <div class="tip-en">Use "going to" for future plans</div>
+        <div class="tip-ua">«going to» — для майбутніх планів: "We're going to travel..."</div>
+      </div>
+      <div class="tip-item">
+        <span class="tip-icon">🎨</span>
+        <div class="tip-en">Add adjectives to sound more natural</div>
+        <div class="tip-ua">Додавай прикметники: не "It was good", а "It was absolutely amazing!"</div>
+      </div>
+      <div class="tip-item">
+        <span class="tip-icon">🌊</span>
+        <div class="tip-en">Say what you liked most</div>
+        <div class="tip-ua">Скажи, що тобі сподобалось найбільше: "The best part was..."</div>
+      </div>
+      <div class="tip-item">
+        <span class="tip-icon">❓</span>
+        <div class="tip-en">Ask follow-up questions</div>
+        <div class="tip-ua">Постав уточнюючі запитання: "Really? What was it like?"</div>
+      </div>
+      <div class="tip-item">
+        <span class="tip-icon">🗓️</span>
+        <div class="tip-en">Mention time expressions</div>
+        <div class="tip-ua">Вживай вирази часу: last summer, for a week, on Christmas Eve...</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SECTION 8: QUICK QUIZ ═══ -->
+  <div class="section-title" style="color: var(--coral);">🎯 Quick Quiz <span style="font-size:1rem;color:#aaa;font-weight:400">— Швидкий тест</span></div>
+  <p class="section-ua">Перевір, що ти засвоїв(ла)! Обери правильну відповідь:</p>
+
+  <div class="quiz-section">
+
+    <div class="quiz-q" id="q1">
+      <div class="q-text">1. How do you say «канікули» in English?</div>
+      <div class="quiz-options">
+        <button class="opt-btn" onclick="answer(this,'q1',false)">journey</button>
+        <button class="opt-btn" onclick="answer(this,'q1',true)">vacation</button>
+        <button class="opt-btn" onclick="answer(this,'q1',false)">souvenir</button>
+        <button class="opt-btn" onclick="answer(this,'q1',false)">destination</button>
+      </div>
+      <div class="quiz-feedback" id="fb1"></div>
+    </div>
+
+    <div class="quiz-q" id="q2">
+      <div class="q-text">2. Which phrase means «Ми чудово провели час»?</div>
+      <div class="quiz-options">
+        <button class="opt-btn" onclick="answer(this,'q2',false)">We went sightseeing.</button>
+        <button class="opt-btn" onclick="answer(this,'q2',false)">We were exhausted.</button>
+        <button class="opt-btn" onclick="answer(this,'q2',true)">We had a great time!</button>
+        <button class="opt-btn" onclick="answer(this,'q2',false)">We packed our bags.</button>
+      </div>
+      <div class="quiz-feedback" id="fb2"></div>
+    </div>
+
+    <div class="quiz-q" id="q3">
+      <div class="q-text">3. Complete: "The _____ of the trip was seeing the Northern Lights."</div>
+      <div class="quiz-options">
+        <button class="opt-btn" onclick="answer(this,'q3',false)">souvenir</button>
+        <button class="opt-btn" onclick="answer(this,'q3',true)">highlight</button>
+        <button class="opt-btn" onclick="answer(this,'q3',false)">destination</button>
+        <button class="opt-btn" onclick="answer(this,'q3',false)">celebration</button>
+      </div>
+      <div class="quiz-feedback" id="fb3"></div>
+    </div>
+
+    <div class="quiz-q" id="q4">
+      <div class="q-text">4. Which tense do we use for a trip that already happened?</div>
+      <div class="quiz-options">
+        <button class="opt-btn" onclick="answer(this,'q4',false)">Present Simple</button>
+        <button class="opt-btn" onclick="answer(this,'q4',false)">Future Simple</button>
+        <button class="opt-btn" onclick="answer(this,'q4',true)">Past Simple</button>
+        <button class="opt-btn" onclick="answer(this,'q4',false)">Present Continuous</button>
+      </div>
+      <div class="quiz-feedback" id="fb4"></div>
+    </div>
+
+  </div>
+
+</div><!-- /container -->
+
+<footer>
+  <span>🌴</span>
+  Happy learning &amp; happy travels! / Успіхів у навчанні та приємних подорожей!
+</footer>
+
+<script>
+  function answer(btn, qId, isCorrect) {
+    const q = document.getElementById(qId);
+    const btns = q.querySelectorAll('.opt-btn');
+    const fb = document.getElementById('fb' + qId.replace('q',''));
+
+    // prevent re-answering
+    if (q.dataset.done) return;
+    q.dataset.done = 'true';
+
+    btns.forEach(b => b.style.pointerEvents = 'none');
+
+    if (isCorrect) {
+      btn.classList.add('correct');
+      fb.style.display = 'block';
+      fb.style.color = '#2E7D32';
+      fb.textContent = '✅ Correct! / Правильно!';
+    } else {
+      btn.classList.add('wrong');
+      fb.style.display = 'block';
+      fb.style.color = '#C62828';
+      fb.textContent = '❌ Not quite! Try to remember this one. / Не зовсім! Запам\'ятай цю відповідь.';
+      // highlight correct
+      btns.forEach(b => {
+        if (b.onclick.toString().includes('true')) b.classList.add('correct');
+      });
+    }
+  }
+</script>
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+</body>
+</html>

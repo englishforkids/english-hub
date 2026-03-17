@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hobbies & Interests 🎨 — English for Beginners</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --yellow: #FFD93D;
+    --coral: #FF6B6B;
+    --mint: #6BCB77;
+    --blue: #4D96FF;
+    --purple: #C77DFF;
+    --orange: #FF9A3C;
+    --bg: #FFFBF0;
+    --dark: #2D2A4A;
+    --card-shadow: 0 8px 32px rgba(45,42,74,0.10);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--dark);
+    overflow-x: hidden;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    background: linear-gradient(135deg, #FFD93D 0%, #FF6B6B 40%, #C77DFF 80%, #4D96FF 100%);
+    padding: 60px 24px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.08'%3E%3Ccircle cx='30' cy='30' r='10'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-emoji-row {
+    font-size: 2.5rem;
+    margin-bottom: 18px;
+    animation: floatEmojis 3s ease-in-out infinite alternate;
+    position: relative; z-index: 1;
+    letter-spacing: 8px;
+  }
+  @keyframes floatEmojis { from { transform: translateY(0); } to { transform: translateY(-10px); } }
+
+  .hero h1 {
+    font-family: 'Baloo 2', sans-serif;
+    font-size: clamp(2rem, 6vw, 3.6rem);
+    font-weight: 800;
+    color: white;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    position: relative; z-index: 1;
+    line-height: 1.2;
+  }
+  .hero p {
+    margin-top: 14px;
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: rgba(255,255,255,0.92);
+    position: relative; z-index: 1;
+    max-width: 560px;
+    margin-left: auto; margin-right: auto;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.25);
+    border: 2px solid rgba(255,255,255,0.5);
+    color: white;
+    font-weight: 800;
+    font-size: 0.85rem;
+    padding: 6px 18px;
+    border-radius: 999px;
+    margin-top: 20px;
+    position: relative; z-index: 1;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* ─── LAYOUT ─── */
+  .container { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+
+  section { padding: 60px 0; }
+
+  .section-title {
+    font-family: 'Baloo 2', sans-serif;
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  .section-sub {
+    text-align: center;
+    color: #888;
+    font-size: 1rem;
+    margin-bottom: 40px;
+    font-weight: 600;
+  }
+
+  /* ─── HOBBY CARDS GRID ─── */
+  .hobbies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 18px;
+  }
+  .hobby-card {
+    background: white;
+    border-radius: 20px;
+    padding: 22px 14px;
+    text-align: center;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: default;
+    border: 3px solid transparent;
+  }
+  .hobby-card:hover { transform: translateY(-6px) scale(1.04); box-shadow: 0 16px 40px rgba(45,42,74,0.15); }
+  .hobby-card .icon { font-size: 2.6rem; margin-bottom: 10px; display: block; }
+  .hobby-card .en { font-weight: 800; font-size: 1rem; color: var(--dark); }
+  .hobby-card .uk { font-size: 0.82rem; color: #888; margin-top: 3px; font-weight: 600; }
+
+  .hc-1 { border-color: var(--yellow); background: #FFFDE7; }
+  .hc-2 { border-color: var(--coral); background: #FFF0F0; }
+  .hc-3 { border-color: var(--mint); background: #F0FFF4; }
+  .hc-4 { border-color: var(--blue); background: #F0F7FF; }
+  .hc-5 { border-color: var(--purple); background: #FAF0FF; }
+  .hc-6 { border-color: var(--orange); background: #FFF5EC; }
+  .hc-7 { border-color: var(--yellow); background: #FFFDE7; }
+  .hc-8 { border-color: var(--coral); background: #FFF0F0; }
+  .hc-9 { border-color: var(--mint); background: #F0FFF4; }
+  .hc-10 { border-color: var(--blue); background: #F0F7FF; }
+  .hc-11 { border-color: var(--purple); background: #FAF0FF; }
+  .hc-12 { border-color: var(--orange); background: #FFF5EC; }
+
+  /* ─── PHRASES ─── */
+  .phrases-section { background: linear-gradient(160deg, #F0F7FF 0%, #FAF0FF 100%); border-radius: 30px; }
+  .phrases-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  @media (max-width: 620px) { .phrases-columns { grid-template-columns: 1fr; } }
+
+  .phrase-group { background: white; border-radius: 20px; padding: 24px; box-shadow: var(--card-shadow); }
+  .phrase-group h3 {
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .phrase-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-bottom: 14px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    background: #F8F8FE;
+    border-left: 4px solid var(--blue);
+    transition: background 0.2s;
+  }
+  .phrase-item:hover { background: #EEF4FF; }
+  .phrase-item .en-phrase { font-weight: 800; color: var(--dark); font-size: 0.97rem; }
+  .phrase-item .uk-phrase { font-size: 0.83rem; color: #888; font-weight: 600; }
+
+  .group-ask .phrase-item { border-left-color: var(--blue); }
+  .group-answer .phrase-item { border-left-color: var(--mint); }
+  .group-like .phrase-item { border-left-color: var(--coral); }
+  .group-often .phrase-item { border-left-color: var(--purple); }
+
+  /* ─── DIALOGUE ─── */
+  .dialogue-box {
+    background: white;
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: var(--card-shadow);
+    max-width: 680px;
+    margin: 0 auto;
+  }
+  .dialogue-title {
+    text-align: center;
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    margin-bottom: 24px;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .bubble-wrap { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 18px; }
+  .bubble-wrap.right { flex-direction: row-reverse; }
+  .avatar {
+    width: 44px; height: 44px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem; flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  .av-a { background: #FFD93D; }
+  .av-b { background: #6BCB77; }
+  .bubble {
+    max-width: 78%;
+    padding: 14px 18px;
+    border-radius: 18px;
+    font-size: 0.95rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  }
+  .bubble-a { background: #EEF4FF; border-bottom-left-radius: 4px; }
+  .bubble-b { background: #F0FFF4; border-bottom-right-radius: 4px; }
+  .bubble .en-line { font-weight: 700; color: var(--dark); }
+  .bubble .uk-line { font-size: 0.8rem; color: #999; margin-top: 3px; }
+  .speaker-name { font-size: 0.75rem; font-weight: 800; letter-spacing: 0.5px; margin-bottom: 3px; color: #bbb; }
+
+  /* ─── KEY WORDS ─── */
+  .words-section { background: linear-gradient(160deg, #F0FFF4 0%, #FFFDE7 100%); border-radius: 30px; }
+  .words-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+  }
+  .word-card {
+    background: white;
+    border-radius: 16px;
+    padding: 18px 16px;
+    box-shadow: var(--card-shadow);
+    display: flex; flex-direction: column; gap: 4px;
+    transition: transform 0.18s;
+  }
+  .word-card:hover { transform: translateY(-4px); }
+  .word-card .word { font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 1.1rem; color: var(--dark); }
+  .word-card .transc { font-size: 0.78rem; color: var(--blue); font-weight: 700; }
+  .word-card .meaning { font-size: 0.82rem; color: #777; font-weight: 600; }
+  .word-tag {
+    display: inline-block; font-size: 0.7rem; font-weight: 800;
+    padding: 2px 10px; border-radius: 999px; margin-top: 4px;
+    text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .tag-noun { background: #FFD93D22; color: #B8900A; border: 1.5px solid #FFD93D; }
+  .tag-verb { background: #FF6B6B22; color: #C0392B; border: 1.5px solid #FF6B6B; }
+  .tag-adj  { background: #6BCB7722; color: #1A8A3C; border: 1.5px solid #6BCB77; }
+  .tag-adv  { background: #4D96FF22; color: #1A4FA8; border: 1.5px solid #4D96FF; }
+
+  /* ─── TIPS ─── */
+  .tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+  }
+  .tip-card {
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: var(--card-shadow);
+    position: relative; overflow: hidden;
+  }
+  .tip-card::before {
+    content: attr(data-num);
+    position: absolute; top: -10px; right: 14px;
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 5rem; font-weight: 900;
+    opacity: 0.08; color: var(--dark);
+    line-height: 1;
+  }
+  .tip-card.t1 { background: linear-gradient(135deg, #FFF9E6, #FFE4A0); }
+  .tip-card.t2 { background: linear-gradient(135deg, #FFF0F0, #FFCECE); }
+  .tip-card.t3 { background: linear-gradient(135deg, #F0FFF4, #BFEFCA); }
+  .tip-card.t4 { background: linear-gradient(135deg, #F0F7FF, #BDD8FF); }
+  .tip-icon { font-size: 2rem; margin-bottom: 10px; display: block; }
+  .tip-card h3 { font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 1.05rem; margin-bottom: 8px; }
+  .tip-card p { font-size: 0.88rem; line-height: 1.6; color: #555; font-weight: 600; }
+  .tip-card .tip-example {
+    margin-top: 10px; padding: 10px 12px;
+    background: rgba(255,255,255,0.65);
+    border-radius: 10px;
+    font-size: 0.85rem; font-weight: 700;
+    color: var(--dark);
+  }
+  .tip-card .tip-example span { display: block; font-size: 0.75rem; color: #999; font-weight: 600; margin-top: 2px; }
+
+  /* ─── QUICK Q&A ─── */
+  .qa-section { background: linear-gradient(160deg, #FAF0FF 0%, #F0F7FF 100%); border-radius: 30px; }
+  .qa-list { display: flex; flex-direction: column; gap: 16px; }
+  .qa-item {
+    background: white;
+    border-radius: 16px;
+    padding: 20px 22px;
+    box-shadow: var(--card-shadow);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 12px 16px;
+    align-items: start;
+  }
+  .qa-q-badge {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--purple); color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 900; font-family: 'Baloo 2', sans-serif;
+    font-size: 1rem; flex-shrink: 0;
+  }
+  .qa-a-badge {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--mint); color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 900; font-family: 'Baloo 2', sans-serif;
+    font-size: 1rem; flex-shrink: 0;
+  }
+  .qa-q-text .en { font-weight: 800; font-size: 0.97rem; }
+  .qa-q-text .uk { font-size: 0.8rem; color: #999; font-weight: 600; }
+  .qa-a-text .en { font-weight: 700; font-size: 0.95rem; color: #1A8A3C; }
+  .qa-a-text .uk { font-size: 0.8rem; color: #999; font-weight: 600; }
+  .qa-inner { display: contents; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--dark);
+    color: white;
+    text-align: center;
+    padding: 36px 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+  footer .footer-emoji { font-size: 1.8rem; display: block; margin-bottom: 10px; }
+
+  /* ─── SECTION DIVIDERS ─── */
+  .wave {
+    width: 100%; overflow: hidden;
+    line-height: 0; display: block;
+  }
+
+  /* ─── INFOGRAPHIC STRIP ─── */
+  .infographic {
+    background: var(--dark);
+    border-radius: 24px;
+    padding: 32px;
+    color: white;
+    display: flex;
+    gap: 0;
+    overflow: hidden;
+    position: relative;
+  }
+  .infographic::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 20% 50%, rgba(77,150,255,0.18) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 50%, rgba(199,125,255,0.18) 0%, transparent 60%);
+  }
+  .info-step {
+    flex: 1;
+    text-align: center;
+    padding: 16px 12px;
+    position: relative; z-index: 1;
+    border-right: 1px solid rgba(255,255,255,0.08);
+  }
+  .info-step:last-child { border-right: none; }
+  .info-step .step-num {
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 2.2rem; font-weight: 900;
+    color: var(--yellow);
+    display: block;
+  }
+  .info-step .step-icon { font-size: 1.8rem; margin: 6px 0; display: block; }
+  .info-step .step-en { font-weight: 800; font-size: 0.9rem; margin-bottom: 4px; }
+  .info-step .step-uk { font-size: 0.75rem; color: rgba(255,255,255,0.55); font-weight: 600; }
+  .info-step .step-example {
+    margin-top: 10px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 10px;
+    padding: 8px 10px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #FFD93D;
+    font-style: italic;
+  }
+  @media (max-width: 600px) {
+    .infographic { flex-direction: column; }
+    .info-step { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .info-step:last-child { border-bottom: none; }
+  }
+
+  /* scroll animations */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  #scroll-top-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #1a1208;
+    border: 1.5px solid rgba(200,150,62,0.4);
+    color: #f5f0e8;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+    pointer-events: none;
+    z-index: 9998;
+  }
+  #scroll-top-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  #scroll-top-btn:hover {
+    background: #c8963e;
+    border-color: #c8963e;
+    color: #1a1208;
+  }
+
+  /* ─── MOBILE ─── */
+  @media (max-width: 480px) {
+    /* Global */
+    body { font-size: 15px; }
+    .container { padding: 0 14px; }
+    section { padding: 40px 0; }
+
+    /* Hero */
+    .hero { padding: 40px 16px 56px; }
+    .hero-emoji-row { font-size: 1.7rem; letter-spacing: 4px; }
+    .hero-badge { font-size: 0.75rem; padding: 5px 14px; }
+
+    /* Section titles */
+    .section-title { font-size: 1.35rem; margin-bottom: 8px; }
+    .section-sub { font-size: 0.85rem; margin-bottom: 24px; }
+
+    /* Hobby cards — 3 columns on mobile */
+    .hobbies-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .hobby-card { padding: 14px 8px; border-radius: 14px; border-width: 2px; }
+    .hobby-card .icon { font-size: 1.8rem; margin-bottom: 6px; }
+    .hobby-card .en { font-size: 0.78rem; }
+    .hobby-card .uk { font-size: 0.68rem; }
+
+    /* Infographic — stacked, scrollable hint */
+    .infographic { border-radius: 18px; padding: 20px 16px; }
+    .info-step { padding: 14px 10px; }
+    .info-step .step-num { font-size: 1.6rem; }
+    .info-step .step-icon { font-size: 1.4rem; }
+    .info-step .step-en { font-size: 0.83rem; }
+    .info-step .step-example { font-size: 0.73rem; padding: 6px 8px; }
+
+    /* Phrases — single column */
+    .phrases-columns { grid-template-columns: 1fr; gap: 14px; }
+    .phrase-group { padding: 18px 14px; border-radius: 16px; }
+    .phrase-group h3 { font-size: 0.95rem; margin-bottom: 12px; }
+    .phrase-item { padding: 10px 12px; margin-bottom: 10px; border-radius: 10px; }
+    .phrase-item .en-phrase { font-size: 0.88rem; }
+    .phrase-item .uk-phrase { font-size: 0.76rem; }
+
+    /* Dialogue */
+    .dialogue-box { padding: 20px 14px; border-radius: 18px; }
+    .dialogue-title { font-size: 0.85rem; margin-bottom: 18px; letter-spacing: 0.5px; }
+    .avatar { width: 36px; height: 36px; font-size: 1.1rem; }
+    .bubble { max-width: 85%; padding: 11px 13px; font-size: 0.87rem; border-radius: 14px; }
+    .bubble .en-line { font-size: 0.87rem; }
+    .bubble .uk-line { font-size: 0.73rem; }
+    .bubble-wrap { gap: 8px; margin-bottom: 14px; }
+    .speaker-name { font-size: 0.68rem; }
+
+    /* Words grid — 2 columns */
+    .words-section { border-radius: 20px; padding: 28px 16px !important; }
+    .words-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .word-card { padding: 13px 11px; border-radius: 12px; }
+    .word-card .word { font-size: 0.95rem; }
+    .word-card .transc { font-size: 0.7rem; }
+    .word-card .meaning { font-size: 0.74rem; }
+    .word-tag { font-size: 0.62rem; padding: 2px 8px; }
+
+    /* Tips — single column */
+    .tips-grid { grid-template-columns: 1fr; gap: 14px; }
+    .tip-card { padding: 18px 16px; border-radius: 16px; }
+    .tip-icon { font-size: 1.6rem; margin-bottom: 8px; }
+    .tip-card h3 { font-size: 0.95rem; }
+    .tip-card p { font-size: 0.82rem; }
+    .tip-card .tip-example { font-size: 0.8rem; padding: 8px 10px; }
+    .tip-card .tip-example span { font-size: 0.7rem; }
+
+    /* Q&A */
+    .qa-section { border-radius: 20px; }
+    .qa-item {
+      padding: 16px 14px;
+      border-radius: 14px;
+      grid-template-columns: auto 1fr;
+      gap: 10px 12px;
+    }
+    .qa-q-badge, .qa-a-badge { width: 30px; height: 30px; font-size: 0.85rem; }
+    .qa-q-text .en, .qa-a-text .en { font-size: 0.87rem; }
+    .qa-q-text .uk, .qa-a-text .uk { font-size: 0.73rem; }
+
+    /* Footer */
+    footer { padding: 28px 16px; font-size: 0.83rem; }
+    footer .footer-emoji { font-size: 1.5rem; }
+
+    /* Scroll-to-top btn — smaller on mobile */
+    #scroll-top-btn { width: 38px; height: 38px; font-size: 16px; bottom: 18px; right: 16px; }
+  }
+
+  /* Tablet tweaks */
+  @media (min-width: 481px) and (max-width: 768px) {
+    .container { padding: 0 18px; }
+    .hobbies-grid { grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    .words-grid { grid-template-columns: repeat(2, 1fr); }
+    .tips-grid { grid-template-columns: 1fr 1fr; }
+    .dialogue-box { padding: 24px 20px; }
+    .bubble { max-width: 82%; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-emoji-row">🎨 🎮 📚 🎵 ⚽ 🎭 🌿 🎬</div>
+  <h1>Hobbies &amp; Interests<br>in English</h1>
+  <p>Навчись розповідати про свої захоплення англійською — легко та весело!</p>
+  <div class="hero-badge">🇬🇧 English + 🇺🇦 Українська</div>
+</div>
+
+<!-- HOBBIES VOCAB -->
+<section>
+  <div class="container reveal">
+    <div class="section-title">🧩 Popular Hobbies — Популярні хобі</div>
+    <div class="section-sub">Натисни на картку, щоб запам'ятати слово!</div>
+    <div class="hobbies-grid">
+      <div class="hobby-card hc-1"><span class="icon">🎨</span><div class="en">Painting</div><div class="uk">Малювання</div></div>
+      <div class="hobby-card hc-2"><span class="icon">📚</span><div class="en">Reading</div><div class="uk">Читання</div></div>
+      <div class="hobby-card hc-3"><span class="icon">⚽</span><div class="en">Football</div><div class="uk">Футбол</div></div>
+      <div class="hobby-card hc-4"><span class="icon">🎮</span><div class="en">Gaming</div><div class="uk">Ігри</div></div>
+      <div class="hobby-card hc-5"><span class="icon">🎵</span><div class="en">Music</div><div class="uk">Музика</div></div>
+      <div class="hobby-card hc-6"><span class="icon">🍳</span><div class="en">Cooking</div><div class="uk">Кулінарія</div></div>
+      <div class="hobby-card hc-7"><span class="icon">📸</span><div class="en">Photography</div><div class="uk">Фотографія</div></div>
+      <div class="hobby-card hc-8"><span class="icon">✈️</span><div class="en">Travelling</div><div class="uk">Подорожі</div></div>
+      <div class="hobby-card hc-9"><span class="icon">🌿</span><div class="en">Gardening</div><div class="uk">Садівництво</div></div>
+      <div class="hobby-card hc-10"><span class="icon">🏊</span><div class="en">Swimming</div><div class="uk">Плавання</div></div>
+      <div class="hobby-card hc-11"><span class="icon">🎭</span><div class="en">Theatre</div><div class="uk">Театр</div></div>
+      <div class="hobby-card hc-12"><span class="icon">🤸</span><div class="en">Dancing</div><div class="uk">Танці</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- INFOGRAPHIC: HOW TO TALK -->
+<section style="padding-top:0;">
+  <div class="container reveal">
+    <div class="section-title">📋 How to Talk About Hobbies</div>
+    <div class="section-sub">Як будувати розмову — покроково</div>
+    <div class="infographic">
+      <div class="info-step">
+        <span class="step-num">1</span>
+        <span class="step-icon">❓</span>
+        <div class="step-en">Ask a question</div>
+        <div class="step-uk">Постав запитання</div>
+        <div class="step-example">"What do you like to do?"</div>
+      </div>
+      <div class="info-step">
+        <span class="step-num">2</span>
+        <span class="step-icon">💬</span>
+        <div class="step-en">Name your hobby</div>
+        <div class="step-uk">Назви хобі</div>
+        <div class="step-example">"I like painting."</div>
+      </div>
+      <div class="info-step">
+        <span class="step-num">3</span>
+        <span class="step-icon">⏱️</span>
+        <div class="step-en">Say how often</div>
+        <div class="step-uk">Скажи як часто</div>
+        <div class="step-example">"I do it every day."</div>
+      </div>
+      <div class="info-step">
+        <span class="step-num">4</span>
+        <span class="step-icon">❤️</span>
+        <div class="step-en">Explain why</div>
+        <div class="step-uk">Поясни чому</div>
+        <div class="step-example">"It makes me happy!"</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KEY PHRASES -->
+<section style="background: #F8F6FF; padding: 60px 0;">
+  <div class="container reveal">
+    <div class="section-title">💬 Key Phrases — Головні фрази</div>
+    <div class="section-sub">Вивчи ці фрази і ти зможеш говорити про хобі!</div>
+    <div class="phrases-columns">
+
+      <div class="phrase-group group-ask">
+        <h3 style="color: var(--blue);">🔵 Asking — Питаємо</h3>
+        <div class="phrase-item">
+          <span class="en-phrase">What are your hobbies?</span>
+          <span class="uk-phrase">Які у тебе хобі?</span>
+        </div>
+        <div class="phrase-item">
+          <span class="en-phrase">What do you like to do in your free time?</span>
+          <span class="uk-phrase">Що ти любиш робити у вільний час?</span>
+        </div>
+        <div class="phrase-item">
+          <span class="en-phrase">Are you interested in sports?</span>
+          <span class="uk-phrase">Тебе цікавить спорт?</span>
+        </div>
+        <div class="phrase-item">
+          <span class="en-phrase">How long have you been doing this?</span>
+          <span class="uk-phrase">Як довго ти цим займаєшся?</span>
+        </div>
+        <div class="phrase-item">
+          <span class="en-phrase">Do you have any hobbies?</span>
+          <span class="uk-phrase">У тебе є якісь хобі?</span>
+        </div>
+      </div>
+
+      <div class="phrase-group group-answer">
+        <h3 style="color: var(--mint);">🟢 Answering — Відповідаємо</h3>
+        <div class="phrase-item" style="border-left-color: var(--mint);">
+          <span class="en-phrase">My hobby is painting.</span>
+          <span class="uk-phrase">Моє хобі — малювання.</span>
+        </div>
+        <div class="phrase-item" style="border-left-color: var(--mint);">
+          <span class="en-phrase">I'm really into music.</span>
+          <span class="uk-phrase">Я дуже захоплений/а музикою.</span>
+        </div>
+        <div class="phrase-item" style="border-left-color: var(--mint);">
+          <span class="en-phrase">I enjoy reading books.</span>
+          <span class="uk-phrase">Мені подобається читати книги.</span>
+        </div>
+        <div class="phrase-item" style="border-left-color: var(--mint);">
+          <span class="en-phrase">I've been playing guitar for 2 years.</span>
+          <span class="uk-phrase">Я граю на гітарі 2 роки.</span>
+        </div>
+        <div class="phrase-item" style="border-left-color: var(--mint);">
+          <span class="en-phrase">I'm a big fan of football.</span>
+          <span class="uk-phrase">Я великий фанат футболу.</span>
+        </div>
+      </div>
+
+      <div class="phrase-group group-like">
+        <h3 style="color: var(--coral);">🔴 Likes &amp; Dislikes — Подобається / Ні</h3>
+        <div class="phrase-item" style="border-left-color: var(--coral);">
+          <span class="en-phrase">I love / I really like…</span>
+          <span class="uk-phrase">Я обожнюю / Мені дуже подобається…</span>
+        </div>
+        <div class="phrase-item" style="border-left-color: var(--coral);">
+          <span class="en-phrase">I'm passionate about…</span>
+          <span class="uk-phrase">Я захоплений/а…</span>
+        </div>
+        <div class="phrase-item" style="border-left-color: var(--coral);">
+          <span class="en-phrase">I don't really like…</span>
+          <span class="uk-phrase">Мені не дуже подобається…</span>
+        </div>
+        <div class="phrase-item" style="border-left-color: var(--coral);">
+          <span class="en-phrase">I can't stand…</span>
+          <span class="uk-phrase">Я терпіти не можу…</span>
+        </div>
+        <div class="phrase-item" style="border-left-color: var(--coral);">
+          <span class="en-phrase">It's not my thing.</span>
+          <span class="uk-phrase">Це не моє.</span>
+        </div>
+      </div>
+
+      <div class="phrase-group group-often">
+        <h3 style="color: var(--purple);">🟣 How Often — Як часто</h3>
+        <div class="phrase-item" style="border-left-color: var(--purple);">
+          <span class="en-phrase">I do it every day.</span>
+          <span class="uk-phrase">Я роблю це кожен день.</span>
+        </div>
+        <div class="phrase-item" style="border-left-color: var(--purple);">
+          <span class="en-phrase">I play twice a week.</span>
+          <span class="uk-phrase">Я граю двічі на тиждень.</span>
+        </div>
+        <div class="phrase-item" style="border-left-color: var(--purple);">
+          <span class="en-phrase">Sometimes / Often / Rarely</span>
+          <span class="uk-phrase">Іноді / Часто / Рідко</span>
+        </div>
+        <div class="phrase-item" style="border-left-color: var(--purple);">
+          <span class="en-phrase">In my free time, I usually…</span>
+          <span class="uk-phrase">У вільний час я зазвичай…</span>
+        </div>
+        <div class="phrase-item" style="border-left-color: var(--purple);">
+          <span class="en-phrase">On weekends, I like to…</span>
+          <span class="uk-phrase">У вихідні мені подобається…</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SAMPLE DIALOGUE -->
+<section>
+  <div class="container reveal">
+    <div class="section-title">🗣️ Example Dialogue — Приклад діалогу</div>
+    <div class="section-sub">Подивись, як виглядає реальна розмова!</div>
+    <div class="dialogue-box">
+      <div class="dialogue-title">👦 Alex &amp; 👧 Sofia — talking about hobbies</div>
+
+      <div class="bubble-wrap">
+        <div class="avatar av-a">👦</div>
+        <div>
+          <div class="speaker-name">ALEX</div>
+          <div class="bubble bubble-a">
+            <div class="en-line">Hey Sofia! What do you do in your free time?</div>
+            <div class="uk-line">Привіт, Софія! Що ти робиш у вільний час?</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bubble-wrap right">
+        <div class="avatar av-b">👧</div>
+        <div>
+          <div class="speaker-name" style="text-align:right;">SOFIA</div>
+          <div class="bubble bubble-b">
+            <div class="en-line">Hi! I really love painting. I do it almost every day!</div>
+            <div class="uk-line">Привіт! Я дуже люблю малювати. Роблю це майже щодня!</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bubble-wrap">
+        <div class="avatar av-a">👦</div>
+        <div>
+          <div class="speaker-name">ALEX</div>
+          <div class="bubble bubble-a">
+            <div class="en-line">Wow, that's amazing! How long have you been painting?</div>
+            <div class="uk-line">Вау, це чудово! Як довго ти малюєш?</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bubble-wrap right">
+        <div class="avatar av-b">👧</div>
+        <div>
+          <div class="speaker-name" style="text-align:right;">SOFIA</div>
+          <div class="bubble bubble-b">
+            <div class="en-line">For about three years. I'm really into watercolour! What about you?</div>
+            <div class="uk-line">Приблизно три роки. Я захоплена акварель! А ти?</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bubble-wrap">
+        <div class="avatar av-a">👦</div>
+        <div>
+          <div class="speaker-name">ALEX</div>
+          <div class="bubble bubble-a">
+            <div class="en-line">I'm a big fan of football. I play twice a week with my friends.</div>
+            <div class="uk-line">Я великий фанат футболу. Граю двічі на тиждень з друзями.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bubble-wrap right">
+        <div class="avatar av-b">👧</div>
+        <div>
+          <div class="speaker-name" style="text-align:right;">SOFIA</div>
+          <div class="bubble bubble-b">
+            <div class="en-line">Football is not really my thing, but I love watching it! It's so exciting!</div>
+            <div class="uk-line">Футбол — не зовсім моє, але я люблю дивитися! Це так захопливо!</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- KEY WORDS -->
+<section style="padding: 60px 0;">
+  <div class="container reveal words-section" style="padding: 40px 32px;">
+    <div class="section-title">📖 Key Vocabulary — Словник</div>
+    <div class="section-sub">Важливі слова для теми «Хобі»</div>
+    <div class="words-grid">
+      <div class="word-card">
+        <span class="word">hobby</span>
+        <span class="transc">/ˈhɒbi/</span>
+        <span class="meaning">захоплення, хобі</span>
+        <span class="word-tag tag-noun">іменник</span>
+      </div>
+      <div class="word-card">
+        <span class="word">interest</span>
+        <span class="transc">/ˈɪntrəst/</span>
+        <span class="meaning">інтерес, зацікавленість</span>
+        <span class="word-tag tag-noun">іменник</span>
+      </div>
+      <div class="word-card">
+        <span class="word">to enjoy</span>
+        <span class="transc">/ɪnˈdʒɔɪ/</span>
+        <span class="meaning">отримувати задоволення</span>
+        <span class="word-tag tag-verb">дієслово</span>
+      </div>
+      <div class="word-card">
+        <span class="word">to be into</span>
+        <span class="transc">/biː ˈɪntuː/</span>
+        <span class="meaning">захоплюватися чимось</span>
+        <span class="word-tag tag-verb">дієслово</span>
+      </div>
+      <div class="word-card">
+        <span class="word">to be fond of</span>
+        <span class="transc">/biː fɒnd ɒv/</span>
+        <span class="meaning">бути прив'язаним до</span>
+        <span class="word-tag tag-verb">дієслово</span>
+      </div>
+      <div class="word-card">
+        <span class="word">free time</span>
+        <span class="transc">/friː taɪm/</span>
+        <span class="meaning">вільний час</span>
+        <span class="word-tag tag-noun">іменник</span>
+      </div>
+      <div class="word-card">
+        <span class="word">passionate</span>
+        <span class="transc">/ˈpæʃənɪt/</span>
+        <span class="meaning">пристрасний, захоплений</span>
+        <span class="word-tag tag-adj">прикметник</span>
+      </div>
+      <div class="word-card">
+        <span class="word">creative</span>
+        <span class="transc">/kriˈeɪtɪv/</span>
+        <span class="meaning">творчий</span>
+        <span class="word-tag tag-adj">прикметник</span>
+      </div>
+      <div class="word-card">
+        <span class="word">relaxing</span>
+        <span class="transc">/rɪˈlæksɪŋ/</span>
+        <span class="meaning">розслаблюючий</span>
+        <span class="word-tag tag-adj">прикметник</span>
+      </div>
+      <div class="word-card">
+        <span class="word">exciting</span>
+        <span class="transc">/ɪkˈsaɪtɪŋ/</span>
+        <span class="meaning">захоплюючий</span>
+        <span class="word-tag tag-adj">прикметник</span>
+      </div>
+      <div class="word-card">
+        <span class="word">regularly</span>
+        <span class="transc">/ˈreɡjʊləli/</span>
+        <span class="meaning">регулярно</span>
+        <span class="word-tag tag-adv">прислівник</span>
+      </div>
+      <div class="word-card">
+        <span class="word">occasionally</span>
+        <span class="transc">/əˈkeɪʒənəli/</span>
+        <span class="meaning">час від часу</span>
+        <span class="word-tag tag-adv">прислівник</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Q&A PRACTICE -->
+<section style="background: #F8F6FF; padding: 60px 0;">
+  <div class="container reveal">
+    <div class="section-title">✅ Practice Q&amp;A — Практика</div>
+    <div class="section-sub">Запитання та готові відповіді — вчись відповідати!</div>
+    <div class="qa-list">
+
+      <div class="qa-item">
+        <div class="qa-q-badge">Q</div>
+        <div class="qa-q-text">
+          <div class="en">What are your hobbies?</div>
+          <div class="uk">Які у тебе хобі?</div>
+        </div>
+        <div class="qa-a-badge">A</div>
+        <div class="qa-a-text">
+          <div class="en">My main hobbies are reading and listening to music. I also enjoy cycling on weekends.</div>
+          <div class="uk">Мої основні хобі — читання та слухання музики. Також мені подобається їздити на велосипеді у вихідні.</div>
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <div class="qa-q-badge">Q</div>
+        <div class="qa-q-text">
+          <div class="en">How often do you practise your hobby?</div>
+          <div class="uk">Як часто ти займаєшся своїм хобі?</div>
+        </div>
+        <div class="qa-a-badge">A</div>
+        <div class="qa-a-text">
+          <div class="en">I play football twice a week — usually on Tuesdays and Saturdays.</div>
+          <div class="uk">Я граю у футбол двічі на тиждень — зазвичай у вівторок та суботу.</div>
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <div class="qa-q-badge">Q</div>
+        <div class="qa-q-text">
+          <div class="en">Why do you like your hobby?</div>
+          <div class="uk">Чому тобі подобається твоє хобі?</div>
+        </div>
+        <div class="qa-a-badge">A</div>
+        <div class="qa-a-text">
+          <div class="en">I love painting because it's really relaxing and it lets me express my feelings.</div>
+          <div class="uk">Я люблю малювати, бо це дуже розслабляє і дозволяє висловити свої почуття.</div>
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <div class="qa-q-badge">Q</div>
+        <div class="qa-q-text">
+          <div class="en">When did you start your hobby?</div>
+          <div class="uk">Коли ти почав/почала займатися своїм хобі?</div>
+        </div>
+        <div class="qa-a-badge">A</div>
+        <div class="qa-a-text">
+          <div class="en">I started playing guitar when I was 10 years old. I've been playing for 5 years now.</div>
+          <div class="uk">Я почав/почала грати на гітарі у 10 років. Граю вже 5 років.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TIPS -->
+<section>
+  <div class="container reveal">
+    <div class="section-title">💡 Top Tips — Корисні поради</div>
+    <div class="section-sub">Як говорити краще та впевненіше</div>
+    <div class="tips-grid">
+      <div class="tip-card t1" data-num="1">
+        <span class="tip-icon">🔤</span>
+        <h3>Use "I like + -ing"</h3>
+        <p>Після слів <em>like, love, enjoy</em> ставимо дієслово з закінченням <strong>-ing</strong>.</p>
+        <div class="tip-example">✅ I like <strong>swimming</strong>.<span>❌ I like swim.</span></div>
+      </div>
+      <div class="tip-card t2" data-num="2">
+        <span class="tip-icon">🎯</span>
+        <h3>Be specific — Будь конкретним</h3>
+        <p>Не просто «I like music» — додай деталі! Яка музика? Як часто?</p>
+        <div class="tip-example">✅ I'm really into <strong>jazz and rock music</strong>.<span>Так набагато цікавіше!</span></div>
+      </div>
+      <div class="tip-card t3" data-num="3">
+        <span class="tip-icon">🔄</span>
+        <h3>Ask back — Питай у відповідь</h3>
+        <p>Після своєї відповіді запитай співрозмовника — розмова стане живою!</p>
+        <div class="tip-example">✅ "What about you?"<span>«А що щодо тебе?» — завжди спрацює!</span></div>
+      </div>
+      <div class="tip-card t4" data-num="4">
+        <span class="tip-icon">😊</span>
+        <h3>Show feelings — Передавай емоції</h3>
+        <p>Слова як <em>amazing, love, hate</em> роблять мову живою та природною.</p>
+        <div class="tip-example">✅ "It's <strong>absolutely amazing</strong>!"<span>Замість просто «it's good»</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-emoji">🌟</span>
+  <strong>Молодець! You're doing great!</strong><br>
+  Практикуй щодня і скоро будеш говорити про хобі, як справжній носій мови! 🇬🇧
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Hobby cards — click to bounce
+  document.querySelectorAll('.hobby-card').forEach(card => {
+    card.addEventListener('click', () => {
+      card.style.transform = 'scale(1.12) rotate(-2deg)';
+      setTimeout(() => { card.style.transform = ''; }, 300);
+    });
+  });
+</script>
+
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+</body>
+</html>

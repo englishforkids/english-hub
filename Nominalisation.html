@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nominalisation 🔄 Noun Power!</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f0f4ff;
+    --card: #ffffff;
+    --purple: #7c3aed;
+    --purple-light: #ede9fe;
+    --pink: #ec4899;
+    --pink-light: #fce7f3;
+    --teal: #0d9488;
+    --teal-light: #ccfbf1;
+    --orange: #f97316;
+    --orange-light: #ffedd5;
+    --yellow: #eab308;
+    --yellow-light: #fef9c3;
+    --blue: #3b82f6;
+    --blue-light: #dbeafe;
+    --red: #ef4444;
+    --red-light: #fee2e2;
+    --green: #22c55e;
+    --green-light: #dcfce7;
+    --text: #1e1b4b;
+    --muted: #6b7280;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #7c3aed 0%, #ec4899 50%, #f97316 100%);
+    padding: 60px 20px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-emoji { font-size: 80px; display: block; margin-bottom: 16px; animation: bounce 2s infinite; }
+  @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+  .hero h1 {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(2.5rem, 7vw, 5rem);
+    color: white;
+    text-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+    margin-bottom: 12px;
+  }
+  .hero-sub {
+    font-size: clamp(1rem, 3vw, 1.4rem);
+    color: rgba(255,255,255,0.92);
+    font-weight: 700;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .wave {
+    position: absolute; bottom: -2px; left: 0; right: 0;
+    height: 60px;
+  }
+
+  .container { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+
+  /* SECTION HEADERS */
+  .section { padding: 50px 20px; }
+  .section-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    margin-bottom: 8px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .section-sub {
+    color: var(--muted);
+    font-size: 1rem;
+    margin-bottom: 32px;
+    font-weight: 600;
+  }
+
+  /* CARDS */
+  .card {
+    background: var(--card);
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    margin-bottom: 20px;
+    border: 2px solid transparent;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,0,0,0.12); }
+
+  .card-purple { border-color: var(--purple); background: var(--purple-light); }
+  .card-pink { border-color: var(--pink); background: var(--pink-light); }
+  .card-teal { border-color: var(--teal); background: var(--teal-light); }
+  .card-orange { border-color: var(--orange); background: var(--orange-light); }
+  .card-yellow { border-color: var(--yellow); background: var(--yellow-light); }
+  .card-blue { border-color: var(--blue); background: var(--blue-light); }
+
+  /* WHAT IS IT */
+  .what-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media(max-width:600px){ .what-grid { grid-template-columns: 1fr; } }
+
+  .lang-badge {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .badge-en { background: var(--blue); color: white; }
+  .badge-ua { background: #fbbf24; color: #1e1b4b; }
+
+  .what-text { font-size: 1.05rem; font-weight: 600; line-height: 1.7; }
+
+  /* TRANSFORM VISUAL */
+  .transform-box {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    text-align: center;
+    margin: 20px 0;
+  }
+  .transform-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin: 14px 0;
+  }
+  .word-chip {
+    padding: 10px 20px;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 1.1rem;
+  }
+  .chip-verb { background: #fee2e2; color: #dc2626; border: 2px solid #fca5a5; }
+  .chip-adj { background: #dcfce7; color: #16a34a; border: 2px solid #86efac; }
+  .chip-adv { background: #dbeafe; color: #2563eb; border: 2px solid #93c5fd; }
+  .chip-noun { background: #ede9fe; color: #7c3aed; border: 2px solid #c4b5fd; }
+  .arrow { font-size: 2rem; color: var(--purple); }
+
+  /* FORMULA BOX */
+  .formula {
+    background: linear-gradient(135deg, #1e1b4b, #4c1d95);
+    color: white;
+    border-radius: 16px;
+    padding: 24px 30px;
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(1rem, 3vw, 1.4rem);
+    text-align: center;
+    margin: 16px 0;
+    box-shadow: 0 6px 24px rgba(76,29,149,0.3);
+  }
+  .formula span { color: #fbbf24; }
+  .formula small { display: block; font-family: 'Nunito', sans-serif; font-size: 0.85rem; opacity: 0.85; margin-top: 6px; font-weight: 600; }
+
+  /* SUFFIX TABLE */
+  .suffix-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 14px;
+    margin: 20px 0;
+  }
+  .suffix-card {
+    background: white;
+    border-radius: 14px;
+    padding: 18px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+    border-top: 4px solid;
+    text-align: center;
+  }
+  .suffix-tag {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.8rem;
+    margin-bottom: 6px;
+  }
+  .suffix-ex { font-size: 0.85rem; color: var(--muted); font-weight: 600; }
+  .suffix-ex strong { color: var(--text); }
+
+  /* UNIVERSAL SENTENCE */
+  .universal-hero {
+    background: linear-gradient(135deg, #0d9488, #0891b2);
+    border-radius: 24px;
+    padding: 36px;
+    color: white;
+    text-align: center;
+    margin: 24px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .universal-hero::before {
+    content: '⭐';
+    position: absolute;
+    font-size: 120px;
+    opacity: 0.07;
+    top: -20px; right: -20px;
+  }
+  .universal-hero h3 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  .sentence-variants { display: flex; flex-direction: column; gap: 10px; }
+  .variant {
+    background: rgba(255,255,255,0.15);
+    border-radius: 12px;
+    padding: 14px 20px;
+    text-align: left;
+    backdrop-filter: blur(4px);
+  }
+  .variant .type { font-size: 0.75rem; font-weight: 800; opacity: 0.8; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+  .variant .sent { font-size: 1rem; font-weight: 700; }
+  .variant .sent mark { background: rgba(251,191,36,0.4); color: white; border-radius: 4px; padding: 1px 4px; }
+  .variant .ua { font-size: 0.85rem; opacity: 0.85; margin-top: 3px; }
+
+  /* EXAMPLES TABLE */
+  .examples-wrap { overflow-x: auto; }
+  table.examples {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    font-size: 0.92rem;
+  }
+  table.examples thead {
+    background: linear-gradient(135deg, #7c3aed, #ec4899);
+    color: white;
+  }
+  table.examples th { padding: 14px 16px; font-weight: 800; text-align: left; }
+  table.examples td { padding: 12px 16px; border-bottom: 1px solid #f3f4f6; vertical-align: top; }
+  table.examples tr:last-child td { border-bottom: none; }
+  table.examples tr:nth-child(even) td { background: #f9fafb; }
+  .tag-verb { background: #fee2e2; color: #dc2626; padding: 2px 8px; border-radius: 6px; font-size: 0.75rem; font-weight: 800; white-space: nowrap; }
+  .tag-adj { background: #dcfce7; color: #16a34a; padding: 2px 8px; border-radius: 6px; font-size: 0.75rem; font-weight: 800; white-space: nowrap; }
+  .tag-noun { background: #ede9fe; color: #7c3aed; padding: 2px 8px; border-radius: 6px; font-size: 0.75rem; font-weight: 800; white-space: nowrap; }
+  .highlight-word { color: var(--purple); font-weight: 800; }
+
+  /* WHEN TO USE */
+  .when-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px,1fr)); gap: 16px; }
+  .when-card {
+    background: white;
+    border-radius: 16px;
+    padding: 22px;
+    box-shadow: 0 3px 14px rgba(0,0,0,0.07);
+    border-left: 5px solid;
+  }
+  .when-card .icon { font-size: 2rem; margin-bottom: 10px; }
+  .when-card h4 { font-weight: 800; font-size: 1rem; margin-bottom: 6px; }
+  .when-card p { font-size: 0.88rem; color: #4b5563; font-weight: 600; }
+
+  /* PHRASAL VERBS BIG SECTION */
+
+  /* QUIZ SECTION */
+  .quiz-card {
+    background: white;
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    margin-bottom: 16px;
+  }
+  .quiz-q { font-weight: 800; font-size: 1rem; margin-bottom: 14px; }
+  .quiz-options { display: flex; flex-wrap: wrap; gap: 10px; }
+  .quiz-btn {
+    padding: 10px 20px;
+    border-radius: 12px;
+    border: 2px solid #e5e7eb;
+    background: #f9fafb;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 0.92rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .quiz-btn:hover { border-color: var(--purple); background: var(--purple-light); color: var(--purple); }
+  .quiz-btn.correct { background: #dcfce7; border-color: #22c55e; color: #15803d; }
+  .quiz-btn.wrong { background: #fee2e2; border-color: #ef4444; color: #dc2626; }
+  .quiz-result { margin-top: 12px; font-weight: 700; font-size: 0.95rem; display: none; }
+  .quiz-result.show { display: block; }
+
+  /* TIPS BOX */
+  .tips-list { list-style: none; }
+  .tips-list li {
+    padding: 12px 16px 12px 48px;
+    margin-bottom: 10px;
+    background: white;
+    border-radius: 12px;
+    position: relative;
+    font-weight: 600;
+    font-size: 0.95rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  .tips-list li::before {
+    content: attr(data-icon);
+    position: absolute;
+    left: 12px;
+    font-size: 1.3rem;
+  }
+
+  /* FOOTER */
+  footer {
+    background: linear-gradient(135deg, #1e1b4b, #4c1d95);
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    font-weight: 600;
+  }
+  footer .big { font-family: 'Fredoka One', cursive; font-size: 2rem; margin-bottom: 8px; }
+
+  /* DIVIDER */
+  .divider { height: 4px; border-radius: 2px; margin: 6px 0 24px; }
+
+  /* SCROLL ANIMATION */
+  .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s, transform 0.6s; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  /* RESPONSIVE — TABLET */
+  @media(max-width:768px){
+    .section { padding: 36px 16px; }
+    .container { padding: 0 14px; }
+
+    .what-grid { grid-template-columns: 1fr; }
+    .suffix-grid { grid-template-columns: repeat(2, 1fr); }
+    .when-grid { grid-template-columns: 1fr; }
+
+    .universal-hero { padding: 24px 18px; }
+    .sentence-variants { gap: 8px; }
+    .variant .sent { font-size: 0.93rem; }
+
+    .formula { font-size: 1rem; padding: 18px 16px; }
+
+    .section-title { font-size: 1.4rem; gap: 8px; }
+
+    .quiz-options { flex-direction: column; }
+    .quiz-btn { width: 100%; text-align: left; }
+
+    table.examples th,
+    table.examples td { padding: 10px 12px; font-size: 0.82rem; }
+  }
+
+  /* RESPONSIVE — MOBILE */
+  @media(max-width:500px){
+    .hero { padding: 40px 16px 60px; }
+    .hero-emoji { font-size: 56px; }
+
+    .transform-row { flex-direction: column; gap: 8px; }
+    .arrow { transform: rotate(90deg); display: inline-block; }
+    .word-chip { font-size: 0.95rem; padding: 8px 14px; }
+
+    .suffix-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .suffix-card { padding: 14px 10px; }
+    .suffix-tag { font-size: 1.4rem; }
+
+    .card { padding: 18px 14px; }
+    .what-text { font-size: 0.95rem; }
+
+    .formula { font-size: 0.88rem; padding: 16px 12px; }
+    .formula small { font-size: 0.78rem; }
+
+    .universal-hero h3 { font-size: 1.1rem; }
+    .variant { padding: 10px 14px; }
+    .variant .sent { font-size: 0.87rem; }
+    .variant .ua { font-size: 0.78rem; }
+
+    /* Table: scrollable on mobile */
+    .examples-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 16px;
+    }
+    .examples-wrap::after {
+      content: '← прокрути таблицю →';
+      display: block;
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--muted);
+      padding: 6px 0 2px;
+      font-weight: 700;
+    }
+    table.examples { min-width: 560px; font-size: 0.78rem; }
+    table.examples th,
+    table.examples td { padding: 9px 10px; }
+
+    .when-grid { grid-template-columns: 1fr; gap: 12px; }
+    .when-card { padding: 16px; }
+    .when-card .icon { font-size: 1.5rem; }
+
+    .tips-list li { font-size: 0.88rem; padding: 10px 14px 10px 42px; }
+    .tips-list li::before { font-size: 1.1rem; }
+
+    .quiz-card { padding: 20px 14px; }
+    .quiz-q { font-size: 0.92rem; }
+    .quiz-btn { font-size: 0.85rem; padding: 10px 14px; }
+
+    footer { padding: 30px 16px; }
+    footer .big { font-size: 1.5rem; }
+    footer p { font-size: 0.88rem; }
+
+    #scroll-top-btn { bottom: 16px; right: 16px; width: 40px; height: 40px; font-size: 16px; }
+  }
+
+  #scroll-top-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #1a1208;
+    border: 1.5px solid rgba(200,150,62,0.4);
+    color: #f5f0e8;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+    pointer-events: none;
+    z-index: 9998;
+  }
+  #scroll-top-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  #scroll-top-btn:hover {
+    background: #c8963e;
+    border-color: #c8963e;
+    color: #1a1208;
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <span class="hero-emoji">🔄</span>
+  <h1>Nominalisation</h1>
+  <p class="hero-sub">Turn ANY word into a NOUN — and sound like a pro! 🚀<br><small style="font-size:0.85em;opacity:0.9">Перетвори будь-яке слово на іменник — і говори як експерт!</small></p>
+  <svg class="wave" viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 60L60 48C120 36 240 12 360 6C480 0 600 12 720 24C840 36 960 48 1080 48C1200 48 1320 36 1380 30L1440 24V60H1380C1320 60 1200 60 1080 60C960 60 840 60 720 60C600 60 480 60 360 60C240 60 120 60 60 60H0Z" fill="#f0f4ff"/>
+  </svg>
+</div>
+
+<!-- WHAT IS NOMINALISATION -->
+<div class="section" style="background:#f0f4ff;">
+<div class="container">
+  <div class="section-title" style="color:var(--purple);">📖 What is Nominalisation? / Що це таке?</div>
+  <div class="divider" style="background:linear-gradient(90deg,var(--purple),var(--pink));"></div>
+
+  <div class="what-grid fade-in">
+    <div class="card card-blue">
+      <span class="lang-badge badge-en">🇬🇧 English</span>
+      <p class="what-text">Nominalisation is the process of turning a <strong>verb, adjective, or adverb</strong> into a <strong>noun</strong>. Instead of saying what someone <em>does</em>, you say what the <em>thing</em> is. It's like giving an action or quality a "name"!</p>
+    </div>
+    <div class="card card-yellow">
+      <span class="lang-badge badge-ua">🇺🇦 Українська</span>
+      <p class="what-text">Номіналізація — це коли ми перетворюємо <strong>дієслово, прикметник або прислівник</strong> на <strong>іменник</strong>. Замість того, щоб казати, що хтось <em>робить</em>, ми кажемо, що це <em>є</em>. Ніби "даємо ім'я" дії чи якості!</p>
+    </div>
+  </div>
+
+  <!-- VISUAL TRANSFORM -->
+  <div class="transform-box fade-in">
+    <h3 style="font-family:'Fredoka One',cursive;font-size:1.3rem;margin-bottom:20px;color:var(--purple);">🎨 See the Magic! / Дивись на магію!</h3>
+    
+    <div class="transform-row">
+      <div class="word-chip chip-verb">to decide (verb)</div>
+      <div class="arrow">→</div>
+      <div class="word-chip chip-noun">decision (noun)</div>
+    </div>
+    <div class="transform-row">
+      <div class="word-chip chip-adj">happy (adjective)</div>
+      <div class="arrow">→</div>
+      <div class="word-chip chip-noun">happiness (noun)</div>
+    </div>
+    <div class="transform-row">
+      <div class="word-chip chip-verb">to develop (verb)</div>
+      <div class="arrow">→</div>
+      <div class="word-chip chip-noun">development (noun)</div>
+    </div>
+    <div class="transform-row">
+      <div class="word-chip chip-adj">strong (adjective)</div>
+      <div class="arrow">→</div>
+      <div class="word-chip chip-noun">strength (noun)</div>
+    </div>
+    <div class="transform-row">
+      <div class="word-chip chip-verb">to fail (verb)</div>
+      <div class="arrow">→</div>
+      <div class="word-chip chip-noun">failure (noun)</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- HOW TO BUILD -->
+<div class="section" style="background:white;">
+<div class="container">
+  <div class="section-title" style="color:var(--pink);">🔧 How to Build It? / Як будувати?</div>
+  <div class="divider" style="background:linear-gradient(90deg,var(--pink),var(--orange));"></div>
+
+  <div class="formula fade-in">
+    VERB / ADJECTIVE / ADVERB <span>+ SUFFIX</span> = 🏆 NOUN
+    <small>Дієслово / Прикметник / Прислівник + Суфікс = Іменник</small>
+  </div>
+
+  <div class="suffix-grid fade-in">
+    <div class="suffix-card" style="border-top-color:#7c3aed;">
+      <div class="suffix-tag" style="color:#7c3aed;">-tion / -sion</div>
+      <div class="suffix-ex"><strong>decide</strong> → deci<strong>sion</strong></div>
+      <div class="suffix-ex"><strong>educate</strong> → educa<strong>tion</strong></div>
+      <div class="suffix-ex"><strong>discuss</strong> → discus<strong>sion</strong></div>
+      <div class="suffix-ex"><strong>pollute</strong> → pollu<strong>tion</strong></div>
+    </div>
+    <div class="suffix-card" style="border-top-color:#ec4899;">
+      <div class="suffix-tag" style="color:#ec4899;">-ment</div>
+      <div class="suffix-ex"><strong>develop</strong> → develop<strong>ment</strong></div>
+      <div class="suffix-ex"><strong>achieve</strong> → achieve<strong>ment</strong></div>
+      <div class="suffix-ex"><strong>agree</strong> → agree<strong>ment</strong></div>
+      <div class="suffix-ex"><strong>move</strong> → move<strong>ment</strong></div>
+    </div>
+    <div class="suffix-card" style="border-top-color:#0d9488;">
+      <div class="suffix-tag" style="color:#0d9488;">-ness</div>
+      <div class="suffix-ex"><strong>happy</strong> → happi<strong>ness</strong></div>
+      <div class="suffix-ex"><strong>dark</strong> → dark<strong>ness</strong></div>
+      <div class="suffix-ex"><strong>kind</strong> → kind<strong>ness</strong></div>
+      <div class="suffix-ex"><strong>aware</strong> → aware<strong>ness</strong></div>
+    </div>
+    <div class="suffix-card" style="border-top-color:#f97316;">
+      <div class="suffix-tag" style="color:#f97316;">-ity / -ty</div>
+      <div class="suffix-ex"><strong>active</strong> → activ<strong>ity</strong></div>
+      <div class="suffix-ex"><strong>possible</strong> → possibil<strong>ity</strong></div>
+      <div class="suffix-ex"><strong>creative</strong> → creativ<strong>ity</strong></div>
+      <div class="suffix-ex"><strong>safe</strong> → safe<strong>ty</strong></div>
+    </div>
+    <div class="suffix-card" style="border-top-color:#3b82f6;">
+      <div class="suffix-tag" style="color:#3b82f6;">-ance / -ence</div>
+      <div class="suffix-ex"><strong>perform</strong> → perform<strong>ance</strong></div>
+      <div class="suffix-ex"><strong>import</strong> → import<strong>ance</strong></div>
+      <div class="suffix-ex"><strong>differ</strong> → differ<strong>ence</strong></div>
+      <div class="suffix-ex"><strong>exist</strong> → exist<strong>ence</strong></div>
+    </div>
+    <div class="suffix-card" style="border-top-color:#eab308;">
+      <div class="suffix-tag" style="color:#eab308;">-al / -ure</div>
+      <div class="suffix-ex"><strong>arrive</strong> → arriv<strong>al</strong></div>
+      <div class="suffix-ex"><strong>approve</strong> → approv<strong>al</strong></div>
+      <div class="suffix-ex"><strong>fail</strong> → fail<strong>ure</span></strong></div>
+      <div class="suffix-ex"><strong>depart</strong> → depart<strong>ure</strong></div>
+    </div>
+    <div class="suffix-card" style="border-top-color:#ef4444;">
+      <div class="suffix-tag" style="color:#ef4444;">-er / -or</div>
+      <div class="suffix-ex"><strong>teach</strong> → teach<strong>er</strong></div>
+      <div class="suffix-ex"><strong>manage</strong> → manag<strong>er</strong></div>
+      <div class="suffix-ex"><strong>invent</strong> → invent<strong>or</strong></div>
+      <div class="suffix-ex"><strong>direct</strong> → direct<strong>or</strong></div>
+    </div>
+    <div class="suffix-card" style="border-top-color:#22c55e;">
+      <div class="suffix-tag" style="color:#22c55e;">-ing (as noun)</div>
+      <div class="suffix-ex"><strong>swim</strong> → <strong>swimming</strong> is fun</div>
+      <div class="suffix-ex"><strong>cook</strong> → <strong>cooking</strong> takes time</div>
+      <div class="suffix-ex"><strong>run</strong> → <strong>running</strong> is healthy</div>
+      <div class="suffix-ex"><strong>read</strong> → <strong>reading</strong> helps a lot</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- UNIVERSAL SENTENCE -->
+<div class="section" style="background:#f0f4ff;">
+<div class="container">
+  <div class="section-title" style="color:var(--teal);">⭐ The Universal Sentence / Універсальне речення</div>
+  <div class="divider" style="background:linear-gradient(90deg,var(--teal),var(--blue));"></div>
+
+  <div class="card fade-in" style="border-color:var(--teal);background:var(--teal-light);margin-bottom:20px;">
+    <span class="lang-badge badge-en">🇬🇧 English</span>
+    <p class="what-text">We use ONE base sentence and change only the nominalised word. Watch how the <strong style="color:var(--teal)">highlighted word</strong> changes everything!</p>
+    <br>
+    <span class="lang-badge badge-ua">🇺🇦 Українська</span>
+    <p class="what-text">Ми використовуємо ОДНЕ базове речення і змінюємо лише номіналізоване слово. Дивись, як <strong style="color:var(--teal)">виділене слово</strong> змінює все!</p>
+  </div>
+
+  <div class="universal-hero fade-in">
+    <h3>🏗️ Base structure: "The [NOUN] of [something] is important."</h3>
+    <div class="sentence-variants">
+      <div class="variant">
+        <div class="type">🔵 Original verb → noun</div>
+        <div class="sent">The <mark>development</mark> of new technologies is important. (develop → development)</div>
+        <div class="ua">💛 Розвиток нових технологій важливий.</div>
+      </div>
+      <div class="variant">
+        <div class="type">🟢 Different verb → noun</div>
+        <div class="sent">The <mark>protection</mark> of the environment is important. (protect → protection)</div>
+        <div class="ua">💛 Захист навколишнього середовища важливий.</div>
+      </div>
+      <div class="variant">
+        <div class="type">🟡 Adjective → noun</div>
+        <div class="sent">The <mark>creativity</mark> of young artists is important. (creative → creativity)</div>
+        <div class="ua">💛 Креативність молодих художників важлива.</div>
+      </div>
+      <div class="variant">
+        <div class="type">🟠 Another verb → noun</div>
+        <div class="sent">The <mark>education</mark> of children is important. (educate → education)</div>
+        <div class="ua">💛 Освіта дітей важлива.</div>
+      </div>
+      <div class="variant">
+        <div class="type">🔴 Adjective → noun</div>
+        <div class="sent">The <mark>happiness</mark> of our family is important. (happy → happiness)</div>
+        <div class="ua">💛 Щастя нашої родини важливе.</div>
+      </div>
+      <div class="variant">
+        <div class="type">🟣 Verb → noun (-ment)</div>
+        <div class="sent">The <mark>improvement</mark> of our skills is important. (improve → improvement)</div>
+        <div class="ua">💛 Вдосконалення наших навичок важливе.</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- BIG EXAMPLES TABLE -->
+<div class="section" style="background:white;">
+<div class="container">
+  <div class="section-title" style="color:var(--orange);">📊 Big Examples Table / Велика таблиця прикладів</div>
+  <div class="divider" style="background:linear-gradient(90deg,var(--orange),var(--yellow));"></div>
+
+  <div class="examples-wrap fade-in">
+  <table class="examples">
+    <thead>
+      <tr>
+        <th>Original Word</th>
+        <th>Type</th>
+        <th>Nominalised Form</th>
+        <th>Example Sentence (EN + UA)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>decide</strong></td><td><span class="tag-verb">verb</span></td><td class="highlight-word">decision</td><td>The <strong>decision</strong> was difficult.<br><small style="color:var(--teal)">Рішення було складним.</small></td></tr>
+      <tr><td><strong>create</strong></td><td><span class="tag-verb">verb</span></td><td class="highlight-word">creation</td><td>The <strong>creation</strong> of art takes time.<br><small style="color:var(--teal)">Створення мистецтва займає час.</small></td></tr>
+      <tr><td><strong>educate</strong></td><td><span class="tag-verb">verb</span></td><td class="highlight-word">education</td><td><strong>Education</strong> opens many doors.<br><small style="color:var(--teal)">Освіта відкриває багато дверей.</small></td></tr>
+      <tr><td><strong>communicate</strong></td><td><span class="tag-verb">verb</span></td><td class="highlight-word">communication</td><td>Good <strong>communication</strong> is key.<br><small style="color:var(--teal)">Гарне спілкування — це ключ.</small></td></tr>
+      <tr><td><strong>pollute</strong></td><td><span class="tag-verb">verb</span></td><td class="highlight-word">pollution</td><td><strong>Pollution</strong> is a serious problem.<br><small style="color:var(--teal)">Забруднення — серйозна проблема.</small></td></tr>
+      <tr><td><strong>move</strong></td><td><span class="tag-verb">verb</span></td><td class="highlight-word">movement</td><td>The <strong>movement</strong> of the stars is slow.<br><small style="color:var(--teal)">Рух зірок повільний.</small></td></tr>
+      <tr><td><strong>achieve</strong></td><td><span class="tag-verb">verb</span></td><td class="highlight-word">achievement</td><td>Winning is a great <strong>achievement</strong>.<br><small style="color:var(--teal)">Перемога — велике досягнення.</small></td></tr>
+      <tr><td><strong>manage</strong></td><td><span class="tag-verb">verb</span></td><td class="highlight-word">management</td><td>Time <strong>management</strong> is important.<br><small style="color:var(--teal)">Управління часом важливе.</small></td></tr>
+      <tr><td><strong>happy</strong></td><td><span class="tag-adj">adjective</span></td><td class="highlight-word">happiness</td><td><strong>Happiness</strong> comes from within.<br><small style="color:var(--teal)">Щастя приходить зсередини.</small></td></tr>
+      <tr><td><strong>kind</strong></td><td><span class="tag-adj">adjective</span></td><td class="highlight-word">kindness</td><td><strong>Kindness</strong> costs nothing.<br><small style="color:var(--teal)">Доброта нічого не коштує.</small></td></tr>
+      <tr><td><strong>creative</strong></td><td><span class="tag-adj">adjective</span></td><td class="highlight-word">creativity</td><td>Children show great <strong>creativity</strong>.<br><small style="color:var(--teal)">Діти проявляють велику творчість.</small></td></tr>
+      <tr><td><strong>active</strong></td><td><span class="tag-adj">adjective</span></td><td class="highlight-word">activity</td><td>Physical <strong>activity</strong> keeps you healthy.<br><small style="color:var(--teal)">Фізична активність тримає тебе здоровим.</small></td></tr>
+      <tr><td><strong>possible</strong></td><td><span class="tag-adj">adjective</span></td><td class="highlight-word">possibility</td><td>There is a <strong>possibility</strong> of rain.<br><small style="color:var(--teal)">Є можливість дощу.</small></td></tr>
+      <tr><td><strong>responsible</strong></td><td><span class="tag-adj">adjective</span></td><td class="highlight-word">responsibility</td><td>It's your <strong>responsibility</strong>.<br><small style="color:var(--teal)">Це твоя відповідальність.</small></td></tr>
+      <tr><td><strong>arrive</strong></td><td><span class="tag-verb">verb</span></td><td class="highlight-word">arrival</td><td>The <strong>arrival</strong> of the train was late.<br><small style="color:var(--teal)">Прибуття поїзда запізнилось.</small></td></tr>
+      <tr><td><strong>fail</strong></td><td><span class="tag-verb">verb</span></td><td class="highlight-word">failure</td><td><strong>Failure</strong> teaches us lessons.<br><small style="color:var(--teal)">Невдача вчить нас урокам.</small></td></tr>
+      <tr><td><strong>depart</strong></td><td><span class="tag-verb">verb</span></td><td class="highlight-word">departure</td><td>The <strong>departure</strong> time is 10 am.<br><small style="color:var(--teal)">Час відправлення — 10 ранку.</small></td></tr>
+      <tr><td><strong>perform</strong></td><td><span class="tag-verb">verb</span></td><td class="highlight-word">performance</td><td>His <strong>performance</strong> was amazing.<br><small style="color:var(--teal)">Його виступ був дивовижним.</small></td></tr>
+      <tr><td><strong>exist</strong></td><td><span class="tag-verb">verb</span></td><td class="highlight-word">existence</td><td>The <strong>existence</strong> of life on Mars is uncertain.<br><small style="color:var(--teal)">Існування життя на Марсі невизначене.</small></td></tr>
+      <tr><td><strong>discuss</strong></td><td><span class="tag-verb">verb</span></td><td class="highlight-word">discussion</td><td>We had a long <strong>discussion</strong>.<br><small style="color:var(--teal)">Ми мали довгу дискусію.</small></td></tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+</div>
+
+<!-- WHEN TO USE -->
+<div class="section" style="background:white;">
+<div class="container">
+  <div class="section-title" style="color:var(--blue);">🎯 When to Use Nominalisation? / Коли використовувати?</div>
+  <div class="divider" style="background:linear-gradient(90deg,var(--blue),var(--teal));"></div>
+
+  <div class="when-grid fade-in">
+    <div class="when-card" style="border-left-color:#7c3aed;">
+      <div class="icon">📝</div>
+      <h4 style="color:#7c3aed;">Formal Writing / Офіційне письмо</h4>
+      <p>Essays, reports, academic texts — they NEED nominalisations to sound professional.<br><small>Есе, звіти, наукові тексти — вони ПОТРЕБУЮТЬ номіналізацій.</small></p>
+    </div>
+    <div class="when-card" style="border-left-color:#ec4899;">
+      <div class="icon">💼</div>
+      <h4 style="color:#ec4899;">Business English / Ділова англійська</h4>
+      <p>In emails and meetings, use nouns to sound more objective and formal.<br><small>В листах і на зустрічах іменники звучать об'єктивніше.</small></p>
+    </div>
+    <div class="when-card" style="border-left-color:#f97316;">
+      <div class="icon">🔬</div>
+      <h4 style="color:#f97316;">Science & Research / Наука</h4>
+      <p>Scientists prefer nouns over verbs to describe processes neutrally.<br><small>Вчені надають перевагу іменникам для нейтрального опису.</small></p>
+    </div>
+    <div class="when-card" style="border-left-color:#22c55e;">
+      <div class="icon">📰</div>
+      <h4 style="color:#22c55e;">News Headlines / Заголовки</h4>
+      <p>Short and punchy: "ARREST of suspect" instead of "Police arrested suspect".<br><small>Коротко: "Арешт підозрюваного" замість "Поліція заарештувала".</small></p>
+    </div>
+    <div class="when-card" style="border-left-color:#3b82f6;">
+      <div class="icon">🎓</div>
+      <h4 style="color:#3b82f6;">IELTS / TOEFL / Exams</h4>
+      <p>Using nominalisations in exams boosts your score! It shows advanced grammar.<br><small>Номіналізації на екзаменах підвищують бал! Це складна граматика.</small></p>
+    </div>
+    <div class="when-card" style="border-left-color:#eab308;">
+      <div class="icon">🗣️</div>
+      <h4 style="color:#b45309;">Making a Point / Наголошування</h4>
+      <p>Nouns emphasize ideas more strongly than verbs in conversation.<br><small>Іменники підкреслюють ідеї сильніше, ніж дієслова.</small></p>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- QUICK TIPS -->
+<div class="section" style="background:#f0f4ff;">
+<div class="container">
+  <div class="section-title" style="color:var(--orange);">💡 Quick Tips / Швидкі поради</div>
+  <div class="divider" style="background:linear-gradient(90deg,var(--orange),var(--yellow));"></div>
+  <ul class="tips-list fade-in">
+    <li data-icon="✅">Use nominalisations to sound MORE formal. In everyday speech, verbs are fine! | Використовуй номіналізації для офіційного стилю. В щоденній мові дієслова — норма!</li>
+    <li data-icon="⚠️">Don't OVERUSE them — too many nouns make text hard to read. | Не зловживай — забагато іменників робить текст важким.</li>
+    <li data-icon="📖">The best way to learn is to READ — news articles, essays, books are full of them! | Найкращий спосіб — ЧИТАТИ: статті, есе, книги.</li>
+    <li data-icon="🔁">Try converting sentences both ways: verb → noun AND noun → verb! | Спробуй перетворювати речення в обидві сторони!</li>
+    <li data-icon="🎨">Many nominalisations are "hidden" in everyday words we already know! | Багато номіналізацій "ховаються" у словах, які ми вже знаємо!</li>
+    <li data-icon="🏆">Phrasal verb → noun forms (like "breakdown", "workout") are especially common in English! | Форми фразових дієслів → іменник дуже поширені в англійській!</li>
+  </ul>
+</div>
+</div>
+
+<!-- MINI QUIZ -->
+<div class="section" style="background:white;">
+<div class="container">
+  <div class="section-title" style="color:var(--green);">🎮 Quick Quiz / Швидкий тест</div>
+  <div class="divider" style="background:linear-gradient(90deg,var(--green),var(--teal));"></div>
+
+  <div class="quiz-card fade-in">
+    <div class="quiz-q">1. What is the nominalisation of "decide"? / Яка номіналізація від "decide"?</div>
+    <div class="quiz-options">
+      <button class="quiz-btn" onclick="answer(this,'wrong')">decided</button>
+      <button class="quiz-btn" onclick="answer(this,'correct')">decision</button>
+      <button class="quiz-btn" onclick="answer(this,'wrong')">deciding</button>
+      <button class="quiz-btn" onclick="answer(this,'wrong')">decidement</button>
+    </div>
+    <div class="quiz-result" id="r1"></div>
+  </div>
+
+  <div class="quiz-card fade-in">
+    <div class="quiz-q">2. Which sentence uses nominalisation? / Яке речення використовує номіналізацію?</div>
+    <div class="quiz-options">
+      <button class="quiz-btn" onclick="answer(this,'wrong')">He failed the test.</button>
+      <button class="quiz-btn" onclick="answer(this,'correct')">His failure was unexpected.</button>
+      <button class="quiz-btn" onclick="answer(this,'wrong')">He is failing the test.</button>
+    </div>
+    <div class="quiz-result" id="r2"></div>
+  </div>
+
+  <div class="quiz-card fade-in">
+    <div class="quiz-q">3. "Break down" (verb) → ___ (noun) / "Break down" (дієслово) → ___ (іменник)</div>
+    <div class="quiz-options">
+      <button class="quiz-btn" onclick="answer(this,'wrong')">breakage</button>
+      <button class="quiz-btn" onclick="answer(this,'wrong')">breaking</button>
+      <button class="quiz-btn" onclick="answer(this,'correct')">breakdown</button>
+      <button class="quiz-btn" onclick="answer(this,'wrong')">broken</button>
+    </div>
+    <div class="quiz-result" id="r3"></div>
+  </div>
+
+  <div class="quiz-card fade-in">
+    <div class="quiz-q">4. Which suffix makes "happy" into a noun? / Який суфікс перетворює "happy" на іменник?</div>
+    <div class="quiz-options">
+      <button class="quiz-btn" onclick="answer(this,'wrong')">happy + -tion</button>
+      <button class="quiz-btn" onclick="answer(this,'correct')">happy + -ness</button>
+      <button class="quiz-btn" onclick="answer(this,'wrong')">happy + -ment</button>
+      <button class="quiz-btn" onclick="answer(this,'wrong')">happy + -ity</button>
+    </div>
+    <div class="quiz-result" id="r4"></div>
+  </div>
+</div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="big">🔄 You've got this! / Ти впораєшся!</div>
+  <p>Nominalisation is your secret weapon for amazing English! 🚀<br>Номіналізація — твоя таємна зброя для чудової англійської!</p>
+</footer>
+
+<script>
+  let quizCount = 0;
+  const results = ['r1','r2','r3','r4'];
+  const correctMsgs = ['🎉 Correct! / Правильно!','🎉 Correct! / Правильно!','🎉 Correct! / Правильно!','🎉 Correct! / Правильно!'];
+  const wrongMsgs = ['❌ Try again! The answer is "decision" / Спробуй ще! Відповідь: "decision"',
+    '❌ Try again! "His failure" is a noun → nominalisation! / "His failure" — це іменник!',
+    '❌ Try again! "Breakdown" is the noun! / Спробуй ще! "Breakdown" — це іменник!',
+    '❌ Try again! happy + -ness = happiness! / Спробуй ще! happy + -ness = happiness!'];
+  
+  let questionIndex = 0;
+
+  function answer(btn, result) {
+    const card = btn.closest('.quiz-card');
+    const btns = card.querySelectorAll('.quiz-btn');
+    const idx = Array.from(document.querySelectorAll('.quiz-card')).indexOf(card);
+    const resultEl = document.getElementById(results[idx]);
+    
+    btns.forEach(b => b.disabled = true);
+    btn.classList.add(result);
+    resultEl.classList.add('show');
+    
+    if(result === 'correct') {
+      resultEl.style.color = '#16a34a';
+      resultEl.textContent = correctMsgs[idx];
+    } else {
+      resultEl.style.color = '#dc2626';
+      resultEl.textContent = wrongMsgs[idx];
+    }
+  }
+
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting) { e.target.classList.add('visible'); }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+</body>
+</html>

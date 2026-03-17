@@ -1,0 +1,1569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GIVE — English Word Explorer</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orange: #FF6B2B;
+    --yellow: #FFD93D;
+    --green: #6BCB77;
+    --blue: #4D96FF;
+    --purple: #C77DFF;
+    --pink: #FF6B9D;
+    --teal: #2EC4B6;
+    --red: #FF4757;
+    --dark: #1A1A2E;
+    --card-bg: #ffffff;
+    --body-bg: #FFF9F0;
+    --text: #2d2d2d;
+    --muted: #666;
+    --radius: 20px;
+    --shadow: 0 8px 30px rgba(0,0,0,0.1);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--body-bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #FF6B2B 0%, #FFD93D 50%, #FF6B9D 100%);
+    padding: 60px 20px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.08'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    animation: bgScroll 20s linear infinite;
+  }
+  @keyframes bgScroll { to { background-position: 60px 60px; } }
+
+  .hero-emoji {
+    font-size: 80px;
+    display: block;
+    animation: bounce 2s ease-in-out infinite;
+    position: relative; z-index: 1;
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+  }
+  .hero h1 {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(60px, 15vw, 120px);
+    color: white;
+    text-shadow: 4px 4px 0 rgba(0,0,0,0.15);
+    letter-spacing: 4px;
+    position: relative; z-index: 1;
+    animation: fadeDown 0.8s ease;
+  }
+  @keyframes fadeDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
+
+  .hero-sub {
+    font-size: 22px;
+    color: rgba(255,255,255,0.95);
+    font-weight: 700;
+    margin-top: 10px;
+    position: relative; z-index: 1;
+  }
+  .hero-badges {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
+    margin-top: 20px; position: relative; z-index: 1;
+  }
+  .hero-badge {
+    background: rgba(255,255,255,0.25);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.5);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 15px;
+  }
+
+  /* LAYOUT */
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+  .section { padding: 50px 0; }
+  .section-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: 36px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-title .icon { font-size: 40px; }
+
+  /* CARDS */
+  .card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 28px;
+    box-shadow: var(--shadow);
+    border: 3px solid transparent;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.15); }
+
+  /* MEANING SECTION */
+  .meaning-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+  }
+  .meaning-card {
+    border-radius: var(--radius);
+    padding: 24px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s;
+  }
+  .meaning-card:hover { transform: scale(1.04); }
+  .meaning-card .big-emoji { font-size: 50px; margin-bottom: 10px; display: block; }
+  .meaning-card .en { font-weight: 900; font-size: 18px; color: white; }
+  .meaning-card .ua { font-size: 15px; color: rgba(255,255,255,0.9); margin-top: 5px; font-weight: 600; }
+  .meaning-card .example { font-size: 13px; color: rgba(255,255,255,0.85); margin-top: 8px; font-style: italic; }
+
+  .mc-1 { background: linear-gradient(135deg, #FF6B2B, #FFD93D); }
+  .mc-2 { background: linear-gradient(135deg, #4D96FF, #2EC4B6); }
+  .mc-3 { background: linear-gradient(135deg, #C77DFF, #FF6B9D); }
+  .mc-4 { background: linear-gradient(135deg, #6BCB77, #2EC4B6); }
+  .mc-5 { background: linear-gradient(135deg, #FF4757, #FF6B2B); }
+  .mc-6 { background: linear-gradient(135deg, #FFD93D, #6BCB77); }
+
+  /* MAGIC SENTENCE */
+  .magic-box {
+    background: linear-gradient(135deg, #1A1A2E, #16213E);
+    border-radius: 28px;
+    padding: 40px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  .magic-box::before {
+    content: '✨';
+    font-size: 200px;
+    position: absolute; right: -30px; top: -30px;
+    opacity: 0.06;
+  }
+  .magic-box h3 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 28px;
+    color: var(--yellow);
+    margin-bottom: 8px;
+  }
+  .magic-box .ua-title { color: rgba(255,255,255,0.7); font-size: 14px; margin-bottom: 25px; }
+  .magic-sentence {
+    background: rgba(255,255,255,0.08);
+    border: 2px solid rgba(255,255,255,0.15);
+    border-radius: 16px;
+    padding: 20px 25px;
+    margin-bottom: 12px;
+  }
+  .magic-sentence .en-sent {
+    font-size: 22px;
+    font-weight: 800;
+    color: white;
+    line-height: 1.5;
+  }
+  .magic-sentence .ua-sent { color: rgba(255,255,255,0.75); font-size: 15px; margin-top: 6px; }
+  .magic-sentence .word-give { color: var(--yellow); font-size: 26px; }
+  .magic-sentence .word-obj { color: var(--teal); }
+  .magic-sentence .word-what { color: var(--pink); }
+
+  .transform-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; margin-top: 20px; }
+  .transform-card {
+    background: rgba(255,255,255,0.07);
+    border: 2px solid rgba(255,255,255,0.12);
+    border-radius: 14px;
+    padding: 16px 20px;
+  }
+  .transform-card .tag {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .transform-card .t-en { font-size: 16px; font-weight: 700; color: white; }
+  .transform-card .t-ua { font-size: 13px; color: rgba(255,255,255,0.65); margin-top: 4px; }
+
+  /* FORMULA */
+  .formula-box {
+    background: var(--dark);
+    border-radius: var(--radius);
+    padding: 30px;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .formula-label { color: rgba(255,255,255,0.6); font-size: 13px; margin-bottom: 10px; width: 100%; font-weight: 700; }
+  .f-part {
+    padding: 10px 18px;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 16px;
+    color: white;
+  }
+  .f-sub { color: white; font-size: 16px; font-weight: 900; }
+  .f-orange { background: var(--orange); }
+  .f-blue { background: var(--blue); }
+  .f-green { background: var(--green); color: #1A1A2E; }
+  .f-purple { background: var(--purple); }
+  .f-pink { background: var(--pink); }
+  .f-arrow { color: var(--yellow); font-size: 22px; font-weight: 900; }
+
+  /* TRANSLATIONS TABLE */
+  .trans-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+  }
+  .trans-card {
+    border-radius: 16px;
+    padding: 18px 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .trans-card .t-emoji { font-size: 30px; flex-shrink: 0; }
+  .trans-card .t-en { font-weight: 800; font-size: 16px; }
+  .trans-card .t-ua { font-size: 13px; font-weight: 600; color: #555; margin-top: 3px; }
+  .trans-card .t-ex { font-size: 12px; color: #777; margin-top: 5px; font-style: italic; }
+
+  .tc-1 { background: #FFF3EC; border: 2px solid #FFD4BB; }
+  .tc-2 { background: #EEF5FF; border: 2px solid #BDD6FF; }
+  .tc-3 { background: #F0FBF0; border: 2px solid #BBE8BD; }
+  .tc-4 { background: #FFF0F8; border: 2px solid #FFB8DC; }
+  .tc-5 { background: #F5F0FF; border: 2px solid #D4B8FF; }
+  .tc-6 { background: #FAFFF0; border: 2px solid #D0F0A8; }
+  .tc-7 { background: #FFF5F0; border: 2px solid #FFD0B5; }
+  .tc-8 { background: #F0FFFD; border: 2px solid #B5F0E8; }
+
+  /* EXAMPLES */
+  .examples-grid { display: grid; gap: 12px; }
+  .ex-item {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    background: white;
+    border-radius: 16px;
+    padding: 16px 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+    border-left: 5px solid var(--orange);
+    transition: transform 0.2s;
+  }
+  .ex-item:hover { transform: translateX(5px); }
+  .ex-num {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 900; font-size: 14px;
+    flex-shrink: 0;
+    color: white;
+  }
+  .ex-text .en { font-weight: 700; font-size: 16px; }
+  .ex-text .ua { color: #888; font-size: 14px; margin-top: 3px; }
+  .ex-text .give-word { color: var(--orange); font-weight: 900; }
+
+  /* PHRASAL VERBS */
+  .phrasal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 16px;
+  }
+  .phrasal-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 22px;
+    box-shadow: var(--shadow);
+    border-top: 5px solid var(--purple);
+    transition: transform 0.2s;
+  }
+  .phrasal-card:hover { transform: translateY(-3px); }
+  .phrasal-card .pv-name {
+    font-family: 'Fredoka One', cursive;
+    font-size: 22px;
+    color: var(--purple);
+    margin-bottom: 4px;
+  }
+  .phrasal-card .pv-meaning { font-weight: 700; font-size: 14px; color: var(--dark); }
+  .phrasal-card .pv-ua { color: var(--muted); font-size: 13px; margin: 4px 0 10px; }
+  .phrasal-card .pv-ex { font-size: 14px; color: #555; border-top: 1px solid #f0f0f0; padding-top: 10px; font-style: italic; }
+  .phrasal-card .pv-ex-ua { font-size: 12px; color: #888; margin-top: 3px; }
+
+  /* COLLOCATIONS */
+  .coll-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 15px;
+  }
+  .coll-card {
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+    border-left: 5px solid var(--teal);
+  }
+  .coll-card .c-phrase { font-weight: 900; font-size: 17px; color: var(--teal); }
+  .coll-card .c-ua { font-size: 13px; color: #666; margin: 4px 0 8px; }
+  .coll-card .c-ex { font-size: 14px; color: #555; font-style: italic; }
+  .coll-card .c-ex-ua { font-size: 12px; color: #888; margin-top: 3px; }
+
+  /* TENSES */
+  .tense-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 8px;
+  }
+  .tense-table th {
+    background: var(--dark);
+    color: white;
+    padding: 14px 18px;
+    font-size: 14px;
+    text-align: left;
+  }
+  .tense-table th:first-child { border-radius: 12px 0 0 12px; }
+  .tense-table th:last-child { border-radius: 0 12px 12px 0; }
+  .tense-table td {
+    padding: 14px 18px;
+    background: white;
+    font-size: 15px;
+    vertical-align: top;
+  }
+  .tense-table td:first-child { border-radius: 12px 0 0 12px; font-weight: 800; color: var(--orange); }
+  .tense-table td:last-child { border-radius: 0 12px 12px 0; }
+  .tense-table tr td { box-shadow: 0 3px 10px rgba(0,0,0,0.07); }
+  .tense-table .tense-ua { color: #888; font-size: 13px; }
+
+  /* TIPS */
+  .tip-box {
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+  }
+  .tip-emoji { font-size: 40px; flex-shrink: 0; }
+  .tip-content h4 { font-weight: 900; font-size: 18px; margin-bottom: 5px; }
+  .tip-content p { font-size: 15px; line-height: 1.7; }
+
+  /* TAGS */
+  .topic-tag {
+    display: inline-block;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    margin: 4px;
+  }
+
+  /* DIVIDER */
+  .wave-divider {
+    height: 60px;
+    background: linear-gradient(135deg, #FF6B2B22, #FFD93D22);
+    clip-path: ellipse(55% 100% at 50% 0%);
+    margin: -1px 0;
+  }
+
+  /* SECTION BG variants */
+  .bg-light { background: #FFF9F0; }
+  .bg-white { background: white; }
+  .bg-purple-light { background: #F8F0FF; }
+  .bg-teal-light { background: #F0FEFF; }
+  .bg-green-light { background: #F0FBF0; }
+
+  /* QUIZ */
+  .quiz-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 28px;
+    box-shadow: var(--shadow);
+    margin-bottom: 16px;
+  }
+  .quiz-card .q-text { font-weight: 800; font-size: 18px; margin-bottom: 15px; }
+  .quiz-options { display: flex; flex-direction: column; gap: 10px; }
+  .quiz-opt {
+    padding: 12px 18px;
+    border-radius: 12px;
+    border: 2px solid #e0e0e0;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    transition: all 0.2s;
+    background: #fafafa;
+    text-align: left;
+  }
+  .quiz-opt:hover { border-color: var(--orange); background: #FFF3EC; }
+  .quiz-opt.correct { border-color: var(--green); background: #F0FBF0; color: #2a7a2a; }
+  .quiz-opt.wrong { border-color: var(--red); background: #FFF0F0; color: #cc2222; }
+  .quiz-feedback { margin-top: 12px; font-weight: 700; font-size: 16px; display: none; }
+
+  /* RESPONSIVE */
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 70px; }
+    .magic-box { padding: 24px; }
+    .en-sent { font-size: 18px !important; }
+    .tense-table { font-size: 13px; }
+  }
+
+  #scroll-top-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #1a1208;
+    border: 1.5px solid rgba(200,150,62,0.4);
+    color: #f5f0e8;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+    pointer-events: none;
+    z-index: 9998;
+  }
+  #scroll-top-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  #scroll-top-btn:hover {
+    background: #c8963e;
+    border-color: #c8963e;
+    color: #1a1208;
+  }
+
+  .badge-verb { background: #FFE8D6; color: #D45500; border-radius: 8px; padding: 2px 8px; font-size: 12px; font-weight: 700; }
+  .section-divider { height: 3px; background: linear-gradient(90deg, var(--orange), var(--yellow), var(--green), var(--blue)); border-radius: 3px; margin: 0 0 0 0; }
+
+  .nav-bar {
+    background: white;
+    padding: 14px 20px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    position: sticky; top: 0; z-index: 100;
+  }
+  .nav-btn {
+    padding: 8px 16px;
+    border-radius: 30px;
+    background: #f0f0f0;
+    border: none;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: var(--dark);
+    text-decoration: none;
+    display: inline-block;
+  }
+  .nav-btn:hover { background: var(--orange); color: white; transform: scale(1.05); }
+
+  .life-topic {
+    background: white;
+    border-radius: var(--radius);
+    padding: 20px 22px;
+    box-shadow: var(--shadow);
+  }
+  .life-topic h4 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 20px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .life-topic .ex-row {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    margin-bottom: 8px;
+  }
+  .life-topic .bullet { color: var(--orange); font-weight: 900; flex-shrink: 0; font-size: 18px; }
+  .life-topic .ex-en { font-weight: 700; font-size: 15px; }
+  .life-topic .ex-ua { color: #888; font-size: 13px; }
+  .life-topics-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+
+  /* ── TABLE SCROLL WRAPPER ── */
+  .table-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+  }
+  .table-scroll::-webkit-scrollbar { height: 6px; }
+  .table-scroll::-webkit-scrollbar-track { background: #f0f0f0; border-radius: 3px; }
+  .table-scroll::-webkit-scrollbar-thumb { background: var(--orange); border-radius: 3px; }
+
+  /* ══════════════════════════════════════
+     MOBILE  ≤ 768px
+  ══════════════════════════════════════ */
+  @media (max-width: 768px) {
+
+    /* HERO */
+    .hero { padding: 40px 16px 56px; }
+    .hero-emoji { font-size: 56px; }
+    .hero h1 { font-size: 72px; letter-spacing: 2px; }
+    .hero-sub { font-size: 15px; }
+    .hero-badge { font-size: 13px; padding: 6px 14px; }
+
+    /* NAV — horizontal scroll, no wrap */
+    .nav-bar {
+      padding: 10px 12px;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      justify-content: flex-start;
+      gap: 6px;
+      -webkit-overflow-scrolling: touch;
+    }
+    .nav-bar::-webkit-scrollbar { display: none; }
+    .nav-btn { white-space: nowrap; font-size: 12px; padding: 7px 13px; flex-shrink: 0; }
+
+    /* SECTIONS */
+    .section { padding: 36px 0; }
+    .container { padding: 0 14px; }
+    .section-title { font-size: 26px; gap: 8px; }
+    .section-title .icon { font-size: 30px; }
+
+    /* MEANING GRID — 2 cols */
+    .meaning-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .meaning-card { padding: 18px 12px; }
+    .meaning-card .big-emoji { font-size: 36px; }
+    .meaning-card .en { font-size: 15px; }
+    .meaning-card .ua { font-size: 13px; }
+    .meaning-card .example { font-size: 11px; }
+
+    /* MAGIC BOX */
+    .magic-box { padding: 22px 16px; border-radius: 20px; }
+    .magic-box h3 { font-size: 22px; }
+    .magic-sentence .en-sent { font-size: 17px !important; }
+    .magic-sentence .word-give { font-size: 20px !important; }
+    .transform-grid { grid-template-columns: 1fr; gap: 10px; }
+    .transform-card .t-en { font-size: 15px; }
+
+    /* FORMULA */
+    .formula-box { padding: 18px 14px; gap: 8px; }
+    .f-part { padding: 8px 12px; font-size: 13px; }
+    .f-sub { font-size: 14px; }
+    .f-arrow { font-size: 18px; }
+
+    /* TRANSLATIONS */
+    .trans-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .trans-card { padding: 14px 12px; gap: 8px; }
+    .trans-card .t-emoji { font-size: 24px; }
+    .trans-card .t-en { font-size: 14px; }
+    .trans-card .t-ua { font-size: 12px; }
+    .trans-card .t-ex { font-size: 11px; }
+
+    /* Irregular verb row */
+    .card { padding: 18px 16px; }
+
+    /* EXAMPLES */
+    .ex-item { padding: 14px 14px; gap: 10px; }
+    .ex-num { width: 28px; height: 28px; font-size: 12px; }
+    .ex-text .en { font-size: 14px; }
+    .ex-text .ua { font-size: 13px; }
+
+    /* LIFE TOPICS */
+    .life-topics-grid { grid-template-columns: 1fr; }
+    .life-topic { padding: 16px 14px; }
+    .life-topic h4 { font-size: 18px; }
+    .life-topic .ex-en { font-size: 14px; }
+
+    /* PHRASAL VERBS */
+    .phrasal-grid { grid-template-columns: 1fr; gap: 12px; }
+    .phrasal-card { padding: 18px 16px; }
+    .phrasal-card .pv-name { font-size: 20px; }
+
+    /* COLLOCATIONS */
+    .coll-grid { grid-template-columns: 1fr; gap: 12px; }
+    .coll-card { padding: 16px 14px; }
+    .coll-card .c-phrase { font-size: 15px; }
+
+    /* TENSES TABLE — scrollable */
+    .tense-table { min-width: 560px; }
+    .tense-table th, .tense-table td { padding: 11px 13px; font-size: 13px; }
+
+    /* TIPS */
+    .tip-box { padding: 16px 14px; gap: 12px; }
+    .tip-emoji { font-size: 30px; }
+    .tip-content h4 { font-size: 15px; }
+    .tip-content p { font-size: 13px; }
+
+    /* QUIZ */
+    .quiz-card { padding: 20px 16px; }
+    .quiz-card .q-text { font-size: 15px; }
+    .quiz-opt { font-size: 14px; padding: 10px 14px; }
+
+    /* FOOTER */
+    footer { padding: 30px 16px; }
+
+    /* SCROLL BTN — smaller on mobile */
+    #scroll-top-btn { width: 40px; height: 40px; font-size: 16px; bottom: 18px; right: 16px; }
+  }
+
+  /* ══════════════════════════════════════
+     SMALL MOBILE  ≤ 400px
+  ══════════════════════════════════════ */
+  @media (max-width: 400px) {
+    .hero h1 { font-size: 54px; }
+    .meaning-grid { grid-template-columns: 1fr; }
+    .trans-grid { grid-template-columns: 1fr; }
+    .hero-badges { gap: 6px; }
+    .hero-badge { font-size: 12px; padding: 5px 11px; }
+    .magic-sentence .en-sent { font-size: 15px !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <span class="hero-emoji">🎁</span>
+  <h1>GIVE</h1>
+  <div class="hero-sub">The word you'll use every single day! • Слово, яке ти будеш використовувати щодня!</div>
+  <div class="hero-badges">
+    <span class="hero-badge">🇬🇧 English</span>
+    <span class="hero-badge">🇺🇦 Українська</span>
+    <span class="hero-badge">📚 Beginner–Intermediate</span>
+    <span class="hero-badge">✅ Verb / Дієслово</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav-bar">
+  <a class="nav-btn" href="#meaning">💡 Meaning</a>
+  <a class="nav-btn" href="#magic">✨ Magic Sentence</a>
+  <a class="nav-btn" href="#formula">📐 Formula</a>
+  <a class="nav-btn" href="#translations">🌍 Translations</a>
+  <a class="nav-btn" href="#examples">💬 Examples</a>
+  <a class="nav-btn" href="#life">🎯 Life Situations</a>
+  <a class="nav-btn" href="#phrasal">🔥 Phrasal Verbs</a>
+  <a class="nav-btn" href="#collocations">🔗 Collocations</a>
+  <a class="nav-btn" href="#tenses">⏰ Tenses</a>
+  <a class="nav-btn" href="#quiz">🧠 Quiz</a>
+</nav>
+
+<!-- MEANING -->
+<section id="meaning" class="section bg-light">
+  <div class="container">
+    <div class="section-title"><span class="icon">💡</span> What does GIVE mean? / Що означає GIVE?</div>
+    
+    <div class="card" style="margin-bottom: 24px; border-color: #FFD93D;">
+      <p style="font-size: 18px; font-weight: 700; line-height: 1.8;">
+        🇬🇧 <strong>GIVE</strong> means to <em>hand something to someone, offer something, or cause someone to receive something</em>. It's all about TRANSFER — moving something from YOU to SOMEONE ELSE.
+      </p>
+      <p style="font-size: 16px; color: #555; margin-top: 12px; line-height: 1.8;">
+        🇺🇦 <strong>GIVE</strong> означає <em>передати щось комусь, запропонувати або зробити так, щоб хтось отримав щось</em>. Це все про ПЕРЕДАЧУ — переміщення чогось від ТЕБЕ до КОГОСЬ ІНШОГО.
+      </p>
+    </div>
+
+    <div class="meaning-grid">
+      <div class="meaning-card mc-1">
+        <span class="big-emoji">🤲</span>
+        <div class="en">Hand / Transfer</div>
+        <div class="ua">Передавати / Вручати</div>
+        <div class="example">"Give me the book." → Дай мені книгу.</div>
+      </div>
+      <div class="meaning-card mc-2">
+        <span class="big-emoji">🎁</span>
+        <div class="en">Present / Donate</div>
+        <div class="ua">Дарувати / Жертвувати</div>
+        <div class="example">"She gave me flowers." → Вона подарувала мені квіти.</div>
+      </div>
+      <div class="meaning-card mc-3">
+        <span class="big-emoji">💭</span>
+        <div class="en">Provide information</div>
+        <div class="ua">Надавати інформацію</div>
+        <div class="example">"Give me your number." → Дай мені свій номер.</div>
+      </div>
+      <div class="meaning-card mc-4">
+        <span class="big-emoji">😊</span>
+        <div class="en">Cause a feeling</div>
+        <div class="ua">Викликати відчуття</div>
+        <div class="example">"Music gives me joy." → Музика дає мені радість.</div>
+      </div>
+      <div class="meaning-card mc-5">
+        <span class="big-emoji">⏰</span>
+        <div class="en">Allow / Grant time</div>
+        <div class="ua">Дозволяти / Давати час</div>
+        <div class="example">"Give me 5 minutes." → Дай мені 5 хвилин.</div>
+      </div>
+      <div class="meaning-card mc-6">
+        <span class="big-emoji">🎤</span>
+        <div class="en">Perform / Deliver</div>
+        <div class="ua">Виступати / Проводити</div>
+        <div class="example">"She gave a speech." → Вона виголосила промову.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- MAGIC SENTENCE -->
+<section id="magic" class="section bg-white">
+  <div class="container">
+    <div class="section-title"><span class="icon">✨</span> The Magic Sentence / Чарівне речення</div>
+    
+    <div class="magic-box">
+      <h3>✨ The Magic Sentence — Чарівне речення</h3>
+      <div class="ua-title">Одне базове речення, яке змінюється залежно від ситуації</div>
+
+      <div class="magic-sentence">
+        <div class="en-sent">
+          <span class="word-give">She gives</span> <span class="word-obj">him</span> <span class="word-what">a book</span> every birthday.
+        </div>
+        <div class="ua-sent">🇺🇦 Вона дає йому книгу на кожен день народження.</div>
+      </div>
+
+      <p style="color: rgba(255,255,255,0.7); margin-bottom: 15px; font-size: 14px;">
+        🎨 <strong style="color: var(--yellow);">Yellow</strong> = GIVE (the verb) &nbsp;|&nbsp; <strong style="color: var(--teal);">Teal</strong> = WHO receives &nbsp;|&nbsp; <strong style="color: var(--pink);">Pink</strong> = WHAT they receive
+      </p>
+
+      <div class="transform-grid">
+        <div class="transform-card">
+          <span class="tag" style="background: #FF6B2B; color: white;">👶 Present Simple</span>
+          <div class="t-en">She <span style="color:var(--yellow); font-weight:900;">gives</span> <span style="color:var(--teal);">him</span> <span style="color:var(--pink);">a hug</span> every morning.</div>
+          <div class="t-ua">Вона обіймає його кожного ранку.</div>
+        </div>
+        <div class="transform-card">
+          <span class="tag" style="background: #4D96FF; color: white;">📖 Past Simple</span>
+          <div class="t-en">She <span style="color:var(--yellow); font-weight:900;">gave</span> <span style="color:var(--teal);">him</span> <span style="color:var(--pink);">a gift</span> yesterday.</div>
+          <div class="t-ua">Вона дала йому подарунок вчора.</div>
+        </div>
+        <div class="transform-card">
+          <span class="tag" style="background: #6BCB77; color: white;">🔮 Future</span>
+          <div class="t-en">She <span style="color:var(--yellow); font-weight:900;">will give</span> <span style="color:var(--teal);">him</span> <span style="color:var(--pink);">advice</span> tomorrow.</div>
+          <div class="t-ua">Вона дасть йому пораду завтра.</div>
+        </div>
+        <div class="transform-card">
+          <span class="tag" style="background: #C77DFF; color: white;">❓ Question</span>
+          <div class="t-en">Did she <span style="color:var(--yellow); font-weight:900;">give</span> <span style="color:var(--teal);">him</span> <span style="color:var(--pink);">a call</span>?</div>
+          <div class="t-ua">Вона йому зателефонувала?</div>
+        </div>
+        <div class="transform-card">
+          <span class="tag" style="background: #FF6B9D; color: white;">🚫 Negative</span>
+          <div class="t-en">She <span style="color:var(--yellow); font-weight:900;">didn't give</span> <span style="color:var(--teal);">him</span> <span style="color:var(--pink);">permission</span>.</div>
+          <div class="t-ua">Вона не дала йому дозволу.</div>
+        </div>
+        <div class="transform-card">
+          <span class="tag" style="background: #2EC4B6; color: white;">🙏 Imperative</span>
+          <div class="t-en"><span style="color:var(--yellow); font-weight:900;">Give</span> <span style="color:var(--teal);">me</span> <span style="color:var(--pink);">a chance</span>!</div>
+          <div class="t-ua">Дай мені шанс!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULA -->
+<section id="formula" class="section bg-light">
+  <div class="container">
+    <div class="section-title"><span class="icon">📐</span> Sentence Formula / Формула речення</div>
+
+    <div class="formula-box">
+      <div class="formula-label">📌 Basic Structure / Базова структура</div>
+      <div class="f-part f-orange">Subject<br><span style="font-size:11px;opacity:0.8;">Підмет</span></div>
+      <div class="f-sub">+</div>
+      <div class="f-part f-blue">give / gives / gave<br><span style="font-size:11px;opacity:0.8;">Дієслово</span></div>
+      <div class="f-sub">+</div>
+      <div class="f-part f-purple">Person (WHO)<br><span style="font-size:11px;opacity:0.8;">Кому</span></div>
+      <div class="f-sub">+</div>
+      <div class="f-part f-pink">Thing (WHAT)<br><span style="font-size:11px;opacity:0.8;">Що</span></div>
+    </div>
+
+    <div class="formula-box" style="margin-top: 14px;">
+      <div class="formula-label">💡 Alternative: give + WHAT + to + WHO / Альтернативна структура</div>
+      <div class="f-part f-orange">I</div>
+      <div class="f-sub">+</div>
+      <div class="f-part f-blue">gave</div>
+      <div class="f-sub">+</div>
+      <div class="f-part f-pink">a gift</div>
+      <div class="f-sub">+</div>
+      <div class="f-part" style="background: var(--teal);">to my friend</div>
+      <div style="width:100%; margin-top: 12px; color: rgba(255,255,255,0.7); font-size: 14px;">
+        ✅ Both are correct! "I gave my friend a gift" = "I gave a gift to my friend" 🇺🇦 Обидва варіанти правильні!
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 20px;">
+      <div class="tip-box" style="background: #FFF3EC; border: 2px solid #FFD4BB;">
+        <span class="tip-emoji">✅</span>
+        <div class="tip-content">
+          <h4 style="color: var(--orange);">Correct / Правильно</h4>
+          <p>"I <strong>gave him</strong> a book." ✓<br>
+          "I <strong>gave</strong> a book <strong>to him</strong>." ✓</p>
+        </div>
+      </div>
+      <div class="tip-box" style="background: #FFF0F0; border: 2px solid #FFB8B8;">
+        <span class="tip-emoji">❌</span>
+        <div class="tip-content">
+          <h4 style="color: var(--red);">Wrong / Неправильно</h4>
+          <p>"I <strong>gave to him</strong> a book." ✗<br>
+          <span style="color: #888; font-size: 13px;">No "to" before the person when person comes first!</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRANSLATIONS -->
+<section id="translations" class="section bg-white">
+  <div class="container">
+    <div class="section-title"><span class="icon">🌍</span> All Translations / Усі варіанти перекладу</div>
+    <div class="trans-grid">
+      <div class="trans-card tc-1">
+        <div class="t-emoji">🤲</div>
+        <div>
+          <div class="t-en">give = давати</div>
+          <div class="t-ua">найпоширеніший переклад</div>
+          <div class="t-ex">"Give me water." → Дай мені води.</div>
+        </div>
+      </div>
+      <div class="trans-card tc-2">
+        <div class="t-emoji">🎁</div>
+        <div>
+          <div class="t-en">give = дарувати</div>
+          <div class="t-ua">коли це подарунок</div>
+          <div class="t-ex">"He gave her roses." → Він подарував їй троянди.</div>
+        </div>
+      </div>
+      <div class="trans-card tc-3">
+        <div class="t-emoji">📋</div>
+        <div>
+          <div class="t-en">give = надавати</div>
+          <div class="t-ua">офіційно/формально</div>
+          <div class="t-ex">"Give access." → Надати доступ.</div>
+        </div>
+      </div>
+      <div class="trans-card tc-4">
+        <div class="t-emoji">🍽️</div>
+        <div>
+          <div class="t-en">give = пригощати</div>
+          <div class="t-ua">їжа/напої</div>
+          <div class="t-ex">"Give them cookies." → Пригости їх печивом.</div>
+        </div>
+      </div>
+      <div class="trans-card tc-5">
+        <div class="t-emoji">📢</div>
+        <div>
+          <div class="t-en">give = виголошувати</div>
+          <div class="t-ua">промова/лекція</div>
+          <div class="t-ex">"Give a speech." → Виголосити промову.</div>
+        </div>
+      </div>
+      <div class="trans-card tc-6">
+        <div class="t-emoji">💪</div>
+        <div>
+          <div class="t-en">give = передавати</div>
+          <div class="t-ua">передача чогось</div>
+          <div class="t-ex">"Give the message." → Передати повідомлення.</div>
+        </div>
+      </div>
+      <div class="trans-card tc-7">
+        <div class="t-emoji">😊</div>
+        <div>
+          <div class="t-en">give = викликати/приносити</div>
+          <div class="t-ua">почуття/емоції</div>
+          <div class="t-ex">"Give happiness." → Приносити щастя.</div>
+        </div>
+      </div>
+      <div class="trans-card tc-8">
+        <div class="t-emoji">⏱️</div>
+        <div>
+          <div class="t-en">give = виділяти/відводити</div>
+          <div class="t-ua">час/простір</div>
+          <div class="t-ex">"Give me time." → Дай мені час.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top: 24px; border-color: var(--yellow);">
+      <h3 style="font-family: 'Fredoka One'; font-size: 22px; margin-bottom: 12px;">🌈 Irregular Verb! / Неправильне дієслово!</h3>
+      <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
+        <div style="background: var(--orange); color: white; padding: 12px 22px; border-radius: 14px; font-weight: 900; font-size: 18px;">give</div>
+        <div style="font-size: 22px; color: #ccc;">→</div>
+        <div style="background: var(--blue); color: white; padding: 12px 22px; border-radius: 14px; font-weight: 900; font-size: 18px;">gave</div>
+        <div style="font-size: 22px; color: #ccc;">→</div>
+        <div style="background: var(--purple); color: white; padding: 12px 22px; border-radius: 14px; font-weight: 900; font-size: 18px;">given</div>
+      </div>
+      <div style="margin-top: 12px; color: #666; font-size: 14px;">
+        🇺🇦 Present / Теперішній: <strong>give / gives</strong> &nbsp;|&nbsp; Past / Минулий: <strong>gave</strong> &nbsp;|&nbsp; Past Participle / Дієприкметник: <strong>given</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXAMPLES -->
+<section id="examples" class="section bg-light">
+  <div class="container">
+    <div class="section-title"><span class="icon">💬</span> Example Sentences / Приклади речень</div>
+    <div class="examples-grid">
+
+      <div class="ex-item" style="border-color: var(--orange);">
+        <div class="ex-num" style="background: var(--orange);">1</div>
+        <div class="ex-text">
+          <div class="en">Please <span class="give-word">give</span> me your phone number. 📱</div>
+          <div class="ua">Будь ласка, дай мені свій номер телефону.</div>
+        </div>
+      </div>
+
+      <div class="ex-item" style="border-color: var(--blue);">
+        <div class="ex-num" style="background: var(--blue);">2</div>
+        <div class="ex-text">
+          <div class="en">She <span class="give-word" style="color:var(--blue);">gave</span> him a big hug. 🤗</div>
+          <div class="ua">Вона його міцно обійняла.</div>
+        </div>
+      </div>
+
+      <div class="ex-item" style="border-color: var(--green);">
+        <div class="ex-num" style="background: var(--green); color: #1A1A2E;">3</div>
+        <div class="ex-text">
+          <div class="en">My dad <span class="give-word" style="color:var(--green);">gave</span> me $20 for my birthday. 💵</div>
+          <div class="ua">Мій тато дав мені 20 доларів на день народження.</div>
+        </div>
+      </div>
+
+      <div class="ex-item" style="border-color: var(--purple);">
+        <div class="ex-num" style="background: var(--purple);">4</div>
+        <div class="ex-text">
+          <div class="en">Can you <span class="give-word" style="color:var(--purple);">give</span> me a hand with this? 🙋</div>
+          <div class="ua">Можеш мені допомогти з цим?</div>
+        </div>
+      </div>
+
+      <div class="ex-item" style="border-color: var(--teal);">
+        <div class="ex-num" style="background: var(--teal);">5</div>
+        <div class="ex-text">
+          <div class="en">The teacher <span class="give-word" style="color:var(--teal);">gave</span> us homework. 📚</div>
+          <div class="ua">Вчитель дав нам домашнє завдання.</div>
+        </div>
+      </div>
+
+      <div class="ex-item" style="border-color: var(--pink);">
+        <div class="ex-num" style="background: var(--pink);">6</div>
+        <div class="ex-text">
+          <div class="en">He <span class="give-word" style="color:var(--pink);">gave</span> a great presentation today. 🎤</div>
+          <div class="ua">Він зробив чудову презентацію сьогодні.</div>
+        </div>
+      </div>
+
+      <div class="ex-item" style="border-color: var(--orange);">
+        <div class="ex-num" style="background: var(--orange);">7</div>
+        <div class="ex-text">
+          <div class="en">This song <span class="give-word">gives</span> me chills every time. 🎵</div>
+          <div class="ua">Ця пісня щоразу дає мені мурашки по шкірі.</div>
+        </div>
+      </div>
+
+      <div class="ex-item" style="border-color: var(--blue);">
+        <div class="ex-num" style="background: var(--blue);">8</div>
+        <div class="ex-text">
+          <div class="en">I will <span class="give-word" style="color:var(--blue);">give</span> you a call tomorrow. 📞</div>
+          <div class="ua">Я подзвоню тобі завтра.</div>
+        </div>
+      </div>
+
+      <div class="ex-item" style="border-color: var(--green);">
+        <div class="ex-num" style="background: var(--green); color: #1A1A2E;">9</div>
+        <div class="ex-text">
+          <div class="en">Don't <span class="give-word" style="color:var(--green);">give</span> up on your dreams! 🌟</div>
+          <div class="ua">Не здавайся щодо своїх мрій!</div>
+        </div>
+      </div>
+
+      <div class="ex-item" style="border-color: var(--purple);">
+        <div class="ex-num" style="background: var(--purple);">10</div>
+        <div class="ex-text">
+          <div class="en">She <span class="give-word" style="color:var(--purple);">gave</span> birth to twins last week. 👶👶</div>
+          <div class="ua">Вона народила близнюків минулого тижня.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- LIFE SITUATIONS -->
+<section id="life" class="section bg-white">
+  <div class="container">
+    <div class="section-title"><span class="icon">🎯</span> Give in Real Life / GIVE в реальному житті</div>
+    <div class="life-topics-grid">
+
+      <div class="life-topic">
+        <h4 style="color: var(--orange);">🏠 At Home / Вдома</h4>
+        <div class="ex-row"><span class="bullet">›</span><div><div class="ex-en">Give me the remote, please.</div><div class="ex-ua">Дай мені пульт, будь ласка.</div></div></div>
+        <div class="ex-row"><span class="bullet">›</span><div><div class="ex-en">Mom gave us soup for dinner.</div><div class="ex-ua">Мама дала нам суп на вечерю.</div></div></div>
+        <div class="ex-row"><span class="bullet">›</span><div><div class="ex-en">Give the dog some water.</div><div class="ex-ua">Дай собаці трохи води.</div></div></div>
+        <div class="ex-row"><span class="bullet">›</span><div><div class="ex-en">Dad gave me permission to go out.</div><div class="ex-ua">Тато дозволив мені вийти.</div></div></div>
+      </div>
+
+      <div class="life-topic">
+        <h4 style="color: var(--blue);">🏫 At School / У школі</h4>
+        <div class="ex-row"><span class="bullet">›</span><div><div class="ex-en">The teacher gave us a test.</div><div class="ex-ua">Вчитель дав нам контрольну.</div></div></div>
+        <div class="ex-row"><span class="bullet">›</span><div><div class="ex-en">Give me your notebook.</div><div class="ex-ua">Дай мені свій зошит.</div></div></div>
+        <div class="ex-row"><span class="bullet">›</span><div><div class="ex-en">She gave an excellent answer.</div><div class="ex-ua">Вона дала відмінну відповідь.</div></div></div>
+        <div class="ex-row"><span class="bullet">›</span><div><div class="ex-en">Can you give me a hint?</div><div class="ex-ua">Можеш дати мені підказку?</div></div></div>
+      </div>
+
+      <div class="life-topic">
+        <h4 style="color: var(--green);">🛍️ Shopping / У магазині</h4>
+        <div class="ex-row"><span class="bullet">›</span><div><div class="ex-en">Give me two kilos of apples.</div><div class="ex-ua">Дайте мені два кілограми яблук.</div></div></div>
+        <div class="ex-row"><span class="bullet">›</span><div><div class="ex-en">Can you give me a discount?</div><div class="ex-ua">Можете дати мені знижку?</div></div></div>
+        <div class="ex-row"><span class="bullet">›</span><div><div class="ex-en">Please give me the receipt.</div><div class="ex-ua">Будь ласка, дайте мені чек.</div></div></div>
+        <div class="ex-row"><span class="bullet">›</span><div><div class="ex-en">Give me something cheaper.</div><div class="ex-ua">Дайте мені щось дешевше.</div></div></div>
+      </div>
+
+      <div class="life-topic">
+        <h4 style="color: var(--purple);">💼 At Work / На роботі</h4>
+        <div class="ex-row"><span class="bullet">›</span><div><div class="ex-en">Give me the report by Friday.</div><div class="ex-ua">Дайте мені звіт до п'ятниці.</div></div></div>
+        <div class="ex-row"><span class="bullet">›</span><div><div class="ex-en">She gave a brilliant presentation.</div><div class="ex-ua">Вона зробила блискучу презентацію.</div></div></div>
+        <div class="ex-row"><span class="bullet">›</span><div><div class="ex-en">The boss gave us a bonus.</div><div class="ex-ua">Бос дав нам бонус.</div></div></div>
+        <div class="ex-row"><span class="bullet">›</span><div><div class="ex-en">Give your opinion on this.</div><div class="ex-ua">Висловіть свою думку щодо цього.</div></div></div>
+      </div>
+
+      <div class="life-topic">
+        <h4 style="color: var(--pink);">❤️ Relationships / Стосунки</h4>
+        <div class="ex-row"><span class="bullet">›</span><div><div class="ex-en">He gave her a beautiful ring.</div><div class="ex-ua">Він подарував їй гарне кільце.</div></div></div>
+        <div class="ex-row"><span class="bullet">›</span><div><div class="ex-en">Give me a smile! 😊</div><div class="ex-ua">Посміхнись мені!</div></div></div>
+        <div class="ex-row"><span class="bullet">›</span><div><div class="ex-en">You give me strength.</div><div class="ex-ua">Ти даєш мені сили.</div></div></div>
+        <div class="ex-row"><span class="bullet">›</span><div><div class="ex-en">Give me another chance.</div><div class="ex-ua">Дай мені ще один шанс.</div></div></div>
+      </div>
+
+      <div class="life-topic">
+        <h4 style="color: var(--teal);">🌍 Helping others / Допомога іншим</h4>
+        <div class="ex-row"><span class="bullet">›</span><div><div class="ex-en">They gave food to the poor.</div><div class="ex-ua">Вони роздали їжу бідним.</div></div></div>
+        <div class="ex-row"><span class="bullet">›</span><div><div class="ex-en">Give blood to save lives.</div><div class="ex-ua">Здай кров, щоб рятувати життя.</div></div></div>
+        <div class="ex-row"><span class="bullet">›</span><div><div class="ex-en">He gives 10% to charity.</div><div class="ex-ua">Він жертвує 10% на благодійність.</div></div></div>
+        <div class="ex-row"><span class="bullet">›</span><div><div class="ex-en">Give me a hand, please!</div><div class="ex-ua">Допоможи мені, будь ласка!</div></div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PHRASAL VERBS -->
+<section id="phrasal" class="section bg-purple-light">
+  <div class="container">
+    <div class="section-title"><span class="icon">🔥</span> Phrasal Verbs with GIVE / Фразові дієслова з GIVE</div>
+    <div class="phrasal-grid">
+
+      <div class="phrasal-card" style="border-top-color: var(--orange);">
+        <div class="pv-name" style="color:var(--orange);">give up</div>
+        <div class="pv-meaning">to stop trying / to quit a habit</div>
+        <div class="pv-ua">🇺🇦 здаватися / кидати (звичку)</div>
+        <div class="pv-ex">"Don't give up! You can do it!"</div>
+        <div class="pv-ex-ua">Не здавайся! Ти можеш це зробити!</div>
+        <div class="pv-ex" style="margin-top:8px;">"She gave up smoking last year."</div>
+        <div class="pv-ex-ua">Вона кинула курити минулого року.</div>
+      </div>
+
+      <div class="phrasal-card" style="border-top-color: var(--blue);">
+        <div class="pv-name" style="color:var(--blue);">give away</div>
+        <div class="pv-meaning">to give for free / to reveal a secret</div>
+        <div class="pv-ua">🇺🇦 роздавати безкоштовно / видати секрет</div>
+        <div class="pv-ex">"He gave away all his old clothes."</div>
+        <div class="pv-ex-ua">Він роздав весь свій старий одяг.</div>
+        <div class="pv-ex" style="margin-top:8px;">"Don't give away the ending!"</div>
+        <div class="pv-ex-ua">Не видавай кінцівку!</div>
+      </div>
+
+      <div class="phrasal-card" style="border-top-color: var(--green);">
+        <div class="pv-name" style="color:var(--green);">give back</div>
+        <div class="pv-meaning">to return something</div>
+        <div class="pv-ua">🇺🇦 повернути щось</div>
+        <div class="pv-ex">"Give back my pen!"</div>
+        <div class="pv-ex-ua">Поверни мою ручку!</div>
+        <div class="pv-ex" style="margin-top:8px;">"When will you give back the money?"</div>
+        <div class="pv-ex-ua">Коли ти повернеш гроші?</div>
+      </div>
+
+      <div class="phrasal-card" style="border-top-color: var(--purple);">
+        <div class="pv-name" style="color:var(--purple);">give out</div>
+        <div class="pv-meaning">to distribute / to stop working</div>
+        <div class="pv-ua">🇺🇦 роздавати / виходити з ладу</div>
+        <div class="pv-ex">"They gave out free samples."</div>
+        <div class="pv-ex-ua">Вони роздавали безкоштовні зразки.</div>
+        <div class="pv-ex" style="margin-top:8px;">"My phone battery gave out."</div>
+        <div class="pv-ex-ua">Батарея мого телефону розрядилась.</div>
+      </div>
+
+      <div class="phrasal-card" style="border-top-color: var(--teal);">
+        <div class="pv-name" style="color:var(--teal);">give in</div>
+        <div class="pv-meaning">to stop resisting / to surrender</div>
+        <div class="pv-ua">🇺🇦 поступатися / здаватися</div>
+        <div class="pv-ex">"He finally gave in and bought the toy."</div>
+        <div class="pv-ex-ua">Він нарешті здався і купив іграшку.</div>
+        <div class="pv-ex" style="margin-top:8px;">"Don't give in to peer pressure!"</div>
+        <div class="pv-ex-ua">Не піддавайся тиску однолітків!</div>
+      </div>
+
+      <div class="phrasal-card" style="border-top-color: var(--pink);">
+        <div class="pv-name" style="color:var(--pink);">give off</div>
+        <div class="pv-meaning">to emit / to produce (smell, light, heat)</div>
+        <div class="pv-ua">🇺🇦 виділяти (запах, світло, тепло)</div>
+        <div class="pv-ex">"The flowers give off a lovely smell."</div>
+        <div class="pv-ex-ua">Квіти виділяють чудовий аромат.</div>
+        <div class="pv-ex" style="margin-top:8px;">"The fire gives off heat."</div>
+        <div class="pv-ex-ua">Вогонь виділяє тепло.</div>
+      </div>
+
+      <div class="phrasal-card" style="border-top-color: var(--red);">
+        <div class="pv-name" style="color:var(--red);">give over</div>
+        <div class="pv-meaning">to hand control / to stop doing something</div>
+        <div class="pv-ua">🇺🇦 передати контроль / припинити</div>
+        <div class="pv-ex">"Give over the keys to the manager."</div>
+        <div class="pv-ex-ua">Передайте ключі менеджеру.</div>
+      </div>
+
+      <div class="phrasal-card" style="border-top-color: var(--yellow);">
+        <div class="pv-name" style="color: #cc9900;">give rise to</div>
+        <div class="pv-meaning">to cause / to lead to</div>
+        <div class="pv-ua">🇺🇦 призводити до / спричиняти</div>
+        <div class="pv-ex">"This gave rise to many problems."</div>
+        <div class="pv-ex-ua">Це призвело до багатьох проблем.</div>
+      </div>
+
+      <div class="phrasal-card" style="border-top-color: var(--orange);">
+        <div class="pv-name" style="color:var(--orange);">give way</div>
+        <div class="pv-meaning">to collapse / to yield to traffic</div>
+        <div class="pv-ua">🇺🇦 провалитися / поступитися дорогою</div>
+        <div class="pv-ex">"The bridge gave way under the weight."</div>
+        <div class="pv-ex-ua">Міст провалився під вагою.</div>
+        <div class="pv-ex" style="margin-top:8px;">"Give way to traffic on the right."</div>
+        <div class="pv-ex-ua">Поступіться дорогою транспорту справа.</div>
+      </div>
+
+      <div class="phrasal-card" style="border-top-color: var(--blue);">
+        <div class="pv-name" style="color:var(--blue);">give forth</div>
+        <div class="pv-meaning">to produce / to emit (literary)</div>
+        <div class="pv-ua">🇺🇦 випускати / видавати (книжне)</div>
+        <div class="pv-ex">"The speaker gave forth wise words."</div>
+        <div class="pv-ex-ua">Оратор промовляв мудрі слова.</div>
+      </div>
+
+      <div class="phrasal-card" style="border-top-color: var(--green);">
+        <div class="pv-name" style="color:var(--green);">give onto</div>
+        <div class="pv-meaning">(of a door/window) to face / to open onto</div>
+        <div class="pv-ua">🇺🇦 виходити на (двері/вікно)</div>
+        <div class="pv-ex">"The window gives onto the garden."</div>
+        <div class="pv-ex-ua">Вікно виходить у сад.</div>
+      </div>
+
+      <div class="phrasal-card" style="border-top-color: var(--teal);">
+        <div class="pv-name" style="color:var(--teal);">give oneself up</div>
+        <div class="pv-meaning">to surrender to police</div>
+        <div class="pv-ua">🇺🇦 здатися (поліції)</div>
+        <div class="pv-ex">"The suspect gave himself up to police."</div>
+        <div class="pv-ex-ua">Підозрюваний здався поліції.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- COLLOCATIONS -->
+<section id="collocations" class="section bg-teal-light">
+  <div class="container">
+    <div class="section-title"><span class="icon">🔗</span> Collocations / Колокації з GIVE</div>
+    <p style="font-size: 15px; color: #555; margin-bottom: 24px; line-height: 1.7;">
+      🇬🇧 <strong>Collocations</strong> are word pairs that go naturally together — like best friends! 
+      🇺🇦 <strong>Колокації</strong> — це слова, які природно вживаються разом, як найкращі друзі!
+    </p>
+    <div class="coll-grid">
+
+      <div class="coll-card">
+        <div class="c-phrase">give a call / ring</div>
+        <div class="c-ua">🇺🇦 зателефонувати</div>
+        <div class="c-ex">"Give me a call when you arrive."</div>
+        <div class="c-ex-ua">Подзвони мені, коли приїдеш.</div>
+      </div>
+
+      <div class="coll-card" style="border-color: var(--purple);">
+        <div class="c-phrase" style="color:var(--purple);">give a speech</div>
+        <div class="c-ua">🇺🇦 виголосити промову</div>
+        <div class="c-ex">"The president gave a speech."</div>
+        <div class="c-ex-ua">Президент виголосив промову.</div>
+      </div>
+
+      <div class="coll-card" style="border-color: var(--orange);">
+        <div class="c-phrase" style="color:var(--orange);">give advice</div>
+        <div class="c-ua">🇺🇦 давати пораду</div>
+        <div class="c-ex">"Can you give me advice?"</div>
+        <div class="c-ex-ua">Можеш дати мені пораду?</div>
+      </div>
+
+      <div class="coll-card" style="border-color: var(--pink);">
+        <div class="c-phrase" style="color:var(--pink);">give a hug / kiss</div>
+        <div class="c-ua">🇺🇦 обійняти / поцілувати</div>
+        <div class="c-ex">"She gave him a warm hug."</div>
+        <div class="c-ex-ua">Вона тепло його обійняла.</div>
+      </div>
+
+      <div class="coll-card" style="border-color: var(--blue);">
+        <div class="c-phrase" style="color:var(--blue);">give permission</div>
+        <div class="c-ua">🇺🇦 дати дозвіл</div>
+        <div class="c-ex">"Did they give permission to enter?"</div>
+        <div class="c-ex-ua">Вони дали дозвіл на вхід?</div>
+      </div>
+
+      <div class="coll-card" style="border-color: var(--green);">
+        <div class="c-phrase" style="color:var(--green);">give a chance</div>
+        <div class="c-ua">🇺🇦 дати шанс</div>
+        <div class="c-ex">"Please give me one more chance!"</div>
+        <div class="c-ex-ua">Будь ласка, дай мені ще один шанс!</div>
+      </div>
+
+      <div class="coll-card">
+        <div class="c-phrase">give birth (to)</div>
+        <div class="c-ua">🇺🇦 народити (дитину)</div>
+        <div class="c-ex">"She gave birth to a girl."</div>
+        <div class="c-ex-ua">Вона народила дівчинку.</div>
+      </div>
+
+      <div class="coll-card" style="border-color: var(--orange);">
+        <div class="c-phrase" style="color:var(--orange);">give a try</div>
+        <div class="c-ua">🇺🇦 спробувати</div>
+        <div class="c-ex">"Give it a try — you might like it!"</div>
+        <div class="c-ex-ua">Спробуй — тобі може сподобатись!</div>
+      </div>
+
+      <div class="coll-card" style="border-color: var(--purple);">
+        <div class="c-phrase" style="color:var(--purple);">give a presentation</div>
+        <div class="c-ua">🇺🇦 зробити презентацію</div>
+        <div class="c-ex">"He gave an amazing presentation."</div>
+        <div class="c-ex-ua">Він зробив дивовижну презентацію.</div>
+      </div>
+
+      <div class="coll-card" style="border-color: var(--teal);">
+        <div class="c-phrase" style="color:var(--teal);">give feedback</div>
+        <div class="c-ua">🇺🇦 надати зворотний зв'язок</div>
+        <div class="c-ex">"Please give feedback on my work."</div>
+        <div class="c-ex-ua">Будь ласка, дайте відгук про мою роботу.</div>
+      </div>
+
+      <div class="coll-card" style="border-color: var(--pink);">
+        <div class="c-phrase" style="color:var(--pink);">give a hand</div>
+        <div class="c-ua">🇺🇦 допомогти / поаплодувати</div>
+        <div class="c-ex">"Give him a hand!" (applause)</div>
+        <div class="c-ex-ua">Поаплодуйте йому!</div>
+      </div>
+
+      <div class="coll-card" style="border-color: var(--blue);">
+        <div class="c-phrase" style="color:var(--blue);">give a lecture</div>
+        <div class="c-ua">🇺🇦 прочитати лекцію</div>
+        <div class="c-ex">"The professor gave a long lecture."</div>
+        <div class="c-ex-ua">Професор прочитав довгу лекцію.</div>
+      </div>
+
+      <div class="coll-card" style="border-color: var(--orange);">
+        <div class="c-phrase" style="color:var(--orange);">give a warning</div>
+        <div class="c-ua">🇺🇦 попередити</div>
+        <div class="c-ex">"They gave us a final warning."</div>
+        <div class="c-ex-ua">Вони дали нам останнє попередження.</div>
+      </div>
+
+      <div class="coll-card" style="border-color: var(--green);">
+        <div class="c-phrase" style="color:var(--green);">give an order</div>
+        <div class="c-ua">🇺🇦 наказати / видати наказ</div>
+        <div class="c-ex">"The general gave the order to advance."</div>
+        <div class="c-ex-ua">Генерал наказав наступати.</div>
+      </div>
+
+      <div class="coll-card" style="border-color: var(--purple);">
+        <div class="c-phrase" style="color:var(--purple);">give an answer</div>
+        <div class="c-ua">🇺🇦 дати відповідь</div>
+        <div class="c-ex">"Give me a straight answer!"</div>
+        <div class="c-ex-ua">Дай мені пряму відповідь!</div>
+      </div>
+
+      <div class="coll-card" style="border-color: var(--teal);">
+        <div class="c-phrase" style="color:var(--teal);">give thought to</div>
+        <div class="c-ua">🇺🇦 обдумати / поміркувати над</div>
+        <div class="c-ex">"I'll give it some thought."</div>
+        <div class="c-ex-ua">Я це обдумаю.</div>
+      </div>
+
+      <div class="coll-card">
+        <div class="c-phrase">give a description</div>
+        <div class="c-ua">🇺🇦 дати опис</div>
+        <div class="c-ex">"Can you give a description of the thief?"</div>
+        <div class="c-ex-ua">Можеш описати злодія?</div>
+      </div>
+
+      <div class="coll-card" style="border-color: var(--pink);">
+        <div class="c-phrase" style="color:var(--pink);">give thanks</div>
+        <div class="c-ua">🇺🇦 подякувати</div>
+        <div class="c-ex">"Let's give thanks for this meal."</div>
+        <div class="c-ex-ua">Подякуємо за цю їжу.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TENSES -->
+<section id="tenses" class="section bg-light">
+  <div class="container">
+    <div class="section-title"><span class="icon">⏰</span> GIVE in Different Tenses / GIVE в різних часах</div>
+    <div class="table-scroll">
+      <table class="tense-table">
+        <thead>
+          <tr>
+            <th>Tense / Час</th>
+            <th>Form / Форма</th>
+            <th>Example / Приклад</th>
+            <th>Ukrainian / Українська</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Present Simple<br><span class="tense-ua">Теперішній простий</span></td>
+            <td>give / gives</td>
+            <td>She <strong>gives</strong> gifts every Christmas.</td>
+            <td>Вона дарує подарунки кожне Різдво.</td>
+          </tr>
+          <tr>
+            <td>Past Simple<br><span class="tense-ua">Минулий простий</span></td>
+            <td>gave</td>
+            <td>He <strong>gave</strong> me a book yesterday.</td>
+            <td>Він дав мені книгу вчора.</td>
+          </tr>
+          <tr>
+            <td>Future Simple<br><span class="tense-ua">Майбутній простий</span></td>
+            <td>will give</td>
+            <td>I <strong>will give</strong> you an answer tomorrow.</td>
+            <td>Я дам тобі відповідь завтра.</td>
+          </tr>
+          <tr>
+            <td>Present Continuous<br><span class="tense-ua">Теперішній тривалий</span></td>
+            <td>am/is/are giving</td>
+            <td>She <strong>is giving</strong> a speech right now.</td>
+            <td>Вона зараз виголошує промову.</td>
+          </tr>
+          <tr>
+            <td>Past Continuous<br><span class="tense-ua">Минулий тривалий</span></td>
+            <td>was/were giving</td>
+            <td>They <strong>were giving</strong> out flyers all day.</td>
+            <td>Вони весь день роздавали листівки.</td>
+          </tr>
+          <tr>
+            <td>Present Perfect<br><span class="tense-ua">Теперішній перфектний</span></td>
+            <td>have/has given</td>
+            <td>I <strong>have given</strong> you three chances!</td>
+            <td>Я дав тобі три шанси!</td>
+          </tr>
+          <tr>
+            <td>Past Perfect<br><span class="tense-ua">Минулий перфектний</span></td>
+            <td>had given</td>
+            <td>She <strong>had given</strong> him the money before he left.</td>
+            <td>Вона дала йому гроші до того, як він пішов.</td>
+          </tr>
+          <tr>
+            <td>Conditional<br><span class="tense-ua">Умовний</span></td>
+            <td>would give</td>
+            <td>I <strong>would give</strong> you a hug if I could!</td>
+            <td>Я б обійняв тебе, якби міг!</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- TIPS -->
+<section class="section bg-white">
+  <div class="container">
+    <div class="section-title"><span class="icon">💡</span> Smart Tips / Корисні поради</div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
+
+      <div class="tip-box" style="background: #FFF9E6; border: 2px solid #FFE066;">
+        <span class="tip-emoji">🔑</span>
+        <div class="tip-content">
+          <h4 style="color: #cc9900;">2 Sentence Patterns</h4>
+          <p>
+            ✅ <strong>give + person + thing:</strong><br>"Give me the book."<br>
+            ✅ <strong>give + thing + to + person:</strong><br>"Give the book to me."<br>
+            <span style="color:#888; font-size:13px;">🇺🇦 Два рівноправних варіанти!</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="tip-box" style="background: #EEF5FF; border: 2px solid #BDD6FF;">
+        <span class="tip-emoji">💡</span>
+        <div class="tip-content">
+          <h4 style="color: var(--blue);">GIVE ≠ always "давати"</h4>
+          <p>
+            Sometimes GIVE = "виголосити" (a speech),<br>
+            "народити" (birth),<br>
+            "викликати" (chills, joy)!<br>
+            <span style="color:#888; font-size:13px;">🇺🇦 GIVE не завжди перекладається як "давати"!</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="tip-box" style="background: #F0FBF0; border: 2px solid #BBE8BD;">
+        <span class="tip-emoji">⚡</span>
+        <div class="tip-content">
+          <h4 style="color: var(--green);">Irregular! Пам'ятай!</h4>
+          <p>
+            <strong>give → gave → given</strong><br>
+            NOT: <s style="color:#cc2222;">"gived"</s> ❌<br>
+            <span style="color:#888; font-size:13px;">🇺🇦 Це неправильне дієслово — форму треба запам'ятати!</span>
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section id="quiz" class="section bg-light">
+  <div class="container">
+    <div class="section-title"><span class="icon">🧠</span> Quick Quiz / Міні-тест</div>
+    <p style="color: #666; margin-bottom: 24px; font-size: 15px;">Test what you've learned! Click on the correct answer. / Перевір себе! Клікни на правильну відповідь.</p>
+
+    <div class="quiz-card" id="q1">
+      <div class="q-text">1. Which sentence is correct? / Яке речення правильне?</div>
+      <div class="quiz-options">
+        <button class="quiz-opt" onclick="checkAnswer(this, false, 'q1')">I gived him a present. ❌</button>
+        <button class="quiz-opt" onclick="checkAnswer(this, true, 'q1')">I gave him a present. ✓</button>
+        <button class="quiz-opt" onclick="checkAnswer(this, false, 'q1')">I give to him a present. ❌</button>
+      </div>
+      <div class="quiz-feedback" id="q1-fb"></div>
+    </div>
+
+    <div class="quiz-card" id="q2">
+      <div class="q-text">2. "Give up" means... / "Give up" означає...</div>
+      <div class="quiz-options">
+        <button class="quiz-opt" onclick="checkAnswer(this, false, 'q2')">to give something upward</button>
+        <button class="quiz-opt" onclick="checkAnswer(this, true, 'q2')">to stop trying / здаватися ✓</button>
+        <button class="quiz-opt" onclick="checkAnswer(this, false, 'q2')">to return something</button>
+      </div>
+      <div class="quiz-feedback" id="q2-fb"></div>
+    </div>
+
+    <div class="quiz-card" id="q3">
+      <div class="q-text">3. She _____ a wonderful speech at the wedding. / Вона виголосила чудову промову на весіллі.</div>
+      <div class="quiz-options">
+        <button class="quiz-opt" onclick="checkAnswer(this, false, 'q3')">said</button>
+        <button class="quiz-opt" onclick="checkAnswer(this, false, 'q3')">told</button>
+        <button class="quiz-opt" onclick="checkAnswer(this, true, 'q3')">gave ✓</button>
+      </div>
+      <div class="quiz-feedback" id="q3-fb"></div>
+    </div>
+
+    <div class="quiz-card" id="q4">
+      <div class="q-text">4. What does "give away" mean? / Що означає "give away"?</div>
+      <div class="quiz-options">
+        <button class="quiz-opt" onclick="checkAnswer(this, true, 'q4')">to give for free / роздати безкоштовно ✓</button>
+        <button class="quiz-opt" onclick="checkAnswer(this, false, 'q4')">to stop working</button>
+        <button class="quiz-opt" onclick="checkAnswer(this, false, 'q4')">to give something back</button>
+      </div>
+      <div class="quiz-feedback" id="q4-fb"></div>
+    </div>
+
+    <div class="quiz-card" id="q5">
+      <div class="q-text">5. Complete: "This music _____ me goosebumps!" / Ця музика дає мені мурашки!</div>
+      <div class="quiz-options">
+        <button class="quiz-opt" onclick="checkAnswer(this, false, 'q5')">makes</button>
+        <button class="quiz-opt" onclick="checkAnswer(this, true, 'q5')">gives ✓</button>
+        <button class="quiz-opt" onclick="checkAnswer(this, false, 'q5')">does</button>
+      </div>
+      <div class="quiz-feedback" id="q5-fb"></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background: var(--dark); color: white; padding: 40px 20px; text-align: center;">
+  <div style="font-family: 'Fredoka One'; font-size: 36px; color: var(--yellow); margin-bottom: 10px;">GIVE 🎁</div>
+  <div style="color: rgba(255,255,255,0.7); font-size: 15px; max-width: 600px; margin: 0 auto; line-height: 1.8;">
+    Remember: <strong style="color:white;">give</strong> → <strong style="color:var(--orange);">gave</strong> → <strong style="color:var(--teal);">given</strong><br>
+    🇺🇦 Пам'ятай: це неправильне дієслово — форми треба знати напам'ять!<br><br>
+    <em style="color: var(--yellow);">"The more you give, the more you get." 💛</em><br>
+    <em style="color: rgba(255,255,255,0.6); font-size: 13px;">Чим більше даєш, тим більше отримуєш.</em>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(btn, isCorrect, questionId) {
+  const card = document.getElementById(questionId);
+  const options = card.querySelectorAll('.quiz-opt');
+  const feedback = document.getElementById(questionId + '-fb');
+  
+  options.forEach(opt => { opt.disabled = true; opt.style.cursor = 'default'; });
+  
+  if (isCorrect) {
+    btn.classList.add('correct');
+    feedback.style.display = 'block';
+    feedback.style.color = '#2a7a2a';
+    feedback.textContent = '🎉 Excellent! Чудово! You got it right!';
+  } else {
+    btn.classList.add('wrong');
+    feedback.style.display = 'block';
+    feedback.style.color = '#cc2222';
+    feedback.textContent = '❌ Not quite! Не зовсім! Try to remember the correct answer.';
+    // Highlight correct answer
+    options.forEach(opt => {
+      if (opt.textContent.includes('✓')) opt.classList.add('correct');
+    });
+  }
+}
+
+// Smooth scroll for nav buttons
+document.querySelectorAll('.nav-btn').forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    const href = this.getAttribute('href');
+    if (href && href.startsWith('#')) {
+      e.preventDefault();
+      document.querySelector(href).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+</body>
+</html>

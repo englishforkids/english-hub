@@ -1,0 +1,1680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giving Directions 🗺️ — English for Beginners</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sky: #4FC3F7;
+    --sky-dark: #0288D1;
+    --grass: #66BB6A;
+    --grass-dark: #388E3C;
+    --road: #78909C;
+    --sun: #FFD54F;
+    --sun-dark: #FF8F00;
+    --pink: #F06292;
+    --purple: #9575CD;
+    --orange: #FF8A65;
+    --teal: #4DB6AC;
+    --bg: #F0F9FF;
+    --card-bg: #FFFFFF;
+    --text: #263238;
+    --text-light: #546E7A;
+    --radius: 20px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    background: linear-gradient(160deg, #1565C0 0%, #0288D1 40%, #4FC3F7 100%);
+    padding: 60px 20px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 60px;
+    background: var(--bg);
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+  .hero-icons {
+    font-size: 3.5rem;
+    margin-bottom: 16px;
+    animation: float 3s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  .hero h1 {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    font-weight: 800;
+    color: #fff;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    line-height: 1.1;
+  }
+  .hero h1 span { color: var(--sun); }
+  .hero-sub {
+    color: rgba(255,255,255,0.9);
+    font-size: 1.15rem;
+    margin-top: 12px;
+    font-weight: 600;
+  }
+  .hero-ua {
+    color: rgba(255,255,255,0.75);
+    font-size: 0.95rem;
+    margin-top: 6px;
+  }
+
+  /* ===== LAYOUT ===== */
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  section {
+    padding: 50px 0 30px;
+  }
+
+  .section-title {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  .section-title .emoji { font-size: 1.2em; }
+  .section-ua {
+    text-align: center;
+    color: var(--text-light);
+    font-size: 0.95rem;
+    margin-bottom: 36px;
+    font-style: italic;
+  }
+
+  /* ===== CARDS GRID ===== */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+  }
+
+  .card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 24px 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    transition: transform 0.25s, box-shadow 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.14);
+  }
+  .card-accent {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 6px;
+    border-radius: var(--radius) var(--radius) 0 0;
+  }
+  .card .icon { font-size: 2.2rem; margin-bottom: 10px; }
+  .card h3 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: var(--text);
+  }
+  .card .ua-label {
+    font-size: 0.82rem;
+    color: var(--text-light);
+    margin-bottom: 12px;
+    font-style: italic;
+  }
+  .phrase-list { list-style: none; }
+  .phrase-list li {
+    display: flex;
+    flex-direction: column;
+    padding: 7px 10px;
+    margin-bottom: 6px;
+    border-radius: 12px;
+    background: #f5f9ff;
+  }
+  .phrase-list li .en {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #1565C0;
+  }
+  .phrase-list li .uk {
+    font-size: 0.82rem;
+    color: var(--text-light);
+  }
+
+  /* ===== MAP SECTION ===== */
+  .map-wrap {
+    background: var(--card-bg);
+    border-radius: 28px;
+    box-shadow: 0 6px 32px rgba(0,0,0,0.1);
+    overflow: hidden;
+    padding: 30px;
+  }
+  .map-svg-wrap {
+    border-radius: 18px;
+    overflow: hidden;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+  }
+
+  /* ===== DIALOGUE BOX ===== */
+  .dialogue {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    padding: 28px 24px;
+    margin-bottom: 20px;
+  }
+  .dialogue h3 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 18px;
+    color: var(--sky-dark);
+  }
+  .msg {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 14px;
+    align-items: flex-start;
+  }
+  .msg.right { flex-direction: row-reverse; }
+  .avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  .bubble {
+    max-width: 75%;
+    padding: 10px 16px;
+    border-radius: 18px;
+    font-size: 0.93rem;
+    line-height: 1.5;
+  }
+  .bubble .en { font-weight: 700; color: var(--text); }
+  .bubble .uk { font-size: 0.82rem; color: var(--text-light); margin-top: 3px; }
+  .msg:not(.right) .bubble {
+    background: #EEF6FF;
+    border-bottom-left-radius: 4px;
+  }
+  .msg.right .bubble {
+    background: #FFF3E0;
+    border-bottom-right-radius: 4px;
+  }
+
+  /* ===== PREPOSITIONS VISUAL ===== */
+  .preps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 14px;
+  }
+  .prep-card {
+    background: var(--card-bg);
+    border-radius: 18px;
+    padding: 18px 12px;
+    text-align: center;
+    box-shadow: 0 3px 14px rgba(0,0,0,0.08);
+    transition: transform 0.2s;
+    cursor: default;
+  }
+  .prep-card:hover { transform: scale(1.06); }
+  .prep-card .prep-svg { margin-bottom: 8px; }
+  .prep-card .prep-en {
+    font-family: 'Baloo 2', cursive;
+    font-weight: 800;
+    font-size: 1rem;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+  .prep-card .prep-uk {
+    font-size: 0.78rem;
+    color: var(--text-light);
+  }
+
+  /* ===== QUIZ ===== */
+  .quiz-wrap {
+    background: linear-gradient(135deg, #1565C0 0%, #0288D1 100%);
+    border-radius: 28px;
+    padding: 36px 28px;
+    color: #fff;
+  }
+  .quiz-wrap h2 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 6px;
+  }
+  .quiz-wrap p.sub { opacity: 0.85; margin-bottom: 28px; font-size: 0.95rem; }
+  .quiz-q {
+    background: rgba(255,255,255,0.15);
+    border-radius: 18px;
+    padding: 22px;
+    margin-bottom: 18px;
+    backdrop-filter: blur(8px);
+  }
+  .quiz-q .q-text {
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 4px;
+  }
+  .quiz-q .q-ua { font-size: 0.82rem; opacity: 0.8; margin-bottom: 14px; }
+  .options { display: flex; flex-wrap: wrap; gap: 10px; }
+  .opt {
+    padding: 8px 18px;
+    border-radius: 30px;
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.35);
+    color: #fff;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .opt:hover { background: rgba(255,255,255,0.35); }
+  .opt.correct { background: #66BB6A; border-color: #388E3C; }
+  .opt.wrong { background: #EF5350; border-color: #C62828; opacity: 0.7; }
+  .feedback {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    min-height: 20px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .feedback.show { opacity: 1; }
+  .score-bar {
+    background: rgba(255,255,255,0.2);
+    border-radius: 30px;
+    padding: 14px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 18px;
+    font-weight: 700;
+  }
+
+  /* ===== TIPS BANNER ===== */
+  .tips-banner {
+    background: linear-gradient(135deg, var(--sun) 0%, var(--orange) 100%);
+    border-radius: 24px;
+    padding: 30px 28px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 20px;
+    align-items: start;
+  }
+  .tips-icon { font-size: 3rem; line-height: 1; }
+  .tips-banner h3 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+    color: #fff;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+  .tips-list { list-style: none; }
+  .tips-list li {
+    color: #fff;
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+    display: flex;
+    gap: 8px;
+  }
+  .tips-list li::before { content: '✅'; flex-shrink: 0; }
+
+  /* ===== VOCAB RIBBON ===== */
+  .vocab-ribbon {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+  .vocab-chip {
+    background: var(--card-bg);
+    border-radius: 30px;
+    padding: 10px 18px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s;
+    cursor: default;
+  }
+  .vocab-chip:hover { transform: translateY(-3px); }
+  .vocab-chip .v-en { font-weight: 800; font-size: 0.95rem; color: var(--sky-dark); }
+  .vocab-chip .v-uk { font-size: 0.78rem; color: var(--text-light); }
+
+  /* ===== ASKING SECTION ===== */
+  .asking-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  @media(max-width:600px) {
+    .asking-grid { grid-template-columns: 1fr; }
+  }
+  .asking-card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 22px 18px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+  }
+  .asking-card h4 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .asking-card ul { list-style: none; }
+  .asking-card li {
+    padding: 8px 10px;
+    border-radius: 12px;
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+  }
+  .asking-card li .en { font-weight: 700; color: var(--sky-dark); }
+  .asking-card li .uk { font-size: 0.8rem; color: var(--text-light); }
+  .asking-card:nth-child(1) li { background: #EEF6FF; }
+  .asking-card:nth-child(2) li { background: #F3F9F3; }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: #1565C0;
+    color: rgba(255,255,255,0.8);
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 0.9rem;
+    margin-top: 40px;
+  }
+  footer strong { color: #fff; }
+
+  /* ===== ROAD VOCABULARY ===== */
+  .rv-group-title {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 18px;
+    padding-left: 4px;
+  }
+  .rv-actions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
+    gap: 16px;
+    margin-bottom: 10px;
+  }
+  .rv-action-card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 18px 14px 16px;
+    text-align: center;
+    box-shadow: 0 3px 16px rgba(0,0,0,0.09);
+    border-top: 4px solid var(--ac, #0288D1);
+    transition: transform 0.22s, box-shadow 0.22s;
+    cursor: default;
+  }
+  .rv-action-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.13);
+  }
+  .rv-action-icon { margin-bottom: 8px; }
+  .rv-action-en {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--ac, #0288D1);
+    margin-bottom: 3px;
+  }
+  .rv-action-ua {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    margin-bottom: 8px;
+  }
+  .rv-action-ex {
+    font-size: 0.75rem;
+    color: #78909C;
+    background: #F5F9FF;
+    border-radius: 10px;
+    padding: 5px 8px;
+    line-height: 1.4;
+    font-style: italic;
+  }
+  .rv-objects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 14px;
+  }
+  .rv-obj {
+    background: var(--card-bg);
+    border-radius: 18px;
+    padding: 14px 10px 12px;
+    text-align: center;
+    box-shadow: 0 3px 14px rgba(0,0,0,0.08);
+    transition: transform 0.2s;
+    cursor: default;
+  }
+  .rv-obj:hover { transform: scale(1.05); }
+  .rv-obj-pic { margin-bottom: 8px; display: flex; justify-content: center; }
+  .rv-obj-en {
+    font-family: 'Baloo 2', cursive;
+    font-size: 0.88rem;
+    font-weight: 800;
+    color: var(--sky-dark);
+    margin-bottom: 2px;
+    line-height: 1.3;
+  }
+  .rv-obj-ua {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    line-height: 1.3;
+  }
+
+  /* ===== SCROLL REVEAL ===== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ===== ROAD DIVIDER ===== */
+  .road-divider {
+    text-align: center;
+    padding: 20px 0;
+    font-size: 2rem;
+    letter-spacing: 6px;
+    color: var(--road);
+    opacity: 0.4;
+  }
+
+  /* ===== MOBILE RESPONSIVE ===== */
+  @media (max-width: 600px) {
+
+    /* Hero */
+    .hero { padding: 40px 16px 60px; }
+    .hero-icons { font-size: 2.4rem; margin-bottom: 10px; }
+    .hero h1 { font-size: 2rem; }
+    .hero-sub { font-size: 1rem; }
+    .hero-ua { font-size: 0.85rem; }
+
+    /* General layout */
+    .container { padding: 0 14px; }
+    section { padding: 36px 0 20px; }
+    .section-title { font-size: 1.4rem; }
+    .section-ua { font-size: 0.85rem; margin-bottom: 22px; }
+
+    /* Cards grid — single column */
+    .cards-grid {
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    .card { padding: 18px 16px; }
+    .card .icon { font-size: 1.8rem; }
+
+    /* Map section */
+    .map-wrap { padding: 16px; border-radius: 18px; }
+    .map-svg-wrap { border-radius: 12px; }
+
+    /* Dialogues */
+    .dialogue { padding: 18px 14px; }
+    .dialogue h3 { font-size: 1rem; }
+    .bubble { max-width: 85%; padding: 9px 13px; font-size: 0.88rem; }
+    .avatar { width: 36px; height: 36px; font-size: 1.2rem; }
+
+    /* Prepositions grid — 3 columns on mobile */
+    .preps-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .prep-card { padding: 12px 8px; border-radius: 14px; }
+    .prep-card .prep-svg svg { width: 56px; height: 56px; }
+    .prep-card .prep-en { font-size: 0.88rem; }
+    .prep-card .prep-uk { font-size: 0.72rem; }
+
+    /* Quiz */
+    .quiz-wrap { padding: 22px 16px; border-radius: 20px; }
+    .quiz-wrap h2 { font-size: 1.4rem; }
+    .quiz-q { padding: 16px 14px; }
+    .quiz-q .q-text { font-size: 0.93rem; }
+    .opt { padding: 7px 14px; font-size: 0.85rem; width: 100%; text-align: center; }
+    .options { flex-direction: column; gap: 8px; }
+    .score-bar { flex-direction: column; gap: 6px; text-align: center; padding: 14px; }
+
+    /* Tips banner — single column */
+    .tips-banner {
+      grid-template-columns: 1fr;
+      padding: 22px 18px;
+      gap: 12px;
+    }
+    .tips-icon { font-size: 2.2rem; }
+    .tips-banner h3 { font-size: 1.1rem; margin-bottom: 10px; }
+    .tips-list li { font-size: 0.87rem; }
+
+    /* Vocab chips — smaller */
+    .vocab-ribbon { gap: 8px; }
+    .vocab-chip { padding: 8px 13px; }
+    .vocab-chip .v-en { font-size: 0.87rem; }
+    .vocab-chip .v-uk { font-size: 0.72rem; }
+
+    /* Road vocabulary — actions grid 2 columns */
+    .rv-actions-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .rv-action-card { padding: 14px 10px 12px; border-radius: 16px; }
+    .rv-action-icon svg { width: 54px; height: 54px; }
+    .rv-action-en { font-size: 0.88rem; }
+    .rv-action-ua { font-size: 0.74rem; }
+    .rv-action-ex { font-size: 0.7rem; padding: 4px 7px; }
+
+    /* Road objects grid — 3 columns */
+    .rv-objects-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .rv-obj { padding: 10px 7px 10px; border-radius: 14px; }
+    .rv-obj-pic svg { width: 68px; height: 52px; }
+    .rv-obj-en { font-size: 0.76rem; }
+    .rv-obj-ua { font-size: 0.68rem; }
+    .rv-group-title { font-size: 1.05rem; }
+
+    /* Map route steps */
+    .map-wrap > div:last-child > div > div { padding: 10px 12px !important; }
+
+    /* Road divider smaller */
+    .road-divider { font-size: 1.4rem; letter-spacing: 3px; padding: 12px 0; }
+
+    /* Scroll to top button — slightly smaller */
+    #scroll-top-btn { bottom: 18px; right: 18px; width: 40px; height: 40px; font-size: 16px; }
+  }
+
+  @media (max-width: 380px) {
+    .preps-grid { grid-template-columns: repeat(2, 1fr); }
+    .rv-objects-grid { grid-template-columns: repeat(2, 1fr); }
+    .rv-actions-grid { grid-template-columns: 1fr 1fr; }
+    .hero h1 { font-size: 1.7rem; }
+  }
+
+  /* ===== SCROLL TO TOP ===== */
+  #scroll-top-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #1a1208;
+    border: 1.5px solid rgba(200,150,62,0.4);
+    color: #f5f0e8;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+    pointer-events: none;
+    z-index: 9998;
+  }
+  #scroll-top-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  #scroll-top-btn:hover {
+    background: #c8963e;
+    border-color: #c8963e;
+    color: #1a1208;
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-icons">🗺️🧭🚶</div>
+  <h1>Giving <span>Directions</span><br>in English!</h1>
+  <p class="hero-sub">How to explain the way to any place 📍</p>
+  <p class="hero-ua">Як пояснити дорогу до будь-якого місця англійською</p>
+</header>
+
+<!-- ROAD VOCABULARY -->
+<section id="road-vocab">
+  <div class="container">
+    <p class="section-title reveal"><span class="emoji">🛤️</span> Road Words & Actions</p>
+    <p class="section-ua reveal">Слова для дороги та дії — що зустрічається на шляху і що робити</p>
+
+    <!-- ACTIONS -->
+    <p class="rv-group-title reveal">⚡ Actions / Дії</p>
+    <div class="rv-actions-grid reveal">
+
+      <div class="rv-action-card" style="--ac:#0288D1">
+        <div class="rv-action-icon">
+          <svg viewBox="0 0 70 70" width="70" height="70">
+            <circle cx="35" cy="35" r="32" fill="#E3F2FD" stroke="#0288D1" stroke-width="2.5"/>
+            <polygon points="35,14 42,52 35,46 28,52" fill="#0288D1"/>
+          </svg>
+        </div>
+        <div class="rv-action-en">Go straight</div>
+        <div class="rv-action-ua">Іди прямо</div>
+        <div class="rv-action-ex">"Go straight ahead for 2 blocks."</div>
+      </div>
+
+      <div class="rv-action-card" style="--ac:#388E3C">
+        <div class="rv-action-icon">
+          <svg viewBox="0 0 70 70" width="70" height="70">
+            <circle cx="35" cy="35" r="32" fill="#E8F5E9" stroke="#388E3C" stroke-width="2.5"/>
+            <path d="M20,42 L20,30 L44,30 L44,20 L54,32 L44,44 L44,36 L28,36 L28,42 Z" fill="#388E3C"/>
+          </svg>
+        </div>
+        <div class="rv-action-en">Turn right</div>
+        <div class="rv-action-ua">Поверни праворуч</div>
+        <div class="rv-action-ex">"Turn right at the corner."</div>
+      </div>
+
+      <div class="rv-action-card" style="--ac:#C62828">
+        <div class="rv-action-icon">
+          <svg viewBox="0 0 70 70" width="70" height="70">
+            <circle cx="35" cy="35" r="32" fill="#FFEBEE" stroke="#C62828" stroke-width="2.5"/>
+            <path d="M50,42 L50,30 L26,30 L26,20 L16,32 L26,44 L26,36 L42,36 L42,42 Z" fill="#C62828"/>
+          </svg>
+        </div>
+        <div class="rv-action-en">Turn left</div>
+        <div class="rv-action-ua">Поверни ліворуч</div>
+        <div class="rv-action-ex">"Take the first left."</div>
+      </div>
+
+      <div class="rv-action-card" style="--ac:#6A1B9A">
+        <div class="rv-action-icon">
+          <svg viewBox="0 0 70 70" width="70" height="70">
+            <circle cx="35" cy="35" r="32" fill="#F3E5F5" stroke="#6A1B9A" stroke-width="2.5"/>
+            <!-- U-turn arrow -->
+            <path d="M22,48 L22,34 Q22,20 35,20 Q48,20 48,34 L48,42 L54,42 L45,52 L36,42 L42,42 L42,34 Q42,26 35,26 Q28,26 28,34 L28,48 Z" fill="#6A1B9A"/>
+          </svg>
+        </div>
+        <div class="rv-action-en">Turn around / U-turn</div>
+        <div class="rv-action-ua">Розвернись / Розворот</div>
+        <div class="rv-action-ex">"Make a U-turn here."</div>
+      </div>
+
+      <div class="rv-action-card" style="--ac:#E65100">
+        <div class="rv-action-icon">
+          <svg viewBox="0 0 70 70" width="70" height="70">
+            <circle cx="35" cy="35" r="32" fill="#FFF3E0" stroke="#E65100" stroke-width="2.5"/>
+            <!-- crossing arrows -->
+            <line x1="15" y1="35" x2="55" y2="35" stroke="#E65100" stroke-width="4" stroke-linecap="round"/>
+            <polygon points="50,29 50,41 60,35" fill="#E65100"/>
+            <line x1="35" y1="15" x2="35" y2="55" stroke="#E65100" stroke-width="4" stroke-linecap="round" stroke-dasharray="6,4"/>
+            <circle cx="35" cy="35" r="5" fill="#fff" stroke="#E65100" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="rv-action-en">Cross the street</div>
+        <div class="rv-action-ua">Перейди вулицю</div>
+        <div class="rv-action-ex">"Cross the street at the lights."</div>
+      </div>
+
+      <div class="rv-action-card" style="--ac:#00695C">
+        <div class="rv-action-icon">
+          <svg viewBox="0 0 70 70" width="70" height="70">
+            <circle cx="35" cy="35" r="32" fill="#E0F2F1" stroke="#00695C" stroke-width="2.5"/>
+            <!-- walking figure -->
+            <circle cx="35" cy="16" r="5" fill="#00695C"/>
+            <line x1="35" y1="21" x2="35" y2="38" stroke="#00695C" stroke-width="3" stroke-linecap="round"/>
+            <line x1="35" y1="28" x2="26" y2="36" stroke="#00695C" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="35" y1="28" x2="44" y2="36" stroke="#00695C" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="35" y1="38" x2="28" y2="50" stroke="#00695C" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="35" y1="38" x2="42" y2="50" stroke="#00695C" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="rv-action-en">Walk / Go on foot</div>
+        <div class="rv-action-ua">Іди пішки</div>
+        <div class="rv-action-ex">"You can walk there in 5 minutes."</div>
+      </div>
+
+      <div class="rv-action-card" style="--ac:#1565C0">
+        <div class="rv-action-icon">
+          <svg viewBox="0 0 70 70" width="70" height="70">
+            <circle cx="35" cy="35" r="32" fill="#E3F2FD" stroke="#1565C0" stroke-width="2.5"/>
+            <rect x="18" y="28" width="34" height="16" fill="#1565C0" rx="4"/>
+            <rect x="23" y="33" width="8" height="6" fill="#90CAF9" rx="2"/>
+            <rect x="39" y="33" width="8" height="6" fill="#90CAF9" rx="2"/>
+            <circle cx="24" cy="46" r="4" fill="#455A64"/>
+            <circle cx="46" cy="46" r="4" fill="#455A64"/>
+          </svg>
+        </div>
+        <div class="rv-action-en">Take the bus / metro</div>
+        <div class="rv-action-ua">Їдь автобусом / метро</div>
+        <div class="rv-action-ex">"Take bus number 5 to the centre."</div>
+      </div>
+
+      <div class="rv-action-card" style="--ac:#FF6F00">
+        <div class="rv-action-icon">
+          <svg viewBox="0 0 70 70" width="70" height="70">
+            <circle cx="35" cy="35" r="32" fill="#FFF8E1" stroke="#FF6F00" stroke-width="2.5"/>
+            <!-- go past arrow -->
+            <rect x="12" y="32" width="46" height="6" fill="#FF6F00" rx="3"/>
+            <polygon points="54,27 54,43 64,35" fill="#FF6F00"/>
+            <rect x="30" y="18" width="10" height="30" fill="#FFCC02" rx="3" opacity="0.7"/>
+          </svg>
+        </div>
+        <div class="rv-action-en">Go past</div>
+        <div class="rv-action-ua">Пройди повз</div>
+        <div class="rv-action-ex">"Go past the school."</div>
+      </div>
+
+    </div>
+
+    <!-- ROAD OBJECTS -->
+    <p class="rv-group-title reveal" style="margin-top:36px">🏙️ What's on the road? / Що є на дорозі?</p>
+    <div class="rv-objects-grid reveal">
+
+      <div class="rv-obj">
+        <div class="rv-obj-pic">
+          <svg viewBox="0 0 90 70" width="90" height="70">
+            <!-- crossroads top view -->
+            <rect x="0" y="0" width="90" height="70" fill="#C8E6C9" rx="8"/>
+            <rect x="0" y="26" width="90" height="18" fill="#90A4AE"/>
+            <rect x="36" y="0" width="18" height="70" fill="#90A4AE"/>
+            <line x1="0" y1="35" x2="90" y2="35" stroke="#fff" stroke-width="1.5" stroke-dasharray="8,6" opacity="0.6"/>
+            <line x1="45" y1="0" x2="45" y2="70" stroke="#fff" stroke-width="1.5" stroke-dasharray="8,6" opacity="0.6"/>
+          </svg>
+        </div>
+        <div class="rv-obj-en">crossroads</div>
+        <div class="rv-obj-ua">перехрестя</div>
+      </div>
+
+      <div class="rv-obj">
+        <div class="rv-obj-pic">
+          <svg viewBox="0 0 90 70" width="90" height="70">
+            <rect x="0" y="0" width="90" height="70" fill="#C8E6C9" rx="8"/>
+            <!-- roundabout -->
+            <circle cx="45" cy="35" r="28" fill="#90A4AE"/>
+            <circle cx="45" cy="35" r="16" fill="#C8E6C9"/>
+            <circle cx="45" cy="35" r="8" fill="#A5D6A7"/>
+            <!-- roads into circle -->
+            <rect x="0" y="30" width="17" height="10" fill="#90A4AE"/>
+            <rect x="73" y="30" width="17" height="10" fill="#90A4AE"/>
+            <rect x="40" y="0" width="10" height="7" fill="#90A4AE"/>
+            <rect x="40" y="63" width="10" height="7" fill="#90A4AE"/>
+          </svg>
+        </div>
+        <div class="rv-obj-en">roundabout</div>
+        <div class="rv-obj-ua">кільцева розв'язка</div>
+      </div>
+
+      <div class="rv-obj">
+        <div class="rv-obj-pic">
+          <svg viewBox="0 0 90 70" width="90" height="70">
+            <rect x="0" y="0" width="90" height="70" fill="#E3F2FD" rx="8"/>
+            <!-- traffic light pole -->
+            <rect x="40" y="10" width="10" height="50" fill="#455A64" rx="3"/>
+            <rect x="33" y="8" width="24" height="42" fill="#333" rx="6"/>
+            <circle cx="45" cy="18" r="7" fill="#F44336"/>
+            <circle cx="45" cy="30" r="7" fill="#FFD54F"/>
+            <circle cx="45" cy="42" r="7" fill="#66BB6A"/>
+          </svg>
+        </div>
+        <div class="rv-obj-en">traffic lights</div>
+        <div class="rv-obj-ua">світлофор</div>
+      </div>
+
+      <div class="rv-obj">
+        <div class="rv-obj-pic">
+          <svg viewBox="0 0 90 70" width="90" height="70">
+            <rect x="0" y="0" width="90" height="70" fill="#E8F5E9" rx="8"/>
+            <!-- zebra crossing -->
+            <rect x="0" y="30" width="90" height="20" fill="#90A4AE"/>
+            <rect x="8" y="30" width="10" height="20" fill="#fff" opacity="0.85"/>
+            <rect x="24" y="30" width="10" height="20" fill="#fff" opacity="0.85"/>
+            <rect x="40" y="30" width="10" height="20" fill="#fff" opacity="0.85"/>
+            <rect x="56" y="30" width="10" height="20" fill="#fff" opacity="0.85"/>
+            <rect x="72" y="30" width="10" height="20" fill="#fff" opacity="0.85"/>
+            <!-- pedestrian -->
+            <circle cx="45" cy="18" r="5" fill="#1565C0"/>
+            <line x1="45" y1="23" x2="45" y2="32" stroke="#1565C0" stroke-width="2.5"/>
+          </svg>
+        </div>
+        <div class="rv-obj-en">pedestrian crossing / zebra</div>
+        <div class="rv-obj-ua">пішохідний перехід / зебра</div>
+      </div>
+
+      <div class="rv-obj">
+        <div class="rv-obj-pic">
+          <svg viewBox="0 0 90 70" width="90" height="70">
+            <rect x="0" y="0" width="90" height="70" fill="#E0F2F1" rx="8"/>
+            <!-- bridge side view -->
+            <rect x="5" y="42" width="80" height="10" fill="#90A4AE" rx="3"/>
+            <path d="M5,42 Q25,22 45,22 Q65,22 85,42" fill="none" stroke="#78909C" stroke-width="5" stroke-linecap="round"/>
+            <!-- water -->
+            <rect x="5" y="52" width="80" height="12" fill="#81D4FA" rx="3" opacity="0.8"/>
+          </svg>
+        </div>
+        <div class="rv-obj-en">bridge</div>
+        <div class="rv-obj-ua">міст</div>
+      </div>
+
+      <div class="rv-obj">
+        <div class="rv-obj-pic">
+          <svg viewBox="0 0 90 70" width="90" height="70">
+            <rect x="0" y="0" width="90" height="70" fill="#FFF8E1" rx="8"/>
+            <!-- stop sign -->
+            <polygon points="45,8 62,15 69,32 62,49 45,56 28,49 21,32 28,15" fill="#F44336" stroke="#fff" stroke-width="2"/>
+            <text x="45" y="37" text-anchor="middle" font-family="Nunito" font-size="13" fill="#fff" font-weight="900">STOP</text>
+          </svg>
+        </div>
+        <div class="rv-obj-en">stop sign</div>
+        <div class="rv-obj-ua">знак "СТОП"</div>
+      </div>
+
+      <div class="rv-obj">
+        <div class="rv-obj-pic">
+          <svg viewBox="0 0 90 70" width="90" height="70">
+            <rect x="0" y="0" width="90" height="70" fill="#F3E5F5" rx="8"/>
+            <!-- road sign / signpost -->
+            <rect x="42" y="8" width="6" height="54" fill="#78909C" rx="2"/>
+            <rect x="25" y="12" width="40" height="18" fill="#1565C0" rx="5"/>
+            <polygon points="65,21 72,21 72,21" fill="#1565C0"/>
+            <text x="44" y="25" text-anchor="middle" font-family="Nunito" font-size="9" fill="#fff" font-weight="800">Park →</text>
+            <rect x="25" y="36" width="40" height="18" fill="#388E3C" rx="5"/>
+            <text x="46" y="49" text-anchor="middle" font-family="Nunito" font-size="9" fill="#fff" font-weight="800">← Café</text>
+          </svg>
+        </div>
+        <div class="rv-obj-en">signpost / road sign</div>
+        <div class="rv-obj-ua">вказівний знак / дорожній знак</div>
+      </div>
+
+      <div class="rv-obj">
+        <div class="rv-obj-pic">
+          <svg viewBox="0 0 90 70" width="90" height="70">
+            <rect x="0" y="0" width="90" height="70" fill="#ECEFF1" rx="8"/>
+            <!-- underpass / tunnel -->
+            <rect x="5" y="35" width="80" height="28" fill="#B0BEC5" rx="4"/>
+            <ellipse cx="45" cy="35" rx="30" ry="18" fill="#78909C"/>
+            <ellipse cx="45" cy="35" rx="22" ry="12" fill="#37474F"/>
+            <!-- light at end -->
+            <ellipse cx="45" cy="35" rx="10" ry="6" fill="#FFD54F" opacity="0.6"/>
+          </svg>
+        </div>
+        <div class="rv-obj-en">underpass / tunnel</div>
+        <div class="rv-obj-ua">підземний перехід / тунель</div>
+      </div>
+
+      <div class="rv-obj">
+        <div class="rv-obj-pic">
+          <svg viewBox="0 0 90 70" width="90" height="70">
+            <rect x="0" y="0" width="90" height="70" fill="#E8F5E9" rx="8"/>
+            <!-- corner / T-junction -->
+            <rect x="0" y="26" width="60" height="18" fill="#90A4AE"/>
+            <rect x="42" y="0" width="18" height="44" fill="#90A4AE"/>
+            <line x1="0" y1="35" x2="60" y2="35" stroke="#fff" stroke-width="1.5" stroke-dasharray="8,5" opacity="0.6"/>
+            <line x1="51" y1="0" x2="51" y2="44" stroke="#fff" stroke-width="1.5" stroke-dasharray="8,5" opacity="0.6"/>
+          </svg>
+        </div>
+        <div class="rv-obj-en">corner / T-junction</div>
+        <div class="rv-obj-ua">кут / T-подібне перехрестя</div>
+      </div>
+
+      <div class="rv-obj">
+        <div class="rv-obj-pic">
+          <svg viewBox="0 0 90 70" width="90" height="70">
+            <rect x="0" y="0" width="90" height="70" fill="#FFF3E0" rx="8"/>
+            <!-- bus stop -->
+            <rect x="50" y="8" width="6" height="54" fill="#78909C" rx="2"/>
+            <rect x="40" y="8" width="28" height="22" fill="#1565C0" rx="5"/>
+            <text x="54" y="23" text-anchor="middle" font-family="Nunito" font-size="10" fill="#fff" font-weight="800">🚌</text>
+            <!-- bench -->
+            <rect x="15" y="44" width="35" height="6" fill="#A5D6A7" rx="2"/>
+            <rect x="20" y="50" width="4" height="10" fill="#795548" rx="1"/>
+            <rect x="42" y="50" width="4" height="10" fill="#795548" rx="1"/>
+          </svg>
+        </div>
+        <div class="rv-obj-en">bus stop</div>
+        <div class="rv-obj-ua">автобусна зупинка</div>
+      </div>
+
+      <div class="rv-obj">
+        <div class="rv-obj-pic">
+          <svg viewBox="0 0 90 70" width="90" height="70">
+            <rect x="0" y="0" width="90" height="70" fill="#E3F2FD" rx="8"/>
+            <!-- pavement sidewalk -->
+            <rect x="0" y="40" width="90" height="20" fill="#B0BEC5" rx="4"/>
+            <rect x="0" y="60" width="90" height="10" fill="#78909C" rx="0"/>
+            <line x1="0" y1="50" x2="90" y2="50" stroke="#fff" stroke-width="1" stroke-dasharray="12,8" opacity="0.5"/>
+            <!-- person walking -->
+            <circle cx="35" cy="28" r="6" fill="#1565C0"/>
+            <line x1="35" y1="34" x2="35" y2="44" stroke="#1565C0" stroke-width="2.5"/>
+            <line x1="35" y1="38" x2="28" y2="44" stroke="#1565C0" stroke-width="2" stroke-linecap="round"/>
+            <line x1="35" y1="38" x2="42" y2="44" stroke="#1565C0" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="rv-obj-en">pavement / sidewalk</div>
+        <div class="rv-obj-ua">тротуар</div>
+      </div>
+
+      <div class="rv-obj">
+        <div class="rv-obj-pic">
+          <svg viewBox="0 0 90 70" width="90" height="70">
+            <rect x="0" y="0" width="90" height="70" fill="#FAFAFA" rx="8"/>
+            <!-- dead end / road block -->
+            <rect x="10" y="30" width="70" height="15" fill="#90A4AE" rx="3"/>
+            <rect x="70" y="15" width="12" height="40" fill="#EF5350" rx="3"/>
+            <line x1="70" y1="18" x2="82" y2="52" stroke="#FFD54F" stroke-width="5" stroke-linecap="round"/>
+            <line x1="82" y1="18" x2="70" y2="52" stroke="#FFD54F" stroke-width="5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="rv-obj-en">dead end / no through road</div>
+        <div class="rv-obj-ua">тупик / немає проїзду</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="road-divider">- - - - - - - - -</div>
+
+<!-- ASKING FOR DIRECTIONS -->
+<section>
+  <div class="container">
+    <p class="section-title reveal"><span class="emoji">🙋</span> Asking for Directions</p>
+    <p class="section-ua reveal">Як запитати дорогу</p>
+    <div class="asking-grid reveal">
+      <div class="asking-card">
+        <h4>🗣️ Polite Questions <span style="font-weight:400;font-size:0.85rem;color:var(--text-light)">/ Ввічливі запитання</span></h4>
+        <ul>
+          <li><span class="en">Excuse me, where is the…?</span><span class="uk">Вибачте, де знаходиться…?</span></li>
+          <li><span class="en">Could you tell me how to get to…?</span><span class="uk">Чи не могли б ви сказати, як дістатися до…?</span></li>
+          <li><span class="en">How do I get to…?</span><span class="uk">Як мені дістатися до…?</span></li>
+          <li><span class="en">Is there a … near here?</span><span class="uk">Чи є поблизу…?</span></li>
+          <li><span class="en">I'm looking for…</span><span class="uk">Я шукаю…</span></li>
+          <li><span class="en">Am I going the right way to…?</span><span class="uk">Я правильно йду до…?</span></li>
+        </ul>
+      </div>
+      <div class="asking-card">
+        <h4>✅ Useful Extras <span style="font-weight:400;font-size:0.85rem;color:var(--text-light)">/ Корисні додатки</span></h4>
+        <ul>
+          <li><span class="en">Is it far from here?</span><span class="uk">Це далеко звідси?</span></li>
+          <li><span class="en">Can I walk there?</span><span class="uk">Можна дійти туди пішки?</span></li>
+          <li><span class="en">How long does it take?</span><span class="uk">Скільки часу це займе?</span></li>
+          <li><span class="en">Sorry, I'm lost.</span><span class="uk">Вибачте, я заблукав/заблукала.</span></li>
+          <li><span class="en">Thank you so much!</span><span class="uk">Дуже дякую!</span></li>
+          <li><span class="en">Could you repeat that, please?</span><span class="uk">Чи не могли б ви повторити?</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="road-divider">- - - - - - - - -</div>
+
+<!-- KEY DIRECTION PHRASES -->
+<section>
+  <div class="container">
+    <p class="section-title reveal"><span class="emoji">🚦</span> Key Direction Phrases</p>
+    <p class="section-ua reveal">Основні фрази для пояснення дороги</p>
+    <div class="cards-grid">
+
+      <div class="card reveal">
+        <div class="card-accent" style="background:linear-gradient(90deg,#4FC3F7,#0288D1)"></div>
+        <div class="icon">⬆️</div>
+        <h3>Going Straight</h3>
+        <p class="ua-label">Прямо / Рухатись вперед</p>
+        <ul class="phrase-list">
+          <li><span class="en">Go straight ahead.</span><span class="uk">Іди прямо.</span></li>
+          <li><span class="en">Walk straight on.</span><span class="uk">Іди прямо вперед.</span></li>
+          <li><span class="en">Continue straight.</span><span class="uk">Продовжуй прямо.</span></li>
+          <li><span class="en">Keep going straight.</span><span class="uk">Продовжуй іти прямо.</span></li>
+        </ul>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-accent" style="background:linear-gradient(90deg,#66BB6A,#388E3C)"></div>
+        <div class="icon">↪️</div>
+        <h3>Turning</h3>
+        <p class="ua-label">Повороти</p>
+        <ul class="phrase-list">
+          <li><span class="en">Turn left.</span><span class="uk">Поверни ліворуч.</span></li>
+          <li><span class="en">Turn right.</span><span class="uk">Поверни праворуч.</span></li>
+          <li><span class="en">Take the first left.</span><span class="uk">Зверни на перший поворот ліворуч.</span></li>
+          <li><span class="en">Take the second right.</span><span class="uk">Зверни на другий поворот праворуч.</span></li>
+        </ul>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-accent" style="background:linear-gradient(90deg,#F06292,#C2185B)"></div>
+        <div class="icon">🏛️</div>
+        <h3>Landmarks</h3>
+        <p class="ua-label">Орієнтири</p>
+        <ul class="phrase-list">
+          <li><span class="en">It's next to the bank.</span><span class="uk">Це поруч із банком.</span></li>
+          <li><span class="en">It's opposite the park.</span><span class="uk">Це навпроти парку.</span></li>
+          <li><span class="en">Turn left at the traffic lights.</span><span class="uk">Поверни ліворуч біля світлофора.</span></li>
+          <li><span class="en">Go past the supermarket.</span><span class="uk">Пройди повз супермаркет.</span></li>
+        </ul>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-accent" style="background:linear-gradient(90deg,#FFD54F,#FF8F00)"></div>
+        <div class="icon">📏</div>
+        <h3>Distance & Time</h3>
+        <p class="ua-label">Відстань і час</p>
+        <ul class="phrase-list">
+          <li><span class="en">It's about 5 minutes away.</span><span class="uk">Це приблизно за 5 хвилин.</span></li>
+          <li><span class="en">It's not far.</span><span class="uk">Це недалеко.</span></li>
+          <li><span class="en">It's quite far.</span><span class="uk">Це досить далеко.</span></li>
+          <li><span class="en">It's about 200 metres.</span><span class="uk">Це приблизно 200 метрів.</span></li>
+        </ul>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-accent" style="background:linear-gradient(90deg,#9575CD,#512DA8)"></div>
+        <div class="icon">🛣️</div>
+        <h3>Street & Road</h3>
+        <p class="ua-label">Вулиця й дорога</p>
+        <ul class="phrase-list">
+          <li><span class="en">Go along this road.</span><span class="uk">Іди вздовж цієї дороги.</span></li>
+          <li><span class="en">Cross the road/bridge.</span><span class="uk">Перейди дорогу/міст.</span></li>
+          <li><span class="en">Go to the end of the street.</span><span class="uk">Іди до кінця вулиці.</span></li>
+          <li><span class="en">Take the underpass.</span><span class="uk">Скористайся підземним переходом.</span></li>
+        </ul>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-accent" style="background:linear-gradient(90deg,#4DB6AC,#00695C)"></div>
+        <div class="icon">✅</div>
+        <h3>You've Arrived!</h3>
+        <p class="ua-label">Ти прибув!</p>
+        <ul class="phrase-list">
+          <li><span class="en">You'll see it on your left.</span><span class="uk">Ти побачиш це ліворуч.</span></li>
+          <li><span class="en">It's on your right.</span><span class="uk">Це праворуч від тебе.</span></li>
+          <li><span class="en">You can't miss it!</span><span class="uk">Ти не пропустиш це!</span></li>
+          <li><span class="en">It's right there.</span><span class="uk">Ось воно прямо тут.</span></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="road-divider">- - - - - - - - -</div>
+
+<!-- MAP WITH SVG -->
+<section>
+  <div class="container">
+    <p class="section-title reveal"><span class="emoji">🗺️</span> Interactive Map Example</p>
+    <p class="section-ua reveal">Приклад пояснення дороги по карті</p>
+    <div class="map-wrap reveal">
+      <div class="map-svg-wrap">
+        <svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;background:#e8f5e9">
+          <!-- sky / ground bg -->
+          <rect x="0" y="0" width="700" height="420" fill="#e8f5e9"/>
+          <!-- roads horizontal -->
+          <rect x="0" y="190" width="700" height="44" fill="#90A4AE" rx="0"/>
+          <rect x="0" y="202" width="700" height="2" fill="#fff" opacity="0.5" stroke-dasharray="30,20"/>
+          <!-- roads vertical -->
+          <rect x="155" y="0" width="44" height="420" fill="#90A4AE"/>
+          <rect x="167" y="0" width="2" height="420" fill="#fff" opacity="0.5" stroke-dasharray="30,20"/>
+          <rect x="475" y="0" width="44" height="420" fill="#90A4AE"/>
+          <rect x="487" y="0" width="2" height="420" fill="#fff" opacity="0.5" stroke-dasharray="30,20"/>
+
+          <!-- BUILDINGS top-left block -->
+          <rect x="20" y="20" width="110" height="160" fill="#B0BEC5" rx="8"/>
+          <rect x="30" y="30" width="40" height="55" fill="#90CAF9" rx="4"/>
+          <rect x="80" y="30" width="40" height="55" fill="#FFF59D" rx="4"/>
+          <rect x="30" y="100" width="40" height="55" fill="#FFCC80" rx="4"/>
+          <rect x="80" y="100" width="40" height="55" fill="#A5D6A7" rx="4"/>
+          <text x="64" y="185" text-anchor="middle" font-family="Nunito" font-size="11" fill="#455A64" font-weight="700">School 🏫</text>
+
+          <!-- BUILDINGS top-middle block -->
+          <rect x="220" y="20" width="230" height="160" fill="#CFD8DC" rx="8"/>
+          <rect x="230" y="30" width="60" height="65" fill="#CE93D8" rx="4"/>
+          <rect x="310" y="30" width="60" height="65" fill="#80DEEA" rx="4"/>
+          <rect x="390" y="30" width="50" height="65" fill="#EF9A9A" rx="4"/>
+          <rect x="230" y="110" width="60" height="55" fill="#FFAB91" rx="4"/>
+          <rect x="310" y="110" width="130" height="55" fill="#C5E1A5" rx="4"/>
+          <text x="335" y="185" text-anchor="middle" font-family="Nunito" font-size="11" fill="#455A64" font-weight="700">City Center 🏙️</text>
+
+          <!-- top-right block -->
+          <rect x="540" y="20" width="140" height="160" fill="#B2DFDB" rx="8"/>
+          <rect x="550" y="30" width="55" height="130" fill="#4DB6AC" rx="4"/>
+          <rect x="615" y="30" width="55" height="60" fill="#FFD54F" rx="4"/>
+          <rect x="615" y="105" width="55" height="55" fill="#FF8A65" rx="4"/>
+          <text x="610" y="185" text-anchor="middle" font-family="Nunito" font-size="11" fill="#455A64" font-weight="700">Hospital 🏥</text>
+
+          <!-- bottom-left -->
+          <rect x="20" y="250" width="110" height="150" fill="#D7CCC8" rx="8"/>
+          <rect x="30" y="260" width="90" height="55" fill="#A5D6A7" rx="4"/>
+          <rect x="30" y="325" width="90" height="60" fill="#FFD54F" rx="4"/>
+          <text x="74" y="412" text-anchor="middle" font-family="Nunito" font-size="11" fill="#455A64" font-weight="700">Park 🌳</text>
+
+          <!-- bottom-middle -->
+          <rect x="220" y="250" width="230" height="150" fill="#F3E5F5" rx="8"/>
+          <rect x="240" y="265" width="80" height="65" fill="#F48FB1" rx="4"/>
+          <rect x="335" y="265" width="100" height="65" fill="#CE93D8" rx="4"/>
+          <rect x="240" y="345" width="195" height="50" fill="#9FA8DA" rx="4"/>
+          <text x="335" y="408" text-anchor="middle" font-family="Nunito" font-size="11" fill="#455A64" font-weight="700">Market 🛒</text>
+
+          <!-- bottom-right -->
+          <rect x="540" y="250" width="140" height="150" fill="#FFF8E1" rx="8"/>
+          <rect x="555" y="265" width="110" height="50" fill="#FFD54F" rx="4"/>
+          <rect x="555" y="330" width="110" height="55" fill="#FF8A65" rx="4"/>
+          <text x="610" y="408" text-anchor="middle" font-family="Nunito" font-size="11" fill="#455A64" font-weight="700">Café ☕</text>
+
+          <!-- YOU ARE HERE marker -->
+          <circle cx="178" cy="380" r="14" fill="#F44336" opacity="0.9"/>
+          <text x="178" y="385" text-anchor="middle" font-family="Nunito" font-size="12" fill="#fff" font-weight="800">📍</text>
+          <text x="178" y="402" text-anchor="middle" font-family="Nunito" font-size="9" fill="#B71C1C" font-weight="700">YOU</text>
+
+          <!-- DESTINATION marker -->
+          <circle cx="497" cy="275" r="14" fill="#4CAF50" opacity="0.9"/>
+          <text x="497" y="280" text-anchor="middle" font-family="Nunito" font-size="12" fill="#fff" font-weight="800">🏥</text>
+
+          <!-- Route arrow path -->
+          <polyline points="178,366 178,234 475,234 475,260" fill="none" stroke="#F44336" stroke-width="4" stroke-dasharray="10,5" stroke-linecap="round" marker-end="url(#arrowhead)"/>
+          <defs>
+            <marker id="arrowhead" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto">
+              <polygon points="0 0, 8 3.5, 0 7" fill="#F44336"/>
+            </marker>
+          </defs>
+
+          <!-- Labels on route -->
+          <rect x="185" y="270" width="180" height="22" fill="#fff" rx="10" opacity="0.85"/>
+          <text x="275" y="285" text-anchor="middle" font-family="Nunito" font-size="11" fill="#D32F2F" font-weight="700">① Go straight ahead ⬆️</text>
+          <rect x="295" y="237" width="165" height="22" fill="#fff" rx="10" opacity="0.85"/>
+          <text x="378" y="252" text-anchor="middle" font-family="Nunito" font-size="11" fill="#D32F2F" font-weight="700">② Turn right ➡️</text>
+
+          <!-- Compass -->
+          <circle cx="660" cy="370" r="28" fill="#fff" opacity="0.9" stroke="#90A4AE" stroke-width="2"/>
+          <text x="660" y="352" text-anchor="middle" font-family="Nunito" font-size="9" fill="#455A64" font-weight="800">N</text>
+          <text x="660" y="393" text-anchor="middle" font-family="Nunito" font-size="9" fill="#455A64" font-weight="800">S</text>
+          <text x="638" y="374" text-anchor="middle" font-family="Nunito" font-size="9" fill="#455A64" font-weight="800">W</text>
+          <text x="682" y="374" text-anchor="middle" font-family="Nunito" font-size="9" fill="#455A64" font-weight="800">E</text>
+          <polygon points="660,360 656,372 660,369 664,372" fill="#F44336"/>
+          <polygon points="660,380 656,368 660,371 664,368" fill="#455A64"/>
+        </svg>
+      </div>
+
+      <!-- Route description -->
+      <div style="background:#F0F9FF;border-radius:16px;padding:20px 22px;">
+        <p style="font-family:'Baloo 2',cursive;font-size:1.1rem;font-weight:800;margin-bottom:14px;color:#1565C0">📍 You → 🏥 Hospital</p>
+        <div style="display:grid;gap:10px;">
+          <div style="display:flex;gap:12px;align-items:flex-start;background:#fff;border-radius:12px;padding:12px 14px;">
+            <span style="background:#1565C0;color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0;font-size:0.9rem">1</span>
+            <div><p style="font-weight:700;color:#1565C0">Go straight ahead along Main Street.</p><p style="font-size:0.83rem;color:#607D8B">Іди прямо вулицею Main Street.</p></div>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start;background:#fff;border-radius:12px;padding:12px 14px;">
+            <span style="background:#388E3C;color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0;font-size:0.9rem">2</span>
+            <div><p style="font-weight:700;color:#388E3C">Turn right at the crossroads.</p><p style="font-size:0.83rem;color:#607D8B">Поверни праворуч на перехресті.</p></div>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start;background:#fff;border-radius:12px;padding:12px 14px;">
+            <span style="background:#E65100;color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0;font-size:0.9rem">3</span>
+            <div><p style="font-weight:700;color:#E65100">The hospital is on your left. You can't miss it!</p><p style="font-size:0.83rem;color:#607D8B">Лікарня — ліворуч від тебе. Ти не пропустиш її!</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="road-divider">- - - - - - - - -</div>
+
+<!-- PREPOSITIONS OF PLACE -->
+<section>
+  <div class="container">
+    <p class="section-title reveal"><span class="emoji">🧩</span> Prepositions of Place</p>
+    <p class="section-ua reveal">Прийменники місця — щоб описати, де щось знаходиться</p>
+    <div class="preps-grid reveal">
+
+      <div class="prep-card">
+        <div class="prep-svg">
+          <svg viewBox="0 0 80 60" width="80" height="60">
+            <rect x="25" y="20" width="30" height="25" fill="#4FC3F7" rx="4"/>
+            <rect x="10" y="45" width="60" height="10" fill="#A5D6A7" rx="3"/>
+            <circle cx="40" cy="12" r="6" fill="#FFD54F"/>
+            <text x="40" y="16" text-anchor="middle" font-size="8" fill="#E65100" font-weight="800">★</text>
+          </svg>
+        </div>
+        <div class="prep-en">on</div>
+        <div class="prep-uk">на (поверхні)</div>
+      </div>
+
+      <div class="prep-card">
+        <div class="prep-svg">
+          <svg viewBox="0 0 80 60" width="80" height="60">
+            <rect x="15" y="15" width="50" height="35" fill="#CE93D8" rx="6"/>
+            <circle cx="40" cy="32" r="8" fill="#FFD54F"/>
+          </svg>
+        </div>
+        <div class="prep-en">in</div>
+        <div class="prep-uk">в / у (всередині)</div>
+      </div>
+
+      <div class="prep-card">
+        <div class="prep-svg">
+          <svg viewBox="0 0 80 60" width="80" height="60">
+            <rect x="5" y="20" width="28" height="30" fill="#A5D6A7" rx="4"/>
+            <rect x="47" y="20" width="28" height="30" fill="#A5D6A7" rx="4"/>
+            <circle cx="40" cy="35" r="8" fill="#FFD54F"/>
+          </svg>
+        </div>
+        <div class="prep-en">between</div>
+        <div class="prep-uk">між</div>
+      </div>
+
+      <div class="prep-card">
+        <div class="prep-svg">
+          <svg viewBox="0 0 80 60" width="80" height="60">
+            <rect x="25" y="15" width="30" height="30" fill="#4FC3F7" rx="4"/>
+            <circle cx="15" cy="30" r="8" fill="#FFD54F"/>
+          </svg>
+        </div>
+        <div class="prep-en">next to</div>
+        <div class="prep-uk">поруч із</div>
+      </div>
+
+      <div class="prep-card">
+        <div class="prep-svg">
+          <svg viewBox="0 0 80 60" width="80" height="60">
+            <rect x="10" y="15" width="28" height="30" fill="#EF9A9A" rx="4"/>
+            <circle cx="60" cy="30" r="8" fill="#FFD54F"/>
+            <line x1="38" y1="30" x2="52" y2="30" stroke="#aaa" stroke-width="2" stroke-dasharray="4,3"/>
+          </svg>
+        </div>
+        <div class="prep-en">opposite</div>
+        <div class="prep-uk">навпроти</div>
+      </div>
+
+      <div class="prep-card">
+        <div class="prep-svg">
+          <svg viewBox="0 0 80 60" width="80" height="60">
+            <rect x="10" y="20" width="28" height="30" fill="#FFAB91" rx="4"/>
+            <rect x="42" y="20" width="28" height="30" fill="#FFAB91" rx="4"/>
+            <circle cx="38" cy="30" r="6" fill="#FFD54F"/>
+            <text x="38" y="34" text-anchor="middle" font-size="8" font-weight="800" fill="#E65100">★</text>
+          </svg>
+        </div>
+        <div class="prep-en">near</div>
+        <div class="prep-uk">біля / поблизу</div>
+      </div>
+
+      <div class="prep-card">
+        <div class="prep-svg">
+          <svg viewBox="0 0 80 60" width="80" height="60">
+            <rect x="25" y="20" width="30" height="25" fill="#80DEEA" rx="4"/>
+            <circle cx="40" cy="10" r="7" fill="#FFD54F"/>
+          </svg>
+        </div>
+        <div class="prep-en">above</div>
+        <div class="prep-uk">над</div>
+      </div>
+
+      <div class="prep-card">
+        <div class="prep-svg">
+          <svg viewBox="0 0 80 60" width="80" height="60">
+            <rect x="25" y="15" width="30" height="25" fill="#80DEEA" rx="4"/>
+            <circle cx="40" cy="50" r="7" fill="#FFD54F"/>
+          </svg>
+        </div>
+        <div class="prep-en">below</div>
+        <div class="prep-uk">під / нижче</div>
+      </div>
+
+      <div class="prep-card">
+        <div class="prep-svg">
+          <svg viewBox="0 0 80 60" width="80" height="60">
+            <rect x="15" y="10" width="50" height="40" fill="#C5E1A5" rx="6"/>
+            <rect x="25" y="20" width="30" height="25" fill="#fff" rx="4"/>
+            <circle cx="40" cy="32" r="8" fill="#FFD54F"/>
+          </svg>
+        </div>
+        <div class="prep-en">in front of</div>
+        <div class="prep-uk">перед</div>
+      </div>
+
+      <div class="prep-card">
+        <div class="prep-svg">
+          <svg viewBox="0 0 80 60" width="80" height="60">
+            <circle cx="40" cy="30" r="8" fill="#FFD54F"/>
+            <rect x="42" y="20" width="28" height="30" fill="#FFCC80" rx="4"/>
+          </svg>
+        </div>
+        <div class="prep-en">behind</div>
+        <div class="prep-uk">за / позаду</div>
+      </div>
+
+      <div class="prep-card">
+        <div class="prep-svg">
+          <svg viewBox="0 0 80 60" width="80" height="60">
+            <rect x="35" y="20" width="30" height="30" fill="#F48FB1" rx="4"/>
+            <line x1="5" y1="35" x2="35" y2="35" stroke="#607D8B" stroke-width="3" stroke-linecap="round"/>
+            <polygon points="30,29 30,41 40,35" fill="#1565C0"/>
+          </svg>
+        </div>
+        <div class="prep-en">past</div>
+        <div class="prep-uk">повз / мимо</div>
+      </div>
+
+      <div class="prep-card">
+        <div class="prep-svg">
+          <svg viewBox="0 0 80 60" width="80" height="60">
+            <line x1="10" y1="30" x2="70" y2="30" stroke="#9E9E9E" stroke-width="4" stroke-linecap="round"/>
+            <line x1="15" y1="35" x2="25" y2="25" stroke="#9E9E9E" stroke-width="2" stroke-linecap="round"/>
+            <line x1="25" y1="35" x2="35" y2="25" stroke="#9E9E9E" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="40" cy="20" r="7" fill="#FFD54F"/>
+          </svg>
+        </div>
+        <div class="prep-en">across</div>
+        <div class="prep-uk">через / навпроти</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="road-divider">- - - - - - - - -</div>
+
+<!-- VOCABULARY CHIPS -->
+<section>
+  <div class="container">
+    <p class="section-title reveal"><span class="emoji">🔤</span> Essential Vocabulary</p>
+    <p class="section-ua reveal">Основна лексика для орієнтування</p>
+    <div class="vocab-ribbon reveal">
+      <div class="vocab-chip"><span class="v-en">crossroads</span><span class="v-uk">перехрестя</span></div>
+      <div class="vocab-chip"><span class="v-en">traffic lights</span><span class="v-uk">світлофор</span></div>
+      <div class="vocab-chip"><span class="v-en">roundabout</span><span class="v-uk">круговий рух</span></div>
+      <div class="vocab-chip"><span class="v-en">bridge</span><span class="v-uk">міст</span></div>
+      <div class="vocab-chip"><span class="v-en">pavement / sidewalk</span><span class="v-uk">тротуар</span></div>
+      <div class="vocab-chip"><span class="v-en">junction</span><span class="v-uk">розв'язка / з'єднання доріг</span></div>
+      <div class="vocab-chip"><span class="v-en">corner</span><span class="v-uk">кут / рогатка</span></div>
+      <div class="vocab-chip"><span class="v-en">block</span><span class="v-uk">квартал</span></div>
+      <div class="vocab-chip"><span class="v-en">left / right</span><span class="v-uk">ліворуч / праворуч</span></div>
+      <div class="vocab-chip"><span class="v-en">north / south</span><span class="v-uk">північ / південь</span></div>
+      <div class="vocab-chip"><span class="v-en">east / west</span><span class="v-uk">схід / захід</span></div>
+      <div class="vocab-chip"><span class="v-en">avenue</span><span class="v-uk">авеню / проспект</span></div>
+      <div class="vocab-chip"><span class="v-en">alley</span><span class="v-uk">провулок / алея</span></div>
+      <div class="vocab-chip"><span class="v-en">pedestrian crossing</span><span class="v-uk">пішохідний перехід</span></div>
+      <div class="vocab-chip"><span class="v-en">subway / underpass</span><span class="v-uk">підземний перехід</span></div>
+      <div class="vocab-chip"><span class="v-en">bus stop</span><span class="v-uk">автобусна зупинка</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="road-divider">- - - - - - - - -</div>
+
+<!-- DIALOGUE -->
+<section>
+  <div class="container">
+    <p class="section-title reveal"><span class="emoji">💬</span> Real Dialogues</p>
+    <p class="section-ua reveal">Реальні діалоги — як це звучить у житті</p>
+
+    <div class="dialogue reveal">
+      <h3>🎒 Dialogue 1: Finding a café / Знайти кафе</h3>
+      <div class="msg">
+        <div class="avatar" style="background:#EEF6FF">👦</div>
+        <div class="bubble">
+          <p class="en">Excuse me! Is there a café near here?</p>
+          <p class="uk">Вибачте! Чи є поблизу кафе?</p>
+        </div>
+      </div>
+      <div class="msg right">
+        <div class="avatar" style="background:#FFF3E0">👩</div>
+        <div class="bubble">
+          <p class="en">Yes! Go straight ahead and turn left at the traffic lights. The café is on your right — next to the bookshop.</p>
+          <p class="uk">Так! Іди прямо і поверни ліворуч біля світлофора. Кафе буде праворуч — поруч із книгарнею.</p>
+        </div>
+      </div>
+      <div class="msg">
+        <div class="avatar" style="background:#EEF6FF">👦</div>
+        <div class="bubble">
+          <p class="en">Is it far?</p>
+          <p class="uk">Це далеко?</p>
+        </div>
+      </div>
+      <div class="msg right">
+        <div class="avatar" style="background:#FFF3E0">👩</div>
+        <div class="bubble">
+          <p class="en">No, it's only about 3 minutes on foot. You can't miss it!</p>
+          <p class="uk">Ні, це лише близько 3 хвилин пішки. Ти не пропустиш!</p>
+        </div>
+      </div>
+      <div class="msg">
+        <div class="avatar" style="background:#EEF6FF">👦</div>
+        <div class="bubble">
+          <p class="en">Thank you so much! 😊</p>
+          <p class="uk">Дуже дякую! 😊</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="dialogue reveal">
+      <h3>🏫 Dialogue 2: Getting to school / Дорога до школи</h3>
+      <div class="msg">
+        <div class="avatar" style="background:#EEF6FF">👧</div>
+        <div class="bubble">
+          <p class="en">Hi! Could you tell me how to get to Green Valley School?</p>
+          <p class="uk">Привіт! Чи не могли б ви сказати, як дістатися до школи «Green Valley»?</p>
+        </div>
+      </div>
+      <div class="msg right">
+        <div class="avatar" style="background:#F3F9F3">👨</div>
+        <div class="bubble">
+          <p class="en">Sure! Take the second right on Oak Street, go past the supermarket, then cross the bridge. The school is opposite the park.</p>
+          <p class="uk">Звичайно! Зверни на другий поворот праворуч на вулицю Дуб, пройди повз супермаркет, потім перейди міст. Школа навпроти парку.</p>
+        </div>
+      </div>
+      <div class="msg">
+        <div class="avatar" style="background:#EEF6FF">👧</div>
+        <div class="bubble">
+          <p class="en">Sorry, can you repeat that? I'm new here.</p>
+          <p class="uk">Вибачте, чи не могли б ви повторити? Я тут нова.</p>
+        </div>
+      </div>
+      <div class="msg right">
+        <div class="avatar" style="background:#F3F9F3">👨</div>
+        <div class="bubble">
+          <p class="en">Of course! Second right → past the supermarket → cross the bridge → school is opposite the park. About 10 minutes walk.</p>
+          <p class="uk">Звісно! Другий поворот праворуч → повз супермаркет → через міст → школа навпроти парку. Приблизно 10 хвилин пішки.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="road-divider">- - - - - - - - -</div>
+
+<!-- TIPS -->
+<section>
+  <div class="container reveal">
+    <div class="tips-banner">
+      <div class="tips-icon">💡</div>
+      <div>
+        <h3>Top Tips for Giving Directions / Корисні поради</h3>
+        <ul class="tips-list">
+          <li><strong>Use landmarks!</strong> "Turn left at the church" is clearer than "turn left after 200m". / Використовуй орієнтири!</li>
+          <li><strong>Speak slowly and clearly.</strong> The person might not understand fast speech. / Говори повільно та чітко.</li>
+          <li><strong>Use numbers for streets:</strong> "Take the first left, then second right." / Використовуй числа для вулиць.</li>
+          <li><strong>Offer to draw a map</strong> if it gets complicated! "Let me draw it for you." / Запропонуй намалювати карту.</li>
+          <li><strong>Check understanding:</strong> "Do you understand?" or "Is that clear?" / Перевір розуміння.</li>
+          <li><strong>If you don't know, say so:</strong> "I'm sorry, I don't know this area." / Якщо не знаєш — скажи!</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="road-divider">- - - - - - - - -</div>
+
+<!-- QUIZ -->
+<section>
+  <div class="container">
+    <div class="quiz-wrap reveal">
+      <h2>🧠 Quick Quiz!</h2>
+      <p class="sub">Test yourself! / Перевір себе!</p>
+
+      <!-- Q1 -->
+      <div class="quiz-q" id="q1">
+        <p class="q-text">1. What do you say when you don't know where you are?</p>
+        <p class="q-ua">Що кажуть, коли заблукали?</p>
+        <div class="options">
+          <button class="opt" onclick="answer(this,'q1',false)">I am confused.</button>
+          <button class="opt" onclick="answer(this,'q1',true)">I'm lost.</button>
+          <button class="opt" onclick="answer(this,'q1',false)">I forget the way.</button>
+        </div>
+        <p class="feedback" id="fb1"></p>
+      </div>
+
+      <!-- Q2 -->
+      <div class="quiz-q" id="q2">
+        <p class="q-text">2. How do you ask politely for directions?</p>
+        <p class="q-ua">Як ввічливо попросити вказати дорогу?</p>
+        <div class="options">
+          <button class="opt" onclick="answer(this,'q2',false)">Where is the park?!</button>
+          <button class="opt" onclick="answer(this,'q2',true)">Excuse me, could you tell me how to get to the park?</button>
+          <button class="opt" onclick="answer(this,'q2',false)">Go to the park!</button>
+        </div>
+        <p class="feedback" id="fb2"></p>
+      </div>
+
+      <!-- Q3 -->
+      <div class="quiz-q" id="q3">
+        <p class="q-text">3. "The café is _____ the bank." (навпроти)</p>
+        <p class="q-ua">Кафе _____ банку. (навпроти)</p>
+        <div class="options">
+          <button class="opt" onclick="answer(this,'q3',false)">behind</button>
+          <button class="opt" onclick="answer(this,'q3',false)">next to</button>
+          <button class="opt" onclick="answer(this,'q3',true)">opposite</button>
+          <button class="opt" onclick="answer(this,'q3',false)">above</button>
+        </div>
+        <p class="feedback" id="fb3"></p>
+      </div>
+
+      <!-- Q4 -->
+      <div class="quiz-q" id="q4">
+        <p class="q-text">4. "Take the _____ right." means take the 2nd right turn.</p>
+        <p class="q-ua">Поверни на _____ поворот праворуч.</p>
+        <div class="options">
+          <button class="opt" onclick="answer(this,'q4',false)">two</button>
+          <button class="opt" onclick="answer(this,'q4',true)">second</button>
+          <button class="opt" onclick="answer(this,'q4',false)">another</button>
+        </div>
+        <p class="feedback" id="fb4"></p>
+      </div>
+
+      <!-- Q5 -->
+      <div class="quiz-q" id="q5">
+        <p class="q-text">5. What is a "crossroads"?</p>
+        <p class="q-ua">Що таке "crossroads"?</p>
+        <div class="options">
+          <button class="opt" onclick="answer(this,'q5',false)">A pedestrian crossing 🚶</button>
+          <button class="opt" onclick="answer(this,'q5',true)">A place where two roads cross ✝️</button>
+          <button class="opt" onclick="answer(this,'q5',false)">A bridge 🌉</button>
+        </div>
+        <p class="feedback" id="fb5"></p>
+      </div>
+
+      <div class="score-bar">
+        <span>Your score: / Твій результат:</span>
+        <span id="score-display" style="font-size:1.3rem">0 / 5 ⭐</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>🗺️ <strong>Giving Directions in English</strong> — English Learning Page</p>
+  <p style="margin-top:6px;opacity:0.7">For beginners & young learners · Для початківців та юних учнів 🇬🇧🇺🇦</p>
+</footer>
+
+<script>
+  // Quiz logic
+  const answers = { q1: 0, q2: 0, q3: 0, q4: 0, q5: 0 };
+  const msgs = {
+    q1: ['Not quite! "I\'m lost" is the most natural phrase. / Не зовсім! Найкраще сказати "I\'m lost".', '✅ Correct! "I\'m lost" — я заблукав/заблукала.'],
+    q2: ['Not polite enough! Use "Excuse me, could you tell me…" / Не достатньо ввічливо!', '✅ Correct! Great polite question! / Чудове ввічливе запитання!'],
+    q3: ['Not right! "Opposite" means навпроти. / Не правильно!', '✅ Correct! Opposite = навпроти.'],
+    q4: ['We use ordinal numbers: first, second, third… / Використовуємо порядкові числівники!', '✅ Correct! Second = другий.'],
+    q5: ['Try again! / Спробуй ще раз!', '✅ Correct! A crossroads is a перехрестя.'],
+  };
+  let score = 0;
+  const answered = {};
+
+  function answer(btn, qId, isCorrect) {
+    if (answered[qId]) return;
+    answered[qId] = true;
+    const allBtns = btn.closest('.options').querySelectorAll('.opt');
+    allBtns.forEach(b => b.disabled = true);
+    btn.classList.add(isCorrect ? 'correct' : 'wrong');
+    const fb = document.getElementById('fb' + qId.slice(1));
+    fb.textContent = isCorrect ? msgs[qId][1] : msgs[qId][0];
+    fb.classList.add('show');
+    if (isCorrect) {
+      score++;
+      document.getElementById('score-display').textContent = score + ' / 5 ' + (score >= 4 ? '🏆' : score >= 2 ? '⭐' : '💪');
+    }
+  }
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+</body>
+</html>

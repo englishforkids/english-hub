@@ -1,0 +1,1580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ellipsis — English Grammar for Everyone</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --yellow: #FFD93D;
+    --orange: #FF6B35;
+    --pink: #FF4E8E;
+    --purple: #7B2FBE;
+    --blue: #2D9CDB;
+    --teal: #00C9A7;
+    --green: #27AE60;
+    --dark: #1A1A2E;
+    --card-bg: #FFFFFF;
+    --light-bg: #F7F3FF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--dark);
+    color: #1A1A2E;
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #1A1A2E 0%, #16213E 50%, #0F3460 100%);
+    padding: 60px 20px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at center, rgba(123,47,190,0.15) 0%, transparent 60%);
+    animation: pulse 4s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.1); opacity: 1; }
+  }
+
+  .dots-deco {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(60px, 15vw, 130px);
+    color: var(--yellow);
+    letter-spacing: 10px;
+    text-shadow: 0 0 40px rgba(255,217,61,0.4);
+    animation: float 3s ease-in-out infinite;
+    position: relative;
+    z-index: 1;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+
+  .hero h1 {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(36px, 8vw, 72px);
+    color: #fff;
+    margin-top: 10px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero h1 span { color: var(--yellow); }
+
+  .hero-sub {
+    font-size: clamp(14px, 3vw, 18px);
+    color: rgba(255,255,255,0.7);
+    margin-top: 14px;
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-badges {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .badge {
+    background: rgba(255,255,255,0.12);
+    border: 2px solid rgba(255,255,255,0.2);
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 700;
+    backdrop-filter: blur(10px);
+  }
+
+  /* MAIN CONTENT */
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* SECTION WRAPPER */
+  .section {
+    padding: 50px 20px;
+  }
+
+  .section:nth-child(odd) { background: #F7F3FF; }
+  .section:nth-child(even) { background: #FFFFFF; }
+
+  .section-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(28px, 5vw, 42px);
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
+  .section-sub {
+    text-align: center;
+    color: #666;
+    font-size: 15px;
+    margin-bottom: 36px;
+    font-weight: 600;
+  }
+
+  /* WHAT IS CARD */
+  .what-is-card {
+    background: linear-gradient(135deg, #1A1A2E, #2D1B69);
+    border-radius: 24px;
+    padding: 40px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .what-is-card::after {
+    content: '...';
+    position: absolute;
+    right: 30px;
+    bottom: -20px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 120px;
+    color: rgba(255,217,61,0.08);
+    line-height: 1;
+  }
+
+  .what-is-card h3 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 24px;
+    color: var(--yellow);
+    margin-bottom: 16px;
+  }
+
+  .what-is-card p {
+    font-size: 17px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 16px;
+  }
+
+  .what-is-card p strong { color: var(--yellow); }
+
+  .lang-tag {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 800;
+    margin-right: 6px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .en-tag { background: var(--blue); color: #fff; }
+  .ua-tag { background: var(--yellow); color: #1A1A2E; }
+
+  /* FORMULA BOX */
+  .formula-box {
+    background: linear-gradient(135deg, var(--purple), #4A0080);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 30px;
+    box-shadow: 0 10px 40px rgba(123,47,190,0.3);
+  }
+
+  .formula-box .label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 14px;
+    font-weight: 700;
+  }
+
+  .formula-text {
+    font-family: 'Space Mono', monospace;
+    font-size: clamp(16px, 3vw, 22px);
+    color: var(--yellow);
+    font-weight: 700;
+    line-height: 1.6;
+  }
+
+  .formula-text .arrow { color: #fff; font-size: 20px; }
+  .formula-text .removed { color: #FF6B6B; text-decoration: line-through; opacity: 0.6; }
+  .formula-text .kept { color: var(--teal); }
+
+  /* VISUAL DIAGRAM */
+  .diagram {
+    background: #fff;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.08);
+    max-width: 800px;
+    margin: 0 auto;
+    border: 3px solid #EDE4FF;
+  }
+
+  .diagram-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+  }
+
+  .word-chip {
+    padding: 10px 16px;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 15px;
+    position: relative;
+  }
+
+  .word-normal { background: #EDE4FF; color: var(--purple); }
+  .word-removed {
+    background: #FFE4E4;
+    color: #FF4E4E;
+    text-decoration: line-through;
+    opacity: 0.5;
+  }
+  .word-highlight { background: var(--yellow); color: #1A1A2E; }
+  .word-result { background: var(--teal); color: #fff; }
+
+  .diagram-arrow {
+    font-size: 24px;
+    color: var(--purple);
+    flex-shrink: 0;
+  }
+
+  .diagram-label {
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #999;
+    margin-bottom: 6px;
+  }
+
+  /* TYPES GRID */
+  .types-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .type-card {
+    border-radius: 20px;
+    padding: 28px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .type-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+  }
+
+  .type-card.t1 { background: linear-gradient(135deg, #FFF3CD, #FFE082); border: 3px solid var(--yellow); }
+  .type-card.t2 { background: linear-gradient(135deg, #E8F5E9, #A5D6A7); border: 3px solid var(--green); }
+  .type-card.t3 { background: linear-gradient(135deg, #E3F2FD, #90CAF9); border: 3px solid var(--blue); }
+  .type-card.t4 { background: linear-gradient(135deg, #FCE4EC, #F48FB1); border: 3px solid var(--pink); }
+
+  .type-icon { font-size: 40px; margin-bottom: 12px; }
+
+  .type-card h3 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #1A1A2E;
+  }
+
+  .type-card p {
+    font-size: 14px;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 8px;
+  }
+
+  /* EXAMPLE CARD */
+  .example-block {
+    background: #fff;
+    border-radius: 20px;
+    padding: 28px;
+    margin-bottom: 20px;
+    border-left: 6px solid var(--purple);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: transform 0.2s;
+  }
+
+  .example-block:hover { transform: translateX(6px); }
+
+  .example-block.yellow { border-color: var(--yellow); }
+  .example-block.blue { border-color: var(--blue); }
+  .example-block.pink { border-color: var(--pink); }
+  .example-block.teal { border-color: var(--teal); }
+  .example-block.orange { border-color: var(--orange); }
+  .example-block.green { border-color: var(--green); }
+
+  .ex-number {
+    font-family: 'Fredoka One', cursive;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #aaa;
+    margin-bottom: 12px;
+  }
+
+  .sentence-full {
+    font-size: 17px;
+    color: #444;
+    margin-bottom: 10px;
+    line-height: 1.6;
+  }
+
+  .sentence-full .del {
+    background: #FFE4E4;
+    color: #FF4E4E;
+    text-decoration: line-through;
+    padding: 1px 4px;
+    border-radius: 4px;
+  }
+
+  .sentence-ellipsis {
+    font-size: 19px;
+    font-weight: 800;
+    color: var(--dark);
+    margin: 10px 0;
+    line-height: 1.6;
+  }
+
+  .sentence-ellipsis .dots {
+    color: var(--purple);
+    font-size: 22px;
+  }
+
+  .translation {
+    font-size: 14px;
+    color: #777;
+    font-style: italic;
+    border-top: 1px dashed #eee;
+    padding-top: 10px;
+    margin-top: 10px;
+  }
+
+  .rule-badge {
+    display: inline-block;
+    background: var(--light-bg);
+    border: 2px solid var(--purple);
+    color: var(--purple);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 800;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* UNIVERSAL SENTENCE */
+  .universal-card {
+    background: linear-gradient(135deg, #FF6B35, #FF4E8E);
+    border-radius: 24px;
+    padding: 40px;
+    color: #fff;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    box-shadow: 0 15px 50px rgba(255,78,142,0.35);
+  }
+
+  .universal-card h3 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 28px;
+    margin-bottom: 6px;
+  }
+
+  .universal-card .sub { opacity: 0.85; font-size: 14px; margin-bottom: 28px; }
+
+  .universal-sentence {
+    font-family: 'Space Mono', monospace;
+    font-size: clamp(16px, 3vw, 22px);
+    background: rgba(255,255,255,0.15);
+    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 2px solid rgba(255,255,255,0.3);
+  }
+
+  .variations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px;
+    text-align: left;
+  }
+
+  .var-card {
+    background: rgba(255,255,255,0.15);
+    border-radius: 14px;
+    padding: 16px;
+    border: 2px solid rgba(255,255,255,0.2);
+  }
+
+  .var-card .var-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.7;
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+
+  .var-card .var-text {
+    font-weight: 800;
+    font-size: 15px;
+    margin-bottom: 6px;
+  }
+
+  .var-card .var-ua {
+    font-size: 12px;
+    opacity: 0.75;
+    font-style: italic;
+  }
+
+  /* PHRASAL VERBS */
+  .pv-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .pv-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px;
+    border: 2px solid #EDE4FF;
+    transition: all 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pv-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 6px;
+    height: 100%;
+  }
+
+  .pv-card.c1::before { background: var(--blue); }
+  .pv-card.c2::before { background: var(--pink); }
+  .pv-card.c3::before { background: var(--teal); }
+  .pv-card.c4::before { background: var(--orange); }
+  .pv-card.c5::before { background: var(--green); }
+  .pv-card.c6::before { background: var(--purple); }
+
+  .pv-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+    border-color: var(--purple);
+  }
+
+  .pv-verb {
+    font-family: 'Fredoka One', cursive;
+    font-size: 18px;
+    color: var(--purple);
+    margin-bottom: 6px;
+  }
+
+  .pv-meaning {
+    font-size: 13px;
+    color: #888;
+    font-style: italic;
+    margin-bottom: 12px;
+  }
+
+  .pv-example {
+    font-size: 14px;
+    color: #444;
+    line-height: 1.5;
+    margin-bottom: 6px;
+  }
+
+  .pv-example .full { color: #bbb; font-size: 13px; }
+  .pv-example .short { color: #1A1A2E; font-weight: 700; }
+  .pv-example .ua { color: #999; font-size: 12px; font-style: italic; }
+
+  /* INFOGRAPHIC */
+  .infographic {
+    background: linear-gradient(135deg, #1A1A2E, #16213E);
+    border-radius: 24px;
+    padding: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+    color: #fff;
+  }
+
+  .info-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: 26px;
+    text-align: center;
+    color: var(--yellow);
+    margin-bottom: 30px;
+  }
+
+  .rules-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .rule-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 14px;
+    padding: 18px;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .rule-num {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fredoka One', cursive;
+    font-size: 18px;
+    flex-shrink: 0;
+    color: #1A1A2E;
+  }
+
+  .r1 { background: var(--yellow); }
+  .r2 { background: var(--teal); }
+  .r3 { background: var(--pink); }
+  .r4 { background: var(--orange); }
+  .r5 { background: var(--blue); }
+
+  .rule-content h4 { font-weight: 800; font-size: 16px; margin-bottom: 6px; }
+  .rule-content p { font-size: 14px; opacity: 0.8; line-height: 1.5; }
+  .rule-content .ex { margin-top: 8px; font-family: 'Space Mono', monospace; font-size: 13px; color: var(--yellow); }
+
+  /* WHEN TO USE */
+  .when-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .when-card {
+    border-radius: 18px;
+    padding: 24px;
+    text-align: center;
+    transition: transform 0.2s;
+  }
+
+  .when-card:hover { transform: translateY(-4px); }
+  .when-card.w1 { background: #FFF8E1; border: 3px solid var(--yellow); }
+  .when-card.w2 { background: #E8F5E9; border: 3px solid var(--green); }
+  .when-card.w3 { background: #E3F2FD; border: 3px solid var(--blue); }
+  .when-card.w4 { background: #FCE4EC; border: 3px solid var(--pink); }
+  .when-card.w5 { background: #F3E5F5; border: 3px solid var(--purple); }
+
+  .when-icon { font-size: 36px; margin-bottom: 10px; }
+  .when-card h4 { font-family: 'Fredoka One', cursive; font-size: 16px; margin-bottom: 8px; }
+  .when-card p { font-size: 13px; color: #555; line-height: 1.5; }
+
+  /* COMPARISON TABLE */
+  .compare-table {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+  }
+
+  .compare-table th {
+    padding: 16px 20px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 16px;
+    text-align: left;
+  }
+
+  .compare-table th:first-child { background: var(--purple); color: #fff; }
+  .compare-table th:last-child { background: var(--teal); color: #fff; }
+
+  .compare-table td {
+    padding: 14px 20px;
+    font-size: 14px;
+    border-bottom: 1px solid #eee;
+    line-height: 1.5;
+  }
+
+  .compare-table tr:last-child td { border-bottom: none; }
+  .compare-table tr:nth-child(odd) td { background: #FAFAFA; }
+  .compare-table tr:nth-child(even) td { background: #fff; }
+
+  .compare-table .full-sent { color: #999; font-size: 13px; }
+  .compare-table .short-sent { color: #1A1A2E; font-weight: 700; }
+
+  /* EMOJI SECTION */
+  .emoji-explain {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: var(--yellow);
+    border-radius: 16px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .emoji-explain .big-emoji { font-size: 40px; }
+  .emoji-explain .text h4 { font-weight: 800; font-size: 17px; margin-bottom: 4px; }
+  .emoji-explain .text p { font-size: 14px; color: #555; }
+
+  /* REMEMBER BOX */
+  .remember-box {
+    background: linear-gradient(135deg, var(--teal), #00A896);
+    border-radius: 20px;
+    padding: 32px;
+    color: #fff;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .remember-box h3 { font-family: 'Fredoka One', cursive; font-size: 28px; margin-bottom: 16px; }
+  .remember-box p { font-size: 16px; opacity: 0.9; margin-bottom: 10px; line-height: 1.6; }
+
+  /* FOOTER */
+  footer {
+    background: #1A1A2E;
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 30px;
+    font-size: 13px;
+  }
+
+  footer span { color: var(--yellow); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate {
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.2s; }
+  .delay-3 { animation-delay: 0.3s; }
+  .delay-4 { animation-delay: 0.4s; }
+
+  /* HIGHLIGHT SPANS */
+  .hl-purple { color: var(--purple); font-weight: 800; }
+  .hl-yellow { color: #B8860B; font-weight: 800; background: #FFF9C4; padding: 0 3px; border-radius: 4px; }
+  .hl-teal { color: #006B5B; font-weight: 800; }
+  .hl-red { color: #C62828; font-weight: 800; }
+
+  .mb-16 { margin-bottom: 16px; }
+  .mt-20 { margin-top: 20px; }
+  .text-center { text-align: center; }
+
+  #scroll-top-btn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #1a1208;
+  border: 1.5px solid rgba(200,150,62,0.4);
+  color: #f5f0e8;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+  pointer-events: none;
+  z-index: 9998;
+}
+#scroll-top-btn.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+#scroll-top-btn:hover {
+  background: #c8963e;
+  border-color: #c8963e;
+  color: #1a1208;
+}
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: #1A1A2E; }
+  ::-webkit-scrollbar-thumb { background: var(--purple); border-radius: 4px; }
+
+  /* =====================
+     MOBILE RESPONSIVE
+     ===================== */
+  @media (max-width: 600px) {
+
+    .hero { padding: 40px 16px 56px; }
+    .dots-deco { letter-spacing: 4px; }
+    .hero-badges { gap: 8px; }
+    .badge { font-size: 11px; padding: 6px 12px; }
+
+    .section { padding: 36px 14px; }
+    .section-title { font-size: 26px; }
+    .section-sub { font-size: 13px; margin-bottom: 24px; }
+    .container { padding: 0 4px; }
+
+    .what-is-card { padding: 24px 18px; border-radius: 18px; }
+    .what-is-card::after { font-size: 70px; right: 10px; bottom: -10px; }
+    .what-is-card p { font-size: 15px; }
+
+    .emoji-explain { flex-direction: column; text-align: center; gap: 10px; padding: 16px; }
+    .emoji-explain .big-emoji { font-size: 32px; }
+    .emoji-explain .text h4 { font-size: 15px; }
+    .emoji-explain .text p { font-size: 13px; }
+
+    .diagram { padding: 18px 14px; border-radius: 14px; }
+    .diagram-row { gap: 8px; }
+    .word-chip { padding: 7px 11px; font-size: 13px; border-radius: 10px; }
+
+    .formula-box { padding: 22px 16px; border-radius: 16px; }
+    .formula-text { font-size: 14px; line-height: 1.7; word-break: break-word; }
+
+    .types-grid { grid-template-columns: 1fr; gap: 14px; }
+    .type-card { padding: 22px 18px; border-radius: 16px; }
+    .type-icon { font-size: 32px; }
+    .type-card h3 { font-size: 18px; }
+    .type-card p { font-size: 13px; }
+
+    .universal-card { padding: 28px 16px; border-radius: 18px; }
+    .universal-card h3 { font-size: 22px; }
+    .universal-sentence { font-size: 14px; padding: 14px; border-radius: 10px; word-break: break-word; }
+    .variations-grid { grid-template-columns: 1fr; gap: 10px; }
+    .var-card { padding: 14px; }
+    .var-card .var-text { font-size: 14px; }
+
+    .example-block { padding: 20px 16px; border-radius: 16px; margin-bottom: 16px; }
+    .sentence-full { font-size: 15px; }
+    .sentence-ellipsis { font-size: 16px; }
+    .sentence-ellipsis .dots { font-size: 18px; }
+    .translation { font-size: 13px; }
+
+    .pv-grid { grid-template-columns: 1fr; gap: 12px; }
+    .pv-card { padding: 16px 16px 16px 20px; border-radius: 14px; }
+    .pv-verb { font-size: 16px; }
+    .pv-example .full { font-size: 12px; }
+    .pv-example .short { font-size: 13px; }
+    .pv-example .ua { font-size: 11px; }
+
+    .when-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .when-card { padding: 18px 12px; border-radius: 14px; }
+    .when-icon { font-size: 28px; }
+    .when-card h4 { font-size: 14px; }
+    .when-card p { font-size: 12px; }
+
+    .infographic { padding: 28px 16px; border-radius: 18px; }
+    .info-title { font-size: 20px; margin-bottom: 20px; }
+    .rule-item { gap: 12px; padding: 14px; border-radius: 12px; align-items: flex-start; }
+    .rule-num { width: 34px; height: 34px; font-size: 16px; flex-shrink: 0; }
+    .rule-content h4 { font-size: 14px; }
+    .rule-content p { font-size: 13px; }
+    .rule-content .ex { font-size: 12px; word-break: break-word; }
+
+    .table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 16px; }
+    .compare-table { min-width: 480px; font-size: 13px; }
+    .compare-table th { padding: 12px 14px; font-size: 14px; }
+    .compare-table td { padding: 11px 14px; }
+
+    .remember-box { padding: 24px 16px; border-radius: 18px; }
+    .remember-box h3 { font-size: 22px; }
+    .remember-box p { font-size: 14px; }
+
+    footer { padding: 22px 16px; font-size: 12px; }
+
+    #scroll-top-btn { bottom: 16px; right: 16px; width: 40px; height: 40px; font-size: 16px; }
+  }
+
+  @media (max-width: 400px) {
+    .when-grid { grid-template-columns: 1fr; }
+    .hero-badges { flex-direction: column; align-items: center; }
+    .formula-text { font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="dots-deco">. . .</div>
+  <h1>What is <span>Ellipsis</span>?</h1>
+  <p class="hero-sub">Learn how to skip repeated words and speak like a native! <br>Вчися пропускати слова та говорити як носій мови!</p>
+  <div class="hero-badges">
+    <span class="badge">🇬🇧 English Grammar</span>
+    <span class="badge">🇺🇦 Пояснення + Переклад</span>
+    <span class="badge">📚 Beginners Welcome</span>
+    <span class="badge">✨ Lots of Examples</span>
+  </div>
+</div>
+
+<!-- SECTION 1: WHAT IS -->
+<div class="section">
+  <div class="container">
+    <div class="section-title" style="color: var(--purple)">🤔 What Is Ellipsis?</div>
+    <p class="section-sub">Що таке еліпсис? / What is it and why do we use it?</p>
+
+    <div class="what-is-card animate">
+      <h3><span class="lang-tag en-tag">EN</span> The Simple Definition</h3>
+      <p>
+        <strong>Ellipsis</strong> is when you <strong>leave out (skip) words</strong> that are not necessary because the listener already knows what you mean. It makes speech more natural and conversations flow faster.
+      </p>
+      <h3 style="margin-top: 20px;"><span class="lang-tag ua-tag">UA</span> Просте пояснення</h3>
+      <p>
+        <strong>Еліпсис</strong> — це коли ти <strong>пропускаєш слова</strong>, які не потрібні, бо той, хто слухає, вже розуміє що ти маєш на увазі. Це робить мову більш природною й розмову — плавною та швидкою.
+      </p>
+    </div>
+
+    <div class="emoji-explain mt-20">
+      <span class="big-emoji">💬</span>
+      <div class="text">
+        <h4>Think of it like texting a friend! / Уяви, що пишеш другу SMS!</h4>
+        <p>You wouldn't write full sentences every time. You skip obvious words! — Ти ж не пишеш щоразу повні речення. Ти пропускаєш очевидні слова!</p>
+      </div>
+    </div>
+
+    <div class="diagram animate delay-1">
+      <div class="diagram-label">Full sentence (Повне речення)</div>
+      <div class="diagram-row">
+        <div class="word-normal word-chip">I</div>
+        <div class="word-normal word-chip">can</div>
+        <div class="word-normal word-chip">swim</div>
+        <div class="word-normal word-chip">and</div>
+        <div class="word-removed word-chip">he can swim too</div>
+        <div class="word-highlight word-chip">he can too.</div>
+      </div>
+      <div class="diagram-label" style="margin-top:16px">With Ellipsis (З еліпсисом)</div>
+      <div class="diagram-row">
+        <div class="word-result word-chip">I can swim</div>
+        <div class="word-normal word-chip">and</div>
+        <div class="word-result word-chip">he can too.</div>
+        <span class="diagram-arrow">✅</span>
+        <div class="word-chip" style="background:#E8F5E9; color: var(--green)">Same meaning! Той самий сенс!</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 2: FORMULA -->
+<div class="section">
+  <div class="container">
+    <div class="section-title" style="color: var(--orange)">📐 The Formula / Формула</div>
+    <p class="section-sub">How to build ellipsis / Як будувати еліпсис</p>
+
+    <div class="formula-box animate">
+      <div class="label">🔑 Golden Rule / Золоте правило</div>
+      <div class="formula-text">
+        [Full Sentence] → Remove <span class="removed">repeated / obvious words</span> → Keep <span class="kept">the important part</span>
+      </div>
+    </div>
+
+    <div class="formula-box animate delay-1" style="background: linear-gradient(135deg, #006B5B, #00A896);">
+      <div class="label">📝 Pattern (допоміжне дієслово залишається!)</div>
+      <div class="formula-text">
+        Subject₁ + Verb → Subject₂ + <span class="kept">auxiliary verb</span> [rest is dropped]<br><br>
+        <span style="font-size: 14px; opacity: 0.8;">
+          "She likes coffee and <span class="removed">he likes coffee</span> he does too." <br>→ "She likes coffee and <span class="kept">he does too.</span>"
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 3: TYPES -->
+<div class="section">
+  <div class="container">
+    <div class="section-title" style="color: var(--blue)">📋 Types of Ellipsis / Типи еліпсиса</div>
+    <p class="section-sub">There are several common types / Є кілька поширених типів</p>
+
+    <div class="types-grid">
+      <div class="type-card t1 animate">
+        <div class="type-icon">🔄</div>
+        <h3>Coordinating Ellipsis</h3>
+        <p><strong>EN:</strong> Skipping repeated verbs or phrases when connecting two clauses with "and", "but", "or".</p>
+        <p><strong>UA:</strong> Пропуск дієслів при з'єднанні речень з "and/but/or".</p>
+        <p class="mt-20"><em>"Tom plays guitar and Mary <span class="hl-purple">[plays guitar]</span> piano."</em></p>
+        <p><em>→ "Tom plays guitar and Mary piano."</em></p>
+      </div>
+
+      <div class="type-card t2 animate delay-1">
+        <div class="type-icon">🗣️</div>
+        <h3>Conversational Ellipsis</h3>
+        <p><strong>EN:</strong> In dialogue, you skip words because context makes the meaning clear.</p>
+        <p><strong>UA:</strong> У діалозі пропускаємо слова, бо контекст і так зрозумілий.</p>
+        <p class="mt-20"><em>"Are you coming?" — "<span class="hl-teal">Yes, I am</span> [coming]."</em></p>
+        <p><em>"Want some tea?" — "<span class="hl-teal">Sure!</span> [I want some tea]"</em></p>
+      </div>
+
+      <div class="type-card t3 animate delay-2">
+        <div class="type-icon">🔁</div>
+        <h3>Auxiliary (Verb Phrase) Ellipsis</h3>
+        <p><strong>EN:</strong> You keep the auxiliary verb but drop the main verb phrase.</p>
+        <p><strong>UA:</strong> Залишаємо допоміжне дієслово, але прибираємо основне.</p>
+        <p class="mt-20"><em>"Can you drive?" — "Yes, I <span class="hl-purple">can</span> [drive]."</em></p>
+        <p><em>"She hasn't called, but she <span class="hl-purple">will</span> [call]."</em></p>
+      </div>
+
+      <div class="type-card t4 animate delay-3">
+        <div class="type-icon">✂️</div>
+        <h3>Nominal / Gapping</h3>
+        <p><strong>EN:</strong> Skipping a noun or verb from the middle of a sentence.</p>
+        <p><strong>UA:</strong> Пропуск іменника або дієслова з середини речення.</p>
+        <p class="mt-20"><em>"John bought a laptop and Mary <span class="hl-red">[bought]</span> a phone."</em></p>
+        <p><em>→ "John bought a laptop and Mary a phone."</em></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 4: UNIVERSAL SENTENCE -->
+<div class="section">
+  <div class="container">
+    <div class="section-title" style="color: var(--pink)">⭐ The Universal Sentence</div>
+    <p class="section-sub">One sentence — many forms! / Одне речення — багато форм!</p>
+
+    <div class="universal-card">
+      <h3>🌟 Our Magic Sentence / Наше чарівне речення</h3>
+      <p class="sub">Watch how it changes depending on what we want to say! / Дивись, як воно змінюється залежно від того, що хочемо сказати!</p>
+
+      <div class="universal-sentence">
+        "I love playing tennis, and she <strong>does too / loves it too / can too / did too / will too</strong>."
+      </div>
+
+      <div class="variations-grid">
+        <div class="var-card">
+          <div class="var-label">✅ Present</div>
+          <div class="var-text">"I love tennis, and she <u>does too</u>."</div>
+          <div class="var-ua">Я люблю теніс, і вона теж.</div>
+        </div>
+        <div class="var-card">
+          <div class="var-label">📅 Past</div>
+          <div class="var-text">"I loved it, and she <u>did too</u>."</div>
+          <div class="var-ua">Мені подобалось, і їй теж.</div>
+        </div>
+        <div class="var-card">
+          <div class="var-label">🔮 Future</div>
+          <div class="var-text">"I'll play, and she <u>will too</u>."</div>
+          <div class="var-ua">Я гратиму, і вона теж.</div>
+        </div>
+        <div class="var-card">
+          <div class="var-label">🚫 Negative</div>
+          <div class="var-text">"I don't like it, and she <u>doesn't either</u>."</div>
+          <div class="var-ua">Мені не подобається, і їй теж ні.</div>
+        </div>
+        <div class="var-card">
+          <div class="var-label">❓ Question</div>
+          <div class="var-text">"Do you play? — Yes, I <u>do</u>."</div>
+          <div class="var-ua">Ти граєш? — Так, граю.</div>
+        </div>
+        <div class="var-card">
+          <div class="var-label">💪 Modal</div>
+          <div class="var-text">"I can play, and she <u>can too</u>."</div>
+          <div class="var-ua">Я можу грати, і вона теж.</div>
+        </div>
+        <div class="var-card">
+          <div class="var-label">🔄 Present Perfect</div>
+          <div class="var-text">"I've played, and she <u>has too</u>."</div>
+          <div class="var-ua">Я грав(ла), і вона теж.</div>
+        </div>
+        <div class="var-card">
+          <div class="var-label">😲 Emphasis</div>
+          <div class="var-text">"I love it! — So <u>do I!</u>"</div>
+          <div class="var-ua">Я обожнюю! — Я теж!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 5: LOTS OF EXAMPLES -->
+<div class="section">
+  <div class="container">
+    <div class="section-title" style="color: var(--teal)">💡 Full Examples / Багато Прикладів</div>
+    <p class="section-sub">See ellipsis in action! / Дивись еліпсис у дії!</p>
+
+    <!-- Example 1 -->
+    <div class="example-block yellow">
+      <div class="rule-badge">Type: "Too / Either"</div>
+      <div class="ex-number">Example 01 — Agreement</div>
+      <div class="sentence-full"><span class="lang-tag en-tag">FULL</span> I enjoy cooking and <span class="del">she enjoys cooking</span> she does too.</div>
+      <div class="sentence-ellipsis">✂️ "I enjoy cooking, and she <span class="dots">does too</span>."</div>
+      <div class="sentence-full"><span class="lang-tag en-tag">FULL</span> He doesn't like horror movies and <span class="del">she doesn't like horror movies</span> she doesn't either.</div>
+      <div class="sentence-ellipsis">✂️ "He doesn't like horror movies, and she <span class="dots">doesn't either</span>."</div>
+      <div class="translation">🇺🇦 Я люблю готувати, і вона теж. | Він не любить жахи, і вона теж (ні).</div>
+    </div>
+
+    <!-- Example 2 -->
+    <div class="example-block blue">
+      <div class="rule-badge">Type: Dialogue / Short Answers</div>
+      <div class="ex-number">Example 02 — Conversations</div>
+      <div class="sentence-full"><span class="lang-tag en-tag">Q:</span> "Are you hungry?"</div>
+      <div class="sentence-ellipsis">🗣️ "Yes, I <span class="dots">am</span>." (not "Yes, I am hungry.")</div>
+      <div class="sentence-full"><span class="lang-tag en-tag">Q:</span> "Can you speak French?"</div>
+      <div class="sentence-ellipsis">🗣️ "No, I <span class="dots">can't</span>." (not "No, I can't speak French.")</div>
+      <div class="sentence-full"><span class="lang-tag en-tag">Q:</span> "Have you been to Paris?"</div>
+      <div class="sentence-ellipsis">🗣️ "Yes, I <span class="dots">have</span>." (not "Yes, I have been to Paris.")</div>
+      <div class="translation">🇺🇦 Ти голодний? — Так. | Говориш по-французьки? — Ні. | Був у Парижі? — Так.</div>
+    </div>
+
+    <!-- Example 3 -->
+    <div class="example-block pink">
+      <div class="rule-badge">Type: Gapping</div>
+      <div class="ex-number">Example 03 — Gapping (Middle word removed)</div>
+      <div class="sentence-full"><span class="lang-tag en-tag">FULL</span> Tom ordered pizza and Anna <span class="del">ordered</span> pasta.</div>
+      <div class="sentence-ellipsis">✂️ "Tom ordered pizza and Anna <span class="dots">—</span> pasta."</div>
+      <div class="sentence-full"><span class="lang-tag en-tag">FULL</span> Dad drives to work and Mum <span class="del">drives</span> to school.</div>
+      <div class="sentence-ellipsis">✂️ "Dad drives to work and Mum <span class="dots">to school</span>."</div>
+      <div class="translation">🇺🇦 Том замовив піцу, а Анна — пасту. | Тато їде на роботу, мама — до школи.</div>
+    </div>
+
+    <!-- Example 4 -->
+    <div class="example-block teal">
+      <div class="rule-badge">Type: So do I / Neither do I</div>
+      <div class="ex-number">Example 04 — "So" and "Neither"</div>
+      <div class="sentence-ellipsis">💬 "I love pizza." — "So <span class="dots">do I!</span>" (= I love pizza too)</div>
+      <div class="sentence-ellipsis">💬 "I'm tired." — "So <span class="dots">am I.</span>" (= I'm tired too)</div>
+      <div class="sentence-ellipsis">💬 "I don't want to go." — "Neither <span class="dots">do I.</span>" (= I don't want to go either)</div>
+      <div class="sentence-ellipsis">💬 "I can't swim." — "Neither <span class="dots">can I.</span>" (= I can't swim either)</div>
+      <div class="translation">🇺🇦 Я люблю піцу. — Я теж! | Я втомився. — Я теж. | Я не хочу йти. — Я теж ні. | Я не вмію плавати. — Я теж.</div>
+    </div>
+
+    <!-- Example 5 -->
+    <div class="example-block orange">
+      <div class="rule-badge">Type: To-infinitive Ellipsis</div>
+      <div class="ex-number">Example 05 — Keeping "to"</div>
+      <div class="sentence-full"><span class="lang-tag en-tag">FULL</span> "Did you call her?" — "I meant <span class="del">to call her</span> to."</div>
+      <div class="sentence-ellipsis">✂️ "I meant <span class="dots">to</span>. But I forgot."</div>
+      <div class="sentence-full"><span class="lang-tag en-tag">FULL</span> "Come to the party!" — "I'd love <span class="del">to come to the party</span> to."</div>
+      <div class="sentence-ellipsis">✂️ "I'd love <span class="dots">to</span>, but I'm busy!"</div>
+      <div class="sentence-full"><span class="lang-tag en-tag">FULL</span> "Are you going to study?" — "I have <span class="del">to study</span> to."</div>
+      <div class="sentence-ellipsis">✂️ "I have <span class="dots">to</span>, unfortunately."</div>
+      <div class="translation">🇺🇦 Я збирався (зателефонувати). Але забув. | Залюбки (прийшов би), але зайнятий! | Треба (вчитися), на жаль.</div>
+    </div>
+
+    <!-- Example 6 -->
+    <div class="example-block green">
+      <div class="rule-badge">Type: Comparative Ellipsis</div>
+      <div class="ex-number">Example 06 — Comparisons</div>
+      <div class="sentence-full"><span class="lang-tag en-tag">FULL</span> "He runs faster than <span class="del">she runs</span> she does."</div>
+      <div class="sentence-ellipsis">✂️ "He runs faster than she <span class="dots">does</span>."</div>
+      <div class="sentence-full"><span class="lang-tag en-tag">FULL</span> "This coffee is better than <span class="del">that coffee was</span> that was."</div>
+      <div class="sentence-ellipsis">✂️ "This coffee is better than that <span class="dots">was</span>."</div>
+      <div class="translation">🇺🇦 Він бігає швидше, ніж вона. | Ця кава краща за ту.</div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 6: PHRASAL VERBS -->
+<div class="section">
+  <div class="container">
+    <div class="section-title" style="color: var(--purple)">🚀 Phrasal Verbs with Ellipsis</div>
+    <p class="section-sub">Фразові дієслова + еліпсис — на всі випадки життя! / For every situation in life!</p>
+
+    <div class="pv-grid">
+
+      <!-- Daily Life -->
+      <div class="pv-card c1">
+        <div class="pv-verb">🌅 wake up / get up</div>
+        <div class="pv-meaning">прокинутися / встати</div>
+        <div class="pv-example">
+          <div class="full">❝ I always wake up early and my sister does too. ❞</div>
+          <div class="short">→ I wake up early, and my sister <u>does too</u>.</div>
+          <div class="ua">Я встаю рано, і моя сестра теж.</div>
+        </div>
+      </div>
+
+      <div class="pv-card c2">
+        <div class="pv-verb">🍳 eat out</div>
+        <div class="pv-meaning">їсти поза домом</div>
+        <div class="pv-example">
+          <div class="full">❝ Do you eat out often? — Yes, I do. ❞</div>
+          <div class="short">→ "Yes, I <u>do</u>." (not "Yes, I eat out often.")</div>
+          <div class="ua">Ти часто їси поза домом? — Так.</div>
+        </div>
+      </div>
+
+      <div class="pv-card c3">
+        <div class="pv-verb">🧹 tidy up / clean up</div>
+        <div class="pv-meaning">прибрати</div>
+        <div class="pv-example">
+          <div class="full">❝ I tidied up my room and he cleaned up his. ❞</div>
+          <div class="short">→ "I tidied up my room and he <u>[tidied up]</u> his."</div>
+          <div class="ua">Я прибрав(ла) кімнату, а він — свою.</div>
+        </div>
+      </div>
+
+      <div class="pv-card c4">
+        <div class="pv-verb">📺 turn on / switch off</div>
+        <div class="pv-meaning">увімкнути / вимкнути</div>
+        <div class="pv-example">
+          <div class="full">❝ Can you turn on the TV? — Sure, I will. ❞</div>
+          <div class="short">→ "Sure, I <u>will</u>." (not "I will turn it on.")</div>
+          <div class="ua">Можеш увімкнути телевізор? — Звичайно.</div>
+        </div>
+      </div>
+
+      <div class="pv-card c5">
+        <div class="pv-verb">🏃 give up</div>
+        <div class="pv-meaning">кинути/припинити щось</div>
+        <div class="pv-example">
+          <div class="full">❝ I gave up sugar and my brother did too. ❞</div>
+          <div class="short">→ "I gave up sugar and he <u>did too</u>."</div>
+          <div class="ua">Я відмовився від цукру, і брат теж.</div>
+        </div>
+      </div>
+
+      <div class="pv-card c6">
+        <div class="pv-verb">📚 keep up with</div>
+        <div class="pv-meaning">йти в ногу з / стежити</div>
+        <div class="pv-example">
+          <div class="full">❝ Do you keep up with the news? — Yes, I try to. ❞</div>
+          <div class="short">→ "Yes, I try <u>to</u>." (= to keep up with it)</div>
+          <div class="ua">Стежиш за новинами? — Намагаюсь.</div>
+        </div>
+      </div>
+
+      <div class="pv-card c1">
+        <div class="pv-verb">👀 look after</div>
+        <div class="pv-meaning">доглядати / слідкувати</div>
+        <div class="pv-example">
+          <div class="full">❝ She looks after the kids and I do too. ❞</div>
+          <div class="short">→ "She looks after the kids and I <u>do too</u>."</div>
+          <div class="ua">Вона доглядає за дітьми, і я теж.</div>
+        </div>
+      </div>
+
+      <div class="pv-card c2">
+        <div class="pv-verb">💪 work out</div>
+        <div class="pv-meaning">тренуватися</div>
+        <div class="pv-example">
+          <div class="full">❝ I work out every day. — So does my coach! ❞</div>
+          <div class="short">→ "So <u>does</u> my coach!" (= My coach works out every day too)</div>
+          <div class="ua">Я тренуюсь щодня. — Мій тренер теж!</div>
+        </div>
+      </div>
+
+      <div class="pv-card c3">
+        <div class="pv-verb">📱 call back</div>
+        <div class="pv-meaning">передзвонити</div>
+        <div class="pv-example">
+          <div class="full">❝ Did you call back? — No, I forgot to. ❞</div>
+          <div class="short">→ "I forgot <u>to</u>." (= to call back)</div>
+          <div class="ua">Ти передзвонив? — Ні, забув(ла).</div>
+        </div>
+      </div>
+
+      <div class="pv-card c4">
+        <div class="pv-verb">🎵 chill out / hang out</div>
+        <div class="pv-meaning">розслабитись / тусуватись</div>
+        <div class="pv-example">
+          <div class="full">❝ I love chilling out on weekends. — So do I! ❞</div>
+          <div class="short">→ "<u>So do I!</u>" (= I love it too)</div>
+          <div class="ua">Я обожнюю відпочивати на вихідних. — Я теж!</div>
+        </div>
+      </div>
+
+      <div class="pv-card c5">
+        <div class="pv-verb">🛑 put off / postpone</div>
+        <div class="pv-meaning">відкласти</div>
+        <div class="pv-example">
+          <div class="full">❝ She always puts off homework. — So does her brother. ❞</div>
+          <div class="short">→ "<u>So does</u> her brother." (= He puts it off too)</div>
+          <div class="ua">Вона завжди відкладає домашнє. — Її брат теж.</div>
+        </div>
+      </div>
+
+      <div class="pv-card c6">
+        <div class="pv-verb">🔍 find out</div>
+        <div class="pv-meaning">дізнатися</div>
+        <div class="pv-example">
+          <div class="full">❝ Have you found out the answer? — Not yet. ❞</div>
+          <div class="short">→ "<u>Not yet.</u>" (= I haven't found out yet)</div>
+          <div class="ua">Ти дізнався відповідь? — Ще ні.</div>
+        </div>
+      </div>
+
+      <div class="pv-card c1">
+        <div class="pv-verb">✈️ take off / set off</div>
+        <div class="pv-meaning">злетіти / вирушити</div>
+        <div class="pv-example">
+          <div class="full">❝ When does the plane take off? — At 6. ❞</div>
+          <div class="short">→ "<u>At 6.</u>" (= It takes off at 6)</div>
+          <div class="ua">Коли злітає літак? — О 6-й.</div>
+        </div>
+      </div>
+
+      <div class="pv-card c2">
+        <div class="pv-verb">🤝 get along (with)</div>
+        <div class="pv-meaning">ладнати з кимось</div>
+        <div class="pv-example">
+          <div class="full">❝ Do you get along with your boss? — I try to. ❞</div>
+          <div class="short">→ "I try <u>to</u>." (= to get along with them)</div>
+          <div class="ua">Ти ладнаєш з босом? — Намагаюсь.</div>
+        </div>
+      </div>
+
+      <div class="pv-card c3">
+        <div class="pv-verb">🧠 come up with</div>
+        <div class="pv-meaning">придумати / знайти рішення</div>
+        <div class="pv-example">
+          <div class="full">❝ Did she come up with a plan? — Yes, she did! ❞</div>
+          <div class="short">→ "Yes, she <u>did</u>!" (= came up with a plan)</div>
+          <div class="ua">Вона придумала план? — Так!</div>
+        </div>
+      </div>
+
+      <div class="pv-card c4">
+        <div class="pv-verb">😊 cheer up</div>
+        <div class="pv-meaning">підбадьоритись</div>
+        <div class="pv-example">
+          <div class="full">❝ He cheered up after the news and she did too. ❞</div>
+          <div class="short">→ "He cheered up and she <u>did too</u>."</div>
+          <div class="ua">Він підбадьорився після новин, і вона теж.</div>
+        </div>
+      </div>
+
+      <div class="pv-card c5">
+        <div class="pv-verb">💔 break up</div>
+        <div class="pv-meaning">розлучитися</div>
+        <div class="pv-example">
+          <div class="full">❝ Did they break up? — I think so. ❞</div>
+          <div class="short">→ "I think <u>so</u>." (= they broke up)</div>
+          <div class="ua">Вони розійшлися? — Здається, так.</div>
+        </div>
+      </div>
+
+      <div class="pv-card c6">
+        <div class="pv-verb">🏠 move in / move out</div>
+        <div class="pv-meaning">переїхати в / виїхати</div>
+        <div class="pv-example">
+          <div class="full">❝ She moved out last month and he did too. ❞</div>
+          <div class="short">→ "She moved out and he <u>did too</u>."</div>
+          <div class="ua">Вона виїхала минулого місяця, і він теж.</div>
+        </div>
+      </div>
+
+      <div class="pv-card c1">
+        <div class="pv-verb">🎉 show up / turn up</div>
+        <div class="pv-meaning">з'явитись</div>
+        <div class="pv-example">
+          <div class="full">❝ Did everyone show up? — Most did. ❞</div>
+          <div class="short">→ "Most <u>did</u>." (= most showed up)</div>
+          <div class="ua">Усі з'явились? — Більшість.</div>
+        </div>
+      </div>
+
+      <div class="pv-card c2">
+        <div class="pv-verb">😤 fall out (with)</div>
+        <div class="pv-meaning">посваритися з кимось</div>
+        <div class="pv-example">
+          <div class="full">❝ I fell out with him and so did my friend. ❞</div>
+          <div class="short">→ "…and so <u>did</u> my friend."</div>
+          <div class="ua">Я посварився з ним, і мій друг теж.</div>
+        </div>
+      </div>
+
+      <div class="pv-card c3">
+        <div class="pv-verb">🎓 drop out</div>
+        <div class="pv-meaning">кинути навчання</div>
+        <div class="pv-example">
+          <div class="full">❝ Did he drop out? — I hope not. ❞</div>
+          <div class="short">→ "I hope <u>not</u>." (= he didn't drop out)</div>
+          <div class="ua">Він кинув навчання? — Сподіваюсь, ні.</div>
+        </div>
+      </div>
+
+      <div class="pv-card c4">
+        <div class="pv-verb">💡 figure out</div>
+        <div class="pv-meaning">розібратися / зрозуміти</div>
+        <div class="pv-example">
+          <div class="full">❝ I couldn't figure it out. — Neither could I. ❞</div>
+          <div class="short">→ "Neither <u>could I</u>." (= I couldn't figure it out either)</div>
+          <div class="ua">Я не міг розібратись. — Я теж не міг.</div>
+        </div>
+      </div>
+
+      <div class="pv-card c5">
+        <div class="pv-verb">😴 lie in / sleep in</div>
+        <div class="pv-meaning">поніжитись у ліжку</div>
+        <div class="pv-example">
+          <div class="full">❝ I slept in this morning. — So did I! ❞</div>
+          <div class="short">→ "<u>So did I!</u>"</div>
+          <div class="ua">Я сьогодні понежився. — Я теж!</div>
+        </div>
+      </div>
+
+      <div class="pv-card c6">
+        <div class="pv-verb">🚪 check in / check out</div>
+        <div class="pv-meaning">зареєструватись / виїхати з готелю</div>
+        <div class="pv-example">
+          <div class="full">❝ Have you checked in yet? — Not yet. ❞</div>
+          <div class="short">→ "<u>Not yet.</u>"</div>
+          <div class="ua">Ти вже зареєструвався? — Ще ні.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 7: WHEN TO USE -->
+<div class="section">
+  <div class="container">
+    <div class="section-title" style="color: var(--green)">🕐 When to Use Ellipsis?</div>
+    <p class="section-sub">Коли використовувати еліпсис? / Use it when...</p>
+
+    <div class="when-grid">
+      <div class="when-card w1">
+        <div class="when-icon">💬</div>
+        <h4>Daily Conversations</h4>
+        <p>In everyday talks when repeating everything sounds robotic.</p>
+        <p style="font-size:11px; margin-top:6px;">🇺🇦 У щоденних розмовах, щоб не звучати як робот.</p>
+      </div>
+      <div class="when-card w2">
+        <div class="when-icon">✍️</div>
+        <h4>Written Answers</h4>
+        <p>Short answers in tests, messages, emails, and notes.</p>
+        <p style="font-size:11px; margin-top:6px;">🇺🇦 Короткі відповіді в тестах, повідомленнях.</p>
+      </div>
+      <div class="when-card w3">
+        <div class="when-icon">🤝</div>
+        <h4>Agreeing / Disagreeing</h4>
+        <p>When showing you share the same opinion or feeling.</p>
+        <p style="font-size:11px; margin-top:6px;">🇺🇦 Коли погоджуєшся або не погоджуєшся.</p>
+      </div>
+      <div class="when-card w4">
+        <div class="when-icon">📖</div>
+        <h4>Storytelling</h4>
+        <p>To make stories flow naturally without repetition.</p>
+        <p style="font-size:11px; margin-top:6px;">🇺🇦 Щоб розповідь звучала природньо.</p>
+      </div>
+      <div class="when-card w5">
+        <div class="when-icon">🔄</div>
+        <h4>Comparisons</h4>
+        <p>When comparing two things or people.</p>
+        <p style="font-size:11px; margin-top:6px;">🇺🇦 Коли порівнюєш дві речі або людей.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 8: RULES -->
+<div class="section">
+  <div class="container">
+    <div class="section-title" style="color: var(--yellow)">📌 Key Rules / Головні Правила</div>
+    <p class="section-sub">Remember these and you'll never go wrong! / Запам'ятай — і не помилишся!</p>
+
+    <div class="infographic animate">
+      <div class="info-title">🔑 The 5 Rules of Ellipsis / 5 Правил Еліпсиса</div>
+      <div class="rules-list">
+        <div class="rule-item">
+          <div class="rule-num r1">1</div>
+          <div class="rule-content">
+            <h4>Only skip what's already understood / Пропускай тільки те, що вже зрозуміло</h4>
+            <p>The listener must already know the missing words from context. Never skip words that are necessary for meaning!</p>
+            <p style="font-size:12px; opacity:0.6; margin-top:4px;">🇺🇦 Слухач повинен вже розуміти слова з контексту. Не пропускай слова, потрібні для розуміння!</p>
+            <div class="ex">✅ "She can swim and he can [swim] too." → He can too. ✓</div>
+          </div>
+        </div>
+        <div class="rule-item">
+          <div class="rule-num r2">2</div>
+          <div class="rule-content">
+            <h4>Keep the auxiliary verb! / Залишай допоміжне дієслово!</h4>
+            <p>In most ellipsis patterns, you MUST keep the auxiliary (do, does, did, can, will, have, is, are…)</p>
+            <p style="font-size:12px; opacity:0.6; margin-top:4px;">🇺🇦 Завжди залишай допоміжне дієслово!</p>
+            <div class="ex">✅ "I love it, and she does too." NOT ~~"she loves too"~~</div>
+          </div>
+        </div>
+        <div class="rule-item">
+          <div class="rule-num r3">3</div>
+          <div class="rule-content">
+            <h4>Negative → use "either" or "neither" / Заперечення → "either" або "neither"</h4>
+            <p>When the first sentence is negative, use "either" (not "too") or flip to "neither + aux verb"</p>
+            <p style="font-size:12px; opacity:0.6; margin-top:4px;">🇺🇦 Якщо перше речення заперечне — використовуй "either" або "neither".</p>
+            <div class="ex">✅ "I don't like it." → "Neither do I." / "I don't either."</div>
+          </div>
+        </div>
+        <div class="rule-item">
+          <div class="rule-num r4">4</div>
+          <div class="rule-content">
+            <h4>Match the tense! / Відповідай часу!</h4>
+            <p>The auxiliary verb you keep must match the tense of the original sentence.</p>
+            <p style="font-size:12px; opacity:0.6; margin-top:4px;">🇺🇦 Час допоміжного дієслова має відповідати оригіналу.</p>
+            <div class="ex">✅ Past: "She went" → "He did too." | Future: "She'll go" → "He will too."</div>
+          </div>
+        </div>
+        <div class="rule-item">
+          <div class="rule-num r5">5</div>
+          <div class="rule-content">
+            <h4>In "to-infinitive" — keep "to" / Із "to-інфінітивом" — залишай "to"</h4>
+            <p>When skipping an infinitive verb, always keep the word "to" — it's a placeholder.</p>
+            <p style="font-size:12px; opacity:0.6; margin-top:4px;">🇺🇦 Якщо скорочуємо інфінітив, завжди залишаємо слово "to".</p>
+            <div class="ex">✅ "I wanted to call you." → "I meant to." | "I'd love to [come]."</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 9: COMPARISON TABLE -->
+<div class="section">
+  <div class="container">
+    <div class="section-title" style="color: var(--blue)">📊 Full vs Short / Повне vs Скорочене</div>
+    <p class="section-sub">See the difference at a glance! / Побач різницю одразу!</p>
+
+    <div class="table-wrapper">
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>❌ Too long (Занадто довго)</th>
+          <th>✅ With Ellipsis (З еліпсисом)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="full-sent">I am going to the park and she is going to the park too.</span></td>
+          <td><span class="short-sent">I'm going to the park and she is too.</span></td>
+        </tr>
+        <tr>
+          <td><span class="full-sent">Did you eat? — Yes, I did eat.</span></td>
+          <td><span class="short-sent">Did you eat? — Yes, I did.</span></td>
+        </tr>
+        <tr>
+          <td><span class="full-sent">He can speak Spanish and she can speak Spanish too.</span></td>
+          <td><span class="short-sent">He can speak Spanish and she can too.</span></td>
+        </tr>
+        <tr>
+          <td><span class="full-sent">I don't want pizza. — I don't want pizza either.</span></td>
+          <td><span class="short-sent">I don't want pizza. — Neither do I.</span></td>
+        </tr>
+        <tr>
+          <td><span class="full-sent">Have you been to London? — Yes, I have been to London.</span></td>
+          <td><span class="short-sent">Have you been to London? — Yes, I have.</span></td>
+        </tr>
+        <tr>
+          <td><span class="full-sent">I wanted to call you but I forgot to call you.</span></td>
+          <td><span class="short-sent">I wanted to call but forgot to.</span></td>
+        </tr>
+        <tr>
+          <td><span class="full-sent">John bought flowers and Mary bought chocolates.</span></td>
+          <td><span class="short-sent">John bought flowers and Mary chocolates.</span></td>
+        </tr>
+        <tr>
+          <td><span class="full-sent">She will come tomorrow. — I hope she will come tomorrow.</span></td>
+          <td><span class="short-sent">She will come tomorrow. — I hope she will.</span></td>
+        </tr>
+      </tbody>
+    </table>
+    </div><!-- end table-wrapper -->
+  </div>
+</div>
+<div class="section">
+  <div class="container">
+    <div class="remember-box">
+      <h3>🌟 Remember / Запам'ятай!</h3>
+      <p>Ellipsis makes your English sound <strong>natural, fluent and native!</strong></p>
+      <p>Еліпсис робить твою англійську <strong>природньою, плавною та схожою на носія мови!</strong></p>
+      <p style="margin-top:16px; font-size:14px; opacity:0.8;">The more you use it, the more confident you'll sound. Practice with a friend! 🎉<br>
+      Чим більше ти його використовуєш, тим впевненіше звучатимеш. Практикуйся з другом!</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  Made with <span>❤️</span> for English learners / для учнів англійської &nbsp;·&nbsp; <span>Ellipsis Guide 2024</span>
+</footer>
+
+<script>
+  // Animate elements as they enter viewport
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.type-card, .pv-card, .example-block, .when-card, .var-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+</script>
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+</body>
+</html>

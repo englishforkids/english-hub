@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Talking About History in English 📜</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fdf6ec;
+    --brown: #6b3f1a;
+    --amber: #e8a020;
+    --amber-light: #ffd07a;
+    --red: #c94040;
+    --teal: #1a8c8c;
+    --teal-light: #b2e8e8;
+    --blue: #2a62b0;
+    --blue-light: #d0e4ff;
+    --green: #3a8c5a;
+    --green-light: #c6f0d6;
+    --purple: #7040a0;
+    --purple-light: #e4d0ff;
+    --text: #2e1a0e;
+    --card-shadow: 0 6px 24px rgba(107,63,26,0.13);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, #6b3f1a 0%, #c94040 50%, #e8a020 100%);
+    padding: 60px 20px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-emoji { font-size: 72px; display: block; margin-bottom: 12px; animation: bounce 2s infinite; }
+  @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+
+  .hero h1 {
+    font-family: 'Fredoka One', sans-serif;
+    font-size: clamp(2rem, 6vw, 3.6rem);
+    color: #fff;
+    text-shadow: 3px 3px 0 rgba(0,0,0,0.25);
+    line-height: 1.1;
+    margin-bottom: 10px;
+  }
+  .hero .subtitle {
+    font-size: clamp(1rem, 3vw, 1.25rem);
+    color: #ffe9b8;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+
+  /* ── LAYOUT ── */
+  .container { max-width: 900px; margin: 0 auto; padding: 0 18px; }
+
+  section { padding: 48px 0 32px; }
+  section + section { border-top: 3px dashed var(--amber-light); }
+
+  .section-title {
+    font-family: 'Fredoka One', sans-serif;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .section-title .icon { font-size: 1.7em; }
+
+  /* ── INTRO BANNER ── */
+  .intro-banner {
+    background: linear-gradient(120deg, var(--teal) 0%, var(--blue) 100%);
+    border-radius: 20px;
+    padding: 28px 32px;
+    color: #fff;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin: 32px 0;
+    box-shadow: var(--card-shadow);
+  }
+  @media(max-width:600px){.intro-banner{grid-template-columns:1fr;}}
+  .intro-banner h2 { font-family:'Fredoka One',sans-serif; font-size:1.4rem; margin-bottom:8px; }
+  .intro-banner p { font-size:.97rem; line-height:1.6; opacity:.93; }
+  .lang-tag {
+    display:inline-block;
+    background:rgba(255,255,255,0.25);
+    border-radius:30px;
+    padding:2px 12px;
+    font-size:.82rem;
+    font-weight:700;
+    letter-spacing:.04em;
+    margin-bottom:6px;
+  }
+  .en-tag { background:#e8a020; color:#fff; }
+  .uk-tag { background:#1a6b9a; color:#fff; }
+
+  /* ── CARDS GRID ── */
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
+
+  .card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 22px 20px;
+    box-shadow: var(--card-shadow);
+    border-top: 5px solid var(--amber);
+    transition: transform .2s, box-shadow .2s;
+    cursor: default;
+  }
+  .card:hover { transform: translateY(-5px); box-shadow: 0 12px 32px rgba(107,63,26,0.18); }
+  .card.teal  { border-color: var(--teal); }
+  .card.red   { border-color: var(--red); }
+  .card.blue  { border-color: var(--blue); }
+  .card.green { border-color: var(--green); }
+  .card.purple{ border-color: var(--purple); }
+
+  .card-icon { font-size: 2.4rem; margin-bottom: 8px; display: block; }
+  .card h3 { font-family:'Fredoka One',sans-serif; font-size:1.2rem; margin-bottom:6px; }
+  .card .en { color: #1a1a1a; font-weight:700; font-size:.97rem; }
+  .card .uk { color: #6b6b8f; font-size:.88rem; margin-top:3px; }
+
+  /* ── PHRASES TABLE ── */
+  .phrases-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+  }
+  .phrases-table thead tr {
+    background: linear-gradient(90deg, var(--brown), var(--red));
+    color: #fff;
+  }
+  .phrases-table th { padding: 14px 18px; text-align: left; font-family:'Fredoka One',sans-serif; font-size:1.05rem; }
+  .phrases-table td { padding: 12px 18px; font-size:.95rem; line-height:1.5; vertical-align:top; }
+  .phrases-table tr:nth-child(even) td { background: #fff8f0; }
+  .phrases-table tr:hover td { background: var(--amber-light); transition:.15s; }
+  .uk-cell { color: #5a5a7a; font-size:.88rem; }
+  .example-cell { color: #1a6b3a; font-style: italic; font-size:.88rem; }
+
+  /* ── TIMELINE ── */
+  .timeline { position:relative; padding-left: 36px; }
+  .timeline::before {
+    content:'';
+    position:absolute;
+    left:14px; top:0; bottom:0;
+    width:4px;
+    background: linear-gradient(to bottom, var(--amber), var(--red), var(--teal));
+    border-radius:4px;
+  }
+  .tl-item { position:relative; margin-bottom:28px; }
+  .tl-dot {
+    position:absolute;
+    left:-30px; top:6px;
+    width:20px; height:20px;
+    border-radius:50%;
+    background: var(--amber);
+    border:3px solid #fff;
+    box-shadow:0 0 0 3px var(--amber);
+  }
+  .tl-item:nth-child(2) .tl-dot { background:var(--red); box-shadow:0 0 0 3px var(--red); }
+  .tl-item:nth-child(3) .tl-dot { background:var(--teal); box-shadow:0 0 0 3px var(--teal); }
+  .tl-item:nth-child(4) .tl-dot { background:var(--blue); box-shadow:0 0 0 3px var(--blue); }
+  .tl-item:nth-child(5) .tl-dot { background:var(--green); box-shadow:0 0 0 3px var(--green); }
+
+  .tl-card {
+    background:#fff;
+    border-radius:14px;
+    padding:16px 20px;
+    box-shadow:var(--card-shadow);
+  }
+  .tl-card .en-phrase { font-weight:700; font-size:1.05rem; color:var(--brown); }
+  .tl-card .uk-phrase { font-size:.88rem; color:#6b6b8f; margin:3px 0 8px; }
+  .tl-card .example { background:#fff8f0; border-left:4px solid var(--amber); padding:8px 12px; border-radius:6px; font-size:.9rem; color:#2e1a0e; }
+
+  /* ── INFOGRAPHIC BOXES ── */
+  .info-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:16px; }
+  .info-box {
+    background:#fff;
+    border-radius:16px;
+    padding:20px 16px;
+    text-align:center;
+    box-shadow:var(--card-shadow);
+    transition:transform .2s;
+  }
+  .info-box:hover { transform:scale(1.04); }
+  .info-box .big-num {
+    font-family:'Fredoka One',sans-serif;
+    font-size:2.5rem;
+    line-height:1;
+    margin-bottom:6px;
+  }
+  .info-box p { font-size:.9rem; line-height:1.4; }
+  .info-box .uk-small { font-size:.8rem; color:#888; margin-top:4px; }
+
+  /* ── DIALOGUE ── */
+  .dialogue { display:flex; flex-direction:column; gap:14px; }
+  .bubble {
+    max-width:75%;
+    padding:14px 18px;
+    border-radius:20px;
+    font-size:.97rem;
+    line-height:1.55;
+    position:relative;
+    box-shadow:0 3px 10px rgba(0,0,0,0.09);
+  }
+  .bubble .speaker { font-family:'Fredoka One',sans-serif; font-size:.85rem; margin-bottom:5px; opacity:.7; }
+  .bubble .uk-small { font-size:.82rem; color:rgba(0,0,0,0.5); margin-top:5px; font-style:italic; }
+  .bubble.left  { background:var(--blue-light); border-bottom-left-radius:4px; align-self:flex-start; }
+  .bubble.right { background:var(--green-light); border-bottom-right-radius:4px; align-self:flex-end; }
+
+  /* ── WORD CLOUDS ── */
+  .word-wrap { display:flex; flex-wrap:wrap; gap:10px; }
+  .word-chip {
+    display:inline-flex;
+    flex-direction:column;
+    background:#fff;
+    border-radius:30px;
+    padding:8px 18px;
+    box-shadow:var(--card-shadow);
+    font-size:.9rem;
+    transition:transform .15s, background .15s;
+    cursor:default;
+    border:2px solid transparent;
+  }
+  .word-chip:hover { transform:scale(1.07); background:var(--amber-light); border-color:var(--amber); }
+  .word-chip .en-w { font-weight:700; color:var(--brown); }
+  .word-chip .uk-w { font-size:.75rem; color:#888; }
+
+  /* ── TIP BOXES ── */
+  .tip-box {
+    background:linear-gradient(120deg,#fff8e8,#fff0f0);
+    border:2px solid var(--amber);
+    border-radius:16px;
+    padding:20px 24px;
+    display:flex;
+    gap:14px;
+    align-items:flex-start;
+    margin: 20px 0;
+    box-shadow:var(--card-shadow);
+  }
+  .tip-box .tip-icon { font-size:2rem; flex-shrink:0; }
+  .tip-box p { font-size:.96rem; line-height:1.6; }
+  .tip-box strong { color:var(--brown); }
+
+  /* ── QUIZ ── */
+  .quiz-box {
+    background:#fff;
+    border-radius:20px;
+    padding:28px;
+    box-shadow:var(--card-shadow);
+    border-top:5px solid var(--purple);
+  }
+  .quiz-q { font-weight:700; font-size:1.05rem; margin-bottom:14px; }
+  .quiz-options { display:flex; flex-direction:column; gap:10px; }
+  .quiz-btn {
+    padding:12px 18px;
+    border:2px solid #ddd;
+    border-radius:12px;
+    background:#fff;
+    cursor:pointer;
+    font-family:'Nunito',sans-serif;
+    font-size:.97rem;
+    text-align:left;
+    transition:all .2s;
+  }
+  .quiz-btn:hover { background:var(--purple-light); border-color:var(--purple); }
+  .quiz-btn.correct { background:#c6f0d6; border-color:var(--green); color:var(--green); }
+  .quiz-btn.wrong   { background:#ffe0e0; border-color:var(--red); color:var(--red); }
+  .quiz-feedback { margin-top:14px; font-weight:700; font-size:1rem; min-height:24px; }
+
+  /* ── FOOTER ── */
+  footer {
+    background:var(--brown);
+    color:#ffe9b8;
+    text-align:center;
+    padding:28px 20px;
+    font-size:.9rem;
+    margin-top:40px;
+  }
+  footer strong { color:var(--amber-light); }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal { opacity:0; transform:translateY(30px); transition:opacity .6s, transform .6s; }
+  .reveal.visible { opacity:1; transform:translateY(0); }
+
+  /* ── RESPONSIVE / MOBILE ── */
+
+  /* Wrap tables so they scroll horizontally on small screens */
+  .table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 18px;
+    box-shadow: var(--card-shadow);
+  }
+  .table-wrap .phrases-table {
+    box-shadow: none;
+    min-width: 520px;
+  }
+
+  @media(max-width: 700px){
+    .container { padding: 0 12px; }
+
+    /* Hero */
+    .hero { padding: 40px 16px 56px; }
+    .hero-emoji { font-size: 52px; }
+
+    /* Intro banner — stack vertically */
+    .intro-banner {
+      grid-template-columns: 1fr;
+      padding: 20px 18px;
+      gap: 16px;
+    }
+
+    /* Cards — single column */
+    .cards { grid-template-columns: 1fr; }
+
+    /* Info grid — 2 columns */
+    .info-grid { grid-template-columns: 1fr 1fr; }
+
+    /* Timeline */
+    .timeline { padding-left: 28px; }
+    .tl-dot { left: -22px; }
+
+    /* Word chips — tighter */
+    .word-chip { padding: 6px 14px; }
+
+    /* Dialogue bubbles — wider */
+    .bubble { max-width: 90%; }
+
+    /* Tip box */
+    .tip-box { padding: 16px 14px; gap: 10px; }
+    .tip-box .tip-icon { font-size: 1.6rem; }
+
+    /* Quiz */
+    .quiz-box { padding: 18px 14px; }
+
+    /* Section title */
+    .section-title { font-size: 1.35rem; }
+
+    /* Table font */
+    .phrases-table th, .phrases-table td { font-size: .82rem; padding: 10px 12px; }
+  }
+
+  @media(max-width: 400px){
+    .info-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 1.7rem; }
+    .bubble { max-width: 96%; font-size: .88rem; }
+    .word-chip { font-size: .82rem; }
+  }
+
+  #scroll-top-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #1a1208;
+    border: 1.5px solid rgba(200,150,62,0.4);
+    color: #f5f0e8;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+    pointer-events: none;
+    z-index: 9998;
+  }
+  #scroll-top-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  #scroll-top-btn:hover {
+    background: #c8963e;
+    border-color: #c8963e;
+    color: #1a1208;
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <span class="hero-emoji">📜</span>
+  <h1>Talking About History<br>in English</h1>
+  <p class="subtitle">Learn how to speak & write about the past!<br>
+  <em style="font-size:.9em;opacity:.8">Вивчи, як говорити й писати про минуле англійською!</em></p>
+</header>
+
+<div class="container">
+
+  <!-- WHY SECTION -->
+  <section class="reveal">
+    <div class="section-title"><span class="icon">🤔</span> Why learn this? / Навіщо це вчити?</div>
+    <div class="intro-banner">
+      <div>
+        <span class="lang-tag en-tag">EN</span>
+        <h2>What is "talking about history"?</h2>
+        <p>When we talk about history, we describe events that happened in the past — wars, discoveries, famous people, inventions. You need special words and phrases to do it correctly in English!</p>
+      </div>
+      <div>
+        <span class="lang-tag uk-tag">УК</span>
+        <h2>Що таке «розповідь про історію»?</h2>
+        <p>Коли ми говоримо про історію, ми описуємо події, які відбулися в минулому — війни, відкриття, відомих людей, винаходи. Потрібні спеціальні слова та фрази!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- KEY WORDS -->
+  <section class="reveal">
+    <div class="section-title"><span class="icon">🔑</span> Key Vocabulary / Ключові слова</div>
+    <div class="cards">
+
+      <div class="card teal">
+        <span class="card-icon">⚔️</span>
+        <h3>War / Війна</h3>
+        <p class="en">war, battle, conflict, troops, army, victory, defeat</p>
+        <p class="uk">війна, битва, конфлікт, війська, армія, перемога, поразка</p>
+      </div>
+
+      <div class="card red">
+        <span class="card-icon">👑</span>
+        <h3>Rulers / Правителі</h3>
+        <p class="en">king, queen, emperor, pharaoh, president, ruler, dynasty</p>
+        <p class="uk">король, королева, імператор, фараон, президент, правитель, династія</p>
+      </div>
+
+      <div class="card blue">
+        <span class="card-icon">🏛️</span>
+        <h3>Places / Місця</h3>
+        <p class="en">empire, kingdom, colony, capital, city-state, territory</p>
+        <p class="uk">імперія, королівство, колонія, столиця, місто-держава, територія</p>
+      </div>
+
+      <div class="card green">
+        <span class="card-icon">💡</span>
+        <h3>Changes / Зміни</h3>
+        <p class="en">revolution, discovery, invention, reform, rebellion, independence</p>
+        <p class="uk">революція, відкриття, винахід, реформа, повстання, незалежність</p>
+      </div>
+
+      <div class="card purple">
+        <span class="card-icon">📅</span>
+        <h3>Time / Час</h3>
+        <p class="en">century, decade, era, period, age, ancient, medieval, modern</p>
+        <p class="uk">століття, десятиліття, ера, період, вік, давній, середньовічний, сучасний</p>
+      </div>
+
+      <div class="card">
+        <span class="card-icon">📖</span>
+        <h3>Sources / Джерела</h3>
+        <p class="en">document, chronicle, manuscript, artifact, evidence, eyewitness</p>
+        <p class="uk">документ, хроніка, рукопис, артефакт, свідчення, очевидець</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TIME EXPRESSIONS INFOGRAPHIC -->
+  <section class="reveal">
+    <div class="section-title"><span class="icon">⏳</span> Time Expressions / Вирази часу</div>
+    <p style="margin-bottom:18px; color:#555; font-size:.95rem;">These words tell us <em>WHEN</em> something happened / Ці слова кажуть нам <em>КОЛИ</em> щось відбулося</p>
+    <div class="info-grid">
+      <div class="info-box" style="border-top:4px solid #e8a020;">
+        <div class="big-num" style="color:#e8a020;">🕐</div>
+        <p><strong>In 1492</strong><br>У 1492 році</p>
+        <p class="uk-small">Specific year / Конкретний рік</p>
+      </div>
+      <div class="info-box" style="border-top:4px solid #c94040;">
+        <div class="big-num" style="color:#c94040;">📆</div>
+        <p><strong>During the 15th century</strong><br>Протягом XV ст.</p>
+        <p class="uk-small">Century / Століття</p>
+      </div>
+      <div class="info-box" style="border-top:4px solid #1a8c8c;">
+        <div class="big-num" style="color:#1a8c8c;">🌅</div>
+        <p><strong>Before / After</strong><br>До / Після</p>
+        <p class="uk-small">Sequence / Послідовність</p>
+      </div>
+      <div class="info-box" style="border-top:4px solid #2a62b0;">
+        <div class="big-num" style="color:#2a62b0;">📜</div>
+        <p><strong>At that time</strong><br>У той час</p>
+        <p class="uk-small">Same period / Той самий час</p>
+      </div>
+      <div class="info-box" style="border-top:4px solid #3a8c5a;">
+        <div class="big-num" style="color:#3a8c5a;">⬅️</div>
+        <p><strong>Back then / long ago</strong><br>Тоді / Давним-давно</p>
+        <p class="uk-small">Distant past / Далеке минуле</p>
+      </div>
+      <div class="info-box" style="border-top:4px solid #7040a0;">
+        <div class="big-num" style="color:#7040a0;">🔄</div>
+        <p><strong>Eventually / Finally</strong><br>Зрештою / Нарешті</p>
+        <p class="uk-small">Result / Результат</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- USEFUL PHRASES TIMELINE -->
+  <section class="reveal">
+    <div class="section-title"><span class="icon">💬</span> Key Phrases / Ключові фрази</div>
+    <p style="margin-bottom:24px; color:#555; font-size:.95rem;">Use these phrases to tell a history story! / Використовуй ці фрази для розповіді про історію!</p>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="en-phrase">🏁 It all began when… / It started in…</div>
+          <div class="uk-phrase">Усе почалося, коли… / Це почалося в…</div>
+          <div class="example">📝 <em>"It all began when Julius Caesar crossed the Rubicon river in 49 BC."</em></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="en-phrase">➡️ As a result… / Because of this…</div>
+          <div class="uk-phrase">Як результат… / Через це…</div>
+          <div class="example">📝 <em>"As a result, the Roman Republic fell and the Empire began."</em></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="en-phrase">⚡ This led to… / This caused…</div>
+          <div class="uk-phrase">Це призвело до… / Це спричинило…</div>
+          <div class="example">📝 <em>"The invention of the printing press led to the spread of new ideas."</em></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="en-phrase">🔄 Meanwhile… / At the same time…</div>
+          <div class="uk-phrase">Тим часом… / Водночас…</div>
+          <div class="example">📝 <em>"Meanwhile, in Asia, the Mongol Empire was expanding rapidly."</em></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="en-phrase">🏆 In the end… / Eventually…</div>
+          <div class="uk-phrase">Зрештою… / Під кінець…</div>
+          <div class="example">📝 <em>"Eventually, the British colonies won their independence in 1776."</em></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TENSE GUIDE -->
+  <section class="reveal">
+    <div class="section-title"><span class="icon">🕰️</span> Which Tense to Use? / Який час використовувати?</div>
+    <div class="tip-box">
+      <span class="tip-icon">💡</span>
+      <p><strong>Remember:</strong> History happened in the PAST, so we mostly use <strong>Past Simple</strong> tense! / <strong>Пам'ятай:</strong> Історія відбулася в минулому, тому ми використовуємо <strong>Past Simple</strong>!</p>
+    </div>
+
+    <div class="table-wrap">
+    <table class="phrases-table">
+      <thead>
+        <tr>
+          <th>Tense / Час</th>
+          <th>When to use / Коли використовувати</th>
+          <th>Example / Приклад</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Past Simple</strong><br><span class="uk-cell">Минулий простий</span></td>
+          <td>Completed actions in the past<br><span class="uk-cell">Завершені дії в минулому</span></td>
+          <td class="example-cell">Napoleon <em>conquered</em> much of Europe.</td>
+        </tr>
+        <tr>
+          <td><strong>Past Continuous</strong><br><span class="uk-cell">Минулий тривалий</span></td>
+          <td>Actions in progress at a moment<br><span class="uk-cell">Тривала дія в певний момент</span></td>
+          <td class="example-cell">Wars <em>were spreading</em> across Europe.</td>
+        </tr>
+        <tr>
+          <td><strong>Past Perfect</strong><br><span class="uk-cell">Минулий передминулий</span></td>
+          <td>Action before another past action<br><span class="uk-cell">Дія до іншої минулої дії</span></td>
+          <td class="example-cell">Rome <em>had grown</em> before it fell.</td>
+        </tr>
+        <tr>
+          <td><strong>Present Simple</strong><br><span class="uk-cell">Теперішній простий</span></td>
+          <td>Stating historical facts / truths<br><span class="uk-cell">Констатація фактів</span></td>
+          <td class="example-cell">History <em>teaches</em> us important lessons.</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <!-- USEFUL VERBS -->
+  <section class="reveal">
+    <div class="section-title"><span class="icon">🎯</span> Power Verbs / Сильні дієслова</div>
+    <p style="margin-bottom:18px; color:#555; font-size:.95rem;">Use these instead of just "happened"! / Використовуй замість просто "happened"!</p>
+    <div class="word-wrap">
+      <div class="word-chip"><span class="en-w">⚔️ conquered</span><span class="uk-w">завоював</span></div>
+      <div class="word-chip"><span class="en-w">🏛️ founded</span><span class="uk-w">заснував</span></div>
+      <div class="word-chip"><span class="en-w">💥 destroyed</span><span class="uk-w">знищив</span></div>
+      <div class="word-chip"><span class="en-w">📜 signed</span><span class="uk-w">підписав</span></div>
+      <div class="word-chip"><span class="en-w">🔍 discovered</span><span class="uk-w">відкрив</span></div>
+      <div class="word-chip"><span class="en-w">🚀 launched</span><span class="uk-w">запустив</span></div>
+      <div class="word-chip"><span class="en-w">🌍 expanded</span><span class="uk-w">розширив</span></div>
+      <div class="word-chip"><span class="en-w">🤝 united</span><span class="uk-w">об'єднав</span></div>
+      <div class="word-chip"><span class="en-w">✊ rebelled</span><span class="uk-w">повстав</span></div>
+      <div class="word-chip"><span class="en-w">📣 declared</span><span class="uk-w">проголосив</span></div>
+      <div class="word-chip"><span class="en-w">💀 defeated</span><span class="uk-w">переміг/розгромив</span></div>
+      <div class="word-chip"><span class="en-w">🏆 achieved</span><span class="uk-w">досяг</span></div>
+      <div class="word-chip"><span class="en-w">🔥 abolished</span><span class="uk-w">скасував</span></div>
+      <div class="word-chip"><span class="en-w">🌱 established</span><span class="uk-w">встановив</span></div>
+      <div class="word-chip"><span class="en-w">🎭 overthrew</span><span class="uk-w">скинув (владу)</span></div>
+      <div class="word-chip"><span class="en-w">🌊 invaded</span><span class="uk-w">вторгся</span></div>
+    </div>
+  </section>
+
+  <!-- FULL PHRASES TABLE -->
+  <section class="reveal">
+    <div class="section-title"><span class="icon">📋</span> Phrase Bank / Банк фраз</div>
+    <div class="table-wrap">
+    <table class="phrases-table">
+      <thead>
+        <tr>
+          <th>📗 English Phrase</th>
+          <th>🇺🇦 Ukrainian</th>
+          <th>📝 Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>One of the most important events was…</td>
+          <td class="uk-cell">Однією з найважливіших подій була…</td>
+          <td class="example-cell">One of the most important events was the French Revolution.</td>
+        </tr>
+        <tr>
+          <td>This happened because…</td>
+          <td class="uk-cell">Це сталося тому, що…</td>
+          <td class="example-cell">This happened because the people were hungry and angry.</td>
+        </tr>
+        <tr>
+          <td>… played a key role in…</td>
+          <td class="uk-cell">… відіграв ключову роль у…</td>
+          <td class="example-cell">Columbus played a key role in connecting the continents.</td>
+        </tr>
+        <tr>
+          <td>… is known for…</td>
+          <td class="uk-cell">… відомий тим, що…</td>
+          <td class="example-cell">Marie Curie is known for discovering radioactivity.</td>
+        </tr>
+        <tr>
+          <td>The consequences were…</td>
+          <td class="uk-cell">Наслідками були…</td>
+          <td class="example-cell">The consequences were devastating for Europe.</td>
+        </tr>
+        <tr>
+          <td>According to historians…</td>
+          <td class="uk-cell">За словами істориків…</td>
+          <td class="example-cell">According to historians, the war lasted 100 years.</td>
+        </tr>
+        <tr>
+          <td>It is believed that…</td>
+          <td class="uk-cell">Вважається, що…</td>
+          <td class="example-cell">It is believed that the library of Alexandria held 500,000 scrolls.</td>
+        </tr>
+        <tr>
+          <td>The turning point was…</td>
+          <td class="uk-cell">Переломним моментом став…</td>
+          <td class="example-cell">The turning point was the Battle of Stalingrad.</td>
+        </tr>
+        <tr>
+          <td>This marked the beginning/end of…</td>
+          <td class="uk-cell">Це ознаменувало початок/кінець…</td>
+          <td class="example-cell">This marked the end of the Cold War.</td>
+        </tr>
+        <tr>
+          <td>… had a huge impact on…</td>
+          <td class="uk-cell">… мав величезний вплив на…</td>
+          <td class="example-cell">The printing press had a huge impact on education.</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <!-- DIALOGUE EXAMPLE -->
+  <section class="reveal">
+    <div class="section-title"><span class="icon">🗣️</span> Sample Dialogue / Приклад діалогу</div>
+    <div class="tip-box">
+      <span class="tip-icon">👀</span>
+      <p>See how two students talk about history! / Подивись, як двоє учнів говорять про історію!</p>
+    </div>
+    <div class="dialogue">
+      <div class="bubble left">
+        <div class="speaker">👧 Emma</div>
+        Hey, what are you studying? 
+        <div class="uk-small">Що вивчаєш?</div>
+      </div>
+      <div class="bubble right">
+        <div class="speaker">👦 Alex</div>
+        I'm reading about the Roman Empire. It was one of the greatest civilizations in history!
+        <div class="uk-small">Читаю про Римську Імперію. Це одна з найвеличніших цивілізацій в історії!</div>
+      </div>
+      <div class="bubble left">
+        <div class="speaker">👧 Emma</div>
+        Really? When did it start?
+        <div class="uk-small">Справді? Коли вона почалася?</div>
+      </div>
+      <div class="bubble right">
+        <div class="speaker">👦 Alex</div>
+        It began around 27 BC when Augustus became the first emperor. Before that, Rome was a republic.
+        <div class="uk-small">Вона почалася приблизно в 27 р. до н.е., коли Август став першим імператором. До цього Рим був республікою.</div>
+      </div>
+      <div class="bubble left">
+        <div class="speaker">👧 Emma</div>
+        What caused it to fall?
+        <div class="uk-small">Через що вона впала?</div>
+      </div>
+      <div class="bubble right">
+        <div class="speaker">👦 Alex</div>
+        Historians believe it fell because of invasions, corruption, and economic problems. The turning point was when Germanic tribes invaded in 476 AD.
+        <div class="uk-small">Історики вважають, що вона впала через вторгнення, корупцію та економічні проблеми. Переломним моментом стало вторгнення германських племен у 476 р. н.е.</div>
+      </div>
+      <div class="bubble left">
+        <div class="speaker">👧 Emma</div>
+        Wow, it had a huge impact on modern languages and laws!
+        <div class="uk-small">Ого, вона мала величезний вплив на сучасні мови та закони!</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIPS -->
+  <section class="reveal">
+    <div class="section-title"><span class="icon">✨</span> Pro Tips / Поради</div>
+
+    <div class="tip-box">
+      <span class="tip-icon">📌</span>
+      <p><strong>Always give dates!</strong> Saying <em>"in 1066"</em> or <em>"during the 19th century"</em> makes your history talk much more accurate. / <strong>Завжди вказуй дати!</strong> Фрази типу <em>"у 1066 році"</em> або <em>"протягом XIX ст."</em> роблять твою розповідь точнішою.</p>
+    </div>
+
+    <div class="tip-box">
+      <span class="tip-icon">🔗</span>
+      <p><strong>Use connectors!</strong> Words like <em>therefore, however, as a result, because of this</em> connect ideas and make your speech flow naturally. / <strong>Використовуй сполучники!</strong> Слова на кшталт <em>therefore, however, as a result</em> з'єднують ідеї та роблять мову плавною.</p>
+    </div>
+
+    <div class="tip-box">
+      <span class="tip-icon">🏷️</span>
+      <p><strong>Name people correctly!</strong> Use full names on first mention: <em>"Queen Elizabeth I"</em>, then just <em>"Elizabeth"</em> or <em>"she"</em>. / <strong>Правильно називай людей!</strong> Першого разу повна назва: <em>"Queen Elizabeth I"</em>, далі просто <em>"Elizabeth"</em> або <em>"she"</em>.</p>
+    </div>
+
+    <div class="tip-box">
+      <span class="tip-icon">🤓</span>
+      <p><strong>Express opinions carefully!</strong> Instead of <em>"I think"</em>, try <em>"Historians argue that…"</em> or <em>"Evidence suggests that…"</em> — it sounds much more academic! / <strong>Обережно висловлюй думки!</strong> Замість <em>"I think"</em> спробуй <em>"Historians argue that…"</em> — звучить академічніше!</p>
+    </div>
+  </section>
+
+  <!-- MINI QUIZ -->
+  <section class="reveal">
+    <div class="section-title"><span class="icon">🧠</span> Quick Quiz / Швидкий тест</div>
+    <div class="quiz-box">
+      <div class="quiz-q">Which sentence uses the correct tense and vocabulary for talking about history?<br>
+      <span style="font-weight:400; font-size:.9rem; color:#777;">Яке речення правильно використовує час і лексику для розповіді про історію?</span>
+      </div>
+      <div class="quiz-options" id="quizOptions">
+        <button class="quiz-btn" onclick="answer(this, false)">A) "The Romans are building the Colosseum in 70 AD."</button>
+        <button class="quiz-btn" onclick="answer(this, true)">B) "The Romans built the Colosseum in 70 AD. This led to massive public events."</button>
+        <button class="quiz-btn" onclick="answer(this, false)">C) "Romans do many things and the Colosseum happens."</button>
+        <button class="quiz-btn" onclick="answer(this, false)">D) "Colosseum was being built at 70 AD by Romans for games."</button>
+      </div>
+      <div class="quiz-feedback" id="quizFeedback"></div>
+    </div>
+  </section>
+
+  <!-- SUMMARY -->
+  <section class="reveal">
+    <div class="section-title"><span class="icon">🗺️</span> Your Checklist / Твій чек-лист</div>
+    <div class="cards">
+      <div class="card teal">
+        <span class="card-icon">✅</span>
+        <h3>Use Past Simple</h3>
+        <p class="uk">Використовуй Past Simple для минулих подій</p>
+      </div>
+      <div class="card red">
+        <span class="card-icon">✅</span>
+        <h3>Include dates</h3>
+        <p class="uk">Включай дати та часові вирази</p>
+      </div>
+      <div class="card blue">
+        <span class="card-icon">✅</span>
+        <h3>Use strong verbs</h3>
+        <p class="uk">Використовуй сильні дієслова замість "happened"</p>
+      </div>
+      <div class="card green">
+        <span class="card-icon">✅</span>
+        <h3>Connect ideas</h3>
+        <p class="uk">З'єднуй ідеї: as a result, meanwhile, because…</p>
+      </div>
+      <div class="card purple">
+        <span class="card-icon">✅</span>
+        <h3>Explain causes</h3>
+        <p class="uk">Пояснюй причини та наслідки подій</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">✅</span>
+        <h3>Cite sources</h3>
+        <p class="uk">Посилайся: "According to historians…"</p>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /container -->
+
+<footer>
+  <strong>📜 Talking About History in English</strong><br>
+  Practice every day and history will be your superpower! 🚀<br>
+  <em style="opacity:.7">Практикуйся щодня — і історія стане твоєю суперсилою!</em>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  reveals.forEach(r => io.observe(r));
+
+  // Quiz
+  function answer(btn, correct) {
+    const btns = document.querySelectorAll('.quiz-btn');
+    btns.forEach(b => b.disabled = true);
+    const fb = document.getElementById('quizFeedback');
+    if(correct) {
+      btn.classList.add('correct');
+      fb.textContent = '🎉 Correct! Great use of Past Simple + "This led to..." / Правильно! Чудове використання Past Simple!';
+      fb.style.color = '#3a8c5a';
+    } else {
+      btn.classList.add('wrong');
+      fb.textContent = '❌ Not quite! Option B uses Past Simple correctly and includes a causal phrase. / Не зовсім! Варіант B правильно використовує Past Simple.';
+      fb.style.color = '#c94040';
+      // Show correct
+      btns[1].classList.add('correct');
+    }
+  }
+</script>
+
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+</body>
+</html>

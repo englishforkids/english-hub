@@ -1,0 +1,1533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adjectives in English 🌟</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --yellow: #FFD93D;
+    --orange: #FF6B35;
+    --pink: #FF6B9D;
+    --purple: #845EF7;
+    --blue: #339AF0;
+    --teal: #20C997;
+    --green: #51CF66;
+    --red: #FF6B6B;
+    --dark: #1A1A2E;
+    --card-bg: #ffffff;
+    --body-bg: #FFF9F0;
+    --text: #2D2D2D;
+    --light-gray: #F4F4F4;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--body-bg);
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    background: linear-gradient(135deg, #1A1A2E 0%, #16213E 50%, #0F3460 100%);
+    color: white;
+    text-align: center;
+    padding: 60px 20px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(132,94,247,.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,107,157,.25) 0%, transparent 40%),
+                radial-gradient(circle at 60% 80%, rgba(51,154,240,.2) 0%, transparent 40%);
+  }
+  .hero-emoji { font-size: 80px; animation: bounce 2s infinite; display: block; margin-bottom: 12px; }
+  @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
+  .hero h1 {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    font-weight: 800;
+    position: relative;
+    margin-bottom: 12px;
+  }
+  .hero h1 span { color: var(--yellow); }
+  .hero .subtitle {
+    font-size: 1.1rem; opacity: .85; position: relative; max-width: 520px; margin: 0 auto 28px;
+  }
+  .hero .magic-sentence {
+    display: inline-block;
+    background: rgba(255,255,255,.12);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,.25);
+    border-radius: 60px;
+    padding: 14px 32px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    position: relative;
+    max-width: 700px;
+  }
+  .hero .magic-sentence .adj { color: var(--yellow); font-size: 1.3rem; }
+  .hero .magic-label { font-size: .8rem; opacity: .7; margin-bottom: 6px; letter-spacing: 1px; text-transform: uppercase; }
+
+  /* ─── LAYOUT ─── */
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+  .section { padding: 60px 0; }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .section-header .icon { font-size: 48px; display: block; margin-bottom: 8px; }
+  .section-header h2 {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    font-weight: 800;
+    margin-bottom: 6px;
+  }
+  .section-header p { color: #666; font-size: 1rem; }
+  .en { color: var(--dark); }
+  .uk { color: #888; font-size: .92em; }
+
+  /* ─── CARDS ─── */
+  .card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: 0 4px 24px rgba(0,0,0,.07);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0,0,0,.12); }
+
+  /* ─── FORMULA BOX ─── */
+  .formula {
+    background: linear-gradient(135deg, #1A1A2E, #16213E);
+    color: white;
+    border-radius: 16px;
+    padding: 20px 28px;
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: .5px;
+    margin: 16px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .formula .plus { color: #aaa; }
+  .formula .box {
+    background: rgba(255,255,255,.12);
+    border: 2px solid rgba(255,255,255,.2);
+    border-radius: 10px;
+    padding: 4px 14px;
+  }
+  .formula .box.adj  { border-color: var(--yellow); color: var(--yellow); }
+  .formula .box.noun { border-color: var(--teal);   color: var(--teal); }
+  .formula .box.verb { border-color: var(--pink);   color: var(--pink); }
+  .formula .box.comp { border-color: var(--blue);   color: var(--blue); }
+  .formula .box.sup  { border-color: var(--orange); color: var(--orange); }
+  .formula .box.ing  { border-color: #a9e34b;       color: #a9e34b; }
+  .formula .box.ed   { border-color: #ff8787;       color: #ff8787; }
+
+  /* ─── EXAMPLE BUBBLES ─── */
+  .examples { display: flex; flex-direction: column; gap: 10px; margin-top: 16px; }
+  .ex-bubble {
+    background: var(--light-gray);
+    border-left: 5px solid var(--purple);
+    border-radius: 0 12px 12px 0;
+    padding: 12px 18px;
+  }
+  .ex-bubble .en-ex { font-weight: 700; color: var(--dark); }
+  .ex-bubble .en-ex .adj-highlight { color: var(--purple); background: rgba(132,94,247,.1); border-radius: 4px; padding: 1px 5px; }
+  .ex-bubble .uk-ex { color: #888; font-size: .9rem; margin-top: 2px; }
+
+  /* ─── MAGIC SENTENCE TRACKER ─── */
+  .magic-track {
+    background: linear-gradient(135deg, #845EF7, #5C7CFA);
+    border-radius: 20px;
+    padding: 32px;
+    color: white;
+    margin: 40px 0;
+  }
+  .magic-track h3 { font-family: 'Baloo 2', cursive; font-size: 1.5rem; margin-bottom: 6px; }
+  .magic-track p { opacity: .85; margin-bottom: 20px; font-size: .95rem; }
+  .magic-rows { display: flex; flex-direction: column; gap: 10px; }
+  .magic-row {
+    background: rgba(255,255,255,.13);
+    border-radius: 12px;
+    padding: 14px 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .magic-row .tag {
+    background: rgba(255,255,255,.2);
+    border-radius: 20px;
+    padding: 3px 12px;
+    font-size: .75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    white-space: nowrap;
+  }
+  .magic-row .sent { font-weight: 700; flex: 1; }
+  .magic-row .sent .adj-w { color: var(--yellow); }
+  .magic-row .transl { font-size: .85rem; opacity: .75; width: 100%; padding-left: 90px; margin-top: -4px; }
+
+  /* ─── GRID LAYOUTS ─── */
+  .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+
+  /* ─── ORDER OF ADJECTIVES ─── */
+  .order-chain {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    justify-content: center;
+    margin: 24px 0;
+    align-items: stretch;
+  }
+  .order-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 18px;
+    font-size: .9rem;
+    font-weight: 700;
+    text-align: center;
+    position: relative;
+    min-width: 90px;
+    flex: 1;
+  }
+  .order-item .num {
+    font-size: .7rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+    opacity: .9;
+  }
+  .order-item .word { font-size: .7rem; opacity: .75; margin-top: 3px; font-weight: 600; }
+  .order-item:not(:last-child)::after {
+    content: '→';
+    position: absolute; right: -12px; top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem; color: #aaa; z-index: 2;
+  }
+  .o1 { background: #fff3bf; border-radius: 12px 0 0 12px; }
+  .o2 { background: #ffd8a8; }
+  .o3 { background: #ffc9c9; }
+  .o4 { background: #f3d9fa; }
+  .o5 { background: #d0bfff; }
+  .o6 { background: #a5d8ff; }
+  .o7 { background: #b2f2bb; }
+  .o8 { background: #c3fae8; border-radius: 0 12px 12px 0; }
+
+  .order-example {
+    background: #f8f9fa;
+    border-radius: 14px;
+    padding: 16px 22px;
+    margin-top: 16px;
+    font-size: 1rem;
+  }
+  .order-example .label { font-size: .75rem; color: #999; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+  .order-example .sentence { font-weight: 700; font-size: 1.1rem; margin: 6px 0 4px; }
+
+  /* ─── COMPARATIVE / SUPERLATIVE ─── */
+  .comp-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+    font-size: .95rem;
+    border-radius: 14px;
+    overflow: hidden;
+  }
+  .comp-table th {
+    background: var(--dark);
+    color: white;
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 700;
+    font-family: 'Baloo 2', cursive;
+  }
+  .comp-table td { padding: 11px 16px; border-bottom: 1px solid #f0f0f0; }
+  .comp-table tr:nth-child(even) td { background: #fafafa; }
+  .comp-table .base-adj { font-weight: 700; color: var(--dark); }
+  .comp-adj { color: var(--blue); font-weight: 700; }
+  .sup-adj  { color: var(--orange); font-weight: 700; }
+  .irreg    { color: var(--pink); font-style: italic; }
+
+  /* ─── ED / ING ─── */
+  .edingcard {
+    border-radius: 20px;
+    padding: 26px;
+    color: white;
+  }
+  .edingcard.ed-card  { background: linear-gradient(135deg, #ff6b6b, #ff8787); }
+  .edingcard.ing-card { background: linear-gradient(135deg, #51CF66, #37b24d); }
+  .edingcard h3 { font-family: 'Baloo 2', cursive; font-size: 1.5rem; margin-bottom: 8px; }
+  .edingcard .who { font-size: 1.2rem; font-weight: 800; margin-bottom: 6px; }
+  .edingcard .rule { background: rgba(0,0,0,.15); border-radius: 10px; padding: 10px 14px; margin: 12px 0; font-size: .9rem; }
+  .edingcard .ex-list { list-style: none; }
+  .edingcard .ex-list li { padding: 5px 0; border-bottom: 1px solid rgba(255,255,255,.2); font-size: .9rem; }
+  .edingcard .ex-list li:last-child { border-bottom: none; }
+  .edingcard .ex-list .tag { background: rgba(255,255,255,.25); border-radius: 6px; padding: 1px 8px; font-weight: 700; margin-right: 6px; }
+
+  /* ─── ADJECTIVE + PREPOSITION ─── */
+  .prep-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; margin-top: 16px; }
+  .prep-item {
+    background: var(--card-bg);
+    border-radius: 14px;
+    padding: 14px 18px;
+    border-left: 4px solid var(--teal);
+    box-shadow: 0 2px 12px rgba(0,0,0,.06);
+  }
+  .prep-item .combo { font-weight: 800; font-size: 1.05rem; color: var(--dark); }
+  .prep-item .combo .prep { color: var(--teal); }
+  .prep-item .meaning { font-size: .82rem; color: #999; margin-top: 2px; }
+  .prep-item .prep-ex { font-size: .85rem; color: #555; margin-top: 6px; font-style: italic; }
+
+  /* ─── LINKING VERBS SECTION ─── */
+  .link-verb-list { display: flex; flex-wrap: wrap; gap: 10px; margin: 12px 0; }
+  .lv-chip {
+    background: linear-gradient(135deg, var(--purple), var(--blue));
+    color: white;
+    border-radius: 20px;
+    padding: 6px 18px;
+    font-weight: 700;
+    font-size: .9rem;
+  }
+
+  /* ─── VISUAL WHAT IS ─── */
+  .what-is-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 24px; }
+  .what-card {
+    border-radius: 20px;
+    padding: 24px 18px;
+    text-align: center;
+    color: white;
+    transition: transform .2s;
+  }
+  .what-card:hover { transform: scale(1.04); }
+  .what-card .emoji { font-size: 44px; display: block; margin-bottom: 10px; }
+  .what-card h4 { font-family: 'Baloo 2', cursive; font-size: 1.1rem; margin-bottom: 6px; }
+  .what-card p { font-size: .83rem; opacity: .9; }
+  .wc1 { background: linear-gradient(135deg, #FF6B35, #FF9F43); }
+  .wc2 { background: linear-gradient(135deg, #FF6B9D, #F368E0); }
+  .wc3 { background: linear-gradient(135deg, #339AF0, #5C7CFA); }
+  .wc4 { background: linear-gradient(135deg, #51CF66, #20C997); }
+  .wc5 { background: linear-gradient(135deg, #845EF7, #5C7CFA); }
+  .wc6 { background: linear-gradient(135deg, #FFD93D, #FF6B35); }
+
+  /* ─── SECTION DIVIDERS ─── */
+  .divider {
+    height: 4px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, transparent, var(--purple), var(--pink), var(--blue), transparent);
+    margin: 0;
+    opacity: .4;
+  }
+
+  /* ─── POSITION SECTION ─── */
+  .pos-compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 20px;
+  }
+  .pos-box {
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+  }
+  .pos-box h4 { font-family: 'Baloo 2', cursive; font-size: 1.1rem; margin-bottom: 8px; }
+  .pos-box .formula-mini {
+    font-size: .9rem; font-weight: 700;
+    background: rgba(0,0,0,.08); border-radius: 8px; padding: 6px 12px; margin: 8px 0;
+  }
+  .pos-box .ex { font-size: .87rem; margin-top: 6px; }
+  .pos-attr { background: #fff3bf; }
+  .pos-pred { background: #d0bfff; }
+
+  /* ─── CATEGORIES ─── */
+  .cat-card {
+    border-radius: 18px;
+    padding: 20px;
+    text-align: center;
+  }
+  .cat-card .emoji { font-size: 36px; margin-bottom: 8px; display: block; }
+  .cat-card h4 { font-family: 'Baloo 2', cursive; font-size: 1.05rem; margin-bottom: 8px; font-weight: 800; }
+  .cat-card .words { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
+  .cat-chip { background: rgba(0,0,0,.08); border-radius: 20px; padding: 3px 12px; font-size: .82rem; font-weight: 700; }
+
+  /* BACKGROUNDS for cat cards */
+  .bg-yellow { background: #fff9db; }
+  .bg-pink   { background: #fff0f6; }
+  .bg-blue   { background: #e7f5ff; }
+  .bg-green  { background: #ebfbee; }
+  .bg-purple { background: #f3d9fa; }
+  .bg-orange { background: #fff4e6; }
+  .bg-teal   { background: #e6fcf5; }
+  .bg-red    { background: #fff5f5; }
+
+  /* ─── NAV ─── */
+  .toc {
+    background: white;
+    border-bottom: 3px solid #f0f0f0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 10px 0;
+    box-shadow: 0 2px 16px rgba(0,0,0,.08);
+  }
+  .toc-inner {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 0 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+    scrollbar-width: none;
+  }
+  .toc-inner::-webkit-scrollbar { display: none; }
+  .toc-btn {
+    background: #f4f4f4;
+    border: none;
+    border-radius: 20px;
+    padding: 6px 16px;
+    font-family: 'Nunito', sans-serif;
+    font-size: .82rem;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all .2s;
+    color: #444;
+  }
+  .toc-btn:hover { background: var(--purple); color: white; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--dark);
+    color: rgba(255,255,255,.7);
+    text-align: center;
+    padding: 30px 20px;
+    font-size: .9rem;
+  }
+
+  /* ─── SCROLL TO TOP ─── */
+  #scroll-top-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #1a1208;
+    border: 1.5px solid rgba(200,150,62,0.4);
+    color: #f5f0e8;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+    pointer-events: none;
+    z-index: 9998;
+  }
+  #scroll-top-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  #scroll-top-btn:hover {
+    background: #c8963e;
+    border-color: #c8963e;
+    color: #1a1208;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  /* ─── RESPONSIVE: TABLET ─── */
+  @media (max-width: 768px) {
+    .section { padding: 40px 0; }
+    .container { padding: 0 14px; }
+    .hero { padding: 40px 16px 56px; }
+    .hero-emoji { font-size: 56px; }
+    .hero .magic-sentence { font-size: 1rem; padding: 12px 20px; }
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    .pos-compare { grid-template-columns: 1fr; }
+    .what-is-grid { grid-template-columns: repeat(2, 1fr); }
+    .order-chain {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+    }
+    .order-item {
+      border-radius: 10px !important;
+      min-width: unset;
+      font-size: .78rem;
+      padding: 10px 6px;
+    }
+    .order-item:not(:last-child)::after { display: none; }
+    .formula { font-size: 1rem; padding: 16px 18px; gap: 8px; }
+    .magic-track { padding: 22px 16px; }
+    .magic-row { gap: 8px; }
+    .magic-row .transl { padding-left: 0; }
+    .magic-row .tag { font-size: .7rem; padding: 3px 10px; }
+    .prep-grid { grid-template-columns: 1fr 1fr !important; }
+    .edingcard { padding: 20px 18px; }
+    .comp-table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 14px;
+      margin-top: 16px;
+    }
+    .comp-table { min-width: 520px; margin-top: 0; }
+    .section-header .icon { font-size: 36px; }
+    .link-verb-list { gap: 8px; }
+    .lv-chip { font-size: .82rem; padding: 5px 14px; }
+    .cat-card { padding: 16px 14px; }
+  }
+
+  /* ─── RESPONSIVE: MOBILE ─── */
+  @media (max-width: 480px) {
+    body { font-size: 15px; }
+    .hero { padding: 32px 14px 48px; }
+    .hero-emoji { font-size: 44px; }
+    .hero .magic-sentence { font-size: .92rem; padding: 10px 16px; border-radius: 16px; }
+    .toc-btn { font-size: .77rem; padding: 5px 12px; }
+    .what-is-grid { grid-template-columns: repeat(2, 1fr); }
+    .what-card { padding: 18px 12px; }
+    .what-card .emoji { font-size: 32px; }
+    .what-card h4 { font-size: .95rem; }
+    .what-card p { font-size: .76rem; }
+    .order-chain { grid-template-columns: repeat(2, 1fr); gap: 6px; }
+    .order-item { font-size: .78rem; padding: 10px 8px; border-radius: 10px !important; }
+    .formula { font-size: .88rem; padding: 14px 14px; gap: 6px; flex-wrap: wrap; }
+    .formula .box { padding: 3px 10px; font-size: .85rem; }
+    .card { padding: 20px 16px; }
+    .magic-track { padding: 18px 14px; border-radius: 16px; }
+    .magic-track h3 { font-size: 1.2rem; }
+    .magic-row { padding: 12px 14px; flex-direction: column; gap: 4px; }
+    .magic-row .tag { align-self: flex-start; }
+    .magic-row .transl { padding-left: 0; margin-top: 0; }
+    .prep-grid { grid-template-columns: 1fr !important; }
+    .prep-item { padding: 12px 14px; }
+    .edingcard { padding: 18px 14px; border-radius: 16px; }
+    .edingcard h3 { font-size: 1.25rem; }
+    .edingcard .ex-list li { font-size: .85rem; }
+    .comp-table th, .comp-table td { padding: 10px 12px; font-size: .85rem; }
+    .pos-box { padding: 16px 14px; }
+    .section-header h2 { font-size: 1.4rem; }
+    .cat-card { padding: 14px 12px; }
+    .cat-card .emoji { font-size: 28px; }
+    .cat-chip { font-size: .76rem; padding: 2px 9px; }
+    footer { padding: 22px 16px; font-size: .85rem; }
+    #scroll-top-btn { bottom: 18px; right: 16px; width: 40px; height: 40px; font-size: 16px; }
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .card, .edingcard, .prep-item, .what-card, .cat-card {
+    animation: fadeUp .5s ease both;
+  }
+
+  /* ─── HIGHLIGHT BADGE ─── */
+  .badge {
+    display: inline-block;
+    border-radius: 20px;
+    padding: 3px 14px;
+    font-size: .78rem;
+    font-weight: 800;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .badge-purple { background: var(--purple); color: white; }
+  .badge-orange { background: var(--orange); color: white; }
+  .badge-teal   { background: var(--teal);   color: white; }
+  .badge-pink   { background: var(--pink);   color: white; }
+  .badge-yellow { background: var(--yellow); color: #333; }
+  .badge-blue   { background: var(--blue);   color: white; }
+  .badge-green  { background: var(--green);  color: white; }
+
+  /* tip box */
+  .tip {
+    background: #fff9db;
+    border: 2px solid #FFD93D;
+    border-radius: 14px;
+    padding: 14px 20px;
+    margin: 16px 0;
+    font-size: .93rem;
+  }
+  .tip strong { color: #e67700; }
+
+  /* section bg alternation */
+  .sec-alt { background: #F0F4FF; }
+</style>
+</head>
+<body>
+
+<!-- ───────────── HERO ───────────── -->
+<section class="hero">
+  <span class="hero-emoji">✨</span>
+  <h1>English <span>Adjectives</span></h1>
+  <p class="subtitle">
+    Everything you need to know — simple, visual &amp; bilingual<br>
+    <span style="font-size:.85rem">Все що тобі потрібно — просто, наочно та двома мовами</span>
+  </p>
+  <p class="magic-label">🔑 Our Magic Sentence • Наше чарівне речення</p>
+  <div class="magic-sentence">
+    The <span class="adj">___</span> dog is in the park.
+    <br><span style="font-size:.85rem;opacity:.75">Собака є в парку. — ми будемо змінювати лише прикметник!</span>
+  </div>
+</section>
+
+<!-- ───────────── NAV ───────────── -->
+<nav class="toc">
+  <div class="toc-inner">
+    <button class="toc-btn" onclick="document.getElementById('what').scrollIntoView({behavior:'smooth'})">❓ What is it?</button>
+    <button class="toc-btn" onclick="document.getElementById('position').scrollIntoView({behavior:'smooth'})">📍 Position</button>
+    <button class="toc-btn" onclick="document.getElementById('categories').scrollIntoView({behavior:'smooth'})">🗂️ Categories</button>
+    <button class="toc-btn" onclick="document.getElementById('order').scrollIntoView({behavior:'smooth'})">🔢 Order</button>
+    <button class="toc-btn" onclick="document.getElementById('comp').scrollIntoView({behavior:'smooth'})">📊 Comparative</button>
+    <button class="toc-btn" onclick="document.getElementById('eding').scrollIntoView({behavior:'smooth'})">⚡ -ed/-ing</button>
+    <button class="toc-btn" onclick="document.getElementById('prep').scrollIntoView({behavior:'smooth'})">🔗 + Preposition</button>
+    <button class="toc-btn" onclick="document.getElementById('linking').scrollIntoView({behavior:'smooth'})">🔄 Linking Verbs</button>
+  </div>
+</nav>
+
+<!-- ───────────── WHAT IS ───────────── -->
+<section class="section" id="what">
+  <div class="container">
+    <div class="section-header">
+      <span class="icon">❓</span>
+      <h2>What is an Adjective? • Що таке прикметник?</h2>
+      <p class="uk">Прикметник — слово, яке описує або характеризує іменник / займенник</p>
+    </div>
+
+    <div class="card" style="max-width:800px;margin:0 auto 32px;">
+      <span class="badge badge-purple">Definition • Визначення</span>
+      <p class="en" style="font-size:1.1rem">An <strong>adjective</strong> is a word that <strong>describes</strong> a noun (a person, place, thing, or idea). It answers questions like <em>"What kind? Which one? How many? How much?"</em></p>
+      <p class="uk" style="margin-top:8px">Прикметник — це слово, яке <strong>описує іменник</strong>. Відповідає на питання: <em>«Який? Яка? Яке? Скільки?»</em></p>
+      <div class="formula">
+        <span class="box adj">Adjective</span>
+        <span class="plus">+</span>
+        <span class="box noun">Noun</span>
+        <span class="plus">=</span>
+        <span style="color:#aaa">More detail! 🎨</span>
+      </div>
+    </div>
+
+    <div class="what-is-grid">
+      <div class="what-card wc1">
+        <span class="emoji">🐕</span>
+        <h4>big dog</h4>
+        <p>big = describes SIZE<br><span style="font-size:.78rem">великий = розмір</span></p>
+      </div>
+      <div class="what-card wc2">
+        <span class="emoji">🌸</span>
+        <h4>beautiful flower</h4>
+        <p>beautiful = APPEARANCE<br><span style="font-size:.78rem">гарна = зовнішність</span></p>
+      </div>
+      <div class="what-card wc3">
+        <span class="emoji">🥶</span>
+        <h4>cold water</h4>
+        <p>cold = TEMPERATURE<br><span style="font-size:.78rem">холодна = температура</span></p>
+      </div>
+      <div class="what-card wc4">
+        <span class="emoji">😊</span>
+        <h4>happy child</h4>
+        <p>happy = FEELING<br><span style="font-size:.78rem">щасливий = почуття</span></p>
+      </div>
+      <div class="what-card wc5">
+        <span class="emoji">🎠</span>
+        <h4>three cats</h4>
+        <p>three = NUMBER<br><span style="font-size:.78rem">три = кількість</span></p>
+      </div>
+      <div class="what-card wc6">
+        <span class="emoji">🔴</span>
+        <h4>red car</h4>
+        <p>red = COLOUR<br><span style="font-size:.78rem">червона = колір</span></p>
+      </div>
+    </div>
+
+    <div class="magic-track" style="margin-top:36px">
+      <h3>🔑 Magic Sentence in Action</h3>
+      <p>Watch how ONE sentence changes when we swap the adjective • Дивись, як речення змінюється залежно від прикметника</p>
+      <div class="magic-rows">
+        <div class="magic-row">
+          <span class="tag">Size • Розмір</span>
+          <span class="sent">The <span class="adj-w">big</span> dog is in the park.</span>
+          <span class="transl">Великий собака є в парку.</span>
+        </div>
+        <div class="magic-row">
+          <span class="tag">Colour • Колір</span>
+          <span class="sent">The <span class="adj-w">black</span> dog is in the park.</span>
+          <span class="transl">Чорний собака є в парку.</span>
+        </div>
+        <div class="magic-row">
+          <span class="tag">Feeling • Настрій</span>
+          <span class="sent">The <span class="adj-w">happy</span> dog is in the park.</span>
+          <span class="transl">Щасливий собака є в парку.</span>
+        </div>
+        <div class="magic-row">
+          <span class="tag">Age • Вік</span>
+          <span class="sent">The <span class="adj-w">old</span> dog is in the park.</span>
+          <span class="transl">Старий собака є в парку.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ───────────── POSITION ───────────── -->
+<section class="section sec-alt" id="position">
+  <div class="container">
+    <div class="section-header">
+      <span class="icon">📍</span>
+      <h2>Position of Adjectives • Позиція прикметника</h2>
+      <p class="uk">Де саме ставити прикметник у реченні?</p>
+    </div>
+
+    <div class="pos-compare">
+      <div class="pos-box pos-attr">
+        <span class="badge badge-yellow">Attributive • Означальний</span>
+        <h4>BEFORE the noun<br><span style="font-weight:400;font-size:.9rem">Перед іменником</span></h4>
+        <div class="formula-mini">Adjective + Noun</div>
+        <div class="examples">
+          <div class="ex-bubble">
+            <div class="en-ex">The <span class="adj-highlight">lazy</span> dog is sleeping.</div>
+            <div class="uk-ex">Лінивий собака спить.</div>
+          </div>
+          <div class="ex-bubble">
+            <div class="en-ex">I have a <span class="adj-highlight">beautiful</span> cat.</div>
+            <div class="uk-ex">У мене є гарний кіт.</div>
+          </div>
+          <div class="ex-bubble">
+            <div class="en-ex">She bought a <span class="adj-highlight">red</span> dress.</div>
+            <div class="uk-ex">Вона купила червону сукню.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pos-box pos-pred">
+        <span class="badge badge-purple">Predicative • Присудковий</span>
+        <h4>AFTER a linking verb<br><span style="font-weight:400;font-size:.9rem">Після дієслова-зв'язки</span></h4>
+        <div class="formula-mini">Subject + be/seem/feel + Adjective</div>
+        <div class="examples">
+          <div class="ex-bubble">
+            <div class="en-ex">The dog is <span class="adj-highlight">lazy</span>.</div>
+            <div class="uk-ex">Собака є лінивим.</div>
+          </div>
+          <div class="ex-bubble">
+            <div class="en-ex">The cat looks <span class="adj-highlight">beautiful</span>.</div>
+            <div class="uk-ex">Кіт виглядає гарно.</div>
+          </div>
+          <div class="ex-bubble">
+            <div class="en-ex">The dress seems <span class="adj-highlight">expensive</span>.</div>
+            <div class="uk-ex">Сукня виглядає дорогою.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tip">
+      <strong>💡 Important!</strong> Some adjectives are ONLY predicative: <em>afraid, asleep, alive, alone, awake, aware</em> — you can't say "an afraid dog", but you can say "The dog is afraid." • Деякі прикметники вживаються ТІЛЬКИ після дієслова-зв'язки.
+    </div>
+
+    <div class="magic-track" style="margin-top:24px">
+      <h3>🔑 Same meaning — two positions</h3>
+      <p>Те саме значення — різна позиція в реченні</p>
+      <div class="magic-rows">
+        <div class="magic-row">
+          <span class="tag">Attributive</span>
+          <span class="sent">The <span class="adj-w">tired</span> dog is in the park.</span>
+          <span class="transl">Втомлений собака є в парку.</span>
+        </div>
+        <div class="magic-row">
+          <span class="tag">Predicative</span>
+          <span class="sent">The dog in the park is <span class="adj-w">tired</span>.</span>
+          <span class="transl">Собака в парку є втомленим.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ───────────── CATEGORIES ───────────── -->
+<section class="section" id="categories">
+  <div class="container">
+    <div class="section-header">
+      <span class="icon">🗂️</span>
+      <h2>Categories of Adjectives • Категорії прикметників</h2>
+      <p class="uk">Прикметники поділяються на групи залежно від того, що вони описують</p>
+    </div>
+
+    <div class="grid-3">
+      <div class="cat-card bg-yellow">
+        <span class="emoji">📐</span>
+        <h4>Size • Розмір</h4>
+        <div class="words">
+          <span class="cat-chip">big</span><span class="cat-chip">small</span><span class="cat-chip">tall</span><span class="cat-chip">short</span><span class="cat-chip">long</span><span class="cat-chip">huge</span><span class="cat-chip">tiny</span><span class="cat-chip">wide</span>
+        </div>
+      </div>
+      <div class="cat-card bg-pink">
+        <span class="emoji">🌈</span>
+        <h4>Colour • Колір</h4>
+        <div class="words">
+          <span class="cat-chip">red</span><span class="cat-chip">blue</span><span class="cat-chip">green</span><span class="cat-chip">yellow</span><span class="cat-chip">black</span><span class="cat-chip">white</span><span class="cat-chip">pink</span><span class="cat-chip">purple</span>
+        </div>
+      </div>
+      <div class="cat-card bg-orange">
+        <span class="emoji">🎭</span>
+        <h4>Shape • Форма</h4>
+        <div class="words">
+          <span class="cat-chip">round</span><span class="cat-chip">square</span><span class="cat-chip">flat</span><span class="cat-chip">curved</span><span class="cat-chip">oval</span><span class="cat-chip">pointed</span>
+        </div>
+      </div>
+      <div class="cat-card bg-blue">
+        <span class="emoji">👴</span>
+        <h4>Age • Вік</h4>
+        <div class="words">
+          <span class="cat-chip">old</span><span class="cat-chip">young</span><span class="cat-chip">new</span><span class="cat-chip">ancient</span><span class="cat-chip">modern</span><span class="cat-chip">elderly</span><span class="cat-chip">teenage</span>
+        </div>
+      </div>
+      <div class="cat-card bg-purple">
+        <span class="emoji">💎</span>
+        <h4>Material • Матеріал</h4>
+        <div class="words">
+          <span class="cat-chip">wooden</span><span class="cat-chip">metal</span><span class="cat-chip">plastic</span><span class="cat-chip">glass</span><span class="cat-chip">cotton</span><span class="cat-chip">golden</span><span class="cat-chip">stone</span>
+        </div>
+      </div>
+      <div class="cat-card bg-green">
+        <span class="emoji">😊</span>
+        <h4>Opinion • Думка</h4>
+        <div class="words">
+          <span class="cat-chip">beautiful</span><span class="cat-chip">ugly</span><span class="cat-chip">nice</span><span class="cat-chip">awful</span><span class="cat-chip">perfect</span><span class="cat-chip">strange</span><span class="cat-chip">lovely</span>
+        </div>
+      </div>
+      <div class="cat-card bg-teal">
+        <span class="emoji">🌍</span>
+        <h4>Origin • Походження</h4>
+        <div class="words">
+          <span class="cat-chip">Ukrainian</span><span class="cat-chip">French</span><span class="cat-chip">Italian</span><span class="cat-chip">Chinese</span><span class="cat-chip">American</span><span class="cat-chip">African</span>
+        </div>
+      </div>
+      <div class="cat-card bg-red">
+        <span class="emoji">🔥</span>
+        <h4>Temperature • Температура</h4>
+        <div class="words">
+          <span class="cat-chip">hot</span><span class="cat-chip">cold</span><span class="cat-chip">warm</span><span class="cat-chip">cool</span><span class="cat-chip">freezing</span><span class="cat-chip">boiling</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ───────────── ORDER ───────────── -->
+<section class="section sec-alt" id="order">
+  <div class="container">
+    <div class="section-header">
+      <span class="icon">🔢</span>
+      <h2>Order of Adjectives • Порядок прикметників</h2>
+      <p class="uk">Коли кілька прикметників стоять разом — є суворий порядок!</p>
+    </div>
+
+    <div class="card">
+      <span class="badge badge-orange">ROYAL Rule • Правило ROYAL</span>
+      <p class="uk" style="margin-bottom:16px">Запам'ятай абревіатуру: <strong>Opinion → Size → Age → Shape → Colour → Origin → Material → Purpose</strong></p>
+      <div class="order-chain">
+        <div class="order-item o1"><div class="num">1</div><strong>Opinion</strong><div class="word">Думка<br>nice, ugly</div></div>
+        <div class="order-item o2"><div class="num">2</div><strong>Size</strong><div class="word">Розмір<br>big, small</div></div>
+        <div class="order-item o3"><div class="num">3</div><strong>Age</strong><div class="word">Вік<br>old, new</div></div>
+        <div class="order-item o4"><div class="num">4</div><strong>Shape</strong><div class="word">Форма<br>round, flat</div></div>
+        <div class="order-item o5"><div class="num">5</div><strong>Colour</strong><div class="word">Колір<br>red, blue</div></div>
+        <div class="order-item o6"><div class="num">6</div><strong>Origin</strong><div class="word">Країна<br>French</div></div>
+        <div class="order-item o7"><div class="num">7</div><strong>Material</strong><div class="word">Матеріал<br>wooden</div></div>
+        <div class="order-item o8"><div class="num">8</div><strong>Purpose</strong><div class="word">Призначення<br>sleeping</div></div>
+      </div>
+    </div>
+
+    <div class="grid-2" style="margin-top:24px">
+      <div class="card">
+        <span class="badge badge-blue">Example 1</span>
+        <div class="order-example">
+          <div class="label">❌ Wrong order</div>
+          <div class="sentence">a <span style="color:var(--red)">wooden old big</span> table</div>
+          <hr style="margin:8px 0;border:none;border-top:1px solid #eee">
+          <div class="label">✅ Correct order</div>
+          <div class="sentence">a <span style="color:var(--teal)">big old wooden</span> table</div>
+          <div style="color:#888;font-size:.85rem;margin-top:4px">великий старий дерев'яний стіл</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="badge badge-pink">Example 2</span>
+        <div class="order-example">
+          <div class="label">❌ Wrong order</div>
+          <div class="sentence">a <span style="color:var(--red)">German black small new car</span></div>
+          <hr style="margin:8px 0;border:none;border-top:1px solid #eee">
+          <div class="label">✅ Correct order</div>
+          <div class="sentence">a <span style="color:var(--teal)">nice small new black German</span> car</div>
+          <div style="color:#888;font-size:.85rem;margin-top:4px">гарна маленька нова чорна німецька машина</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="badge badge-teal">Example 3 — our magic sentence!</span>
+        <div class="order-example">
+          <div class="label">Multiple adjectives</div>
+          <div class="sentence">The <span style="color:var(--teal)">big friendly old brown</span> dog is in the park.</div>
+          <div style="color:#888;font-size:.85rem;margin-top:4px">Великий доброзичливий старий коричневий собака є в парку.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="badge badge-yellow">Memory Trick • Запам'яталка</span>
+        <p style="font-size:1rem;font-weight:700;margin:12px 0">👑 <span style="color:var(--orange)">O</span>-<span style="color:var(--pink)">S</span>-<span style="color:var(--purple)">A</span>-<span style="color:var(--blue)">S</span>-<span style="color:var(--teal)">C</span>-<span style="color:var(--green)">O</span>-<span style="color:var(--yellow)">M</span>-<span style="color:var(--red)">P</span></p>
+        <p style="font-size:.88rem;color:#555"><strong>O</strong>pinion → <strong>S</strong>ize → <strong>A</strong>ge → <strong>S</strong>hape → <strong>C</strong>olour → <strong>O</strong>rigin → <strong>M</strong>aterial → <strong>P</strong>urpose</p>
+        <p class="uk" style="font-size:.82rem;margin-top:6px">Думка → Розмір → Вік → Форма → Колір → Країна → Матеріал → Призначення</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ───────────── COMPARATIVE / SUPERLATIVE ───────────── -->
+<section class="section" id="comp">
+  <div class="container">
+    <div class="section-header">
+      <span class="icon">📊</span>
+      <h2>Comparative &amp; Superlative • Порівняльний і найвищий ступені</h2>
+      <p class="uk">Порівнюємо речі між собою</p>
+    </div>
+
+    <div class="grid-2" style="margin-bottom:28px">
+      <div class="card">
+        <span class="badge badge-blue">Comparative • Порівняльний</span>
+        <p class="en">Compare <strong>2 things</strong>. Use <em>than</em>.</p>
+        <p class="uk">Порівнюємо <strong>2 речі</strong>. Використовуємо <em>than</em>.</p>
+        <div class="formula">
+          <span class="box comp">adj + -er</span>
+          <span style="color:#aaa">or</span>
+          <span class="box comp">more + adj</span>
+          <span class="plus">+</span>
+          <span style="color:#aaa">than</span>
+        </div>
+        <div class="examples">
+          <div class="ex-bubble" style="border-color:var(--blue)">
+            <div class="en-ex">My dog is <span class="adj-highlight" style="color:var(--blue)">bigger</span> than your dog.</div>
+            <div class="uk-ex">Мій собака більший, ніж твій.</div>
+          </div>
+          <div class="ex-bubble" style="border-color:var(--blue)">
+            <div class="en-ex">The park is <span class="adj-highlight" style="color:var(--blue)">more beautiful</span> than the street.</div>
+            <div class="uk-ex">Парк красивіший, ніж вулиця.</div>
+          </div>
+          <div class="ex-bubble" style="border-color:var(--blue)">
+            <div class="en-ex">Today is <span class="adj-highlight" style="color:var(--blue)">hotter</span> than yesterday.</div>
+            <div class="uk-ex">Сьогодні спекотніше, ніж вчора.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="badge badge-orange">Superlative • Найвищий</span>
+        <p class="en">Compare <strong>3+ things</strong>. Use <em>the</em>.</p>
+        <p class="uk">Порівнюємо <strong>3 і більше речей</strong>. Використовуємо <em>the</em>.</p>
+        <div class="formula">
+          <span style="color:#aaa">the</span>
+          <span class="plus">+</span>
+          <span class="box sup">adj + -est</span>
+          <span style="color:#aaa">or</span>
+          <span class="box sup">the most + adj</span>
+        </div>
+        <div class="examples">
+          <div class="ex-bubble" style="border-color:var(--orange)">
+            <div class="en-ex">My dog is <span class="adj-highlight" style="color:var(--orange)">the biggest</span> in the park.</div>
+            <div class="uk-ex">Мій собака найбільший у парку.</div>
+          </div>
+          <div class="ex-bubble" style="border-color:var(--orange)">
+            <div class="en-ex">This is <span class="adj-highlight" style="color:var(--orange)">the most beautiful</span> place!</div>
+            <div class="uk-ex">Це найкрасивіше місце!</div>
+          </div>
+          <div class="ex-bubble" style="border-color:var(--orange)">
+            <div class="en-ex">She is <span class="adj-highlight" style="color:var(--orange)">the tallest</span> in the class.</div>
+            <div class="uk-ex">Вона найвища в класі.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RULES TABLE -->
+    <div class="card" style="margin-bottom:24px">
+      <span class="badge badge-purple">Spelling Rules • Правила правопису</span>
+      <div class="comp-table-wrap"><table class="comp-table">
+        <tr>
+          <th>Rule • Правило</th>
+          <th>Base • Основа</th>
+          <th class="comp-adj">Comparative</th>
+          <th class="sup-adj">Superlative</th>
+        </tr>
+        <tr>
+          <td>Short (1 syllable)<br><span style="font-size:.8rem;color:#999">Короткі</span></td>
+          <td class="base-adj">cold<br>tall<br>fast</td>
+          <td class="comp-adj">colder<br>taller<br>faster</td>
+          <td class="sup-adj">coldest<br>tallest<br>fastest</td>
+        </tr>
+        <tr>
+          <td>CVC → double last letter<br><span style="font-size:.8rem;color:#999">Подвоюємо кінцеву</span></td>
+          <td class="base-adj">big<br>hot<br>sad</td>
+          <td class="comp-adj">bigger<br>hotter<br>sadder</td>
+          <td class="sup-adj">biggest<br>hottest<br>saddest</td>
+        </tr>
+        <tr>
+          <td>Ends in -e<br><span style="font-size:.8rem;color:#999">Закінчення -e</span></td>
+          <td class="base-adj">nice<br>large<br>safe</td>
+          <td class="comp-adj">nicer<br>larger<br>safer</td>
+          <td class="sup-adj">nicest<br>largest<br>safest</td>
+        </tr>
+        <tr>
+          <td>Ends in consonant + y<br><span style="font-size:.8rem;color:#999">Закінчення -y</span></td>
+          <td class="base-adj">happy<br>easy<br>funny</td>
+          <td class="comp-adj">happier<br>easier<br>funnier</td>
+          <td class="sup-adj">happiest<br>easiest<br>funniest</td>
+        </tr>
+        <tr>
+          <td>Long (2+ syllables)<br><span style="font-size:.8rem;color:#999">Довгі</span></td>
+          <td class="base-adj">beautiful<br>important<br>expensive</td>
+          <td class="comp-adj">more beautiful<br>more important<br>more expensive</td>
+          <td class="sup-adj">most beautiful<br>most important<br>most expensive</td>
+        </tr>
+        <tr>
+          <td>⚡ Irregular!<br><span style="font-size:.8rem;color:#999">Неправильні</span></td>
+          <td class="base-adj">good<br>bad<br>far<br>little<br>much/many</td>
+          <td class="comp-adj irreg">better<br>worse<br>farther/further<br>less<br>more</td>
+          <td class="sup-adj irreg">best<br>worst<br>farthest/furthest<br>least<br>most</td>
+        </tr>
+      </table></div>
+    </div>
+
+    <div class="magic-track">
+      <h3>🔑 Magic Sentence — Comparison</h3>
+      <p>Порівнюємо нашого собаку з іншими собаками</p>
+      <div class="magic-rows">
+        <div class="magic-row">
+          <span class="tag">Base</span>
+          <span class="sent">The <span class="adj-w">friendly</span> dog is in the park.</span>
+          <span class="transl">Доброзичливий собака є в парку.</span>
+        </div>
+        <div class="magic-row">
+          <span class="tag">Comparative</span>
+          <span class="sent">The dog in the park is <span class="adj-w">friendlier</span> than the dog at home.</span>
+          <span class="transl">Собака в парку доброзичливіший, ніж собака вдома.</span>
+        </div>
+        <div class="magic-row">
+          <span class="tag">Superlative</span>
+          <span class="sent">The dog in the park is <span class="adj-w">the friendliest</span> dog in the street.</span>
+          <span class="transl">Собака в парку — найдоброзичливіший собака на вулиці.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ───────────── ED / ING ───────────── -->
+<section class="section sec-alt" id="eding">
+  <div class="container">
+    <div class="section-header">
+      <span class="icon">⚡</span>
+      <h2>-ed / -ing Adjectives</h2>
+      <p class="uk">Прикметники на -ed та -ing — в чому різниця?</p>
+    </div>
+
+    <div class="grid-2">
+      <div class="edingcard ed-card">
+        <h3>-ed adjectives</h3>
+        <div class="who">😶 How YOU feel</div>
+        <div class="rule">📌 <strong>-ed</strong> describes the <u>person</u> who has the feeling<br><span style="font-size:.85rem">-ed описує <u>людину</u>, яка відчуває щось</span></div>
+        <ul class="ex-list">
+          <li><span class="tag">bored</span> I'm <strong>bored</strong>. — Мені нудно.</li>
+          <li><span class="tag">excited</span> She is <strong>excited</strong>. — Вона схвильована.</li>
+          <li><span class="tag">confused</span> He is <strong>confused</strong>. — Він спантеличений.</li>
+          <li><span class="tag">tired</span> The dog is <strong>tired</strong>. — Собака втомився.</li>
+          <li><span class="tag">interested</span> I am <strong>interested</strong> in art. — Мені цікаве мистецтво.</li>
+          <li><span class="tag">surprised</span> We were <strong>surprised</strong>. — Ми були здивовані.</li>
+          <li><span class="tag">frightened</span> The child was <strong>frightened</strong>. — Дитина злякалась.</li>
+          <li><span class="tag">disappointed</span> She felt <strong>disappointed</strong>. — Вона розчарувалась.</li>
+        </ul>
+      </div>
+
+      <div class="edingcard ing-card">
+        <h3>-ing adjectives</h3>
+        <div class="who">🎬 What CAUSES the feeling</div>
+        <div class="rule">📌 <strong>-ing</strong> describes the <u>thing/situation</u> that causes the feeling<br><span style="font-size:.85rem">-ing описує <u>річ/ситуацію</u>, що викликає почуття</span></div>
+        <ul class="ex-list">
+          <li><span class="tag">boring</span> The film is <strong>boring</strong>. — Фільм нудний.</li>
+          <li><span class="tag">exciting</span> The news is <strong>exciting</strong>! — Новини захоплюючі!</li>
+          <li><span class="tag">confusing</span> The map is <strong>confusing</strong>. — Карта заплутана.</li>
+          <li><span class="tag">tiring</span> The walk was <strong>tiring</strong>. — Прогулянка була втомлюючою.</li>
+          <li><span class="tag">interesting</span> The book is <strong>interesting</strong>. — Книга цікава.</li>
+          <li><span class="tag">surprising</span> The result was <strong>surprising</strong>. — Результат вражаючий.</li>
+          <li><span class="tag">frightening</span> The thunder is <strong>frightening</strong>. — Грім жахаючий.</li>
+          <li><span class="tag">disappointing</span> The match was <strong>disappointing</strong>. — Матч розчарував.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tip" style="margin-top:24px">
+      <strong>💡 Quick test:</strong> Ask yourself: <em>"Is this describing a PERSON'S feeling, or the THING causing it?"</em><br>
+      <span class="uk">Запитай себе: «Це описує почуття ЛЮДИНИ, чи РІЧ, яка його викликає?»</span><br><br>
+      ✅ <strong>I am bored</strong> (I = person feeling it) → <strong>-ed</strong><br>
+      ✅ <strong>The lesson is boring</strong> (lesson = thing causing it) → <strong>-ing</strong>
+    </div>
+
+    <div class="magic-track" style="margin-top:24px">
+      <h3>🔑 Magic Sentence — -ed vs -ing</h3>
+      <p>Та ж сцена — різний погляд</p>
+      <div class="magic-rows">
+        <div class="magic-row">
+          <span class="tag">-ed (person)</span>
+          <span class="sent">The <span class="adj-w">excited</span> dog is in the park.</span>
+          <span class="transl">Схвильований собака є в парку. (собаці цікаво)</span>
+        </div>
+        <div class="magic-row">
+          <span class="tag">-ing (thing)</span>
+          <span class="sent">The park is <span class="adj-w">exciting</span> for the dog.</span>
+          <span class="transl">Парк захоплюючий для собаки. (парк викликає збудження)</span>
+        </div>
+        <div class="magic-row">
+          <span class="tag">-ed (person)</span>
+          <span class="sent">I was <span class="adj-w">amazed</span> by the <span class="adj-w">amazing</span> dog in the park.</span>
+          <span class="transl">Я був вражений неймовірним собакою в парку.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ───────────── ADJECTIVE + PREPOSITION ───────────── -->
+<section class="section" id="prep">
+  <div class="container">
+    <div class="section-header">
+      <span class="icon">🔗</span>
+      <h2>Adjective + Preposition • Прикметник + прийменник</h2>
+      <p class="uk">Деякі прикметники завжди вживаються з певним прийменником — треба просто запам'ятати!</p>
+    </div>
+
+    <div class="formula" style="margin-bottom:24px">
+      <span class="box adj">Adjective</span>
+      <span class="plus">+</span>
+      <span class="box noun">Preposition</span>
+      <span class="plus">+</span>
+      <span class="box noun">Noun / -ing</span>
+    </div>
+
+    <div class="grid-2" style="margin-bottom:24px">
+      <div class="card">
+        <span class="badge badge-teal">about • про</span>
+        <div class="prep-grid" style="grid-template-columns:1fr 1fr;gap:8px">
+          <div class="prep-item">
+            <div class="combo">worried <span class="prep">about</span></div>
+            <div class="meaning">стурбований</div>
+            <div class="prep-ex">She is worried <em>about</em> the exam.</div>
+          </div>
+          <div class="prep-item">
+            <div class="combo">excited <span class="prep">about</span></div>
+            <div class="meaning">схвильований</div>
+            <div class="prep-ex">I'm excited <em>about</em> the trip.</div>
+          </div>
+          <div class="prep-item">
+            <div class="combo">crazy <span class="prep">about</span></div>
+            <div class="meaning">без розуму</div>
+            <div class="prep-ex">He's crazy <em>about</em> football.</div>
+          </div>
+          <div class="prep-item">
+            <div class="combo">upset <span class="prep">about</span></div>
+            <div class="meaning">засмучений</div>
+            <div class="prep-ex">She's upset <em>about</em> the news.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="badge badge-blue">of • від / про</span>
+        <div class="prep-grid" style="grid-template-columns:1fr 1fr;gap:8px">
+          <div class="prep-item" style="border-color:var(--blue)">
+            <div class="combo">afraid <span class="prep" style="color:var(--blue)">of</span></div>
+            <div class="meaning">боятися</div>
+            <div class="prep-ex">The dog is afraid <em>of</em> thunder.</div>
+          </div>
+          <div class="prep-item" style="border-color:var(--blue)">
+            <div class="combo">tired <span class="prep" style="color:var(--blue)">of</span></div>
+            <div class="meaning">втомився від</div>
+            <div class="prep-ex">I'm tired <em>of</em> waiting.</div>
+          </div>
+          <div class="prep-item" style="border-color:var(--blue)">
+            <div class="combo">fond <span class="prep" style="color:var(--blue)">of</span></div>
+            <div class="meaning">любить</div>
+            <div class="prep-ex">She's fond <em>of</em> reading.</div>
+          </div>
+          <div class="prep-item" style="border-color:var(--blue)">
+            <div class="combo">proud <span class="prep" style="color:var(--blue)">of</span></div>
+            <div class="meaning">пишається</div>
+            <div class="prep-ex">He's proud <em>of</em> his dog.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="badge badge-pink">for / with • для / з</span>
+        <div class="prep-grid" style="grid-template-columns:1fr 1fr;gap:8px">
+          <div class="prep-item" style="border-color:var(--pink)">
+            <div class="combo">famous <span class="prep" style="color:var(--pink)">for</span></div>
+            <div class="meaning">відомий завдяки</div>
+            <div class="prep-ex">Paris is famous <em>for</em> the Eiffel Tower.</div>
+          </div>
+          <div class="prep-item" style="border-color:var(--pink)">
+            <div class="combo">responsible <span class="prep" style="color:var(--pink)">for</span></div>
+            <div class="meaning">відповідальний за</div>
+            <div class="prep-ex">You are responsible <em>for</em> the dog.</div>
+          </div>
+          <div class="prep-item" style="border-color:var(--pink)">
+            <div class="combo">happy <span class="prep" style="color:var(--pink)">with</span></div>
+            <div class="meaning">задоволений</div>
+            <div class="prep-ex">I'm happy <em>with</em> my results.</div>
+          </div>
+          <div class="prep-item" style="border-color:var(--pink)">
+            <div class="combo">bored <span class="prep" style="color:var(--pink)">with</span></div>
+            <div class="meaning">набрид</div>
+            <div class="prep-ex">She's bored <em>with</em> the game.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="badge badge-purple">in / at / to</span>
+        <div class="prep-grid" style="grid-template-columns:1fr 1fr;gap:8px">
+          <div class="prep-item" style="border-color:var(--purple)">
+            <div class="combo">interested <span class="prep" style="color:var(--purple)">in</span></div>
+            <div class="meaning">цікавиться</div>
+            <div class="prep-ex">The dog is interested <em>in</em> the ball.</div>
+          </div>
+          <div class="prep-item" style="border-color:var(--purple)">
+            <div class="combo">good <span class="prep" style="color:var(--purple)">at</span></div>
+            <div class="meaning">вміє добре</div>
+            <div class="prep-ex">She is good <em>at</em> singing.</div>
+          </div>
+          <div class="prep-item" style="border-color:var(--purple)">
+            <div class="combo">kind <span class="prep" style="color:var(--purple)">to</span></div>
+            <div class="meaning">добрий до</div>
+            <div class="prep-ex">Be kind <em>to</em> animals.</div>
+          </div>
+          <div class="prep-item" style="border-color:var(--purple)">
+            <div class="combo">similar <span class="prep" style="color:var(--purple)">to</span></div>
+            <div class="meaning">схожий на</div>
+            <div class="prep-ex">A wolf is similar <em>to</em> a dog.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="magic-track">
+      <h3>🔑 Magic Sentence — Adjective + Preposition</h3>
+      <p>Різні прийменники — різний зміст</p>
+      <div class="magic-rows">
+        <div class="magic-row">
+          <span class="tag">afraid of</span>
+          <span class="sent">The dog in the park is <span class="adj-w">afraid of</span> cats.</span>
+          <span class="transl">Собака в парку боїться котів.</span>
+        </div>
+        <div class="magic-row">
+          <span class="tag">excited about</span>
+          <span class="sent">The dog is <span class="adj-w">excited about</span> walking in the park.</span>
+          <span class="transl">Собака схвильований прогулянкою в парку.</span>
+        </div>
+        <div class="magic-row">
+          <span class="tag">good at</span>
+          <span class="sent">The dog is <span class="adj-w">good at</span> running in the park.</span>
+          <span class="transl">Собака добре вміє бігати в парку.</span>
+        </div>
+        <div class="magic-row">
+          <span class="tag">famous for</span>
+          <span class="sent">The dog is <span class="adj-w">famous for</span> being friendly in the park.</span>
+          <span class="transl">Собака відомий своєю дружелюбністю в парку.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ───────────── LINKING VERBS ───────────── -->
+<section class="section" id="linking">
+  <div class="container">
+    <div class="section-header">
+      <span class="icon">🔄</span>
+      <h2>Adjectives with Linking Verbs • Прикметники з дієсловами-зв'язками</h2>
+      <p class="uk">Деякі дієслова з'єднують підмет з прикметником (не описуючи дію!)</p>
+    </div>
+
+    <div class="card" style="max-width:800px;margin:0 auto 28px">
+      <span class="badge badge-green">Common Linking Verbs • Поширені дієслова-зв'язки</span>
+      <div class="link-verb-list">
+        <span class="lv-chip">be (am/is/are)</span>
+        <span class="lv-chip">look</span>
+        <span class="lv-chip">seem</span>
+        <span class="lv-chip">feel</span>
+        <span class="lv-chip">smell</span>
+        <span class="lv-chip">taste</span>
+        <span class="lv-chip">sound</span>
+        <span class="lv-chip">appear</span>
+        <span class="lv-chip">become</span>
+        <span class="lv-chip">get</span>
+        <span class="lv-chip">turn</span>
+        <span class="lv-chip">stay</span>
+        <span class="lv-chip">remain</span>
+        <span class="lv-chip">keep</span>
+      </div>
+      <div class="formula">
+        <span class="box noun">Subject</span>
+        <span class="plus">+</span>
+        <span class="box verb">Linking Verb</span>
+        <span class="plus">+</span>
+        <span class="box adj">Adjective</span>
+      </div>
+      <div class="tip" style="margin-top:12px">
+        <strong>💡 Trick:</strong> If you can replace the verb with "is/are" and the sentence still makes sense → it's a linking verb! <br>
+        <span class="uk">Якщо можна замінити дієслово на "is/are" і речення має сенс → це дієслово-зв'язка!</span>
+      </div>
+    </div>
+
+    <div class="grid-3">
+      <div class="card">
+        <span class="badge badge-orange">look • виглядати</span>
+        <div class="examples">
+          <div class="ex-bubble">
+            <div class="en-ex">You <span class="adj-highlight">look tired</span> today.</div>
+            <div class="uk-ex">Ти виглядаєш втомленим сьогодні.</div>
+          </div>
+          <div class="ex-bubble">
+            <div class="en-ex">The dog <span class="adj-highlight">looks happy</span>.</div>
+            <div class="uk-ex">Собака виглядає щасливим.</div>
+          </div>
+          <div class="ex-bubble">
+            <div class="en-ex">The cake <span class="adj-highlight">looks delicious</span>!</div>
+            <div class="uk-ex">Торт виглядає смачним!</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="badge badge-pink">feel • відчувати</span>
+        <div class="examples">
+          <div class="ex-bubble">
+            <div class="en-ex">I <span class="adj-highlight">feel great</span> today!</div>
+            <div class="uk-ex">Я почуваюся чудово сьогодні!</div>
+          </div>
+          <div class="ex-bubble">
+            <div class="en-ex">The dog <span class="adj-highlight">feels cold</span>.</div>
+            <div class="uk-ex">Собаці холодно.</div>
+          </div>
+          <div class="ex-bubble">
+            <div class="en-ex">She <span class="adj-highlight">feels nervous</span>.</div>
+            <div class="uk-ex">Вона нервує.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="badge badge-teal">smell / taste / sound</span>
+        <div class="examples">
+          <div class="ex-bubble">
+            <div class="en-ex">The soup <span class="adj-highlight">smells delicious</span>.</div>
+            <div class="uk-ex">Суп пахне смачно.</div>
+          </div>
+          <div class="ex-bubble">
+            <div class="en-ex">The music <span class="adj-highlight">sounds beautiful</span>.</div>
+            <div class="uk-ex">Музика звучить гарно.</div>
+          </div>
+          <div class="ex-bubble">
+            <div class="en-ex">The lemon <span class="adj-highlight">tastes sour</span>.</div>
+            <div class="uk-ex">Лимон на смак кислий.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="badge badge-purple">become / get • ставати</span>
+        <div class="examples">
+          <div class="ex-bubble">
+            <div class="en-ex">He <span class="adj-highlight">became famous</span>.</div>
+            <div class="uk-ex">Він став відомим.</div>
+          </div>
+          <div class="ex-bubble">
+            <div class="en-ex">It's <span class="adj-highlight">getting cold</span>.</div>
+            <div class="uk-ex">Стає холодно.</div>
+          </div>
+          <div class="ex-bubble">
+            <div class="en-ex">The dog <span class="adj-highlight">got tired</span>.</div>
+            <div class="uk-ex">Собака втомився.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="badge badge-blue">seem / appear • здаватися</span>
+        <div class="examples">
+          <div class="ex-bubble">
+            <div class="en-ex">She <span class="adj-highlight">seems sad</span>.</div>
+            <div class="uk-ex">Вона здається сумною.</div>
+          </div>
+          <div class="ex-bubble">
+            <div class="en-ex">The task <span class="adj-highlight">seems difficult</span>.</div>
+            <div class="uk-ex">Завдання здається складним.</div>
+          </div>
+          <div class="ex-bubble">
+            <div class="en-ex">He <span class="adj-highlight">appears confident</span>.</div>
+            <div class="uk-ex">Він виглядає впевненим.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="badge badge-yellow">stay / remain • залишатися</span>
+        <div class="examples">
+          <div class="ex-bubble">
+            <div class="en-ex">Please <span class="adj-highlight">stay calm</span>!</div>
+            <div class="uk-ex">Будь ласка, залишайся спокійним!</div>
+          </div>
+          <div class="ex-bubble">
+            <div class="en-ex">The dog <span class="adj-highlight">stayed quiet</span>.</div>
+            <div class="uk-ex">Собака залишився тихим.</div>
+          </div>
+          <div class="ex-bubble">
+            <div class="en-ex">She <span class="adj-highlight">remained silent</span>.</div>
+            <div class="uk-ex">Вона залишилась мовчазною.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="magic-track" style="margin-top:32px">
+      <h3>🔑 Magic Sentence — Linking Verbs</h3>
+      <p>Той самий собака — різні дієслова-зв'язки</p>
+      <div class="magic-rows">
+        <div class="magic-row">
+          <span class="tag">is</span>
+          <span class="sent">The dog in the park <span class="adj-w">is happy</span>.</span>
+          <span class="transl">Собака в парку є щасливим.</span>
+        </div>
+        <div class="magic-row">
+          <span class="tag">looks</span>
+          <span class="sent">The dog in the park <span class="adj-w">looks happy</span>.</span>
+          <span class="transl">Собака в парку виглядає щасливим.</span>
+        </div>
+        <div class="magic-row">
+          <span class="tag">seems</span>
+          <span class="sent">The dog in the park <span class="adj-w">seems happy</span>.</span>
+          <span class="transl">Собака в парку здається щасливим.</span>
+        </div>
+        <div class="magic-row">
+          <span class="tag">gets</span>
+          <span class="sent">The dog in the park <span class="adj-w">gets happy</span> when it runs.</span>
+          <span class="transl">Собака в парку стає щасливим, коли бігає.</span>
+        </div>
+        <div class="magic-row">
+          <span class="tag">stays</span>
+          <span class="sent">The dog in the park <span class="adj-w">stays calm</span> all day.</span>
+          <span class="transl">Собака в парку залишається спокійним цілий день.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── QUICK REFERENCE ───────────── -->
+<section class="section" style="background:linear-gradient(135deg,#1A1A2E,#0F3460);color:white">
+  <div class="container">
+    <div class="section-header">
+      <span class="icon">📋</span>
+      <h2 style="color:white">Quick Reference • Швидка довідка</h2>
+      <p style="color:rgba(255,255,255,.7)">All adjective types at a glance • Всі типи прикметників одним поглядом</p>
+    </div>
+
+    <div class="grid-2">
+      <div style="background:rgba(255,255,255,.08);border-radius:20px;padding:24px">
+        <h3 style="color:var(--yellow);margin-bottom:16px;font-family:'Baloo 2',cursive">📌 Key Rules • Основні правила</h3>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;font-size:.92rem">
+          <li>✅ Adjective goes <strong>before</strong> the noun: a <em>fast</em> car</li>
+          <li>✅ Adjective goes <strong>after</strong> linking verb: The car is <em>fast</em></li>
+          <li>✅ Multiple adjectives follow <strong>OSASCOMP</strong> order</li>
+          <li>✅ 1 syllable → <strong>-er / -est</strong>: fast → faster → fastest</li>
+          <li>✅ 2+ syllables → <strong>more / most</strong>: beautiful → more beautiful</li>
+          <li>✅ <strong>-ed</strong> = how a person feels; <strong>-ing</strong> = what causes the feeling</li>
+          <li>✅ Many adjectives require a <strong>fixed preposition</strong>: good at, afraid of</li>
+        </ul>
+      </div>
+
+      <div style="background:rgba(255,255,255,.08);border-radius:20px;padding:24px">
+        <h3 style="color:var(--teal);margin-bottom:16px;font-family:'Baloo 2',cursive">⚡ Common Mistakes • Часті помилки</h3>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;font-size:.92rem">
+          <li>❌ a <span style="color:var(--red)">red big</span> ball → ✅ a <span style="color:var(--teal)">big red</span> ball</li>
+          <li>❌ I am <span style="color:var(--red)">boring</span> → ✅ I am <span style="color:var(--teal)">bored</span></li>
+          <li>❌ She is <span style="color:var(--red)">more tall</span> → ✅ She is <span style="color:var(--teal)">taller</span></li>
+          <li>❌ He is <span style="color:var(--red)">the most good</span> → ✅ He is <span style="color:var(--teal)">the best</span></li>
+          <li>❌ afraid <span style="color:var(--red)">from</span> dogs → ✅ afraid <span style="color:var(--teal)">of</span> dogs</li>
+          <li>❌ good <span style="color:var(--red)">in</span> football → ✅ good <span style="color:var(--teal)">at</span> football</li>
+          <li>❌ interested <span style="color:var(--red)">about</span> art → ✅ interested <span style="color:var(--teal)">in</span> art</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── FOOTER ───────────── -->
+<footer>
+  <span style="font-size:2rem">🐕</span>
+  <p style="margin-top:10px">Made with ❤️ for English learners • Зроблено з любов'ю для тих, хто вивчає англійську</p>
+  <p style="margin-top:6px;font-size:.8rem;opacity:.5">The dog is still <strong>happy</strong> in the park 🌳</p>
+</footer>
+
+
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+
+</body>
+</html>

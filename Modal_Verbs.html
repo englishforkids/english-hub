@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modal Verbs — Модальні Дієслова</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --yellow: #FFD93D;
+    --coral: #FF6B6B;
+    --mint: #6BCB77;
+    --sky: #4D96FF;
+    --purple: #C77DFF;
+    --orange: #FF9F43;
+    --dark: #1a1a2e;
+    --light: #f8f9ff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--light);
+    color: var(--dark);
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    padding: 60px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 20% 80%, rgba(255,217,61,0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(77,150,255,0.15) 0%, transparent 50%);
+  }
+  .hero-bubbles span {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.15;
+    animation: float 6s ease-in-out infinite;
+  }
+  .hero-bubbles span:nth-child(1) { width:80px; height:80px; background:var(--yellow); top:10%; left:5%; animation-delay:0s; }
+  .hero-bubbles span:nth-child(2) { width:50px; height:50px; background:var(--coral); top:60%; left:15%; animation-delay:1s; }
+  .hero-bubbles span:nth-child(3) { width:100px; height:100px; background:var(--sky); top:20%; right:8%; animation-delay:2s; }
+  .hero-bubbles span:nth-child(4) { width:60px; height:60px; background:var(--mint); bottom:15%; right:20%; animation-delay:0.5s; }
+  .hero-bubbles span:nth-child(5) { width:40px; height:40px; background:var(--purple); top:50%; right:5%; animation-delay:1.5s; }
+
+  @keyframes float {
+    0%,100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-20px) scale(1.05); }
+  }
+
+  .hero-tag {
+    display: inline-block;
+    background: var(--yellow);
+    color: var(--dark);
+    font-weight: 800;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 50px;
+    margin-bottom: 20px;
+    position: relative; z-index:1;
+  }
+  .hero h1 {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(42px, 8vw, 96px);
+    color: white;
+    line-height: 1.05;
+    position: relative; z-index:1;
+  }
+  .hero h1 span { color: var(--yellow); }
+  .hero-sub {
+    color: rgba(255,255,255,0.7);
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 16px;
+    position: relative; z-index:1;
+  }
+  .hero-emoji { font-size: 60px; display: block; margin-bottom: 10px; position: relative; z-index:1; animation: bounce 2s ease-in-out infinite; }
+  @keyframes bounce { 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-10px); } }
+
+  /* NAV PILLS */
+  .nav-pills {
+    display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;
+    padding: 30px 20px 10px;
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(248,249,255,0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid rgba(0,0,0,0.06);
+  }
+  .nav-pills a {
+    background: white; border: 2px solid var(--dark);
+    color: var(--dark); font-weight: 700; font-size: 13px;
+    padding: 8px 18px; border-radius: 50px; text-decoration: none;
+    transition: all 0.2s;
+    box-shadow: 3px 3px 0 var(--dark);
+  }
+  .nav-pills a:hover { background: var(--yellow); transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--dark); }
+
+  /* SECTIONS */
+  .section { padding: 60px 20px; max-width: 1100px; margin: 0 auto; }
+  .section-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(30px, 5vw, 52px);
+    margin-bottom: 8px;
+  }
+  .section-sub { color: #666; font-size: 16px; margin-bottom: 40px; font-weight: 600; }
+
+  /* WHAT ARE MODALS — BIG BOX */
+  .intro-box {
+    background: var(--dark);
+    border-radius: 24px;
+    padding: 40px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 40px;
+  }
+  .intro-box::after {
+    content: '🧩';
+    position: absolute; right: 30px; top: 30px; font-size: 80px; opacity: 0.15;
+  }
+  .intro-box h2 { font-family: 'Fredoka One', cursive; font-size: 32px; color: var(--yellow); margin-bottom: 16px; }
+  .intro-box p { font-size: 17px; line-height: 1.8; color: rgba(255,255,255,0.85); }
+  .intro-box p + p { margin-top: 14px; }
+  .bilingual { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
+  @media(max-width:600px){ .bilingual { grid-template-columns: 1fr; } }
+  .bilingual-box { background: rgba(255,255,255,0.07); border-radius: 14px; padding: 18px; border-left: 4px solid var(--yellow); }
+  .bilingual-box .lang { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--yellow); font-weight: 800; margin-bottom: 8px; }
+
+  /* FORMULA BOXES */
+  .formula-strip {
+    background: linear-gradient(135deg, var(--sky), #6dd5ed);
+    border-radius: 20px;
+    padding: 30px 40px;
+    text-align: center;
+    margin-bottom: 40px;
+    border: 3px solid var(--dark);
+    box-shadow: 6px 6px 0 var(--dark);
+  }
+  .formula-strip h3 { font-family: 'Fredoka One', cursive; font-size: 22px; color: white; margin-bottom: 16px; }
+  .formula {
+    display: inline-flex; align-items: center; flex-wrap: wrap; justify-content: center; gap: 12px;
+    background: white; border-radius: 50px; padding: 16px 30px;
+    font-family: 'Fredoka One', cursive; font-size: clamp(18px,3vw,26px); color: var(--dark);
+    border: 3px solid var(--dark);
+    box-shadow: 4px 4px 0 var(--dark);
+  }
+  .formula .plus { color: #aaa; }
+  .formula .part { background: var(--yellow); padding: 4px 16px; border-radius: 50px; border: 2px solid var(--dark); }
+  .formula .part.blue { background: #d0e8ff; }
+  .formula .part.green { background: #d4f0d4; }
+  .formula .part.pink { background: #ffd4d4; }
+
+  /* UNIVERSAL SENTENCE */
+  .universal-banner {
+    background: linear-gradient(135deg, var(--orange), var(--coral));
+    border-radius: 20px; padding: 30px 40px; margin-bottom: 50px;
+    border: 3px solid var(--dark); box-shadow: 6px 6px 0 var(--dark);
+    text-align: center;
+  }
+  .universal-banner h3 { font-family: 'Fredoka One', cursive; font-size: 24px; color: white; margin-bottom: 6px; }
+  .universal-banner p { color: rgba(255,255,255,0.9); font-size: 15px; margin-bottom: 20px; font-weight: 600; }
+  .sentence-base {
+    background: white; border-radius: 14px; padding: 18px 28px; display: inline-block;
+    font-family: 'Fredoka One', cursive; font-size: 26px; color: var(--dark);
+    border: 3px solid var(--dark); box-shadow: 4px 4px 0 var(--dark);
+  }
+  .sentence-base .highlight { color: var(--coral); }
+
+  /* MODAL CARDS GRID */
+  .modals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+    margin-bottom: 60px;
+  }
+  .modal-card {
+    border-radius: 20px; padding: 28px;
+    border: 3px solid var(--dark);
+    box-shadow: 5px 5px 0 var(--dark);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .modal-card:hover { transform: translate(-3px, -3px); box-shadow: 8px 8px 0 var(--dark); }
+  .modal-card .card-icon { font-size: 42px; margin-bottom: 12px; display: block; }
+  .modal-card .card-word {
+    font-family: 'Fredoka One', cursive; font-size: 36px; color: var(--dark);
+    margin-bottom: 6px;
+  }
+  .modal-card .card-meaning {
+    font-size: 13px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase;
+    opacity: 0.7; margin-bottom: 16px;
+  }
+  .modal-card .tag {
+    display: inline-block; background: rgba(0,0,0,0.1);
+    border-radius: 50px; padding: 4px 12px; font-size: 12px; font-weight: 700;
+    margin: 3px 2px;
+  }
+  .modal-card .examples { margin-top: 16px; }
+  .modal-card .ex {
+    background: rgba(255,255,255,0.5); border-radius: 12px; padding: 10px 14px; margin-top: 8px;
+    border-left: 4px solid rgba(0,0,0,0.2);
+  }
+  .modal-card .ex .en { font-weight: 700; font-size: 15px; }
+  .modal-card .ex .uk { font-size: 13px; opacity: 0.75; margin-top: 3px; }
+
+  /* TRANSFORM TABLE */
+  .transform-table-wrap { overflow-x: auto; margin-bottom: 60px; }
+  .transform-table {
+    width: 100%; border-collapse: collapse; font-size: 15px;
+    border: 3px solid var(--dark); border-radius: 16px; overflow: hidden;
+  }
+  .transform-table th {
+    background: var(--dark); color: white; padding: 14px 18px; text-align: left;
+    font-family: 'Fredoka One', cursive; font-size: 16px;
+  }
+  .transform-table td { padding: 12px 18px; border-top: 2px solid rgba(0,0,0,0.08); vertical-align: top; }
+  .transform-table tr:nth-child(even) td { background: rgba(0,0,0,0.03); }
+  .transform-table .modal-word { font-family: 'Fredoka One', cursive; font-size: 18px; }
+  .transform-table .uk-small { font-size: 12px; color: #888; }
+  .en-ex { font-weight: 700; }
+  .uk-ex { color: #555; font-size: 13px; }
+
+  /* UNIVERSAL SENTENCE TRANSFORMATIONS */
+  .transforms {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;
+    margin-bottom: 60px;
+  }
+  .transform-card {
+    border-radius: 18px; padding: 22px; border: 2.5px solid var(--dark);
+    box-shadow: 4px 4px 0 var(--dark);
+    transition: transform 0.2s;
+  }
+  .transform-card:hover { transform: translate(-2px,-2px); }
+  .transform-card .tc-label {
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 800;
+    margin-bottom: 8px; opacity: 0.65;
+  }
+  .transform-card .tc-en { font-weight: 800; font-size: 17px; margin-bottom: 5px; }
+  .transform-card .tc-uk { font-size: 14px; opacity: 0.7; }
+
+  /* PAST MODALS */
+  .past-section { background: var(--dark); padding: 60px 20px; }
+  .past-inner { max-width: 1100px; margin: 0 auto; }
+  .past-section .section-title { color: var(--yellow); }
+  .past-section .section-sub { color: rgba(255,255,255,0.6); }
+  .past-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+  .past-card {
+    border-radius: 18px; padding: 26px;
+    border: 2.5px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.06);
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .past-card:hover { transform: translateY(-4px); border-color: rgba(255,255,255,0.5); }
+  .past-card .pc-formula {
+    font-family: 'Fredoka One', cursive; font-size: 20px; color: var(--yellow);
+    background: rgba(255,217,61,0.1); border-radius: 10px; padding: 10px 16px; margin-bottom: 16px;
+  }
+  .past-card .pc-meaning { color: rgba(255,255,255,0.7); font-size: 14px; margin-bottom: 16px; line-height: 1.7; }
+  .past-card .pc-ex {
+    background: rgba(255,255,255,0.07); border-radius: 12px; padding: 12px;
+    border-left: 3px solid var(--yellow); margin-top: 8px;
+  }
+  .past-card .pc-ex .en { color: white; font-weight: 700; font-size: 14px; }
+  .past-card .pc-ex .uk { color: rgba(255,255,255,0.55); font-size: 13px; margin-top: 4px; }
+
+  /* GET vs BE */
+  .get-section { padding: 60px 20px; max-width: 1100px; margin: 0 auto; }
+  .get-table-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 40px; }
+  @media(max-width:600px){ .get-table-wrap { grid-template-columns: 1fr; } }
+  .vs-card { border-radius: 20px; padding: 28px; border: 3px solid var(--dark); box-shadow: 5px 5px 0 var(--dark); }
+  .vs-card h4 { font-family: 'Fredoka One', cursive; font-size: 28px; margin-bottom: 20px; }
+  .vs-row { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 12px; }
+  .vs-bullet { width: 8px; height: 8px; border-radius: 50%; background: var(--dark); flex-shrink: 0; margin-top: 8px; }
+  .vs-text .en { font-weight: 700; font-size: 15px; }
+  .vs-text .uk { font-size: 13px; color: #666; }
+
+  /* RULES STRIP */
+  .rules-strip {
+    background: var(--mint);
+    padding: 50px 20px;
+  }
+  .rules-inner { max-width: 1000px; margin: 0 auto; }
+  .rules-strip .section-title { color: var(--dark); }
+  .rules-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+  .rule-card {
+    background: white; border-radius: 16px; padding: 20px;
+    border: 2.5px solid var(--dark); box-shadow: 4px 4px 0 var(--dark); text-align: center;
+  }
+  .rule-card .emoji { font-size: 36px; margin-bottom: 10px; }
+  .rule-card .title { font-family: 'Fredoka One', cursive; font-size: 18px; margin-bottom: 8px; }
+  .rule-card .wrong { color: var(--coral); font-size: 14px; margin-bottom: 4px; text-decoration: line-through; }
+  .rule-card .right { color: #27ae60; font-weight: 800; font-size: 15px; }
+  .rule-card p { font-size: 13px; color: #555; margin-top: 8px; line-height: 1.6; }
+
+  /* PROBABILITY GAUGE */
+  .prob-section { padding: 60px 20px; background: #fff8f0; }
+  .prob-inner { max-width: 900px; margin: 0 auto; }
+  .prob-bar { display: flex; align-items: center; margin-bottom: 16px; gap: 14px; }
+  .prob-label { font-family: 'Fredoka One', cursive; font-size: 22px; min-width: 120px; }
+  .prob-track { flex: 1; height: 36px; background: #eee; border-radius: 50px; overflow: hidden; border: 2px solid var(--dark); position: relative; }
+  .prob-fill { height: 100%; border-radius: 50px; display: flex; align-items: center; justify-content: flex-end; padding-right: 12px; font-weight: 800; font-size: 13px; color: white; transition: width 1s; }
+  .prob-ex { font-size: 13px; color: #888; min-width: 160px; font-style: italic; max-width: 200px; }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark); color: white; text-align: center; padding: 30px 20px;
+    font-size: 14px; font-weight: 600;
+  }
+  footer span { color: var(--yellow); }
+
+  /* Scroll to top button */
+  #scroll-top-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #1a1208;
+    border: 1.5px solid rgba(200,150,62,0.4);
+    color: #f5f0e8;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+    pointer-events: none;
+    z-index: 9998;
+  }
+  #scroll-top-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  #scroll-top-btn:hover {
+    background: #c8963e;
+    border-color: #c8963e;
+    color: #1a1208;
+  }
+
+  /* Scroll animations */
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.6s, transform 0.6s; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ===================== MOBILE STYLES ===================== */
+  @media (max-width: 768px) {
+
+    /* Hero */
+    .hero { padding: 40px 16px 36px; }
+    .hero-emoji { font-size: 44px; }
+    .hero-tag { font-size: 11px; padding: 5px 14px; letter-spacing: 1px; }
+    .hero-sub { font-size: 14px; }
+    .hero-bubbles span { display: none; } /* прибираємо бульбашки — не заважають тексту */
+
+    /* Nav */
+    .nav-pills {
+      padding: 12px 12px 10px;
+      gap: 7px;
+      justify-content: flex-start;
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .nav-pills::-webkit-scrollbar { display: none; }
+    .nav-pills a {
+      font-size: 12px;
+      padding: 7px 14px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      box-shadow: 2px 2px 0 var(--dark);
+    }
+
+    /* Sections */
+    .section { padding: 36px 16px; }
+    .section-sub { font-size: 14px; margin-bottom: 24px; }
+
+    /* Intro box */
+    .intro-box { padding: 24px 18px; }
+    .intro-box h2 { font-size: 22px; }
+    .intro-box p { font-size: 15px; }
+    .intro-box::after { font-size: 50px; right: 14px; top: 14px; opacity: 0.08; }
+
+    /* Formula strip */
+    .formula-strip { padding: 22px 16px; }
+    .formula { padding: 12px 16px; border-radius: 20px; gap: 8px; }
+    .formula .part { padding: 4px 12px; font-size: 15px; }
+
+    /* Universal banner */
+    .universal-banner { padding: 22px 16px; }
+    .universal-banner h3 { font-size: 20px; }
+    .universal-banner p { font-size: 13px; }
+    .sentence-base { font-size: 20px; padding: 14px 20px; }
+
+    /* Transform cards — single column */
+    .transforms { grid-template-columns: 1fr; gap: 12px; }
+    .transform-card { padding: 16px 18px; }
+    .transform-card .tc-en { font-size: 15px; }
+    .transform-card .tc-uk { font-size: 13px; }
+
+    /* Modal cards — single column */
+    .modals-grid { grid-template-columns: 1fr; gap: 16px; }
+    .modal-card { padding: 20px 18px; }
+    .modal-card .card-word { font-size: 28px; }
+    .modal-card .card-icon { font-size: 34px; }
+
+    /* MUST vs HAVE TO box — stack columns */
+    .must-haveto-grid { grid-template-columns: 1fr !important; }
+
+    /* Probability bars */
+    .prob-bar { flex-wrap: wrap; gap: 8px; }
+    .prob-label { font-size: 18px; min-width: 90px; }
+    .prob-ex { min-width: unset; width: 100%; padding-left: 98px; font-size: 12px; }
+    .prob-track { min-width: 0; }
+
+    /* Past section */
+    .past-section { padding: 40px 16px; }
+    .past-grid { grid-template-columns: 1fr; gap: 14px; }
+    .past-card { padding: 18px 16px; }
+    .past-card .pc-formula { font-size: 17px; padding: 8px 14px; }
+
+    /* GET vs BE section */
+    .get-section { padding: 36px 16px; }
+    .get-table-wrap { grid-template-columns: 1fr; }
+    .vs-card { padding: 20px 16px; }
+    .vs-card h4 { font-size: 22px; }
+
+    /* Table — horizontal scroll */
+    .transform-table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 16px;
+      border: 3px solid var(--dark);
+      box-shadow: 4px 4px 0 var(--dark);
+      margin-bottom: 40px;
+    }
+    .transform-table {
+      min-width: 480px;
+      border: none;
+      border-radius: 0;
+    }
+    .transform-table th { font-size: 14px; padding: 12px 14px; }
+    .transform-table td { padding: 10px 14px; font-size: 13px; }
+    .transform-table .modal-word { font-size: 16px; }
+
+    /* Rules strip */
+    .rules-strip { padding: 36px 16px; }
+    .rules-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .rule-card { padding: 16px 12px; }
+    .rule-card .emoji { font-size: 28px; }
+    .rule-card .title { font-size: 15px; }
+    .rule-card .wrong, .rule-card .right { font-size: 13px; }
+    .rule-card p { font-size: 12px; }
+
+    /* Footer */
+    footer { font-size: 13px; padding: 24px 16px; }
+
+    /* Scroll-to-top button — трохи менший на мобільному */
+    #scroll-top-btn { width: 40px; height: 40px; bottom: 20px; right: 16px; font-size: 16px; }
+
+    /* Inline grids in HTML (style attribute) — override for mobile */
+    [style*="grid-template-columns: 1fr 1fr"] {
+      grid-template-columns: 1fr !important;
+    }
+  }
+
+  /* Extra small phones */
+  @media (max-width: 380px) {
+    .rules-grid { grid-template-columns: 1fr; }
+    .formula .part { font-size: 13px; padding: 4px 10px; }
+    .hero h1 { font-size: 36px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-bubbles">
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+  <span class="hero-emoji">🎓</span>
+  <div class="hero-tag">English Grammar · Англійська граматика</div>
+  <h1>Modal <span>Verbs</span><br>Модальні Дієслова</h1>
+  <p class="hero-sub">Simple explanations · Прості пояснення · Bilingual 🇬🇧 🇺🇦</p>
+</header>
+
+<!-- NAV -->
+<nav class="nav-pills">
+  <a href="#what">What? / Що?</a>
+  <a href="#formula">Formula / Формула</a>
+  <a href="#universal">Universal Sentence</a>
+  <a href="#modals">All Modals</a>
+  <a href="#probability">Probability %</a>
+  <a href="#past">Past Modals</a>
+  <a href="#get">GET vs BE</a>
+  <a href="#rules">Rules / Правила</a>
+</nav>
+
+<!-- WHAT ARE MODALS -->
+<section id="what" class="section">
+  <div class="section-title reveal">🤔 What are Modal Verbs?</div>
+  <div class="section-sub reveal">Що таке модальні дієслова?</div>
+  <div class="intro-box reveal">
+    <h2>Modal Verbs = Special Helper Verbs</h2>
+    <div class="bilingual">
+      <div class="bilingual-box">
+        <div class="lang">🇬🇧 English</div>
+        <p>Modal verbs are <strong>helper verbs</strong> that change the <strong>meaning</strong> of the main verb. They express <em>ability, possibility, permission, obligation, advice, or prediction</em>. They NEVER change form — no -s, no -ed, no -ing!</p>
+      </div>
+      <div class="bilingual-box">
+        <div class="lang">🇺🇦 Українська</div>
+        <p>Модальні дієслова — це <strong>допоміжні дієслова</strong>, що змінюють <strong>значення</strong> основного дієслова. Вони виражають <em>здатність, можливість, дозвіл, обов'язок, пораду або прогноз</em>. Вони НІКОЛИ не змінюють форму!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULA -->
+<section id="formula" class="section" style="padding-top:0">
+  <div class="section-title reveal">📐 The Magic Formula</div>
+  <div class="section-sub reveal">Магічна формула</div>
+
+  <div class="formula-strip reveal">
+    <h3>Basic Formula · Основна формула</h3>
+    <div class="formula">
+      <span class="part">Subject<br><small>Підмет</small></span>
+      <span class="plus">+</span>
+      <span class="part blue">MODAL<br><small>Модальне</small></span>
+      <span class="plus">+</span>
+      <span class="part green">Verb (base)<br><small>Дієслово</small></span>
+      <span class="plus">+</span>
+      <span class="part pink">Rest<br><small>Решта</small></span>
+    </div>
+    <p style="color:white;margin-top:16px;font-size:15px;font-weight:600;">
+      ✅ She <strong>can</strong> swim. &nbsp;|&nbsp; ❌ She <strong>can to swim</strong>. &nbsp;|&nbsp; ❌ She <strong>cans</strong> swim.
+    </p>
+  </div>
+</section>
+
+<!-- UNIVERSAL SENTENCE -->
+<section id="universal" class="section" style="padding-top:0">
+  <div class="section-title reveal">⭐ Universal Sentence</div>
+  <div class="section-sub reveal">Одне речення — безліч значень! · One sentence, endless meanings!</div>
+
+  <div class="universal-banner reveal">
+    <h3>Base sentence · Базове речення:</h3>
+    <p>We use "She go to school" and change only the modal verb<br>Ми використовуємо "She go to school" і змінюємо лише модальне дієслово</p>
+    <div class="sentence-base">She <span class="highlight">___</span> go to school.</div>
+  </div>
+
+  <div class="transforms">
+    <div class="transform-card reveal" style="background:#fff9e6; border-color:#FFD93D;">
+      <div class="tc-label" style="color:#c8900a;">✅ Ability · Здатність</div>
+      <div class="tc-en">She <strong>can</strong> go to school.</div>
+      <div class="tc-uk">Вона вміє / може йти до школи.</div>
+    </div>
+    <div class="transform-card reveal" style="background:#ffe8e8;">
+      <div class="tc-label" style="color:#c0392b;">🚫 Obligation · Обов'язок</div>
+      <div class="tc-en">She <strong>must</strong> go to school.</div>
+      <div class="tc-uk">Вона мусить іти до школи.</div>
+    </div>
+    <div class="transform-card reveal" style="background:#e8f8ee;">
+      <div class="tc-label" style="color:#1e8449;">💡 Advice · Порада</div>
+      <div class="tc-en">She <strong>should</strong> go to school.</div>
+      <div class="tc-uk">Їй варто іти до школи.</div>
+    </div>
+    <div class="transform-card reveal" style="background:#eaf3ff;">
+      <div class="tc-label" style="color:#1a5276;">❓ Possibility · Можливість</div>
+      <div class="tc-en">She <strong>might</strong> go to school.</div>
+      <div class="tc-uk">Можливо, вона піде до школи.</div>
+    </div>
+    <div class="transform-card reveal" style="background:#f5eeff;">
+      <div class="tc-label" style="color:#7d3c98;">🙏 Permission · Дозвіл</div>
+      <div class="tc-en">She <strong>may</strong> go to school.</div>
+      <div class="tc-uk">Їй дозволено іти до школи.</div>
+    </div>
+    <div class="transform-card reveal" style="background:#fff0e8;">
+      <div class="tc-label" style="color:#ca6f1e;">🔮 Future · Майбутнє</div>
+      <div class="tc-en">She <strong>will</strong> go to school.</div>
+      <div class="tc-uk">Вона піде до школи.</div>
+    </div>
+    <div class="transform-card reveal" style="background:#e8fffe;">
+      <div class="tc-label" style="color:#0e6655;">🌸 Polite · Ввічливо</div>
+      <div class="tc-en">She <strong>would</strong> go to school.</div>
+      <div class="tc-uk">Вона б пішла до школи. (умовно)</div>
+    </div>
+    <div class="transform-card reveal" style="background:#ffeefa;">
+      <div class="tc-label" style="color:#76448a;">⚠️ Regret · Жаль</div>
+      <div class="tc-en">She <strong>should have gone</strong> to school.</div>
+      <div class="tc-uk">Їй слід було піти до школи (але не пішла).</div>
+    </div>
+  </div>
+</section>
+
+<!-- ALL MODALS -->
+<section id="modals" class="section" style="padding-top:0">
+  <div class="section-title reveal">🗂️ All Modal Verbs</div>
+  <div class="section-sub reveal">Всі модальні дієслова — просто і зрозуміло</div>
+  <div class="modals-grid">
+
+    <!-- CAN -->
+    <div class="modal-card reveal" style="background:#fff9e0;">
+      <span class="card-icon">💪</span>
+      <div class="card-word">CAN</div>
+      <div class="card-meaning">ability · possibility · permission</div>
+      <span class="tag">здатність</span>
+      <span class="tag">можливість</span>
+      <span class="tag">дозвіл</span>
+      <div class="examples">
+        <div class="ex">
+          <div class="en">I <strong>can</strong> speak English.</div>
+          <div class="uk">Я вмію говорити англійською.</div>
+        </div>
+        <div class="ex">
+          <div class="en"><strong>Can</strong> I open the window?</div>
+          <div class="uk">Можна відкрити вікно?</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COULD -->
+    <div class="modal-card reveal" style="background:#e0f0ff;">
+      <span class="card-icon">🕰️</span>
+      <div class="card-word">COULD</div>
+      <div class="card-meaning">past ability · polite request · possibility</div>
+      <span class="tag">здатність у минулому</span>
+      <span class="tag">ввічливо</span>
+      <div class="examples">
+        <div class="ex">
+          <div class="en">I <strong>could</strong> swim when I was five.</div>
+          <div class="uk">Я вмів плавати у 5 років.</div>
+        </div>
+        <div class="ex">
+          <div class="en"><strong>Could</strong> you help me?</div>
+          <div class="uk">Чи могли б ви мені допомогти?</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAY -->
+    <div class="modal-card reveal" style="background:#e8ffe8;">
+      <span class="card-icon">🎩</span>
+      <div class="card-word">MAY</div>
+      <div class="card-meaning">formal permission · possibility ~50%</div>
+      <span class="tag">формальний дозвіл</span>
+      <span class="tag">50% можливість</span>
+      <div class="examples">
+        <div class="ex">
+          <div class="en"><strong>May</strong> I come in?</div>
+          <div class="uk">Можна увійти?</div>
+        </div>
+        <div class="ex">
+          <div class="en">It <strong>may</strong> snow tomorrow.</div>
+          <div class="uk">Можливо, завтра буде сніг.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MIGHT -->
+    <div class="modal-card reveal" style="background:#f0e8ff;">
+      <span class="card-icon">🌫️</span>
+      <div class="card-word">MIGHT</div>
+      <div class="card-meaning">weak possibility ~30%</div>
+      <span class="tag">слабка ймовірність</span>
+      <span class="tag">можливо, але не факт</span>
+      <div class="examples">
+        <div class="ex">
+          <div class="en">It <strong>might</strong> rain tonight.</div>
+          <div class="uk">Можливо (але не факт), сьогодні піде дощ.</div>
+        </div>
+        <div class="ex">
+          <div class="en">She <strong>might</strong> be at home.</div>
+          <div class="uk">Вона, можливо, вдома.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MUST -->
+    <div class="modal-card reveal" style="background:#ffe8e8;">
+      <span class="card-icon">⚡</span>
+      <div class="card-word">MUST</div>
+      <div class="card-meaning">strong obligation · logical deduction</div>
+      <span class="tag">сильний обов'язок</span>
+      <span class="tag">логічний висновок</span>
+      <div class="examples">
+        <div class="ex">
+          <div class="en">You <strong>must</strong> study.</div>
+          <div class="uk">Ти мусиш вчитися.</div>
+        </div>
+        <div class="ex">
+          <div class="en">He <strong>must</strong> be tired.</div>
+          <div class="uk">Він, мабуть, втомлений. (логічно)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HAVE TO -->
+    <div class="modal-card reveal" style="background:#ffe8f8;">
+      <span class="card-icon">📋</span>
+      <div class="card-word">HAVE TO</div>
+      <div class="card-meaning">external obligation (rules/situations)</div>
+      <span class="tag">зовнішній обов'язок</span>
+      <span class="tag">правило · ситуація</span>
+      <div class="examples">
+        <div class="ex">
+          <div class="en">I <strong>have to</strong> work tomorrow.</div>
+          <div class="uk">Мені потрібно працювати завтра.</div>
+        </div>
+        <div class="ex">
+          <div class="en">She <strong>has to</strong> wear a uniform.</div>
+          <div class="uk">Вона мусить носити форму (правило).</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SHOULD -->
+    <div class="modal-card reveal" style="background:#e8fff0;">
+      <span class="card-icon">💡</span>
+      <div class="card-word">SHOULD</div>
+      <div class="card-meaning">advice · expectation</div>
+      <span class="tag">порада</span>
+      <span class="tag">очікування</span>
+      <div class="examples">
+        <div class="ex">
+          <div class="en">You <strong>should</strong> sleep more.</div>
+          <div class="uk">Тобі варто більше спати.</div>
+        </div>
+        <div class="ex">
+          <div class="en">The train <strong>should</strong> arrive at 6.</div>
+          <div class="uk">Потяг має прибути о 6.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WOULD -->
+    <div class="modal-card reveal" style="background:#e0f8ff;">
+      <span class="card-icon">✨</span>
+      <div class="card-word">WOULD</div>
+      <div class="card-meaning">polite requests · hypothetical · past habits</div>
+      <span class="tag">ввічливість</span>
+      <span class="tag">умовні ситуації</span>
+      <span class="tag">звички у минулому</span>
+      <div class="examples">
+        <div class="ex">
+          <div class="en"><strong>Would</strong> you like some tea?</div>
+          <div class="uk">Хочете чаю?</div>
+        </div>
+        <div class="ex">
+          <div class="en">I <strong>would</strong> travel if I had money.</div>
+          <div class="uk">Я б подорожував, якби мав гроші.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WILL -->
+    <div class="modal-card reveal" style="background:#fff4e0;">
+      <span class="card-icon">🔮</span>
+      <div class="card-word">WILL</div>
+      <div class="card-meaning">future · instant decisions · prediction</div>
+      <span class="tag">майбутнє</span>
+      <span class="tag">спонтанне рішення</span>
+      <div class="examples">
+        <div class="ex">
+          <div class="en">I <strong>will</strong> call you.</div>
+          <div class="uk">Я тобі подзвоню.</div>
+        </div>
+        <div class="ex">
+          <div class="en">It <strong>will</strong> be hot tomorrow.</div>
+          <div class="uk">Завтра буде спекотно.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- OUGHT TO -->
+    <div class="modal-card reveal" style="background:#f0ffe8;">
+      <span class="card-icon">⚖️</span>
+      <div class="card-word">OUGHT TO</div>
+      <div class="card-meaning">moral advice (formal should)</div>
+      <span class="tag">моральна порада</span>
+      <span class="tag">формальніше ніж should</span>
+      <div class="examples">
+        <div class="ex">
+          <div class="en">You <strong>ought to</strong> apologize.</div>
+          <div class="uk">Тобі слід вибачитися.</div>
+        </div>
+        <div class="ex">
+          <div class="en">We <strong>ought to</strong> help others.</div>
+          <div class="uk">Нам слід допомагати іншим.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- MUST vs HAVE TO comparison -->
+  <div class="reveal" style="background:linear-gradient(135deg,#667eea,#764ba2);border-radius:20px;padding:32px;margin-bottom:40px;border:3px solid var(--dark);box-shadow:6px 6px 0 var(--dark);">
+    <h3 style="font-family:'Fredoka One',cursive;font-size:26px;color:white;margin-bottom:20px;text-align:center;">
+      ⚡ MUST vs HAVE TO — Key Difference!
+    </h3>
+
+      <div style="background:rgba(255,255,255,0.15);border-radius:14px;padding:20px;border:2px solid rgba(255,255,255,0.3);">
+        <div style="font-family:'Fredoka One',cursive;font-size:22px;color:#FFD93D;margin-bottom:10px;">MUST</div>
+        <div style="color:rgba(255,255,255,0.9);font-size:14px;margin-bottom:10px;font-weight:600;">= MY decision / МОЄ рішення 🧠</div>
+        <div style="color:white;font-weight:700;">I must call her.</div>
+        <div style="color:rgba(255,255,255,0.6);font-size:13px;">Я сам вирішив, що треба подзвонити.</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.15);border-radius:14px;padding:20px;border:2px solid rgba(255,255,255,0.3);">
+        <div style="font-family:'Fredoka One',cursive;font-size:22px;color:#6BCB77;margin-bottom:10px;">HAVE TO</div>
+        <div style="color:rgba(255,255,255,0.9);font-size:14px;margin-bottom:10px;font-weight:600;">= outside rule / ЗОВНІШНЄ правило 📜</div>
+        <div style="color:white;font-weight:700;">I have to call her.</div>
+        <div style="color:rgba(255,255,255,0.6);font-size:13px;">Хтось інший вимагає, щоб я подзвонив.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBABILITY GAUGE -->
+<section id="probability" class="prob-section">
+  <div class="prob-inner">
+    <div class="section-title reveal">📊 Probability Chart</div>
+    <div class="section-sub reveal">Таблиця ймовірності — скільки % впевненості?</div>
+    <div style="margin-bottom:24px;" class="reveal">
+      <div class="prob-bar">
+        <div class="prob-label" style="color:#c0392b;">MUST</div>
+        <div class="prob-track">
+          <div class="prob-fill" style="width:95%;background:linear-gradient(90deg,#e74c3c,#c0392b);">95%</div>
+        </div>
+        <div class="prob-ex">"He must be home."</div>
+      </div>
+      <div class="prob-bar">
+        <div class="prob-label" style="color:#d35400;">WILL</div>
+        <div class="prob-track">
+          <div class="prob-fill" style="width:90%;background:linear-gradient(90deg,#e67e22,#d35400);">90%</div>
+        </div>
+        <div class="prob-ex">"It will rain."</div>
+      </div>
+      <div class="prob-bar">
+        <div class="prob-label" style="color:#27ae60;">SHOULD</div>
+        <div class="prob-track">
+          <div class="prob-fill" style="width:75%;background:linear-gradient(90deg,#2ecc71,#27ae60);">75%</div>
+        </div>
+        <div class="prob-ex">"She should be there."</div>
+      </div>
+      <div class="prob-bar">
+        <div class="prob-label" style="color:#2980b9;">MAY</div>
+        <div class="prob-track">
+          <div class="prob-fill" style="width:50%;background:linear-gradient(90deg,#3498db,#2980b9);">50%</div>
+        </div>
+        <div class="prob-ex">"It may snow."</div>
+      </div>
+      <div class="prob-bar">
+        <div class="prob-label" style="color:#8e44ad;">MIGHT</div>
+        <div class="prob-track">
+          <div class="prob-fill" style="width:30%;background:linear-gradient(90deg,#9b59b6,#8e44ad);">30%</div>
+        </div>
+        <div class="prob-ex">"It might rain."</div>
+      </div>
+      <div class="prob-bar">
+        <div class="prob-label" style="color:#e74c3c;">CAN'T</div>
+        <div class="prob-track">
+          <div class="prob-fill" style="width:5%;background:linear-gradient(90deg,#e74c3c,#c0392b);">5%</div>
+        </div>
+        <div class="prob-ex">"He can't be home."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAST MODALS -->
+<section id="past" class="past-section">
+  <div class="past-inner">
+    <div class="section-title reveal">⏳ Past Modals</div>
+    <div class="section-sub reveal">Модальні дієслова у минулому — формула: MODAL + have + V³</div>
+
+    <div class="formula-strip reveal" style="margin-bottom:40px;background:linear-gradient(135deg,#434343,#000000);">
+      <h3>Past Modal Formula</h3>
+      <div class="formula">
+        <span class="part blue">Modal</span>
+        <span class="plus">+</span>
+        <span class="part green">have</span>
+        <span class="plus">+</span>
+        <span class="part pink">V³ (past participle)</span>
+      </div>
+    </div>
+
+    <div class="past-grid">
+
+      <div class="past-card reveal">
+        <div class="pc-formula">must have + V³</div>
+        <div class="pc-meaning">
+          🇬🇧 Almost certain something happened<br>
+          🇺🇦 Майже впевнений, що щось сталося
+        </div>
+        <div class="pc-ex">
+          <div class="en">He <strong>must have forgotten</strong>.</div>
+          <div class="uk">Він, мабуть, забув.</div>
+        </div>
+        <div class="pc-ex">
+          <div class="en">She <strong>must have left</strong> early.</div>
+          <div class="uk">Вона, мабуть, пішла рано.</div>
+        </div>
+      </div>
+
+      <div class="past-card reveal">
+        <div class="pc-formula">might/may have + V³</div>
+        <div class="pc-meaning">
+          🇬🇧 Perhaps something happened (not sure)<br>
+          🇺🇦 Можливо, щось сталося (не впевнений)
+        </div>
+        <div class="pc-ex">
+          <div class="en">He <strong>might have missed</strong> the bus.</div>
+          <div class="uk">Можливо, він пропустив автобус.</div>
+        </div>
+        <div class="pc-ex">
+          <div class="en">She <strong>may have called</strong> already.</div>
+          <div class="uk">Вона, можливо, вже подзвонила.</div>
+        </div>
+      </div>
+
+      <div class="past-card reveal">
+        <div class="pc-formula">should have + V³</div>
+        <div class="pc-meaning">
+          🇬🇧 Advice for the past — you didn't do it but you should have<br>
+          🇺🇦 Порада щодо минулого — треба було, але не зробив
+        </div>
+        <div class="pc-ex">
+          <div class="en">You <strong>should have called</strong> me.</div>
+          <div class="uk">Тобі слід було мені подзвонити.</div>
+        </div>
+        <div class="pc-ex">
+          <div class="en">I <strong>shouldn't have eaten</strong> that pizza.</div>
+          <div class="uk">Мені не варто було їсти ту піцу.</div>
+        </div>
+      </div>
+
+      <div class="past-card reveal">
+        <div class="pc-formula">could have + V³</div>
+        <div class="pc-meaning">
+          🇬🇧 It was possible, but it didn't happen<br>
+          🇺🇦 Міг зробити, але не зробив
+        </div>
+        <div class="pc-ex">
+          <div class="en">I <strong>could have won</strong>.</div>
+          <div class="uk">Я міг виграти (але не виграв).</div>
+        </div>
+        <div class="pc-ex">
+          <div class="en">You <strong>could have been</strong> hurt!</div>
+          <div class="uk">Ти міг отримати травму!</div>
+        </div>
+      </div>
+
+      <div class="past-card reveal">
+        <div class="pc-formula">can't/couldn't have + V³</div>
+        <div class="pc-meaning">
+          🇬🇧 Almost certain something did NOT happen<br>
+          🇺🇦 Майже впевнений, що цього НЕ сталося
+        </div>
+        <div class="pc-ex">
+          <div class="en">They <strong>can't have got</strong> lost.</div>
+          <div class="uk">Вони не могли заблукати!</div>
+        </div>
+        <div class="pc-ex">
+          <div class="en">It <strong>couldn't have been</strong> her.</div>
+          <div class="uk">Це не могла бути вона.</div>
+        </div>
+      </div>
+
+      <div class="past-card reveal">
+        <div class="pc-formula">had to (past of must/have to)</div>
+        <div class="pc-meaning">
+          🇬🇧 Past obligation — something was required<br>
+          🇺🇦 Обов'язок у минулому — щось було потрібно
+        </div>
+        <div class="pc-ex">
+          <div class="en">I <strong>had to</strong> wake up at 6.</div>
+          <div class="uk">Мені треба було прокинутися о 6.</div>
+        </div>
+        <div class="pc-ex">
+          <div class="en">She <strong>had to</strong> study all night.</div>
+          <div class="uk">Вона мусила вчитися всю ніч.</div>
+        </div>
+      </div>
+
+      <div class="past-card reveal">
+        <div class="pc-formula">needn't have + V³</div>
+        <div class="pc-meaning">
+          🇬🇧 You DID it, but it wasn't necessary<br>
+          🇺🇦 Ти ЗРОБИВ, але це не було потрібно
+        </div>
+        <div class="pc-ex">
+          <div class="en">I <strong>needn't have brought</strong> an umbrella.</div>
+          <div class="uk">Мені не потрібно було брати парасолю (але взяв).</div>
+        </div>
+        <div class="pc-ex">
+          <div class="en">You <strong>needn't have cooked</strong> so much.</div>
+          <div class="uk">Тобі не треба було готувати стільки їжі (але приготував).</div>
+        </div>
+      </div>
+
+      <div class="past-card reveal">
+        <div class="pc-formula">didn't need to / didn't have to</div>
+        <div class="pc-meaning">
+          🇬🇧 You DIDN'T do it — and it wasn't necessary<br>
+          🇺🇦 Ти НЕ робив — і це було не потрібно
+        </div>
+        <div class="pc-ex">
+          <div class="en">We <strong>didn't need to</strong> book tickets.</div>
+          <div class="uk">Нам не потрібно було бронювати квитки (і ми не стали).</div>
+        </div>
+        <div class="pc-ex">
+          <div class="en">I <strong>didn't have to</strong> pay.</div>
+          <div class="uk">Мені не треба було платити.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GET vs BE -->
+<section id="get" class="get-section">
+  <div class="section-title reveal">🔄 GET vs BE (with Modals)</div>
+  <div class="section-sub reveal">GET замість BE — різниця у значенні / GET instead of BE — a nuance of change</div>
+
+  <div style="background:#fff3cd;border-radius:20px;padding:28px;margin-bottom:30px;border:3px solid var(--dark);box-shadow:5px 5px 0 var(--dark);" class="reveal">
+    <h3 style="font-family:'Fredoka One',cursive;font-size:24px;margin-bottom:16px;">🔑 Key idea · Головна ідея</h3>
+    <div class="bilingual" style="margin-top:0;">
+      <div style="background:rgba(255,255,255,0.6);border-radius:12px;padding:16px;border-left:4px solid var(--orange);">
+        <strong>🇬🇧 BE</strong> = state (стан)<br>
+        <em>"She <u>is</u> tired."</em> → she IS already in that state<br><br>
+        <strong>GET</strong> = change/process (зміна)<br>
+        <em>"She <u>gets</u> tired."</em> → she BECOMES tired
+      </div>
+      <div style="background:rgba(255,255,255,0.6);border-radius:12px;padding:16px;border-left:4px solid var(--sky);">
+        <strong>🇺🇦 BE</strong> = стан, який вже є<br>
+        <em>"Вона <u>є</u> стомленою."</em><br><br>
+        <strong>GET</strong> = процес зміни, перехід у стан<br>
+        <em>"Вона <u>стає</u> стомленою."</em>
+      </div>
+    </div>
+  </div>
+
+  <div class="get-table-wrap">
+    <div class="vs-card reveal" style="background:#fff0e0;">
+      <h4>🔵 With BE</h4>
+      <div class="vs-row"><div class="vs-bullet"></div><div class="vs-text"><div class="en">You should <strong>be</strong> careful.</div><div class="uk">Тобі варто бути обережним.</div></div></div>
+      <div class="vs-row"><div class="vs-bullet"></div><div class="vs-text"><div class="en">She might <strong>be</strong> nervous.</div><div class="uk">Вона, можливо, нервує.</div></div></div>
+      <div class="vs-row"><div class="vs-bullet"></div><div class="vs-text"><div class="en">He must <strong>be</strong> tired.</div><div class="uk">Він, мабуть, втомлений.</div></div></div>
+      <div class="vs-row"><div class="vs-bullet"></div><div class="vs-text"><div class="en">You can <strong>be</strong> yourself.</div><div class="uk">Ти можеш бути собою.</div></div></div>
+    </div>
+    <div class="vs-card reveal" style="background:#e0f8e0;">
+      <h4>🟢 With GET (change!)</h4>
+      <div class="vs-row"><div class="vs-bullet"></div><div class="vs-text"><div class="en">You should <strong>get</strong> ready.</div><div class="uk">Тобі варто приготуватися (стати готовим).</div></div></div>
+      <div class="vs-row"><div class="vs-bullet"></div><div class="vs-text"><div class="en">You might <strong>get</strong> lost.</div><div class="uk">Ти можеш заблукати (стати заблуканим).</div></div></div>
+      <div class="vs-row"><div class="vs-bullet"></div><div class="vs-text"><div class="en">She can <strong>get</strong> better.</div><div class="uk">Вона може одужати (стати кращою).</div></div></div>
+      <div class="vs-row"><div class="vs-bullet"></div><div class="vs-text"><div class="en">You'll <strong>get</strong> used to it.</div><div class="uk">Ти звикнеш (стаєш звиклим).</div></div></div>
+    </div>
+  </div>
+
+  <div class="transform-table-wrap reveal">
+    <table class="transform-table">
+      <thead>
+        <tr>
+          <th>Modal + GET 🇬🇧</th>
+          <th>Meaning 🇬🇧</th>
+          <th>🇺🇦 Значення</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><span class="modal-word">might get</span><br><span class="uk-small">might + get</span></td><td><span class="en-ex">might get cold / sick / lost</span></td><td><span class="uk-ex">може стати холодно / захворіти / заблукати</span></td></tr>
+        <tr><td><span class="modal-word">should get</span></td><td><span class="en-ex">should get dressed / ready / going</span></td><td><span class="uk-ex">варто одягтися / підготуватися / вирушати</span></td></tr>
+        <tr><td><span class="modal-word">can get</span></td><td><span class="en-ex">can get confused / hurt / better</span></td><td><span class="uk-ex">можна сплутати / отримати травму / одужати</span></td></tr>
+        <tr><td><span class="modal-word">will get</span></td><td><span class="en-ex">will get tired / angry / bored</span></td><td><span class="uk-ex">стане втомленим / злим / нудно</span></td></tr>
+        <tr><td><span class="modal-word">must get</span></td><td><span class="en-ex">must get moving / home</span></td><td><span class="uk-ex">треба вирушати / дістатися додому</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- RULES -->
+<section class="rules-strip" id="rules">
+  <div class="rules-inner">
+    <div class="section-title reveal">📌 Golden Rules</div>
+    <div class="section-sub reveal" style="color:#1a1a2e;">Золоті правила модальних дієслів — не забудь!</div>
+    <div class="rules-grid">
+      <div class="rule-card reveal">
+        <div class="emoji">🚫</div>
+        <div class="title">No "to" after modal!</div>
+        <div class="wrong">She can to swim</div>
+        <div class="right">✅ She can swim</div>
+        <p>Після модального дієслова — інфінітив БЕЗ "to"</p>
+      </div>
+      <div class="rule-card reveal">
+        <div class="emoji">😤</div>
+        <div class="title">No -s in 3rd person!</div>
+        <div class="wrong">He cans / She musts</div>
+        <div class="right">✅ He can / She must</div>
+        <p>Модальні НЕ змінюються у 3-й особі однини!</p>
+      </div>
+      <div class="rule-card reveal">
+        <div class="emoji">⏰</div>
+        <div class="title">No past form!</div>
+        <div class="wrong">He musted go</div>
+        <div class="right">✅ He must have gone</div>
+        <p>Для минулого часу: modal + have + V³</p>
+      </div>
+      <div class="rule-card reveal">
+        <div class="emoji">🔗</div>
+        <div class="title">Question: flip order!</div>
+        <div class="wrong">You can go? ❌</div>
+        <div class="right">✅ Can you go?</div>
+        <p>У питальних реченнях модальне стоїть ПЕРШИМ</p>
+      </div>
+      <div class="rule-card reveal">
+        <div class="emoji">❌</div>
+        <div class="title">Negative: add NOT</div>
+        <div class="wrong">She not can go</div>
+        <div class="right">✅ She cannot / can't go</div>
+        <p>Заперечення: модальне + not (або скорочення)</p>
+      </div>
+      <div class="rule-card reveal">
+        <div class="emoji">🧠</div>
+        <div class="title">Two modals? No!</div>
+        <div class="wrong">I will can go</div>
+        <div class="right">✅ I will be able to go</div>
+        <p>Не можна ставити два модальних поряд — замінюй на semi-modal!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>Made with ❤️ for English learners 🇺🇦 · <span>Modal Verbs Guide</span> · Двомовний посібник</p>
+  <p style="margin-top:8px;opacity:0.5;font-size:12px;">English 🇬🇧 + Ukrainian 🇺🇦 · For beginners, teens & everyone learning</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.12 });
+  reveals.forEach(r => observer.observe(r));
+
+  // Stagger children in grids
+  document.querySelectorAll('.modals-grid, .transforms, .past-grid, .rules-grid').forEach(grid => {
+    Array.from(grid.children).forEach((child, i) => {
+      child.style.transitionDelay = (i * 0.07) + 's';
+    });
+  });
+</script>
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+
+</body>
+</html>

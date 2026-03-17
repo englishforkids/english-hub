@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Talking About Books in English 📚</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FFF8F0;
+    --warm-white: #FFFDF9;
+    --ink: #1A1208;
+    --brown: #6B3F1A;
+    --amber: #E8861A;
+    --gold: #F5C842;
+    --sage: #5A7A5A;
+    --rose: #C94F6A;
+    --sky: #3B7DB8;
+    --lavender: #7B5EA7;
+    --peach: #F0A07A;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background-color: var(--cream);
+    font-family: 'Nunito', sans-serif;
+    color: var(--ink);
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #2C1A0E 0%, #5C2E0A 50%, #3A1F08 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 60px 20px;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(232,134,26,0.15) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(245,200,66,0.1) 0%, transparent 50%);
+  }
+
+  .floating-books {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .fb {
+    position: absolute;
+    font-size: 2rem;
+    animation: floatBook 8s ease-in-out infinite;
+    opacity: 0.25;
+  }
+  .fb:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
+  .fb:nth-child(2) { top: 20%; right: 8%; animation-delay: 1s; font-size: 3rem; }
+  .fb:nth-child(3) { top: 60%; left: 3%; animation-delay: 2s; font-size: 1.5rem; }
+  .fb:nth-child(4) { bottom: 15%; right: 5%; animation-delay: 3s; }
+  .fb:nth-child(5) { top: 40%; right: 15%; animation-delay: 4s; font-size: 2.5rem; }
+  .fb:nth-child(6) { bottom: 30%; left: 10%; animation-delay: 1.5s; }
+  .fb:nth-child(7) { top: 75%; right: 20%; animation-delay: 2.5s; font-size: 1.8rem; }
+
+  @keyframes floatBook {
+    0%, 100% { transform: translateY(0) rotate(-5deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+  }
+
+  .hero-badge {
+    background: rgba(232,134,26,0.25);
+    border: 1px solid rgba(232,134,26,0.5);
+    color: var(--gold);
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 8px 20px;
+    border-radius: 50px;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    font-weight: 900;
+    color: #fff;
+    text-align: center;
+    line-height: 1.1;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 8px;
+  }
+
+  .hero h1 span {
+    color: var(--gold);
+    display: block;
+  }
+
+  .hero-sub {
+    color: rgba(255,255,255,0.65);
+    font-size: 1.15rem;
+    text-align: center;
+    margin-top: 16px;
+    max-width: 520px;
+    position: relative;
+    z-index: 1;
+    line-height: 1.7;
+  }
+
+  .hero-sub em {
+    color: var(--peach);
+    font-style: normal;
+    font-weight: 700;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.4);
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    animation: bounce 2s ease-in-out infinite;
+    z-index: 1;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+
+  /* SECTION */
+  .section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 70px 24px;
+  }
+
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--amber);
+    color: #fff;
+    font-weight: 800;
+    font-size: 0.78rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 50px;
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.9rem, 4vw, 2.8rem);
+    font-weight: 700;
+    color: var(--brown);
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+
+  .section-desc {
+    color: #6B5B4E;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    max-width: 680px;
+    margin-bottom: 48px;
+  }
+
+  /* GENRE GRID */
+  .genre-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .genre-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 24px 20px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(107,63,26,0.08);
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    cursor: default;
+  }
+
+  .genre-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(107,63,26,0.15);
+    border-color: var(--amber);
+  }
+
+  .genre-icon { font-size: 2.8rem; margin-bottom: 12px; display: block; }
+
+  .genre-en {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--brown);
+    margin-bottom: 4px;
+  }
+
+  .genre-ua {
+    font-size: 0.85rem;
+    color: #9A7A6A;
+    font-weight: 600;
+  }
+
+  .genre-example {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--amber);
+    font-weight: 700;
+    background: rgba(232,134,26,0.1);
+    border-radius: 8px;
+    padding: 4px 10px;
+    display: inline-block;
+  }
+
+  /* DIVIDER */
+  .wavy-divider {
+    text-align: center;
+    font-size: 2rem;
+    letter-spacing: 8px;
+    opacity: 0.3;
+    margin: 0;
+  }
+
+  /* DARK SECTION */
+  .dark-section {
+    background: linear-gradient(135deg, #1E2A3A 0%, #2A3548 100%);
+    padding: 70px 0;
+  }
+
+  .dark-section .section-title { color: #fff; }
+  .dark-section .section-desc { color: rgba(255,255,255,0.65); }
+  .dark-section .section-label { background: var(--sky); }
+
+  /* PHRASE CARDS */
+  .phrase-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+  }
+
+  .phrase-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 20px;
+    padding: 28px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .phrase-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--gold);
+  }
+
+  .phrase-card:hover {
+    background: rgba(255,255,255,0.09);
+    transform: translateX(4px);
+  }
+
+  .phrase-card:nth-child(2)::before { background: var(--peach); }
+  .phrase-card:nth-child(3)::before { background: var(--sage); }
+  .phrase-card:nth-child(4)::before { background: var(--lavender); }
+  .phrase-card:nth-child(5)::before { background: var(--rose); }
+  .phrase-card:nth-child(6)::before { background: var(--sky); }
+
+  .phrase-en {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+
+  .phrase-ua {
+    font-size: 0.92rem;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+
+  .phrase-example {
+    background: rgba(245,200,66,0.12);
+    border-radius: 12px;
+    padding: 12px 16px;
+    font-size: 0.88rem;
+    color: var(--gold);
+    line-height: 1.6;
+    font-style: italic;
+  }
+
+  .phrase-example-ua {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.4);
+    margin-top: 6px;
+    font-style: normal;
+  }
+
+  /* OPINION SECTION */
+  .opinion-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+  }
+
+  .opinion-card {
+    border-radius: 20px;
+    padding: 26px 22px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+
+  .opinion-card:hover { transform: scale(1.03); }
+
+  .opinion-card.positive { background: linear-gradient(135deg, #1A4A2A, #2A6A3E); }
+  .opinion-card.negative { background: linear-gradient(135deg, #4A1A1A, #6A2A2A); }
+  .opinion-card.neutral  { background: linear-gradient(135deg, #1A2A4A, #2A3A6A); }
+
+  .opinion-type {
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    padding: 4px 12px;
+    border-radius: 50px;
+    display: inline-block;
+  }
+
+  .positive .opinion-type { background: rgba(90,180,90,0.3); color: #8DE88D; }
+  .negative .opinion-type { background: rgba(180,90,90,0.3); color: #E88D8D; }
+  .neutral  .opinion-type { background: rgba(90,90,180,0.3); color: #8D8DE8; }
+
+  .opinion-phrases { list-style: none; }
+
+  .opinion-phrases li {
+    color: rgba(255,255,255,0.9);
+    font-size: 0.95rem;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .opinion-phrases li:last-child { border-bottom: none; }
+
+  .op-en { font-weight: 700; }
+
+  .op-ua {
+    font-size: 0.78rem;
+    opacity: 0.55;
+  }
+
+  /* STORY ELEMENTS */
+  .story-section {
+    background: var(--warm-white);
+    padding: 70px 0;
+  }
+
+  .elements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 20px;
+  }
+
+  .element-card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 32px 24px;
+    text-align: center;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .element-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 4px;
+  }
+
+  .element-card.c1::after { background: var(--amber); }
+  .element-card.c2::after { background: var(--rose); }
+  .element-card.c3::after { background: var(--sky); }
+  .element-card.c4::after { background: var(--sage); }
+  .element-card.c5::after { background: var(--lavender); }
+  .element-card.c6::after { background: var(--gold); }
+
+  .element-card:hover { transform: translateY(-8px); }
+
+  .element-emoji { font-size: 3rem; margin-bottom: 16px; display: block; }
+
+  .element-en {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--brown);
+    margin-bottom: 4px;
+  }
+
+  .element-ua {
+    font-size: 0.85rem;
+    color: #9A7A6A;
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+
+  .element-def {
+    font-size: 0.88rem;
+    color: #6B5B4E;
+    line-height: 1.65;
+    background: var(--cream);
+    padding: 12px;
+    border-radius: 12px;
+    text-align: left;
+  }
+
+  .element-def strong { color: var(--brown); }
+
+  /* DIALOGUE */
+  .dialogue-section {
+    background: linear-gradient(135deg, #F5EDD8 0%, #EDE0C8 100%);
+    padding: 70px 0;
+  }
+
+  .dialogue-box {
+    background: #fff;
+    border-radius: 28px;
+    padding: 40px;
+    box-shadow: 0 8px 40px rgba(107,63,26,0.12);
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .dialogue-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--brown);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .msg {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 20px;
+    align-items: flex-start;
+  }
+
+  .msg.right { flex-direction: row-reverse; }
+
+  .avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    flex-shrink: 0;
+  }
+
+  .avatar.a { background: linear-gradient(135deg, #3B7DB8, #5A9FD8); }
+  .avatar.b { background: linear-gradient(135deg, #C94F6A, #E07090); }
+
+  .bubble {
+    max-width: 75%;
+    padding: 14px 18px;
+    border-radius: 18px;
+    line-height: 1.6;
+  }
+
+  .msg:not(.right) .bubble {
+    background: var(--cream);
+    border-top-left-radius: 4px;
+  }
+
+  .msg.right .bubble {
+    background: linear-gradient(135deg, #2C1A0E, #5C2E0A);
+    border-top-right-radius: 4px;
+  }
+
+  .bubble-en {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+
+  .msg.right .bubble-en { color: #fff; }
+
+  .bubble-ua {
+    font-size: 0.8rem;
+    color: #9A7A6A;
+  }
+
+  .msg.right .bubble-ua { color: rgba(255,255,255,0.55); }
+
+  /* VOCAB TABLE */
+  .vocab-section {
+    padding: 70px 0;
+    background: #fff;
+  }
+
+  .vocab-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+  }
+
+  .vocab-table thead tr {
+    background: linear-gradient(135deg, #2C1A0E, #5C2E0A);
+    color: #fff;
+  }
+
+  .vocab-table th {
+    padding: 16px 20px;
+    text-align: left;
+    font-weight: 800;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .vocab-table tbody tr {
+    border-bottom: 1px solid #F0E8E0;
+    transition: background 0.2s;
+  }
+
+  .vocab-table tbody tr:hover {
+    background: var(--cream);
+  }
+
+  .vocab-table td {
+    padding: 14px 20px;
+    vertical-align: top;
+  }
+
+  .vocab-table .word-en {
+    font-weight: 800;
+    color: var(--brown);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+  }
+
+  .vocab-table .word-ua {
+    font-size: 0.82rem;
+    color: #9A7A6A;
+    margin-top: 3px;
+  }
+
+  .vocab-table .example-text {
+    color: var(--amber);
+    font-style: italic;
+    font-size: 0.88rem;
+  }
+
+  /* TIPS BOX */
+  .tips-section {
+    background: linear-gradient(135deg, #2C1A0E 0%, #4A2A0E 100%);
+    padding: 70px 0;
+  }
+
+  .tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .tip-card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 20px;
+    padding: 28px;
+    transition: all 0.3s ease;
+  }
+
+  .tip-card:hover {
+    background: rgba(255,255,255,0.11);
+    transform: translateY(-4px);
+  }
+
+  .tip-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 900;
+    color: rgba(245,200,66,0.2);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .tip-title {
+    font-weight: 800;
+    color: var(--gold);
+    margin-bottom: 8px;
+    font-size: 1rem;
+  }
+
+  .tip-desc {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 40px 24px;
+    font-size: 0.88rem;
+  }
+
+  footer span { color: var(--gold); }
+
+  /* INFOGRAPHIC */
+  .infographic {
+    background: linear-gradient(135deg, #F7F0E6, #EDE0CC);
+    border-radius: 28px;
+    padding: 40px;
+    margin-bottom: 48px;
+    text-align: center;
+  }
+
+  .infographic-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--brown);
+    margin-bottom: 32px;
+  }
+
+  .steps {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0;
+    position: relative;
+  }
+
+  .step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 160px;
+    position: relative;
+  }
+
+  .step-circle {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    margin-bottom: 14px;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+  }
+
+  .step:nth-child(1) .step-circle { background: linear-gradient(135deg, #E8861A, #F5A840); }
+  .step:nth-child(2) .step-circle { background: linear-gradient(135deg, #C94F6A, #E07090); }
+  .step:nth-child(3) .step-circle { background: linear-gradient(135deg, #3B7DB8, #5A9FD8); }
+  .step:nth-child(4) .step-circle { background: linear-gradient(135deg, #5A7A5A, #7A9A7A); }
+  .step:nth-child(5) .step-circle { background: linear-gradient(135deg, #7B5EA7, #9B7EC7); }
+
+  .step-label-en {
+    font-weight: 800;
+    font-size: 0.88rem;
+    color: var(--brown);
+    margin-bottom: 3px;
+  }
+
+  .step-label-ua {
+    font-size: 0.75rem;
+    color: #9A7A6A;
+  }
+
+  .step-arrow {
+    position: absolute;
+    right: -14px;
+    top: 24px;
+    font-size: 1.3rem;
+    color: var(--amber);
+    z-index: 2;
+  }
+
+  .step:last-child .step-arrow { display: none; }
+
+  /* TAG CLOUD */
+  .tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 32px;
+  }
+
+  .tag {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    transition: all 0.2s;
+    cursor: default;
+  }
+
+  .tag:hover {
+    background: var(--amber);
+    border-color: var(--amber);
+    transform: scale(1.05);
+  }
+
+  .tag small {
+    opacity: 0.6;
+    font-weight: 400;
+    font-size: 0.75rem;
+  }
+
+  /* TABLE SCROLL WRAPPER */
+  .table-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(107,63,26,0.08);
+  }
+  .table-scroll::-webkit-scrollbar { height: 6px; }
+  .table-scroll::-webkit-scrollbar-track { background: var(--cream); border-radius: 6px; }
+  .table-scroll::-webkit-scrollbar-thumb { background: var(--amber); border-radius: 6px; }
+
+  /* RESPONSIVE — tablet */
+  @media (max-width: 768px) {
+    .section { padding: 48px 16px; }
+    .hero { min-height: auto; padding: 80px 20px 60px; }
+    .hero h1 { font-size: 2.4rem; }
+    .hero-sub { font-size: 1rem; }
+    .genre-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .phrase-grid { grid-template-columns: 1fr; }
+    .opinion-grid { grid-template-columns: 1fr; }
+    .elements-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .tips-grid { grid-template-columns: 1fr; }
+    .infographic { padding: 28px 16px; }
+    .steps { gap: 16px; }
+    .step { width: 130px; }
+    .step-arrow { display: none !important; }
+    .dialogue-box { padding: 28px 20px; }
+    .bubble { max-width: 85%; }
+    .tag-cloud { gap: 8px; }
+    .tag { font-size: 0.82rem; padding: 6px 13px; }
+  }
+
+  /* RESPONSIVE — phone */
+  @media (max-width: 480px) {
+    .section { padding: 40px 14px; }
+    .hero { padding: 70px 16px 50px; }
+    .hero h1 { font-size: 2rem; line-height: 1.15; }
+    .hero-sub { font-size: 0.93rem; }
+    .hero-badge { font-size: 0.7rem; letter-spacing: 2px; padding: 6px 14px; }
+    .section-title { font-size: 1.6rem; }
+    .section-desc { font-size: 0.95rem; }
+    .section-label { font-size: 0.72rem; padding: 5px 13px; }
+    .genre-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .genre-card { padding: 18px 14px; }
+    .genre-icon { font-size: 2.2rem; }
+    .genre-en { font-size: 0.95rem; }
+    .genre-ua { font-size: 0.78rem; }
+    .phrase-card { padding: 20px 16px; }
+    .phrase-en { font-size: 1.05rem; }
+    .phrase-example { font-size: 0.82rem; }
+    .elements-grid { grid-template-columns: 1fr; }
+    .element-card { padding: 24px 18px; }
+    .opinion-card { padding: 20px 16px; }
+    .opinion-phrases li { font-size: 0.88rem; }
+    .steps { flex-direction: column; align-items: center; gap: 20px; }
+    .step { width: 100%; max-width: 220px; }
+    .dialogue-box { padding: 20px 14px; }
+    .msg { gap: 10px; }
+    .avatar { width: 36px; height: 36px; font-size: 1.1rem; }
+    .bubble { max-width: 90%; padding: 11px 14px; }
+    .bubble-en { font-size: 0.88rem; }
+    .bubble-ua { font-size: 0.75rem; }
+    .vocab-table { font-size: 0.85rem; min-width: 480px; }
+    .vocab-table th { padding: 12px 14px; font-size: 0.72rem; }
+    .vocab-table td { padding: 11px 14px; }
+    .tip-card { padding: 22px 18px; }
+    .tip-num { font-size: 2.2rem; }
+    .tip-title { font-size: 0.93rem; }
+    .tip-desc { font-size: 0.85rem; }
+    .tag { font-size: 0.78rem; padding: 5px 11px; }
+    .tag small { font-size: 0.7rem; }
+    .scroll-hint { font-size: 0.68rem; }
+  }
+
+  #scroll-top-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #1a1208;
+    border: 1.5px solid rgba(200,150,62,0.4);
+    color: #f5f0e8;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+    pointer-events: none;
+    z-index: 9998;
+  }
+  #scroll-top-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  #scroll-top-btn:hover {
+    background: #c8963e;
+    border-color: #c8963e;
+    color: #1a1208;
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="floating-books">
+    <span class="fb">📚</span><span class="fb">📖</span>
+    <span class="fb">✍️</span><span class="fb">🔖</span>
+    <span class="fb">📕</span><span class="fb">📗</span><span class="fb">📘</span>
+  </div>
+  <div class="hero-badge">📖 English for Readers · Англійська для читачів</div>
+  <h1>Talking About<br><span>Books in English</span></h1>
+  <p class="hero-sub">
+    Learn how to discuss literature like a pro!<br>
+    <em>Навчись говорити про книги англійською — просто й весело!</em>
+  </p>
+  <div class="scroll-hint">
+    <span>Scroll down · Гортай вниз</span>
+    <span>▼</span>
+  </div>
+</section>
+
+<!-- GENRES -->
+<div class="section">
+  <div class="section-label">📚 Step 1 · Крок 1</div>
+  <h2 class="section-title">Book Genres · Жанри книг</h2>
+  <p class="section-desc">
+    First, name the type of book! <em>Спочатку назви жанр книги!</em><br>
+    Use: <strong>"It's a … / This is a …"</strong> — Це є…
+  </p>
+
+  <div class="genre-grid">
+    <div class="genre-card">
+      <span class="genre-icon">🧙</span>
+      <div class="genre-en">Fantasy</div>
+      <div class="genre-ua">Фентезі</div>
+      <div class="genre-example">Harry Potter</div>
+    </div>
+    <div class="genre-card">
+      <span class="genre-icon">🚀</span>
+      <div class="genre-en">Science Fiction</div>
+      <div class="genre-ua">Наукова фантастика</div>
+      <div class="genre-example">Dune</div>
+    </div>
+    <div class="genre-card">
+      <span class="genre-icon">💕</span>
+      <div class="genre-en">Romance</div>
+      <div class="genre-ua">Романтика</div>
+      <div class="genre-example">Pride & Prejudice</div>
+    </div>
+    <div class="genre-card">
+      <span class="genre-icon">🔍</span>
+      <div class="genre-en">Mystery / Thriller</div>
+      <div class="genre-ua">Детектив / Трилер</div>
+      <div class="genre-example">Sherlock Holmes</div>
+    </div>
+    <div class="genre-card">
+      <span class="genre-icon">👻</span>
+      <div class="genre-en">Horror</div>
+      <div class="genre-ua">Жахи</div>
+      <div class="genre-example">It — Stephen King</div>
+    </div>
+    <div class="genre-card">
+      <span class="genre-icon">📜</span>
+      <div class="genre-en">Historical Fiction</div>
+      <div class="genre-ua">Історичний роман</div>
+      <div class="genre-example">The Name of the Rose</div>
+    </div>
+    <div class="genre-card">
+      <span class="genre-icon">🌱</span>
+      <div class="genre-en">Coming-of-Age</div>
+      <div class="genre-ua">Роман виховання</div>
+      <div class="genre-example">The Catcher in the Rye</div>
+    </div>
+    <div class="genre-card">
+      <span class="genre-icon">🌍</span>
+      <div class="genre-en">Adventure</div>
+      <div class="genre-ua">Пригоди</div>
+      <div class="genre-example">The Hobbit</div>
+    </div>
+    <div class="genre-card">
+      <span class="genre-icon">🧪</span>
+      <div class="genre-en">Dystopia</div>
+      <div class="genre-ua">Антиутопія</div>
+      <div class="genre-example">1984 — Orwell</div>
+    </div>
+    <div class="genre-card">
+      <span class="genre-icon">😂</span>
+      <div class="genre-en">Humor / Satire</div>
+      <div class="genre-ua">Гумор / Сатира</div>
+      <div class="genre-example">The Hitchhiker's Guide</div>
+    </div>
+  </div>
+</div>
+
+<!-- HOW TO DESCRIBE — dark -->
+<div class="dark-section">
+  <div class="section">
+    <div class="section-label">💬 Step 2 · Крок 2</div>
+    <h2 class="section-title">Key Phrases · Ключові фрази</h2>
+    <p class="section-desc">Use these phrases when talking about a book!</p>
+
+    <div class="phrase-grid">
+
+      <div class="phrase-card">
+        <div class="phrase-en">📖 "The book is about…"</div>
+        <div class="phrase-ua">Книга про… (опис сюжету)</div>
+        <div class="phrase-example">
+          "The book is about a young wizard who discovers he has magical powers."
+          <div class="phrase-example-ua">Книга про молодого чарівника, який дізнається, що має магічні здібності.</div>
+        </div>
+      </div>
+
+      <div class="phrase-card">
+        <div class="phrase-en">🎭 "The main character is…"</div>
+        <div class="phrase-ua">Головний герой — це… (опис персонажа)</div>
+        <div class="phrase-example">
+          "The main character is a brave girl named Katniss."
+          <div class="phrase-example-ua">Головна героїня — хоробра дівчина на ім'я Катніс.</div>
+        </div>
+      </div>
+
+      <div class="phrase-card">
+        <div class="phrase-en">🌍 "The story is set in…"</div>
+        <div class="phrase-ua">Дія відбувається в… (місце та час)</div>
+        <div class="phrase-example">
+          "The story is set in a medieval fantasy kingdom."
+          <div class="phrase-example-ua">Дія відбувається в середньовічному фентезійному королівстві.</div>
+        </div>
+      </div>
+
+      <div class="phrase-card">
+        <div class="phrase-en">⭐ "I really enjoyed / loved it because…"</div>
+        <div class="phrase-ua">Мені дуже сподобалось, тому що… (твоя думка)</div>
+        <div class="phrase-example">
+          "I really enjoyed it because the plot was full of surprises."
+          <div class="phrase-example-ua">Мені дуже сподобалось, бо сюжет був сповнений несподіванок.</div>
+        </div>
+      </div>
+
+      <div class="phrase-card">
+        <div class="phrase-en">👍 "I would recommend it to…"</div>
+        <div class="phrase-ua">Я б порадив(-ла) це… (рекомендація)</div>
+        <div class="phrase-example">
+          "I would recommend it to anyone who loves adventure and magic."
+          <div class="phrase-example-ua">Я б порадив(-ла) це всім, хто любить пригоди й магію.</div>
+        </div>
+      </div>
+
+      <div class="phrase-card">
+        <div class="phrase-en">💡 "The theme of the book is…"</div>
+        <div class="phrase-ua">Тема книги — це… (головна ідея)</div>
+        <div class="phrase-example">
+          "The theme of the book is friendship and courage."
+          <div class="phrase-example-ua">Тема книги — дружба та хоробрість.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="tag-cloud">
+      <div class="tag">Written by <small>написана</small></div>
+      <div class="tag">Published in <small>видана у</small></div>
+      <div class="tag">It's a sequel <small>продовження</small></div>
+      <div class="tag">Part of a series <small>частина серії</small></div>
+      <div class="tag">It's a bestseller <small>бестселер</small></div>
+      <div class="tag">Based on a true story <small>заснована на реальних подіях</small></div>
+      <div class="tag">Award-winning <small>нагороджена</small></div>
+      <div class="tag">Hard to put down <small>неможливо відкласти</small></div>
+    </div>
+  </div>
+</div>
+
+<!-- STORY ELEMENTS -->
+<div class="story-section">
+  <div class="section">
+    <div class="section-label">🏗️ Step 3 · Крок 3</div>
+    <h2 class="section-title">Parts of a Story · Елементи оповіді</h2>
+    <p class="section-desc">Know the building blocks of any book! <em>Знай будівельні блоки будь-якої книги!</em></p>
+
+    <div class="elements-grid">
+      <div class="element-card c1">
+        <span class="element-emoji">🗺️</span>
+        <div class="element-en">Plot</div>
+        <div class="element-ua">Сюжет</div>
+        <div class="element-def">The <strong>sequence of events</strong> in the story. <br><em>Послідовність подій у книзі.</em></div>
+      </div>
+      <div class="element-card c2">
+        <span class="element-emoji">🦸</span>
+        <div class="element-en">Character</div>
+        <div class="element-ua">Персонаж</div>
+        <div class="element-def">A <strong>person or creature</strong> in the story.<br><em>Людина або істота в оповіді.</em></div>
+      </div>
+      <div class="element-card c3">
+        <span class="element-emoji">🌆</span>
+        <div class="element-en">Setting</div>
+        <div class="element-ua">Місце / Час дії</div>
+        <div class="element-def"><strong>Where and when</strong> the story takes place.<br><em>Де і коли відбувається дія.</em></div>
+      </div>
+      <div class="element-card c4">
+        <span class="element-emoji">⚡</span>
+        <div class="element-en">Conflict</div>
+        <div class="element-ua">Конфлікт</div>
+        <div class="element-def">The main <strong>problem or struggle</strong> in the story.<br><em>Головна проблема або боротьба.</em></div>
+      </div>
+      <div class="element-card c5">
+        <span class="element-emoji">💡</span>
+        <div class="element-en">Theme</div>
+        <div class="element-ua">Тема / Ідея</div>
+        <div class="element-def">The <strong>central message</strong> or lesson.<br><em>Головний меседж або урок.</em></div>
+      </div>
+      <div class="element-card c6">
+        <span class="element-emoji">🏔️</span>
+        <div class="element-en">Climax</div>
+        <div class="element-ua">Кульмінація</div>
+        <div class="element-def">The most <strong>exciting, turning point</strong> of the story.<br><em>Найнапруженіший момент оповіді.</em></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HOW TO GIVE OPINION -->
+<div style="background: var(--cream); padding: 70px 0;">
+  <div class="section" style="padding-top:0; padding-bottom:0;">
+    <div class="section-label">⭐ Step 4 · Крок 4</div>
+    <h2 class="section-title">Sharing Your Opinion · Висловлюй думку</h2>
+    <p class="section-desc">Say what you think! <em>Скажи, що ти думаєш!</em></p>
+
+    <div class="infographic">
+      <div class="infographic-title">⭐ How to Rate a Book · Як оцінити книгу</div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-circle">😍</div>
+          <div class="step-label-en">Outstanding</div>
+          <div class="step-label-ua">Чудова</div>
+          <span class="step-arrow">→</span>
+        </div>
+        <div class="step">
+          <div class="step-circle">😊</div>
+          <div class="step-label-en">Great</div>
+          <div class="step-label-ua">Добра</div>
+          <span class="step-arrow">→</span>
+        </div>
+        <div class="step">
+          <div class="step-circle">😐</div>
+          <div class="step-label-en">Okay</div>
+          <div class="step-label-ua">Нормальна</div>
+          <span class="step-arrow">→</span>
+        </div>
+        <div class="step">
+          <div class="step-circle">😕</div>
+          <div class="step-label-en">Disappointing</div>
+          <div class="step-label-ua">Розчарувала</div>
+          <span class="step-arrow">→</span>
+        </div>
+        <div class="step">
+          <div class="step-circle">😤</div>
+          <div class="step-label-en">Terrible</div>
+          <div class="step-label-ua">Жахлива</div>
+          <span class="step-arrow">→</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="opinion-grid">
+      <div class="opinion-card positive">
+        <div class="opinion-type">👍 Positive · Позитивно</div>
+        <ul class="opinion-phrases">
+          <li><span class="op-en">"It was absolutely gripping!"</span><span class="op-ua">Це було дуже захопливо!</span></li>
+          <li><span class="op-en">"I couldn't put it down."</span><span class="op-ua">Я не міг(-ла) відкласти.</span></li>
+          <li><span class="op-en">"The ending blew my mind."</span><span class="op-ua">Кінцівка мене вразила.</span></li>
+          <li><span class="op-en">"The characters felt so real."</span><span class="op-ua">Персонажі здавались живими.</span></li>
+          <li><span class="op-en">"It made me cry / laugh."</span><span class="op-ua">Це змусило мене плакати / сміятись.</span></li>
+        </ul>
+      </div>
+      <div class="opinion-card negative">
+        <div class="opinion-type">👎 Negative · Негативно</div>
+        <ul class="opinion-phrases">
+          <li><span class="op-en">"It was rather boring."</span><span class="op-ua">Це було досить нудно.</span></li>
+          <li><span class="op-en">"The plot was predictable."</span><span class="op-ua">Сюжет був передбачуваний.</span></li>
+          <li><span class="op-en">"It didn't live up to the hype."</span><span class="op-ua">Не виправдало очікувань.</span></li>
+          <li><span class="op-en">"I struggled to finish it."</span><span class="op-ua">Мені важко було дочитати.</span></li>
+          <li><span class="op-en">"The ending was disappointing."</span><span class="op-ua">Кінцівка розчарувала.</span></li>
+        </ul>
+      </div>
+      <div class="opinion-card neutral">
+        <div class="opinion-type">🤔 Mixed · Неоднозначно</div>
+        <ul class="opinion-phrases">
+          <li><span class="op-en">"It was okay, but…"</span><span class="op-ua">Нормально, але…</span></li>
+          <li><span class="op-en">"It had its ups and downs."</span><span class="op-ua">Були і плюси, і мінуси.</span></li>
+          <li><span class="op-en">"Not my usual genre, but…"</span><span class="op-ua">Не мій жанр, але…</span></li>
+          <li><span class="op-en">"I can see why people like it."</span><span class="op-ua">Розумію, чому людям подобається.</span></li>
+          <li><span class="op-en">"Worth reading, despite flaws."</span><span class="op-ua">Варто прочитати, незважаючи на недоліки.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SAMPLE DIALOGUE -->
+<div class="dialogue-section">
+  <div class="section" style="padding-top:0; padding-bottom:0;">
+    <div class="section-label">💬 Step 5 · Крок 5</div>
+    <h2 class="section-title">A Real Conversation · Справжня розмова</h2>
+    <p class="section-desc">See how it all comes together! <em>Подивись, як усе складається разом!</em></p>
+
+    <div class="dialogue-box">
+      <div class="dialogue-title">📚 Alex & Mia are talking about a book · Алекс і Міа розмовляють про книгу</div>
+
+      <div class="msg">
+        <div class="avatar a">👦</div>
+        <div class="bubble">
+          <div class="bubble-en">Hey Mia! Have you read any good books lately?</div>
+          <div class="bubble-ua">Привіт, Міа! Ти читала щось цікаве останнім часом?</div>
+        </div>
+      </div>
+
+      <div class="msg right">
+        <div class="avatar b">👧</div>
+        <div class="bubble">
+          <div class="bubble-en">Yes! I just finished "The Giver". It's a dystopian novel. Have you heard of it?</div>
+          <div class="bubble-ua">Так! Я щойно закінчила "Дарувальника". Це антиутопічний роман. Чув про нього?</div>
+        </div>
+      </div>
+
+      <div class="msg">
+        <div class="avatar a">👦</div>
+        <div class="bubble">
+          <div class="bubble-en">No, what is it about?</div>
+          <div class="bubble-ua">Ні, про що він?</div>
+        </div>
+      </div>
+
+      <div class="msg right">
+        <div class="avatar b">👧</div>
+        <div class="bubble">
+          <div class="bubble-en">The book is about a boy named Jonas. The story is set in a perfect but controlling society. The main character discovers dark secrets about his world.</div>
+          <div class="bubble-ua">Книга про хлопчика на ім'я Джонас. Дія відбувається в ідеальному, але жорстко контрольованому суспільстві. Головний герой відкриває темні таємниці свого світу.</div>
+        </div>
+      </div>
+
+      <div class="msg">
+        <div class="avatar a">👦</div>
+        <div class="bubble">
+          <div class="bubble-en">Wow! Did you enjoy it?</div>
+          <div class="bubble-ua">Вау! Тобі сподобалось?</div>
+        </div>
+      </div>
+
+      <div class="msg right">
+        <div class="avatar b">👧</div>
+        <div class="bubble">
+          <div class="bubble-en">I absolutely loved it! I couldn't put it down. The theme of freedom and memory was really powerful. I'd recommend it to anyone who loves thought-provoking books!</div>
+          <div class="bubble-ua">Я її просто обожнюю! Не могла відкласти. Тема свободи й пам'яті дуже сильна. Раджу всім, хто любить книги, що змушують думати!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- VOCABULARY TABLE -->
+<div class="vocab-section">
+  <div class="section" style="padding-top:0; padding-bottom:0;">
+    <div class="section-label">📝 Bonus · Бонус</div>
+    <h2 class="section-title">Must-Know Words · Слова, що треба знати</h2>
+    <p class="section-desc">Your literary vocabulary toolkit! <em>Твій набір літературних слів!</em></p>
+
+    <div class="table-scroll">
+    <table class="vocab-table">
+      <thead>
+        <tr>
+          <th>🇬🇧 English Word</th>
+          <th>🇺🇦 Ukrainian</th>
+          <th>📌 Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="word-en">Protagonist</div><div class="word-ua">Головний герой</div></td>
+          <td>Головний персонаж</td>
+          <td class="example-text">"The protagonist faces many challenges."</td>
+        </tr>
+        <tr>
+          <td><div class="word-en">Antagonist</div><div class="word-ua">Антагоніст / Лиходій</div></td>
+          <td>Головний лиходій</td>
+          <td class="example-text">"The antagonist wants to destroy the kingdom."</td>
+        </tr>
+        <tr>
+          <td><div class="word-en">Narrator</div><div class="word-ua">Оповідач</div></td>
+          <td>Той, хто розповідає</td>
+          <td class="example-text">"The narrator describes events from the past."</td>
+        </tr>
+        <tr>
+          <td><div class="word-en">Plot twist</div><div class="word-ua">Несподіваний поворот</div></td>
+          <td>Несподівана зміна подій</td>
+          <td class="example-text">"The plot twist at the end shocked everyone."</td>
+        </tr>
+        <tr>
+          <td><div class="word-en">Foreshadowing</div><div class="word-ua">Передвіщення</div></td>
+          <td>Натяк на майбутні події</td>
+          <td class="example-text">"The dark clouds were foreshadowing danger."</td>
+        </tr>
+        <tr>
+          <td><div class="word-en">Metaphor</div><div class="word-ua">Метафора</div></td>
+          <td>Образне порівняння</td>
+          <td class="example-text">"Life is a journey — that's a metaphor."</td>
+        </tr>
+        <tr>
+          <td><div class="word-en">Symbolism</div><div class="word-ua">Символізм</div></td>
+          <td>Використання символів</td>
+          <td class="example-text">"The white dove is a symbol of peace."</td>
+        </tr>
+        <tr>
+          <td><div class="word-en">Sequel</div><div class="word-ua">Продовження</div></td>
+          <td>Друга (або наступна) частина</td>
+          <td class="example-text">"I can't wait for the sequel!"</td>
+        </tr>
+        <tr>
+          <td><div class="word-en">Cliffhanger</div><div class="word-ua">Обрив на найцікавішому</div></td>
+          <td>Кінець без розв'язки</td>
+          <td class="example-text">"The chapter ended on a cliffhanger!"</td>
+        </tr>
+        <tr>
+          <td><div class="word-en">Chapter</div><div class="word-ua">Розділ</div></td>
+          <td>Частина книги</td>
+          <td class="example-text">"I read three chapters last night."</td>
+        </tr>
+      </tbody>
+    </table>
+    </div><!-- /table-scroll -->
+  </div>
+</div>
+
+<!-- TIPS -->
+<div class="tips-section">
+  <div class="section" style="padding-top:0; padding-bottom:0;">
+    <div class="section-label" style="background:#F5C842; color:#1A1208;">💡 Pro Tips · Поради</div>
+    <h2 class="section-title">Top Tips for Talking About Books</h2>
+    <p class="section-desc" style="color:rgba(255,255,255,0.6);">Small tips that make a big difference! <em>Маленькі поради, що мають велике значення!</em></p>
+
+    <div class="tips-grid">
+      <div class="tip-card">
+        <div class="tip-num">01</div>
+        <div class="tip-title">🎯 Use "because" always</div>
+        <div class="tip-desc">Don't just say "I liked it." Explain WHY! "I liked it <strong>because</strong> the story was exciting." — Завжди пояснюй причину своєї думки.</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">02</div>
+        <div class="tip-title">🌟 Compare with other books</div>
+        <div class="tip-desc">"It's similar to Harry Potter but darker." — Порівнюй книги між собою, це робить розмову цікавішою.</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">03</div>
+        <div class="tip-title">❓ Ask questions back</div>
+        <div class="tip-desc">"Have you read it? / What did you think?" — Запитуй співрозмовника, щоб підтримати діалог.</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">04</div>
+        <div class="tip-title">📖 Mention your favorite part</div>
+        <div class="tip-desc">"My favorite scene is when..." — Розкажи про свою улюблену сцену або момент.</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">05</div>
+        <div class="tip-title">🤔 Don't fear mistakes</div>
+        <div class="tip-desc">Even if your English isn't perfect, people understand passion! — Навіть недосконала англійська передає твій ентузіазм!</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">06</div>
+        <div class="tip-title">✍️ Keep a reading journal</div>
+        <div class="tip-desc">Write 3 sentences about each book in English. — Веди щоденник читача: пиши по 3 речення про кожну книгу.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>📚 Made with <span>♥</span> for young readers · Зроблено з любов'ю для юних читачів</p>
+  <p style="margin-top:10px; font-size:0.78rem;">Happy reading! Keep exploring the world through books. · Щасливого читання! Досліджуй світ через книги.</p>
+</footer>
+
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+
+</body>
+</html>

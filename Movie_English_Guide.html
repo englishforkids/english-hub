@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Talk About Movies in English 🎬</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Lilita+One&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0d1a;
+    --card: #15152a;
+    --card2: #1a1a30;
+    --accent: #ff5e78;
+    --accent2: #ffd166;
+    --accent3: #06d6a0;
+    --accent4: #4ecdc4;
+    --accent5: #a78bfa;
+    --text: #f0eeff;
+    --muted: #9999bb;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Nunito', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* HEADER */
+  header {
+    background: linear-gradient(135deg, #1a0030 0%, #0d0d2a 40%, #001a30 100%);
+    padding: 60px 20px 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 20% 50%, rgba(255,94,120,0.15) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(78,205,196,0.12) 0%, transparent 50%);
+  }
+  .header-emoji {
+    font-size: 72px;
+    line-height: 1;
+    margin-bottom: 16px;
+    animation: float 3s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+  header h1 {
+    font-family: 'Lilita One', cursive;
+    font-size: clamp(2rem, 6vw, 4rem);
+    background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent4));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  header p {
+    font-size: 1.15rem;
+    color: var(--muted);
+    position: relative;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+  .badge {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    font-weight: 800;
+    font-size: 0.8rem;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-top: 16px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  main { max-width: 940px; margin: 0 auto; padding: 40px 16px 80px; }
+
+  /* SECTION TITLES */
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 48px 0 20px;
+  }
+  .section-title .icon {
+    width: 48px; height: 48px;
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+  .section-title h2 {
+    font-family: 'Lilita One', cursive;
+    font-size: 1.7rem;
+    line-height: 1.1;
+  }
+  .section-title .uk {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.95rem;
+    color: var(--muted);
+    font-weight: 600;
+  }
+
+  /* STRUCTURE CARD */
+  .structure-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .step-card {
+    background: var(--card);
+    border-radius: 18px;
+    padding: 22px 20px;
+    border: 1.5px solid rgba(255,255,255,0.07);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .step-card:hover { transform: translateY(-4px); border-color: rgba(255,255,255,0.18); }
+  .step-card .num {
+    font-family: 'Lilita One', cursive;
+    font-size: 3rem;
+    line-height: 1;
+    opacity: 0.12;
+    position: absolute;
+    top: 10px; right: 16px;
+  }
+  .step-card .step-icon { font-size: 1.8rem; margin-bottom: 10px; }
+  .step-card h3 { font-size: 1.05rem; font-weight: 800; margin-bottom: 4px; }
+  .step-card .en { color: var(--accent2); font-size: 0.88rem; font-weight: 700; margin-bottom: 8px; }
+  .step-card p { color: var(--muted); font-size: 0.88rem; line-height: 1.55; }
+  .step-card.c1 { border-top: 3px solid var(--accent); }
+  .step-card.c2 { border-top: 3px solid var(--accent2); }
+  .step-card.c3 { border-top: 3px solid var(--accent3); }
+  .step-card.c4 { border-top: 3px solid var(--accent4); }
+  .step-card.c5 { border-top: 3px solid var(--accent5); }
+  .step-card.c6 { border-top: 3px solid #ff9f43; }
+
+  /* PHRASES SECTION */
+  .phrases-block {
+    background: var(--card);
+    border-radius: 20px;
+    padding: 28px 24px;
+    margin-bottom: 20px;
+    border: 1.5px solid rgba(255,255,255,0.07);
+  }
+  .phrases-block h3 {
+    font-weight: 800;
+    font-size: 1.1rem;
+    margin-bottom: 18px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .phrase-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  @media(max-width:600px){ .phrase-row { grid-template-columns: 1fr; } }
+  .phrase-en {
+    background: rgba(78,205,196,0.1);
+    border: 1.5px solid rgba(78,205,196,0.3);
+    border-radius: 12px;
+    padding: 10px 14px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--accent4);
+  }
+  .phrase-uk {
+    background: rgba(255,94,120,0.08);
+    border: 1.5px solid rgba(255,94,120,0.2);
+    border-radius: 12px;
+    padding: 10px 14px;
+    font-weight: 600;
+    font-size: 0.88rem;
+    color: #ffb3bd;
+  }
+
+  /* VOCAB PILLS */
+  .vocab-grid {
+    display: flex; flex-wrap: wrap; gap: 10px;
+    margin-bottom: 24px;
+  }
+  .pill {
+    display: inline-flex; flex-direction: column;
+    background: var(--card2);
+    border-radius: 12px;
+    padding: 8px 16px;
+    border: 1.5px solid rgba(255,255,255,0.08);
+    transition: transform 0.15s;
+    cursor: default;
+  }
+  .pill:hover { transform: scale(1.05); }
+  .pill .p-en { font-weight: 800; font-size: 0.9rem; color: var(--accent2); }
+  .pill .p-uk { font-size: 0.75rem; color: var(--muted); }
+  .pill.pink .p-en { color: var(--accent); }
+  .pill.green .p-en { color: var(--accent3); }
+  .pill.purple .p-en { color: var(--accent5); }
+  .pill.blue .p-en { color: var(--accent4); }
+
+  /* EXAMPLE MONOLOGUE */
+  .example-card {
+    border-radius: 22px;
+    padding: 28px 26px;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .example-card.shrek { background: linear-gradient(135deg, #1a2f1a, #0d1f0d); border: 2px solid #06d6a020; }
+  .example-card.matrix { background: linear-gradient(135deg, #0d1f2d, #001220); border: 2px solid #4ecdc420; }
+  .example-card.furious { background: linear-gradient(135deg, #2a1a0d, #1a0d00); border: 2px solid #ff9f4320; }
+  .example-card .movie-emoji { font-size: 3rem; margin-bottom: 12px; }
+  .example-card h3 { font-family: 'Lilita One', cursive; font-size: 1.5rem; margin-bottom: 4px; }
+  .example-card .genre-tag {
+    font-size: 0.8rem; font-weight: 700;
+    display: inline-block;
+    padding: 3px 12px; border-radius: 20px;
+    margin-bottom: 16px;
+    text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .example-card.shrek .genre-tag { background: rgba(6,214,160,0.2); color: var(--accent3); }
+  .example-card.matrix .genre-tag { background: rgba(78,205,196,0.2); color: var(--accent4); }
+  .example-card.furious .genre-tag { background: rgba(255,159,67,0.2); color: #ff9f43; }
+  .speech-bubble {
+    background: rgba(255,255,255,0.05);
+    border-radius: 16px;
+    padding: 18px 20px;
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: #e0d8ff;
+    border-left: 3px solid;
+    margin-bottom: 12px;
+  }
+  .example-card.shrek .speech-bubble { border-left-color: var(--accent3); }
+  .example-card.matrix .speech-bubble { border-left-color: var(--accent4); }
+  .example-card.furious .speech-bubble { border-left-color: #ff9f43; }
+  .speech-bubble .highlight { background: rgba(255,209,102,0.2); padding: 1px 5px; border-radius: 5px; color: var(--accent2); font-weight: 700; }
+
+  /* TEMPLATE BLOCK */
+  .template-box {
+    background: linear-gradient(135deg, #1a0a2e, #0d1a30);
+    border: 2px solid rgba(167,139,250,0.3);
+    border-radius: 22px;
+    padding: 28px 26px;
+    margin-bottom: 32px;
+  }
+  .template-box h3 { font-family: 'Lilita One', cursive; font-size: 1.4rem; color: var(--accent5); margin-bottom: 20px; }
+  .template-line {
+    display: flex; align-items: flex-start; gap: 14px;
+    margin-bottom: 14px;
+  }
+  .tl-num {
+    width: 28px; height: 28px;
+    background: var(--accent5);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 900; font-size: 0.8rem;
+    color: white;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .tl-text .en { font-weight: 700; color: #e0d8ff; font-size: 0.95rem; }
+  .tl-text .uk { font-size: 0.82rem; color: var(--muted); margin-top: 2px; }
+
+  /* ADJECTIVES COLOR CATEGORIES */
+  .adj-section { margin-bottom: 32px; }
+  .adj-category {
+    margin-bottom: 24px;
+  }
+  .adj-category h4 {
+    font-size: 0.85rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    padding: 5px 14px;
+    display: inline-block;
+    border-radius: 20px;
+  }
+  .cat-pos { background: rgba(6,214,160,0.15); color: var(--accent3); }
+  .cat-neg { background: rgba(255,94,120,0.15); color: var(--accent); }
+  .cat-neu { background: rgba(167,139,250,0.15); color: var(--accent5); }
+
+  /* TIP BOX */
+  .tip-box {
+    background: linear-gradient(135deg, #1a1500, #1a0a00);
+    border: 2px solid rgba(255,209,102,0.3);
+    border-radius: 18px;
+    padding: 22px 22px;
+    margin: 32px 0;
+    display: flex; gap: 16px; align-items: flex-start;
+  }
+  .tip-icon { font-size: 2.2rem; flex-shrink: 0; }
+  .tip-box h4 { color: var(--accent2); font-size: 1rem; font-weight: 800; margin-bottom: 6px; }
+  .tip-box p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
+  .tip-box strong { color: #ffe066; }
+
+  /* FORMULA */
+  .formula {
+    display: flex; align-items: center;
+    flex-wrap: wrap; gap: 10px;
+    background: var(--card2);
+    border-radius: 16px;
+    padding: 20px 22px;
+    margin: 20px 0;
+  }
+  .f-block {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 10px 16px;
+    text-align: center;
+    border: 1.5px solid rgba(255,255,255,0.1);
+  }
+  .f-block .f-en { font-weight: 800; font-size: 0.9rem; color: var(--accent2); }
+  .f-block .f-uk { font-size: 0.78rem; color: var(--muted); margin-top: 2px; }
+  .f-arrow { font-size: 1.4rem; color: var(--muted); }
+
+  /* GENRES GRID */
+  .genres-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+  .genre-item {
+    background: var(--card);
+    border-radius: 14px;
+    padding: 14px 12px;
+    text-align: center;
+    border: 1.5px solid rgba(255,255,255,0.07);
+    transition: transform 0.15s, border-color 0.15s;
+    cursor: default;
+  }
+  .genre-item:hover { transform: translateY(-3px); border-color: rgba(255,255,255,0.2); }
+  .genre-item .gi { font-size: 1.6rem; margin-bottom: 6px; }
+  .genre-item .g-en { font-weight: 800; font-size: 0.85rem; color: var(--text); }
+  .genre-item .g-uk { font-size: 0.75rem; color: var(--muted); }
+
+  footer {
+    text-align: center;
+    padding: 30px;
+    color: var(--muted);
+    font-size: 0.85rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  #scroll-top-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #1a1208;
+    border: 1.5px solid rgba(200,150,62,0.4);
+    color: #f5f0e8;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+    pointer-events: none;
+    z-index: 9998;
+  }
+  #scroll-top-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  #scroll-top-btn:hover {
+    background: #c8963e;
+    border-color: #c8963e;
+    color: #1a1208;
+  }
+
+  /* ── MOBILE RESPONSIVE ── */
+  @media (max-width: 600px) {
+
+    /* Header */
+    header {
+      padding: 40px 16px 36px;
+    }
+    .header-emoji { font-size: 52px; }
+    header p { font-size: 1rem; }
+    .badge { font-size: 0.72rem; padding: 4px 12px; }
+
+    /* Main padding */
+    main { padding: 28px 12px 70px; }
+
+    /* Section titles */
+    .section-title { gap: 10px; margin: 36px 0 16px; }
+    .section-title .icon { width: 40px; height: 40px; font-size: 1.2rem; border-radius: 10px; }
+    .section-title h2 { font-size: 1.35rem; }
+    .section-title .uk { font-size: 0.85rem; }
+
+    /* Structure grid — single column */
+    .structure-grid {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    .step-card { padding: 18px 16px; }
+    .step-card .num { font-size: 2.4rem; }
+    .step-card h3 { font-size: 1rem; }
+
+    /* Phrases blocks */
+    .phrases-block { padding: 20px 14px; }
+    .phrases-block h3 { font-size: 1rem; }
+    .phrase-row { grid-template-columns: 1fr; gap: 8px; }
+    .phrase-en, .phrase-uk { font-size: 0.85rem; padding: 9px 12px; }
+
+    /* Formula — stack vertically */
+    .formula {
+      flex-direction: column;
+      align-items: stretch;
+      padding: 16px 14px;
+      gap: 8px;
+    }
+    .f-arrow {
+      transform: rotate(90deg);
+      text-align: center;
+      font-size: 1.2rem;
+    }
+    .f-block { padding: 10px 14px; }
+
+    /* Tip box */
+    .tip-box {
+      flex-direction: column;
+      gap: 10px;
+      padding: 18px 14px;
+    }
+    .tip-icon { font-size: 1.8rem; }
+    .tip-box p { font-size: 0.85rem; }
+
+    /* Genres grid — 3 columns on small screens */
+    .genres-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+    .genre-item { padding: 10px 6px; }
+    .genre-item .gi { font-size: 1.3rem; }
+    .genre-item .g-en { font-size: 0.75rem; }
+    .genre-item .g-uk { font-size: 0.65rem; }
+
+    /* Vocab pills */
+    .pill { padding: 7px 12px; }
+    .pill .p-en { font-size: 0.82rem; }
+    .pill .p-uk { font-size: 0.68rem; }
+
+    /* Adjectives category label */
+    .adj-category h4 { font-size: 0.78rem; padding: 4px 12px; }
+
+    /* Examples row — single column */
+    .examples-row { grid-template-columns: 1fr; }
+    .example-card { padding: 20px 16px; }
+    .example-card h3 { font-size: 1.25rem; }
+    .speech-bubble { font-size: 0.85rem; padding: 14px 14px; line-height: 1.65; }
+
+    /* Template box */
+    .template-box { padding: 20px 14px; }
+    .template-box h3 { font-size: 1.15rem; }
+    .template-line { gap: 10px; margin-bottom: 12px; }
+    .tl-num { width: 24px; height: 24px; font-size: 0.72rem; }
+    .tl-text .en { font-size: 0.88rem; }
+    .tl-text .uk { font-size: 0.78rem; }
+
+    /* Scroll btn — closer to edge */
+    #scroll-top-btn { bottom: 18px; right: 16px; width: 40px; height: 40px; font-size: 16px; }
+
+    /* Footer */
+    footer { font-size: 0.78rem; padding: 22px 12px; }
+  }
+
+  /* Mid-range tablets 601–768px */
+  @media (min-width: 601px) and (max-width: 768px) {
+    .structure-grid { grid-template-columns: repeat(2, 1fr); }
+    .genres-grid { grid-template-columns: repeat(4, 1fr); }
+    .examples-row { grid-template-columns: 1fr; }
+    .phrase-row { grid-template-columns: 1fr 1fr; }
+    main { padding: 32px 20px 80px; }
+  }
+
+  /* DIVIDER */
+  .divider {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+    margin: 40px 0;
+  }
+
+  .examples-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-emoji">🎬</div>
+  <h1>Talk About Movies in English</h1>
+  <p>Як розповідати про фільми англійською — легко, природно і впевнено!</p>
+  <span class="badge">🇬🇧 English + 🇺🇦 Українська</span>
+</header>
+
+<main>
+
+  <!-- SECTION 1: STRUCTURE -->
+  <div class="section-title">
+    <div class="icon" style="background:rgba(255,94,120,0.15);">🗂️</div>
+    <div>
+      <h2 style="color:var(--accent);">The Magic Structure</h2>
+      <div class="uk">Чарівна структура — 6 кроків і ти зірка!</div>
+    </div>
+  </div>
+
+  <div class="structure-grid">
+    <div class="step-card c1">
+      <div class="num">1</div>
+      <div class="step-icon">🎞️</div>
+      <h3>Title + Genre</h3>
+      <div class="en">Name & type of film</div>
+      <p>Назви фільм і скажи, якого він жанру: бойовик, комедія, трилер…</p>
+    </div>
+    <div class="step-card c2">
+      <div class="num">2</div>
+      <div class="step-icon">💡</div>
+      <h3>Premise</h3>
+      <div class="en">What is it about? (1 sentence!)</div>
+      <p>Про що цей фільм? Один «гачок-речення», який зацікавить слухача.</p>
+    </div>
+    <div class="step-card c3">
+      <div class="num">3</div>
+      <div class="step-icon">👥</div>
+      <h3>Characters & Setting</h3>
+      <div class="en">Who & where</div>
+      <p>Хто головний герой і де відбувається дія — місто, час, всесвіт.</p>
+    </div>
+    <div class="step-card c4">
+      <div class="num">4</div>
+      <div class="step-icon">🎭</div>
+      <h3>Plot (no spoilers!)</h3>
+      <div class="en">What happens — without ruining it</div>
+      <p>Розкажи про події загально, без спойлерів. Тільки «гачок»!</p>
+    </div>
+    <div class="step-card c5">
+      <div class="num">5</div>
+      <div class="step-icon">⭐</div>
+      <h3>Your Opinion</h3>
+      <div class="en">What did YOU think?</div>
+      <p>Скажи, що тобі сподобалось або не сподобалось і ЧОМУ.</p>
+    </div>
+    <div class="step-card c6">
+      <div class="num">6</div>
+      <div class="step-icon">📣</div>
+      <h3>Recommendation</h3>
+      <div class="en">Who should watch it?</div>
+      <p>Кому б ти порекомендував цей фільм? Для якої аудиторії він?</p>
+    </div>
+  </div>
+
+  <!-- FORMULA -->
+  <div class="tip-box">
+    <div class="tip-icon">💡</div>
+    <div>
+      <h4>The Golden Rule / Золоте правило</h4>
+      <p><strong>20% plot + 80% your impressions.</strong> Не переказуй кожну хвилину фільму — краще скажи, що ти відчував і чому це варто дивитись!</p>
+    </div>
+  </div>
+
+  <div class="formula">
+    <div class="f-block"><div class="f-en">Premise</div><div class="f-uk">1–2 речення</div></div>
+    <div class="f-arrow">→</div>
+    <div class="f-block"><div class="f-en">3 Strong Moments</div><div class="f-uk">яскраві моменти</div></div>
+    <div class="f-arrow">→</div>
+    <div class="f-block"><div class="f-en">Your Opinion</div><div class="f-uk">твоя оцінка</div></div>
+    <div class="f-arrow">→</div>
+    <div class="f-block"><div class="f-en">For Whom?</div><div class="f-uk">кому підійде</div></div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SECTION 2: KEY PHRASES -->
+  <div class="section-title">
+    <div class="icon" style="background:rgba(78,205,196,0.15);">💬</div>
+    <div>
+      <h2 style="color:var(--accent4);">Key Phrases</h2>
+      <div class="uk">Готові фрази — просто підстав свій фільм!</div>
+    </div>
+  </div>
+
+  <div class="phrases-block">
+    <h3>🎬 Starting / Початок</h3>
+    <div class="phrase-row"><div class="phrase-en">The film I'd like to talk about is…</div><div class="phrase-uk">Фільм, про який я хочу розповісти — це…</div></div>
+    <div class="phrase-row"><div class="phrase-en">I recently watched…</div><div class="phrase-uk">Нещодавно я дивився(ла)…</div></div>
+    <div class="phrase-row"><div class="phrase-en">It's a [genre] film.</div><div class="phrase-uk">Це [жанр] фільм.</div></div>
+    <div class="phrase-row"><div class="phrase-en">It's directed by… / starring…</div><div class="phrase-uk">Режисер… / У головній ролі…</div></div>
+  </div>
+
+  <div class="phrases-block">
+    <h3>📖 Describing the plot / Про що фільм</h3>
+    <div class="phrase-row"><div class="phrase-en">It's about…</div><div class="phrase-uk">Це фільм про…</div></div>
+    <div class="phrase-row"><div class="phrase-en">It follows [character] who…</div><div class="phrase-uk">Він розповідає про [героя], який(а)…</div></div>
+    <div class="phrase-row"><div class="phrase-en">The plot revolves around…</div><div class="phrase-uk">Сюжет крутиться навколо…</div></div>
+    <div class="phrase-row"><div class="phrase-en">It's set in [place/time].</div><div class="phrase-uk">Дія відбувається в [місто/час].</div></div>
+    <div class="phrase-row"><div class="phrase-en">It's about X, but also about Y.</div><div class="phrase-uk">Це про X, але й про більше — Y.</div></div>
+    <div class="phrase-row"><div class="phrase-en">Things take a turn when…</div><div class="phrase-uk">Все змінюється, коли…</div></div>
+  </div>
+
+  <div class="phrases-block">
+    <h3>🤫 Avoiding spoilers / Без спойлерів</h3>
+    <div class="phrase-row"><div class="phrase-en">Without giving too much away…</div><div class="phrase-uk">Не розкриваючи забагато…</div></div>
+    <div class="phrase-row"><div class="phrase-en">I won't spoil the ending, but…</div><div class="phrase-uk">Не буду спойлерити фінал, але…</div></div>
+    <div class="phrase-row"><div class="phrase-en">Let's just say that…</div><div class="phrase-uk">Скажу лише, що…</div></div>
+    <div class="phrase-row"><div class="phrase-en">I don't want to give too much away…</div><div class="phrase-uk">Не хочу розповідати все, але…</div></div>
+  </div>
+
+  <div class="phrases-block">
+    <h3>⭐ Sharing your opinion / Твоя оцінка</h3>
+    <div class="phrase-row"><div class="phrase-en">What I liked most was…</div><div class="phrase-uk">Найбільше мені сподобалось…</div></div>
+    <div class="phrase-row"><div class="phrase-en">The acting was outstanding.</div><div class="phrase-uk">Гра акторів була блискучою.</div></div>
+    <div class="phrase-row"><div class="phrase-en">It kept me on the edge of my seat.</div><div class="phrase-uk">Я весь час сидів(ла) у напрузі.</div></div>
+    <div class="phrase-row"><div class="phrase-en">It made me think about…</div><div class="phrase-uk">Це змусило мене думати про…</div></div>
+    <div class="phrase-row"><div class="phrase-en">It hit me emotionally.</div><div class="phrase-uk">Це зачепило мене емоційно.</div></div>
+    <div class="phrase-row"><div class="phrase-en">It wasn't my cup of tea.</div><div class="phrase-uk">Це не дуже в моєму смаку.</div></div>
+    <div class="phrase-row"><div class="phrase-en">It exceeded my expectations!</div><div class="phrase-uk">Це перевершило мої очікування!</div></div>
+    <div class="phrase-row"><div class="phrase-en">The idea was great, but the execution wasn't perfect.</div><div class="phrase-uk">Ідея класна, але виконання — не дуже.</div></div>
+  </div>
+
+  <div class="phrases-block">
+    <h3>📣 Recommending / Рекомендація</h3>
+    <div class="phrase-row"><div class="phrase-en">I'd definitely recommend it!</div><div class="phrase-uk">Точно рекомендую!</div></div>
+    <div class="phrase-row"><div class="phrase-en">It's worth watching.</div><div class="phrase-uk">Варто подивитись.</div></div>
+    <div class="phrase-row"><div class="phrase-en">It's a must-see!</div><div class="phrase-uk">Це обов'язково треба подивитись!</div></div>
+    <div class="phrase-row"><div class="phrase-en">If you're into [genre], you'll love it.</div><div class="phrase-uk">Якщо ти любиш [жанр] — точно зайде.</div></div>
+    <div class="phrase-row"><div class="phrase-en">I'd give it 8 out of 10.</div><div class="phrase-uk">Я б поставив(ла) 8 з 10.</div></div>
+    <div class="phrase-row"><div class="phrase-en">It's perfect for a chill evening.</div><div class="phrase-uk">Ідеально для спокійного вечора.</div></div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SECTION 3: GENRES -->
+  <div class="section-title">
+    <div class="icon" style="background:rgba(255,209,102,0.15);">🎭</div>
+    <div>
+      <h2 style="color:var(--accent2);">Film Genres</h2>
+      <div class="uk">Жанри фільмів</div>
+    </div>
+  </div>
+
+  <div class="genres-grid">
+    <div class="genre-item"><div class="gi">💥</div><div class="g-en">action</div><div class="g-uk">бойовик</div></div>
+    <div class="genre-item"><div class="gi">😂</div><div class="g-en">comedy</div><div class="g-uk">комедія</div></div>
+    <div class="genre-item"><div class="gi">😢</div><div class="g-en">drama</div><div class="g-uk">драма</div></div>
+    <div class="genre-item"><div class="gi">😱</div><div class="g-en">thriller</div><div class="g-uk">трилер</div></div>
+    <div class="genre-item"><div class="gi">🚀</div><div class="g-en">sci-fi</div><div class="g-uk">наукова фантастика</div></div>
+    <div class="genre-item"><div class="gi">🧙</div><div class="g-en">fantasy</div><div class="g-uk">фентезі</div></div>
+    <div class="genre-item"><div class="gi">👻</div><div class="g-en">horror</div><div class="g-uk">жахи</div></div>
+    <div class="genre-item"><div class="gi">💕</div><div class="g-en">romance</div><div class="g-uk">мелодрама</div></div>
+    <div class="genre-item"><div class="gi">🎨</div><div class="g-en">animation</div><div class="g-uk">мультфільм</div></div>
+    <div class="genre-item"><div class="gi">🎥</div><div class="g-en">documentary</div><div class="g-uk">документальний</div></div>
+    <div class="genre-item"><div class="gi">🕵️</div><div class="g-en">mystery</div><div class="g-uk">детектив</div></div>
+    <div class="genre-item"><div class="gi">🦸</div><div class="g-en">superhero</div><div class="g-uk">про супергероїв</div></div>
+    <div class="genre-item"><div class="gi">⚔️</div><div class="g-en">historical</div><div class="g-uk">історичний</div></div>
+    <div class="genre-item"><div class="gi">👶</div><div class="g-en">coming-of-age</div><div class="g-uk">про дорослішання</div></div>
+    <div class="genre-item"><div class="gi">🌆</div><div class="g-en">dystopian</div><div class="g-uk">антиутопія</div></div>
+    <div class="genre-item"><div class="gi">🎭</div><div class="g-en">biopic</div><div class="g-uk">біографічний</div></div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SECTION 4: ADJECTIVES -->
+  <div class="section-title">
+    <div class="icon" style="background:rgba(167,139,250,0.15);">✨</div>
+    <div>
+      <h2 style="color:var(--accent5);">Power Adjectives</h2>
+      <div class="uk">Прикметники, які звучать круто</div>
+    </div>
+  </div>
+
+  <div class="adj-section">
+    <div class="adj-category">
+      <h4 class="cat-pos">👍 Positive / Позитивні</h4>
+      <div class="vocab-grid">
+        <div class="pill green"><span class="p-en">gripping</span><span class="p-uk">захопливий</span></div>
+        <div class="pill green"><span class="p-en">engaging</span><span class="p-uk">цікавий</span></div>
+        <div class="pill green"><span class="p-en">captivating</span><span class="p-uk">чарівний</span></div>
+        <div class="pill green"><span class="p-en">thought-provoking</span><span class="p-uk">змушує думати</span></div>
+        <div class="pill green"><span class="p-en">heartwarming</span><span class="p-uk">зворушливий</span></div>
+        <div class="pill green"><span class="p-en">hilarious</span><span class="p-uk">дуже смішний</span></div>
+        <div class="pill green"><span class="p-en">breathtaking</span><span class="p-uk">захоплює дух</span></div>
+        <div class="pill green"><span class="p-en">inspiring</span><span class="p-uk">надихаючий</span></div>
+        <div class="pill green"><span class="p-en">fast-paced</span><span class="p-uk">динамічний</span></div>
+        <div class="pill green"><span class="p-en">visually stunning</span><span class="p-uk">красивий візуально</span></div>
+        <div class="pill green"><span class="p-en">unforgettable</span><span class="p-uk">незабутній</span></div>
+        <div class="pill green"><span class="p-en">well-acted</span><span class="p-uk">добре зіграний</span></div>
+      </div>
+    </div>
+    <div class="adj-category">
+      <h4 class="cat-neg">👎 Negative / Негативні</h4>
+      <div class="vocab-grid">
+        <div class="pill pink"><span class="p-en">predictable</span><span class="p-uk">передбачуваний</span></div>
+        <div class="pill pink"><span class="p-en">confusing</span><span class="p-uk">заплутаний</span></div>
+        <div class="pill pink"><span class="p-en">slow-paced</span><span class="p-uk">повільний</span></div>
+        <div class="pill pink"><span class="p-en">overrated</span><span class="p-uk">переоцінений</span></div>
+        <div class="pill pink"><span class="p-en">underwhelming</span><span class="p-uk">розчарував</span></div>
+        <div class="pill pink"><span class="p-en">cliché</span><span class="p-uk">банальний</span></div>
+        <div class="pill pink"><span class="p-en">flat characters</span><span class="p-uk">нецікаві персонажі</span></div>
+      </div>
+    </div>
+    <div class="adj-category">
+      <h4 class="cat-neu">🔮 Neutral / Нейтральні</h4>
+      <div class="vocab-grid">
+        <div class="pill purple"><span class="p-en">unusual</span><span class="p-uk">незвичний</span></div>
+        <div class="pill purple"><span class="p-en">intense</span><span class="p-uk">напружений</span></div>
+        <div class="pill purple"><span class="p-en">complex</span><span class="p-uk">складний</span></div>
+        <div class="pill purple"><span class="p-en">dark</span><span class="p-uk">темний (за тоном)</span></div>
+        <div class="pill purple"><span class="p-en">symbolic</span><span class="p-uk">символічний</span></div>
+        <div class="pill purple"><span class="p-en">emotional</span><span class="p-uk">емоційний</span></div>
+        <div class="pill purple"><span class="p-en">layered</span><span class="p-uk">багатошаровий</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SECTION 5: EXAMPLES -->
+  <div class="section-title">
+    <div class="icon" style="background:rgba(255,159,67,0.15);">🎙️</div>
+    <div>
+      <h2 style="color:#ff9f43;">Live Examples</h2>
+      <div class="uk">Живі приклади — слухай і повторюй!</div>
+    </div>
+  </div>
+
+  <div class="examples-row">
+    <div class="example-card shrek">
+      <div class="movie-emoji">🟢</div>
+      <h3>Shrek</h3>
+      <span class="genre-tag">Animation / Comedy</span>
+      <div class="speech-bubble">
+        One animated movie I really like is <span class="highlight">Shrek</span>. It's <span class="highlight">a comedy</span> about an ogre who just wants to live peacefully in his swamp. <span class="highlight">The story follows</span> Shrek as he tries to rescue Princess Fiona. <span class="highlight">Without giving too much away</span>, things get unexpectedly fun. <span class="highlight">What I liked most was</span> the humour — the jokes work for both kids and adults. It also explores themes like <span class="highlight">acceptance and self-love</span>. <span class="highlight">I'd recommend it to absolutely everyone!</span>
+      </div>
+    </div>
+
+    <div class="example-card matrix">
+      <div class="movie-emoji">🔵</div>
+      <h3>The Matrix</h3>
+      <span class="genre-tag">Sci-fi / Action</span>
+      <div class="speech-bubble">
+        <span class="highlight">The film I'd like to talk about</span> is The Matrix. <span class="highlight">It's a sci-fi action movie</span> set in a dystopian future. <span class="highlight">It follows</span> Neo, a hacker who discovers the world is a computer simulation. <span class="highlight">Things take a turn when</span> he joins the rebels. <span class="highlight">It's not just action</span> — it makes you question reality. <span class="highlight">It's thought-provoking, intense, and still relevant today.</span> <span class="highlight">I'd give it 9 out of 10!</span>
+      </div>
+    </div>
+
+    <div class="example-card furious">
+      <div class="movie-emoji">🟠</div>
+      <h3>Fast & Furious</h3>
+      <span class="genre-tag">Action</span>
+      <div class="speech-bubble">
+        I'd like to talk about <span class="highlight">Fast & Furious</span>. <span class="highlight">The plot revolves around</span> Dominic Toretto and his crew — loyalty, family, and dangerous missions. <span class="highlight">The film is fast-paced and full of adrenaline.</span> <span class="highlight">What I enjoy most</span> is the action scenes and chemistry between characters. <span class="highlight">It's not very realistic, but</span> that's part of the fun! <span class="highlight">If you're into cars and explosive scenes</span>, you'll probably love it.
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SECTION 6: TEMPLATE -->
+  <div class="section-title">
+    <div class="icon" style="background:rgba(167,139,250,0.15);">📝</div>
+    <div>
+      <h2 style="color:var(--accent5);">Your Template</h2>
+      <div class="uk">Твій шаблон — заповни і розкажи!</div>
+    </div>
+  </div>
+
+  <div class="template-box">
+    <h3>🚀 Fill-in Template / Заповни шаблон</h3>
+    <div class="template-line">
+      <div class="tl-num">1</div>
+      <div class="tl-text">
+        <div class="en">I recently watched <strong style="color:var(--accent2);">[Title]</strong>. It's a <strong style="color:var(--accent2);">[genre]</strong> film.</div>
+        <div class="uk">Нещодавно я дивився(ла) [назва]. Це [жанр] фільм.</div>
+      </div>
+    </div>
+    <div class="template-line">
+      <div class="tl-num">2</div>
+      <div class="tl-text">
+        <div class="en">It's set in <strong style="color:var(--accent2);">[place/time]</strong> and follows <strong style="color:var(--accent2);">[character]</strong> who <strong style="color:var(--accent2);">[goal/problem]</strong>.</div>
+        <div class="uk">Дія відбувається в [місто/час], і ми стежимо за [герой], який(а) [мета/проблема].</div>
+      </div>
+    </div>
+    <div class="template-line">
+      <div class="tl-num">3</div>
+      <div class="tl-text">
+        <div class="en">Without giving too much away, <strong style="color:var(--accent2);">[general plot development]</strong>.</div>
+        <div class="uk">Не розкриваючи спойлерів — [що відбувається загалом].</div>
+      </div>
+    </div>
+    <div class="template-line">
+      <div class="tl-num">4</div>
+      <div class="tl-text">
+        <div class="en">What I liked most was <strong style="color:var(--accent2);">[aspect]</strong> because <strong style="color:var(--accent2);">[reason]</strong>.</div>
+        <div class="uk">Найбільше мені сподобалось [що] тому що [чому].</div>
+      </div>
+    </div>
+    <div class="template-line">
+      <div class="tl-num">5</div>
+      <div class="tl-text">
+        <div class="en">Overall, I'd say it's <strong style="color:var(--accent2);">[adjective]</strong>, and I'd recommend it to people who enjoy <strong style="color:var(--accent2);">[type of films]</strong>.</div>
+        <div class="uk">Загалом — це [прикметник] фільм, і я б порекомендував(ла) його тим, хто любить [тип фільмів].</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXTRA TIP -->
+  <div class="tip-box">
+    <div class="tip-icon">🏆</div>
+    <div>
+      <h4>Pro Tips for Sounding Natural / Як звучати природно</h4>
+      <p>
+        ✅ <strong>Use connectors:</strong> "At first… Then… After that… In the end…" — вони роблять розповідь плавною.<br><br>
+        ✅ <strong>Add feelings:</strong> "It made me laugh/cry/think" — емоції роблять розповідь живою.<br><br>
+        ✅ <strong>Don't retell everything</strong> — краще одне влучне враження, ніж переказ кожної сцени.<br><br>
+        ✅ <strong>"It's about X, but also about Y"</strong> — ця формула показує, що ти розумієш глибшу ідею.
+      </p>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  🎬 Talk about Movies in English &nbsp;|&nbsp; Made with ❤️ for Ukrainian learners
+</footer>
+
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+</body>
+</html>

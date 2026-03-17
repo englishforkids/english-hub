@@ -1,0 +1,1507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English Pronouns / Англійські Займенники</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fff9f0;
+    --card: #ffffff;
+    --accent1: #ff6b6b;
+    --accent2: #4ecdc4;
+    --accent3: #ffe66d;
+    --accent4: #a29bfe;
+    --accent5: #fd79a8;
+    --accent6: #55efc4;
+    --accent7: #fdcb6e;
+    --accent8: #74b9ff;
+    --dark: #2d3436;
+    --mid: #636e72;
+    --light: #b2bec3;
+    --radius: 20px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* HEADER */
+  header {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ffd93d 40%, #6bcb77 70%, #4d96ff 100%);
+    padding: 60px 20px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.08'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  header .tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.3);
+    backdrop-filter: blur(8px);
+    color: #fff;
+    padding: 6px 18px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  header h1 {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(2.4rem, 6vw, 4.5rem);
+    color: #fff;
+    text-shadow: 3px 3px 0 rgba(0,0,0,0.15);
+    line-height: 1.1;
+    margin-bottom: 10px;
+  }
+  header h1 span { color: #2d3436; }
+  header p {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: rgba(255,255,255,0.95);
+    font-weight: 600;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .floating-emojis {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+  }
+  .floating-emojis span {
+    position: absolute;
+    font-size: 2rem;
+    animation: floatUp 4s ease-in-out infinite;
+    opacity: 0.7;
+  }
+  .floating-emojis span:nth-child(1)  { left: 5%; top: 20%; animation-delay: 0s; }
+  .floating-emojis span:nth-child(2)  { left: 15%; top: 60%; animation-delay: 0.5s; }
+  .floating-emojis span:nth-child(3)  { left: 80%; top: 15%; animation-delay: 1s; }
+  .floating-emojis span:nth-child(4)  { left: 90%; top: 55%; animation-delay: 1.5s; }
+  .floating-emojis span:nth-child(5)  { left: 50%; top: 75%; animation-delay: 2s; }
+  .floating-emojis span:nth-child(6)  { left: 70%; top: 40%; animation-delay: 0.8s; }
+  @keyframes floatUp {
+    0%, 100% { transform: translateY(0) rotate(-5deg); }
+    50%       { transform: translateY(-15px) rotate(5deg); }
+  }
+
+  /* UNIVERSAL SENTENCE BANNER */
+  .universal-banner {
+    background: linear-gradient(135deg, #2d3436, #636e72);
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+  }
+  .universal-banner h2 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+    color: var(--accent3);
+  }
+  .universal-banner .sentence-box {
+    display: inline-block;
+    background: rgba(255,255,255,0.1);
+    border: 2px solid var(--accent3);
+    border-radius: var(--radius);
+    padding: 16px 32px;
+    font-size: clamp(1.1rem, 3vw, 1.6rem);
+    font-weight: 800;
+    margin: 10px 0;
+    letter-spacing: 0.5px;
+  }
+  .universal-banner .sentence-box em {
+    color: var(--accent3);
+    font-style: normal;
+  }
+  .universal-banner .sub {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.7);
+    margin-top: 6px;
+  }
+
+  /* MAIN */
+  main { max-width: 1100px; margin: 0 auto; padding: 40px 20px 80px; }
+
+  /* SECTION */
+  .pronoun-section {
+    margin-bottom: 60px;
+    animation: fadeIn 0.5s ease both;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 3px dashed currentColor;
+  }
+  .section-icon {
+    width: 60px; height: 60px;
+    border-radius: 16px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2rem;
+    flex-shrink: 0;
+  }
+  .section-header h2 {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    line-height: 1.1;
+  }
+  .section-header h2 small {
+    display: block;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.7;
+    margin-bottom: 2px;
+  }
+
+  /* FORMULA BOX */
+  .formula-box {
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin-bottom: 20px;
+    border: 2px solid currentColor;
+    position: relative;
+  }
+  .formula-box .formula-label {
+    position: absolute;
+    top: -13px; left: 20px;
+    background: var(--bg);
+    padding: 2px 12px;
+    font-weight: 800;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 30px;
+  }
+  .formula {
+    font-size: 1.1rem;
+    font-weight: 800;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+  }
+  .formula .part {
+    padding: 5px 14px;
+    border-radius: 30px;
+    font-size: 1rem;
+    white-space: nowrap;
+  }
+  .formula .plus {
+    font-size: 1.3rem;
+    font-weight: 900;
+    opacity: 0.5;
+  }
+
+  /* PRONOUN GRID */
+  .pronoun-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .pronoun-chip {
+    border-radius: 14px;
+    padding: 12px 10px;
+    text-align: center;
+    font-weight: 800;
+    font-size: 1rem;
+    position: relative;
+    cursor: default;
+    transition: transform 0.2s;
+  }
+  .pronoun-chip:hover { transform: scale(1.05) rotate(-1deg); }
+  .pronoun-chip .eng { font-size: 1.2rem; display: block; }
+  .pronoun-chip .ukr { font-size: 0.72rem; opacity: 0.75; display: block; margin-top: 2px; font-weight: 600; }
+
+  /* TABLE */
+  .compare-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 8px;
+    margin-bottom: 20px;
+  }
+  .compare-table th {
+    padding: 10px 16px;
+    text-align: left;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 800;
+    opacity: 0.6;
+  }
+  .compare-table td {
+    padding: 12px 16px;
+    background: var(--card);
+    font-weight: 700;
+  }
+  .compare-table td:first-child { border-radius: 14px 0 0 14px; }
+  .compare-table td:last-child  { border-radius: 0 14px 14px 0; }
+  .compare-table .highlight { font-size: 1.15rem; }
+
+  /* EXAMPLES */
+  .examples-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 14px;
+  }
+  .example-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    border-left: 5px solid;
+    box-shadow: 4px 4px 0 rgba(0,0,0,0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .example-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 6px 8px 0 rgba(0,0,0,0.08);
+  }
+  .example-card .emoji { font-size: 1.8rem; margin-bottom: 8px; display: block; }
+  .example-card .eng-sentence {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    line-height: 1.4;
+  }
+  .example-card .eng-sentence mark {
+    padding: 1px 6px;
+    border-radius: 6px;
+    font-weight: 900;
+  }
+  .example-card .ukr-sentence {
+    font-size: 0.88rem;
+    color: var(--mid);
+    font-weight: 600;
+    font-style: italic;
+  }
+  .example-card .context {
+    font-size: 0.78rem;
+    color: var(--light);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+
+  /* EXPLANATION BOX */
+  .explain-box {
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .explain-box .ex-icon { font-size: 2rem; flex-shrink: 0; margin-top: 2px; }
+  .explain-box .ex-text h4 {
+    font-size: 1rem;
+    font-weight: 800;
+    margin-bottom: 4px;
+  }
+  .explain-box .ex-text p {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    font-weight: 600;
+  }
+
+  /* UNIVERSAL SENTENCE CARD */
+  .universal-card {
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin-bottom: 20px;
+    border: 2px dashed;
+    text-align: center;
+  }
+  .universal-card .label {
+    font-size: 0.75rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.6;
+    margin-bottom: 8px;
+  }
+  .universal-card .sent {
+    font-size: 1.2rem;
+    font-weight: 800;
+  }
+  .universal-card .sent mark {
+    padding: 2px 8px;
+    border-radius: 8px;
+    font-weight: 900;
+  }
+  .universal-card .ukr-sent {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    font-weight: 600;
+    margin-top: 6px;
+    font-style: italic;
+  }
+
+  /* COLOR THEMES */
+  .theme-red    { --t: #ff6b6b; --tl: #fff5f5; --td: #c0392b; }
+  .theme-teal   { --t: #4ecdc4; --tl: #f0fffe; --td: #00796b; }
+  .theme-purple { --t: #a29bfe; --tl: #f5f4ff; --td: #6c5ce7; }
+  .theme-pink   { --t: #fd79a8; --tl: #fff0f6; --td: #e84393; }
+  .theme-orange { --t: #fdcb6e; --tl: #fffbf0; --td: #e67e22; }
+  .theme-green  { --t: #55efc4; --tl: #f0fff9; --td: #00b894; }
+  .theme-blue   { --t: #74b9ff; --tl: #f0f7ff; --td: #2980b9; }
+  .theme-coral  { --t: #ff7675; --tl: #fff5f4; --td: #d63031; }
+
+  [class*="theme-"] .section-header  { color: var(--td); border-color: var(--t); }
+  [class*="theme-"] .section-icon    { background: var(--tl); }
+  [class*="theme-"] .formula-box     { background: var(--tl); border-color: var(--t); color: var(--td); }
+  [class*="theme-"] .formula-box .formula-label { color: var(--td); }
+  [class*="theme-"] .formula .part   { background: var(--t); color: #fff; }
+  [class*="theme-"] .pronoun-chip    { background: var(--tl); color: var(--td); border: 2px solid var(--t); }
+  [class*="theme-"] .example-card    { border-color: var(--t); }
+  [class*="theme-"] .example-card mark { background: var(--t); color: #fff; }
+  [class*="theme-"] .explain-box     { background: var(--tl); }
+  [class*="theme-"] .universal-card  { background: var(--tl); border-color: var(--t); color: var(--td); }
+  [class*="theme-"] .universal-card mark { background: var(--t); color: #fff; }
+
+  /* COMPARE INFOGRAPHIC */
+  .compare-infographic {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 12px;
+    align-items: center;
+    margin: 20px 0;
+  }
+  .compare-infographic .side {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 16px;
+    text-align: center;
+    box-shadow: 3px 3px 0 rgba(0,0,0,0.06);
+  }
+  .compare-infographic .side .big { font-size: 2rem; font-weight: 900; }
+  .compare-infographic .side .desc { font-size: 0.8rem; font-weight: 700; color: var(--mid); }
+  .compare-infographic .arrow {
+    font-size: 2rem;
+    font-weight: 900;
+    text-align: center;
+    color: var(--light);
+  }
+
+  /* NAV */
+  .sticky-nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,249,240,0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid rgba(0,0,0,0.06);
+    padding: 10px 20px;
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .sticky-nav::-webkit-scrollbar { display: none; }
+  .nav-pill {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 0.82rem;
+    font-weight: 800;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: all 0.2s;
+    color: var(--mid);
+    background: transparent;
+    border: 2px solid transparent;
+  }
+  .nav-pill:hover {
+    background: var(--card);
+    color: var(--dark);
+    border-color: rgba(0,0,0,0.1);
+  }
+
+  /* INTRO */
+  .intro-card {
+    background: linear-gradient(135deg, #2d3436 0%, #636e72 100%);
+    color: #fff;
+    border-radius: var(--radius);
+    padding: 30px 32px;
+    margin-bottom: 50px;
+    position: relative;
+    overflow: hidden;
+  }
+  .intro-card::after {
+    content: '💬';
+    position: absolute;
+    right: 20px; bottom: -10px;
+    font-size: 8rem;
+    opacity: 0.08;
+  }
+  .intro-card h2 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+    color: var(--accent3);
+  }
+  .intro-card p {
+    font-size: 1rem;
+    font-weight: 600;
+    opacity: 0.9;
+    max-width: 650px;
+    line-height: 1.7;
+    margin-bottom: 10px;
+  }
+
+  /* OVERVIEW TABLE */
+  .overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+    margin-bottom: 50px;
+  }
+  .overview-item {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 16px;
+    border-top: 4px solid;
+    transition: transform 0.2s;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+  .overview-item:hover { transform: translateY(-3px); }
+  .overview-item .ov-emoji { font-size: 1.8rem; margin-bottom: 8px; }
+  .overview-item .ov-name { font-size: 1rem; font-weight: 800; }
+  .overview-item .ov-ukr  { font-size: 0.78rem; color: var(--mid); font-weight: 600; }
+  .overview-item .ov-ex   { font-size: 0.85rem; font-weight: 700; margin-top: 6px; opacity: 0.8; }
+
+  /* MEMORY TRICK */
+  .memory-trick {
+    background: linear-gradient(135deg, #ffeaa7, #fdcb6e);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .memory-trick .mt-icon { font-size: 1.8rem; }
+  .memory-trick .mt-text h4 { font-weight: 800; font-size: 0.95rem; margin-bottom: 4px; }
+  .memory-trick .mt-text p  { font-size: 0.88rem; font-weight: 600; }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 40px 20px;
+    background: var(--dark);
+    color: rgba(255,255,255,0.5);
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+  footer strong { color: var(--accent3); }
+
+  /* SCROLL TOP BUTTON */
+  #scroll-top-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #1a1208;
+    border: 1.5px solid rgba(200,150,62,0.4);
+    color: #f5f0e8;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+    pointer-events: none;
+    z-index: 9998;
+  }
+  #scroll-top-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  #scroll-top-btn:hover {
+    background: #c8963e;
+    border-color: #c8963e;
+    color: #1a1208;
+  }
+
+  /* ── RESPONSIVE / МОБІЛЬНА ВЕРСІЯ ── */
+
+  /* Scrollable table wrapper */
+  .table-scroll {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: var(--radius);
+    margin-bottom: 20px;
+  }
+  .table-scroll .compare-table { margin-bottom: 0; }
+
+  @media (max-width: 768px) {
+    header { padding: 40px 16px 60px; }
+    header h1 { font-size: 2.4rem; }
+    header p  { font-size: 0.95rem; }
+    .floating-emojis span { font-size: 1.4rem; }
+
+    .universal-banner { padding: 28px 16px; }
+    .universal-banner .sentence-box { font-size: 1rem; padding: 12px 16px; display: block; }
+
+    .sticky-nav { padding: 8px 12px; gap: 6px; }
+    .nav-pill   { font-size: 0.75rem; padding: 5px 10px; gap: 4px; }
+
+    main { padding: 24px 14px 60px; }
+
+    .overview-grid  { grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 32px; }
+    .overview-item  { padding: 12px; }
+    .overview-item .ov-emoji { font-size: 1.4rem; margin-bottom: 4px; }
+    .overview-item .ov-name  { font-size: 0.88rem; }
+    .overview-item .ov-ex    { font-size: 0.78rem; }
+
+    .intro-card    { padding: 22px 18px; }
+    .intro-card h2 { font-size: 1.4rem; }
+    .intro-card p  { font-size: 0.9rem; }
+
+    .section-header    { gap: 12px; margin-bottom: 18px; }
+    .section-header h2 { font-size: 1.4rem; }
+    .section-icon      { width: 48px; height: 48px; font-size: 1.6rem; border-radius: 12px; }
+
+    .explain-box         { padding: 14px 16px; gap: 10px; }
+    .explain-box .ex-icon { font-size: 1.5rem; }
+    .explain-box .ex-text p { font-size: 0.86rem; }
+
+    .formula-box  { padding: 16px 14px; }
+    .formula      { gap: 6px; }
+    .formula .part { font-size: 0.82rem; padding: 4px 10px; }
+
+    .pronoun-grid  { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+    .pronoun-chip  { padding: 10px 8px; }
+    .pronoun-chip .eng { font-size: 1rem; }
+    .pronoun-chip .ukr { font-size: 0.68rem; }
+
+    .compare-table th,
+    .compare-table td { font-size: 0.82rem; padding: 9px 11px; white-space: nowrap; }
+
+    .examples-grid { grid-template-columns: 1fr; gap: 10px; }
+    .example-card  { padding: 14px 16px; }
+    .example-card .eng-sentence { font-size: 0.97rem; }
+    .example-card .ukr-sentence { font-size: 0.84rem; }
+
+    .universal-card      { padding: 14px 16px; }
+    .universal-card .sent { font-size: 1rem; }
+
+    .compare-infographic { grid-template-columns: 1fr; gap: 8px; }
+    .compare-infographic .arrow { transform: none; font-size: 1.4rem; text-align: center; }
+    .compare-infographic .side .big { font-size: 1.4rem; }
+
+    .memory-trick        { padding: 12px 14px; gap: 10px; }
+    .memory-trick .mt-text p { font-size: 0.84rem; }
+
+    #scroll-top-btn { width: 40px; height: 40px; font-size: 16px; bottom: 18px; right: 16px; }
+  }
+
+  @media (max-width: 400px) {
+    header h1      { font-size: 2rem; }
+    .overview-grid { grid-template-columns: 1fr 1fr; }
+    .pronoun-grid  { grid-template-columns: repeat(2, 1fr); }
+    .formula .part { font-size: 0.76rem; padding: 3px 8px; }
+    .nav-pill      { font-size: 0.7rem; padding: 4px 8px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="floating-emojis">
+    <span>👤</span><span>🗣️</span><span>✨</span><span>📚</span><span>🌟</span><span>💡</span>
+  </div>
+  <div class="tag">English Grammar / Англійська граматика</div>
+  <h1>Pronouns<br><span>Займенники</span></h1>
+  <p>Learn all English pronouns simply, clearly & with tons of examples! / Всі займенники — просто, зрозуміло, з купою прикладів!</p>
+</header>
+
+<!-- UNIVERSAL SENTENCE BANNER -->
+<div class="universal-banner">
+  <h2>⭐ Universal Sentence / Базове речення</h2>
+  <div class="sentence-box">
+    <em>Tom</em> loves <em>Tom's</em> cat, and the cat loves <em>Tom</em> back.
+  </div>
+  <p class="sub">Ми будемо змінювати це речення для кожного типу займенника! / We'll transform this sentence for every pronoun type!</p>
+</div>
+
+<!-- NAV -->
+<nav class="sticky-nav">
+  <a href="#subject-object" class="nav-pill">👤 Subject/Object</a>
+  <a href="#possessive"     class="nav-pill">💛 Possessive</a>
+  <a href="#reflexive"      class="nav-pill">🪞 Reflexive</a>
+  <a href="#demonstrative"  class="nav-pill">👉 Demonstrative</a>
+  <a href="#relative"       class="nav-pill">🔗 Relative</a>
+  <a href="#indefinite"     class="nav-pill">❓ Indefinite</a>
+  <a href="#reciprocal"     class="nav-pill">🤝 Reciprocal</a>
+  <a href="#interrogative"  class="nav-pill">🙋 Interrogative</a>
+</nav>
+
+<main>
+
+  <!-- INTRO -->
+  <div class="intro-card">
+    <h2>What is a pronoun? / Що таке займенник?</h2>
+    <p>A <strong>pronoun</strong> replaces a noun so you don't have to repeat the same word over and over again.<br>
+    <strong>Займенник</strong> — це слово, яке замінює іменник, щоб не повторювати одне й те саме слово знову і знову.</p>
+    <p>❌ Tom saw Tom's friend and Tom waved at Tom's friend.<br>
+    ✅ <strong>He</strong> saw <strong>his</strong> friend and <strong>he</strong> waved at <strong>him</strong>.</p>
+  </div>
+
+  <!-- OVERVIEW -->
+  <div class="overview-grid">
+    <a href="#subject-object" class="overview-item" style="border-color:#ff6b6b">
+      <div class="ov-emoji">👤</div>
+      <div class="ov-name">Subject / Object</div>
+      <div class="ov-ukr">Підмет / Додаток</div>
+      <div class="ov-ex">I / me · she / her</div>
+    </a>
+    <a href="#possessive" class="overview-item" style="border-color:#fdcb6e">
+      <div class="ov-emoji">💛</div>
+      <div class="ov-name">Possessive</div>
+      <div class="ov-ukr">Присвійні</div>
+      <div class="ov-ex">my / mine · her / hers</div>
+    </a>
+    <a href="#reflexive" class="overview-item" style="border-color:#a29bfe">
+      <div class="ov-emoji">🪞</div>
+      <div class="ov-name">Reflexive</div>
+      <div class="ov-ukr">Зворотні</div>
+      <div class="ov-ex">myself · yourself</div>
+    </a>
+    <a href="#demonstrative" class="overview-item" style="border-color:#4ecdc4">
+      <div class="ov-emoji">👉</div>
+      <div class="ov-name">Demonstrative</div>
+      <div class="ov-ukr">Вказівні</div>
+      <div class="ov-ex">this / that / these / those</div>
+    </a>
+    <a href="#relative" class="overview-item" style="border-color:#fd79a8">
+      <div class="ov-emoji">🔗</div>
+      <div class="ov-name">Relative</div>
+      <div class="ov-ukr">Відносні</div>
+      <div class="ov-ex">who / which / that</div>
+    </a>
+    <a href="#indefinite" class="overview-item" style="border-color:#55efc4">
+      <div class="ov-emoji">❓</div>
+      <div class="ov-name">Indefinite</div>
+      <div class="ov-ukr">Неозначені</div>
+      <div class="ov-ex">someone · anything · nobody</div>
+    </a>
+    <a href="#reciprocal" class="overview-item" style="border-color:#74b9ff">
+      <div class="ov-emoji">🤝</div>
+      <div class="ov-name">Reciprocal</div>
+      <div class="ov-ukr">Взаємні</div>
+      <div class="ov-ex">each other · one another</div>
+    </a>
+    <a href="#interrogative" class="overview-item" style="border-color:#ff7675">
+      <div class="ov-emoji">🙋</div>
+      <div class="ov-name">Interrogative</div>
+      <div class="ov-ukr">Питальні</div>
+      <div class="ov-ex">who · what · which</div>
+    </a>
+  </div>
+
+  <!-- ─────────────────────────────────────────── -->
+  <!-- 1. SUBJECT / OBJECT -->
+  <!-- ─────────────────────────────────────────── -->
+  <section class="pronoun-section theme-red" id="subject-object">
+    <div class="section-header">
+      <div class="section-icon">👤</div>
+      <h2>
+        <small>Type 1 / Тип 1</small>
+        Subject & Object Pronouns<br>
+        <span style="font-size:1.1rem;font-family:'Nunito',sans-serif;font-weight:700">Особові займенники (підмет і додаток)</span>
+      </h2>
+    </div>
+
+    <div class="explain-box">
+      <span class="ex-icon">💡</span>
+      <div class="ex-text">
+        <h4>What's the difference? / Яка різниця?</h4>
+        <p><strong>Subject (підмет)</strong> = WHO does the action / ХТО виконує дію → <em>I, you, he, she, it, we, they</em><br>
+        <strong>Object (додаток)</strong> = WHO receives the action / НА КОГО спрямована дія → <em>me, you, him, her, it, us, them</em></p>
+      </div>
+    </div>
+
+    <div class="formula-box">
+      <span class="formula-label">📐 Formula / Формула</span>
+      <div class="formula">
+        <span class="part">SUBJECT pronoun</span>
+        <span class="plus">+</span>
+        <span class="part">verb</span>
+        <span class="plus">+</span>
+        <span class="part">OBJECT pronoun</span>
+      </div>
+      <p style="margin-top:12px;font-size:0.9rem;font-weight:600;opacity:0.8">Example: <strong>She</strong> (subject) loves <strong>him</strong> (object).</p>
+    </div>
+
+    <table class="compare-table">
+      <thead><tr>
+        <th>Person / Особа</th>
+        <th>Subject / Підмет</th>
+        <th>Object / Додаток</th>
+        <th>Ukrainian / Українська</th>
+      </tr></thead>
+      <tbody>
+        <tr><td>1st singular</td><td class="highlight" style="color:#c0392b"><strong>I</strong></td><td class="highlight" style="color:#c0392b"><strong>me</strong></td><td>я / мене</td></tr>
+        <tr><td>2nd singular</td><td class="highlight" style="color:#c0392b"><strong>you</strong></td><td class="highlight" style="color:#c0392b"><strong>you</strong></td><td>ти / тебе</td></tr>
+        <tr><td>3rd singular ♂</td><td class="highlight" style="color:#c0392b"><strong>he</strong></td><td class="highlight" style="color:#c0392b"><strong>him</strong></td><td>він / його</td></tr>
+        <tr><td>3rd singular ♀</td><td class="highlight" style="color:#c0392b"><strong>she</strong></td><td class="highlight" style="color:#c0392b"><strong>her</strong></td><td>вона / її</td></tr>
+        <tr><td>3rd singular (thing)</td><td class="highlight" style="color:#c0392b"><strong>it</strong></td><td class="highlight" style="color:#c0392b"><strong>it</strong></td><td>воно / його</td></tr>
+        <tr><td>1st plural</td><td class="highlight" style="color:#c0392b"><strong>we</strong></td><td class="highlight" style="color:#c0392b"><strong>us</strong></td><td>ми / нас</td></tr>
+        <tr><td>3rd plural</td><td class="highlight" style="color:#c0392b"><strong>they</strong></td><td class="highlight" style="color:#c0392b"><strong>them</strong></td><td>вони / їх</td></tr>
+      </tbody>
+    </table>
+
+    <div class="universal-card">
+      <div class="label">⭐ Universal sentence transformed / Базове речення змінене</div>
+      <div class="sent"><mark>He</mark> loves his cat, and the cat loves <mark>him</mark> back.</div>
+      <div class="ukr-sent">Він любить свою кішку, і кішка любить його у відповідь.</div>
+    </div>
+
+    <div class="examples-grid">
+      <div class="example-card">
+        <span class="emoji">🏫</span>
+        <div class="context">School / Школа</div>
+        <div class="eng-sentence"><mark>She</mark> helps <mark>me</mark> with homework every day.</div>
+        <div class="ukr-sentence">Вона допомагає мені з домашнім завданням щодня.</div>
+      </div>
+      <div class="example-card">
+        <span class="emoji">⚽</span>
+        <div class="context">Sport / Спорт</div>
+        <div class="eng-sentence"><mark>He</mark> passed the ball to <mark>us</mark>.</div>
+        <div class="ukr-sentence">Він передав м'яч нам.</div>
+      </div>
+      <div class="example-card">
+        <span class="emoji">🛒</span>
+        <div class="context">Shopping / Покупки</div>
+        <div class="eng-sentence">Can <mark>you</mark> help <mark>me</mark> find this size?</div>
+        <div class="ukr-sentence">Ти можеш допомогти мені знайти цей розмір?</div>
+      </div>
+      <div class="example-card">
+        <span class="emoji">🎬</span>
+        <div class="context">Movies / Кіно</div>
+        <div class="eng-sentence"><mark>They</mark> invited <mark>us</mark> to the premiere.</div>
+        <div class="ukr-sentence">Вони запросили нас на прем'єру.</div>
+      </div>
+      <div class="example-card">
+        <span class="emoji">📱</span>
+        <div class="context">Texting / Переписка</div>
+        <div class="eng-sentence"><mark>It</mark> sent me a notification. <mark>I</mark> ignored <mark>it</mark>.</div>
+        <div class="ukr-sentence">Воно надіслало мені сповіщення. Я проігнорував його.</div>
+      </div>
+      <div class="example-card">
+        <span class="emoji">👨‍👩‍👧</span>
+        <div class="context">Family / Сім'я</div>
+        <div class="eng-sentence">Mom called <mark>him</mark>, but <mark>he</mark> didn't answer <mark>her</mark>.</div>
+        <div class="ukr-sentence">Мама зателефонувала йому, але він не відповів їй.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────────── -->
+  <!-- 2. POSSESSIVE -->
+  <!-- ─────────────────────────────────────────── -->
+  <section class="pronoun-section theme-orange" id="possessive">
+    <div class="section-header">
+      <div class="section-icon">💛</div>
+      <h2>
+        <small>Type 2 / Тип 2</small>
+        Possessive Pronouns<br>
+        <span style="font-size:1.1rem;font-family:'Nunito',sans-serif;font-weight:700">Присвійні займенники</span>
+      </h2>
+    </div>
+
+    <div class="explain-box">
+      <span class="ex-icon">💡</span>
+      <div class="ex-text">
+        <h4>Two forms! / Дві форми!</h4>
+        <p><strong>Adjective form (my, your, his…)</strong> — always before a noun / завжди перед іменником: <em>my cat</em><br>
+        <strong>Pronoun form (mine, yours, his…)</strong> — alone, NO noun after / без іменника після: <em>The cat is mine.</em></p>
+      </div>
+    </div>
+
+    <div class="formula-box">
+      <span class="formula-label">📐 Formula / Формула</span>
+      <div class="formula">
+        <span class="part">Possessive adj</span>
+        <span class="plus">+</span>
+        <span class="part">noun</span>
+        <span class="plus">|</span>
+        <span class="part">noun</span>
+        <span class="plus">+</span>
+        <span class="part">is/are</span>
+        <span class="plus">+</span>
+        <span class="part">possessive pronoun</span>
+      </div>
+    </div>
+
+    <table class="compare-table">
+      <thead><tr>
+        <th>Person</th>
+        <th>Adjective (before noun)</th>
+        <th>Pronoun (alone)</th>
+        <th>Ukrainian</th>
+      </tr></thead>
+      <tbody>
+        <tr><td>I</td><td class="highlight" style="color:#e67e22"><strong>my</strong> book</td><td class="highlight" style="color:#e67e22">it's <strong>mine</strong></td><td>мій / моя / моє / моїх</td></tr>
+        <tr><td>you</td><td class="highlight" style="color:#e67e22"><strong>your</strong> book</td><td class="highlight" style="color:#e67e22">it's <strong>yours</strong></td><td>твій / твоя...</td></tr>
+        <tr><td>he</td><td class="highlight" style="color:#e67e22"><strong>his</strong> book</td><td class="highlight" style="color:#e67e22">it's <strong>his</strong></td><td>його</td></tr>
+        <tr><td>she</td><td class="highlight" style="color:#e67e22"><strong>her</strong> book</td><td class="highlight" style="color:#e67e22">it's <strong>hers</strong></td><td>її / їй</td></tr>
+        <tr><td>it</td><td class="highlight" style="color:#e67e22"><strong>its</strong> tail</td><td class="highlight" style="color:#e67e22">—</td><td>його (предмет)</td></tr>
+        <tr><td>we</td><td class="highlight" style="color:#e67e22"><strong>our</strong> book</td><td class="highlight" style="color:#e67e22">it's <strong>ours</strong></td><td>наш / наша...</td></tr>
+        <tr><td>they</td><td class="highlight" style="color:#e67e22"><strong>their</strong> book</td><td class="highlight" style="color:#e67e22">it's <strong>theirs</strong></td><td>їхній / їхня...</td></tr>
+      </tbody>
+    </table>
+
+    <div class="memory-trick">
+      <span class="mt-icon">🧠</span>
+      <div class="mt-text">
+        <h4>Memory trick / Запам'ятай!</h4>
+        <p><strong>its</strong> (no apostrophe) = belonging to it. &nbsp;&nbsp; <strong>it's</strong> (apostrophe) = it is.<br>
+        <strong>its</strong> (без апострофа) = "його" (для предмета). &nbsp;&nbsp; <strong>it's</strong> = "це є".</p>
+      </div>
+    </div>
+
+    <div class="universal-card">
+      <div class="label">⭐ Universal sentence / Базове речення</div>
+      <div class="sent"><mark>His</mark> cat is fluffy. The fluffy cat is <mark>his</mark>.</div>
+      <div class="ukr-sent">Його кішка пухнаста. Пухнаста кішка — його.</div>
+    </div>
+
+    <div class="examples-grid">
+      <div class="example-card">
+        <span class="emoji">🎒</span>
+        <div class="context">School / Школа</div>
+        <div class="eng-sentence">This is <mark>my</mark> backpack. That one is <mark>yours</mark>.</div>
+        <div class="ukr-sentence">Це мій рюкзак. Той — твій.</div>
+      </div>
+      <div class="example-card">
+        <span class="emoji">🐶</span>
+        <div class="context">Pets / Домашні тварини</div>
+        <div class="eng-sentence">The dog wagged <mark>its</mark> tail when <mark>its</mark> owner arrived.</div>
+        <div class="ukr-sentence">Собака завилав хвостом, коли прийшов його господар.</div>
+      </div>
+      <div class="example-card">
+        <span class="emoji">🏠</span>
+        <div class="context">Home / Дім</div>
+        <div class="eng-sentence"><mark>Our</mark> apartment is bigger than <mark>theirs</mark>.</div>
+        <div class="ukr-sentence">Наша квартира більша, ніж їхня.</div>
+      </div>
+      <div class="example-card">
+        <span class="emoji">🚗</span>
+        <div class="context">Cars / Машини</div>
+        <div class="eng-sentence">Is this car <mark>hers</mark> or <mark>his</mark>?</div>
+        <div class="ukr-sentence">Ця машина її чи його?</div>
+      </div>
+      <div class="example-card">
+        <span class="emoji">🎵</span>
+        <div class="context">Music / Музика</div>
+        <div class="eng-sentence">I love <mark>her</mark> voice. <mark>Her</mark> latest song is amazing!</div>
+        <div class="ukr-sentence">Я люблю її голос. Її остання пісня — неймовірна!</div>
+      </div>
+      <div class="example-card">
+        <span class="emoji">💻</span>
+        <div class="context">Tech / Технології</div>
+        <div class="eng-sentence">Each device has <mark>its</mark> own password. <mark>My</mark> laptop is the old one.</div>
+        <div class="ukr-sentence">Кожен пристрій має свій пароль. Мій ноутбук — старий.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────────── -->
+  <!-- 3. REFLEXIVE -->
+  <!-- ─────────────────────────────────────────── -->
+  <section class="pronoun-section theme-purple" id="reflexive">
+    <div class="section-header">
+      <div class="section-icon">🪞</div>
+      <h2>
+        <small>Type 3 / Тип 3</small>
+        Reflexive Pronouns<br>
+        <span style="font-size:1.1rem;font-family:'Nunito',sans-serif;font-weight:700">Зворотні займенники</span>
+      </h2>
+    </div>
+
+    <div class="explain-box">
+      <span class="ex-icon">💡</span>
+      <div class="ex-text">
+        <h4>When to use? / Коли вживати?</h4>
+        <p>Use when the subject and object are the SAME person. / Вживаємо, коли підмет і додаток — одна і та ж людина.<br>
+        Also for emphasis: "I did it <strong>myself</strong>!" = "Я зробив це <strong>сам</strong>!"</p>
+      </div>
+    </div>
+
+    <div class="formula-box">
+      <span class="formula-label">📐 Formula / Формула</span>
+      <div class="formula">
+        <span class="part">subject</span>
+        <span class="plus">+</span>
+        <span class="part">verb</span>
+        <span class="plus">+</span>
+        <span class="part">-self / -selves</span>
+      </div>
+      <p style="margin-top:12px;font-size:0.9rem;font-weight:600;opacity:0.8">She hurt <strong>herself</strong>. / Вона поранила саму себе.</p>
+    </div>
+
+    <div class="pronoun-grid">
+      <div class="pronoun-chip"><span class="eng">myself</span><span class="ukr">я сам/сама</span></div>
+      <div class="pronoun-chip"><span class="eng">yourself</span><span class="ukr">ти сам/сама</span></div>
+      <div class="pronoun-chip"><span class="eng">himself</span><span class="ukr">він сам</span></div>
+      <div class="pronoun-chip"><span class="eng">herself</span><span class="ukr">вона сама</span></div>
+      <div class="pronoun-chip"><span class="eng">itself</span><span class="ukr">воно само</span></div>
+      <div class="pronoun-chip"><span class="eng">ourselves</span><span class="ukr">ми самі</span></div>
+      <div class="pronoun-chip"><span class="eng">yourselves</span><span class="ukr">ви самі</span></div>
+      <div class="pronoun-chip"><span class="eng">themselves</span><span class="ukr">вони самі</span></div>
+    </div>
+
+    <div class="universal-card">
+      <div class="label">⭐ Universal sentence / Базове речення</div>
+      <div class="sent">He talks to <mark>himself</mark> when he plays with the cat.</div>
+      <div class="ukr-sent">Він розмовляє сам із собою, коли грається з кішкою.</div>
+    </div>
+
+    <div class="examples-grid">
+      <div class="example-card">
+        <span class="emoji">🍳</span>
+        <div class="context">Cooking / Готування</div>
+        <div class="eng-sentence">She cooked the whole dinner by <mark>herself</mark>.</div>
+        <div class="ukr-sentence">Вона приготувала весь вечір сама.</div>
+      </div>
+      <div class="example-card">
+        <span class="emoji">🤕</span>
+        <div class="context">Accident / Нещасний випадок</div>
+        <div class="eng-sentence">Be careful — don't hurt <mark>yourself</mark>!</div>
+        <div class="ukr-sentence">Будь обережний — не вдарись!</div>
+      </div>
+      <div class="example-card">
+        <span class="emoji">🏆</span>
+        <div class="context">Achievement / Досягнення</div>
+        <div class="eng-sentence">We built this app <mark>ourselves</mark> from scratch.</div>
+        <div class="ukr-sentence">Ми самі створили цей додаток з нуля.</div>
+      </div>
+      <div class="example-card">
+        <span class="emoji">🤖</span>
+        <div class="context">Tech / Технології</div>
+        <div class="eng-sentence">The robot repaired <mark>itself</mark> automatically.</div>
+        <div class="ukr-sentence">Робот відремонтував себе автоматично.</div>
+      </div>
+      <div class="example-card">
+        <span class="emoji">🎤</span>
+        <div class="context">Concert / Концерт</div>
+        <div class="eng-sentence">The singer introduced <mark>himself</mark> to the crowd.</div>
+        <div class="ukr-sentence">Співак представив себе глядачам.</div>
+      </div>
+      <div class="example-card">
+        <span class="emoji">😤</span>
+        <div class="context">Emphasis / Наголос</div>
+        <div class="eng-sentence">The president <mark>himself</mark> signed the document.</div>
+        <div class="ukr-sentence">Сам президент підписав документ.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────────── -->
+  <!-- 4. DEMONSTRATIVE -->
+  <!-- ─────────────────────────────────────────── -->
+  <section class="pronoun-section theme-teal" id="demonstrative">
+    <div class="section-header">
+      <div class="section-icon">👉</div>
+      <h2>
+        <small>Type 4 / Тип 4</small>
+        Demonstrative Pronouns<br>
+        <span style="font-size:1.1rem;font-family:'Nunito',sans-serif;font-weight:700">Вказівні займенники</span>
+      </h2>
+    </div>
+
+    <div class="explain-box">
+      <span class="ex-icon">💡</span>
+      <div class="ex-text">
+        <h4>Near or far? / Близько чи далеко?</h4>
+        <p><strong>THIS / THESE</strong> = near you, right here! / близько, прямо тут!<br>
+        <strong>THAT / THOSE</strong> = over there, further away / далі, ось там</p>
+      </div>
+    </div>
+
+    <div class="compare-infographic">
+      <div class="side" style="border: 3px solid #4ecdc4">
+        <div class="big">👆 THIS</div>
+        <div class="big" style="margin-top:4px">👆👆 THESE</div>
+        <div class="desc">SINGULAR / PLURAL<br>Near / Близько</div>
+      </div>
+      <div class="arrow">↔️</div>
+      <div class="side" style="border: 3px solid #00796b">
+        <div class="big">👉 THAT</div>
+        <div class="big" style="margin-top:4px">👉👉 THOSE</div>
+        <div class="desc">SINGULAR / PLURAL<br>Far / Далеко</div>
+      </div>
+    </div>
+
+    <div class="formula-box">
+      <span class="formula-label">📐 Formula / Формула</span>
+      <div class="formula">
+        <span class="part">this / that / these / those</span>
+        <span class="plus">+</span>
+        <span class="part">noun</span>
+        <span class="plus">OR</span>
+        <span class="part">this / that / these / those</span>
+        <span class="plus">+</span>
+        <span class="part">is / are</span>
+      </div>
+    </div>
+
+    <div class="universal-card">
+      <div class="label">⭐ Universal sentence / Базове речення</div>
+      <div class="sent"><mark>This</mark> cat is cute. <mark>Those</mark> cats over there are cute too.</div>
+      <div class="ukr-sent">Ця кішка мила. Ті кішки он там теж милі.</div>
+    </div>
+
+    <div class="examples-grid">
+      <div class="example-card">
+        <span class="emoji">🍕</span>
+        <div class="context">Food / Їжа</div>
+        <div class="eng-sentence"><mark>This</mark> pizza is hot. <mark>That</mark> one on the other table looks cold.</div>
+        <div class="ukr-sentence">Ця піца гаряча. Та, на іншому столику, виглядає холодною.</div>
+      </div>
+      <div class="example-card">
+        <span class="emoji">👟</span>
+        <div class="context">Shopping / Покупки</div>
+        <div class="eng-sentence">I like <mark>these</mark> sneakers. <mark>Those</mark> are too expensive.</div>
+        <div class="ukr-sentence">Мені подобаються ці кросівки. Ті — задорогі.</div>
+      </div>
+      <div class="example-card">
+        <span class="emoji">📞</span>
+        <div class="context">Phone / Телефон</div>
+        <div class="eng-sentence">Hello? Is <mark>this</mark> Maria? — No, <mark>this</mark> is Anna.</div>
+        <div class="ukr-sentence">Алло? Це Марія? — Ні, це Анна.</div>
+      </div>
+      <div class="example-card">
+        <span class="emoji">📸</span>
+        <div class="context">Photos / Фото</div>
+        <div class="eng-sentence"><mark>Those</mark> were the best days of my life.</div>
+        <div class="ukr-sentence">Ті були найкращими днями мого життя.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────────── -->
+  <!-- 5. RELATIVE -->
+  <!-- ─────────────────────────────────────────── -->
+  <section class="pronoun-section theme-pink" id="relative">
+    <div class="section-header">
+      <div class="section-icon">🔗</div>
+      <h2>
+        <small>Type 5 / Тип 5</small>
+        Relative Pronouns<br>
+        <span style="font-size:1.1rem;font-family:'Nunito',sans-serif;font-weight:700">Відносні займенники</span>
+      </h2>
+    </div>
+
+    <div class="explain-box">
+      <span class="ex-icon">💡</span>
+      <div class="ex-text">
+        <h4>They connect two sentences! / Вони з'єднують два речення!</h4>
+        <p>WHO = for people / для людей<br>
+        WHICH = for things/animals / для речей і тварин<br>
+        THAT = for both / для обох<br>
+        WHOSE = to show belonging / щоб показати приналежність<br>
+        WHERE = for places / для місць</p>
+      </div>
+    </div>
+
+    <div class="formula-box">
+      <span class="formula-label">📐 Formula / Формула</span>
+      <div class="formula">
+        <span class="part">Main sentence</span>
+        <span class="plus">+</span>
+        <span class="part">who / which / that / whose / where</span>
+        <span class="plus">+</span>
+        <span class="part">extra info</span>
+      </div>
+    </div>
+
+    <div class="universal-card">
+      <div class="label">⭐ Universal sentence / Базове речення</div>
+      <div class="sent">He is the person <mark>who</mark> has a cat <mark>that</mark> purrs all night.</div>
+      <div class="ukr-sent">Він — та людина, яка має кішку, що муркотить усю ніч.</div>
+    </div>
+
+    <div class="examples-grid">
+      <div class="example-card">
+        <span class="emoji">👨‍🏫</span>
+        <div class="context">People / Люди</div>
+        <div class="eng-sentence">The teacher <mark>who</mark> taught me English was from Canada.</div>
+        <div class="ukr-sentence">Вчителька, яка навчала мене англійської, була з Канади.</div>
+      </div>
+      <div class="example-card">
+        <span class="emoji">📱</span>
+        <div class="context">Things / Речі</div>
+        <div class="eng-sentence">I found the phone <mark>which</mark> I lost yesterday.</div>
+        <div class="ukr-sentence">Я знайшов телефон, який загубив учора.</div>
+      </div>
+      <div class="example-card">
+        <span class="emoji">🏡</span>
+        <div class="context">Places / Місця</div>
+        <div class="eng-sentence">This is the city <mark>where</mark> I was born.</div>
+        <div class="ukr-sentence">Це місто, де я народився.</div>
+      </div>
+      <div class="example-card">
+        <span class="emoji">🎓</span>
+        <div class="context">University / Університет</div>
+        <div class="eng-sentence">The student <mark>whose</mark> essay was best got an A.</div>
+        <div class="ukr-sentence">Студент, чий есе був найкращим, отримав відмінно.</div>
+      </div>
+      <div class="example-card">
+        <span class="emoji">🐈</span>
+        <div class="context">Animals / Тварини</div>
+        <div class="eng-sentence">I love cats <mark>that</mark> are fluffy and calm.</div>
+        <div class="ukr-sentence">Я люблю кішок, які пухнасті та спокійні.</div>
+      </div>
+      <div class="example-card">
+        <span class="emoji">🎸</span>
+        <div class="context">Music / Музика</div>
+        <div class="eng-sentence">The band <mark>that</mark> played last night was incredible.</div>
+        <div class="ukr-sentence">Гурт, який виступав вчора ввечері, був неймовірний.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────────── -->
+  <!-- 6. INDEFINITE -->
+  <!-- ─────────────────────────────────────────── -->
+  <section class="pronoun-section theme-green" id="indefinite">
+    <div class="section-header">
+      <div class="section-icon">❓</div>
+      <h2>
+        <small>Type 6 / Тип 6</small>
+        Indefinite Pronouns<br>
+        <span style="font-size:1.1rem;font-family:'Nunito',sans-serif;font-weight:700">Неозначені займенники</span>
+      </h2>
+    </div>
+
+    <div class="explain-box">
+      <span class="ex-icon">💡</span>
+      <div class="ex-text">
+        <h4>No specific person/thing! / Невідомо хто або що!</h4>
+        <p><strong>SOME-</strong> = positive / стверджувальні речення → someone, something, somewhere<br>
+        <strong>ANY-</strong> = questions / negative / запитання або заперечення → anyone, anything<br>
+        <strong>NO-</strong> = nothing exists / нічого немає → nobody, nothing, nowhere<br>
+        <strong>EVERY-</strong> = all / all / all → everyone, everything, everywhere</p>
+      </div>
+    </div>
+
+    <table class="compare-table">
+      <thead><tr><th>Prefix</th><th>Person / Особа</th><th>Thing / Річ</th><th>Place / Місце</th></tr></thead>
+      <tbody>
+        <tr>
+          <td style="font-weight:900;color:#00b894">SOME-</td>
+          <td class="highlight" style="color:#00b894"><strong>someone / somebody</strong><br><small>хтось</small></td>
+          <td class="highlight" style="color:#00b894"><strong>something</strong><br><small>щось</small></td>
+          <td class="highlight" style="color:#00b894"><strong>somewhere</strong><br><small>десь</small></td>
+        </tr>
+        <tr>
+          <td style="font-weight:900;color:#00b894">ANY-</td>
+          <td class="highlight" style="color:#00b894"><strong>anyone / anybody</strong><br><small>хто-небудь</small></td>
+          <td class="highlight" style="color:#00b894"><strong>anything</strong><br><small>що-небудь</small></td>
+          <td class="highlight" style="color:#00b894"><strong>anywhere</strong><br><small>де-небудь</small></td>
+        </tr>
+        <tr>
+          <td style="font-weight:900;color:#00b894">NO-</td>
+          <td class="highlight" style="color:#00b894"><strong>nobody / no one</strong><br><small>ніхто</small></td>
+          <td class="highlight" style="color:#00b894"><strong>nothing</strong><br><small>нічого</small></td>
+          <td class="highlight" style="color:#00b894"><strong>nowhere</strong><br><small>ніде</small></td>
+        </tr>
+        <tr>
+          <td style="font-weight:900;color:#00b894">EVERY-</td>
+          <td class="highlight" style="color:#00b894"><strong>everyone / everybody</strong><br><small>усі / кожен</small></td>
+          <td class="highlight" style="color:#00b894"><strong>everything</strong><br><small>все</small></td>
+          <td class="highlight" style="color:#00b894"><strong>everywhere</strong><br><small>всюди</small></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="universal-card">
+      <div class="label">⭐ Universal sentence / Базове речення</div>
+      <div class="sent"><mark>Someone</mark> fed the cat, but <mark>nobody</mark> knows who.</div>
+      <div class="ukr-sent">Хтось погодував кішку, але ніхто не знає хто.</div>
+    </div>
+
+    <div class="examples-grid">
+      <div class="example-card">
+        <span class="emoji">🚪</span>
+        <div class="context">Home / Дім</div>
+        <div class="eng-sentence"><mark>Someone</mark> knocked at the door, but <mark>nobody</mark> answered.</div>
+        <div class="ukr-sentence">Хтось постукав у двері, але ніхто не відповів.</div>
+      </div>
+      <div class="example-card">
+        <span class="emoji">🎁</span>
+        <div class="context">Party / Вечірка</div>
+        <div class="eng-sentence">Is there <mark>anything</mark> I can bring to the party?</div>
+        <div class="ukr-sentence">Чи є щось, що я можу принести на вечірку?</div>
+      </div>
+      <div class="example-card">
+        <span class="emoji">🔑</span>
+        <div class="context">Lost / Загублено</div>
+        <div class="eng-sentence">I can't find my keys <mark>anywhere</mark>!</div>
+        <div class="ukr-sentence">Я ніде не можу знайти свої ключі!</div>
+      </div>
+      <div class="example-card">
+        <span class="emoji">🎉</span>
+        <div class="context">Event / Подія</div>
+        <div class="eng-sentence"><mark>Everyone</mark> loved the show. <mark>Everything</mark> was perfect.</div>
+        <div class="ukr-sentence">Всім сподобалось шоу. Все було ідеально.</div>
+      </div>
+      <div class="example-card">
+        <span class="emoji">📦</span>
+        <div class="context">Shopping / Покупки</div>
+        <div class="eng-sentence">I checked <mark>everywhere</mark> but found <mark>nothing</mark> useful.</div>
+        <div class="ukr-sentence">Я перевірив скрізь, але не знайшов нічого корисного.</div>
+      </div>
+      <div class="example-card">
+        <span class="emoji">📚</span>
+        <div class="context">Study / Навчання</div>
+        <div class="eng-sentence">Does <mark>anyone</mark> here understand this formula?</div>
+        <div class="ukr-sentence">Хтось тут розуміє цю формулу?</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────────── -->
+  <!-- 7. RECIPROCAL -->
+  <!-- ─────────────────────────────────────────── -->
+  <section class="pronoun-section theme-blue" id="reciprocal">
+    <div class="section-header">
+      <div class="section-icon">🤝</div>
+      <h2>
+        <small>Type 7 / Тип 7</small>
+        Reciprocal Pronouns<br>
+        <span style="font-size:1.1rem;font-family:'Nunito',sans-serif;font-weight:700">Взаємні займенники</span>
+      </h2>
+    </div>
+
+    <div class="explain-box">
+      <span class="ex-icon">💡</span>
+      <div class="ex-text">
+        <h4>Two-way action! / Взаємна дія!</h4>
+        <p><strong>each other</strong> = two people do something to/for each other / двоє людей роблять щось один для одного<br>
+        <strong>one another</strong> = more than two / більше двох (але часто взаємозамінні)</p>
+      </div>
+    </div>
+
+    <div class="compare-infographic">
+      <div class="side" style="border: 3px solid #74b9ff">
+        <div class="big">👫 each other</div>
+        <div class="desc">Usually 2 people<br>Зазвичай 2 людини</div>
+      </div>
+      <div class="arrow">≈</div>
+      <div class="side" style="border: 3px solid #2980b9">
+        <div class="big">👨‍👩‍👧‍👦 one another</div>
+        <div class="desc">Usually 3+ people<br>Зазвичай 3+ людини</div>
+      </div>
+    </div>
+
+    <div class="universal-card">
+      <div class="label">⭐ Universal sentence / Базове речення</div>
+      <div class="sent">He and the cat look at <mark>each other</mark> all day.</div>
+      <div class="ukr-sent">Він і кішка дивляться одне на одного цілий день.</div>
+    </div>
+
+    <div class="examples-grid">
+      <div class="example-card">
+        <span class="emoji">❤️</span>
+        <div class="context">Love / Кохання</div>
+        <div class="eng-sentence">They love <mark>each other</mark> very much.</div>
+        <div class="ukr-sentence">Вони дуже люблять одне одного.</div>
+      </div>
+      <div class="example-card">
+        <span class="emoji">🤺</span>
+        <div class="context">Competition / Змагання</div>
+        <div class="eng-sentence">The players respect <mark>one another</mark> despite competing.</div>
+        <div class="ukr-sentence">Гравці поважають одне одного, незважаючи на конкуренцію.</div>
+      </div>
+      <div class="example-card">
+        <span class="emoji">📩</span>
+        <div class="context">Friends / Друзі</div>
+        <div class="eng-sentence">We text <mark>each other</mark> every single day.</div>
+        <div class="ukr-sentence">Ми пишемо одне одному кожного дня.</div>
+      </div>
+      <div class="example-card">
+        <span class="emoji">🌍</span>
+        <div class="context">Society / Суспільство</div>
+        <div class="eng-sentence">People should help <mark>one another</mark> in difficult times.</div>
+        <div class="ukr-sentence">Люди повинні допомагати одне одному у важкі часи.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────────── -->
+  <!-- 8. INTERROGATIVE -->
+  <!-- ─────────────────────────────────────────── -->
+  <section class="pronoun-section theme-coral" id="interrogative">
+    <div class="section-header">
+      <div class="section-icon">🙋</div>
+      <h2>
+        <small>Type 8 / Тип 8</small>
+        Interrogative Pronouns<br>
+        <span style="font-size:1.1rem;font-family:'Nunito',sans-serif;font-weight:700">Питальні займенники</span>
+      </h2>
+    </div>
+
+    <div class="explain-box">
+      <span class="ex-icon">💡</span>
+      <div class="ex-text">
+        <h4>Used to ask questions! / Для постановки запитань!</h4>
+        <p><strong>WHO</strong> = about a person / про людину<br>
+        <strong>WHOM</strong> = object, formal / додаток, формальне<br>
+        <strong>WHAT</strong> = about a thing / про річ або факт<br>
+        <strong>WHICH</strong> = limited choice / вибір з варіантів<br>
+        <strong>WHOSE</strong> = about ownership / про власність</p>
+      </div>
+    </div>
+
+    <div class="pronoun-grid">
+      <div class="pronoun-chip"><span class="eng">who?</span><span class="ukr">хто?</span></div>
+      <div class="pronoun-chip"><span class="eng">whom?</span><span class="ukr">кому? кого?</span></div>
+      <div class="pronoun-chip"><span class="eng">what?</span><span class="ukr">що? який?</span></div>
+      <div class="pronoun-chip"><span class="eng">which?</span><span class="ukr">котрий?</span></div>
+      <div class="pronoun-chip"><span class="eng">whose?</span><span class="ukr">чий? чия?</span></div>
+    </div>
+
+    <div class="universal-card">
+      <div class="label">⭐ Universal sentence / Базове речення</div>
+      <div class="sent"><mark>Who</mark> owns this cat? <mark>Whose</mark> cat is this? <mark>What</mark> is its name?</div>
+      <div class="ukr-sent">Хто є власником цієї кішки? Чия це кішка? Як її ім'я?</div>
+    </div>
+
+    <div class="examples-grid">
+      <div class="example-card">
+        <span class="emoji">👋</span>
+        <div class="context">Meeting / Знайомство</div>
+        <div class="eng-sentence"><mark>Who</mark> are you? <mark>What</mark> do you do for a living?</div>
+        <div class="ukr-sentence">Хто ти? Чим ти займаєшся?</div>
+      </div>
+      <div class="example-card">
+        <span class="emoji">🧥</span>
+        <div class="context">Lost item / Загублена річ</div>
+        <div class="eng-sentence"><mark>Whose</mark> jacket is this? <mark>Who</mark> left it here?</div>
+        <div class="ukr-sentence">Чия це куртка? Хто її залишив тут?</div>
+      </div>
+      <div class="example-card">
+        <span class="emoji">🍦</span>
+        <div class="context">Choice / Вибір</div>
+        <div class="eng-sentence"><mark>Which</mark> flavor do you want: chocolate or vanilla?</div>
+        <div class="ukr-sentence">Який смак ти хочеш: шоколадний чи ванільний?</div>
+      </div>
+      <div class="example-card">
+        <span class="emoji">📬</span>
+        <div class="context">Formal / Офіційно</div>
+        <div class="eng-sentence">To <mark>whom</mark> should I address this letter?</div>
+        <div class="ukr-sentence">Кому мені адресувати цього листа?</div>
+      </div>
+      <div class="example-card">
+        <span class="emoji">🏖️</span>
+        <div class="context">Plans / Плани</div>
+        <div class="eng-sentence"><mark>What</mark> are you doing this weekend?</div>
+        <div class="ukr-sentence">Що ти робиш цих вихідних?</div>
+      </div>
+      <div class="example-card">
+        <span class="emoji">🎒</span>
+        <div class="context">School / Школа</div>
+        <div class="eng-sentence"><mark>Which</mark> subject do you find hardest?</div>
+        <div class="ukr-sentence">Який предмет ти вважаєш найважчим?</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────────── -->
+  <!-- SUMMARY TABLE -->
+  <!-- ─────────────────────────────────────────── -->
+  <section style="margin-bottom:60px">
+    <h2 style="font-family:'Fredoka One',cursive;font-size:2rem;margin-bottom:24px;text-align:center">
+      📋 Quick Summary / Короткий підсумок
+    </h2>
+    <table class="compare-table" style="font-size:0.92rem">
+      <thead><tr>
+        <th>Type / Тип</th>
+        <th>English name</th>
+        <th>Українська назва</th>
+        <th>Examples / Приклади</th>
+        <th>Use / Вживання</th>
+      </tr></thead>
+      <tbody>
+        <tr><td>👤</td><td><strong>Subject</strong></td><td>Підмет</td><td>I, you, he, she, it, we, they</td><td>WHO does the action</td></tr>
+        <tr><td>👤</td><td><strong>Object</strong></td><td>Додаток</td><td>me, you, him, her, it, us, them</td><td>RECEIVES the action</td></tr>
+        <tr><td>💛</td><td><strong>Possessive adj.</strong></td><td>Присвійний прикметник</td><td>my, your, his, her, its, our, their</td><td>Before a noun</td></tr>
+        <tr><td>💛</td><td><strong>Possessive pron.</strong></td><td>Присвійний займенник</td><td>mine, yours, his, hers, ours, theirs</td><td>Stands alone</td></tr>
+        <tr><td>🪞</td><td><strong>Reflexive</strong></td><td>Зворотний</td><td>myself, yourself, himself…</td><td>Subject = Object</td></tr>
+        <tr><td>👉</td><td><strong>Demonstrative</strong></td><td>Вказівний</td><td>this, that, these, those</td><td>Point to things</td></tr>
+        <tr><td>🔗</td><td><strong>Relative</strong></td><td>Відносний</td><td>who, which, that, whose, where</td><td>Connect clauses</td></tr>
+        <tr><td>❓</td><td><strong>Indefinite</strong></td><td>Неозначений</td><td>someone, anything, nobody…</td><td>Non-specific person/thing</td></tr>
+        <tr><td>🤝</td><td><strong>Reciprocal</strong></td><td>Взаємний</td><td>each other, one another</td><td>Mutual action</td></tr>
+        <tr><td>🙋</td><td><strong>Interrogative</strong></td><td>Питальний</td><td>who, what, which, whose, whom</td><td>Ask questions</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+</main>
+
+<footer>
+  <p>Made with ❤️ for English learners / Зроблено з ❤️ для тих, хто вивчає англійську</p>
+  <p style="margin-top:8px">🐱 <strong>The cat thanks you for learning!</strong> / Кішка дякує тобі за навчання!</p>
+</footer>
+
+<script>
+  /* Wrap all compare-tables in a scrollable div for mobile */
+  document.querySelectorAll('.compare-table').forEach(function(t) {
+    if (t.parentElement.classList.contains('table-scroll')) return;
+    var wrap = document.createElement('div');
+    wrap.className = 'table-scroll';
+    t.parentNode.insertBefore(wrap, t);
+    wrap.appendChild(t);
+  });
+</script>
+
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+</body>
+</html>

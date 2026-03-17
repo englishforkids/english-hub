@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phrasal Verbs — Фразові дієслова</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sky: #3ABEF9;
+    --sun: #FFD85C;
+    --mint: #4ADE80;
+    --coral: #FF6B6B;
+    --purple: #A78BFA;
+    --navy: #1E1B4B;
+    --cream: #FFFBF0;
+    --card-bg: #fff;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--cream);
+    color: var(--navy);
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #1E1B4B 0%, #312E81 50%, #4338CA 100%);
+    padding: 60px 20px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 20% 80%, rgba(58,190,249,0.25) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(167,139,250,0.3) 0%, transparent 60%);
+  }
+  .hero-emoji {
+    font-size: 80px;
+    display: block;
+    margin-bottom: 16px;
+    animation: bounce 2s ease-in-out infinite;
+    position: relative;
+    z-index: 1;
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+  .hero h1 {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    color: #fff;
+    letter-spacing: 1px;
+    position: relative; z-index: 1;
+  }
+  .hero h1 span { color: var(--sun); }
+  .hero-sub {
+    color: rgba(255,255,255,0.8);
+    font-size: 1.1rem;
+    margin-top: 12px;
+    font-weight: 600;
+    position: relative; z-index: 1;
+  }
+  .hero-tags {
+    display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;
+    margin-top: 24px; position: relative; z-index: 1;
+  }
+  .hero-tags span {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #fff;
+    padding: 6px 16px; border-radius: 50px;
+    font-size: 0.9rem; font-weight: 700;
+    backdrop-filter: blur(4px);
+  }
+
+  /* MAIN */
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+  /* SECTION TITLES */
+  .section-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: 2rem;
+    text-align: center;
+    margin: 60px 0 8px;
+    color: var(--navy);
+  }
+  .section-sub {
+    text-align: center; color: #6B7280; font-size: 1rem;
+    margin-bottom: 36px; font-weight: 600;
+  }
+
+  /* WHAT IS IT */
+  .what-box {
+    background: linear-gradient(135deg, #EDE9FE, #DDD6FE);
+    border: 3px solid #A78BFA;
+    border-radius: 24px;
+    padding: 36px;
+    margin: 40px 0;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+    align-items: center;
+  }
+  @media(max-width:640px){ .what-box { grid-template-columns: 1fr; } }
+  .what-text h2 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.6rem; color: #4C1D95; margin-bottom: 12px;
+  }
+  .what-text p { line-height: 1.8; font-size: 1rem; color: #3B1F8C; }
+  .formula-box {
+    background: var(--navy);
+    border-radius: 18px; padding: 28px;
+    text-align: center;
+  }
+  .formula-box .f-label {
+    color: rgba(255,255,255,0.6); font-size: 0.85rem;
+    text-transform: uppercase; letter-spacing: 2px; font-weight: 700;
+    margin-bottom: 16px;
+  }
+  .formula {
+    display: flex; align-items: center; justify-content: center;
+    gap: 10px; flex-wrap: wrap;
+  }
+  .f-part {
+    padding: 10px 18px; border-radius: 12px;
+    font-family: 'Fredoka One', cursive; font-size: 1.1rem;
+  }
+  .f-verb { background: var(--sky); color: var(--navy); }
+  .f-plus { color: #fff; font-size: 1.4rem; }
+  .f-particle { background: var(--coral); color: #fff; }
+  .f-eq { color: #fff; font-size: 1.4rem; }
+  .f-meaning { background: var(--mint); color: var(--navy); }
+
+  /* TYPES GRID */
+  .types-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px; margin-bottom: 40px;
+  }
+  .type-card {
+    border-radius: 20px; padding: 26px 20px;
+    border: 3px solid transparent;
+    transition: transform .25s, box-shadow .25s;
+    cursor: default;
+  }
+  .type-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.12); }
+  .type-card .tc-icon { font-size: 2.5rem; margin-bottom: 12px; display: block; }
+  .type-card h3 { font-family: 'Fredoka One', cursive; font-size: 1.2rem; margin-bottom: 6px; }
+  .type-card p { font-size: 0.88rem; line-height: 1.6; opacity: .85; }
+  .tc-blue { background: #EFF6FF; border-color: var(--sky); color: #1E40AF; }
+  .tc-green { background: #F0FDF4; border-color: var(--mint); color: #166534; }
+  .tc-yellow { background: #FFFBEB; border-color: var(--sun); color: #92400E; }
+  .tc-red { background: #FFF1F2; border-color: var(--coral); color: #9F1239; }
+
+  /* MAGIC SENTENCE */
+  .magic-banner {
+    background: linear-gradient(135deg, #1E1B4B 0%, #312E81 100%);
+    border-radius: 24px; padding: 40px; margin: 40px 0;
+    text-align: center; color: #fff;
+    position: relative; overflow: hidden;
+  }
+  .magic-banner::after {
+    content: '✨';
+    position: absolute; right: 30px; top: 20px;
+    font-size: 60px; opacity: .2;
+  }
+  .magic-banner h2 {
+    font-family: 'Fredoka One', cursive; font-size: 1.8rem; color: var(--sun); margin-bottom: 12px;
+  }
+  .magic-banner .base-sentence {
+    font-size: 1.4rem; font-weight: 800; color: #C7D2FE; margin-bottom: 6px;
+  }
+  .magic-banner .base-ukr {
+    font-size: 1rem; color: rgba(255,255,255,0.65); margin-bottom: 24px;
+  }
+  .magic-variants {
+    display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;
+  }
+  .mv-item {
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 14px; padding: 12px 18px; text-align: left; max-width: 300px;
+  }
+  .mv-en { font-size: 0.95rem; font-weight: 700; color: #fff; }
+  .mv-ukr { font-size: 0.82rem; color: rgba(255,255,255,0.65); margin-top: 4px; }
+  .mv-verb { color: var(--sky); font-weight: 900; }
+  .mv-particle { color: var(--coral); font-weight: 900; }
+
+  /* CATEGORIES */
+  .cat-section { margin: 50px 0; }
+  .cat-header {
+    display: flex; align-items: center; gap: 14px;
+    margin-bottom: 20px;
+  }
+  .cat-icon-big { font-size: 2.2rem; }
+  .cat-header h2 { font-family: 'Fredoka One', cursive; font-size: 1.6rem; }
+  .cat-header .cat-badge {
+    background: var(--navy); color: #fff;
+    font-size: 0.8rem; padding: 4px 12px; border-radius: 50px; font-weight: 700;
+  }
+
+  .verbs-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+  }
+  .verb-card {
+    background: var(--card-bg);
+    border-radius: 18px; padding: 20px;
+    border-left: 5px solid transparent;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .verb-card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,0,0,0.1); }
+  .vc-top { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .vc-emoji { font-size: 1.6rem; }
+  .vc-phrasal { font-family: 'Fredoka One', cursive; font-size: 1.2rem; color: var(--navy); }
+  .vc-meaning { font-size: 0.85rem; color: #6B7280; font-weight: 700; margin-bottom: 10px; }
+  .vc-meaning span { color: var(--navy); font-weight: 800; }
+  .vc-examples { }
+  .vc-ex {
+    font-size: 0.88rem; background: #F8FAFC;
+    border-radius: 10px; padding: 8px 12px;
+    margin-top: 6px; line-height: 1.55;
+    color: #374151;
+  }
+  .vc-ex .ex-ukr { color: #9CA3AF; font-size: 0.82rem; display: block; margin-top: 2px; }
+  .vc-ex em { color: var(--sky); font-style: normal; font-weight: 800; }
+
+  /* category colors */
+  .cat-daily .verb-card { border-color: var(--sky); }
+  .cat-feelings .verb-card { border-color: var(--coral); }
+  .cat-relations .verb-card { border-color: var(--purple); }
+  .cat-work .verb-card { border-color: var(--mint); }
+  .cat-move .verb-card { border-color: var(--sun); }
+  .cat-phone .verb-card { border-color: #F9A8D4; }
+
+  /* TIPS */
+  .tips-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px; margin-top: 20px;
+  }
+  .tip-card {
+    background: var(--card-bg); border-radius: 18px; padding: 24px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    border-top: 4px solid var(--sky);
+    transition: transform .2s;
+  }
+  .tip-card:hover { transform: translateY(-4px); }
+  .tip-card:nth-child(2) { border-color: var(--coral); }
+  .tip-card:nth-child(3) { border-color: var(--mint); }
+  .tip-card:nth-child(4) { border-color: var(--purple); }
+  .tip-card .t-icon { font-size: 2rem; margin-bottom: 10px; display: block; }
+  .tip-card h4 { font-family: 'Fredoka One', cursive; font-size: 1.1rem; margin-bottom: 8px; }
+  .tip-card p { font-size: 0.88rem; line-height: 1.7; color: #4B5563; }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy); color: rgba(255,255,255,0.6);
+    text-align: center; padding: 30px; margin-top: 80px;
+    font-size: 0.9rem;
+  }
+  footer strong { color: #fff; }
+
+  /* DIVIDER */
+  .wave-divider {
+    text-align: center; font-size: 2rem;
+    margin: 10px 0; opacity: .4;
+    letter-spacing: 6px;
+  }
+
+  /* QUIZ PROMO */
+  .pro-tip {
+    background: linear-gradient(135deg, #ECFDF5, #D1FAE5);
+    border: 2px dashed var(--mint); border-radius: 20px;
+    padding: 28px 32px; margin: 40px 0;
+    display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+  }
+  .pro-tip .pt-icon { font-size: 3rem; flex-shrink: 0; }
+  .pro-tip h3 { font-family: 'Fredoka One', cursive; font-size: 1.3rem; color: #065F46; margin-bottom: 6px; }
+  .pro-tip p { font-size: 0.9rem; color: #047857; line-height: 1.6; }
+
+  /* scroll reveal */
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity .6s, transform .6s; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+/* =========================================
+   MOBILE RESPONSIVE — max-width: 600px
+   ========================================= */
+@media (max-width: 600px) {
+
+  /* HERO */
+  .hero {
+    padding: 36px 16px 50px;
+  }
+  .hero-emoji { font-size: 56px; }
+  .hero-sub { font-size: 0.95rem; }
+  .hero-tags span { font-size: 0.8rem; padding: 5px 12px; }
+
+  /* CONTAINER */
+  .container { padding: 0 14px; }
+
+  /* SECTION TITLES */
+  .section-title { font-size: 1.5rem; margin: 40px 0 6px; }
+  .section-sub { font-size: 0.9rem; margin-bottom: 24px; }
+
+  /* WHAT BOX */
+  .what-box {
+    grid-template-columns: 1fr;
+    padding: 20px 16px;
+    gap: 18px;
+  }
+  .what-text h2 { font-size: 1.2rem; }
+  .what-text p { font-size: 0.9rem; }
+  .formula-box { padding: 20px 14px; }
+  .f-part { font-size: 0.9rem; padding: 8px 12px; }
+  .formula { gap: 6px; }
+
+  /* TYPES GRID */
+  .types-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .type-card { padding: 18px 14px; }
+  .type-card .tc-icon { font-size: 2rem; }
+  .type-card h3 { font-size: 1.05rem; }
+  .type-card p { font-size: 0.85rem; }
+
+  /* MAGIC BANNER */
+  .magic-banner { padding: 24px 16px; border-radius: 18px; }
+  .magic-banner h2 { font-size: 1.3rem; }
+  .magic-banner .base-sentence { font-size: 1.05rem; }
+  .magic-banner .base-ukr { font-size: 0.88rem; }
+  .mv-item { max-width: 100%; width: 100%; padding: 10px 14px; }
+  .mv-en { font-size: 0.88rem; }
+  .mv-ukr { font-size: 0.78rem; }
+  .magic-variants { gap: 8px; }
+
+  /* CATEGORY HEADERS */
+  .cat-header { gap: 10px; flex-wrap: wrap; }
+  .cat-icon-big { font-size: 1.8rem; }
+  .cat-header h2 { font-size: 1.25rem; }
+  .cat-header .cat-badge { font-size: 0.72rem; padding: 3px 10px; }
+
+  /* VERB CARDS GRID */
+  .verbs-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .verb-card { padding: 16px 14px; border-radius: 14px; }
+  .vc-emoji { font-size: 1.3rem; }
+  .vc-phrasal { font-size: 1.05rem; }
+  .vc-meaning { font-size: 0.82rem; }
+  .vc-ex { font-size: 0.84rem; padding: 7px 10px; }
+  .vc-ex .ex-ukr { font-size: 0.78rem; }
+
+  /* CAT SECTION */
+  .cat-section { margin: 32px 0; }
+
+  /* TIPS GRID */
+  .tips-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .tip-card { padding: 18px 14px; border-radius: 14px; }
+  .tip-card h4 { font-size: 1rem; }
+  .tip-card p { font-size: 0.84rem; }
+
+  /* PRO TIP */
+  .pro-tip {
+    padding: 20px 16px;
+    flex-direction: column;
+    gap: 12px;
+    border-radius: 16px;
+  }
+  .pro-tip .pt-icon { font-size: 2.2rem; }
+  .pro-tip h3 { font-size: 1.1rem; }
+  .pro-tip p { font-size: 0.85rem; }
+
+  /* WAVE DIVIDER */
+  .wave-divider { font-size: 1.3rem; letter-spacing: 4px; }
+
+  /* FOOTER */
+  footer { padding: 22px 16px; font-size: 0.82rem; margin-top: 50px; }
+}
+
+/* =========================================
+   TABLET — 601px to 900px
+   ========================================= */
+@media (min-width: 601px) and (max-width: 900px) {
+  .types-grid { grid-template-columns: 1fr 1fr; }
+  .verbs-grid { grid-template-columns: 1fr 1fr; }
+  .tips-grid { grid-template-columns: 1fr 1fr; }
+  .what-box { padding: 24px; }
+  .magic-banner { padding: 30px 20px; }
+  .mv-item { max-width: 260px; }
+}
+
+#scroll-top-btn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #1a1208;
+  border: 1.5px solid rgba(200,150,62,0.4);
+  color: #f5f0e8;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(26,18,8,0.25);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.25s, transform 0.25s, background 0.18s, border-color 0.18s;
+  pointer-events: none;
+  z-index: 9998;
+}
+#scroll-top-btn.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+#scroll-top-btn:hover {
+  background: #c8963e;
+  border-color: #c8963e;
+  color: #1a1208;
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <span class="hero-emoji">🚀</span>
+  <h1>Phrasal <span>Verbs</span> — Фразові дієслова</h1>
+  <p class="hero-sub">Твій гід по найважливішим фразовим дієсловам англійської мови</p>
+  <div class="hero-tags">
+    <span>🏠 Побутові</span>
+    <span>💬 Спілкування</span>
+    <span>📱 Телефон/Соцмережі</span>
+    <span>💼 Робота</span>
+    <span>❤️ Стосунки</span>
+    <span>🏃 Рух</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- WHAT IS IT -->
+  <p class="section-title reveal">🤔 Що таке фразові дієслова?</p>
+  <p class="section-sub reveal">What are Phrasal Verbs?</p>
+
+  <div class="what-box reveal">
+    <div class="what-text">
+      <h2>🇬🇧 In English:</h2>
+      <p>A <strong>phrasal verb</strong> = a regular verb + a small word (preposition or adverb).<br><br>
+      Together they create a <strong>brand-new meaning</strong> that is often very different from the original verb.<br><br>
+      Example: <em>look</em> means «дивитися», but <em>look after</em> means «доглядати за»!</p>
+      <br>
+      <h2 style="color:#4C1D95">🇺🇦 Українською:</h2>
+      <p style="color:#3B1F8C">Фразове дієслово = звичайне дієслово + маленьке слово (прийменник або прислівник).<br><br>
+      Разом вони утворюють <strong>абсолютно нове значення</strong>, яке часто не схоже на значення оригінального дієслова.<br><br>
+      Дивись: <em>look</em> = дивитися, але <em>look after</em> = піклуватися!</p>
+    </div>
+    <div class="formula-box">
+      <div class="f-label">✨ The Formula / Формула</div>
+      <div class="formula" style="margin-bottom:20px">
+        <span class="f-part f-verb">Verb дієслово</span>
+        <span class="f-plus">+</span>
+        <span class="f-part f-particle">word слово</span>
+        <span class="f-eq">=</span>
+        <span class="f-part f-meaning">NEW meaning!</span>
+      </div>
+      <div style="color:rgba(255,255,255,0.5); font-size:0.8rem; margin-bottom:16px; text-transform:uppercase; letter-spacing:1px">Examples / Приклади</div>
+      <div style="color:#fff; font-size:0.92rem; line-height:2.2; text-align:left; padding-left:8px">
+        <div>🔵 <strong style="color:var(--sky)">wake</strong> + <strong style="color:var(--coral)">up</strong> = прокинутися</div>
+        <div>🟢 <strong style="color:var(--sky)">give</strong> + <strong style="color:var(--coral)">up</strong> = кидати / здатися</div>
+        <div>🟡 <strong style="color:var(--sky)">look</strong> + <strong style="color:var(--coral)">for</strong> = шукати</div>
+        <div>🔴 <strong style="color:var(--sky)">run</strong> + <strong style="color:var(--coral)">out of</strong> = закінчуватися</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TYPES -->
+  <p class="section-title reveal">📦 4 Types of Phrasal Verbs / 4 типи</p>
+  <p class="section-sub reveal">How they work differently / Як вони по-різному працюють</p>
+
+  <div class="types-grid reveal">
+    <div class="type-card tc-blue">
+      <span class="tc-icon">🔀</span>
+      <h3>Type 1: Verb + Adverb (no object)</h3>
+      <p><strong>Без об'єкта / Intransitive</strong><br><br>
+      🇬🇧 No object needed — the action is complete by itself.<br>
+      🇺🇦 Не потребує додатка — дія завершена сама по собі.<br><br>
+      📌 <em>She grew <strong>up</strong> in Kyiv.</em><br>
+      <em>He woke <strong>up</strong> early.</em></p>
+    </div>
+    <div class="type-card tc-green">
+      <span class="tc-icon">🔄</span>
+      <h3>Type 2: Separable (Verb + Adverb)</h3>
+      <p><strong>Роздільні / Transitive</strong><br><br>
+      🇬🇧 You can split the verb and the particle with the object.<br>
+      🇺🇦 Можна «вставити» об'єкт між дієсловом і часткою.<br><br>
+      📌 <em>Turn the radio <strong>down</strong>. = Turn <strong>down</strong> the radio.</em><br>
+      📌 With pronoun: <em>Turn it <strong>down</strong>.</em> ✅</p>
+    </div>
+    <div class="type-card tc-yellow">
+      <span class="tc-icon">🔒</span>
+      <h3>Type 3: Inseparable (Verb + Prep)</h3>
+      <p><strong>Нероздільні / Intransitive</strong><br><br>
+      🇬🇧 NEVER split these — object always goes AFTER the preposition.<br>
+      🇺🇦 НІКОЛИ не розділяй — об'єкт завжди ПІСЛЯ прийменника.<br><br>
+      📌 <em>I'm looking <strong>after</strong> the baby.</em><br>
+      📌 <em>I'm looking <strong>after</strong> her.</em> ✅<br>
+      📌 <em>❌ I'm looking her after.</em></p>
+    </div>
+    <div class="type-card tc-red">
+      <span class="tc-icon">🔢</span>
+      <h3>Type 4: Three-part Verbs</h3>
+      <p><strong>Трискладові / 3-part</strong><br><br>
+      🇬🇧 Verb + adverb + preposition. Object goes after the preposition.<br>
+      🇺🇦 Дієслово + прислівник + прийменник. Об'єкт після прийменника.<br><br>
+      📌 <em>He doesn't <strong>get on with</strong> his boss.</em><br>
+      📌 <em>I'll <strong>look forward to</strong> hearing from you.</em></p>
+    </div>
+  </div>
+
+  <!-- MAGIC SENTENCE -->
+  <div class="magic-banner reveal">
+    <h2>🪄 The Magic Sentence — Чарівне речення</h2>
+    <p style="color:rgba(255,255,255,0.7); margin-bottom:16px; font-size:0.95rem">
+      One simple sentence transformed by different phrasal verbs / Одне просте речення, яке змінюється залежно від фразового дієслова
+    </p>
+    <div class="base-sentence">🙋 "I need to [phrasal verb] this situation."</div>
+    <div class="base-ukr">Мені треба [дія] з цією ситуацією.</div>
+    <div class="magic-variants">
+      <div class="mv-item">
+        <div class="mv-en">I need to <em class="mv-verb">deal</em> <em class="mv-particle">with</em> this situation.</div>
+        <div class="mv-ukr">Мені треба розібратися з цією ситуацією.</div>
+      </div>
+      <div class="mv-item">
+        <div class="mv-en">I need to <em class="mv-verb">face</em> <em class="mv-particle">up to</em> this situation.</div>
+        <div class="mv-ukr">Мені треба зіткнутися з цією ситуацією.</div>
+      </div>
+      <div class="mv-item">
+        <div class="mv-en">I need to <em class="mv-verb">think</em> <em class="mv-particle">about</em> this situation.</div>
+        <div class="mv-ukr">Мені треба подумати про цю ситуацію.</div>
+      </div>
+      <div class="mv-item">
+        <div class="mv-en">I need to <em class="mv-verb">get</em> <em class="mv-particle">over</em> this situation.</div>
+        <div class="mv-ukr">Мені треба пережити цю ситуацію.</div>
+      </div>
+      <div class="mv-item">
+        <div class="mv-en">I need to <em class="mv-verb">move</em> <em class="mv-particle">on</em> from this situation.</div>
+        <div class="mv-ukr">Мені треба рухатися далі від цієї ситуації.</div>
+      </div>
+      <div class="mv-item">
+        <div class="mv-en">I need to <em class="mv-verb">figure</em> <em class="mv-particle">out</em> this situation.</div>
+        <div class="mv-ukr">Мені треба розібратися в цій ситуації.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ CATEGORIES ============ -->
+
+  <!-- DAILY LIFE -->
+  <div class="cat-section cat-daily reveal">
+    <div class="cat-header">
+      <span class="cat-icon-big">🏠</span>
+      <h2>Daily Life — Повсякденне життя</h2>
+      <span class="cat-badge">14 verbs</span>
+    </div>
+    <div class="verbs-grid">
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">⏰</span><span class="vc-phrasal">wake up</span></div>
+        <div class="vc-meaning"><span>прокинутися</span> / to stop sleeping</div>
+        <div class="vc-examples">
+          <div class="vc-ex">I <em>wake up</em> at 7 every morning.<span class="ex-ukr">Я прокидаюсь о 7 щоранку.</span></div>
+          <div class="vc-ex">She can't <em>wake up</em> without coffee.<span class="ex-ukr">Вона не може прокинутись без кави.</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">🧹</span><span class="vc-phrasal">tidy up / clean up</span></div>
+        <div class="vc-meaning"><span>прибирати</span> / to make a place neat</div>
+        <div class="vc-examples">
+          <div class="vc-ex">Please <em>tidy up</em> your room!<span class="ex-ukr">Будь ласка, прибери свою кімнату!</span></div>
+          <div class="vc-ex">We need to <em>clean up</em> before guests arrive.<span class="ex-ukr">Нам треба прибрати до приходу гостей.</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">🍳</span><span class="vc-phrasal">eat out</span></div>
+        <div class="vc-meaning"><span>їсти в ресторані</span> / to eat at a restaurant</div>
+        <div class="vc-examples">
+          <div class="vc-ex">Let's <em>eat out</em> tonight!<span class="ex-ukr">Давай сьогодні поїмо в ресторані!</span></div>
+          <div class="vc-ex">We <em>eat out</em> every Friday.<span class="ex-ukr">Ми ходимо в ресторан щоп'ятниці.</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">🛒</span><span class="vc-phrasal">run out of</span></div>
+        <div class="vc-meaning"><span>закінчитися</span> / to use all of something</div>
+        <div class="vc-examples">
+          <div class="vc-ex">We <em>ran out of</em> milk again.<span class="ex-ukr">У нас знову закінчилось молоко.</span></div>
+          <div class="vc-ex">My phone <em>ran out of</em> battery.<span class="ex-ukr">Мій телефон розрядився.</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">💡</span><span class="vc-phrasal">turn on / turn off</span></div>
+        <div class="vc-meaning"><span>вмикати / вимикати</span> / to start or stop a device</div>
+        <div class="vc-examples">
+          <div class="vc-ex"><em>Turn on</em> the light, please.<span class="ex-ukr">Увімкни світло, будь ласка.</span></div>
+          <div class="vc-ex">Don't forget to <em>turn off</em> the TV.<span class="ex-ukr">Не забудь вимкнути телевізор.</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">🌅</span><span class="vc-phrasal">stay up</span></div>
+        <div class="vc-meaning"><span>не лягати спати</span> / to go to bed late</div>
+        <div class="vc-examples">
+          <div class="vc-ex">I <em>stayed up</em> until 2 AM watching a film.<span class="ex-ukr">Я не спав до 2 ночі, дивившись фільм.</span></div>
+          <div class="vc-ex">Don't <em>stay up</em> too late!<span class="ex-ukr">Не лягай спати занадто пізно!</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">🔊</span><span class="vc-phrasal">turn down / turn up</span></div>
+        <div class="vc-meaning"><span>зменшити / збільшити гучність</span></div>
+        <div class="vc-examples">
+          <div class="vc-ex">Can you <em>turn down</em> the music?<span class="ex-ukr">Можеш зменшити музику?</span></div>
+          <div class="vc-ex"><em>Turn up</em> the volume — I can't hear!<span class="ex-ukr">Збільш гучність — я не чую!</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">🚿</span><span class="vc-phrasal">get up</span></div>
+        <div class="vc-meaning"><span>вставати з ліжка</span> / to get out of bed</div>
+        <div class="vc-examples">
+          <div class="vc-ex">It's hard to <em>get up</em> on Mondays.<span class="ex-ukr">Важко вставати у понеділок.</span></div>
+          <div class="vc-ex">He <em>got up</em> early to catch the train.<span class="ex-ukr">Він встав рано, щоб встигнути на потяг.</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">🗑️</span><span class="vc-phrasal">throw away / throw out</span></div>
+        <div class="vc-meaning"><span>викинути</span> / to put something in the bin</div>
+        <div class="vc-examples">
+          <div class="vc-ex">Don't <em>throw away</em> that box, I need it!<span class="ex-ukr">Не викидай ту коробку, вона мені потрібна!</span></div>
+          <div class="vc-ex">She <em>threw out</em> all her old clothes.<span class="ex-ukr">Вона викинула весь старий одяг.</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">🔍</span><span class="vc-phrasal">look for</span></div>
+        <div class="vc-meaning"><span>шукати</span> / to search for something</div>
+        <div class="vc-examples">
+          <div class="vc-ex">I'm <em>looking for</em> my keys.<span class="ex-ukr">Я шукаю свої ключі.</span></div>
+          <div class="vc-ex">What are you <em>looking for</em>?<span class="ex-ukr">Що ти шукаєш?</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">🍽️</span><span class="vc-phrasal">wash up</span></div>
+        <div class="vc-meaning"><span>мити посуд</span> / to clean the dishes</div>
+        <div class="vc-examples">
+          <div class="vc-ex">Can you <em>wash up</em> after dinner?<span class="ex-ukr">Можеш помити посуд після вечері?</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">📦</span><span class="vc-phrasal">put away</span></div>
+        <div class="vc-meaning"><span>прибрати на місце</span> / to put something where it belongs</div>
+        <div class="vc-examples">
+          <div class="vc-ex"><em>Put away</em> your toys when you're done!<span class="ex-ukr">Прибери іграшки, коли закінчиш!</span></div>
+          <div class="vc-ex">She <em>put away</em> the groceries.<span class="ex-ukr">Вона розклала продукти по місцях.</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">🚿</span><span class="vc-phrasal">use up</span></div>
+        <div class="vc-meaning"><span>використати все</span> / to finish a supply completely</div>
+        <div class="vc-examples">
+          <div class="vc-ex">Someone <em>used up</em> all the hot water!<span class="ex-ukr">Хтось використав всю гарячу воду!</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">🛋️</span><span class="vc-phrasal">hang out</span></div>
+        <div class="vc-meaning"><span>проводити час</span> / to spend time relaxing</div>
+        <div class="vc-examples">
+          <div class="vc-ex">We like to <em>hang out</em> at the park.<span class="ex-ukr">Ми любимо проводити час у парку.</span></div>
+          <div class="vc-ex">Let's <em>hang out</em> this weekend!<span class="ex-ukr">Давай зустрінемося цих вихідних!</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="wave-divider">• • • • •</div>
+
+  <!-- FEELINGS -->
+  <div class="cat-section cat-feelings reveal">
+    <div class="cat-header">
+      <span class="cat-icon-big">❤️</span>
+      <h2>Feelings & Emotions — Почуття та емоції</h2>
+      <span class="cat-badge">10 verbs</span>
+    </div>
+    <div class="verbs-grid">
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">💪</span><span class="vc-phrasal">cheer up</span></div>
+        <div class="vc-meaning"><span>підбадьоритися / підбадьорити</span> / to become or make happier</div>
+        <div class="vc-examples">
+          <div class="vc-ex"><em>Cheer up</em>! Things will get better.<span class="ex-ukr">Підбадьорся! Все стане краще.</span></div>
+          <div class="vc-ex">I tried to <em>cheer up</em> my friend.<span class="ex-ukr">Я намагався підбадьорити свого друга.</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">💔</span><span class="vc-phrasal">get over</span></div>
+        <div class="vc-meaning"><span>пережити / оговтатися</span> / to recover from something</div>
+        <div class="vc-examples">
+          <div class="vc-ex">It took time to <em>get over</em> the breakup.<span class="ex-ukr">Знадобився час, щоб пережити розставання.</span></div>
+          <div class="vc-ex">She hasn't <em>gotten over</em> the news yet.<span class="ex-ukr">Вона ще не оговталася від новини.</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">😤</span><span class="vc-phrasal">calm down</span></div>
+        <div class="vc-meaning"><span>заспокоїтися</span> / to become less upset or angry</div>
+        <div class="vc-examples">
+          <div class="vc-ex">Please <em>calm down</em>, it's not a big deal.<span class="ex-ukr">Будь ласка, заспокойся, це не так важливо.</span></div>
+          <div class="vc-ex">Take a breath and <em>calm down</em>.<span class="ex-ukr">Вдихни та заспокойся.</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">📣</span><span class="vc-phrasal">open up</span></div>
+        <div class="vc-meaning"><span>відкритися / поділитися</span> / to share your feelings</div>
+        <div class="vc-examples">
+          <div class="vc-ex">He finally <em>opened up</em> about his problems.<span class="ex-ukr">Він нарешті відкрився щодо своїх проблем.</span></div>
+          <div class="vc-ex">It's hard to <em>open up</em> to strangers.<span class="ex-ukr">Важко відкриватися перед незнайомцями.</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">🙈</span><span class="vc-phrasal">feel down</span></div>
+        <div class="vc-meaning"><span>відчувати себе пригніченим</span> / to feel sad</div>
+        <div class="vc-examples">
+          <div class="vc-ex">I've been <em>feeling down</em> lately.<span class="ex-ukr">Останнім часом я почуваюся пригніченим.</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">🌪️</span><span class="vc-phrasal">freak out</span></div>
+        <div class="vc-meaning"><span>запанікувати / злякатися</span> / to become very anxious</div>
+        <div class="vc-examples">
+          <div class="vc-ex">She <em>freaked out</em> when she saw the spider.<span class="ex-ukr">Вона запанікувала, коли побачила павука.</span></div>
+          <div class="vc-ex">Don't <em>freak out</em> — I can explain!<span class="ex-ukr">Не панікуй — я можу пояснити!</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">🎯</span><span class="vc-phrasal">look forward to</span></div>
+        <div class="vc-meaning"><span>чекати з нетерпінням</span> / to be excited about something upcoming</div>
+        <div class="vc-examples">
+          <div class="vc-ex">I'm <em>looking forward to</em> the holidays!<span class="ex-ukr">Я з нетерпінням чекаю свят!</span></div>
+          <div class="vc-ex">She's <em>looking forward to</em> meeting you.<span class="ex-ukr">Вона з нетерпінням чекає зустрічі з тобою.</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">🎈</span><span class="vc-phrasal">cheer on</span></div>
+        <div class="vc-meaning"><span>підбадьорювати / вболівати</span> / to support by shouting</div>
+        <div class="vc-examples">
+          <div class="vc-ex">The crowd <em>cheered on</em> the team.<span class="ex-ukr">Натовп вболівав за команду.</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">😊</span><span class="vc-phrasal">brighten up</span></div>
+        <div class="vc-meaning"><span>розвеселитися</span> / to become happier or more cheerful</div>
+        <div class="vc-examples">
+          <div class="vc-ex">Her smile <em>brightened up</em> the room.<span class="ex-ukr">Її усмішка освітлила кімнату.</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">😴</span><span class="vc-phrasal">burn out</span></div>
+        <div class="vc-meaning"><span>перегоріти / вигоріти</span> / to be exhausted from overworking</div>
+        <div class="vc-examples">
+          <div class="vc-ex">He completely <em>burned out</em> after the project.<span class="ex-ukr">Він повністю вигорів після проєкту.</span></div>
+          <div class="vc-ex">Students often <em>burn out</em> before exams.<span class="ex-ukr">Учні часто вигорають перед іспитами.</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="wave-divider">• • • • •</div>
+
+  <!-- RELATIONSHIPS -->
+  <div class="cat-section cat-relations reveal">
+    <div class="cat-header">
+      <span class="cat-icon-big">👥</span>
+      <h2>Relationships — Стосунки</h2>
+      <span class="cat-badge">10 verbs</span>
+    </div>
+    <div class="verbs-grid">
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">😊</span><span class="vc-phrasal">get on / get along</span></div>
+        <div class="vc-meaning"><span>ладити / добре стосуватися</span> / to have a good relationship</div>
+        <div class="vc-examples">
+          <div class="vc-ex">Do you <em>get on</em> with your colleagues?<span class="ex-ukr">Ти ладиш зі своїми колегами?</span></div>
+          <div class="vc-ex">We <em>get along</em> really well.<span class="ex-ukr">Ми дуже добре ладимо.</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">💘</span><span class="vc-phrasal">fall for</span></div>
+        <div class="vc-meaning"><span>закохатися</span> / to fall in love with</div>
+        <div class="vc-examples">
+          <div class="vc-ex">He <em>fell for</em> her the moment they met.<span class="ex-ukr">Він закохався в неї, щойно вони зустрілися.</span></div>
+          <div class="vc-ex">I totally <em>fell for</em> his sense of humour.<span class="ex-ukr">Я повністю закохалася в його почуття гумору.</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">💔</span><span class="vc-phrasal">break up with</span></div>
+        <div class="vc-meaning"><span>розставатися</span> / to end a romantic relationship</div>
+        <div class="vc-examples">
+          <div class="vc-ex">They <em>broke up</em> after two years.<span class="ex-ukr">Вони розсталися після двох років стосунків.</span></div>
+          <div class="vc-ex">She <em>broke up with</em> him last week.<span class="ex-ukr">Вона розсталася з ним минулого тижня.</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">🤝</span><span class="vc-phrasal">make up</span></div>
+        <div class="vc-meaning"><span>помиритися</span> / to become friends again after a fight</div>
+        <div class="vc-examples">
+          <div class="vc-ex">They argued but <em>made up</em> the next day.<span class="ex-ukr">Вони посварилися, але помирилися наступного дня.</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">👶</span><span class="vc-phrasal">grow up</span></div>
+        <div class="vc-meaning"><span>вирости / подорослішати</span> / to become an adult</div>
+        <div class="vc-examples">
+          <div class="vc-ex">I <em>grew up</em> in a small village.<span class="ex-ukr">Я виріс у маленькому селі.</span></div>
+          <div class="vc-ex"><em>Grow up</em>! You're not a child anymore.<span class="ex-ukr">Подорослій! Ти вже не дитина.</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">🙋</span><span class="vc-phrasal">look up to</span></div>
+        <div class="vc-meaning"><span>захоплюватися / рівнятися на</span> / to admire and respect someone</div>
+        <div class="vc-examples">
+          <div class="vc-ex">I really <em>look up to</em> my older sister.<span class="ex-ukr">Я дуже захоплююся своєю старшою сестрою.</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">🙅</span><span class="vc-phrasal">fall out with</span></div>
+        <div class="vc-meaning"><span>посваритися</span> / to have an argument and stop being friends</div>
+        <div class="vc-examples">
+          <div class="vc-ex">I <em>fell out with</em> my best friend last year.<span class="ex-ukr">Я посварився з найкращим другом минулого року.</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">❤️‍🔥</span><span class="vc-phrasal">go out with</span></div>
+        <div class="vc-meaning"><span>зустрічатися (романтично)</span> / to date someone</div>
+        <div class="vc-examples">
+          <div class="vc-ex">Are you <em>going out with</em> anyone?<span class="ex-ukr">Ти зараз з кимось зустрічаєшся?</span></div>
+          <div class="vc-ex">She's been <em>going out with</em> him for 3 years.<span class="ex-ukr">Вона зустрічається з ним вже 3 роки.</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">🧸</span><span class="vc-phrasal">look after</span></div>
+        <div class="vc-meaning"><span>піклуватися / доглядати</span> / to take care of</div>
+        <div class="vc-examples">
+          <div class="vc-ex">Can you <em>look after</em> my cat this weekend?<span class="ex-ukr">Можеш подивитися за моїм котом у вихідні?</span></div>
+          <div class="vc-ex">She <em>looks after</em> her grandparents.<span class="ex-ukr">Вона піклується про своїх бабусю й дідуся.</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">👋</span><span class="vc-phrasal">catch up with</span></div>
+        <div class="vc-meaning"><span>поговорити після довгої паузи</span> / to talk with someone you haven't seen recently</div>
+        <div class="vc-examples">
+          <div class="vc-ex">Let's <em>catch up</em> over coffee!<span class="ex-ukr">Давай поговоримо за кавою!</span></div>
+          <div class="vc-ex">I need to <em>catch up with</em> my old friends.<span class="ex-ukr">Мені треба поспілкуватися зі старими друзями.</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="wave-divider">• • • • •</div>
+
+  <!-- WORK / STUDY -->
+  <div class="cat-section cat-work reveal">
+    <div class="cat-header">
+      <span class="cat-icon-big">💼</span>
+      <h2>Work & Study — Робота та навчання</h2>
+      <span class="cat-badge">12 verbs</span>
+    </div>
+    <div class="verbs-grid">
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">🏳️</span><span class="vc-phrasal">give up</span></div>
+        <div class="vc-meaning"><span>кидати / здаватися</span> / to stop trying</div>
+        <div class="vc-examples">
+          <div class="vc-ex">Don't <em>give up</em> on your dreams!<span class="ex-ukr">Не кидай своїх мрій!</span></div>
+          <div class="vc-ex">He <em>gave up</em> learning the guitar.<span class="ex-ukr">Він кинув вчити гітару.</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">🤔</span><span class="vc-phrasal">figure out</span></div>
+        <div class="vc-meaning"><span>розібратися / зрозуміти</span> / to understand or solve</div>
+        <div class="vc-examples">
+          <div class="vc-ex">I can't <em>figure out</em> this maths problem.<span class="ex-ukr">Я не можу розібратися з цим завданням з математики.</span></div>
+          <div class="vc-ex">She <em>figured out</em> how to fix the bug.<span class="ex-ukr">Вона зрозуміла, як виправити помилку.</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">📋</span><span class="vc-phrasal">carry out</span></div>
+        <div class="vc-meaning"><span>виконувати / здійснювати</span> / to do or complete a task</div>
+        <div class="vc-examples">
+          <div class="vc-ex">We need to <em>carry out</em> more research.<span class="ex-ukr">Нам потрібно провести більше досліджень.</span></div>
+          <div class="vc-ex">The plan was <em>carried out</em> successfully.<span class="ex-ukr">План був успішно виконаний.</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">📝</span><span class="vc-phrasal">write down</span></div>
+        <div class="vc-meaning"><span>записати</span> / to record in writing</div>
+        <div class="vc-examples">
+          <div class="vc-ex"><em>Write down</em> the new vocabulary.<span class="ex-ukr">Запиши нові слова.</span></div>
+          <div class="vc-ex">I <em>wrote down</em> his phone number.<span class="ex-ukr">Я записав його номер телефону.</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">🔁</span><span class="vc-phrasal">go over</span></div>
+        <div class="vc-meaning"><span>повторити / переглянути</span> / to review or repeat</div>
+        <div class="vc-examples">
+          <div class="vc-ex">Let's <em>go over</em> the grammar rules again.<span class="ex-ukr">Давайте ще раз повторимо правила граматики.</span></div>
+          <div class="vc-ex">She <em>went over</em> her notes before the exam.<span class="ex-ukr">Вона переглянула нотатки перед іспитом.</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">✋</span><span class="vc-phrasal">hand in / hand out</span></div>
+        <div class="vc-meaning"><span>здати / роздати</span> / to submit / to distribute</div>
+        <div class="vc-examples">
+          <div class="vc-ex">Please <em>hand in</em> your homework by Friday.<span class="ex-ukr">Будь ласка, здайте домашнє до п'ятниці.</span></div>
+          <div class="vc-ex">The teacher <em>handed out</em> worksheets.<span class="ex-ukr">Вчитель роздав робочі аркуші.</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">❌</span><span class="vc-phrasal">cross out</span></div>
+        <div class="vc-meaning"><span>закреслити</span> / to draw a line through a mistake</div>
+        <div class="vc-examples">
+          <div class="vc-ex"><em>Cross out</em> the wrong answer.<span class="ex-ukr">Закресли неправильну відповідь.</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">🧠</span><span class="vc-phrasal">pick up</span></div>
+        <div class="vc-meaning"><span>засвоїти / навчитися</span> / to learn informally</div>
+        <div class="vc-examples">
+          <div class="vc-ex">She <em>picked up</em> Spanish very quickly.<span class="ex-ukr">Вона дуже швидко засвоїла іспанську.</span></div>
+          <div class="vc-ex">I <em>picked up</em> some useful tips.<span class="ex-ukr">Я засвоїв кілька корисних порад.</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">🚪</span><span class="vc-phrasal">drop out (of)</span></div>
+        <div class="vc-meaning"><span>кидати навчання</span> / to leave school or a course</div>
+        <div class="vc-examples">
+          <div class="vc-ex">He <em>dropped out</em> of university after one year.<span class="ex-ukr">Він кинув університет після першого курсу.</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">💡</span><span class="vc-phrasal">come up with</span></div>
+        <div class="vc-meaning"><span>придумати / запропонувати</span> / to think of an idea</div>
+        <div class="vc-examples">
+          <div class="vc-ex">She <em>came up with</em> a great idea!<span class="ex-ukr">Вона придумала чудову ідею!</span></div>
+          <div class="vc-ex">Can you <em>come up with</em> a solution?<span class="ex-ukr">Можеш запропонувати рішення?</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">🌅</span><span class="vc-phrasal">start over / begin over</span></div>
+        <div class="vc-meaning"><span>починати спочатку</span> / to start again from the beginning</div>
+        <div class="vc-examples">
+          <div class="vc-ex">I made too many mistakes, so I <em>started over</em>.<span class="ex-ukr">Я зробив забагато помилок, тому почав спочатку.</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">📊</span><span class="vc-phrasal">work out</span></div>
+        <div class="vc-meaning"><span>вирахувати / вирішитися</span> / to calculate or to have a good result</div>
+        <div class="vc-examples">
+          <div class="vc-ex">I can't <em>work out</em> this equation.<span class="ex-ukr">Я не можу вирахувати це рівняння.</span></div>
+          <div class="vc-ex">I hope everything <em>works out</em> for you!<span class="ex-ukr">Сподіваюся, у тебе все вийде!</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="wave-divider">• • • • •</div>
+
+  <!-- MOVEMENT -->
+  <div class="cat-section cat-move reveal">
+    <div class="cat-header">
+      <span class="cat-icon-big">🚗</span>
+      <h2>Movement & Travel — Рух та подорожі</h2>
+      <span class="cat-badge">8 verbs</span>
+    </div>
+    <div class="verbs-grid">
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">🚀</span><span class="vc-phrasal">set off / set out</span></div>
+        <div class="vc-meaning"><span>вирушити в дорогу</span> / to begin a journey</div>
+        <div class="vc-examples">
+          <div class="vc-ex">We <em>set off</em> early to avoid traffic.<span class="ex-ukr">Ми вирушили рано, щоб уникнути пробок.</span></div>
+          <div class="vc-ex">They <em>set out</em> on their adventure.<span class="ex-ukr">Вони вирушили в пригоду.</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">🛬</span><span class="vc-phrasal">check in</span></div>
+        <div class="vc-meaning"><span>заселитися / реєструватися</span> / to register at a hotel or airport</div>
+        <div class="vc-examples">
+          <div class="vc-ex">We need to <em>check in</em> 2 hours before the flight.<span class="ex-ukr">Нам треба зареєструватися за 2 години до рейсу.</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">🚌</span><span class="vc-phrasal">get on / get off</span></div>
+        <div class="vc-meaning"><span>сісти / вийти (транспорт)</span> / to board or leave transport</div>
+        <div class="vc-examples">
+          <div class="vc-ex"><em>Get on</em> the bus at the corner.<span class="ex-ukr">Сідай на автобус на розі.</span></div>
+          <div class="vc-ex"><em>Get off</em> at the next stop.<span class="ex-ukr">Виходь на наступній зупинці.</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">🏠</span><span class="vc-phrasal">move in / move out</span></div>
+        <div class="vc-meaning"><span>заїхати / виїхати (квартира)</span> / to start/stop living somewhere</div>
+        <div class="vc-examples">
+          <div class="vc-ex">We <em>moved in</em> to our new flat last month.<span class="ex-ukr">Ми переїхали в нову квартиру минулого місяця.</span></div>
+          <div class="vc-ex">They <em>moved out</em> after the lease ended.<span class="ex-ukr">Вони виїхали після закінчення оренди.</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">🏃</span><span class="vc-phrasal">hurry up</span></div>
+        <div class="vc-meaning"><span>поспішити</span> / to move or do something faster</div>
+        <div class="vc-examples">
+          <div class="vc-ex"><em>Hurry up</em>! We're going to be late!<span class="ex-ukr">Поспішай! Ми запізнимося!</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">🔙</span><span class="vc-phrasal">come back / go back</span></div>
+        <div class="vc-meaning"><span>повернутися</span> / to return to a place</div>
+        <div class="vc-examples">
+          <div class="vc-ex">When are you <em>coming back</em>?<span class="ex-ukr">Коли ти повертаєшся?</span></div>
+          <div class="vc-ex">I want to <em>go back</em> to Italy someday.<span class="ex-ukr">Я хочу колись повернутися до Італії.</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">🔍</span><span class="vc-phrasal">look around</span></div>
+        <div class="vc-meaning"><span>оглянутися / оглядати місце</span> / to explore a place</div>
+        <div class="vc-examples">
+          <div class="vc-ex">Let's <em>look around</em> the old city centre.<span class="ex-ukr">Давайте оглянемо старе місто.</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">✈️</span><span class="vc-phrasal">take off</span></div>
+        <div class="vc-meaning"><span>злетіти / знімати (одяг)</span> / for a plane to leave the ground / to remove clothing</div>
+        <div class="vc-examples">
+          <div class="vc-ex">The plane <em>took off</em> at 6 AM.<span class="ex-ukr">Літак злетів о 6 ранку.</span></div>
+          <div class="vc-ex"><em>Take off</em> your shoes at the door.<span class="ex-ukr">Знімай взуття біля дверей.</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="wave-divider">• • • • •</div>
+
+  <!-- PHONE / SOCIAL -->
+  <div class="cat-section cat-phone reveal">
+    <div class="cat-header">
+      <span class="cat-icon-big">📱</span>
+      <h2>Phone & Social Media — Телефон та соцмережі</h2>
+      <span class="cat-badge">8 verbs</span>
+    </div>
+    <div class="verbs-grid">
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">📞</span><span class="vc-phrasal">call back</span></div>
+        <div class="vc-meaning"><span>передзвонити</span> / to return a phone call</div>
+        <div class="vc-examples">
+          <div class="vc-ex">I'll <em>call you back</em> in 10 minutes.<span class="ex-ukr">Я передзвоню тобі через 10 хвилин.</span></div>
+          <div class="vc-ex">She forgot to <em>call back</em>.<span class="ex-ukr">Вона забула передзвонити.</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">📵</span><span class="vc-phrasal">hang up</span></div>
+        <div class="vc-meaning"><span>покласти слухавку</span> / to end a phone call</div>
+        <div class="vc-examples">
+          <div class="vc-ex">He <em>hung up</em> without saying goodbye!<span class="ex-ukr">Він поклав слухавку, не попрощавшись!</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">🔕</span><span class="vc-phrasal">turn off</span></div>
+        <div class="vc-meaning"><span>вимкнути телефон</span> / to switch off a device completely</div>
+        <div class="vc-examples">
+          <div class="vc-ex">Please <em>turn off</em> your phones in class.<span class="ex-ukr">Будь ласка, вимкніть телефони в класі.</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">📲</span><span class="vc-phrasal">sign up (for)</span></div>
+        <div class="vc-meaning"><span>зареєструватися</span> / to register for an account or service</div>
+        <div class="vc-examples">
+          <div class="vc-ex">I <em>signed up for</em> Instagram last week.<span class="ex-ukr">Я зареєструвався в Інстаграмі минулого тижня.</span></div>
+          <div class="vc-ex"><em>Sign up</em> now to get 20% off!<span class="ex-ukr">Зареєструйся зараз і отримай знижку 20%!</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">📤</span><span class="vc-phrasal">send out</span></div>
+        <div class="vc-meaning"><span>розіслати</span> / to send to many people</div>
+        <div class="vc-examples">
+          <div class="vc-ex">She <em>sent out</em> invitations to everyone.<span class="ex-ukr">Вона розіслала запрошення всім.</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">🔇</span><span class="vc-phrasal">log in / log out</span></div>
+        <div class="vc-meaning"><span>увійти / вийти з акаунту</span> / to access/leave an account</div>
+        <div class="vc-examples">
+          <div class="vc-ex"><em>Log in</em> with your email and password.<span class="ex-ukr">Увійдіть за допомогою email і пароля.</span></div>
+          <div class="vc-ex">Don't forget to <em>log out</em> on public computers.<span class="ex-ukr">Не забувай виходити з акаунту на публічних комп'ютерах.</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">📡</span><span class="vc-phrasal">connect to</span></div>
+        <div class="vc-meaning"><span>підключитися до</span> / to link to a network</div>
+        <div class="vc-examples">
+          <div class="vc-ex">I can't <em>connect to</em> the Wi-Fi.<span class="ex-ukr">Я не можу підключитися до Wi-Fi.</span></div>
+        </div>
+      </div>
+
+      <div class="verb-card">
+        <div class="vc-top"><span class="vc-emoji">💬</span><span class="vc-phrasal">message back</span></div>
+        <div class="vc-meaning"><span>написати у відповідь</span> / to reply to a message</div>
+        <div class="vc-examples">
+          <div class="vc-ex">She <em>messaged back</em> within seconds.<span class="ex-ukr">Вона відповіла миттєво.</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PRO TIP -->
+  <div class="pro-tip reveal">
+    <span class="pt-icon">🌟</span>
+    <div>
+      <h3>Pro Tip / Порада!</h3>
+      <p>🇬🇧 The best way to learn phrasal verbs is to see them in context — not just memorize lists. Try using one new phrasal verb in a sentence every day!<br>
+      🇺🇦 Найкращий спосіб вивчити фразові дієслова — бачити їх у контексті, а не просто запам'ятовувати списки. Спробуй щодня вживати одне нове фразове дієслово в реченні!</p>
+    </div>
+  </div>
+
+  <!-- TIPS -->
+  <p class="section-title reveal">🧩 Remember These Rules! / Запам'ятай правила!</p>
+  <p class="section-sub reveal">The most important things to know / Найважливіше</p>
+
+  <div class="tips-grid reveal">
+    <div class="tip-card">
+      <span class="t-icon">🔢</span>
+      <h4>Pronoun Rule / Займенники</h4>
+      <p>🇬🇧 With pronouns (him, her, it, them), always put them BETWEEN the verb and the particle.<br>
+      🇺🇦 Займенники (it, him, her) завжди ставимо МІЖ дієсловом і часткою.<br><br>
+      ✅ <em>Turn it off.</em><br>
+      ❌ <em>Turn off it.</em></p>
+    </div>
+    <div class="tip-card">
+      <span class="t-icon">🔒</span>
+      <h4>Inseparable! / Нероздільні</h4>
+      <p>🇬🇧 Verb + preposition phrasal verbs NEVER split — the object always goes last.<br>
+      🇺🇦 Дієслово + прийменник ніколи не розділяється.<br><br>
+      ✅ <em>I looked after her.</em><br>
+      ❌ <em>I looked her after.</em></p>
+    </div>
+    <div class="tip-card">
+      <span class="t-icon">📖</span>
+      <h4>Context is Key / Контекст важливий</h4>
+      <p>🇬🇧 Some verbs have MULTIPLE meanings depending on context. For example: <em>take off</em> = plane leaving OR removing clothes!<br>
+      🇺🇦 Деякі дієслова мають КІЛЬКА значень залежно від контексту. Наприклад: <em>take off</em> = літак злетів АБО зняти одяг!</p>
+    </div>
+    <div class="tip-card">
+      <span class="t-icon">🎯</span>
+      <h4>Stress Helps! / Наголос допомагає</h4>
+      <p>🇬🇧 In speech, the particle is usually STRESSED. This helps distinguish phrasal verbs from simple verb + preposition.<br>
+      🇺🇦 В мовленні частка зазвичай ВИДІЛЯЄТЬСЯ наголосом. Це допомагає відрізнити фразові дієслова.<br><br>
+      🔊 <em>She came <strong>DOWN</strong> the stairs.</em></p>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <strong>Phrasal Verbs Guide</strong> — 60+ verbs covered 🚀<br>
+  <span style="font-size:0.8rem; margin-top:6px; display:block">Навчайся та практикуй щодня! 🇬🇧🇺🇦</span>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.08 });
+  reveals.forEach(r => observer.observe(r));
+</script>
+<button id="scroll-top-btn" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>
+  window.addEventListener('scroll', function () {
+    var btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+</script>
+</body>
+</html>
