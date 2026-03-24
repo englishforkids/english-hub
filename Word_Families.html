@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Word Families / Сім'ї слів</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f0f4ff;
+    --card-bg: #ffffff;
+    --verb-clr: #ff6b6b;
+    --noun-clr: #4ecdc4;
+    --adj-clr: #f7b731;
+    --adv-clr: #a29bfe;
+    --text: #2d3436;
+    --muted: #636e72;
+    --radius: 18px;
+    --shadow: 0 4px 24px rgba(0,0,0,0.09);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-align: center;
+    padding: 60px 20px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-emoji { font-size: 72px; display: block; margin-bottom: 16px; animation: float 3s ease-in-out infinite; }
+  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+  .hero h1 { font-family: 'Fredoka One', cursive; font-size: clamp(2rem,6vw,3.6rem); letter-spacing: 1px; text-shadow: 0 3px 12px rgba(0,0,0,0.25); }
+  .hero h1 span { color: #ffd700; }
+  .hero-sub { font-size: 1.15rem; opacity: .9; margin-top: 10px; font-weight: 600; }
+  .hero-uk { font-size: 1rem; opacity: .75; margin-top: 4px; }
+
+  /* ── CONTENT WRAPPER ── */
+  .wrap { max-width: 900px; margin: 0 auto; padding: 40px 16px 80px; }
+
+  /* ── SECTION LABELS ── */
+  .section-label {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: white; border-radius: 30px;
+    padding: 6px 18px; font-weight: 800; font-size: .85rem;
+    text-transform: uppercase; letter-spacing: 1px;
+    box-shadow: var(--shadow); margin-bottom: 18px;
+    color: #764ba2;
+  }
+
+  /* ── CARDS ── */
+  .card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 28px 30px;
+    margin-bottom: 28px;
+  }
+  .card h2 { font-family: 'Fredoka One', cursive; font-size: 1.6rem; margin-bottom: 6px; }
+  .card p  { color: var(--muted); line-height: 1.7; }
+  .uk { background: #f8f7ff; border-left: 4px solid #764ba2; border-radius: 0 10px 10px 0; padding: 10px 16px; margin-top: 10px; font-size: .95rem; color: #4a4a6a; }
+
+  /* ── TREE INFOGRAPHIC ── */
+  .tree-wrap {
+    background: linear-gradient(135deg, #e0f7fa, #f3e5f5);
+    border-radius: var(--radius);
+    padding: 30px;
+    margin-bottom: 28px;
+    text-align: center;
+  }
+  .tree-title { font-family: 'Fredoka One', cursive; font-size: 1.5rem; color: #4a148c; margin-bottom: 24px; }
+  .root-word {
+    display: inline-block;
+    background: linear-gradient(135deg, #764ba2, #667eea);
+    color: white;
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.8rem;
+    padding: 14px 40px;
+    border-radius: 50px;
+    box-shadow: 0 6px 20px rgba(118,75,162,0.45);
+    margin-bottom: 16px;
+  }
+  .branches {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 12px;
+    margin-top: 8px;
+  }
+  .branch {
+    border-radius: 14px;
+    padding: 14px 20px;
+    font-weight: 800;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform .2s, box-shadow .2s;
+    text-align: left;
+    min-width: 160px;
+  }
+  .branch:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
+  .branch .word { font-family: 'Fredoka One', cursive; font-size: 1.3rem; display: block; }
+  .branch .type { font-size: .75rem; opacity: .75; text-transform: uppercase; letter-spacing: .5px; }
+  .branch .meaning { font-size: .85rem; margin-top: 4px; }
+  .b-verb  { background: #ffe0e0; color: #b71c1c; border: 2px solid #ff6b6b; }
+  .b-noun  { background: #e0f7f5; color: #00695c; border: 2px solid #4ecdc4; }
+  .b-adj   { background: #fff8e1; color: #e65100; border: 2px solid #f7b731; }
+  .b-adv   { background: #ede7f6; color: #4527a0; border: 2px solid #a29bfe; }
+
+  /* ── PART BADGES ── */
+  .parts-grid { display: flex; flex-wrap: wrap; gap: 14px; margin: 20px 0; }
+  .part-badge {
+    flex: 1 1 180px;
+    border-radius: 14px;
+    padding: 18px;
+    text-align: center;
+  }
+  .part-badge .big { font-size: 2.5rem; display: block; margin-bottom: 8px; }
+  .part-badge h3 { font-family: 'Fredoka One', cursive; font-size: 1.2rem; }
+  .part-badge p  { font-size: .85rem; margin-top: 4px; opacity: .8; }
+  .part-badge .suf { font-size: .8rem; background: rgba(0,0,0,0.07); border-radius: 20px; padding: 3px 10px; display: inline-block; margin-top: 6px; font-weight: 700; }
+  .pb-verb { background: #fff0f0; color: #c0392b; border: 2px solid #ff6b6b; }
+  .pb-noun { background: #e8fafa; color: #00796b; border: 2px solid #4ecdc4; }
+  .pb-adj  { background: #fffae0; color: #d35400; border: 2px solid #f7b731; }
+  .pb-adv  { background: #f0eeff; color: #4a27a0; border: 2px solid #a29bfe; }
+
+  /* ── FORMULA BOX ── */
+  .formula-box {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    color: white;
+    border-radius: var(--radius);
+    padding: 28px 30px;
+    margin-bottom: 28px;
+  }
+  .formula-box h2 { font-family: 'Fredoka One', cursive; font-size: 1.6rem; color: #ffd700; margin-bottom: 18px; }
+  .formula {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 12px;
+    padding: 16px 20px;
+    font-family: 'Courier New', monospace;
+    font-size: 1.05rem;
+    margin-bottom: 10px;
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  }
+  .f-root { color: #ffd700; font-weight: bold; }
+  .f-suf  { color: #a29bfe; }
+  .f-arrow{ color: #4ecdc4; font-size: 1.3rem; }
+  .f-result { color: #ff6b6b; font-weight: bold; }
+  .f-uk { color: #dfe6e9; font-size: .88rem; margin-left: auto; opacity: .8; }
+
+  /* ── MAGIC SENTENCE ── */
+  .magic-wrap {
+    background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+    border-radius: var(--radius);
+    padding: 28px 30px;
+    margin-bottom: 28px;
+  }
+  .magic-wrap h2 { font-family: 'Fredoka One', cursive; font-size: 1.6rem; color: #4a0000; margin-bottom: 6px; }
+  .magic-wrap .sub { font-size: .95rem; color: #6d2a00; margin-bottom: 18px; }
+  .magic-table { width: 100%; border-collapse: collapse; }
+  .magic-table th { background: rgba(0,0,0,0.12); padding: 10px 14px; text-align: left; font-size: .85rem; text-transform: uppercase; letter-spacing: .5px; border-radius: 8px 8px 0 0; }
+  .magic-table td { padding: 12px 14px; font-size: .95rem; border-bottom: 1px solid rgba(0,0,0,0.08); }
+  .magic-table tr:last-child td { border-bottom: none; }
+  .magic-table tr:nth-child(even) td { background: rgba(255,255,255,0.35); }
+  .magic-table .word-cell { font-family: 'Fredoka One', cursive; font-size: 1.15rem; }
+  .tag { display: inline-block; border-radius: 20px; padding: 3px 10px; font-size: .75rem; font-weight: 800; text-transform: uppercase; }
+  .t-verb { background: #ff6b6b; color: white; }
+  .t-noun { background: #4ecdc4; color: white; }
+  .t-adj  { background: #f7b731; color: white; }
+  .t-adv  { background: #a29bfe; color: white; }
+
+  /* ── FAMILY SHOWCASE ── */
+  .family-card {
+    background: white;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    margin-bottom: 24px;
+  }
+  .family-header {
+    display: flex; align-items: center; gap: 14px;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    color: white; padding: 16px 24px;
+  }
+  .family-header .emoji { font-size: 2rem; }
+  .family-header h3 { font-family: 'Fredoka One', cursive; font-size: 1.4rem; }
+  .family-header .root-chip { background: rgba(255,255,255,0.25); border-radius: 20px; padding: 3px 12px; font-size: .85rem; margin-left: auto; }
+  .family-members { display: flex; flex-wrap: wrap; gap: 0; }
+  .member {
+    flex: 1 1 200px;
+    padding: 18px 20px;
+    border-right: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .member:last-child { border-right: none; }
+  .member .m-type { font-size: .7rem; font-weight: 800; text-transform: uppercase; letter-spacing: .5px; opacity: .6; }
+  .member .m-word { font-family: 'Fredoka One', cursive; font-size: 1.6rem; margin: 4px 0; }
+  .member .m-en   { font-size: .85rem; color: var(--muted); }
+  .member .m-uk   { font-size: .82rem; color: #764ba2; font-weight: 700; }
+  .member .m-ex   { font-size: .82rem; color: #2d3436; margin-top: 6px; font-style: italic; background: #f8f7ff; padding: 5px 8px; border-radius: 8px; }
+  .mv { border-top-color: #ff6b6b; border-top: 3px solid; }
+  .mn { border-top-color: #4ecdc4; border-top: 3px solid; }
+  .ma { border-top-color: #f7b731; border-top: 3px solid; }
+  .mav { border-top-color: #a29bfe; border-top: 3px solid; }
+
+  /* ── SUFFIXES TABLE ── */
+  .suf-table { width: 100%; border-collapse: collapse; }
+  .suf-table th { padding: 12px 14px; text-align: left; font-size: .85rem; background: #f8f7ff; font-weight: 800; }
+  .suf-table td { padding: 11px 14px; border-bottom: 1px solid #f0f0f0; font-size: .9rem; }
+  .suf-table tr:last-child td { border-bottom: none; }
+  .suf-pill { display: inline-block; background: #ede7f6; color: #4527a0; border-radius: 20px; padding: 3px 12px; font-weight: 800; font-family: 'Courier New', monospace; }
+
+  /* ── QUIZ ── */
+  .quiz-wrap { background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); border-radius: var(--radius); padding: 30px; color: white; }
+  .quiz-wrap h2 { font-family: 'Fredoka One', cursive; font-size: 1.6rem; color: #ffd700; margin-bottom: 6px; }
+  .quiz-wrap .sub { opacity: .75; margin-bottom: 24px; }
+  .q-item { background: rgba(255,255,255,0.07); border-radius: 14px; padding: 18px 20px; margin-bottom: 16px; }
+  .q-text { font-size: 1rem; margin-bottom: 12px; }
+  .q-text strong { color: #ffd700; }
+  .q-options { display: flex; flex-wrap: wrap; gap: 8px; }
+  .q-btn {
+    background: rgba(255,255,255,0.1);
+    border: 1.5px solid rgba(255,255,255,0.2);
+    color: white; border-radius: 30px;
+    padding: 8px 18px; font-family: 'Nunito', sans-serif;
+    font-size: .9rem; font-weight: 700;
+    cursor: pointer; transition: all .2s;
+  }
+  .q-btn:hover { background: rgba(255,255,255,0.25); transform: scale(1.04); }
+  .q-btn.correct { background: #00b894; border-color: #00b894; }
+  .q-btn.wrong   { background: #d63031; border-color: #d63031; }
+  .q-feedback { margin-top: 10px; font-size: .88rem; min-height: 20px; }
+  .q-score { text-align: center; font-family: 'Fredoka One', cursive; font-size: 1.4rem; margin-top: 20px; color: #ffd700; }
+
+  /* ── SCROLL TOP ── */
+  #scrollBtn {
+    position: fixed; bottom: 24px; right: 24px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white; border: none; border-radius: 50%;
+    width: 48px; height: 48px; font-size: 1.4rem;
+    cursor: pointer; box-shadow: 0 4px 16px rgba(118,75,162,0.5);
+    display: none; align-items: center; justify-content: center;
+    transition: transform .2s;
+    z-index: 999;
+  }
+  #scrollBtn:hover { transform: scale(1.12); }
+
+  /* ── TIPS ── */
+  .tip-box {
+    display: flex; gap: 14px; align-items: flex-start;
+    background: #e8f5e9; border-left: 5px solid #43a047;
+    border-radius: 0 14px 14px 0; padding: 16px 20px;
+    margin-bottom: 20px;
+  }
+  .tip-box .tip-icon { font-size: 1.6rem; flex-shrink: 0; }
+  .tip-box p { font-size: .92rem; color: #1b5e20; line-height: 1.6; }
+
+  @media (max-width: 600px) {
+    .hero { padding: 40px 16px 60px; }
+    .card, .formula-box, .magic-wrap, .tree-wrap, .quiz-wrap { padding: 20px 16px; }
+    .formula { font-size: .9rem; }
+    .member { flex: 1 1 100%; border-right: none; }
+    .branch { min-width: 130px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <span class="hero-emoji">🌳</span>
+  <h1>Word <span>Families</span></h1>
+  <p class="hero-sub">How one root grows into many words!</p>
+  <p class="hero-uk">Як одне кореневе слово перетворюється на цілу сім'ю слів!</p>
+</div>
+
+<div class="wrap">
+
+  <!-- WHAT ARE WORD FAMILIES -->
+  <div class="section-label">🌱 What is a Word Family?</div>
+  <div class="card">
+    <h2>🌱 What is a Word Family?</h2>
+    <p>A <strong>word family</strong> is a group of words that all come from the <strong>same root</strong>. By adding prefixes or suffixes, one word becomes a verb, noun, adjective, and adverb!</p>
+    <div class="uk">📌 <strong>Сім'я слів</strong> — це група слів, які мають <strong>один корінь</strong>. Додаючи префікси або суфікси, ми перетворюємо одне слово на дієслово, іменник, прикметник і прислівник!</div>
+
+    <div style="margin-top:18px;">
+      <div class="tip-box">
+        <span class="tip-icon">💡</span>
+        <p><strong>Why learn word families?</strong> If you know <em>one</em> word, you can guess <em>four</em> more! Your vocabulary grows 4× faster.<br>
+        <strong>Навіщо вчити сім'ї слів?</strong> Якщо ти знаєш <em>одне</em> слово — ти можеш здогадатися ще про <em>чотири</em>! Словниковий запас зростає в 4 рази швидше!</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- TREE VISUAL -->
+  <div class="tree-wrap">
+    <div class="tree-title">🌳 The Word Tree — Дерево слів</div>
+    <div style="font-size:.9rem;color:#4a148c;margin-bottom:16px;">Root / Корінь:</div>
+    <div class="root-word">CREATE 🌱</div>
+    <div style="font-size:1.5rem;color:#764ba2;margin:8px 0;">↓</div>
+    <div class="branches">
+      <div class="branch b-verb">
+        <span class="word">create</span>
+        <span class="type">🔴 Verb / Дієслово</span>
+        <div class="meaning">to make something new<br><em>створювати</em></div>
+      </div>
+      <div class="branch b-noun">
+        <span class="word">creation</span>
+        <span class="type">🟢 Noun / Іменник</span>
+        <div class="meaning">the thing created<br><em>творіння</em></div>
+      </div>
+      <div class="branch b-adj">
+        <span class="word">creative</span>
+        <span class="type">🟡 Adjective / Прикметник</span>
+        <div class="meaning">full of ideas<br><em>творчий</em></div>
+      </div>
+      <div class="branch b-adv">
+        <span class="word">creatively</span>
+        <span class="type">🟣 Adverb / Прислівник</span>
+        <div class="meaning">in a creative way<br><em>творчо</em></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4 PARTS OF SPEECH -->
+  <div class="section-label">📚 4 Parts of Speech</div>
+  <div class="card">
+    <h2>📚 The 4 Members of Every Family</h2>
+    <p>Every word family usually has these four types:</p>
+    <div class="uk">📌 У кожній сім'ї слів зазвичай є ці чотири типи:</div>
+    <div class="parts-grid" style="margin-top:18px;">
+      <div class="part-badge pb-verb">
+        <span class="big">🔴</span>
+        <h3>VERB</h3>
+        <p>Дієслово<br>an <strong>action</strong> / дія</p>
+        <span class="suf">→ -ize, -ify, -en, -ate</span>
+      </div>
+      <div class="part-badge pb-noun">
+        <span class="big">🟢</span>
+        <h3>NOUN</h3>
+        <p>Іменник<br>a <strong>thing/person</strong> / річ/особа</p>
+        <span class="suf">→ -tion, -ness, -er, -ity</span>
+      </div>
+      <div class="part-badge pb-adj">
+        <span class="big">🟡</span>
+        <h3>ADJECTIVE</h3>
+        <p>Прикметник<br>describes a <strong>noun</strong> / описує іменник</p>
+        <span class="suf">→ -ful, -less, -ive, -al</span>
+      </div>
+      <div class="part-badge pb-adv">
+        <span class="big">🟣</span>
+        <h3>ADVERB</h3>
+        <p>Прислівник<br>describes a <strong>verb/adj</strong> / описує дієслово</p>
+        <span class="suf">→ -ly</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORMULAS -->
+  <div class="formula-box">
+    <h2>⚗️ Word Family Formulas / Формули</h2>
+
+    <div style="font-size:.85rem;opacity:.7;margin-bottom:14px;">ROOT + SUFFIX = New word type</div>
+
+    <div class="formula">
+      <span class="f-root">ROOT</span>
+      <span>+</span>
+      <span class="f-suf">-tion / -sion</span>
+      <span class="f-arrow">→</span>
+      <span class="f-result">NOUN 🟢</span>
+      <span class="f-uk">create → cre<strong>ation</strong> / invent → inven<strong>tion</strong></span>
+    </div>
+    <div class="formula">
+      <span class="f-root">ROOT</span>
+      <span>+</span>
+      <span class="f-suf">-ness / -ity</span>
+      <span class="f-arrow">→</span>
+      <span class="f-result">NOUN 🟢</span>
+      <span class="f-uk">happy → happi<strong>ness</strong> / active → activ<strong>ity</strong></span>
+    </div>
+    <div class="formula">
+      <span class="f-root">ROOT</span>
+      <span>+</span>
+      <span class="f-suf">-ive / -ful / -al</span>
+      <span class="f-arrow">→</span>
+      <span class="f-result">ADJECTIVE 🟡</span>
+      <span class="f-uk">create → creat<strong>ive</strong> / help → help<strong>ful</strong></span>
+    </div>
+    <div class="formula">
+      <span class="f-root">ADJ</span>
+      <span>+</span>
+      <span class="f-suf">-ly</span>
+      <span class="f-arrow">→</span>
+      <span class="f-result">ADVERB 🟣</span>
+      <span class="f-uk">quick → quick<strong>ly</strong> / creative → creative<strong>ly</strong></span>
+    </div>
+    <div class="formula">
+      <span class="f-root">ROOT</span>
+      <span>+</span>
+      <span class="f-suf">-ize / -ify / -ate</span>
+      <span class="f-arrow">→</span>
+      <span class="f-result">VERB 🔴</span>
+      <span class="f-uk">modern → modern<strong>ize</strong> / simple → simpl<strong>ify</strong></span>
+    </div>
+  </div>
+
+  <!-- MAGIC SENTENCE -->
+  <div class="magic-wrap">
+    <h2>✨ The Magic Sentence</h2>
+    <p class="sub">One idea — four ways to say it! / Одна думка — чотири способи сказати!</p>
+    <p style="font-size:.9rem;color:#6d2a00;margin-bottom:16px;">🌱 Root word / Кореневе слово: <strong>HELP</strong></p>
+
+    <table class="magic-table">
+      <tr>
+        <th>Type</th>
+        <th>Word</th>
+        <th>Sentence</th>
+        <th>Переклад</th>
+      </tr>
+      <tr>
+        <td><span class="tag t-verb">Verb</span></td>
+        <td class="word-cell">help</td>
+        <td>She wants to <strong>help</strong> people.</td>
+        <td>Вона хоче <strong>допомагати</strong> людям.</td>
+      </tr>
+      <tr>
+        <td><span class="tag t-noun">Noun</span></td>
+        <td class="word-cell">helper</td>
+        <td>She is a great <strong>helper</strong>.</td>
+        <td>Вона чудова <strong>помічниця</strong>.</td>
+      </tr>
+      <tr>
+        <td><span class="tag t-noun">Noun</span></td>
+        <td class="word-cell">help</td>
+        <td>She gives <strong>help</strong> to others.</td>
+        <td>Вона дає <strong>допомогу</strong> іншим.</td>
+      </tr>
+      <tr>
+        <td><span class="tag t-adj">Adjective</span></td>
+        <td class="word-cell">helpful</td>
+        <td>She is very <strong>helpful</strong>.</td>
+        <td>Вона дуже <strong>корисна / готова допомогти</strong>.</td>
+      </tr>
+      <tr>
+        <td><span class="tag t-adv">Adverb</span></td>
+        <td class="word-cell">helpfully</td>
+        <td>She smiled <strong>helpfully</strong>.</td>
+        <td>Вона посміхнулась <strong>привітно</strong>.</td>
+      </tr>
+      <tr>
+        <td><span class="tag t-adj">Adj (neg)</span></td>
+        <td class="word-cell">helpless</td>
+        <td>Without her, I feel <strong>helpless</strong>.</td>
+        <td>Без неї я почуваюсь <strong>безпорадним</strong>.</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- SUFFIXES TABLE -->
+  <div class="section-label">🔤 Common Suffixes</div>
+  <div class="card">
+    <h2>🔤 Key Suffixes / Основні суфікси</h2>
+    <p style="margin-bottom:18px;">These endings tell you what type of word it is! / Ці закінчення підкажуть, який це тип слова!</p>
+    <table class="suf-table">
+      <tr>
+        <th>Suffix</th>
+        <th>Type</th>
+        <th>Example</th>
+        <th>Meaning</th>
+      </tr>
+      <tr><td><span class="suf-pill">-tion / -sion</span></td><td><span class="tag t-noun">Noun</span></td><td>education, decision</td><td>освіта, рішення</td></tr>
+      <tr><td><span class="suf-pill">-ness</span></td><td><span class="tag t-noun">Noun</span></td><td>kindness, sadness</td><td>доброта, сум</td></tr>
+      <tr><td><span class="suf-pill">-er / -or</span></td><td><span class="tag t-noun">Noun</span></td><td>teacher, creator</td><td>вчитель, творець</td></tr>
+      <tr><td><span class="suf-pill">-ity / -ty</span></td><td><span class="tag t-noun">Noun</span></td><td>activity, beauty</td><td>активність, краса</td></tr>
+      <tr><td><span class="suf-pill">-ment</span></td><td><span class="tag t-noun">Noun</span></td><td>development, movement</td><td>розвиток, рух</td></tr>
+      <tr><td><span class="suf-pill">-ful</span></td><td><span class="tag t-adj">Adjective</span></td><td>beautiful, helpful</td><td>гарний, корисний</td></tr>
+      <tr><td><span class="suf-pill">-less</span></td><td><span class="tag t-adj">Adjective</span></td><td>helpless, useless</td><td>безпорадний, марний</td></tr>
+      <tr><td><span class="suf-pill">-ive / -ative</span></td><td><span class="tag t-adj">Adjective</span></td><td>creative, active</td><td>творчий, активний</td></tr>
+      <tr><td><span class="suf-pill">-al</span></td><td><span class="tag t-adj">Adjective</span></td><td>national, musical</td><td>національний, музичний</td></tr>
+      <tr><td><span class="suf-pill">-ly</span></td><td><span class="tag t-adv">Adverb</span></td><td>quickly, happily</td><td>швидко, щасливо</td></tr>
+      <tr><td><span class="suf-pill">-ize / -ise</span></td><td><span class="tag t-verb">Verb</span></td><td>modernize, organize</td><td>модернізувати, організовувати</td></tr>
+      <tr><td><span class="suf-pill">-ify</span></td><td><span class="tag t-verb">Verb</span></td><td>simplify, clarify</td><td>спрощувати, прояснювати</td></tr>
+    </table>
+  </div>
+
+  <!-- FAMILY EXAMPLES -->
+  <div class="section-label">🔍 Word Families in Action</div>
+
+  <!-- HAPPY -->
+  <div class="family-card">
+    <div class="family-header">
+      <span class="emoji">😊</span>
+      <div>
+        <h3>The HAPPY Family</h3>
+        <div style="font-size:.85rem;opacity:.8;">Сім'я слова HAPPY</div>
+      </div>
+      <span class="root-chip">Root: hap- 🌱</span>
+    </div>
+    <div class="family-members">
+      <div class="member mv">
+        <div class="m-type">🔴 Verb</div>
+        <div class="m-word">make happy</div>
+        <div class="m-en">to make someone happy</div>
+        <div class="m-uk">робити щасливим</div>
+        <div class="m-ex">"Music makes me happy."</div>
+      </div>
+      <div class="member mn">
+        <div class="m-type">🟢 Noun</div>
+        <div class="m-word">happiness</div>
+        <div class="m-en">the state of being happy</div>
+        <div class="m-uk">щастя</div>
+        <div class="m-ex">"Her happiness is contagious."</div>
+      </div>
+      <div class="member ma">
+        <div class="m-type">🟡 Adjective</div>
+        <div class="m-word">happy</div>
+        <div class="m-en">feeling joy</div>
+        <div class="m-uk">щасливий</div>
+        <div class="m-ex">"She is a happy girl."</div>
+      </div>
+      <div class="member mav">
+        <div class="m-type">🟣 Adverb</div>
+        <div class="m-word">happily</div>
+        <div class="m-en">in a happy way</div>
+        <div class="m-uk">щасливо</div>
+        <div class="m-ex">"They lived happily ever after."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INVENT -->
+  <div class="family-card">
+    <div class="family-header">
+      <span class="emoji">💡</span>
+      <div>
+        <h3>The INVENT Family</h3>
+        <div style="font-size:.85rem;opacity:.8;">Сім'я слова INVENT</div>
+      </div>
+      <span class="root-chip">Root: invent- 🌱</span>
+    </div>
+    <div class="family-members">
+      <div class="member mv">
+        <div class="m-type">🔴 Verb</div>
+        <div class="m-word">invent</div>
+        <div class="m-en">to create something new</div>
+        <div class="m-uk">винаходити</div>
+        <div class="m-ex">"Edison invented the light bulb."</div>
+      </div>
+      <div class="member mn">
+        <div class="m-type">🟢 Noun</div>
+        <div class="m-word">invention</div>
+        <div class="m-en">something newly created</div>
+        <div class="m-uk">винахід</div>
+        <div class="m-ex">"That was a great invention!"</div>
+      </div>
+      <div class="member mn" style="border-top:3px solid #4ecdc4;">
+        <div class="m-type">🟢 Noun</div>
+        <div class="m-word">inventor</div>
+        <div class="m-en">a person who invents</div>
+        <div class="m-uk">винахідник</div>
+        <div class="m-ex">"She is a brilliant inventor."</div>
+      </div>
+      <div class="member ma">
+        <div class="m-type">🟡 Adjective</div>
+        <div class="m-word">inventive</div>
+        <div class="m-en">full of new ideas</div>
+        <div class="m-uk">винахідливий</div>
+        <div class="m-ex">"He has an inventive mind."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAUTY -->
+  <div class="family-card">
+    <div class="family-header">
+      <span class="emoji">🌸</span>
+      <div>
+        <h3>The BEAUTY Family</h3>
+        <div style="font-size:.85rem;opacity:.8;">Сім'я слова BEAUTY</div>
+      </div>
+      <span class="root-chip">Root: beau- 🌱</span>
+    </div>
+    <div class="family-members">
+      <div class="member mv">
+        <div class="m-type">🔴 Verb</div>
+        <div class="m-word">beautify</div>
+        <div class="m-en">to make more beautiful</div>
+        <div class="m-uk">прикрашати</div>
+        <div class="m-ex">"Flowers beautify the room."</div>
+      </div>
+      <div class="member mn">
+        <div class="m-type">🟢 Noun</div>
+        <div class="m-word">beauty</div>
+        <div class="m-en">the quality of being beautiful</div>
+        <div class="m-uk">краса</div>
+        <div class="m-ex">"The beauty of nature is amazing."</div>
+      </div>
+      <div class="member ma">
+        <div class="m-type">🟡 Adjective</div>
+        <div class="m-word">beautiful</div>
+        <div class="m-en">very pleasing to look at</div>
+        <div class="m-uk">гарний / красивий</div>
+        <div class="m-ex">"What a beautiful sunset!"</div>
+      </div>
+      <div class="member mav">
+        <div class="m-type">🟣 Adverb</div>
+        <div class="m-word">beautifully</div>
+        <div class="m-en">in a beautiful way</div>
+        <div class="m-uk">гарно</div>
+        <div class="m-ex">"She sings beautifully."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EDUCATE -->
+  <div class="family-card">
+    <div class="family-header">
+      <span class="emoji">📚</span>
+      <div>
+        <h3>The EDUCATE Family</h3>
+        <div style="font-size:.85rem;opacity:.8;">Сім'я слова EDUCATE</div>
+      </div>
+      <span class="root-chip">Root: educ- 🌱</span>
+    </div>
+    <div class="family-members">
+      <div class="member mv">
+        <div class="m-type">🔴 Verb</div>
+        <div class="m-word">educate</div>
+        <div class="m-en">to teach / to train</div>
+        <div class="m-uk">навчати / виховувати</div>
+        <div class="m-ex">"Schools educate children."</div>
+      </div>
+      <div class="member mn">
+        <div class="m-type">🟢 Noun</div>
+        <div class="m-word">education</div>
+        <div class="m-en">the process of learning</div>
+        <div class="m-uk">освіта</div>
+        <div class="m-ex">"Education is very important."</div>
+      </div>
+      <div class="member mn" style="border-top:3px solid #4ecdc4;">
+        <div class="m-type">🟢 Noun</div>
+        <div class="m-word">educator</div>
+        <div class="m-en">a person who educates</div>
+        <div class="m-uk">педагог / вихователь</div>
+        <div class="m-ex">"She is a dedicated educator."</div>
+      </div>
+      <div class="member ma">
+        <div class="m-type">🟡 Adjective</div>
+        <div class="m-word">educational</div>
+        <div class="m-en">related to learning</div>
+        <div class="m-uk">освітній / навчальний</div>
+        <div class="m-ex">"This is an educational video."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CARE -->
+  <div class="family-card">
+    <div class="family-header">
+      <span class="emoji">💚</span>
+      <div>
+        <h3>The CARE Family</h3>
+        <div style="font-size:.85rem;opacity:.8;">Сім'я слова CARE</div>
+      </div>
+      <span class="root-chip">Root: care- 🌱</span>
+    </div>
+    <div class="family-members">
+      <div class="member mv">
+        <div class="m-type">🔴 Verb</div>
+        <div class="m-word">care</div>
+        <div class="m-en">to look after / to feel concern</div>
+        <div class="m-uk">піклуватися / дбати</div>
+        <div class="m-ex">"I care about my family."</div>
+      </div>
+      <div class="member mn">
+        <div class="m-type">🟢 Noun</div>
+        <div class="m-word">care</div>
+        <div class="m-en">attention and protection</div>
+        <div class="m-uk">турбота / догляд</div>
+        <div class="m-ex">"She takes care of her dog."</div>
+      </div>
+      <div class="member ma">
+        <div class="m-type">🟡 Adjective</div>
+        <div class="m-word">careful</div>
+        <div class="m-en">paying attention to avoid mistakes</div>
+        <div class="m-uk">обережний / уважний</div>
+        <div class="m-ex">"Be careful on the road!"</div>
+      </div>
+      <div class="member mav">
+        <div class="m-type">🟣 Adverb</div>
+        <div class="m-word">carefully</div>
+        <div class="m-en">in a careful way</div>
+        <div class="m-uk">обережно / уважно</div>
+        <div class="m-ex">"Read the instructions carefully."</div>
+      </div>
+      <div class="member ma" style="border-top:3px solid #f7b731;">
+        <div class="m-type">🟡 Adj (neg)</div>
+        <div class="m-word">careless</div>
+        <div class="m-en">not paying enough attention</div>
+        <div class="m-uk">недбалий / неуважний</div>
+        <div class="m-ex">"Don't be careless with money."</div>
+      </div>
+      <div class="member mav" style="border-top:3px solid #a29bfe;">
+        <div class="m-type">🟣 Adv (neg)</div>
+        <div class="m-word">carelessly</div>
+        <div class="m-en">in a careless way</div>
+        <div class="m-uk">недбало</div>
+        <div class="m-ex">"He carelessly lost his keys."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MOVE -->
+  <div class="family-card">
+    <div class="family-header">
+      <span class="emoji">🏃</span>
+      <div>
+        <h3>The MOVE Family</h3>
+        <div style="font-size:.85rem;opacity:.8;">Сім'я слова MOVE</div>
+      </div>
+      <span class="root-chip">Root: mov- / mot- 🌱</span>
+    </div>
+    <div class="family-members">
+      <div class="member mv">
+        <div class="m-type">🔴 Verb</div>
+        <div class="m-word">move</div>
+        <div class="m-en">to go from one place to another</div>
+        <div class="m-uk">рухатися / переміщатися</div>
+        <div class="m-ex">"The train moves very fast."</div>
+      </div>
+      <div class="member mn">
+        <div class="m-type">🟢 Noun</div>
+        <div class="m-word">movement</div>
+        <div class="m-en">the act of moving</div>
+        <div class="m-uk">рух</div>
+        <div class="m-ex">"Her dance movements are graceful."</div>
+      </div>
+      <div class="member mn" style="border-top:3px solid #4ecdc4;">
+        <div class="m-type">🟢 Noun</div>
+        <div class="m-word">motion</div>
+        <div class="m-en">continuous movement</div>
+        <div class="m-uk">рух / хід</div>
+        <div class="m-ex">"The ocean is always in motion."</div>
+      </div>
+      <div class="member ma">
+        <div class="m-type">🟡 Adjective</div>
+        <div class="m-word">moving</div>
+        <div class="m-en">causing strong emotion</div>
+        <div class="m-uk">зворушливий</div>
+        <div class="m-ex">"It was a moving story."</div>
+      </div>
+      <div class="member ma" style="border-top:3px solid #f7b731;">
+        <div class="m-type">🟡 Adjective</div>
+        <div class="m-word">motionless</div>
+        <div class="m-en">not moving at all</div>
+        <div class="m-uk">нерухомий</div>
+        <div class="m-ex">"The cat sat motionless."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FRIEND -->
+  <div class="family-card">
+    <div class="family-header">
+      <span class="emoji">🤝</span>
+      <div>
+        <h3>The FRIEND Family</h3>
+        <div style="font-size:.85rem;opacity:.8;">Сім'я слова FRIEND</div>
+      </div>
+      <span class="root-chip">Root: friend- 🌱</span>
+    </div>
+    <div class="family-members">
+      <div class="member mv">
+        <div class="m-type">🔴 Verb</div>
+        <div class="m-word">befriend</div>
+        <div class="m-en">to become friends with someone</div>
+        <div class="m-uk">подружитися</div>
+        <div class="m-ex">"She befriended a new classmate."</div>
+      </div>
+      <div class="member mn">
+        <div class="m-type">🟢 Noun</div>
+        <div class="m-word">friend</div>
+        <div class="m-en">a person you like and trust</div>
+        <div class="m-uk">друг / подруга</div>
+        <div class="m-ex">"He is my best friend."</div>
+      </div>
+      <div class="member mn" style="border-top:3px solid #4ecdc4;">
+        <div class="m-type">🟢 Noun</div>
+        <div class="m-word">friendship</div>
+        <div class="m-en">the relationship between friends</div>
+        <div class="m-uk">дружба</div>
+        <div class="m-ex">"Their friendship started at school."</div>
+      </div>
+      <div class="member ma">
+        <div class="m-type">🟡 Adjective</div>
+        <div class="m-word">friendly</div>
+        <div class="m-en">kind and pleasant to others</div>
+        <div class="m-uk">дружній / привітний</div>
+        <div class="m-ex">"Our teacher is very friendly."</div>
+      </div>
+      <div class="member mav">
+        <div class="m-type">🟣 Adverb</div>
+        <div class="m-word">in a friendly way</div>
+        <div class="m-en">acting with kindness</div>
+        <div class="m-uk">по-дружньому</div>
+        <div class="m-ex">"She waved in a friendly way."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POWER -->
+  <div class="family-card">
+    <div class="family-header">
+      <span class="emoji">⚡</span>
+      <div>
+        <h3>The POWER Family</h3>
+        <div style="font-size:.85rem;opacity:.8;">Сім'я слова POWER</div>
+      </div>
+      <span class="root-chip">Root: power- 🌱</span>
+    </div>
+    <div class="family-members">
+      <div class="member mv">
+        <div class="m-type">🔴 Verb</div>
+        <div class="m-word">power</div>
+        <div class="m-en">to supply energy to something</div>
+        <div class="m-uk">живити енергією / приводити в дію</div>
+        <div class="m-ex">"Solar panels power this house."</div>
+      </div>
+      <div class="member mn">
+        <div class="m-type">🟢 Noun</div>
+        <div class="m-word">power</div>
+        <div class="m-en">strength or energy</div>
+        <div class="m-uk">сила / влада / потужність</div>
+        <div class="m-ex">"Knowledge is power."</div>
+      </div>
+      <div class="member ma">
+        <div class="m-type">🟡 Adjective</div>
+        <div class="m-word">powerful</div>
+        <div class="m-en">very strong or effective</div>
+        <div class="m-uk">потужний / сильний</div>
+        <div class="m-ex">"That is a powerful engine."</div>
+      </div>
+      <div class="member mav">
+        <div class="m-type">🟣 Adverb</div>
+        <div class="m-word">powerfully</div>
+        <div class="m-en">in a powerful way</div>
+        <div class="m-uk">потужно / сильно</div>
+        <div class="m-ex">"He spoke powerfully."</div>
+      </div>
+      <div class="member ma" style="border-top:3px solid #f7b731;">
+        <div class="m-type">🟡 Adj (neg)</div>
+        <div class="m-word">powerless</div>
+        <div class="m-en">having no power</div>
+        <div class="m-uk">безсилий / безвладний</div>
+        <div class="m-ex">"Without the key, we were powerless."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXCITE -->
+  <div class="family-card">
+    <div class="family-header">
+      <span class="emoji">🎉</span>
+      <div>
+        <h3>The EXCITE Family</h3>
+        <div style="font-size:.85rem;opacity:.8;">Сім'я слова EXCITE</div>
+      </div>
+      <span class="root-chip">Root: excit- 🌱</span>
+    </div>
+    <div class="family-members">
+      <div class="member mv">
+        <div class="m-type">🔴 Verb</div>
+        <div class="m-word">excite</div>
+        <div class="m-en">to make someone feel thrilled</div>
+        <div class="m-uk">збуджувати / захоплювати</div>
+        <div class="m-ex">"The game excited the crowd."</div>
+      </div>
+      <div class="member mn">
+        <div class="m-type">🟢 Noun</div>
+        <div class="m-word">excitement</div>
+        <div class="m-en">a feeling of great enthusiasm</div>
+        <div class="m-uk">збудження / захоплення</div>
+        <div class="m-ex">"There was great excitement at the party."</div>
+      </div>
+      <div class="member ma">
+        <div class="m-type">🟡 Adj (thing)</div>
+        <div class="m-word">exciting</div>
+        <div class="m-en">causing excitement (describes a thing)</div>
+        <div class="m-uk">захопливий (про предмет)</div>
+        <div class="m-ex">"This is an exciting movie!"</div>
+      </div>
+      <div class="member ma" style="border-top:3px solid #f7b731;">
+        <div class="m-type">🟡 Adj (person)</div>
+        <div class="m-word">excited</div>
+        <div class="m-en">feeling excitement (describes a person)</div>
+        <div class="m-uk">схвильований (про людину)</div>
+        <div class="m-ex">"The kids are very excited!"</div>
+      </div>
+      <div class="member mav">
+        <div class="m-type">🟣 Adverb</div>
+        <div class="m-word">excitedly</div>
+        <div class="m-en">in an excited way</div>
+        <div class="m-uk">збуджено / із захопленням</div>
+        <div class="m-ex">"She excitedly opened her gift."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUCCESS -->
+  <div class="family-card">
+    <div class="family-header">
+      <span class="emoji">🏆</span>
+      <div>
+        <h3>The SUCCESS Family</h3>
+        <div style="font-size:.85rem;opacity:.8;">Сім'я слова SUCCESS</div>
+      </div>
+      <span class="root-chip">Root: succed- 🌱</span>
+    </div>
+    <div class="family-members">
+      <div class="member mv">
+        <div class="m-type">🔴 Verb</div>
+        <div class="m-word">succeed</div>
+        <div class="m-en">to achieve a goal</div>
+        <div class="m-uk">досягати успіху</div>
+        <div class="m-ex">"She worked hard to succeed."</div>
+      </div>
+      <div class="member mn">
+        <div class="m-type">🟢 Noun</div>
+        <div class="m-word">success</div>
+        <div class="m-en">the achievement of a goal</div>
+        <div class="m-uk">успіх</div>
+        <div class="m-ex">"Her success inspired others."</div>
+      </div>
+      <div class="member ma">
+        <div class="m-type">🟡 Adjective</div>
+        <div class="m-word">successful</div>
+        <div class="m-en">having achieved success</div>
+        <div class="m-uk">успішний</div>
+        <div class="m-ex">"He is a successful businessman."</div>
+      </div>
+      <div class="member mav">
+        <div class="m-type">🟣 Adverb</div>
+        <div class="m-word">successfully</div>
+        <div class="m-en">in a successful way</div>
+        <div class="m-uk">успішно</div>
+        <div class="m-ex">"They completed the project successfully."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MUSIC -->
+  <div class="family-card">
+    <div class="family-header">
+      <span class="emoji">🎵</span>
+      <div>
+        <h3>The MUSIC Family</h3>
+        <div style="font-size:.85rem;opacity:.8;">Сім'я слова MUSIC</div>
+      </div>
+      <span class="root-chip">Root: music- 🌱</span>
+    </div>
+    <div class="family-members">
+      <div class="member mn">
+        <div class="m-type">🟢 Noun</div>
+        <div class="m-word">music</div>
+        <div class="m-en">sounds arranged in a pleasant way</div>
+        <div class="m-uk">музика</div>
+        <div class="m-ex">"I love listening to music."</div>
+      </div>
+      <div class="member mn" style="border-top:3px solid #4ecdc4;">
+        <div class="m-type">🟢 Noun</div>
+        <div class="m-word">musician</div>
+        <div class="m-en">a person who plays music</div>
+        <div class="m-uk">музикант</div>
+        <div class="m-ex">"My brother is a talented musician."</div>
+      </div>
+      <div class="member ma">
+        <div class="m-type">🟡 Adjective</div>
+        <div class="m-word">musical</div>
+        <div class="m-en">related to music / talented in music</div>
+        <div class="m-uk">музичний</div>
+        <div class="m-ex">"She has a musical family."</div>
+      </div>
+      <div class="member mav">
+        <div class="m-type">🟣 Adverb</div>
+        <div class="m-word">musically</div>
+        <div class="m-en">in a musical way</div>
+        <div class="m-uk">музично / у музичному плані</div>
+        <div class="m-ex">"He is musically gifted."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- USE -->
+  <div class="family-card">
+    <div class="family-header">
+      <span class="emoji">🔧</span>
+      <div>
+        <h3>The USE Family</h3>
+        <div style="font-size:.85rem;opacity:.8;">Сім'я слова USE</div>
+      </div>
+      <span class="root-chip">Root: use- / util- 🌱</span>
+    </div>
+    <div class="family-members">
+      <div class="member mv">
+        <div class="m-type">🔴 Verb</div>
+        <div class="m-word">use</div>
+        <div class="m-en">to do something with an object or tool</div>
+        <div class="m-uk">використовувати</div>
+        <div class="m-ex">"Use a pencil to draw."</div>
+      </div>
+      <div class="member mn">
+        <div class="m-type">🟢 Noun</div>
+        <div class="m-word">use</div>
+        <div class="m-en">the act of using something</div>
+        <div class="m-uk">використання / застосування</div>
+        <div class="m-ex">"This tool has many uses."</div>
+      </div>
+      <div class="member ma">
+        <div class="m-type">🟡 Adjective</div>
+        <div class="m-word">useful</div>
+        <div class="m-en">helpful / good to have</div>
+        <div class="m-uk">корисний</div>
+        <div class="m-ex">"A dictionary is very useful."</div>
+      </div>
+      <div class="member mav">
+        <div class="m-type">🟣 Adverb</div>
+        <div class="m-word">usefully</div>
+        <div class="m-en">in a useful way</div>
+        <div class="m-uk">корисно</div>
+        <div class="m-ex">"Spend your time usefully."</div>
+      </div>
+      <div class="member ma" style="border-top:3px solid #f7b731;">
+        <div class="m-type">🟡 Adj (neg)</div>
+        <div class="m-word">useless</div>
+        <div class="m-en">not helpful at all</div>
+        <div class="m-uk">марний / непотрібний</div>
+        <div class="m-ex">"A broken pen is useless."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DANGER -->
+  <div class="family-card">
+    <div class="family-header">
+      <span class="emoji">⚠️</span>
+      <div>
+        <h3>The DANGER Family</h3>
+        <div style="font-size:.85rem;opacity:.8;">Сім'я слова DANGER</div>
+      </div>
+      <span class="root-chip">Root: danger- 🌱</span>
+    </div>
+    <div class="family-members">
+      <div class="member mv">
+        <div class="m-type">🔴 Verb</div>
+        <div class="m-word">endanger</div>
+        <div class="m-en">to put someone/something in danger</div>
+        <div class="m-uk">піддавати небезпеці</div>
+        <div class="m-ex">"Pollution endangers wildlife."</div>
+      </div>
+      <div class="member mn">
+        <div class="m-type">🟢 Noun</div>
+        <div class="m-word">danger</div>
+        <div class="m-en">the possibility of being hurt</div>
+        <div class="m-uk">небезпека</div>
+        <div class="m-ex">"There is danger on the road."</div>
+      </div>
+      <div class="member ma">
+        <div class="m-type">🟡 Adjective</div>
+        <div class="m-word">dangerous</div>
+        <div class="m-en">likely to cause harm</div>
+        <div class="m-uk">небезпечний</div>
+        <div class="m-ex">"Don't swim in dangerous water."</div>
+      </div>
+      <div class="member mav">
+        <div class="m-type">🟣 Adverb</div>
+        <div class="m-word">dangerously</div>
+        <div class="m-en">in a dangerous way</div>
+        <div class="m-uk">небезпечно</div>
+        <div class="m-ex">"He drives dangerously fast."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- IMAGINE -->
+  <div class="family-card">
+    <div class="family-header">
+      <span class="emoji">🌈</span>
+      <div>
+        <h3>The IMAGINE Family</h3>
+        <div style="font-size:.85rem;opacity:.8;">Сім'я слова IMAGINE</div>
+      </div>
+      <span class="root-chip">Root: imagin- 🌱</span>
+    </div>
+    <div class="family-members">
+      <div class="member mv">
+        <div class="m-type">🔴 Verb</div>
+        <div class="m-word">imagine</div>
+        <div class="m-en">to picture something in your mind</div>
+        <div class="m-uk">уявляти</div>
+        <div class="m-ex">"Imagine a world without war."</div>
+      </div>
+      <div class="member mn">
+        <div class="m-type">🟢 Noun</div>
+        <div class="m-word">imagination</div>
+        <div class="m-en">the ability to imagine things</div>
+        <div class="m-uk">уява</div>
+        <div class="m-ex">"Children have a wild imagination."</div>
+      </div>
+      <div class="member mn" style="border-top:3px solid #4ecdc4;">
+        <div class="m-type">🟢 Noun</div>
+        <div class="m-word">image</div>
+        <div class="m-en">a picture or mental picture</div>
+        <div class="m-uk">образ / зображення</div>
+        <div class="m-ex">"The image was very clear."</div>
+      </div>
+      <div class="member ma">
+        <div class="m-type">🟡 Adjective</div>
+        <div class="m-word">imaginative</div>
+        <div class="m-en">having a creative imagination</div>
+        <div class="m-uk">уявний / з багатою уявою</div>
+        <div class="m-ex">"She writes imaginative stories."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROTECT -->
+  <div class="family-card">
+    <div class="family-header">
+      <span class="emoji">🛡️</span>
+      <div>
+        <h3>The PROTECT Family</h3>
+        <div style="font-size:.85rem;opacity:.8;">Сім'я слова PROTECT</div>
+      </div>
+      <span class="root-chip">Root: protect- 🌱</span>
+    </div>
+    <div class="family-members">
+      <div class="member mv">
+        <div class="m-type">🔴 Verb</div>
+        <div class="m-word">protect</div>
+        <div class="m-en">to keep safe from harm</div>
+        <div class="m-uk">захищати</div>
+        <div class="m-ex">"Parents protect their children."</div>
+      </div>
+      <div class="member mn">
+        <div class="m-type">🟢 Noun</div>
+        <div class="m-word">protection</div>
+        <div class="m-en">the act of keeping safe</div>
+        <div class="m-uk">захист</div>
+        <div class="m-ex">"Sunscreen gives protection from UV."</div>
+      </div>
+      <div class="member mn" style="border-top:3px solid #4ecdc4;">
+        <div class="m-type">🟢 Noun</div>
+        <div class="m-word">protector</div>
+        <div class="m-en">a person or thing that protects</div>
+        <div class="m-uk">захисник</div>
+        <div class="m-ex">"He became the protector of his town."</div>
+      </div>
+      <div class="member ma">
+        <div class="m-type">🟡 Adjective</div>
+        <div class="m-word">protective</div>
+        <div class="m-en">giving or meant to give protection</div>
+        <div class="m-uk">захисний</div>
+        <div class="m-ex">"Wear protective glasses in the lab."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMMUNICATE -->
+  <div class="family-card">
+    <div class="family-header">
+      <span class="emoji">💬</span>
+      <div>
+        <h3>The COMMUNICATE Family</h3>
+        <div style="font-size:.85rem;opacity:.8;">Сім'я слова COMMUNICATE</div>
+      </div>
+      <span class="root-chip">Root: communic- 🌱</span>
+    </div>
+    <div class="family-members">
+      <div class="member mv">
+        <div class="m-type">🔴 Verb</div>
+        <div class="m-word">communicate</div>
+        <div class="m-en">to share information with others</div>
+        <div class="m-uk">спілкуватися / передавати інформацію</div>
+        <div class="m-ex">"We communicate by email."</div>
+      </div>
+      <div class="member mn">
+        <div class="m-type">🟢 Noun</div>
+        <div class="m-word">communication</div>
+        <div class="m-en">the exchange of information</div>
+        <div class="m-uk">спілкування / комунікація</div>
+        <div class="m-ex">"Good communication is key."</div>
+      </div>
+      <div class="member ma">
+        <div class="m-type">🟡 Adjective</div>
+        <div class="m-word">communicative</div>
+        <div class="m-en">willing to share and talk</div>
+        <div class="m-uk">комунікабельний / відкритий</div>
+        <div class="m-ex">"She is very communicative in class."</div>
+      </div>
+      <div class="member mav">
+        <div class="m-type">🟣 Adverb</div>
+        <div class="m-word">communicatively</div>
+        <div class="m-en">in an open, sharing way</div>
+        <div class="m-uk">відкрито / із готовністю спілкуватись</div>
+        <div class="m-ex">"He spoke communicatively to the group."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIPS -->
+  <div class="section-label">💡 Smart Tips</div>
+  <div class="card">
+    <h2>💡 How to Remember / Як запам'ятати</h2>
+    <div class="tip-box" style="margin-top:16px;">
+      <span class="tip-icon">🎯</span>
+      <p><strong>Learn in groups!</strong> Don't study "beautiful" alone. Learn the whole family: beauty → beautify → beautiful → beautifully.<br>
+      <strong>Вчи групами!</strong> Не вчи "beautiful" окремо. Вивчай всю сім'ю разом!</p>
+    </div>
+    <div class="tip-box">
+      <span class="tip-icon">🔎</span>
+      <p><strong>Spot the suffix!</strong> When you see a new word, find the suffix to guess its type. See <em>-tion</em>? It's a noun! See <em>-ly</em>? It's an adverb!<br>
+      <strong>Знаходь суфікс!</strong> Бачиш <em>-tion</em> — це іменник! Бачиш <em>-ly</em> — це прислівник!</p>
+    </div>
+    <div class="tip-box">
+      <span class="tip-icon">📖</span>
+      <p><strong>Make your own sentences!</strong> Use all 4 forms in one story. It sticks in your memory much better!<br>
+      <strong>Склади власні речення!</strong> Використай всі 4 форми в одній маленькій історії.</p>
+    </div>
+    <div class="tip-box" style="background:#e3f2fd;border-color:#1976d2;">
+      <span class="tip-icon">⚠️</span>
+      <p><strong>Watch out!</strong> Not every word has all 4 forms. For example: "fast" is both an adjective AND adverb (no "-ly" needed!)<br>
+      <strong>Увага!</strong> Не кожне слово має всі 4 форми. Наприклад: "fast" — і прикметник, і прислівник!</p>
+    </div>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="quiz-wrap">
+    <h2>🎮 Quick Quiz!</h2>
+    <p class="sub">Choose the correct word form / Обери правильну форму слова</p>
+
+    <div class="q-item" id="q1">
+      <div class="q-text">1. She painted the picture very ___. (careful)<br><small style="opacity:.65;">Вона намалювала картину дуже ___.  → форма? 🟣</small></div>
+      <div class="q-options">
+        <button class="q-btn" onclick="answer(this,'wrong','q1')">careful</button>
+        <button class="q-btn" onclick="answer(this,'correct','q1')">carefully</button>
+        <button class="q-btn" onclick="answer(this,'wrong','q1')">carefulness</button>
+      </div>
+      <div class="q-feedback" id="q1-fb"></div>
+    </div>
+
+    <div class="q-item" id="q2">
+      <div class="q-text">2. His ___ surprised everyone. (invent)<br><small style="opacity:.65;">Його ___ здивувало всіх.  → форма? 🟢</small></div>
+      <div class="q-options">
+        <button class="q-btn" onclick="answer(this,'wrong','q2')">invent</button>
+        <button class="q-btn" onclick="answer(this,'wrong','q2')">inventive</button>
+        <button class="q-btn" onclick="answer(this,'correct','q2')">invention</button>
+      </div>
+      <div class="q-feedback" id="q2-fb"></div>
+    </div>
+
+    <div class="q-item" id="q3">
+      <div class="q-text">3. This game is so ___! (excite)<br><small style="opacity:.65;">Ця гра така ___!  → форма? 🟡</small></div>
+      <div class="q-options">
+        <button class="q-btn" onclick="answer(this,'correct','q3')">exciting</button>
+        <button class="q-btn" onclick="answer(this,'wrong','q3')">excitedly</button>
+        <button class="q-btn" onclick="answer(this,'wrong','q3')">excitement</button>
+      </div>
+      <div class="q-feedback" id="q3-fb"></div>
+    </div>
+
+    <div class="q-item" id="q4">
+      <div class="q-text">4. We need to ___ our school garden. (beauty)<br><small style="opacity:.65;">Нам треба ___ наш шкільний сад.  → форма? 🔴</small></div>
+      <div class="q-options">
+        <button class="q-btn" onclick="answer(this,'wrong','q4')">beautiful</button>
+        <button class="q-btn" onclick="answer(this,'correct','q4')">beautify</button>
+        <button class="q-btn" onclick="answer(this,'wrong','q4')">beauty</button>
+      </div>
+      <div class="q-feedback" id="q4-fb"></div>
+    </div>
+
+    <div class="q-item" id="q5">
+      <div class="q-text">5. Her ___ makes everyone smile. (happy)<br><small style="opacity:.65;">Її ___ змушує всіх посміхатись.  → форма? 🟢</small></div>
+      <div class="q-options">
+        <button class="q-btn" onclick="answer(this,'wrong','q5')">happily</button>
+        <button class="q-btn" onclick="answer(this,'wrong','q5')">happy</button>
+        <button class="q-btn" onclick="answer(this,'correct','q5')">happiness</button>
+      </div>
+      <div class="q-feedback" id="q5-fb"></div>
+    </div>
+
+    <div class="q-score" id="score-display"></div>
+  </div>
+
+</div>
+
+<!-- SCROLL TOP BUTTON -->
+<button id="scrollBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  // Scroll button
+  const btn = document.getElementById('scrollBtn');
+  window.addEventListener('scroll', () => {
+    btn.style.display = window.scrollY > 300 ? 'flex' : 'none';
+  });
+
+  // Quiz
+  const answers = { q1: 0, q2: 0, q3: 0, q4: 0, q5: 0 };
+  const msgs = {
+    correct: ['✅ Brilliant! / Чудово!', '✅ You got it! / Правильно!', '✅ Excellent! / Відмінно!', '✅ Perfect! / Ідеально!'],
+    wrong:   ['❌ Try again! / Спробуй ще! Hint: look at the suffix!', '❌ Not quite! / Не зовсім! Look for the right suffix.', '❌ Oops! / Ой! Think about the word type needed.']
+  };
+
+  function answer(btn, result, qId) {
+    const parent = document.getElementById(qId);
+    if (parent.dataset.done) return;
+    parent.dataset.done = '1';
+
+    const btns = parent.querySelectorAll('.q-btn');
+    btns.forEach(b => b.style.pointerEvents = 'none');
+    btn.classList.add(result);
+    const fb = document.getElementById(qId + '-fb');
+
+    if (result === 'correct') {
+      answers[qId] = 1;
+      fb.style.color = '#00b894';
+      fb.textContent = msgs.correct[Math.floor(Math.random() * msgs.correct.length)];
+    } else {
+      fb.style.color = '#ff7675';
+      fb.textContent = msgs.wrong[Math.floor(Math.random() * msgs.wrong.length)];
+      // Show correct
+      btns.forEach(b => { if (b.onclick.toString().includes("'correct'")) b.classList.add('correct'); });
+    }
+
+    const total = Object.values(answers).reduce((a,b) => a+b, 0);
+    const done  = Object.values(parent.dataset).length;
+    const allDone = document.querySelectorAll('[data-done]').length;
+    if (allDone === 5) {
+      const sd = document.getElementById('score-display');
+      const emojis = ['😢','😐','🙂','😊','🎉','🏆'];
+      sd.textContent = `${emojis[total]} Score: ${total}/5 — ${total===5?'Amazing! / Чудово!':total>=3?'Good job! / Добре!':'Keep practising! / Тренуйся!'}`;
+    }
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complaining in English 😤</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #FF4757;
+    --orange: #FF6B35;
+    --yellow: #FFD700;
+    --green: #2ED573;
+    --blue: #1E90FF;
+    --purple: #A55EEA;
+    --pink: #FF6B9D;
+    --dark: #1a1a2e;
+    --card-bg: #ffffff;
+    --text: #2d2d2d;
+    --light-bg: #f8f9ff;
+    --shadow: 0 8px 32px rgba(0,0,0,0.1);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: #f0f4ff;
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 40%, #0f3460 100%);
+    color: white;
+    padding: 60px 20px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50px; left: -50px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: rgba(255,71,87,0.15);
+    filter: blur(60px);
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; right: -80px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: rgba(30,144,255,0.15);
+    filter: blur(80px);
+  }
+  .hero-emoji {
+    font-size: 80px;
+    display: block;
+    margin-bottom: 16px;
+    animation: bounce 2s infinite;
+  }
+  @keyframes bounce {
+    0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)}
+  }
+  .hero h1 {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+  .hero h1 span { color: var(--yellow); }
+  .hero-sub {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    opacity: 0.85;
+    max-width: 600px;
+    margin: 0 auto 30px;
+    line-height: 1.6;
+  }
+  .hero-tags {
+    display: flex; flex-wrap: wrap; gap: 10px;
+    justify-content: center;
+  }
+  .tag {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 50px;
+    padding: 6px 18px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    backdrop-filter: blur(10px);
+  }
+
+  /* MAIN */
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px 16px 60px;
+  }
+
+  /* SECTION TITLE */
+  .section-title {
+    display: flex; align-items: center; gap: 12px;
+    margin: 48px 0 24px;
+  }
+  .section-title .icon {
+    width: 52px; height: 52px;
+    border-radius: 16px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px;
+    flex-shrink: 0;
+  }
+  .section-title h2 {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(1.4rem, 4vw, 1.9rem);
+    font-weight: 800;
+    line-height: 1.2;
+  }
+  .section-title h2 small {
+    display: block;
+    font-size: 0.65em;
+    font-weight: 600;
+    opacity: 0.6;
+    font-family: 'Nunito', sans-serif;
+  }
+
+  /* INTRO BOX */
+  .intro-box {
+    background: linear-gradient(135deg, #fff9e6, #fff3cc);
+    border: 3px solid var(--yellow);
+    border-radius: 20px;
+    padding: 28px;
+    margin-top: 32px;
+    display: flex; gap: 20px; align-items: flex-start;
+  }
+  .intro-box .big-emoji { font-size: 56px; flex-shrink: 0; }
+  .intro-box p { line-height: 1.7; font-size: 1rem; }
+  .intro-box strong { color: #e65c00; }
+  .ua { color: #666; font-size: 0.92em; display: block; margin-top: 4px; }
+
+  /* EMOTION SCALE */
+  .scale {
+    display: flex; gap: 8px; flex-wrap: wrap;
+    margin: 24px 0;
+    justify-content: center;
+  }
+  .scale-item {
+    background: white;
+    border-radius: 16px;
+    padding: 16px 12px;
+    text-align: center;
+    flex: 1; min-width: 100px;
+    box-shadow: var(--shadow);
+    border-bottom: 4px solid transparent;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: default;
+  }
+  .scale-item:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.15); }
+  .scale-item .emoji { font-size: 40px; margin-bottom: 8px; display: block; }
+  .scale-item .level { font-weight: 800; font-size: 0.85rem; margin-bottom: 4px; }
+  .scale-item .word { font-size: 0.75rem; color: #888; }
+  .s1 { border-color: #93d5a8; }
+  .s2 { border-color: #f5c842; }
+  .s3 { border-color: #ff9f43; }
+  .s4 { border-color: var(--red); }
+  .s5 { border-color: #c0392b; }
+
+  /* CARDS GRID */
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+
+  .card {
+    background: white;
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: var(--shadow);
+    border-top: 5px solid var(--blue);
+    transition: transform 0.2s;
+  }
+  .card:hover { transform: translateY(-4px); }
+  .card h3 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.15rem;
+    font-weight: 800;
+    margin-bottom: 4px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .card .card-ua { font-size: 0.8rem; color: #999; margin-bottom: 14px; }
+  .phrase-list { list-style: none; }
+  .phrase-list li {
+    background: #f8f9ff;
+    border-radius: 10px;
+    padding: 8px 12px;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    border-left: 3px solid var(--blue);
+    line-height: 1.5;
+  }
+  .phrase-list li .en { font-weight: 700; color: #1a1a2e; }
+  .phrase-list li .ua { font-size: 0.82em; color: #888; }
+
+  /* COLOR VARIANTS */
+  .card.red { border-color: var(--red); }
+  .card.red .phrase-list li { border-color: var(--red); }
+  .card.orange { border-color: var(--orange); }
+  .card.orange .phrase-list li { border-color: var(--orange); }
+  .card.green { border-color: var(--green); }
+  .card.green .phrase-list li { border-color: var(--green); }
+  .card.purple { border-color: var(--purple); }
+  .card.purple .phrase-list li { border-color: var(--purple); }
+  .card.pink { border-color: var(--pink); }
+  .card.pink .phrase-list li { border-color: var(--pink); }
+  .card.yellow { border-color: var(--yellow); }
+  .card.yellow .phrase-list li { border-color: var(--yellow); }
+
+  /* FORMULA BOX */
+  .formula-box {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    color: white;
+    border-radius: 20px;
+    padding: 28px;
+    margin: 20px 0;
+    box-shadow: 0 8px 40px rgba(26,26,46,0.4);
+    position: relative;
+    overflow: hidden;
+  }
+  .formula-box::before {
+    content: '{ }';
+    position: absolute;
+    right: 20px; top: 20px;
+    font-size: 80px;
+    opacity: 0.05;
+    font-family: monospace;
+  }
+  .formula-box h3 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.3rem;
+    margin-bottom: 16px;
+    color: var(--yellow);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .formula {
+    background: rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    font-size: 1rem;
+    line-height: 1.6;
+    border-left: 4px solid var(--yellow);
+  }
+  .formula .part { display: inline-block; margin: 2px 4px; }
+  .formula .subj { background: #FF4757; border-radius: 6px; padding: 2px 8px; font-weight: 700; }
+  .formula .verb { background: #1E90FF; border-radius: 6px; padding: 2px 8px; font-weight: 700; }
+  .formula .obj  { background: #2ED573; border-radius: 6px; padding: 2px 8px; font-weight: 700; color: #1a1a2e; }
+  .formula .fix  { background: var(--yellow); border-radius: 6px; padding: 2px 8px; font-weight: 700; color: #1a1a2e; }
+  .formula .opt  { background: rgba(255,255,255,0.2); border-radius: 6px; padding: 2px 8px; font-weight: 600; font-style: italic; }
+
+  /* DIALOGUE */
+  .dialogue-box {
+    background: white;
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: var(--shadow);
+    margin: 20px 0;
+  }
+  .dialogue-box h3 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: var(--dark);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .msg-row {
+    display: flex; gap: 12px; margin-bottom: 16px; align-items: flex-start;
+  }
+  .msg-row.right { flex-direction: row-reverse; }
+  .avatar {
+    width: 44px; height: 44px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; flex-shrink: 0;
+  }
+  .av-a { background: #ffeaa7; }
+  .av-b { background: #dfe6e9; }
+  .bubble {
+    max-width: 75%;
+    border-radius: 18px;
+    padding: 12px 16px;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+  .bubble-a {
+    background: linear-gradient(135deg, #FF4757, #FF6B9D);
+    color: white;
+    border-bottom-left-radius: 4px;
+  }
+  .bubble-b {
+    background: #f1f3f9;
+    color: var(--text);
+    border-bottom-right-radius: 4px;
+  }
+  .bubble .speaker { font-weight: 800; font-size: 0.78em; margin-bottom: 4px; opacity: 0.8; }
+  .bubble .translate { font-size: 0.78em; margin-top: 6px; opacity: 0.75; font-style: italic; }
+
+  /* INFOGRAPHIC - SITUATIONS */
+  .situations {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    margin: 20px 0;
+  }
+  .situation {
+    border-radius: 18px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s;
+  }
+  .situation:hover { transform: scale(1.04); }
+  .situation .sit-emoji { font-size: 44px; margin-bottom: 10px; display: block; }
+  .situation .sit-title { font-weight: 800; font-size: 0.95rem; margin-bottom: 4px; }
+  .situation .sit-ua { font-size: 0.78rem; opacity: 0.75; margin-bottom: 10px; }
+  .situation .sit-phrase {
+    background: rgba(255,255,255,0.4);
+    border-radius: 8px;
+    padding: 6px 8px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    font-style: italic;
+  }
+  .sit-1 { background: linear-gradient(135deg, #ffecd2, #fcb69f); }
+  .sit-2 { background: linear-gradient(135deg, #a1c4fd, #c2e9fb); }
+  .sit-3 { background: linear-gradient(135deg, #d4fc79, #96e6a1); }
+  .sit-4 { background: linear-gradient(135deg, #f093fb, #f5576c); color: white; }
+  .sit-5 { background: linear-gradient(135deg, #4facfe, #00f2fe); color: white; }
+  .sit-6 { background: linear-gradient(135deg, #43e97b, #38f9d7); }
+
+  /* VOCAB CHIPS */
+  .vocab-grid { display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0; }
+  .chip {
+    border-radius: 50px;
+    padding: 8px 18px;
+    font-weight: 700;
+    font-size: 0.88rem;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    border: 2px solid transparent;
+    cursor: default;
+    transition: transform 0.2s;
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .chip:hover { transform: scale(1.08); }
+  .chip .ch-en { font-size: 1em; }
+  .chip .ch-ua { font-size: 0.75em; font-weight: 600; opacity: 0.7; margin-top: 2px; }
+  .chip.red { background: #fff0f0; color: var(--red); border-color: #ffb3b3; }
+  .chip.orange { background: #fff5ee; color: var(--orange); border-color: #ffc89a; }
+  .chip.blue { background: #eef5ff; color: var(--blue); border-color: #a0c4ff; }
+  .chip.purple { background: #f5eeff; color: var(--purple); border-color: #d4adfc; }
+  .chip.green { background: #efffef; color: #27ae60; border-color: #a8edbb; }
+  .chip.pink { background: #fff0f7; color: var(--pink); border-color: #ffb3d5; }
+
+  /* DO / DON'T */
+  .do-dont {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 20px 0;
+  }
+  .do-box, .dont-box {
+    border-radius: 18px;
+    padding: 22px;
+    box-shadow: var(--shadow);
+  }
+  .do-box { background: linear-gradient(135deg, #e8fff0, #c8f7dc); border: 2px solid #2ED573; }
+  .dont-box { background: linear-gradient(135deg, #fff0f0, #ffd8d8); border: 2px solid var(--red); }
+  .do-box h4 { color: #27ae60; font-size: 1.1rem; margin-bottom: 14px; display: flex; gap: 8px; align-items: center; }
+  .dont-box h4 { color: var(--red); font-size: 1.1rem; margin-bottom: 14px; display: flex; gap: 8px; align-items: center; }
+  .tip-item {
+    font-size: 0.88rem;
+    margin-bottom: 8px;
+    line-height: 1.5;
+    padding-left: 4px;
+  }
+  .tip-item strong { display: block; font-weight: 700; }
+  .tip-item span { opacity: 0.7; font-size: 0.9em; }
+
+  /* QUIZ */
+  .quiz-wrap {
+    background: linear-gradient(135deg, #1a1a2e, #0f3460);
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: 0 12px 48px rgba(15,52,96,0.4);
+    color: white;
+  }
+  .quiz-wrap h2 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+    color: var(--yellow);
+  }
+  .quiz-wrap .quiz-sub { opacity: 0.75; margin-bottom: 28px; }
+  .quiz-q {
+    background: rgba(255,255,255,0.07);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .quiz-q .q-text {
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 14px;
+    line-height: 1.5;
+  }
+  .quiz-q .q-ua {
+    font-size: 0.82em;
+    opacity: 0.65;
+    margin-bottom: 14px;
+    font-style: italic;
+  }
+  .quiz-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .quiz-btn {
+    background: rgba(255,255,255,0.1);
+    border: 2px solid rgba(255,255,255,0.2);
+    border-radius: 12px;
+    padding: 12px 14px;
+    color: white;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 0.88rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: left;
+    line-height: 1.4;
+  }
+  .quiz-btn:hover { background: rgba(255,255,255,0.18); border-color: rgba(255,255,255,0.4); }
+  .quiz-btn.correct { background: rgba(46,213,115,0.3); border-color: var(--green); }
+  .quiz-btn.wrong { background: rgba(255,71,87,0.3); border-color: var(--red); }
+  .quiz-btn:disabled { cursor: default; }
+  .feedback {
+    margin-top: 10px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    display: none;
+  }
+  .feedback.show { display: block; }
+  .feedback.ok { background: rgba(46,213,115,0.2); color: #2ED573; }
+  .feedback.no { background: rgba(255,71,87,0.2); color: #FF4757; }
+  .score-box {
+    text-align: center;
+    padding: 24px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 16px;
+    margin-top: 24px;
+    display: none;
+  }
+  .score-box.show { display: block; }
+  .score-num {
+    font-size: 3.5rem;
+    font-family: 'Baloo 2', cursive;
+    font-weight: 800;
+    color: var(--yellow);
+  }
+  .score-msg { font-size: 1.1rem; margin: 8px 0 16px; }
+  #retry-btn {
+    background: var(--yellow);
+    color: #1a1a2e;
+    border: none;
+    border-radius: 50px;
+    padding: 12px 32px;
+    font-family: 'Baloo 2', cursive;
+    font-size: 1rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  #retry-btn:hover { transform: scale(1.05); }
+
+  /* SCROLL TO TOP */
+  #scrollTop {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 52px;
+    height: 52px;
+    background: linear-gradient(135deg, var(--red), var(--orange));
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 6px 24px rgba(255,71,87,0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    transition: transform 0.2s;
+  }
+  #scrollTop:hover { transform: scale(1.1); }
+  #scrollTop.show { display: flex; }
+
+  /* RESPONSIVE */
+  @media(max-width: 600px) {
+    .do-dont { grid-template-columns: 1fr; }
+    .quiz-options { grid-template-columns: 1fr; }
+    .intro-box { flex-direction: column; }
+    .bubble { max-width: 88%; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <span class="hero-emoji">😤</span>
+  <h1>How to <span>Complain</span> in English</h1>
+  <p class="hero-sub">Як висловлювати незадоволення, скаржитися та говорити про проблеми англійською — з прикладами, фразами та підказками!</p>
+  <div class="hero-tags">
+    <span class="tag">🗣️ Speaking</span>
+    <span class="tag">✍️ Phrases</span>
+    <span class="tag">🎭 Dialogue</span>
+    <span class="tag">📚 Vocabulary</span>
+    <span class="tag">✅ Quiz</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- INTRO -->
+  <div class="intro-box">
+    <div class="big-emoji">💡</div>
+    <div>
+      <p><strong>What is complaining?</strong> Complaining means telling someone that you are unhappy about something — food, service, noise, weather, or anything that bothers you. It's a very natural part of everyday English conversation!</p>
+      <span class="ua">Що таке «скарга»? Скаржитися — це говорити комусь, що тебе щось засмучує або не влаштовує. Це абсолютно нормальна частина щоденного спілкування англійською!</span>
+    </div>
+  </div>
+
+  <!-- EMOTION SCALE -->
+  <div class="section-title">
+    <div class="icon" style="background:#fff3e0;">😐</div>
+    <h2>Emotion Scale — Шкала незадоволення<small>From annoyed to furious / Від роздратування до люті</small></h2>
+  </div>
+
+  <div class="scale">
+    <div class="scale-item s1">
+      <span class="emoji">😐</span>
+      <div class="level">Slightly annoyed</div>
+      <div class="word">трохи роздратований</div>
+    </div>
+    <div class="scale-item s2">
+      <span class="emoji">😕</span>
+      <div class="level">Unhappy</div>
+      <div class="word">незадоволений</div>
+    </div>
+    <div class="scale-item s3">
+      <span class="emoji">😤</span>
+      <div class="level">Frustrated</div>
+      <div class="word">розчарований</div>
+    </div>
+    <div class="scale-item s4">
+      <span class="emoji">😠</span>
+      <div class="level">Angry</div>
+      <div class="word">злий</div>
+    </div>
+    <div class="scale-item s5">
+      <span class="emoji">🤬</span>
+      <div class="level">Furious</div>
+      <div class="word">шалений від злості</div>
+    </div>
+  </div>
+
+  <!-- SITUATIONS -->
+  <div class="section-title">
+    <div class="icon" style="background:#e8f5ff;">🌍</div>
+    <h2>Situations — Ситуації<small>Where do people complain? / Де люди скаржаться?</small></h2>
+  </div>
+
+  <div class="situations">
+    <div class="situation sit-1">
+      <span class="sit-emoji">🍕</span>
+      <div class="sit-title">Restaurant</div>
+      <div class="sit-ua">Ресторан</div>
+      <div class="sit-phrase">"This soup is cold!"</div>
+    </div>
+    <div class="situation sit-2">
+      <span class="sit-emoji">🛒</span>
+      <div class="sit-title">Shop</div>
+      <div class="sit-ua">Магазин</div>
+      <div class="sit-phrase">"This is broken!"</div>
+    </div>
+    <div class="situation sit-3">
+      <span class="sit-emoji">🏫</span>
+      <div class="sit-title">School</div>
+      <div class="sit-ua">Школа</div>
+      <div class="sit-phrase">"It's not fair!"</div>
+    </div>
+    <div class="situation sit-4">
+      <span class="sit-emoji">🏨</span>
+      <div class="sit-title">Hotel</div>
+      <div class="sit-ua">Готель</div>
+      <div class="sit-phrase">"The room is dirty."</div>
+    </div>
+    <div class="situation sit-5">
+      <span class="sit-emoji">📱</span>
+      <div class="sit-title">Phone / Online</div>
+      <div class="sit-ua">По телефону</div>
+      <div class="sit-phrase">"I need to report an issue."</div>
+    </div>
+    <div class="situation sit-6">
+      <span class="sit-emoji">🏠</span>
+      <div class="sit-title">Home / Neighbours</div>
+      <div class="sit-ua">Вдома / Сусіди</div>
+      <div class="sit-phrase">"The noise is terrible!"</div>
+    </div>
+  </div>
+
+  <!-- PHRASE CARDS -->
+  <div class="section-title">
+    <div class="icon" style="background:#ffeef5;">💬</div>
+    <h2>Key Phrases — Ключові фрази<small>Ready-to-use expressions / Вирази, готові до вживання</small></h2>
+  </div>
+
+  <div class="cards">
+
+    <div class="card red">
+      <h3>😤 Starting a Complaint</h3>
+      <div class="card-ua">Як почати скаргу</div>
+      <ul class="phrase-list">
+        <li><span class="en">I'm not happy with…</span><span class="ua">Я незадоволений/незадоволена…</span></li>
+        <li><span class="en">I have a complaint about…</span><span class="ua">У мене скарга щодо…</span></li>
+        <li><span class="en">I'd like to complain about…</span><span class="ua">Я хотів/хотіла б поскаржитися на…</span></li>
+        <li><span class="en">Excuse me, there's a problem with…</span><span class="ua">Пробачте, є проблема з…</span></li>
+        <li><span class="en">I'm afraid this isn't what I expected.</span><span class="ua">Боюся, це не те, на що я очікував/очікувала.</span></li>
+        <li><span class="en">I need to bring something to your attention.</span><span class="ua">Мені потрібно звернути вашу увагу на щось.</span></li>
+        <li><span class="en">I'm writing to express my dissatisfaction with…</span><span class="ua">Пишу, щоб висловити своє незадоволення…</span></li>
+        <li><span class="en">I feel I must point out that…</span><span class="ua">Я відчуваю, що мушу вказати на те, що…</span></li>
+        <li><span class="en">This is the third time this has happened!</span><span class="ua">Це вже третій раз, коли це трапляється!</span></li>
+        <li><span class="en">I've been waiting for over an hour.</span><span class="ua">Я чекаю вже більше години.</span></li>
+      </ul>
+    </div>
+
+    <div class="card orange">
+      <h3>😠 Describing the Problem</h3>
+      <div class="card-ua">Як описати проблему</div>
+      <ul class="phrase-list">
+        <li><span class="en">It doesn't work properly.</span><span class="ua">Воно не працює належно.</span></li>
+        <li><span class="en">It's broken / damaged / missing.</span><span class="ua">Це зламано / пошкоджено / відсутнє.</span></li>
+        <li><span class="en">It's too loud / cold / slow / expensive.</span><span class="ua">Це занадто гучно / холодно / повільно / дорого.</span></li>
+        <li><span class="en">The quality is really poor.</span><span class="ua">Якість справді жахлива.</span></li>
+        <li><span class="en">This is not acceptable.</span><span class="ua">Це неприйнятно.</span></li>
+        <li><span class="en">It's completely different from what I ordered.</span><span class="ua">Це зовсім не те, що я замовив/замовила.</span></li>
+        <li><span class="en">There's a mistake on my bill.</span><span class="ua">У моєму рахунку є помилка.</span></li>
+        <li><span class="en">I've been charged twice.</span><span class="ua">З мене стягнули плату двічі.</span></li>
+        <li><span class="en">The service was really slow / rude / unprofessional.</span><span class="ua">Обслуговування було дуже повільним / грубим / непрофесійним.</span></li>
+        <li><span class="en">It arrived late / damaged / in the wrong size.</span><span class="ua">Це прийшло із запізненням / пошкодженим / не того розміру.</span></li>
+        <li><span class="en">Nobody told me about this.</span><span class="ua">Ніхто мені про це не говорив.</span></li>
+        <li><span class="en">The instructions are completely wrong.</span><span class="ua">Інструкції абсолютно неправильні.</span></li>
+      </ul>
+    </div>
+
+    <div class="card purple">
+      <h3>🙏 Asking for a Solution</h3>
+      <div class="card-ua">Як попросити вирішити проблему</div>
+      <ul class="phrase-list">
+        <li><span class="en">Could you please fix this?</span><span class="ua">Чи не могли б ви це виправити?</span></li>
+        <li><span class="en">I'd like a refund, please.</span><span class="ua">Я хотів/хотіла б повернення грошей.</span></li>
+        <li><span class="en">Can you replace it?</span><span class="ua">Чи можете ви замінити це?</span></li>
+        <li><span class="en">I want to speak to the manager.</span><span class="ua">Я хочу поговорити з менеджером.</span></li>
+        <li><span class="en">I expect this to be sorted out.</span><span class="ua">Я очікую, що це буде вирішено.</span></li>
+        <li><span class="en">What are you going to do about this?</span><span class="ua">Що ви збираєтеся з цим робити?</span></li>
+        <li><span class="en">I'd like some kind of compensation.</span><span class="ua">Я б хотів/хотіла якусь компенсацію.</span></li>
+        <li><span class="en">Can I have a receipt / written confirmation?</span><span class="ua">Чи можу я отримати квитанцію / письмове підтвердження?</span></li>
+        <li><span class="en">I insist on speaking to someone in charge.</span><span class="ua">Я наполягаю на розмові з відповідальною особою.</span></li>
+        <li><span class="en">I'd appreciate a quick response.</span><span class="ua">Я б оцінив/оцінила швидку відповідь.</span></li>
+      </ul>
+    </div>
+
+    <div class="card green">
+      <h3>😊 Polite Softeners</h3>
+      <div class="card-ua">Ввічливі пом'якшення (для формальних ситуацій)</div>
+      <ul class="phrase-list">
+        <li><span class="en">I'm sorry to bother you, but…</span><span class="ua">Вибачте, що турбую, але…</span></li>
+        <li><span class="en">I hate to say this, but…</span><span class="ua">Не хочу цього говорити, але…</span></li>
+        <li><span class="en">I'm afraid there seems to be a mistake.</span><span class="ua">Боюся, схоже, сталася помилка.</span></li>
+        <li><span class="en">With respect, I think…</span><span class="ua">З усією повагою, я думаю…</span></li>
+        <li><span class="en">I wonder if you could help me…</span><span class="ua">Не знаю, чи могли б ви мені допомогти…</span></li>
+        <li><span class="en">I don't mean to be difficult, but…</span><span class="ua">Я не хочу ускладнювати, але…</span></li>
+        <li><span class="en">I'm sure it was just an oversight, however…</span><span class="ua">Я впевнений/впевнена, що це просто недогляд, однак…</span></li>
+        <li><span class="en">I appreciate your help, but this still isn't right.</span><span class="ua">Я ціную вашу допомогу, але це все ще неправильно.</span></li>
+        <li><span class="en">Perhaps there's been a misunderstanding…</span><span class="ua">Мабуть, сталося непорозуміння…</span></li>
+        <li><span class="en">I hope we can resolve this quickly.</span><span class="ua">Я сподіваюся, ми зможемо вирішити це швидко.</span></li>
+      </ul>
+    </div>
+
+    <div class="card blue">
+      <h3>🤝 Responding to Complaints</h3>
+      <div class="card-ua">Як відповідати на скарги</div>
+      <ul class="phrase-list">
+        <li><span class="en">I'm so sorry about that!</span><span class="ua">Мені дуже шкода!</span></li>
+        <li><span class="en">Let me look into this for you.</span><span class="ua">Дозвольте мені розібратися в цьому.</span></li>
+        <li><span class="en">I'll sort it out right away.</span><span class="ua">Я вирішу це негайно.</span></li>
+        <li><span class="en">I completely understand.</span><span class="ua">Я повністю розумію.</span></li>
+        <li><span class="en">I apologise for the inconvenience.</span><span class="ua">Прошу вибачення за незручності.</span></li>
+        <li><span class="en">That's not the standard we expect either.</span><span class="ua">Це теж не той стандарт, якого ми очікуємо.</span></li>
+        <li><span class="en">You're absolutely right and I'm very sorry.</span><span class="ua">Ви абсолютно праві, і мені дуже шкода.</span></li>
+        <li><span class="en">I'll pass this on to my manager immediately.</span><span class="ua">Я негайно передам це моєму менеджеру.</span></li>
+        <li><span class="en">We'll make sure this doesn't happen again.</span><span class="ua">Ми переконаємося, що це більше не повториться.</span></li>
+        <li><span class="en">As a gesture of goodwill, I'd like to offer you…</span><span class="ua">Як жест доброї волі, я хотів/хотіла б запропонувати вам…</span></li>
+      </ul>
+    </div>
+
+    <div class="card pink">
+      <h3>😩 Informal / Friends</h3>
+      <div class="card-ua">Неформально (з друзями)</div>
+      <ul class="phrase-list">
+        <li><span class="en">Ugh, I can't stand this!</span><span class="ua">Фу, я не можу це терпіти!</span></li>
+        <li><span class="en">It's driving me crazy!</span><span class="ua">Це зводить мене з розуму!</span></li>
+        <li><span class="en">That's so annoying!</span><span class="ua">Це так дратує!</span></li>
+        <li><span class="en">I'm fed up with this!</span><span class="ua">Мені набридло це!</span></li>
+        <li><span class="en">This is a total disaster!</span><span class="ua">Це повна катастрофа!</span></li>
+        <li><span class="en">I'm absolutely sick of this!</span><span class="ua">Мені вже до горла цього!</span></li>
+        <li><span class="en">This is the worst thing ever!</span><span class="ua">Це найгірше, що коли-небудь було!</span></li>
+        <li><span class="en">Are you serious right now?!</span><span class="ua">Ти серйозно зараз?!</span></li>
+        <li><span class="en">I've had enough of this nonsense!</span><span class="ua">Мені вистачить цієї нісенітниці!</span></li>
+        <li><span class="en">Seriously?! Again?!</span><span class="ua">Серйозно?! Знову?!</span></li>
+        <li><span class="en">That's just not on!</span><span class="ua">Це просто неприпустимо! (брит.)</span></li>
+        <li><span class="en">You've got to be kidding me!</span><span class="ua">Ти жартуєш!</span></li>
+      </ul>
+    </div>
+
+    <!-- NEW CARD: Emphasising -->
+    <div class="card yellow">
+      <h3>🔥 Emphasising / Підсилення</h3>
+      <div class="card-ua">Як підсилити скаргу</div>
+      <ul class="phrase-list">
+        <li><span class="en">I must say, I'm extremely disappointed.</span><span class="ua">Мушу сказати, я надзвичайно розчарований/розчарована.</span></li>
+        <li><span class="en">This is absolutely outrageous!</span><span class="ua">Це абсолютно обурливо!</span></li>
+        <li><span class="en">I simply cannot believe this!</span><span class="ua">Я просто не можу в це повірити!</span></li>
+        <li><span class="en">I've never experienced anything like this before.</span><span class="ua">Я ніколи раніше не стикався/стикалась з таким.</span></li>
+        <li><span class="en">This has gone on long enough!</span><span class="ua">Це тривало вже досить довго!</span></li>
+        <li><span class="en">I am deeply unhappy with the situation.</span><span class="ua">Я дуже незадоволений/незадоволена ситуацією.</span></li>
+        <li><span class="en">This is the last straw!</span><span class="ua">Це остання крапля!</span></li>
+        <li><span class="en">I've been patient enough.</span><span class="ua">Я достатньо терпів/терпіла.</span></li>
+      </ul>
+    </div>
+
+    <!-- NEW CARD: Following up -->
+    <div class="card red">
+      <h3>📞 Following Up — Нагадування</h3>
+      <div class="card-ua">Якщо проблему ще не вирішили</div>
+      <ul class="phrase-list">
+        <li><span class="en">I'm calling to follow up on my complaint.</span><span class="ua">Я телефоную, щоб дізнатися про статус моєї скарги.</span></li>
+        <li><span class="en">I haven't heard back from you yet.</span><span class="ua">Я ще не отримав/отримала відповіді від вас.</span></li>
+        <li><span class="en">This issue still hasn't been resolved.</span><span class="ua">Ця проблема досі не вирішена.</span></li>
+        <li><span class="en">I sent a complaint last week. What's the update?</span><span class="ua">Я надіслав/надіслала скаргу минулого тижня. Які новини?</span></li>
+        <li><span class="en">If this isn't fixed soon, I'll have to escalate.</span><span class="ua">Якщо це не буде виправлено незабаром, мені доведеться звернутися вище.</span></li>
+        <li><span class="en">I'd like a written response, please.</span><span class="ua">Прошу письмову відповідь.</span></li>
+      </ul>
+    </div>
+
+    <!-- NEW CARD: School / teen situations -->
+    <div class="card orange">
+      <h3>🏫 School & Teen Life</h3>
+      <div class="card-ua">Школа та підліткове життя</div>
+      <ul class="phrase-list">
+        <li><span class="en">That's not fair!</span><span class="ua">Це несправедливо!</span></li>
+        <li><span class="en">You gave me the wrong grade!</span><span class="ua">Ви поставили мені неправильну оцінку!</span></li>
+        <li><span class="en">Nobody told us about the homework!</span><span class="ua">Ніхто не говорив нам про домашнє завдання!</span></li>
+        <li><span class="en">The Wi-Fi is so slow, I can't even load the page!</span><span class="ua">Wi-Fi такий повільний, я навіть не можу завантажити сторінку!</span></li>
+        <li><span class="en">My order was wrong again!</span><span class="ua">Моє замовлення знову неправильне!</span></li>
+        <li><span class="en">The app keeps crashing — it's so frustrating!</span><span class="ua">Застосунок весь час вилітає — це так дратує!</span></li>
+        <li><span class="en">They took my seat!</span><span class="ua">Вони зайняли моє місце!</span></li>
+        <li><span class="en">The queue is massive — how long do we have to wait?</span><span class="ua">Черга величезна — скільки нам чекати?</span></li>
+      </ul>
+    </div>
+
+    <!-- NEW CARD: Useful expressions / idioms -->
+    <div class="card purple">
+      <h3>🗣️ Expressions & Idioms</h3>
+      <div class="card-ua">Вирази та ідіоми</div>
+      <ul class="phrase-list">
+        <li><span class="en">The last straw 🐪</span><span class="ua">Остання крапля (що переповнила чашу)</span></li>
+        <li><span class="en">Fed up to the back teeth 😬</span><span class="ua">Набридло по вуха</span></li>
+        <li><span class="en">At the end of my rope 🪢</span><span class="ua">Вже немає сил / дійшов до краю</span></li>
+        <li><span class="en">Make a mountain out of a molehill ⛰️</span><span class="ua">Робити з мухи слона (перебільшувати)</span></li>
+        <li><span class="en">Blow off steam 💨</span><span class="ua">Випустити пар / виговоритися</span></li>
+        <li><span class="en">Bite the bullet 💊</span><span class="ua">Стиснути зуби й терпіти</span></li>
+        <li><span class="en">This takes the biscuit! 🍪</span><span class="ua">Це вже межа! Це вже занадто! (брит.)</span></li>
+        <li><span class="en">Enough is enough! ✋</span><span class="ua">Досить! Хватить!</span></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- FORMULA -->
+  <div class="section-title">
+    <div class="icon" style="background:#e8fff0;">🧮</div>
+    <h2>Grammar Formulas — Граматичні формули<small>How sentences are built / Як будуються речення</small></h2>
+  </div>
+
+  <div class="formula-box">
+    <h3>⚡ Complaint Sentence Patterns</h3>
+
+    <div class="formula">
+      <span class="part fix">I'm not happy with</span>
+      <span class="part obj">the food / this service / my room</span>
+    </div>
+
+    <div class="formula">
+      <span class="part fix">I'd like to complain about</span>
+      <span class="part obj">the noise / this product / the wait</span>
+    </div>
+
+    <div class="formula">
+      <span class="part fix">This</span>
+      <span class="part verb">is</span>
+      <span class="part obj">too cold / broken / unacceptable</span>
+    </div>
+
+    <div class="formula">
+      <span class="part fix">Could you please</span>
+      <span class="part verb">fix / replace / refund</span>
+      <span class="part obj">this / it</span>
+      <span class="part opt">?</span>
+    </div>
+
+    <div class="formula">
+      <span class="part fix">It</span>
+      <span class="part verb">doesn't</span>
+      <span class="part obj">work / open / connect</span>
+      <span class="part opt">properly</span>
+    </div>
+
+    <p style="margin-top:16px; opacity:0.7; font-size:0.85rem;">
+      🟡 <strong>Yellow</strong> = fixed phrase (фіксована фраза) &nbsp;|&nbsp;
+      🔵 <strong>Blue</strong> = verb (дієслово) &nbsp;|&nbsp;
+      🟢 <strong>Green</strong> = your info (ваша інформація) &nbsp;|&nbsp;
+      ⚪ <em>Italic</em> = optional (необов'язково)
+    </p>
+  </div>
+
+  <!-- DIALOGUE -->
+  <div class="section-title">
+    <div class="icon" style="background:#fff0f7;">🎭</div>
+    <h2>Real Dialogues — Живі діалоги<small>See phrases in action! / Дивись фрази в дії!</small></h2>
+  </div>
+
+  <!-- Dialogue 1 -->
+  <div class="dialogue-box">
+    <h3>🍕 Scenario 1: In a Restaurant / У ресторані</h3>
+
+    <div class="msg-row">
+      <div class="avatar av-a">👦</div>
+      <div class="bubble bubble-a">
+        <div class="speaker">Alex (Customer / Клієнт)</div>
+        Excuse me, I'm afraid there's a problem with my order. This pizza is completely cold!
+        <div class="translate">Вибачте, боюся, є проблема з моїм замовленням. Ця піца абсолютно холодна!</div>
+      </div>
+    </div>
+
+    <div class="msg-row right">
+      <div class="avatar av-b">👩</div>
+      <div class="bubble bubble-b">
+        <div class="speaker">Waiter / Офіціант</div>
+        I'm so sorry about that! I'll bring you a fresh one immediately.
+        <div class="translate">Мені дуже шкода! Я принесу вам свіжу негайно.</div>
+      </div>
+    </div>
+
+    <div class="msg-row">
+      <div class="avatar av-a">👦</div>
+      <div class="bubble bubble-a">
+        <div class="speaker">Alex</div>
+        Thank you. I'd also like to know — can I get a discount for waiting so long?
+        <div class="translate">Дякую. Я також хотів би знати — чи можу я отримати знижку за такий довгий очікування?</div>
+      </div>
+    </div>
+
+    <div class="msg-row right">
+      <div class="avatar av-b">👩</div>
+      <div class="bubble bubble-b">
+        <div class="speaker">Waiter</div>
+        Absolutely! I apologise for the inconvenience. Your dessert will be on the house.
+        <div class="translate">Звичайно! Прошу вибачення за незручності. Ваш десерт буде безкоштовним.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dialogue 2 -->
+  <div class="dialogue-box">
+    <h3>📱 Scenario 2: Online / Phone Support / Служба підтримки</h3>
+
+    <div class="msg-row">
+      <div class="avatar av-a">👧</div>
+      <div class="bubble bubble-a">
+        <div class="speaker">Maria (Customer)</div>
+        Hello, I need to report an issue. I ordered a phone two weeks ago and it still hasn't arrived!
+        <div class="translate">Привіт, мені потрібно повідомити про проблему. Я замовила телефон два тижні тому, і він ще не приїхав!</div>
+      </div>
+    </div>
+
+    <div class="msg-row right">
+      <div class="avatar av-b">👨</div>
+      <div class="bubble bubble-b">
+        <div class="speaker">Support Agent</div>
+        I completely understand your frustration. Let me look into this for you right away. Can I have your order number?
+        <div class="translate">Я повністю розумію ваше розчарування. Дозвольте мені розібратися в цьому прямо зараз. Чи можу я отримати ваш номер замовлення?</div>
+      </div>
+    </div>
+
+    <div class="msg-row">
+      <div class="avatar av-a">👧</div>
+      <div class="bubble bubble-a">
+        <div class="speaker">Maria</div>
+        It's #45872. Honestly, this is not acceptable. I expected faster delivery!
+        <div class="translate">Це #45872. Чесно кажучи, це неприйнятно. Я очікувала швидшої доставки!</div>
+      </div>
+    </div>
+
+    <div class="msg-row right">
+      <div class="avatar av-b">👨</div>
+      <div class="bubble bubble-b">
+        <div class="speaker">Support Agent</div>
+        I'll sort it out immediately. We'll either send a replacement or give you a full refund. I sincerely apologise.
+        <div class="translate">Я вирішу це негайно. Ми або надішлемо заміну, або повернемо повну суму. Щиро вибачаюся.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VOCABULARY -->
+  <div class="section-title">
+    <div class="icon" style="background:#f5eeff;">📖</div>
+    <h2>Key Vocabulary — Ключові слова<small>Important words for complaining / Важливі слова для скарг</small></h2>
+  </div>
+
+  <div style="background:white; border-radius:20px; padding:24px; box-shadow:var(--shadow);">
+    <p style="margin-bottom:16px; font-weight:700; color:#555;">😠 Negative Adjectives / Негативні прикметники:</p>
+    <div class="vocab-grid">
+      <div class="chip red"><span class="ch-en">unacceptable</span><span class="ch-ua">неприйнятний</span></div>
+      <div class="chip red"><span class="ch-en">terrible</span><span class="ch-ua">жахливий</span></div>
+      <div class="chip red"><span class="ch-en">awful</span><span class="ch-ua">страшний</span></div>
+      <div class="chip orange"><span class="ch-en">disappointing</span><span class="ch-ua">розчаровуючий</span></div>
+      <div class="chip orange"><span class="ch-en">frustrated</span><span class="ch-ua">розчарований</span></div>
+      <div class="chip orange"><span class="ch-en">annoyed</span><span class="ch-ua">роздратований</span></div>
+      <div class="chip purple"><span class="ch-en">unacceptable</span><span class="ch-ua">неприйнятний</span></div>
+      <div class="chip purple"><span class="ch-en">unsatisfied</span><span class="ch-ua">незадоволений</span></div>
+    </div>
+
+    <p style="margin:20px 0 16px; font-weight:700; color:#555;">🔧 Useful Nouns / Корисні іменники:</p>
+    <div class="vocab-grid">
+      <div class="chip blue"><span class="ch-en">complaint</span><span class="ch-ua">скарга</span></div>
+      <div class="chip blue"><span class="ch-en">refund</span><span class="ch-ua">повернення грошей</span></div>
+      <div class="chip blue"><span class="ch-en">replacement</span><span class="ch-ua">заміна</span></div>
+      <div class="chip green"><span class="ch-en">issue / problem</span><span class="ch-ua">проблема</span></div>
+      <div class="chip green"><span class="ch-en">inconvenience</span><span class="ch-ua">незручність</span></div>
+      <div class="chip green"><span class="ch-en">solution</span><span class="ch-ua">рішення</span></div>
+      <div class="chip pink"><span class="ch-en">apology</span><span class="ch-ua">вибачення</span></div>
+      <div class="chip pink"><span class="ch-en">discount</span><span class="ch-ua">знижка</span></div>
+    </div>
+
+    <p style="margin:20px 0 16px; font-weight:700; color:#555;">⚡ Power Verbs / Дієслова дії:</p>
+    <div class="vocab-grid">
+      <div class="chip red"><span class="ch-en">complain</span><span class="ch-ua">скаржитися</span></div>
+      <div class="chip orange"><span class="ch-en">report</span><span class="ch-ua">повідомляти</span></div>
+      <div class="chip blue"><span class="ch-en">fix / repair</span><span class="ch-ua">ремонтувати</span></div>
+      <div class="chip green"><span class="ch-en">replace</span><span class="ch-ua">замінювати</span></div>
+      <div class="chip purple"><span class="ch-en">apologise</span><span class="ch-ua">вибачатися</span></div>
+      <div class="chip pink"><span class="ch-en">refund</span><span class="ch-ua">повертати гроші</span></div>
+    </div>
+  </div>
+
+  <!-- DO / DON'T -->
+  <div class="section-title">
+    <div class="icon" style="background:#efffef;">✅</div>
+    <h2>Do's & Don'ts — Що робити і що НЕ робити<small>Smart complaining tips / Розумні поради</small></h2>
+  </div>
+
+  <div class="do-dont">
+    <div class="do-box">
+      <h4>✅ DO — РОБИ</h4>
+      <div class="tip-item">
+        <strong>Stay calm 😌</strong>
+        <span>Залишайся спокійним — це ефективніше</span>
+      </div>
+      <div class="tip-item">
+        <strong>Be specific 🎯</strong>
+        <span>Точно описуй проблему: "The soup is cold", not just "It's bad"</span>
+      </div>
+      <div class="tip-item">
+        <strong>Use polite phrases 🙏</strong>
+        <span>"I'm afraid…", "Could you please…" — це звучить ввічливо</span>
+      </div>
+      <div class="tip-item">
+        <strong>Ask for a solution 💡</strong>
+        <span>Запропонуй або запитай про вирішення</span>
+      </div>
+      <div class="tip-item">
+        <strong>Say "thank you" when resolved 🤝</strong>
+        <span>Подякуй, коли проблему вирішено</span>
+      </div>
+    </div>
+
+    <div class="dont-box">
+      <h4>❌ DON'T — НЕ РОБИ</h4>
+      <div class="tip-item">
+        <strong>Don't shout 😤</strong>
+        <span>Не кричи — це не допоможе</span>
+      </div>
+      <div class="tip-item">
+        <strong>Don't be vague 🌫️</strong>
+        <span>Не кажи просто "Everything is wrong!" — будь точним</span>
+      </div>
+      <div class="tip-item">
+        <strong>Don't use rude words 🚫</strong>
+        <span>Уникай грубих слів — це погіршить ситуацію</span>
+      </div>
+      <div class="tip-item">
+        <strong>Don't exaggerate too much 🎢</strong>
+        <span>Не перебільшуй без потреби</span>
+      </div>
+      <div class="tip-item">
+        <strong>Don't give up too quickly 💪</strong>
+        <span>Якщо проблема серйозна — наполягай ввічливо</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="section-title">
+    <div class="icon" style="background:#fff9e0;">🧠</div>
+    <h2>Quick Quiz — Швидкий тест<small>Test your knowledge! / Перевір свої знання!</small></h2>
+  </div>
+
+  <div class="quiz-wrap">
+    <h2>🎯 Complaining Quiz</h2>
+    <p class="quiz-sub">Choose the best answer for each situation / Обери найкращу відповідь для кожної ситуації</p>
+
+    <div id="quiz-container"></div>
+    <div class="score-box" id="score-box">
+      <div class="score-num" id="score-num"></div>
+      <div class="score-msg" id="score-msg"></div>
+      <button id="retry-btn" onclick="startQuiz()">🔄 Try Again / Спробувати ще раз</button>
+    </div>
+  </div>
+
+</div>
+
+<!-- SCROLL TOP -->
+<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+const quizData = [
+  {
+    q: "You ordered food and it arrived cold. What's the best polite complaint?",
+    ua: "Ти замовив їжу, вона приїхала холодною. Яка найкраща ввічлива скарга?",
+    options: [
+      "This food is disgusting! I hate this place!",
+      "Excuse me, I'm afraid there's a problem — my food is completely cold.",
+      "Whatever, I don't care.",
+      "Give me my money NOW!"
+    ],
+    correct: 1,
+    explain: "✅ Option B is polite and specific — perfect for a formal complaint!",
+    explainUa: "Варіант Б — ввічливий і конкретний, ідеально для формальної скарги!"
+  },
+  {
+    q: "Your friend is complaining about their homework. Which phrase fits best?",
+    ua: "Твій друг скаржиться на домашнє завдання. Яка фраза підходить?",
+    options: [
+      "I'd like to request a formal refund.",
+      "I apologise for the inconvenience.",
+      "I'm fed up with all this homework! It's driving me crazy!",
+      "Could you please replace the homework?"
+    ],
+    correct: 2,
+    explain: "✅ Option C is informal and natural for talking to friends!",
+    explainUa: "Варіант В — неформальний і природний для розмови з друзями!"
+  },
+  {
+    q: "You bought a phone and it doesn't work. What do you say to the shop?",
+    ua: "Ти купив телефон, і він не працює. Що кажеш у магазині?",
+    options: [
+      "This is totally broken and your shop is terrible!",
+      "I have a complaint. This phone doesn't work properly and I'd like a refund or replacement.",
+      "Ugh, I can't stand this!",
+      "No problem, it's fine!"
+    ],
+    correct: 1,
+    explain: "✅ Option B is clear, polite, and asks for a specific solution!",
+    explainUa: "Варіант Б — чіткий, ввічливий і просить конкретного рішення!"
+  },
+  {
+    q: "A customer is complaining to you. How do you respond professionally?",
+    ua: "Клієнт скаржиться тобі. Як ти відповідаєш професійно?",
+    options: [
+      "That's not my problem.",
+      "I'm so sorry about that. I'll sort it out right away.",
+      "Stop complaining!",
+      "I don't know, ask someone else."
+    ],
+    correct: 1,
+    explain: "✅ Option B shows empathy and action — the best professional response!",
+    explainUa: "Варіант Б показує співчуття та готовність діяти — найкраща професійна відповідь!"
+  },
+  {
+    q: "Which phrase is the most POLITE way to start a complaint?",
+    ua: "Яка фраза є НАЙВВІЧЛИВІШИМ способом почати скаргу?",
+    options: [
+      "Hey! This is wrong!",
+      "I'm fed up with everything!",
+      "I'm sorry to bother you, but I'm afraid there seems to be a mistake.",
+      "This is unacceptable and I'm furious!"
+    ],
+    correct: 2,
+    explain: "✅ Option C uses softeners 'I'm sorry to bother you' and 'I'm afraid' — very polite!",
+    explainUa: "Варіант В використовує пом'якшення — дуже ввічливо!"
+  }
+];
+
+let answers = [];
+
+function startQuiz() {
+  answers = [];
+  document.getElementById('score-box').classList.remove('show');
+  const container = document.getElementById('quiz-container');
+  container.innerHTML = '';
+
+  quizData.forEach((q, i) => {
+    const div = document.createElement('div');
+    div.className = 'quiz-q';
+    div.id = `q-${i}`;
+    div.innerHTML = `
+      <div class="q-text">Q${i+1}: ${q.q}</div>
+      <div class="q-ua">${q.ua}</div>
+      <div class="quiz-options">
+        ${q.options.map((opt, j) => `
+          <button class="quiz-btn" onclick="answer(${i}, ${j})" data-q="${i}" data-a="${j}">
+            ${String.fromCharCode(65+j)}. ${opt}
+          </button>
+        `).join('')}
+      </div>
+      <div class="feedback" id="fb-${i}"></div>
+    `;
+    container.appendChild(div);
+  });
+}
+
+function answer(qi, ai) {
+  if (answers[qi] !== undefined) return;
+  answers[qi] = ai;
+
+  const btns = document.querySelectorAll(`[data-q="${qi}"]`);
+  btns.forEach(b => {
+    b.disabled = true;
+    const idx = parseInt(b.dataset.a);
+    if (idx === quizData[qi].correct) b.classList.add('correct');
+    else if (idx === ai) b.classList.add('wrong');
+  });
+
+  const fb = document.getElementById(`fb-${qi}`);
+  const isCorrect = ai === quizData[qi].correct;
+  fb.className = `feedback show ${isCorrect ? 'ok' : 'no'}`;
+  fb.innerHTML = isCorrect
+    ? `✅ ${quizData[qi].explain} <br><em>${quizData[qi].explainUa}</em>`
+    : `❌ Not quite! The correct answer is ${String.fromCharCode(65+quizData[qi].correct)}. ${quizData[qi].explain} <br><em>${quizData[qi].explainUa}</em>`;
+
+  if (answers.filter(a => a !== undefined).length === quizData.length) {
+    showScore();
+  }
+}
+
+function showScore() {
+  const score = answers.filter((a,i) => a === quizData[i].correct).length;
+  const total = quizData.length;
+  const box = document.getElementById('score-box');
+  document.getElementById('score-num').textContent = `${score}/${total}`;
+  const msgs = [
+    ['Keep practising! / Продовжуй практикуватись! 💪', score < 2],
+    ['Good effort! / Гарна спроба! 😊', score < 4],
+    ['Excellent! You\'re a complaining expert! / Відмінно! Ти справжній експерт! 🏆', true]
+  ];
+  const msg = score < 2 ? msgs[0][0] : score < 4 ? msgs[1][0] : msgs[2][0];
+  document.getElementById('score-msg').textContent = msg;
+  box.classList.add('show');
+  box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+startQuiz();
+
+// Scroll to top
+window.addEventListener('scroll', () => {
+  const btn = document.getElementById('scrollTop');
+  btn.classList.toggle('show', window.scrollY > 300);
+});
+</script>
+</body>
+</html>

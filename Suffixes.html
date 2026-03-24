@@ -1,0 +1,1739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English Suffixes — Magic Word Endings 🪄</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f0f4ff;
+    --card: #ffffff;
+    --text: #1a1a2e;
+    --muted: #5a6070;
+    --accent1: #6c63ff;
+    --accent2: #ff6b9d;
+    --accent3: #00c896;
+    --accent4: #ffb347;
+    --accent5: #4ecdc4;
+    --accent6: #ff6b6b;
+    --accent7: #a29bfe;
+    --shadow: 0 4px 20px rgba(108,99,255,0.12);
+    --radius: 18px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    font-size: 16px;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, #6c63ff 0%, #a29bfe 40%, #ff6b9d 100%);
+    color: white;
+    text-align: center;
+    padding: 60px 20px 70px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.07'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-emoji { font-size: 72px; display: block; margin-bottom: 12px; animation: bounce 2s infinite; }
+  @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+  .hero h1 {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(2rem, 6vw, 3.6rem);
+    letter-spacing: 1px;
+    text-shadow: 0 3px 12px rgba(0,0,0,0.2);
+    position: relative;
+  }
+  .hero h1 span { color: #ffe066; }
+  .hero-sub {
+    font-size: clamp(1rem, 3vw, 1.25rem);
+    margin-top: 14px;
+    opacity: .9;
+    position: relative;
+  }
+  .magic-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 50px;
+    padding: 8px 22px;
+    margin-top: 18px;
+    font-weight: 700;
+    font-size: 1rem;
+    backdrop-filter: blur(4px);
+    position: relative;
+  }
+
+  /* ── LAYOUT ── */
+  .container { max-width: 1140px; margin: 0 auto; padding: 0 18px; }
+
+  /* ── MAGIC SENTENCE BOX ── */
+  .magic-box {
+    background: linear-gradient(135deg, #ffe066 0%, #ffb347 100%);
+    border-radius: var(--radius);
+    padding: 28px 32px;
+    margin: 40px 0 30px;
+    box-shadow: var(--shadow);
+    border-left: 8px solid #ff8800;
+  }
+  .magic-box h2 { font-family:'Fredoka One',cursive; font-size: 1.5rem; color: #7c3d00; margin-bottom: 10px; }
+  .magic-sentence {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #3d1a00;
+    background: rgba(255,255,255,0.6);
+    border-radius: 10px;
+    padding: 12px 20px;
+    margin: 10px 0 6px;
+    display: inline-block;
+  }
+  .magic-box p { color: #5c2d00; font-size: 0.95rem; margin-top: 6px; }
+
+  /* ── NAV PILLS ── */
+  .nav-pills {
+    display: flex; flex-wrap: wrap; gap: 10px;
+    padding: 24px 0 10px;
+  }
+  .pill {
+    background: white;
+    border: 2px solid var(--accent1);
+    border-radius: 50px;
+    padding: 6px 18px;
+    font-weight: 700;
+    color: var(--accent1);
+    cursor: pointer;
+    text-decoration: none;
+    font-size: .9rem;
+    transition: all .2s;
+  }
+  .pill:hover { background: var(--accent1); color: white; transform: translateY(-2px); }
+
+  /* ── SECTION HEADERS ── */
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 50px 0 24px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid;
+  }
+  .section-head .icon { font-size: 2.2rem; }
+  .section-head h2 {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(1.4rem, 4vw, 2rem);
+  }
+  .section-head p { font-size: .95rem; color: var(--muted); margin-top: 2px; }
+
+  /* ── SUFFIX CARDS ── */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 22px;
+    margin-bottom: 10px;
+  }
+  .suf-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: transform .25s, box-shadow .25s;
+  }
+  .suf-card:hover { transform: translateY(-5px); box-shadow: 0 10px 32px rgba(108,99,255,0.18); }
+  .suf-card-head {
+    padding: 18px 22px 14px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .suf-badge {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.5rem;
+    background: rgba(255,255,255,0.3);
+    border-radius: 12px;
+    padding: 6px 14px;
+    white-space: nowrap;
+    min-width: 60px;
+    text-align: center;
+    color: white;
+    border: 2px solid rgba(255,255,255,0.4);
+  }
+  .suf-title { color: white; }
+  .suf-title h3 { font-size: 1rem; font-weight: 800; }
+  .suf-title p { font-size: .82rem; opacity: .9; margin-top: 2px; }
+  .suf-card-body { padding: 16px 22px 20px; }
+
+  .formula-box {
+    background: #f7f5ff;
+    border: 2px dashed var(--accent1);
+    border-radius: 10px;
+    padding: 8px 14px;
+    font-size: .88rem;
+    font-weight: 700;
+    color: var(--accent1);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .formula-box span { font-family: monospace; font-size: 1rem; }
+
+  .word-chips { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 14px; }
+  .chip {
+    background: #f0f4ff;
+    border-radius: 50px;
+    padding: 4px 13px;
+    font-size: .82rem;
+    font-weight: 700;
+    color: var(--accent1);
+    border: 1.5px solid #d0d8ff;
+  }
+  .chip em { color: var(--accent6); font-style: normal; font-weight: 900; }
+
+  .sentences { margin-top: 10px; display: flex; flex-direction: column; gap: 8px; }
+  .sent {
+    background: #f9f9f9;
+    border-left: 4px solid;
+    border-radius: 0 8px 8px 0;
+    padding: 8px 14px;
+    font-size: .88rem;
+  }
+  .sent .en { font-weight: 700; color: #1a1a2e; }
+  .sent .ua { color: var(--muted); font-size: .82rem; margin-top: 2px; }
+  .sent .hl { font-weight: 900; }
+
+  /* ── INFOGRAPHIC SECTION ── */
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+    margin: 20px 0;
+  }
+  .info-tile {
+    background: white;
+    border-radius: 14px;
+    padding: 18px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: transform .2s;
+  }
+  .info-tile:hover { transform: scale(1.04); }
+  .info-tile .big-emoji { font-size: 2.8rem; display: block; margin-bottom: 8px; }
+  .info-tile h3 { font-size: 1rem; font-weight: 800; color: var(--text); }
+  .info-tile p { font-size: .8rem; color: var(--muted); margin-top: 4px; }
+
+  /* ── BIG TABLE ── */
+  .ref-table {
+    width: 100%; border-collapse: collapse;
+    background: white; border-radius: var(--radius);
+    overflow: hidden; box-shadow: var(--shadow);
+    font-size: .88rem;
+    margin: 20px 0 40px;
+  }
+  .ref-table thead tr { background: var(--accent1); color: white; }
+  .ref-table th { padding: 12px 16px; text-align: left; font-weight: 800; }
+  .ref-table td { padding: 10px 16px; border-bottom: 1px solid #f0f0f0; vertical-align: top; }
+  .ref-table tr:last-child td { border-bottom: none; }
+  .ref-table tr:nth-child(even) td { background: #f8f8ff; }
+  .ref-table .suf { font-family: 'Fredoka One',cursive; font-size: 1.05rem; color: var(--accent1); }
+  .ref-table .meaning { font-weight: 700; }
+  .ref-table .ex { color: var(--accent3); font-weight: 700; }
+
+  /* ── QUIZ SECTION ── */
+  .quiz-wrap {
+    background: linear-gradient(135deg, #00c896 0%, #009a74 100%);
+    border-radius: var(--radius);
+    padding: 32px;
+    margin: 40px 0;
+    color: white;
+    box-shadow: var(--shadow);
+  }
+  .quiz-wrap h2 { font-family:'Fredoka One',cursive; font-size: 1.8rem; margin-bottom: 8px; }
+  .quiz-wrap p { opacity: .9; margin-bottom: 22px; }
+  .quiz-q { background: rgba(255,255,255,0.15); border-radius: 12px; padding: 16px 20px; margin-bottom: 14px; }
+  .quiz-q p { font-weight: 700; margin-bottom: 12px; font-size: 1.05rem; }
+  .quiz-opts { display: flex; flex-wrap: wrap; gap: 9px; }
+  .quiz-opt {
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.4);
+    border-radius: 8px;
+    padding: 7px 16px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: .9rem;
+    transition: all .2s;
+    color: white;
+  }
+  .quiz-opt:hover { background: rgba(255,255,255,0.35); }
+  .quiz-opt.correct { background: #ffe066; color: #1a4a00; border-color: #ffe066; }
+  .quiz-opt.wrong { background: #ff6b6b; border-color: #ff6b6b; text-decoration: line-through; }
+  .quiz-feedback { font-size: .88rem; margin-top: 8px; min-height: 20px; font-style: italic; }
+
+  /* ── SCROLL TOP ── */
+  #scrollTop {
+    position: fixed; bottom: 28px; right: 24px;
+    width: 48px; height: 48px;
+    background: var(--accent1);
+    color: white; border: none; border-radius: 50%;
+    font-size: 1.4rem; cursor: pointer;
+    display: none; align-items: center; justify-content: center;
+    box-shadow: 0 4px 16px rgba(108,99,255,0.4);
+    z-index: 999; transition: background .2s;
+  }
+  #scrollTop:hover { background: var(--accent2); }
+  #scrollTop.show { display: flex; }
+
+  /* ── TIPS BOX ── */
+  .tips-box {
+    background: white;
+    border-radius: var(--radius);
+    padding: 28px 32px;
+    box-shadow: var(--shadow);
+    margin: 30px 0;
+    border-top: 6px solid var(--accent5);
+  }
+  .tips-box h3 { font-family:'Fredoka One',cursive; font-size: 1.4rem; color: var(--accent5); margin-bottom: 14px; }
+  .tips-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .tips-list li { display: flex; gap: 12px; align-items: flex-start; font-size: .92rem; }
+  .tips-list li .tip-icon { font-size: 1.4rem; flex-shrink: 0; }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center;
+    padding: 36px 20px 48px;
+    color: var(--muted);
+    font-size: .88rem;
+  }
+  footer strong { color: var(--accent1); }
+
+  @media(max-width:600px){
+    .suf-card-head { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .cards-grid { grid-template-columns: 1fr; }
+    .hero { padding: 40px 16px 50px; }
+    .magic-box { padding: 20px 18px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <span class="hero-emoji">🪄</span>
+  <h1>English <span>Suffixes</span></h1>
+  <p class="hero-sub">Суфікси англійської мови — магічні закінчення слів<br>
+  <small>Розуміння суфіксів = знання тисяч нових слів!</small></p>
+  <div class="magic-badge">✨ Understanding suffixes = knowing 1000s of words! ✨</div>
+</div>
+
+<div class="container">
+
+  <!-- WHAT IS A SUFFIX -->
+  <div class="magic-box" style="margin-top:40px;">
+    <h2>🔍 What is a suffix? / Що таке суфікс?</h2>
+    <p style="font-size:1rem;color:#5c2d00;margin-bottom:12px;">
+      A <strong>suffix</strong> is a small piece added to the <strong>END</strong> of a word to change its meaning or part of speech.<br>
+      <strong>Суфікс</strong> — це маленька частина, яка додається до <strong>кінця</strong> слова, щоб змінити його значення або частину мови.
+    </p>
+    <div class="magic-sentence">ROOT word + SUFFIX = NEW word 🎯</div>
+    <p>teach → teach<strong>er</strong> &nbsp;|&nbsp; kind → kind<strong>ness</strong> &nbsp;|&nbsp; create → creat<strong>ive</strong></p>
+  </div>
+
+  <!-- MAGIC SENTENCE -->
+  <div class="magic-box" style="background: linear-gradient(135deg,#6c63ff,#a29bfe); border-left-color:#3d00cc; margin-top:0;">
+    <h2 style="color:#ffe066;">⭐ Magic Sentence / Чарівне речення</h2>
+    <p style="color:#e0d8ff;margin-bottom:12px;">
+      Ми будемо використовувати одне базове речення та змінювати його за допомогою суфіксів!<br>
+      We use ONE base idea and transform it using different suffixes!
+    </p>
+    <div class="magic-sentence" style="background:rgba(255,255,255,0.15);color:white;">🎯 Alex is a [WORD] person.</div>
+    <p style="color:#e0d8ff;margin-top:8px;">
+      Alex is a <strong>kind</strong> person. → Alex is a person of <strong>kind<em>ness</em></strong>. → Alex behaves <strong>kind<em>ly</em></strong>.<br>
+      → Alex is <strong>kind<em>ful</em></strong>… → Alex is <strong>kind<em>less</em></strong>? (no — means WITHOUT kindness!)<br>
+      Дивись, як одне слово перетворюється залежно від суфікса! 🔮
+    </p>
+  </div>
+
+  <!-- NAV -->
+  <div class="nav-pills">
+    <a class="pill" href="#noun-suffixes">📦 Noun Suffixes</a>
+    <a class="pill" href="#adj-suffixes">🎨 Adjective Suffixes</a>
+    <a class="pill" href="#verb-suffixes">⚡ Verb Suffixes</a>
+    <a class="pill" href="#adv-suffixes">🏃 Adverb Suffixes</a>
+    <a class="pill" href="#num-suffixes">🔢 Number Suffixes</a>
+    <a class="pill" href="#dim-suffixes">🐣 Diminutive Suffixes</a>
+    <a class="pill" href="#big-table">📋 Full Table</a>
+    <a class="pill" href="#quiz">🧠 Quiz</a>
+  </div>
+
+  <!-- HOW IT WORKS INFOGRAPHIC -->
+  <div class="section-head" style="border-color:#6c63ff;">
+    <span class="icon">⚙️</span>
+    <div>
+      <h2 style="color:#6c63ff;">How Suffixes Work / Як працюють суфікси</h2>
+      <p>Вони змінюють частину мови або відтінок значення слова</p>
+    </div>
+  </div>
+  <div class="info-grid">
+    <div class="info-tile" style="border-top:4px solid #6c63ff;">
+      <span class="big-emoji">📦</span>
+      <h3>Noun Suffixes</h3>
+      <p>Іменникові суфікси<br>Перетворюють слово на <strong>ПРЕДМЕТ чи поняття</strong></p>
+    </div>
+    <div class="info-tile" style="border-top:4px solid #ff6b9d;">
+      <span class="big-emoji">🎨</span>
+      <h3>Adjective Suffixes</h3>
+      <p>Прикметникові суфікси<br>Перетворюють слово на <strong>ОЗНАКУ / ЯКІСТЬ</strong></p>
+    </div>
+    <div class="info-tile" style="border-top:4px solid #ffb347;">
+      <span class="big-emoji">⚡</span>
+      <h3>Verb Suffixes</h3>
+      <p>Дієслівні суфікси<br>Перетворюють слово на <strong>ДІЮ</strong></p>
+    </div>
+    <div class="info-tile" style="border-top:4px solid #00c896;">
+      <span class="big-emoji">🏃</span>
+      <h3>Adverb Suffixes</h3>
+      <p>Прислівникові суфікси<br>Перетворюють слово на <strong>ЯК / НАСКІЛЬКИ</strong></p>
+    </div>
+    <div class="info-tile" style="border-top:4px solid #4ecdc4;">
+      <span class="big-emoji">🔢</span>
+      <h3>Number Suffixes</h3>
+      <p>Числові суфікси<br>Утворюють <strong>числівники</strong> (-teen, -ty, -th)</p>
+    </div>
+    <div class="info-tile" style="border-top:4px solid #a29bfe;">
+      <span class="big-emoji">🐣</span>
+      <h3>Diminutive Suffixes</h3>
+      <p>Зменшувальні суфікси<br>Роблять слово <strong>маленьким або милим</strong></p>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════
+       NOUN SUFFIXES
+  ════════════════════════════════ -->
+  <div id="noun-suffixes" class="section-head" style="border-color:#6c63ff;">
+    <span class="icon">📦</span>
+    <div>
+      <h2 style="color:#6c63ff;">Noun Suffixes / Іменникові суфікси</h2>
+      <p>These create PEOPLE, THINGS, STATES, and ACTIONS • Створюють людей, речі, стани, дії</p>
+    </div>
+  </div>
+  <div class="cards-grid">
+
+    <!-- -er / -or -->
+    <div class="suf-card">
+      <div class="suf-card-head" style="background:linear-gradient(135deg,#6c63ff,#a29bfe);">
+        <div class="suf-badge">-er / -or</div>
+        <div class="suf-title">
+          <h3>Person who does something</h3>
+          <p>Людина, яка щось робить / виконавець дії</p>
+        </div>
+      </div>
+      <div class="suf-card-body">
+        <div class="formula-box">🧩 <span>VERB + -er/-or = a person who VERB-s</span></div>
+        <div class="word-chips">
+          <span class="chip">teach → teach<em>er</em></span>
+          <span class="chip">play → play<em>er</em></span>
+          <span class="chip">swim → swimm<em>er</em></span>
+          <span class="chip">write → writ<em>er</em></span>
+          <span class="chip">build → build<em>er</em></span>
+          <span class="chip">drive → driv<em>er</em></span>
+          <span class="chip">work → work<em>er</em></span>
+          <span class="chip">act → act<em>or</em></span>
+          <span class="chip">direct → direct<em>or</em></span>
+          <span class="chip">create → creat<em>or</em></span>
+          <span class="chip">invent → invest<em>or</em></span>
+          <span class="chip">visit → visit<em>or</em></span>
+          <span class="chip">govern → govern<em>or</em></span>
+          <span class="chip">edit → edit<em>or</em></span>
+        </div>
+        <div class="sentences">
+          <div class="sent" style="border-color:#6c63ff;">
+            <div class="en">Alex is a <span class="hl" style="color:#6c63ff;">teach<em>er</em></span> — Alex <span class="hl">teach</span>es every day.</div>
+            <div class="ua">Алекс є вчителем — Алекс навчає щодня.</div>
+          </div>
+          <div class="sent" style="border-color:#a29bfe;">
+            <div class="en">The <span class="hl" style="color:#6c63ff;">direct<em>or</em></span> of the school is very strict.</div>
+            <div class="ua">Директор школи дуже суворий.</div>
+          </div>
+          <div class="sent" style="border-color:#6c63ff;">
+            <div class="en">She is a professional <span class="hl" style="color:#6c63ff;">swimm<em>er</em></span> and wins every race.</div>
+            <div class="ua">Вона — професійна плавчиня і виграє кожне змагання.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- -ist -->
+    <div class="suf-card">
+      <div class="suf-card-head" style="background:linear-gradient(135deg,#ff6b9d,#ff9ab5);">
+        <div class="suf-badge">-ist</div>
+        <div class="suf-title">
+          <h3>Expert / Believer / Professional</h3>
+          <p>Фахівець, прихильник, той хто практикує</p>
+        </div>
+      </div>
+      <div class="suf-card-body">
+        <div class="formula-box" style="border-color:#ff6b9d;color:#ff6b9d;">🧩 <span>NOUN/VERB + -ist = specialist / believer</span></div>
+        <div class="word-chips">
+          <span class="chip">piano → pian<em>ist</em></span>
+          <span class="chip">art → art<em>ist</em></span>
+          <span class="chip">science → scient<em>ist</em></span>
+          <span class="chip">guitar → guitar<em>ist</em></span>
+          <span class="chip">tour → tour<em>ist</em></span>
+          <span class="chip">journal → journal<em>ist</em></span>
+          <span class="chip">cycle → cycl<em>ist</em></span>
+          <span class="chip">ecology → ecolog<em>ist</em></span>
+          <span class="chip">psychology → psycholog<em>ist</em></span>
+          <span class="chip">novel → novel<em>ist</em></span>
+        </div>
+        <div class="sentences">
+          <div class="sent" style="border-color:#ff6b9d;">
+            <div class="en">Alex is a talented <span class="hl" style="color:#ff6b9d;">pian<em>ist</em></span> who plays every evening.</div>
+            <div class="ua">Алекс — талановитий піаніст, який грає щовечора.</div>
+          </div>
+          <div class="sent" style="border-color:#ff9ab5;">
+            <div class="en">The <span class="hl" style="color:#ff6b9d;">tour<em>ist</em></span> took many photos of the city.</div>
+            <div class="ua">Турист зробив багато фотографій міста.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- -ian -->
+    <div class="suf-card">
+      <div class="suf-card-head" style="background:linear-gradient(135deg,#ffb347,#ffd080);">
+        <div class="suf-badge">-ian</div>
+        <div class="suf-title">
+          <h3>Person from / Expert in a field</h3>
+          <p>Людина з певного місця або галузі</p>
+        </div>
+      </div>
+      <div class="suf-card-body">
+        <div class="formula-box" style="border-color:#ffb347;color:#b37000;">🧩 <span>NOUN + -ian = person linked to that noun</span></div>
+        <div class="word-chips">
+          <span class="chip">music → music<em>ian</em></span>
+          <span class="chip">electric → electric<em>ian</em></span>
+          <span class="chip">magic → magic<em>ian</em></span>
+          <span class="chip">math → mathem<em>atician</em></span>
+          <span class="chip">Italy → Ital<em>ian</em></span>
+          <span class="chip">library → librar<em>ian</em></span>
+          <span class="chip">comedy → comed<em>ian</em></span>
+          <span class="chip">politics → polit<em>ician</em></span>
+        </div>
+        <div class="sentences">
+          <div class="sent" style="border-color:#ffb347;">
+            <div class="en">Alex is a brilliant <span class="hl" style="color:#b37000;">music<em>ian</em></span> — he plays 3 instruments.</div>
+            <div class="ua">Алекс — блискучий музикант — він грає на 3 інструментах.</div>
+          </div>
+          <div class="sent" style="border-color:#ffd080;">
+            <div class="en">The <span class="hl" style="color:#b37000;">magic<em>ian</em></span> amazed everyone with the trick.</div>
+            <div class="ua">Фокусник вразив усіх своїм трюком.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- -ness -->
+    <div class="suf-card">
+      <div class="suf-card-head" style="background:linear-gradient(135deg,#00c896,#00e0aa);">
+        <div class="suf-badge">-ness</div>
+        <div class="suf-title">
+          <h3>State / Quality / Condition</h3>
+          <p>Стан, якість, властивість (перетворює прикметник на іменник)</p>
+        </div>
+      </div>
+      <div class="suf-card-body">
+        <div class="formula-box" style="border-color:#00c896;color:#007a5a;">🧩 <span>ADJECTIVE + -ness = the STATE of being ADJ</span></div>
+        <div class="word-chips">
+          <span class="chip">kind → kind<em>ness</em></span>
+          <span class="chip">happy → happi<em>ness</em></span>
+          <span class="chip">dark → dark<em>ness</em></span>
+          <span class="chip">sad → sad<em>ness</em></span>
+          <span class="chip">sick → sick<em>ness</em></span>
+          <span class="chip">lonely → loneli<em>ness</em></span>
+          <span class="chip">weak → weak<em>ness</em></span>
+          <span class="chip">aware → aware<em>ness</em></span>
+          <span class="chip">fit → fit<em>ness</em></span>
+          <span class="chip">good → good<em>ness</em></span>
+          <span class="chip">mad → mad<em>ness</em></span>
+          <span class="chip">lazy → lazi<em>ness</em></span>
+        </div>
+        <div class="sentences">
+          <div class="sent" style="border-color:#00c896;">
+            <div class="en">Alex's <span class="hl" style="color:#007a5a;">kind<em>ness</em></span> makes everyone feel welcome.</div>
+            <div class="ua">Доброта Алекса змушує всіх почуватися бажаними гостями.</div>
+          </div>
+          <div class="sent" style="border-color:#00e0aa;">
+            <div class="en">She felt deep <span class="hl" style="color:#007a5a;">sad<em>ness</em></span> when her friend moved away.</div>
+            <div class="ua">Вона відчула глибоку сум, коли її друг переїхав.</div>
+          </div>
+          <div class="sent" style="border-color:#00c896;">
+            <div class="en">Regular exercise improves your <span class="hl" style="color:#007a5a;">fit<em>ness</em></span> level.</div>
+            <div class="ua">Регулярні вправи покращують твій рівень фізичної форми.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- -ment -->
+    <div class="suf-card">
+      <div class="suf-card-head" style="background:linear-gradient(135deg,#4ecdc4,#7ef0ea);">
+        <div class="suf-badge">-ment</div>
+        <div class="suf-title">
+          <h3>Result / Action / Process</h3>
+          <p>Результат дії або сам процес (дієслово → іменник)</p>
+        </div>
+      </div>
+      <div class="suf-card-body">
+        <div class="formula-box" style="border-color:#4ecdc4;color:#007a74;">🧩 <span>VERB + -ment = result of that action</span></div>
+        <div class="word-chips">
+          <span class="chip">develop → develop<em>ment</em></span>
+          <span class="chip">enjoy → enjoy<em>ment</em></span>
+          <span class="chip">achieve → achieve<em>ment</em></span>
+          <span class="chip">agree → agree<em>ment</em></span>
+          <span class="chip">manage → manage<em>ment</em></span>
+          <span class="chip">treat → treat<em>ment</em></span>
+          <span class="chip">excite → excite<em>ment</em></span>
+          <span class="chip">amaze → amaze<em>ment</em></span>
+          <span class="chip">punish → punish<em>ment</em></span>
+          <span class="chip">invest → invest<em>ment</em></span>
+        </div>
+        <div class="sentences">
+          <div class="sent" style="border-color:#4ecdc4;">
+            <div class="en">Alex's greatest <span class="hl" style="color:#007a74;">achieve<em>ment</em></span> was winning the championship.</div>
+            <div class="ua">Найбільшим досягненням Алекса була перемога в чемпіонаті.</div>
+          </div>
+          <div class="sent" style="border-color:#7ef0ea;">
+            <div class="en">The <span class="hl" style="color:#007a74;">develop<em>ment</em></span> of new technology changes our lives.</div>
+            <div class="ua">Розвиток нових технологій змінює наше життя.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- -tion / -sion -->
+    <div class="suf-card">
+      <div class="suf-card-head" style="background:linear-gradient(135deg,#ff6b6b,#ff9f9f);">
+        <div class="suf-badge">-tion / -sion</div>
+        <div class="suf-title">
+          <h3>Action / Process / Result</h3>
+          <p>Дія або процес у формі іменника</p>
+        </div>
+      </div>
+      <div class="suf-card-body">
+        <div class="formula-box" style="border-color:#ff6b6b;color:#cc0000;">🧩 <span>VERB + -tion/-sion = the ACT of doing it</span></div>
+        <div class="word-chips">
+          <span class="chip">create → crea<em>tion</em></span>
+          <span class="chip">educate → educa<em>tion</em></span>
+          <span class="chip">protect → protec<em>tion</em></span>
+          <span class="chip">communicate → communica<em>tion</em></span>
+          <span class="chip">explain → explana<em>tion</em></span>
+          <span class="chip">decide → deci<em>sion</em></span>
+          <span class="chip">discuss → discus<em>sion</em></span>
+          <span class="chip">extend → exten<em>sion</em></span>
+          <span class="chip">conclude → conclu<em>sion</em></span>
+          <span class="chip">imagine → imagina<em>tion</em></span>
+          <span class="chip">invite → invita<em>tion</em></span>
+          <span class="chip">prepare → prepara<em>tion</em></span>
+        </div>
+        <div class="sentences">
+          <div class="sent" style="border-color:#ff6b6b;">
+            <div class="en">Alex's <span class="hl" style="color:#cc0000;">imagina<em>tion</em></span> is amazing — he creates new worlds every day.</div>
+            <div class="ua">Уява Алекса вражає — він створює нові світи щодня.</div>
+          </div>
+          <div class="sent" style="border-color:#ff9f9f;">
+            <div class="en">The <span class="hl" style="color:#cc0000;">deci<em>sion</em></span> was made after a long discus<em>sion</em>.</div>
+            <div class="ua">Рішення було прийнято після тривалого обговорення.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- -ity -->
+    <div class="suf-card">
+      <div class="suf-card-head" style="background:linear-gradient(135deg,#a29bfe,#c5bfff);">
+        <div class="suf-badge">-ity / -ty</div>
+        <div class="suf-title">
+          <h3>State / Quality (abstract)</h3>
+          <p>Абстрактна якість або стан</p>
+        </div>
+      </div>
+      <div class="suf-card-body">
+        <div class="formula-box" style="border-color:#a29bfe;color:#5a52cc;">🧩 <span>ADJECTIVE + -ity = the QUALITY of being ADJ</span></div>
+        <div class="word-chips">
+          <span class="chip">equal → equal<em>ity</em></span>
+          <span class="chip">active → activ<em>ity</em></span>
+          <span class="chip">creative → creativ<em>ity</em></span>
+          <span class="chip">possible → possibil<em>ity</em></span>
+          <span class="chip">real → real<em>ity</em></span>
+          <span class="chip">electric → electric<em>ity</em></span>
+          <span class="chip">popular → popular<em>ity</em></span>
+          <span class="chip">curious → curios<em>ity</em></span>
+          <span class="chip">secure → secur<em>ity</em></span>
+          <span class="chip">diverse → divers<em>ity</em></span>
+        </div>
+        <div class="sentences">
+          <div class="sent" style="border-color:#a29bfe;">
+            <div class="en">Alex's <span class="hl" style="color:#5a52cc;">creativ<em>ity</em></span> inspires everyone around her.</div>
+            <div class="ua">Творчість Алекс надихає всіх навколо неї.</div>
+          </div>
+          <div class="sent" style="border-color:#c5bfff;">
+            <div class="en">His <span class="hl" style="color:#5a52cc;">curios<em>ity</em></span> about science led him to become a scientist.</div>
+            <div class="ua">Його цікавість до науки привела його до кар'єри вченого.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- -ship -->
+    <div class="suf-card">
+      <div class="suf-card-head" style="background:linear-gradient(135deg,#00b4d8,#48cae4);">
+        <div class="suf-badge">-ship</div>
+        <div class="suf-title">
+          <h3>Status / Relationship / Skill</h3>
+          <p>Статус, стосунки між людьми, майстерність</p>
+        </div>
+      </div>
+      <div class="suf-card-body">
+        <div class="formula-box" style="border-color:#00b4d8;color:#006080;">🧩 <span>NOUN + -ship = state of being that noun</span></div>
+        <div class="word-chips">
+          <span class="chip">friend → friend<em>ship</em></span>
+          <span class="chip">leader → leader<em>ship</em></span>
+          <span class="chip">member → member<em>ship</em></span>
+          <span class="chip">partner → partner<em>ship</em></span>
+          <span class="chip">citizen → citizen<em>ship</em></span>
+          <span class="chip">scholar → scholar<em>ship</em></span>
+          <span class="chip">relation → relation<em>ship</em></span>
+          <span class="chip">owner → owner<em>ship</em></span>
+        </div>
+        <div class="sentences">
+          <div class="sent" style="border-color:#00b4d8;">
+            <div class="en">Alex and Ben have had a strong <span class="hl" style="color:#006080;">friend<em>ship</em></span> for ten years.</div>
+            <div class="ua">Алекс і Бен мають міцну дружбу вже десять років.</div>
+          </div>
+          <div class="sent" style="border-color:#48cae4;">
+            <div class="en">She received a <span class="hl" style="color:#006080;">scholar<em>ship</em></span> to study at Oxford University.</div>
+            <div class="ua">Вона отримала стипендію для навчання в Оксфорді.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- -hood -->
+    <div class="suf-card">
+      <div class="suf-card-head" style="background:linear-gradient(135deg,#f77f00,#fcbf49);">
+        <div class="suf-badge">-hood</div>
+        <div class="suf-title">
+          <h3>Stage of life / Community</h3>
+          <p>Пора/стадія життя або спільнота</p>
+        </div>
+      </div>
+      <div class="suf-card-body">
+        <div class="formula-box" style="border-color:#f77f00;color:#7a3d00;">🧩 <span>NOUN + -hood = period or state of being that noun</span></div>
+        <div class="word-chips">
+          <span class="chip">child → child<em>hood</em></span>
+          <span class="chip">adult → adult<em>hood</em></span>
+          <span class="chip">mother → mother<em>hood</em></span>
+          <span class="chip">father → father<em>hood</em></span>
+          <span class="chip">neighbour → neighbour<em>hood</em></span>
+          <span class="chip">brother → brother<em>hood</em></span>
+          <span class="chip">false → false<em>hood</em></span>
+          <span class="chip">likely → likeli<em>hood</em></span>
+        </div>
+        <div class="sentences">
+          <div class="sent" style="border-color:#f77f00;">
+            <div class="en">Alex remembers his <span class="hl" style="color:#7a3d00;">child<em>hood</em></span> as the happiest time of his life.</div>
+            <div class="ua">Алекс пам'ятає своє дитинство як найщасливіший час свого життя.</div>
+          </div>
+          <div class="sent" style="border-color:#fcbf49;">
+            <div class="en">They live in a safe and friendly <span class="hl" style="color:#7a3d00;">neighbour<em>hood</em></span>.</div>
+            <div class="ua">Вони живуть у безпечному й приязному районі.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- -age -->
+    <div class="suf-card">
+      <div class="suf-card-head" style="background:linear-gradient(135deg,#e63946,#ff6b6b);">
+        <div class="suf-badge">-age</div>
+        <div class="suf-title">
+          <h3>Process / Collection / State</h3>
+          <p>Процес, збірне поняття, стан або результат</p>
+        </div>
+      </div>
+      <div class="suf-card-body">
+        <div class="formula-box" style="border-color:#e63946;color:#8b0000;">🧩 <span>VERB/NOUN + -age = result or collection</span></div>
+        <div class="word-chips">
+          <span class="chip">pass → pass<em>age</em></span>
+          <span class="chip">package → pack<em>age</em></span>
+          <span class="chip">break → break<em>age</em></span>
+          <span class="chip">store → stor<em>age</em></span>
+          <span class="chip">drain → drain<em>age</em></span>
+          <span class="chip">short → short<em>age</em></span>
+          <span class="chip">marry → marri<em>age</em></span>
+          <span class="chip">shrink → shrink<em>age</em></span>
+        </div>
+        <div class="sentences">
+          <div class="sent" style="border-color:#e63946;">
+            <div class="en">There is a <span class="hl" style="color:#8b0000;">short<em>age</em></span> of water in many countries around the world.</div>
+            <div class="ua">У багатьох країнах світу є дефіцит води.</div>
+          </div>
+          <div class="sent" style="border-color:#ff6b6b;">
+            <div class="en">The <span class="hl" style="color:#8b0000;">stor<em>age</em></span> room is full of old furniture and boxes.</div>
+            <div class="ua">Комора повна старих меблів і коробок.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- -ance / -ence -->
+    <div class="suf-card">
+      <div class="suf-card-head" style="background:linear-gradient(135deg,#2d6a4f,#52b788);">
+        <div class="suf-badge">-ance / -ence</div>
+        <div class="suf-title">
+          <h3>State / Quality / Action (noun)</h3>
+          <p>Стан, якість або дія у формі іменника</p>
+        </div>
+      </div>
+      <div class="suf-card-body">
+        <div class="formula-box" style="border-color:#52b788;color:#1a4a30;">🧩 <span>VERB/ADJ + -ance/-ence = state of that verb/adj</span></div>
+        <div class="word-chips">
+          <span class="chip">perform → perform<em>ance</em></span>
+          <span class="chip">import → import<em>ance</em></span>
+          <span class="chip">appear → appear<em>ance</em></span>
+          <span class="chip">assist → assist<em>ance</em></span>
+          <span class="chip">resist → resist<em>ance</em></span>
+          <span class="chip">depend → depend<em>ence</em></span>
+          <span class="chip">exist → exist<em>ence</em></span>
+          <span class="chip">differ → differ<em>ence</em></span>
+          <span class="chip">prefer → prefer<em>ence</em></span>
+          <span class="chip">confident → confid<em>ence</em></span>
+        </div>
+        <div class="sentences">
+          <div class="sent" style="border-color:#52b788;">
+            <div class="en">Alex's <span class="hl" style="color:#1a4a30;">perform<em>ance</em></span> on stage was absolutely breathtaking.</div>
+            <div class="ua">Виступ Алекса на сцені був просто захопливим.</div>
+          </div>
+          <div class="sent" style="border-color:#2d6a4f;">
+            <div class="en">What's the <span class="hl" style="color:#1a4a30;">differ<em>ence</em></span> between these two words?</div>
+            <div class="ua">Яка різниця між цими двома словами?</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /cards-grid noun -->
+
+  <!-- ════════════════════════════════
+       ADJECTIVE SUFFIXES
+  ════════════════════════════════ -->
+  <div id="adj-suffixes" class="section-head" style="border-color:#ff6b9d; margin-top:50px;">
+    <span class="icon">🎨</span>
+    <div>
+      <h2 style="color:#ff6b9d;">Adjective Suffixes / Прикметникові суфікси</h2>
+      <p>These describe qualities, features, and states • Описують якості й ознаки</p>
+    </div>
+  </div>
+  <div class="cards-grid">
+
+    <!-- -ful -->
+    <div class="suf-card">
+      <div class="suf-card-head" style="background:linear-gradient(135deg,#e040fb,#ea80fc);">
+        <div class="suf-badge">-ful</div>
+        <div class="suf-title">
+          <h3>Full of / Having a quality</h3>
+          <p>Сповнений чогось / той, що має певну якість</p>
+        </div>
+      </div>
+      <div class="suf-card-body">
+        <div class="formula-box" style="border-color:#e040fb;color:#7b00a8;">🧩 <span>NOUN + -ful = FULL of that noun</span></div>
+        <div class="word-chips">
+          <span class="chip">hope → hope<em>ful</em></span>
+          <span class="chip">help → help<em>ful</em></span>
+          <span class="chip">beauty → beauti<em>ful</em></span>
+          <span class="chip">power → power<em>ful</em></span>
+          <span class="chip">wonder → wonder<em>ful</em></span>
+          <span class="chip">care → care<em>ful</em></span>
+          <span class="chip">thought → thought<em>ful</em></span>
+          <span class="chip">success → success<em>ful</em></span>
+          <span class="chip">colour → colour<em>ful</em></span>
+          <span class="chip">delight → delight<em>ful</em></span>
+          <span class="chip">cheer → cheer<em>ful</em></span>
+          <span class="chip">play → play<em>ful</em></span>
+        </div>
+        <div class="sentences">
+          <div class="sent" style="border-color:#e040fb;">
+            <div class="en">Alex is a very <span class="hl" style="color:#7b00a8;">help<em>ful</em></span> person — she always helps others.</div>
+            <div class="ua">Алекс — дуже корисна/доброзичлива людина — вона завжди допомагає іншим.</div>
+          </div>
+          <div class="sent" style="border-color:#ea80fc;">
+            <div class="en">The garden is <span class="hl" style="color:#7b00a8;">colour<em>ful</em></span> and <span class="hl" style="color:#7b00a8;">beauti<em>ful</em></span> in spring.</div>
+            <div class="ua">Сад барвистий і прекрасний навесні.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- -less -->
+    <div class="suf-card">
+      <div class="suf-card-head" style="background:linear-gradient(135deg,#546e7a,#78909c);">
+        <div class="suf-badge">-less</div>
+        <div class="suf-title">
+          <h3>Without / Lacking</h3>
+          <p>Без чогось / протилежність до -ful</p>
+        </div>
+      </div>
+      <div class="suf-card-body">
+        <div class="formula-box" style="border-color:#546e7a;color:#263238;">🧩 <span>NOUN + -less = WITHOUT that noun</span></div>
+        <div class="word-chips">
+          <span class="chip">hope → hope<em>less</em></span>
+          <span class="chip">help → help<em>less</em></span>
+          <span class="chip">care → care<em>less</em></span>
+          <span class="chip">power → power<em>less</em></span>
+          <span class="chip">home → home<em>less</em></span>
+          <span class="chip">use → use<em>less</em></span>
+          <span class="chip">harm → harm<em>less</em></span>
+          <span class="chip">worth → worth<em>less</em></span>
+          <span class="chip">speech → speech<em>less</em></span>
+          <span class="chip">end → end<em>less</em></span>
+          <span class="chip">breath → breath<em>less</em></span>
+          <span class="chip">fear → fear<em>less</em></span>
+        </div>
+        <div class="sentences">
+          <div class="sent" style="border-color:#546e7a;">
+            <div class="en">Don't be <span class="hl" style="color:#263238;">care<em>less</em></span> — always check your work twice!</div>
+            <div class="ua">Не будь безтурботним — завжди перевіряй свою роботу двічі!</div>
+          </div>
+          <div class="sent" style="border-color:#78909c;">
+            <div class="en">The brave soldier was <span class="hl" style="color:#263238;">fear<em>less</em></span> in battle.</div>
+            <div class="ua">Хоробрий солдат був безстрашним у бою.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- -ful vs -less box -->
+    <div class="suf-card" style="grid-column: span 1;">
+      <div class="suf-card-head" style="background:linear-gradient(135deg,#e040fb,#546e7a);">
+        <div class="suf-badge">⚡ VS</div>
+        <div class="suf-title">
+          <h3>-ful vs -less Opposites!</h3>
+          <p>Протилежності за допомогою суфіксів</p>
+        </div>
+      </div>
+      <div class="suf-card-body">
+        <p style="font-size:.88rem;color:var(--muted);margin-bottom:12px;">Same root, OPPOSITE meaning! / Один корінь, ПРОТИЛЕЖНЕ значення!</p>
+        <table style="width:100%;font-size:.85rem;border-collapse:collapse;">
+          <tr style="background:#f0f4ff;">
+            <td style="padding:6px 10px;font-weight:700;color:#7b00a8;">hope<em>ful</em> 😊</td>
+            <td style="padding:6px 10px;color:var(--muted);">→</td>
+            <td style="padding:6px 10px;font-weight:700;color:#263238;">hope<em>less</em> 😢</td>
+          </tr>
+          <tr>
+            <td style="padding:6px 10px;font-weight:700;color:#7b00a8;">help<em>ful</em> 🤝</td>
+            <td style="padding:6px 10px;color:var(--muted);">→</td>
+            <td style="padding:6px 10px;font-weight:700;color:#263238;">help<em>less</em> 😟</td>
+          </tr>
+          <tr style="background:#f0f4ff;">
+            <td style="padding:6px 10px;font-weight:700;color:#7b00a8;">care<em>ful</em> 🧐</td>
+            <td style="padding:6px 10px;color:var(--muted);">→</td>
+            <td style="padding:6px 10px;font-weight:700;color:#263238;">care<em>less</em> 🤦</td>
+          </tr>
+          <tr>
+            <td style="padding:6px 10px;font-weight:700;color:#7b00a8;">harm<em>ful</em> ⚠️</td>
+            <td style="padding:6px 10px;color:var(--muted);">→</td>
+            <td style="padding:6px 10px;font-weight:700;color:#263238;">harm<em>less</em> ✅</td>
+          </tr>
+          <tr style="background:#f0f4ff;">
+            <td style="padding:6px 10px;font-weight:700;color:#7b00a8;">use<em>ful</em> 👍</td>
+            <td style="padding:6px 10px;color:var(--muted);">→</td>
+            <td style="padding:6px 10px;font-weight:700;color:#263238;">use<em>less</em> 👎</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- -ous -->
+    <div class="suf-card">
+      <div class="suf-card-head" style="background:linear-gradient(135deg,#f9a825,#ffcc02);">
+        <div class="suf-badge">-ous</div>
+        <div class="suf-title">
+          <h3>Having / Full of / Characterized by</h3>
+          <p>Той, що має або характеризується певною якістю</p>
+        </div>
+      </div>
+      <div class="suf-card-body">
+        <div class="formula-box" style="border-color:#f9a825;color:#7a5000;">🧩 <span>NOUN + -ous = HAVING lots of that noun</span></div>
+        <div class="word-chips">
+          <span class="chip">danger → danger<em>ous</em></span>
+          <span class="chip">fame → fam<em>ous</em></span>
+          <span class="chip">courage → courage<em>ous</em></span>
+          <span class="chip">humour → humour<em>ous</em></span>
+          <span class="chip">glamour → glamour<em>ous</em></span>
+          <span class="chip">mystery → myster<em>ious</em></span>
+          <span class="chip">luxury → luxur<em>ious</em></span>
+          <span class="chip">ambition → ambit<em>ious</em></span>
+          <span class="chip">nerve → nerv<em>ous</em></span>
+          <span class="chip">poison → poison<em>ous</em></span>
+          <span class="chip">envy → env<em>ious</em></span>
+        </div>
+        <div class="sentences">
+          <div class="sent" style="border-color:#f9a825;">
+            <div class="en">Alex is <span class="hl" style="color:#7a5000;">ambit<em>ious</em></span> — she wants to be famous one day.</div>
+            <div class="ua">Алекс амбітна — вона хоче стати відомою колись.</div>
+          </div>
+          <div class="sent" style="border-color:#ffcc02;">
+            <div class="en">Don't touch that plant — it's <span class="hl" style="color:#7a5000;">poison<em>ous</em></span>!</div>
+            <div class="ua">Не торкайся тієї рослини — вона отруйна!</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- -able / -ible -->
+    <div class="suf-card">
+      <div class="suf-card-head" style="background:linear-gradient(135deg,#00897b,#26a69a);">
+        <div class="suf-badge">-able / -ible</div>
+        <div class="suf-title">
+          <h3>Can be done / Worthy of</h3>
+          <p>Можливий, придатний до чогось, гідний</p>
+        </div>
+      </div>
+      <div class="suf-card-body">
+        <div class="formula-box" style="border-color:#00897b;color:#004d43;">🧩 <span>VERB + -able/-ible = CAN BE done</span></div>
+        <div class="word-chips">
+          <span class="chip">read → read<em>able</em></span>
+          <span class="chip">enjoy → enjoy<em>able</em></span>
+          <span class="chip">love → lov<em>able</em></span>
+          <span class="chip">comfort → comfort<em>able</em></span>
+          <span class="chip">wash → wash<em>able</em></span>
+          <span class="chip">believe → believ<em>able</em></span>
+          <span class="chip">remark → remark<em>able</em></span>
+          <span class="chip">value → valu<em>able</em></span>
+          <span class="chip">sense → sens<em>ible</em></span>
+          <span class="chip">flex → flex<em>ible</em></span>
+          <span class="chip">access → access<em>ible</em></span>
+          <span class="chip">digest → digest<em>ible</em></span>
+        </div>
+        <div class="sentences">
+          <div class="sent" style="border-color:#00897b;">
+            <div class="en">Alex's story is so <span class="hl" style="color:#004d43;">believ<em>able</em></span> — it sounds completely real!</div>
+            <div class="ua">Історія Алекса така правдоподібна — вона звучить абсолютно реально!</div>
+          </div>
+          <div class="sent" style="border-color:#26a69a;">
+            <div class="en">The new sofa is very <span class="hl" style="color:#004d43;">comfort<em>able</em></span> to sit on.</div>
+            <div class="ua">Нова диван дуже зручний, щоб сидіти на ньому.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- -al / -ic -->
+    <div class="suf-card">
+      <div class="suf-card-head" style="background:linear-gradient(135deg,#3949ab,#5c6bc0);">
+        <div class="suf-badge">-al / -ic</div>
+        <div class="suf-title">
+          <h3>Relating to / Connected with</h3>
+          <p>Пов'язаний з чимось, що стосується</p>
+        </div>
+      </div>
+      <div class="suf-card-body">
+        <div class="formula-box" style="border-color:#3949ab;color:#1a237e;">🧩 <span>NOUN + -al/-ic = RELATING to that noun</span></div>
+        <div class="word-chips">
+          <span class="chip">nature → natur<em>al</em></span>
+          <span class="chip">music → music<em>al</em></span>
+          <span class="chip">origin → origin<em>al</em></span>
+          <span class="chip">magic → mag<em>ic</em>al</span>
+          <span class="chip">logic → log<em>ic</em>al</span>
+          <span class="chip">centre → centr<em>al</em></span>
+          <span class="chip">electricity → electr<em>ic</em></span>
+          <span class="chip">tradition → tradition<em>al</em></span>
+          <span class="chip">history → histor<em>ic</em>al</span>
+          <span class="chip">drama → dramat<em>ic</em></span>
+          <span class="chip">nation → nation<em>al</em></span>
+          <span class="chip">comic → com<em>ic</em>al</span>
+        </div>
+        <div class="sentences">
+          <div class="sent" style="border-color:#3949ab;">
+            <div class="en">Alex has a very <span class="hl" style="color:#1a237e;">natur<em>al</em></span> style of speaking — very <span class="hl" style="color:#1a237e;">origin<em>al</em></span>!</div>
+            <div class="ua">Алекс має дуже природній стиль мовлення — дуже оригінальний!</div>
+          </div>
+          <div class="sent" style="border-color:#5c6bc0;">
+            <div class="en">The ending of the film was <span class="hl" style="color:#1a237e;">dramat<em>ic</em></span> and <span class="hl" style="color:#1a237e;">histor<em>ic</em>al</span>.</div>
+            <div class="ua">Кінцівка фільму була драматичною та історичною.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- -ive -->
+    <div class="suf-card">
+      <div class="suf-card-head" style="background:linear-gradient(135deg,#d32f2f,#ef5350);">
+        <div class="suf-badge">-ive</div>
+        <div class="suf-title">
+          <h3>Tending to / Having a tendency</h3>
+          <p>Схильний до чогось, той що має тенденцію</p>
+        </div>
+      </div>
+      <div class="suf-card-body">
+        <div class="formula-box" style="border-color:#d32f2f;color:#7f0000;">🧩 <span>VERB/NOUN + -ive = TENDING to do it</span></div>
+        <div class="word-chips">
+          <span class="chip">act → act<em>ive</em></span>
+          <span class="chip">create → creat<em>ive</em></span>
+          <span class="chip">attract → attract<em>ive</em></span>
+          <span class="chip">effect → effect<em>ive</em></span>
+          <span class="chip">express → express<em>ive</em></span>
+          <span class="chip">progress → progress<em>ive</em></span>
+          <span class="chip">protect → protect<em>ive</em></span>
+          <span class="chip">sense → sens<em>itive</em></span>
+          <span class="chip">impress → impress<em>ive</em></span>
+          <span class="chip">support → support<em>ive</em></span>
+        </div>
+        <div class="sentences">
+          <div class="sent" style="border-color:#d32f2f;">
+            <div class="en">Alex is a very <span class="hl" style="color:#7f0000;">creat<em>ive</em></span> and <span class="hl" style="color:#7f0000;">attract<em>ive</em></span> person.</div>
+            <div class="ua">Алекс — дуже творча й приваблива людина.</div>
+          </div>
+          <div class="sent" style="border-color:#ef5350;">
+            <div class="en">The teacher uses <span class="hl" style="color:#7f0000;">effect<em>ive</em></span> methods to explain grammar.</div>
+            <div class="ua">Вчитель використовує ефективні методи для пояснення граматики.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- -ish / -y -->
+    <div class="suf-card">
+      <div class="suf-card-head" style="background:linear-gradient(135deg,#8d6e63,#a1887f);">
+        <div class="suf-badge">-ish / -y</div>
+        <div class="suf-title">
+          <h3>Somewhat / Having a bit of</h3>
+          <p>Трохи, дещо, схожий на щось</p>
+        </div>
+      </div>
+      <div class="suf-card-body">
+        <div class="formula-box" style="border-color:#8d6e63;color:#3e2723;">🧩 <span>NOUN/ADJ + -ish = a BIT like that / NOUN + -y = full of</span></div>
+        <div class="word-chips">
+          <span class="chip">child → child<em>ish</em></span>
+          <span class="chip">fool → fool<em>ish</em></span>
+          <span class="chip">self → self<em>ish</em></span>
+          <span class="chip">green → green<em>ish</em></span>
+          <span class="chip">thirty → thirt<em>ish</em></span>
+          <span class="chip">sun → sun<em>ny</em></span>
+          <span class="chip">rain → rain<em>y</em></span>
+          <span class="chip">fun → funn<em>y</em></span>
+          <span class="chip">sleep → sleep<em>y</em></span>
+          <span class="chip">luck → luck<em>y</em></span>
+          <span class="chip">wind → wind<em>y</em></span>
+          <span class="chip">cloud → cloud<em>y</em></span>
+          <span class="chip">dust → dust<em>y</em></span>
+        </div>
+        <div class="sentences">
+          <div class="sent" style="border-color:#8d6e63;">
+            <div class="en">Don't be <span class="hl" style="color:#3e2723;">self<em>ish</em></span> — share your snacks with friends!</div>
+            <div class="ua">Не будь егоїстом — поділись закусками з друзями!</div>
+          </div>
+          <div class="sent" style="border-color:#a1887f;">
+            <div class="en">Alex feels <span class="hl" style="color:#3e2723;">luck<em>y</em></span> today — it's <span class="hl" style="color:#3e2723;">sunn<em>y</em></span> and warm!</div>
+            <div class="ua">Алекс почувається щасливим сьогодні — сонячно і тепло!</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /adj cards -->
+
+  <!-- ════════════════════════════════
+       VERB SUFFIXES
+  ════════════════════════════════ -->
+  <div id="verb-suffixes" class="section-head" style="border-color:#ffb347; margin-top:50px;">
+    <span class="icon">⚡</span>
+    <div>
+      <h2 style="color:#b37000;">Verb Suffixes / Дієслівні суфікси</h2>
+      <p>These create ACTIONS • Перетворюють слова на дії</p>
+    </div>
+  </div>
+  <div class="cards-grid">
+
+    <!-- -ise / -ize -->
+    <div class="suf-card">
+      <div class="suf-card-head" style="background:linear-gradient(135deg,#ff8f00,#ffa726);">
+        <div class="suf-badge">-ise / -ize</div>
+        <div class="suf-title">
+          <h3>To make / To do something</h3>
+          <p>Зробити щось, перетворити на щось</p>
+        </div>
+      </div>
+      <div class="suf-card-body">
+        <div class="formula-box" style="border-color:#ff8f00;color:#7a3d00;">🧩 <span>NOUN/ADJ + -ize = to MAKE it that noun/adj</span></div>
+        <div class="word-chips">
+          <span class="chip">modern → modern<em>ize</em></span>
+          <span class="chip">organ → organ<em>ize</em></span>
+          <span class="chip">real → real<em>ize</em></span>
+          <span class="chip">special → special<em>ize</em></span>
+          <span class="chip">popular → popular<em>ize</em></span>
+          <span class="chip">symbol → symbol<em>ize</em></span>
+          <span class="chip">advertise → advert<em>ise</em></span>
+          <span class="chip">surprise → surpri<em>se</em></span>
+          <span class="chip">apolog → apolog<em>ize</em></span>
+          <span class="chip">memorize → memor<em>ize</em></span>
+        </div>
+        <div class="sentences">
+          <div class="sent" style="border-color:#ff8f00;">
+            <div class="en">Alex wants to <span class="hl" style="color:#7a3d00;">organ<em>ize</em></span> a big party for everyone.</div>
+            <div class="ua">Алекс хоче організувати велику вечірку для всіх.</div>
+          </div>
+          <div class="sent" style="border-color:#ffa726;">
+            <div class="en">Did you <span class="hl" style="color:#7a3d00;">real<em>ize</em></span> that you forgot your homework?</div>
+            <div class="ua">Ти усвідомив, що забув домашнє завдання?</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- -ify -->
+    <div class="suf-card">
+      <div class="suf-card-head" style="background:linear-gradient(135deg,#7b1fa2,#ab47bc);">
+        <div class="suf-badge">-ify</div>
+        <div class="suf-title">
+          <h3>To make / To cause to become</h3>
+          <p>Зробити чимось, перетворити (часто каузатив)</p>
+        </div>
+      </div>
+      <div class="suf-card-body">
+        <div class="formula-box" style="border-color:#7b1fa2;color:#4a148c;">🧩 <span>ADJ/NOUN + -ify = to make it that way</span></div>
+        <div class="word-chips">
+          <span class="chip">simple → simpl<em>ify</em></span>
+          <span class="chip">class → class<em>ify</em></span>
+          <span class="chip">beauty → beauti<em>fy</em></span>
+          <span class="chip">solid → solid<em>ify</em></span>
+          <span class="chip">notify → not<em>ify</em></span>
+          <span class="chip">identify → ident<em>ify</em></span>
+          <span class="chip">justify → just<em>ify</em></span>
+          <span class="chip">magnify → magn<em>ify</em></span>
+          <span class="chip">terrify → terr<em>ify</em></span>
+          <span class="chip">satisfy → sat<em>isfy</em></span>
+        </div>
+        <div class="sentences">
+          <div class="sent" style="border-color:#7b1fa2;">
+            <div class="en">Can you <span class="hl" style="color:#4a148c;">simpl<em>ify</em></span> the explanation? Alex doesn't understand.</div>
+            <div class="ua">Чи можеш ти спростити пояснення? Алекс не розуміє.</div>
+          </div>
+          <div class="sent" style="border-color:#ab47bc;">
+            <div class="en">The magician can <span class="hl" style="color:#4a148c;">magn<em>ify</em></span> any object with a special lens.</div>
+            <div class="ua">Фокусник може збільшити будь-який предмет за допомогою спеціального об'єктива.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- -en -->
+    <div class="suf-card">
+      <div class="suf-card-head" style="background:linear-gradient(135deg,#00695c,#009688);">
+        <div class="suf-badge">-en</div>
+        <div class="suf-title">
+          <h3>To become / To make more</h3>
+          <p>Ставати або робити більш (певною якістю)</p>
+        </div>
+      </div>
+      <div class="suf-card-body">
+        <div class="formula-box" style="border-color:#00695c;color:#003d36;">🧩 <span>ADJ + -en = to BECOME or MAKE more ADJ</span></div>
+        <div class="word-chips">
+          <span class="chip">dark → dark<em>en</em></span>
+          <span class="chip">bright → bright<em>en</em></span>
+          <span class="chip">short → short<em>en</em></span>
+          <span class="chip">long → leng<em>then</em></span>
+          <span class="chip">strength → strength<em>en</em></span>
+          <span class="chip">weak → weak<em>en</em></span>
+          <span class="chip">wide → wid<em>en</em></span>
+          <span class="chip">deep → deep<em>en</em></span>
+          <span class="chip">tight → tight<em>en</em></span>
+          <span class="chip">loose → loos<em>en</em></span>
+          <span class="chip">soft → soft<em>en</em></span>
+          <span class="chip">fresh → fresh<em>en</em></span>
+        </div>
+        <div class="sentences">
+          <div class="sent" style="border-color:#00695c;">
+            <div class="en">This exercise will <span class="hl" style="color:#003d36;">strength<em>en</em></span> Alex's muscles quickly.</div>
+            <div class="ua">Ця вправа швидко зміцнить м'язи Алекса.</div>
+          </div>
+          <div class="sent" style="border-color:#009688;">
+            <div class="en">The sky starts to <span class="hl" style="color:#003d36;">dark<em>en</em></span> before a storm arrives.</div>
+            <div class="ua">Небо починає темніти перед тим, як наближається буря.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /verb cards -->
+
+  <!-- ════════════════════════════════
+       ADVERB SUFFIXES
+  ════════════════════════════════ -->
+  <div id="adv-suffixes" class="section-head" style="border-color:#00c896; margin-top:50px;">
+    <span class="icon">🏃</span>
+    <div>
+      <h2 style="color:#007a5a;">Adverb Suffixes / Прислівникові суфікси</h2>
+      <p>These describe HOW things happen • Описують ЯК відбуваються дії</p>
+    </div>
+  </div>
+  <div class="cards-grid">
+    <!-- -ly -->
+    <div class="suf-card">
+      <div class="suf-card-head" style="background:linear-gradient(135deg,#00c896,#00e0aa);">
+        <div class="suf-badge">-ly</div>
+        <div class="suf-title">
+          <h3>In a ___ way / How something is done</h3>
+          <p>У певний спосіб / прислівник способу дії</p>
+        </div>
+      </div>
+      <div class="suf-card-body">
+        <div class="formula-box" style="border-color:#00c896;color:#007a5a;">🧩 <span>ADJECTIVE + -ly = in that ADJECTIVE way</span></div>
+        <div class="word-chips">
+          <span class="chip">quick → quick<em>ly</em></span>
+          <span class="chip">slow → slow<em>ly</em></span>
+          <span class="chip">kind → kind<em>ly</em></span>
+          <span class="chip">beautiful → beautiful<em>ly</em></span>
+          <span class="chip">careful → careful<em>ly</em></span>
+          <span class="chip">happy → happi<em>ly</em></span>
+          <span class="chip">loud → loud<em>ly</em></span>
+          <span class="chip">perfect → perfect<em>ly</em></span>
+          <span class="chip">sudden → sudden<em>ly</em></span>
+          <span class="chip">final → final<em>ly</em></span>
+          <span class="chip">frequent → frequent<em>ly</em></span>
+          <span class="chip">easy → easi<em>ly</em></span>
+          <span class="chip">brave → brave<em>ly</em></span>
+          <span class="chip">quiet → quiet<em>ly</em></span>
+        </div>
+        <div class="sentences">
+          <div class="sent" style="border-color:#00c896;">
+            <div class="en">Alex speaks English <span class="hl" style="color:#007a5a;">fluent<em>ly</em></span> and <span class="hl" style="color:#007a5a;">confident<em>ly</em></span>.</div>
+            <div class="ua">Алекс говорить англійською вільно і впевнено.</div>
+          </div>
+          <div class="sent" style="border-color:#00e0aa;">
+            <div class="en">She <span class="hl" style="color:#007a5a;">sudden<em>ly</em></span> stopped and looked at the sky <span class="hl" style="color:#007a5a;">quiet<em>ly</em></span>.</div>
+            <div class="ua">Вона раптово зупинилася і тихо подивилася на небо.</div>
+          </div>
+          <div class="sent" style="border-color:#00c896;">
+            <div class="en">Alex <span class="hl" style="color:#007a5a;">happi<em>ly</em></span> helped everyone and smiled <span class="hl" style="color:#007a5a;">kind<em>ly</em></span>.</div>
+            <div class="ua">Алекс щасливо допомагав усім і посміхався по-доброму.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- -ly also for adjectives from nouns -->
+    <div class="suf-card">
+      <div class="suf-card-head" style="background:linear-gradient(135deg,#0277bd,#0288d1);">
+        <div class="suf-badge">-ly²</div>
+        <div class="suf-title">
+          <h3>-ly for Adjectives (NOUN + -ly)</h3>
+          <p>-ly також для прикметників: іменник + -ly</p>
+        </div>
+      </div>
+      <div class="suf-card-body">
+        <div class="formula-box" style="border-color:#0277bd;color:#003f72;">🧩 <span>NOUN + -ly = LIKE that noun / HAVING that quality</span></div>
+        <div class="word-chips">
+          <span class="chip">friend → friend<em>ly</em></span>
+          <span class="chip">love → love<em>ly</em></span>
+          <span class="chip">order → order<em>ly</em></span>
+          <span class="chip">time → time<em>ly</em></span>
+          <span class="chip">cost → cost<em>ly</em></span>
+          <span class="chip">man → man<em>ly</em></span>
+          <span class="chip">earth → earth<em>ly</em></span>
+          <span class="chip">month → month<em>ly</em></span>
+          <span class="chip">week → week<em>ly</em></span>
+        </div>
+        <div class="sentences">
+          <div class="sent" style="border-color:#0277bd;">
+            <div class="en">Alex is such a <span class="hl" style="color:#003f72;">friend<em>ly</em></span> and <span class="hl" style="color:#003f72;">love<em>ly</em></span> person!</div>
+            <div class="ua">Алекс — така привітна і чудова людина!</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════
+       NUMBER SUFFIXES
+  ════════════════════════════════ -->
+  <div id="num-suffixes" class="section-head" style="border-color:#4ecdc4; margin-top:50px;">
+    <span class="icon">🔢</span>
+    <div>
+      <h2 style="color:#007a74;">Number Suffixes / Числові суфікси</h2>
+      <p>-teen, -ty, -th — forming numbers • Утворення числівників</p>
+    </div>
+  </div>
+  <div class="cards-grid">
+    <div class="suf-card">
+      <div class="suf-card-head" style="background:linear-gradient(135deg,#4ecdc4,#7ef0ea);">
+        <div class="suf-badge">-teen</div>
+        <div class="suf-title">
+          <h3>13–19 (numbers)</h3>
+          <p>Числа від 13 до 19 / підліткові числа</p>
+        </div>
+      </div>
+      <div class="suf-card-body">
+        <div class="formula-box" style="border-color:#4ecdc4;color:#007a74;">🧩 <span>NUMBER + -teen = that number + 10</span></div>
+        <div class="word-chips">
+          <span class="chip">thir → thir<em>teen</em> (13)</span>
+          <span class="chip">four → four<em>teen</em> (14)</span>
+          <span class="chip">fif → fif<em>teen</em> (15)</span>
+          <span class="chip">six → six<em>teen</em> (16)</span>
+          <span class="chip">seven → seven<em>teen</em> (17)</span>
+          <span class="chip">eigh → eigh<em>teen</em> (18)</span>
+          <span class="chip">nine → nine<em>teen</em> (19)</span>
+        </div>
+        <div class="sentences">
+          <div class="sent" style="border-color:#4ecdc4;">
+            <div class="en">Alex is <span class="hl" style="color:#007a74;">four<em>teen</em></span> years old and loves music.</div>
+            <div class="ua">Алексу чотирнадцять років, і він любить музику.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="suf-card">
+      <div class="suf-card-head" style="background:linear-gradient(135deg,#26c6da,#4dd0e1);">
+        <div class="suf-badge">-ty</div>
+        <div class="suf-title">
+          <h3>20, 30, 40… (tens)</h3>
+          <p>Десятки: двадцять, тридцять, сорок…</p>
+        </div>
+      </div>
+      <div class="suf-card-body">
+        <div class="formula-box" style="border-color:#26c6da;color:#006070;">🧩 <span>NUMBER + -ty = multiples of ten</span></div>
+        <div class="word-chips">
+          <span class="chip">twen → twen<em>ty</em> (20)</span>
+          <span class="chip">thir → thir<em>ty</em> (30)</span>
+          <span class="chip">for → for<em>ty</em> (40)</span>
+          <span class="chip">fif → fif<em>ty</em> (50)</span>
+          <span class="chip">six → six<em>ty</em> (60)</span>
+          <span class="chip">seven → seven<em>ty</em> (70)</span>
+          <span class="chip">eigh → eigh<em>ty</em> (80)</span>
+          <span class="chip">nine → nine<em>ty</em> (90)</span>
+        </div>
+        <div class="sentences">
+          <div class="sent" style="border-color:#26c6da;">
+            <div class="en">Alex's grandmother is <span class="hl" style="color:#006070;">seven<em>ty</em></span>-two years old.</div>
+            <div class="ua">Бабуся Алекса має сімдесят два роки.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="suf-card">
+      <div class="suf-card-head" style="background:linear-gradient(135deg,#0097a7,#00bcd4);">
+        <div class="suf-badge">-th</div>
+        <div class="suf-title">
+          <h3>Ordinal numbers (1st, 2nd…)</h3>
+          <p>Порядкові числівники: перший, другий…</p>
+        </div>
+      </div>
+      <div class="suf-card-body">
+        <div class="formula-box" style="border-color:#0097a7;color:#004b52;">🧩 <span>NUMBER + -th = ordinal (position in order)</span></div>
+        <div class="word-chips">
+          <span class="chip">four → four<em>th</em></span>
+          <span class="chip">five → fif<em>th</em></span>
+          <span class="chip">six → six<em>th</em></span>
+          <span class="chip">seven → seven<em>th</em></span>
+          <span class="chip">ten → ten<em>th</em></span>
+          <span class="chip">hundred → hundredth</span>
+        </div>
+        <div class="sentences">
+          <div class="sent" style="border-color:#0097a7;">
+            <div class="en">Alex finished in <span class="hl" style="color:#004b52;">four<em>th</em></span> place in the competition!</div>
+            <div class="ua">Алекс фінішував на четвертому місці в змаганні!</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════
+       DIMINUTIVE SUFFIXES
+  ════════════════════════════════ -->
+  <div id="dim-suffixes" class="section-head" style="border-color:#a29bfe; margin-top:50px;">
+    <span class="icon">🐣</span>
+    <div>
+      <h2 style="color:#5a52cc;">Diminutive & Small Suffixes / Зменшувальні суфікси</h2>
+      <p>-let, -ling — making things small or young • Зменшення або пестливість</p>
+    </div>
+  </div>
+  <div class="cards-grid">
+    <div class="suf-card">
+      <div class="suf-card-head" style="background:linear-gradient(135deg,#a29bfe,#c5bfff);">
+        <div class="suf-badge">-let</div>
+        <div class="suf-title">
+          <h3>Small / Little version</h3>
+          <p>Маленька версія чогось</p>
+        </div>
+      </div>
+      <div class="suf-card-body">
+        <div class="formula-box" style="border-color:#a29bfe;color:#5a52cc;">🧩 <span>NOUN + -let = small/little NOUN</span></div>
+        <div class="word-chips">
+          <span class="chip">book → book<em>let</em></span>
+          <span class="chip">drop → drop<em>let</em></span>
+          <span class="chip">pig → pig<em>let</em></span>
+          <span class="chip">stream → stream<em>let</em></span>
+          <span class="chip">star → star<em>let</em></span>
+          <span class="chip">flower → flower<em>let</em></span>
+        </div>
+        <div class="sentences">
+          <div class="sent" style="border-color:#a29bfe;">
+            <div class="en">Alex wrote a small <span class="hl" style="color:#5a52cc;">book<em>let</em></span> about her trip to the mountains.</div>
+            <div class="ua">Алекс написала невелику брошуру про свою поїздку в гори.</div>
+          </div>
+          <div class="sent" style="border-color:#c5bfff;">
+            <div class="en">Rain <span class="hl" style="color:#5a52cc;">drop<em>lets</em></span> sparkled on the window like tiny diamonds.</div>
+            <div class="ua">Крапельки дощу блищали на вікні, як маленькі діаманти.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="suf-card">
+      <div class="suf-card-head" style="background:linear-gradient(135deg,#8e24aa,#ab47bc);">
+        <div class="suf-badge">-ling</div>
+        <div class="suf-title">
+          <h3>Young / Small / Connected</h3>
+          <p>Молода/мала істота або щось пов'язане</p>
+        </div>
+      </div>
+      <div class="suf-card-body">
+        <div class="formula-box" style="border-color:#8e24aa;color:#4a0072;">🧩 <span>NOUN + -ling = young/small of that noun</span></div>
+        <div class="word-chips">
+          <span class="chip">duck → duck<em>ling</em></span>
+          <span class="chip">goose → gos<em>ling</em></span>
+          <span class="chip">earth → earth<em>ling</em></span>
+          <span class="chip">prince → princ<em>ling</em></span>
+          <span class="chip">sibling (related)</span>
+          <span class="chip">hire → hire<em>ling</em></span>
+          <span class="chip">nest → nest<em>ling</em></span>
+          <span class="chip">fond → fond<em>ling</em></span>
+        </div>
+        <div class="sentences">
+          <div class="sent" style="border-color:#8e24aa;">
+            <div class="en">Alex saw a tiny <span class="hl" style="color:#4a0072;">duck<em>ling</em></span> swimming alone in the pond.</div>
+            <div class="ua">Алекс побачив маленьке каченя, яке плавало саме у ставку.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════
+       FULL REFERENCE TABLE
+  ════════════════════════════════ -->
+  <div id="big-table" class="section-head" style="border-color:#ff6b9d; margin-top:50px;">
+    <span class="icon">📋</span>
+    <div>
+      <h2 style="color:#cc0055;">Full Suffix Reference Table / Повна таблиця суфіксів</h2>
+      <p>All suffixes at a glance • Всі суфікси разом</p>
+    </div>
+  </div>
+  <table class="ref-table">
+    <thead>
+      <tr>
+        <th>Suffix / Суфікс</th>
+        <th>Meaning / Значення</th>
+        <th>Type / Тип</th>
+        <th>Examples / Приклади</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="suf">-er / -or</td><td class="meaning">person who does it / виконавець</td><td>Noun</td><td class="ex">teacher, actor, driver, creator</td></tr>
+      <tr><td class="suf">-ist</td><td class="meaning">specialist / believer / фахівець</td><td>Noun</td><td class="ex">artist, scientist, tourist, pianist</td></tr>
+      <tr><td class="suf">-ian</td><td class="meaning">person related to / пов'язана особа</td><td>Noun</td><td class="ex">musician, Italian, politician, magician</td></tr>
+      <tr><td class="suf">-ness</td><td class="meaning">state/quality of / стан чи якість</td><td>Noun</td><td class="ex">kindness, happiness, darkness</td></tr>
+      <tr><td class="suf">-ment</td><td class="meaning">result/process of / результат дії</td><td>Noun</td><td class="ex">achievement, development, treatment</td></tr>
+      <tr><td class="suf">-tion / -sion</td><td class="meaning">act/process of / дія або процес</td><td>Noun</td><td class="ex">education, decision, imagination</td></tr>
+      <tr><td class="suf">-ity / -ty</td><td class="meaning">abstract quality / абстрактна якість</td><td>Noun</td><td class="ex">creativity, equality, reality</td></tr>
+      <tr><td class="suf">-ship</td><td class="meaning">status/relationship / стосунки</td><td>Noun</td><td class="ex">friendship, leadership, citizenship</td></tr>
+      <tr><td class="suf">-hood</td><td class="meaning">stage/community / стадія/спільнота</td><td>Noun</td><td class="ex">childhood, neighbourhood, brotherhood</td></tr>
+      <tr><td class="suf">-age</td><td class="meaning">process/collection / процес/збірне</td><td>Noun</td><td class="ex">marriage, shortage, storage, passage</td></tr>
+      <tr><td class="suf">-ance / -ence</td><td class="meaning">state/quality of / стан</td><td>Noun</td><td class="ex">performance, difference, existence</td></tr>
+      <tr><td class="suf">-ful</td><td class="meaning">full of / сповнений</td><td>Adjective</td><td class="ex">beautiful, helpful, powerful, careful</td></tr>
+      <tr><td class="suf">-less</td><td class="meaning">without / без</td><td>Adjective</td><td class="ex">hopeless, careless, harmless, endless</td></tr>
+      <tr><td class="suf">-ous</td><td class="meaning">having a quality / той, що має</td><td>Adjective</td><td class="ex">dangerous, famous, nervous, luxurious</td></tr>
+      <tr><td class="suf">-able / -ible</td><td class="meaning">can be done / можливий</td><td>Adjective</td><td class="ex">readable, comfortable, flexible, sensible</td></tr>
+      <tr><td class="suf">-al / -ic</td><td class="meaning">relating to / що стосується</td><td>Adjective</td><td class="ex">natural, musical, electric, dramatic</td></tr>
+      <tr><td class="suf">-ive</td><td class="meaning">tending to / схильний</td><td>Adjective</td><td class="ex">creative, active, effective, sensitive</td></tr>
+      <tr><td class="suf">-ish</td><td class="meaning">somewhat / somewhat like / трохи</td><td>Adjective</td><td class="ex">childish, foolish, selfish, greenish</td></tr>
+      <tr><td class="suf">-y</td><td class="meaning">having/full of / наповнений</td><td>Adjective</td><td class="ex">sunny, rainy, funny, lucky, dusty</td></tr>
+      <tr><td class="suf">-ise / -ize</td><td class="meaning">to make / робити</td><td>Verb</td><td class="ex">organize, modernize, realize, apologize</td></tr>
+      <tr><td class="suf">-ify</td><td class="meaning">to cause to become / спричинити</td><td>Verb</td><td class="ex">simplify, classify, beautify, terrify</td></tr>
+      <tr><td class="suf">-en</td><td class="meaning">to become/make more / ставати</td><td>Verb</td><td class="ex">darken, strengthen, widen, soften</td></tr>
+      <tr><td class="suf">-ly</td><td class="meaning">in a ___ way / у певний спосіб</td><td>Adverb</td><td class="ex">quickly, kindly, suddenly, perfectly</td></tr>
+      <tr><td class="suf">-ly²</td><td class="meaning">like/having (adj) / схожий на</td><td>Adjective</td><td class="ex">friendly, lovely, costly, monthly</td></tr>
+      <tr><td class="suf">-teen</td><td class="meaning">numbers 13–19 / числа 13–19</td><td>Number</td><td class="ex">thirteen, fourteen, sixteen, nineteen</td></tr>
+      <tr><td class="suf">-ty</td><td class="meaning">tens: 20, 30… / десятки</td><td>Number</td><td class="ex">twenty, thirty, fifty, ninety</td></tr>
+      <tr><td class="suf">-th</td><td class="meaning">ordinal numbers / порядкові</td><td>Number</td><td class="ex">fourth, fifth, tenth, hundredth</td></tr>
+      <tr><td class="suf">-let</td><td class="meaning">small version / маленька версія</td><td>Noun</td><td class="ex">booklet, droplet, piglet, starlet</td></tr>
+      <tr><td class="suf">-ling</td><td class="meaning">young/small of / молодий/малий</td><td>Noun</td><td class="ex">duckling, nestling, gosling, earthling</td></tr>
+    </tbody>
+  </table>
+
+  <!-- TIPS BOX -->
+  <div class="tips-box">
+    <h3>🌟 Pro Tips — Корисні поради</h3>
+    <ul class="tips-list">
+      <li><span class="tip-icon">💡</span><div><strong>Remember the pairs!</strong> / <em>Запам'ятай пари!</em><br>-ful and -less are opposites: helpful ↔ helpless, harmful ↔ harmless, hopeful ↔ hopeless</div></li>
+      <li><span class="tip-icon">🔄</span><div><strong>Chain suffixes!</strong> / <em>Можна додавати кілька суфіксів!</em><br>create → creation → creative → creatively → creativity</div></li>
+      <li><span class="tip-icon">🎯</span><div><strong>-tion vs -sion:</strong> After t/te → usually -tion (education). After d/de → usually -sion (decision, extension)</div></li>
+      <li><span class="tip-icon">🇬🇧🇺🇸</span><div><strong>British vs American spelling:</strong> -ise (British: organise) = -ize (American: organize) — both are correct!</div></li>
+      <li><span class="tip-icon">📚</span><div><strong>Spelling rule!</strong> / <em>Правило правопису!</em><br>happy → happily (y → i + ly), funny → funnily, easy → easily</div></li>
+      <li><span class="tip-icon">⚡</span><div><strong>Magic chain / Чарівний ланцюжок:</strong> kind → kindly → kindness → unkind → unkindly → unkindness 🤯</div></li>
+    </ul>
+  </div>
+
+  <!-- MAGIC SENTENCE TRANSFORMATIONS -->
+  <div class="magic-box" style="background:linear-gradient(135deg,#ff6b9d,#ff9ab5);border-left-color:#cc0055;">
+    <h2 style="color:#fff;">🔮 Magic Sentence Transformations / Чарівні перетворення речення</h2>
+    <p style="color:#ffe0ee;margin-bottom:14px;">Дивись, як одне слово "kind" перетворюється на РІЗНІ частини мови за допомогою суфіксів!</p>
+    <div style="display:grid;gap:8px;font-size:.9rem;">
+      <div style="background:rgba(255,255,255,0.2);border-radius:10px;padding:10px 16px;">
+        <strong style="color:#fff;">🎯 Base:</strong> Alex is <strong>kind</strong>. (прикметник / adjective)
+        <div style="color:#ffe0ee;font-size:.82rem;">Алекс добрий.</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.2);border-radius:10px;padding:10px 16px;">
+        <strong style="color:#fff;">+ness →</strong> Alex has great <strong>kind<em>ness</em></strong>. (іменник / noun)
+        <div style="color:#ffe0ee;font-size:.82rem;">Алекс має велику доброту.</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.2);border-radius:10px;padding:10px 16px;">
+        <strong style="color:#fff;">+ly →</strong> Alex acts <strong>kind<em>ly</em></strong> towards everyone. (прислівник / adverb)
+        <div style="color:#ffe0ee;font-size:.82rem;">Алекс поводиться доброзичливо з усіма.</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.2);border-radius:10px;padding:10px 16px;">
+        <strong style="color:#fff;">un- + kind →</strong> Alex is never <strong>un<em>kind</em></strong>. (протилежність / opposite)
+        <div style="color:#ffe0ee;font-size:.82rem;">Алекс ніколи не буває недобрим.</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.2);border-radius:10px;padding:10px 16px;">
+        <strong style="color:#fff;">create →</strong> Alex is a <strong>creat<em>or</em></strong> / <strong>creat<em>ive</em></strong> / acts <strong>creat<em>ively</em></strong> / has <strong>creativ<em>ity</em></strong>
+        <div style="color:#ffe0ee;font-size:.82rem;">Алекс — творець / творчий / діє творчо / має творчість.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════
+       QUIZ
+  ════════════════════════════════ -->
+  <div id="quiz" class="quiz-wrap">
+    <h2>🧠 Quick Quiz! / Швидкий квіз!</h2>
+    <p>Test what you know about suffixes! / Перевір свої знання суфіксів!</p>
+
+    <div class="quiz-q" id="q1">
+      <p>1. "Alex is a _____ person." — Which suffix makes the adjective mean "full of care"? / Який суфікс означає "сповнений турботи"?</p>
+      <div class="quiz-opts">
+        <button class="quiz-opt" onclick="answer(this,'correct','q1')">care<strong>ful</strong></button>
+        <button class="quiz-opt" onclick="answer(this,'wrong','q1')">care<strong>ment</strong></button>
+        <button class="quiz-opt" onclick="answer(this,'wrong','q1')">care<strong>ize</strong></button>
+        <button class="quiz-opt" onclick="answer(this,'wrong','q1')">care<strong>tion</strong></button>
+      </div>
+      <div class="quiz-feedback" id="f1"></div>
+    </div>
+
+    <div class="quiz-q" id="q2">
+      <p>2. "The _____ of Alex's speech was amazing." — What suffix turns "perform" into a noun meaning "the act of performing"? / Що перетворює "perform" на іменник?</p>
+      <div class="quiz-opts">
+        <button class="quiz-opt" onclick="answer(this,'wrong','q2')">perform<strong>ful</strong></button>
+        <button class="quiz-opt" onclick="answer(this,'correct','q2')">perform<strong>ance</strong></button>
+        <button class="quiz-opt" onclick="answer(this,'wrong','q2')">perform<strong>ish</strong></button>
+        <button class="quiz-opt" onclick="answer(this,'wrong','q2')">perform<strong>er</strong></button>
+      </div>
+      <div class="quiz-feedback" id="f2"></div>
+    </div>
+
+    <div class="quiz-q" id="q3">
+      <p>3. "She speaks very _____." — Which turns "beautiful" into an adverb? / Що перетворює прикметник на прислівник?</p>
+      <div class="quiz-opts">
+        <button class="quiz-opt" onclick="answer(this,'correct','q3')">beautiful<strong>ly</strong></button>
+        <button class="quiz-opt" onclick="answer(this,'wrong','q3')">beautiful<strong>ness</strong></button>
+        <button class="quiz-opt" onclick="answer(this,'wrong','q3')">beautiful<strong>ize</strong></button>
+        <button class="quiz-opt" onclick="answer(this,'wrong','q3')">beautiful<strong>ish</strong></button>
+      </div>
+      <div class="quiz-feedback" id="f3"></div>
+    </div>
+
+    <div class="quiz-q" id="q4">
+      <p>4. "Alex is a great _____!" — Which word means "a person who leads"? / Яке слово означає "людина, що веде/керує"?</p>
+      <div class="quiz-opts">
+        <button class="quiz-opt" onclick="answer(this,'wrong','q4')">lead<strong>ness</strong></button>
+        <button class="quiz-opt" onclick="answer(this,'wrong','q4')">lead<strong>ful</strong></button>
+        <button class="quiz-opt" onclick="answer(this,'correct','q4')">lead<strong>er</strong></button>
+        <button class="quiz-opt" onclick="answer(this,'wrong','q4')">lead<strong>tion</strong></button>
+      </div>
+      <div class="quiz-feedback" id="f4"></div>
+    </div>
+
+    <div class="quiz-q" id="q5">
+      <p>5. Which suffix makes a verb meaning "to make wider"? / Який суфікс перетворює прикметник на дієслово "робити ширшим"?</p>
+      <div class="quiz-opts">
+        <button class="quiz-opt" onclick="answer(this,'wrong','q5')">wid<strong>ful</strong></button>
+        <button class="quiz-opt" onclick="answer(this,'correct','q5')">wid<strong>en</strong></button>
+        <button class="quiz-opt" onclick="answer(this,'wrong','q5')">wid<strong>ness</strong></button>
+        <button class="quiz-opt" onclick="answer(this,'wrong','q5')">wid<strong>ish</strong></button>
+      </div>
+      <div class="quiz-feedback" id="f5"></div>
+    </div>
+
+    <div class="quiz-q" id="q6">
+      <p>6. "Alex's _____ amazed everyone!" — What suffix turns "imagine" into a noun? / Що перетворює "imagine" на іменник?</p>
+      <div class="quiz-opts">
+        <button class="quiz-opt" onclick="answer(this,'wrong','q6')">imagin<strong>ful</strong></button>
+        <button class="quiz-opt" onclick="answer(this,'wrong','q6')">imagin<strong>er</strong></button>
+        <button class="quiz-opt" onclick="answer(this,'correct','q6')">imagin<strong>ation</strong></button>
+        <button class="quiz-opt" onclick="answer(this,'wrong','q6')">imagin<strong>ship</strong></button>
+      </div>
+      <div class="quiz-feedback" id="f6"></div>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<footer>
+  <p>🪄 <strong>English Suffixes</strong> — Суфікси англійської мови<br>
+  <small>Вивчай, практикуй, зростай! Learn, practise, grow! 🌱</small></p>
+</footer>
+
+<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  // Scroll top button
+  window.addEventListener('scroll', () => {
+    const btn = document.getElementById('scrollTop');
+    btn.classList.toggle('show', window.scrollY > 400);
+  });
+
+  // Quiz logic
+  const feedbacks = {
+    q1: ['✅ Correct! "Careful" = full of care! / Правильно! "Careful" = сповнений турботи!', '❌ -ment makes nouns from verbs. Try -ful! / -ment утворює іменники. Спробуй -ful!'],
+    q2: ['✅ Yes! -ance/-ence makes nouns from verbs! / Так! -ance/-ence утворює іменники!', '❌ That suffix doesn\'t work here. -ance is the answer! / Той суфікс тут не підходить!'],
+    q3: ['✅ Perfect! -ly turns adjectives into adverbs! / Чудово! -ly перетворює прикметники на прислівники!', '❌ Not quite! -ly is the adverb suffix. / Не зовсім! -ly — суфікс прислівника.'],
+    q4: ['✅ Great! -er makes a person who does the action! / Чудово! -er означає особу, яка виконує дію!', '❌ Remember: -er/-or makes people who do things! / Пам\'ятай: -er/-or утворює виконавця дії!'],
+    q5: ['✅ Excellent! -en makes verbs meaning "to become/make more"! / Чудово! -en означає "ставати або робити більш"!', '❌ -en is the verb suffix here! / -en — дієслівний суфікс тут!'],
+    q6: ['✅ Amazing! imagine + ation = imagination! / Дивовижно! уява!', '❌ -tion/-ation turns verbs into nouns! / -tion/-ation перетворює дієслова на іменники!'],
+  };
+
+  function answer(btn, result, qId) {
+    const q = document.getElementById(qId);
+    if (q.dataset.answered) return;
+    q.dataset.answered = '1';
+    const opts = q.querySelectorAll('.quiz-opt');
+    opts.forEach(o => o.disabled = true);
+    btn.classList.add(result);
+    const fb = document.getElementById('f' + qId.slice(1));
+    fb.textContent = result === 'correct' ? feedbacks[qId][0] : feedbacks[qId][1];
+    fb.style.color = result === 'correct' ? '#ffe066' : '#ffcccc';
+  }
+</script>
+</body>
+</html>

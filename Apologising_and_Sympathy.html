@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apologising & Sympathy 💙 English with Taras</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sky: #4fc3f7;
+    --blue: #1e88e5;
+    --deep: #1565c0;
+    --soft: #e3f2fd;
+    --mint: #a5d6a7;
+    --green: #43a047;
+    --peach: #ffccbc;
+    --orange: #ff7043;
+    --lavender: #ce93d8;
+    --purple: #8e24aa;
+    --yellow: #fff176;
+    --gold: #ffd600;
+    --coral: #ef9a9a;
+    --red: #e53935;
+    --white: #ffffff;
+    --light: #f0f8ff;
+    --text: #1a237e;
+    --muted: #546e7a;
+    --radius: 20px;
+    --shadow: 0 8px 30px rgba(30,136,229,0.13);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 50%, #e8f5e9 100%);
+    min-height: 100vh;
+    color: var(--text);
+  }
+
+  /* ── HEADER ── */
+  .hero {
+    background: linear-gradient(135deg, #1565c0 0%, #6a1b9a 60%, #c62828 100%);
+    color: white;
+    padding: 50px 20px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-emoji { font-size: 80px; display: block; margin-bottom: 10px; animation: bounce 2s infinite; }
+  @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+  .hero h1 {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    font-weight: 800;
+    text-shadow: 0 3px 15px rgba(0,0,0,0.3);
+    line-height: 1.1;
+  }
+  .hero-sub {
+    font-size: clamp(1rem, 3vw, 1.3rem);
+    opacity: 0.9;
+    margin-top: 10px;
+    font-weight: 600;
+  }
+  .hero-ua {
+    font-size: clamp(0.85rem, 2.5vw, 1.05rem);
+    opacity: 0.75;
+    margin-top: 6px;
+  }
+  .hero-tags {
+    display: flex; flex-wrap: wrap; gap: 10px;
+    justify-content: center; margin-top: 20px;
+  }
+  .hero-tags span {
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.4);
+    border-radius: 50px; padding: 5px 16px;
+    font-size: 0.85rem; font-weight: 700;
+  }
+
+  /* ── CONTAINER ── */
+  .container { max-width: 900px; margin: 0 auto; padding: 0 16px 60px; }
+
+  /* ── SECTION TITLE ── */
+  .sec-title {
+    text-align: center;
+    margin: 50px 0 28px;
+  }
+  .sec-title .emoji { font-size: 3rem; display: block; }
+  .sec-title h2 {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    font-weight: 800;
+    color: var(--deep);
+    margin: 6px 0 4px;
+  }
+  .sec-title p { color: var(--muted); font-size: 0.95rem; }
+
+  /* ── CARD ── */
+  .card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 28px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+  }
+  .card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 5px;
+  }
+  .card.blue::before { background: linear-gradient(90deg, var(--sky), var(--blue)); }
+  .card.green::before { background: linear-gradient(90deg, var(--mint), var(--green)); }
+  .card.purple::before { background: linear-gradient(90deg, var(--lavender), var(--purple)); }
+  .card.orange::before { background: linear-gradient(90deg, var(--peach), var(--orange)); }
+  .card.red::before { background: linear-gradient(90deg, var(--coral), var(--red)); }
+  .card.gold::before { background: linear-gradient(90deg, var(--yellow), var(--gold)); }
+
+  .card-header {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 18px;
+  }
+  .card-icon { font-size: 2rem; }
+  .card-header h3 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.3rem; font-weight: 700;
+    color: var(--deep);
+  }
+  .card-header .ua { color: var(--muted); font-size: 0.85rem; font-weight: 600; }
+
+  /* ── SITUATION BANNER ── */
+  .situation {
+    background: var(--soft);
+    border-left: 5px solid var(--blue);
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+  }
+  .situation strong { color: var(--blue); }
+
+  /* ── PHRASE GRID ── */
+  .phrase-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 14px;
+  }
+  .phrase-item {
+    border-radius: 14px;
+    padding: 16px;
+    position: relative;
+  }
+  .phrase-item.sky   { background: linear-gradient(135deg,#e1f5fe,#b3e5fc); }
+  .phrase-item.mint  { background: linear-gradient(135deg,#e8f5e9,#c8e6c9); }
+  .phrase-item.lav   { background: linear-gradient(135deg,#f3e5f5,#e1bee7); }
+  .phrase-item.peach { background: linear-gradient(135deg,#fbe9e7,#ffccbc); }
+  .phrase-item.gold  { background: linear-gradient(135deg,#fffde7,#fff9c4); }
+  .phrase-item.coral { background: linear-gradient(135deg,#ffebee,#ffcdd2); }
+
+  .phrase-item .en {
+    font-weight: 800; font-size: 1rem;
+    color: var(--text); margin-bottom: 5px;
+  }
+  .phrase-item .ua {
+    font-size: 0.82rem; color: var(--muted); font-style: italic;
+  }
+  .phrase-item .level {
+    position: absolute; top: 10px; right: 10px;
+    font-size: 0.65rem; font-weight: 700;
+    padding: 2px 7px; border-radius: 20px;
+    background: rgba(255,255,255,0.7);
+    color: var(--deep);
+  }
+
+  /* ── DIALOGUE BOX ── */
+  .dialogue {
+    background: linear-gradient(135deg, #f8f9ff, #eef1ff);
+    border-radius: 16px;
+    padding: 22px;
+    margin-top: 20px;
+  }
+  .dialogue h4 {
+    font-weight: 700; font-size: 0.9rem;
+    text-transform: uppercase; letter-spacing: 1px;
+    color: var(--muted); margin-bottom: 16px;
+  }
+  .msg { display: flex; gap: 10px; margin-bottom: 14px; align-items: flex-start; }
+  .msg.right { flex-direction: row-reverse; }
+  .msg-avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem; flex-shrink: 0;
+  }
+  .av-a { background: linear-gradient(135deg, var(--sky), var(--blue)); }
+  .av-b { background: linear-gradient(135deg, var(--mint), var(--green)); }
+  .av-c { background: linear-gradient(135deg, var(--peach), var(--orange)); }
+  .msg-bubble {
+    border-radius: 18px; padding: 12px 16px;
+    max-width: 80%;
+    font-size: 0.95rem;
+  }
+  .msg.left .msg-bubble  { background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
+  .msg.right .msg-bubble { background: linear-gradient(135deg, #1e88e5, #1565c0); color: white; }
+  .msg-bubble .en { font-weight: 700; }
+  .msg-bubble .ua { font-size: 0.78rem; opacity: 0.7; margin-top: 3px; }
+
+  /* ── FORMULA BOX ── */
+  .formula {
+    background: linear-gradient(135deg, #1565c0, #283593);
+    color: white;
+    border-radius: 16px;
+    padding: 20px 24px;
+    margin: 18px 0;
+    text-align: center;
+  }
+  .formula .label {
+    font-size: 0.75rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 2px;
+    opacity: 0.7; margin-bottom: 8px;
+  }
+  .formula .eq {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(1rem, 3vw, 1.4rem);
+    font-weight: 700;
+    line-height: 1.5;
+  }
+  .formula .eq span { background: rgba(255,255,255,0.2); border-radius: 8px; padding: 3px 8px; }
+  .formula .eq .plus { opacity: 0.6; margin: 0 4px; }
+
+  /* ── INFOGRAPHIC ── */
+  .infographic {
+    background: white;
+    border-radius: var(--radius);
+    padding: 30px;
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+  }
+  .infographic h3 {
+    text-align: center;
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.4rem; font-weight: 800;
+    color: var(--deep); margin-bottom: 8px;
+  }
+  .infographic .sub { text-align:center; color:var(--muted); font-size:0.85rem; margin-bottom:24px; }
+
+  .steps {
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .step {
+    display: flex; gap: 16px; align-items: flex-start;
+  }
+  .step-num {
+    width: 42px; height: 42px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Baloo 2', cursive;
+    font-weight: 800; font-size: 1.1rem;
+    flex-shrink: 0; color: white;
+  }
+  .step-num.n1 { background: linear-gradient(135deg, #ef5350, #c62828); }
+  .step-num.n2 { background: linear-gradient(135deg, #ff7043, #bf360c); }
+  .step-num.n3 { background: linear-gradient(135deg, #ffd600, #f9a825); color: #333; }
+  .step-num.n4 { background: linear-gradient(135deg, #66bb6a, #2e7d32); }
+  .step-num.n5 { background: linear-gradient(135deg, #42a5f5, #1565c0); }
+  .step-content { flex: 1; }
+  .step-content strong { font-size: 1rem; color: var(--text); }
+  .step-content .step-en { font-weight: 700; color: var(--blue); font-size: 0.95rem; }
+  .step-content .step-ua { font-size: 0.82rem; color: var(--muted); }
+  .step-example {
+    margin-top: 6px;
+    background: var(--soft);
+    border-radius: 8px; padding: 8px 12px;
+    font-size: 0.88rem;
+  }
+  .step-example .ex-en { font-weight: 700; color: var(--deep); }
+  .step-example .ex-ua { color: var(--muted); font-style: italic; font-size: 0.78rem; }
+
+  /* ── LEVEL BADGES ── */
+  .level-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 16px; }
+  .badge {
+    border-radius: 50px; padding: 4px 14px;
+    font-size: 0.75rem; font-weight: 700;
+  }
+  .badge.easy   { background: #e8f5e9; color: #2e7d32; border: 2px solid #a5d6a7; }
+  .badge.medium { background: #fff3e0; color: #e65100; border: 2px solid #ffcc02; }
+  .badge.hard   { background: #fce4ec; color: #880e4f; border: 2px solid #f48fb1; }
+
+  /* ── TIPS BOX ── */
+  .tips {
+    background: linear-gradient(135deg, #f3e5f5, #e1bee7);
+    border-radius: 16px; padding: 22px;
+    border-left: 5px solid var(--purple);
+    margin-top: 16px;
+  }
+  .tips h4 { font-weight: 800; color: var(--purple); margin-bottom: 12px; font-size: 1rem; }
+  .tips ul { list-style: none; }
+  .tips ul li {
+    padding: 7px 0; border-bottom: 1px solid rgba(142,36,170,0.1);
+    font-size: 0.92rem; display: flex; gap: 8px;
+  }
+  .tips ul li:last-child { border-bottom: none; }
+  .tips ul li .tip-ua { color: var(--muted); font-style: italic; font-size: 0.8rem; display:block; }
+
+  /* ── QUIZ ── */
+  .quiz-section {
+    background: linear-gradient(135deg, #1a237e, #283593);
+    border-radius: var(--radius);
+    padding: 30px;
+    color: white;
+    margin-top: 40px;
+  }
+  .quiz-section h2 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.8rem; font-weight: 800;
+    text-align: center; margin-bottom: 6px;
+  }
+  .quiz-section .qsub { text-align:center; opacity:0.75; font-size:0.9rem; margin-bottom:24px; }
+  .quiz-q {
+    background: rgba(255,255,255,0.1);
+    border-radius: 16px; padding: 20px;
+    margin-bottom: 16px;
+  }
+  .quiz-q p { font-weight: 700; margin-bottom: 14px; font-size: 1rem; }
+  .quiz-q .q-ua { opacity: 0.7; font-size: 0.82rem; font-style: italic; margin-bottom: 12px; }
+  .options { display: flex; flex-direction: column; gap: 8px; }
+  .opt-btn {
+    background: rgba(255,255,255,0.12);
+    border: 2px solid rgba(255,255,255,0.2);
+    color: white; border-radius: 10px;
+    padding: 10px 16px; font-size: 0.92rem;
+    font-family: 'Nunito', sans-serif; font-weight: 600;
+    cursor: pointer; text-align: left;
+    transition: all 0.2s;
+  }
+  .opt-btn:hover { background: rgba(255,255,255,0.22); transform: translateX(4px); }
+  .opt-btn.correct { background: #43a047; border-color: #66bb6a; }
+  .opt-btn.wrong   { background: #e53935; border-color: #ef5350; }
+  .opt-btn:disabled { cursor: default; transform: none; }
+  .feedback {
+    margin-top: 10px; padding: 10px 14px;
+    border-radius: 10px; font-weight: 700;
+    display: none; font-size: 0.9rem;
+  }
+  .feedback.show { display: block; }
+  .feedback.ok  { background: rgba(76,175,80,0.25); }
+  .feedback.no  { background: rgba(244,67,54,0.25); }
+  #quiz-score {
+    text-align: center; margin-top: 20px;
+    font-family: 'Baloo 2', cursive; font-size: 1.5rem; font-weight: 800;
+  }
+  #retake-btn {
+    display: none; margin: 16px auto 0;
+    background: white; color: var(--deep);
+    border: none; border-radius: 50px;
+    padding: 12px 32px; font-size: 1rem;
+    font-family: 'Nunito', sans-serif; font-weight: 800;
+    cursor: pointer; transition: transform 0.2s;
+  }
+  #retake-btn:hover { transform: scale(1.05); }
+
+  /* ── SCROLL TOP ── */
+  #scrollTopBtn {
+    position: fixed; bottom: 24px; right: 20px; z-index: 999;
+    width: 50px; height: 50px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--blue), var(--deep));
+    border: none; color: white; font-size: 1.4rem;
+    cursor: pointer; box-shadow: 0 4px 15px rgba(21,101,192,0.4);
+    display: none; align-items: center; justify-content: center;
+    transition: transform 0.2s;
+  }
+  #scrollTopBtn:hover { transform: scale(1.1); }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center; padding: 30px 20px;
+    color: var(--muted); font-size: 0.85rem;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .phrase-grid { grid-template-columns: 1fr; }
+    .card { padding: 20px 16px; }
+    .formula .eq { font-size: 0.95rem; }
+    .step { flex-direction: column; }
+    .step-num { width: 34px; height: 34px; font-size: 0.95rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ HERO ══ -->
+<div class="hero">
+  <span class="hero-emoji">🙏💙</span>
+  <h1>Apologising &amp; Sympathy</h1>
+  <div class="hero-sub">How to say "Sorry" &amp; "I understand you" in English</div>
+  <div class="hero-ua">Як вибачатися та висловлювати співчуття англійською</div>
+  <div class="hero-tags">
+    <span>🟢 Beginner friendly</span>
+    <span>💬 Real phrases</span>
+    <span>🎭 Dialogues</span>
+    <span>✏️ Quiz</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ══ WHY APOLOGISE ══ -->
+  <div class="sec-title">
+    <span class="emoji">💡</span>
+    <h2>Why do we apologise? / Навіщо ми вибачаємось?</h2>
+    <p>Apologies repair relationships and show respect • Вибачення відновлюють стосунки та показують повагу</p>
+  </div>
+
+  <div class="card blue">
+    <div class="card-header">
+      <span class="card-icon">🤔</span>
+      <div>
+        <h3>When to apologise</h3>
+        <div class="ua">Коли вибачатися</div>
+      </div>
+    </div>
+    <div class="phrase-grid">
+      <div class="phrase-item sky">
+        <div class="en">😬 You made a mistake</div>
+        <div class="ua">Ти зробив помилку</div>
+      </div>
+      <div class="phrase-item mint">
+        <div class="en">😔 You hurt someone's feelings</div>
+        <div class="ua">Ти образив чиїсь почуття</div>
+      </div>
+      <div class="phrase-item lav">
+        <div class="en">⏰ You were late</div>
+        <div class="ua">Ти запізнився</div>
+      </div>
+      <div class="phrase-item peach">
+        <div class="en">💥 You broke something</div>
+        <div class="ua">Ти щось зламав</div>
+      </div>
+      <div class="phrase-item gold">
+        <div class="en">🗣️ You interrupted someone</div>
+        <div class="ua">Ти перервав когось</div>
+      </div>
+      <div class="phrase-item coral">
+        <div class="en">📵 You forgot something important</div>
+        <div class="ua">Ти забув щось важливе</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ BASIC PHRASES ══ -->
+  <div class="sec-title">
+    <span class="emoji">🗣️</span>
+    <h2>Basic Apology Phrases / Базові фрази вибачення</h2>
+    <p>Start here — these are must-know! • Починай звідси — це must-know!</p>
+  </div>
+
+  <div class="card blue">
+    <div class="card-header">
+      <span class="card-icon">⭐</span>
+      <div>
+        <h3>The Big 5 — Essential Apologies</h3>
+        <div class="ua">П'ять головних фраз вибачення</div>
+      </div>
+    </div>
+    <div class="level-row">
+      <span class="badge easy">🟢 Easy</span>
+      <span class="badge medium">🟡 Medium</span>
+      <span class="badge hard">🔴 Advanced</span>
+    </div>
+    <div class="phrase-grid">
+      <div class="phrase-item sky">
+        <span class="level">🟢 Easy</span>
+        <div class="en">Sorry!</div>
+        <div class="ua">Вибач! / Пробач!</div>
+      </div>
+      <div class="phrase-item sky">
+        <span class="level">🟢 Easy</span>
+        <div class="en">I'm sorry.</div>
+        <div class="ua">Мені шкода. / Я вибачаюся.</div>
+      </div>
+      <div class="phrase-item mint">
+        <span class="level">🟡 Medium</span>
+        <div class="en">I'm really sorry.</div>
+        <div class="ua">Мені справді шкода.</div>
+      </div>
+      <div class="phrase-item mint">
+        <span class="level">🟡 Medium</span>
+        <div class="en">I'm so sorry about that.</div>
+        <div class="ua">Мені дуже шкода через це.</div>
+      </div>
+      <div class="phrase-item lav">
+        <span class="level">🔴 Advanced</span>
+        <div class="en">I sincerely apologise.</div>
+        <div class="ua">Я щиро прошу вибачення.</div>
+      </div>
+      <div class="phrase-item lav">
+        <span class="level">🔴 Advanced</span>
+        <div class="en">Please accept my apologies.</div>
+        <div class="ua">Будь ласка, прийміть мої вибачення.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ FORMULA ══ -->
+  <div class="sec-title">
+    <span class="emoji">🧩</span>
+    <h2>The Apology Formula / Формула вибачення</h2>
+    <p>Put it all together for a perfect apology • Склади ідеальне вибачення</p>
+  </div>
+
+  <div class="infographic">
+    <h3>🏆 The Perfect Apology / Ідеальне вибачення</h3>
+    <div class="sub">5 steps that work every time • 5 кроків, що працюють завжди</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num n1">1</div>
+        <div class="step-content">
+          <div class="step-en">SAY SORRY</div>
+          <div class="step-ua">Скажи вибачення</div>
+          <div class="step-example">
+            <div class="ex-en">"I'm really sorry…"</div>
+            <div class="ex-ua">«Мені справді дуже шкода…»</div>
+          </div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num n2">2</div>
+        <div class="step-content">
+          <div class="step-en">NAME WHAT YOU DID WRONG</div>
+          <div class="step-ua">Назви, що саме ти зробив неправильно</div>
+          <div class="step-example">
+            <div class="ex-en">"…for being late to school."</div>
+            <div class="ex-ua">«…за те, що запізнився до школи.»</div>
+          </div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num n3">3</div>
+        <div class="step-content">
+          <div class="step-en">SHOW YOU UNDERSTAND</div>
+          <div class="step-ua">Покажи, що розумієш наслідки</div>
+          <div class="step-example">
+            <div class="ex-en">"I know it made you worried."</div>
+            <div class="ex-ua">«Я розумію, що це тебе хвилювало.»</div>
+          </div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num n4">4</div>
+        <div class="step-content">
+          <div class="step-en">PROMISE TO DO BETTER</div>
+          <div class="step-ua">Пообіцяй стати кращим</div>
+          <div class="step-example">
+            <div class="ex-en">"It won't happen again."</div>
+            <div class="ex-ua">«Це більше не повториться.»</div>
+          </div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num n5">5</div>
+        <div class="step-content">
+          <div class="step-en">OFFER TO FIX IT (optional)</div>
+          <div class="step-ua">Запропонуй виправити (якщо можливо)</div>
+          <div class="step-example">
+            <div class="ex-en">"Is there anything I can do?"</div>
+            <div class="ex-ua">«Чи є щось, що я можу зробити?»</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="formula">
+    <div class="label">📐 The Formula / Формула</div>
+    <div class="eq">
+      <span>I'm sorry</span>
+      <span class="plus">+</span>
+      <span>for + [action]</span>
+      <span class="plus">+</span>
+      <span>It won't happen again</span>
+    </div>
+    <div style="margin-top:10px; opacity:0.8; font-size:0.88rem;">
+      "I'm sorry <u>for</u> breaking your phone. It won't happen again."<br>
+      <em style="opacity:0.7">«Мені шкода за те, що я розбив твій телефон. Це більше не повториться.»</em>
+    </div>
+  </div>
+
+  <!-- ══ STRONGER APOLOGIES ══ -->
+  <div class="sec-title">
+    <span class="emoji">💪</span>
+    <h2>Making Apologies Stronger / Сильніші вибачення</h2>
+    <p>When "sorry" is not enough • Коли "sorry" недостатньо</p>
+  </div>
+
+  <div class="card orange">
+    <div class="card-header">
+      <span class="card-icon">🔥</span>
+      <div>
+        <h3>Power-Up Words / Підсилювальні слова</h3>
+        <div class="ua">Слова, що роблять вибачення переконливішими</div>
+      </div>
+    </div>
+    <div class="phrase-grid">
+      <div class="phrase-item peach">
+        <div class="en">I'm <strong>deeply</strong> sorry.</div>
+        <div class="ua">Мені <strong>глибоко</strong> шкода.</div>
+      </div>
+      <div class="phrase-item peach">
+        <div class="en">I'm <strong>terribly</strong> sorry.</div>
+        <div class="ua">Мені <strong>жахливо</strong> шкода.</div>
+      </div>
+      <div class="phrase-item peach">
+        <div class="en">I'm <strong>truly</strong> sorry.</div>
+        <div class="ua">Мені <strong>справді</strong> шкода.</div>
+      </div>
+      <div class="phrase-item peach">
+        <div class="en">I <strong>really</strong> apologise.</div>
+        <div class="ua">Я <strong>дійсно</strong> вибачаюсь.</div>
+      </div>
+      <div class="phrase-item peach">
+        <div class="en">I feel <strong>awful</strong> about this.</div>
+        <div class="ua">Я почуваюся <strong>жахливо</strong> через це.</div>
+      </div>
+      <div class="phrase-item peach">
+        <div class="en">I <strong>can't believe</strong> I did that.</div>
+        <div class="ua">Я <strong>не можу повірити</strong>, що я це зробив.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ INFORMAL / SLANG APOLOGIES ══ -->
+  <div class="sec-title">
+    <span class="emoji">😎</span>
+    <h2>Casual & Slang Apologies / Розмовні вибачення</h2>
+    <p>What friends actually say to each other • Що друзі кажуть одне одному насправді</p>
+  </div>
+
+  <div class="card orange">
+    <div class="card-header">
+      <span class="card-icon">🗨️</span>
+      <div>
+        <h3>Spoken / Informal English</h3>
+        <div class="ua">Розмовна / неформальна англійська</div>
+      </div>
+    </div>
+    <div class="situation">
+      🎓 <strong>Note:</strong> Use these only with friends or people you know well — NOT with teachers or adults you don't know.<br>
+      <span style="color:var(--muted); font-size:0.85rem;">Примітка: використовуй ці фрази лише з друзями або знайомими — НЕ з вчителями або незнайомими людьми.</span>
+    </div>
+    <div class="phrase-grid">
+      <div class="phrase-item peach">
+        <div class="en">My bad!</div>
+        <div class="ua">Моя вина! (дуже розмовне)</div>
+      </div>
+      <div class="phrase-item peach">
+        <div class="en">Oops, totally my fault!</div>
+        <div class="ua">Ой, це повністю моя провина!</div>
+      </div>
+      <div class="phrase-item peach">
+        <div class="en">I messed up. Sorry!</div>
+        <div class="ua">Я облажався. Вибач!</div>
+      </div>
+      <div class="phrase-item peach">
+        <div class="en">I goofed. My apologies!</div>
+        <div class="ua">Я напортачив. Вибачаюся!</div>
+      </div>
+      <div class="phrase-item peach">
+        <div class="en">That was dumb of me. Sorry!</div>
+        <div class="ua">З мого боку це було нерозумно. Вибач!</div>
+      </div>
+      <div class="phrase-item peach">
+        <div class="en">I owe you one. Sorry about that.</div>
+        <div class="ua">Я твій боржник. Вибач за це.</div>
+      </div>
+      <div class="phrase-item peach">
+        <div class="en">Whoops! Didn't mean to do that.</div>
+        <div class="ua">Йой! Я не мав цього робити.</div>
+      </div>
+      <div class="phrase-item peach">
+        <div class="en">I blew it. I'm sorry.</div>
+        <div class="ua">Я все зіпсував. Мені шкода.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ FORMAL APOLOGIES ══ -->
+  <div class="sec-title">
+    <span class="emoji">👔</span>
+    <h2>Formal Apologies / Офіційні вибачення</h2>
+    <p>For serious situations, school, or adults • Для серйозних ситуацій, школи або дорослих</p>
+  </div>
+
+  <div class="card blue">
+    <div class="card-header">
+      <span class="card-icon">🏛️</span>
+      <div>
+        <h3>Formal &amp; Written Apologies</h3>
+        <div class="ua">Офіційні та письмові вибачення</div>
+      </div>
+    </div>
+    <div class="situation">
+      ✉️ <strong>Use when:</strong> Writing an email, talking to a teacher, or in a serious situation.<br>
+      <span style="color:var(--muted); font-size:0.85rem;">Вживай коли: пишеш листа, розмовляєш з учителем або в серйозній ситуації.</span>
+    </div>
+    <div class="phrase-grid">
+      <div class="phrase-item sky">
+        <div class="en">I would like to apologise for…</div>
+        <div class="ua">Я б хотів вибачитися за…</div>
+      </div>
+      <div class="phrase-item sky">
+        <div class="en">I sincerely apologise for any inconvenience.</div>
+        <div class="ua">Щиро вибачаюся за будь-які незручності.</div>
+      </div>
+      <div class="phrase-item sky">
+        <div class="en">Please forgive me for…</div>
+        <div class="ua">Будь ласка, вибач мені за…</div>
+      </div>
+      <div class="phrase-item sky">
+        <div class="en">I take full responsibility for my actions.</div>
+        <div class="ua">Я беру повну відповідальність за свої вчинки.</div>
+      </div>
+      <div class="phrase-item sky">
+        <div class="en">I regret that I…</div>
+        <div class="ua">Я шкодую, що я…</div>
+      </div>
+      <div class="phrase-item sky">
+        <div class="en">I assure you this will not happen again.</div>
+        <div class="ua">Запевняю вас, це більше не повториться.</div>
+      </div>
+      <div class="phrase-item sky">
+        <div class="en">I hope you can find it in your heart to forgive me.</div>
+        <div class="ua">Сподіваюся, що ти знайдеш у серці прощення для мене.</div>
+      </div>
+      <div class="phrase-item sky">
+        <div class="en">I am writing to apologise for…</div>
+        <div class="ua">Я пишу, щоб вибачитися за… (для листів)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ ACCEPTING APOLOGY ══ -->
+  <div class="sec-title">
+    <span class="emoji">🤝</span>
+    <h2>Accepting an Apology / Прийняти вибачення</h2>
+    <p>How to respond when someone says sorry • Як відповісти, коли хтось вибачається</p>
+  </div>
+
+  <div class="card green">
+    <div class="card-header">
+      <span class="card-icon">😊</span>
+      <div>
+        <h3>Graceful Responses / Гідні відповіді</h3>
+        <div class="ua">Як прийняти вибачення красиво</div>
+      </div>
+    </div>
+    <div class="phrase-grid">
+      <div class="phrase-item mint">
+        <div class="en">That's OK. / No worries.</div>
+        <div class="ua">Все гаразд. / Нічого страшного.</div>
+      </div>
+      <div class="phrase-item mint">
+        <div class="en">Don't worry about it.</div>
+        <div class="ua">Не переймайся через це.</div>
+      </div>
+      <div class="phrase-item mint">
+        <div class="en">It's fine. / No problem.</div>
+        <div class="ua">Все добре. / Не проблема.</div>
+      </div>
+      <div class="phrase-item mint">
+        <div class="en">I forgive you.</div>
+        <div class="ua">Я прощаю тебе.</div>
+      </div>
+      <div class="phrase-item mint">
+        <div class="en">Let's forget about it.</div>
+        <div class="ua">Давай забудемо про це.</div>
+      </div>
+      <div class="phrase-item mint">
+        <div class="en">It happens to everyone.</div>
+        <div class="ua">Таке трапляється з усіма.</div>
+      </div>
+      <div class="phrase-item mint">
+        <div class="en">We all make mistakes.</div>
+        <div class="ua">Всі ми робимо помилки.</div>
+      </div>
+      <div class="phrase-item mint">
+        <div class="en">Thank you for apologising.</div>
+        <div class="ua">Дякую, що вибачився.</div>
+      </div>
+      <div class="phrase-item mint">
+        <div class="en">I appreciate that. It means a lot.</div>
+        <div class="ua">Ціную це. Це для мене багато значить.</div>
+      </div>
+      <div class="phrase-item mint">
+        <div class="en">Let's put it behind us.</div>
+        <div class="ua">Давай залишимо це в минулому.</div>
+      </div>
+      <div class="phrase-item mint">
+        <div class="en">I need a little time, but I'll be OK.</div>
+        <div class="ua">Мені потрібно трохи часу, але я буду добре.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ NOT ACCEPTING ══ -->
+  <div class="card red">
+    <div class="card-header">
+      <span class="card-icon">😤</span>
+      <div>
+        <h3>When You're Still Upset / Коли ти ще засмучений</h3>
+        <div class="ua">Чесні, але ввічливі відповіді</div>
+      </div>
+    </div>
+    <div class="situation">
+      ⚠️ <strong>Note:</strong> It's OK to be honest — but still be polite!<br>
+      <span style="color:var(--muted); font-size:0.85rem;">Примітка: можна бути чесним — але залишайся ввічливим!</span>
+    </div>
+    <div class="phrase-grid">
+      <div class="phrase-item coral">
+        <div class="en">I appreciate your apology, but I need some time.</div>
+        <div class="ua">Ціную твоє вибачення, але мені потрібен час.</div>
+      </div>
+      <div class="phrase-item coral">
+        <div class="en">I hear you, but I'm still a bit upset.</div>
+        <div class="ua">Я тебе чую, але я ще трохи засмучений.</div>
+      </div>
+      <div class="phrase-item coral">
+        <div class="en">Thank you for saying that. Let me think about it.</div>
+        <div class="ua">Дякую, що сказав це. Дозволь мені подумати.</div>
+      </div>
+      <div class="phrase-item coral">
+        <div class="en">I'm not ready to forgive you yet.</div>
+        <div class="ua">Я ще не готовий тебе пробачити.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SYMPATHY ══ -->
+  <div class="sec-title">
+    <span class="emoji">💙</span>
+    <h2>Expressing Sympathy / Висловлення співчуття</h2>
+    <p>Show you care when someone is sad or going through tough times • Покажи, що тобі не байдуже</p>
+  </div>
+
+  <div class="card purple">
+    <div class="card-header">
+      <span class="card-icon">💜</span>
+      <div>
+        <h3>Sympathy Phrases / Фрази співчуття</h3>
+        <div class="ua">Що сказати, коли комусь погано</div>
+      </div>
+    </div>
+    <div class="situation">
+      😢 <strong>Situation:</strong> Your friend is upset, sad, or had something bad happen to them.<br>
+      <span style="color:var(--muted); font-size:0.85rem;">Ситуація: Твій друг засмучений, сумний або з ним трапилось щось погане.</span>
+    </div>
+    <div class="phrase-grid">
+      <div class="phrase-item lav">
+        <div class="en">I'm so sorry to hear that.</div>
+        <div class="ua">Мені так шкода це чути.</div>
+      </div>
+      <div class="phrase-item lav">
+        <div class="en">That must be really hard.</div>
+        <div class="ua">Це мабуть справді важко.</div>
+      </div>
+      <div class="phrase-item lav">
+        <div class="en">I understand how you feel.</div>
+        <div class="ua">Я розумію, як ти себе почуваєш.</div>
+      </div>
+      <div class="phrase-item lav">
+        <div class="en">I'm here for you.</div>
+        <div class="ua">Я тут, поруч з тобою.</div>
+      </div>
+      <div class="phrase-item lav">
+        <div class="en">That sounds awful / terrible.</div>
+        <div class="ua">Це звучить жахливо.</div>
+      </div>
+      <div class="phrase-item lav">
+        <div class="en">I feel for you.</div>
+        <div class="ua">Я співчуваю тобі.</div>
+      </div>
+      <div class="phrase-item lav">
+        <div class="en">You must be devastated.</div>
+        <div class="ua">Ти мабуть спустошений(-а).</div>
+      </div>
+      <div class="phrase-item lav">
+        <div class="en">Is there anything I can do?</div>
+        <div class="ua">Чи є щось, що я можу зробити?</div>
+      </div>
+      <div class="phrase-item lav">
+        <div class="en">That's not fair at all.</div>
+        <div class="ua">Це зовсім несправедливо.</div>
+      </div>
+      <div class="phrase-item lav">
+        <div class="en">Oh no, that's horrible!</div>
+        <div class="ua">О ні, це жахливо!</div>
+      </div>
+      <div class="phrase-item lav">
+        <div class="en">I can only imagine how hard that is.</div>
+        <div class="ua">Можу лише уявити, наскільки це важко.</div>
+      </div>
+      <div class="phrase-item lav">
+        <div class="en">It's totally understandable that you feel that way.</div>
+        <div class="ua">Цілком зрозуміло, що ти так почуваєшся.</div>
+      </div>
+      <div class="phrase-item lav">
+        <div class="en">You don't have to go through this alone.</div>
+        <div class="ua">Тобі не треба переживати це на самоті.</div>
+      </div>
+      <div class="phrase-item lav">
+        <div class="en">Take all the time you need.</div>
+        <div class="ua">Бери стільки часу, скільки тобі потрібно.</div>
+      </div>
+      <div class="phrase-item lav">
+        <div class="en">That must hurt so much.</div>
+        <div class="ua">Це мабуть дуже боляче.</div>
+      </div>
+      <div class="phrase-item lav">
+        <div class="en">I wish I could make it better.</div>
+        <div class="ua">Я б хотів зробити все краще.</div>
+      </div>
+      <div class="phrase-item lav">
+        <div class="en">It's OK to cry / be upset.</div>
+        <div class="ua">Нормально плакати / бути засмученим.</div>
+      </div>
+      <div class="phrase-item lav">
+        <div class="en">I'm always here if you want to talk.</div>
+        <div class="ua">Я завжди поруч, якщо хочеш поговорити.</div>
+      </div>
+    </div>
+
+    <div class="tips">
+      <h4>💡 Sympathy Tips / Поради</h4>
+      <ul>
+        <li>
+          <span>🤫</span>
+          <span>
+            <strong>Listen first, talk later</strong> — Don't jump to solutions right away.
+            <span class="tip-ua">Спочатку слухай, потім говори — не поспішай одразу пропонувати рішення.</span>
+          </span>
+        </li>
+        <li>
+          <span>👀</span>
+          <span>
+            <strong>Make eye contact</strong> — it shows you really care.
+            <span class="tip-ua">Дивись в очі — це показує, що тобі справді не байдуже.</span>
+          </span>
+        </li>
+        <li>
+          <span>🚫</span>
+          <span>
+            <strong>Avoid: "At least…"</strong> — e.g. "At least you're healthy!" — it minimises their pain.
+            <span class="tip-ua">Уникай: «Принаймні…» — наприклад, «Принаймні ти здоровий!» — це зменшує їхній біль.</span>
+          </span>
+        </li>
+        <li>
+          <span>✅</span>
+          <span>
+            <strong>Better: "That must be so difficult for you."</strong>
+            <span class="tip-ua">Краще скажи: «Це мабуть так важко для тебе.»</span>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ══ CONDOLENCES ══ -->
+  <div class="card red">
+    <div class="card-header">
+      <span class="card-icon">🕊️</span>
+      <div>
+        <h3>Deep Condolences / Глибоке співчуття</h3>
+        <div class="ua">Коли сталося щось дуже серйозне</div>
+      </div>
+    </div>
+    <div class="situation">
+      🕯️ <strong>Situation:</strong> Someone lost a loved one or had a serious loss.<br>
+      <span style="color:var(--muted); font-size:0.85rem;">Ситуація: Хтось втратив близьку людину або зазнав серйозної втрати.</span>
+    </div>
+    <div class="phrase-grid">
+      <div class="phrase-item coral">
+        <div class="en">I'm so sorry for your loss.</div>
+        <div class="ua">Мені так шкода через вашу втрату.</div>
+      </div>
+      <div class="phrase-item coral">
+        <div class="en">My deepest condolences.</div>
+        <div class="ua">Мої найглибші співчуття.</div>
+      </div>
+      <div class="phrase-item coral">
+        <div class="en">He / She will be missed.</div>
+        <div class="ua">Його / Її будуть дуже не вистачати.</div>
+      </div>
+      <div class="phrase-item coral">
+        <div class="en">I'm thinking of you.</div>
+        <div class="ua">Я думаю про тебе.</div>
+      </div>
+      <div class="phrase-item coral">
+        <div class="en">My heart goes out to you.</div>
+        <div class="ua">Моє серце разом з тобою.</div>
+      </div>
+      <div class="phrase-item coral">
+        <div class="en">I'm so sorry for what you're going through.</div>
+        <div class="ua">Мені так шкода через те, що ти переживаєш.</div>
+      </div>
+      <div class="phrase-item coral">
+        <div class="en">You are in my thoughts.</div>
+        <div class="ua">Ти у моїх думках.</div>
+      </div>
+      <div class="phrase-item coral">
+        <div class="en">Let me know if there's anything I can do.</div>
+        <div class="ua">Дай мені знати, чи можу я щось зробити.</div>
+      </div>
+      <div class="phrase-item coral">
+        <div class="en">Words can't express how sorry I am.</div>
+        <div class="ua">Слова не можуть передати, наскільки мені шкода.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ RESPONDING TO SYMPATHY ══ -->
+  <div class="sec-title">
+    <span class="emoji">💬</span>
+    <h2>Responding to Sympathy / Відповідь на співчуття</h2>
+    <p>What to say when someone comforts you • Що сказати, коли тебе підтримують</p>
+  </div>
+
+  <div class="card purple">
+    <div class="card-header">
+      <span class="card-icon">🙏</span>
+      <div>
+        <h3>Saying Thank You for Support</h3>
+        <div class="ua">Дякуємо за підтримку</div>
+      </div>
+    </div>
+    <div class="phrase-grid">
+      <div class="phrase-item lav">
+        <div class="en">Thank you, that means a lot to me.</div>
+        <div class="ua">Дякую, це для мене дуже багато значить.</div>
+      </div>
+      <div class="phrase-item lav">
+        <div class="en">I really appreciate your kind words.</div>
+        <div class="ua">Я справді ціную твої добрі слова.</div>
+      </div>
+      <div class="phrase-item lav">
+        <div class="en">Thank you for being here for me.</div>
+        <div class="ua">Дякую, що ти поруч зі мною.</div>
+      </div>
+      <div class="phrase-item lav">
+        <div class="en">It helps to know you care.</div>
+        <div class="ua">Приємно знати, що тобі не байдуже.</div>
+      </div>
+      <div class="phrase-item lav">
+        <div class="en">I'm OK, just a bit sad.</div>
+        <div class="ua">Я в порядку, просто трохи сумую.</div>
+      </div>
+      <div class="phrase-item lav">
+        <div class="en">I'll be fine, but thank you.</div>
+        <div class="ua">Все буде добре, але дякую.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SMALL APOLOGIES ══ -->
+  <div class="sec-title">
+    <span class="emoji">😊</span>
+    <h2>Small / Everyday Apologies / Повсякденні вибачення</h2>
+    <p>Quick polite phrases for daily life • Швидкі ввічливі фрази на кожен день</p>
+  </div>
+
+  <div class="card gold">
+    <div class="card-header">
+      <span class="card-icon">🌟</span>
+      <div>
+        <h3>Polite everyday phrases</h3>
+        <div class="ua">Ввічливі фрази на кожен день</div>
+      </div>
+    </div>
+    <div class="phrase-grid">
+      <div class="phrase-item gold">
+        <div class="en">Excuse me.</div>
+        <div class="ua">Вибачте. / Пробачте. (прохання уваги)</div>
+      </div>
+      <div class="phrase-item gold">
+        <div class="en">Pardon me.</div>
+        <div class="ua">Пробачте. (формальніше)</div>
+      </div>
+      <div class="phrase-item gold">
+        <div class="en">My bad!</div>
+        <div class="ua">Моя провина! (розмовне)</div>
+      </div>
+      <div class="phrase-item gold">
+        <div class="en">Oops! Sorry about that!</div>
+        <div class="ua">Ой! Вибач за це!</div>
+      </div>
+      <div class="phrase-item gold">
+        <div class="en">Sorry to bother you.</div>
+        <div class="ua">Вибачте, що турбую.</div>
+      </div>
+      <div class="phrase-item gold">
+        <div class="en">Sorry to interrupt.</div>
+        <div class="ua">Вибачте, що перериваю.</div>
+      </div>
+      <div class="phrase-item gold">
+        <div class="en">I didn't mean to.</div>
+        <div class="ua">Я не мав наміру (це робити).</div>
+      </div>
+      <div class="phrase-item gold">
+        <div class="en">That was an accident.</div>
+        <div class="ua">Це була випадковість.</div>
+      </div>
+      <div class="phrase-item gold">
+        <div class="en">I wasn't thinking. Sorry!</div>
+        <div class="ua">Я не подумав. Вибач!</div>
+      </div>
+      <div class="phrase-item gold">
+        <div class="en">Could you say that again? Sorry!</div>
+        <div class="ua">Могли б ви повторити? Вибачте!</div>
+      </div>
+      <div class="phrase-item gold">
+        <div class="en">Sorry, I didn't catch that.</div>
+        <div class="ua">Вибачте, я не розчув.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ DIALOGUES ══ -->
+  <div class="sec-title">
+    <span class="emoji">🎭</span>
+    <h2>Real Dialogues / Справжні діалоги</h2>
+    <p>See how it all works in real conversations • Подивись, як це працює в реальних розмовах</p>
+  </div>
+
+  <!-- Dialogue 1 -->
+  <div class="card blue">
+    <div class="card-header">
+      <span class="card-icon">🏫</span>
+      <div>
+        <h3>Dialogue 1 — Late for class</h3>
+        <div class="ua">Діалог 1 — Спізнення на урок</div>
+      </div>
+    </div>
+    <div class="dialogue">
+      <h4>🎬 The Scene / Сцена</h4>
+      <div class="msg left">
+        <div class="msg-avatar av-a">👨‍🏫</div>
+        <div class="msg-bubble">
+          <div class="en">You're late, Alex. Why?</div>
+          <div class="ua">Ти запізнився, Алексе. Чому?</div>
+        </div>
+      </div>
+      <div class="msg right">
+        <div class="msg-avatar av-b">🧒</div>
+        <div class="msg-bubble">
+          <div class="en">I'm really sorry, Mr. Brown. I missed the bus. It won't happen again.</div>
+          <div class="ua">Мені справді шкода, пане Браун. Я пропустив автобус. Це більше не повториться.</div>
+        </div>
+      </div>
+      <div class="msg left">
+        <div class="msg-avatar av-a">👨‍🏫</div>
+        <div class="msg-bubble">
+          <div class="en">OK, I accept your apology. Please sit down.</div>
+          <div class="ua">Гаразд, я приймаю твоє вибачення. Сідай, будь ласка.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dialogue 2 -->
+  <div class="card purple">
+    <div class="card-header">
+      <span class="card-icon">💔</span>
+      <div>
+        <h3>Dialogue 2 — Friend is upset</h3>
+        <div class="ua">Діалог 2 — Друг засмучений</div>
+      </div>
+    </div>
+    <div class="dialogue">
+      <h4>🎬 The Scene / Сцена</h4>
+      <div class="msg left">
+        <div class="msg-avatar av-c">😢</div>
+        <div class="msg-bubble">
+          <div class="en">I failed my English exam…</div>
+          <div class="ua">Я провалив іспит з англійської…</div>
+        </div>
+      </div>
+      <div class="msg right">
+        <div class="msg-avatar av-b">😟</div>
+        <div class="msg-bubble">
+          <div class="en">Oh no! I'm so sorry to hear that. That must be really disappointing.</div>
+          <div class="ua">О ні! Мені так шкода це чути. Це мабуть дуже прикро.</div>
+        </div>
+      </div>
+      <div class="msg left">
+        <div class="msg-avatar av-c">😢</div>
+        <div class="msg-bubble">
+          <div class="en">Yes, I studied so hard…</div>
+          <div class="ua">Так, я так старанно вчився…</div>
+        </div>
+      </div>
+      <div class="msg right">
+        <div class="msg-avatar av-b">🤗</div>
+        <div class="msg-bubble">
+          <div class="en">I understand how you feel. I'm here for you. You can try again — I'll help you!</div>
+          <div class="ua">Я розумію, як ти себе почуваєш. Я поруч з тобою. Ти можеш спробувати ще раз — я допоможу!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dialogue 3 -->
+  <div class="card orange">
+    <div class="card-header">
+      <span class="card-icon">📵</span>
+      <div>
+        <h3>Dialogue 3 — Forgot plans</h3>
+        <div class="ua">Діалог 3 — Забув домовленість</div>
+      </div>
+    </div>
+    <div class="dialogue">
+      <h4>🎬 The Scene / Сцена</h4>
+      <div class="msg left">
+        <div class="msg-avatar av-c">😠</div>
+        <div class="msg-bubble">
+          <div class="en">We were supposed to meet yesterday! Where were you?</div>
+          <div class="ua">Ми мали зустрітися вчора! Де ти був?</div>
+        </div>
+      </div>
+      <div class="msg right">
+        <div class="msg-avatar av-b">😬</div>
+        <div class="msg-bubble">
+          <div class="en">I'm so sorry! I completely forgot. I feel terrible about it. Can we meet tomorrow instead?</div>
+          <div class="ua">Мені так шкода! Я повністю забув. Я почуваюся жахливо через це. Чи можемо ми зустрітися завтра замість цього?</div>
+        </div>
+      </div>
+      <div class="msg left">
+        <div class="msg-avatar av-c">😐</div>
+        <div class="msg-bubble">
+          <div class="en">Fine. But don't forget again!</div>
+          <div class="ua">Добре. Але більше не забувай!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ WORD BANK ══ -->
+  <div class="sec-title">
+    <span class="emoji">📚</span>
+    <h2>Key Vocabulary / Ключові слова</h2>
+    <p>Words you need for this topic • Слова, які тобі потрібні</p>
+  </div>
+
+  <div class="card blue">
+    <div class="card-header">
+      <span class="card-icon">📖</span>
+      <div>
+        <h3>Word Bank / Словниковий запас</h3>
+        <div class="ua">Корисні слова й вирази</div>
+      </div>
+    </div>
+    <div class="phrase-grid">
+      <div class="phrase-item sky">
+        <div class="en">apology (n)</div>
+        <div class="ua">вибачення (іменник)</div>
+      </div>
+      <div class="phrase-item sky">
+        <div class="en">to apologise (v)</div>
+        <div class="ua">вибачатися (дієслово)</div>
+      </div>
+      <div class="phrase-item sky">
+        <div class="en">to forgive (v)</div>
+        <div class="ua">прощати (дієслово)</div>
+      </div>
+      <div class="phrase-item sky">
+        <div class="en">to accept (v)</div>
+        <div class="ua">приймати (вибачення)</div>
+      </div>
+      <div class="phrase-item lav">
+        <div class="en">sympathy (n)</div>
+        <div class="ua">співчуття (іменник)</div>
+      </div>
+      <div class="phrase-item lav">
+        <div class="en">to sympathise (v)</div>
+        <div class="ua">співчувати (дієслово)</div>
+      </div>
+      <div class="phrase-item lav">
+        <div class="en">condolences (n, pl)</div>
+        <div class="ua">співчуття (при втраті)</div>
+      </div>
+      <div class="phrase-item lav">
+        <div class="en">empathy (n)</div>
+        <div class="ua">емпатія / розуміння почуттів</div>
+      </div>
+      <div class="phrase-item mint">
+        <div class="en">sincere / sincerely</div>
+        <div class="ua">щирий / щиро</div>
+      </div>
+      <div class="phrase-item mint">
+        <div class="en">regret (n/v)</div>
+        <div class="ua">жаль / шкодувати</div>
+      </div>
+      <div class="phrase-item mint">
+        <div class="en">to comfort (v)</div>
+        <div class="ua">втішати (дієслово)</div>
+      </div>
+      <div class="phrase-item mint">
+        <div class="en">to support (v)</div>
+        <div class="ua">підтримувати</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ QUIZ ══ -->
+  <div class="quiz-section">
+    <h2>🧠 Quick Quiz!</h2>
+    <div class="qsub">Перевір себе • Test your knowledge</div>
+
+    <!-- Q1 -->
+    <div class="quiz-q" id="q1">
+      <p>1. Your friend just told you their dog died. What do you say?</p>
+      <div class="q-ua">Твій друг щойно сказав, що його собака померла. Що ти кажеш?</div>
+      <div class="options">
+        <button class="opt-btn" onclick="check(this,'q1',false)">a) That's funny!</button>
+        <button class="opt-btn" onclick="check(this,'q1',true)">b) I'm so sorry to hear that. Are you OK?</button>
+        <button class="opt-btn" onclick="check(this,'q1',false)">c) Whatever, it's just a dog.</button>
+        <button class="opt-btn" onclick="check(this,'q1',false)">d) At least you can get a new one!</button>
+      </div>
+      <div class="feedback" id="q1-fb"></div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="quiz-q" id="q2">
+      <p>2. You accidentally bumped into someone on the street. What is the most natural thing to say?</p>
+      <div class="q-ua">Ти випадково зіткнувся з кимось на вулиці. Що найприродніше сказати?</div>
+      <div class="options">
+        <button class="opt-btn" onclick="check(this,'q2',false)">a) I forgive you!</button>
+        <button class="opt-btn" onclick="check(this,'q2',false)">b) Don't worry about it.</button>
+        <button class="opt-btn" onclick="check(this,'q2',true)">c) Oh, excuse me! Sorry about that!</button>
+        <button class="opt-btn" onclick="check(this,'q2',false)">d) Please accept my sincere apologies.</button>
+      </div>
+      <div class="feedback" id="q2-fb"></div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="quiz-q" id="q3">
+      <p>3. Which sentence correctly uses the apology formula?</p>
+      <div class="q-ua">Яке речення правильно використовує формулу вибачення?</div>
+      <div class="options">
+        <button class="opt-btn" onclick="check(this,'q3',false)">a) Sorry, you broke my laptop.</button>
+        <button class="opt-btn" onclick="check(this,'q3',true)">b) I'm sorry for forgetting your birthday. It won't happen again.</button>
+        <button class="opt-btn" onclick="check(this,'q3',false)">c) I apologise because you were upset.</button>
+        <button class="opt-btn" onclick="check(this,'q3',false)">d) For sorry I am late.</button>
+      </div>
+      <div class="feedback" id="q3-fb"></div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="quiz-q" id="q4">
+      <p>4. Someone says "I'm sorry" to you. Which is the BEST response?</p>
+      <div class="q-ua">Хтось каже тобі «I'm sorry». Яка НАЙКРАЩА відповідь?</div>
+      <div class="options">
+        <button class="opt-btn" onclick="check(this,'q4',false)">a) I'm sorry too!</button>
+        <button class="opt-btn" onclick="check(this,'q4',true)">b) No worries, it's fine.</button>
+        <button class="opt-btn" onclick="check(this,'q4',false)">c) Please accept my apologies.</button>
+        <button class="opt-btn" onclick="check(this,'q4',false)">d) That must be really hard.</button>
+      </div>
+      <div class="feedback" id="q4-fb"></div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="quiz-q" id="q5">
+      <p>5. Which word means "to excuse someone for a mistake"?</p>
+      <div class="q-ua">Яке слово означає «вибачити когось за помилку»?</div>
+      <div class="options">
+        <button class="opt-btn" onclick="check(this,'q5',false)">a) to apologise</button>
+        <button class="opt-btn" onclick="check(this,'q5',true)">b) to forgive</button>
+        <button class="opt-btn" onclick="check(this,'q5',false)">c) to comfort</button>
+        <button class="opt-btn" onclick="check(this,'q5',false)">d) to regret</button>
+      </div>
+      <div class="feedback" id="q5-fb"></div>
+    </div>
+
+    <div id="quiz-score"></div>
+    <button id="retake-btn" onclick="retakeQuiz()">🔄 Try Again / Спробувати ще раз</button>
+  </div>
+
+</div>
+
+<footer>
+  Made with 💙 for English learners • Зроблено з 💙 для тих, хто вивчає англійську
+</footer>
+
+<button id="scrollTopBtn" onclick="scrollToTop()" title="На початок">▲</button>
+
+<script>
+  // ── QUIZ ──
+  let answers = {};
+  const total = 5;
+
+  function check(btn, qId, isCorrect) {
+    if (answers[qId] !== undefined) return;
+    answers[qId] = isCorrect;
+
+    const btns = btn.closest('.options').querySelectorAll('.opt-btn');
+    btns.forEach(b => b.disabled = true);
+
+    const fb = document.getElementById(qId + '-fb');
+
+    if (isCorrect) {
+      btn.classList.add('correct');
+      fb.textContent = '✅ Correct! / Правильно! 🎉';
+      fb.className = 'feedback show ok';
+    } else {
+      btn.classList.add('wrong');
+      // Highlight correct
+      btns.forEach(b => {
+        if (b.onclick.toString().includes('true')) b.classList.add('correct');
+      });
+      fb.textContent = '❌ Not quite! / Не зовсім! Try to remember the right answer.';
+      fb.className = 'feedback show no';
+    }
+
+    if (Object.keys(answers).length === total) showScore();
+  }
+
+  function showScore() {
+    const score = Object.values(answers).filter(Boolean).length;
+    const el = document.getElementById('quiz-score');
+    const msgs = [
+      ['😅','Keep practising! / Продовжуй практикуватися!'],
+      ['🙂','Good start! / Гарний початок!'],
+      ['😊','Getting there! / Майже!'],
+      ['😃','Well done! / Молодець!'],
+      ['🏆','Amazing! Perfect score! / Чудово! Ідеальний результат!']
+    ];
+    const [emoji, msg] = msgs[score] || msgs[4];
+    el.innerHTML = `${emoji} ${score} / ${total} — ${msg}`;
+    document.getElementById('retake-btn').style.display = 'block';
+  }
+
+  function retakeQuiz() {
+    answers = {};
+    document.querySelectorAll('.opt-btn').forEach(b => {
+      b.disabled = false;
+      b.classList.remove('correct','wrong');
+    });
+    document.querySelectorAll('.feedback').forEach(f => f.className = 'feedback');
+    document.getElementById('quiz-score').textContent = '';
+    document.getElementById('retake-btn').style.display = 'none';
+  }
+
+  // ── SCROLL TOP ──
+  const btn = document.getElementById('scrollTopBtn');
+  window.addEventListener('scroll', () => {
+    btn.style.display = window.scrollY > 400 ? 'flex' : 'none';
+  });
+  function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+</script>
+</body>
+</html>

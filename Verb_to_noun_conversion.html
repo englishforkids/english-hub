@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verb → Noun Conversion | Конверсія дієслів у іменники</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fff9f0;
+    --primary: #ff6b35;
+    --secondary: #3b82f6;
+    --accent: #10b981;
+    --purple: #8b5cf6;
+    --yellow: #f59e0b;
+    --pink: #ec4899;
+    --dark: #1e1b4b;
+    --card: #ffffff;
+    --shadow: 0 4px 24px rgba(0,0,0,0.10);
+    --radius: 20px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--dark);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    background: linear-gradient(135deg, #1e1b4b 0%, #3b0764 50%, #1e1b4b 100%);
+    color: white;
+    padding: 60px 24px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    animation: bgMove 12s linear infinite;
+  }
+  @keyframes bgMove { from { transform: translateX(0); } to { transform: translateX(60px); } }
+  .hero-emoji { font-size: 72px; display: block; margin-bottom: 16px; animation: bounce 2s ease-in-out infinite; }
+  @keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
+  .hero h1 {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(2rem, 6vw, 3.6rem);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 12px;
+  }
+  .hero h1 span { color: #fbbf24; }
+  .hero-sub {
+    font-size: clamp(1rem, 3vw, 1.25rem);
+    opacity: 0.85;
+    max-width: 560px;
+    margin: 0 auto 8px;
+  }
+  .hero-uk {
+    font-size: clamp(0.9rem, 2.5vw, 1.05rem);
+    opacity: 0.6;
+    font-style: italic;
+  }
+  .pills {
+    display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;
+    margin-top: 28px;
+  }
+  .pill {
+    background: rgba(255,255,255,0.15);
+    border: 1.5px solid rgba(255,255,255,0.3);
+    border-radius: 100px;
+    padding: 6px 18px;
+    font-size: 0.9rem; font-weight: 700;
+    backdrop-filter: blur(4px);
+  }
+
+  /* ─── MAIN CONTENT ─── */
+  .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+  section { padding: 56px 0 0; }
+
+  /* ─── SECTION HEADER ─── */
+  .sec-head {
+    display: flex; align-items: center; gap: 14px; margin-bottom: 28px;
+  }
+  .sec-icon {
+    width: 52px; height: 52px; border-radius: 16px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.6rem; flex-shrink: 0;
+  }
+  .sec-head h2 {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(1.4rem, 4vw, 2rem);
+    font-weight: 800; line-height: 1.2;
+  }
+  .sec-head h2 small {
+    display: block; font-size: 0.7em; font-weight: 600;
+    color: #64748b; font-family: 'Nunito', sans-serif;
+  }
+
+  /* ─── CARDS ─── */
+  .card {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 28px 28px 24px;
+    margin-bottom: 20px;
+    border: 2px solid transparent;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .card:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(0,0,0,0.13); }
+
+  /* ─── WHAT IS IT ─── */
+  .big-idea {
+    background: linear-gradient(135deg, #eff6ff, #f0fdf4);
+    border: 2.5px solid #bfdbfe;
+    border-radius: var(--radius);
+    padding: 32px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .big-idea p { font-size: 1.1rem; line-height: 1.7; }
+  .big-idea p + p { margin-top: 12px; color: #475569; font-size: 1rem; }
+
+  /* ─── TRANSFORM VISUAL ─── */
+  .transform-box {
+    display: flex; align-items: center; justify-content: center;
+    gap: 0; flex-wrap: wrap; margin: 0 0 20px;
+  }
+  .t-word {
+    background: white;
+    border-radius: 16px;
+    padding: 20px 32px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    min-width: 160px;
+  }
+  .t-word .label {
+    font-size: 0.75rem; font-weight: 800; letter-spacing: 1px;
+    text-transform: uppercase; margin-bottom: 6px;
+  }
+  .t-word .word {
+    font-family: 'Baloo 2', cursive;
+    font-size: 2.2rem; font-weight: 800;
+  }
+  .t-word .meaning { font-size: 0.8rem; color: #64748b; margin-top: 4px; }
+  .t-arrow {
+    font-size: 3rem; margin: 0 8px; color: var(--primary); flex-shrink: 0;
+    animation: pulse 1.6s ease-in-out infinite;
+  }
+  @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.25); } }
+  .t-word.verb .label { color: var(--secondary); }
+  .t-word.verb .word { color: var(--secondary); }
+  .t-word.noun .label { color: var(--primary); }
+  .t-word.noun .word { color: var(--primary); }
+
+  /* ─── FORMULA BOX ─── */
+  .formula-box {
+    background: linear-gradient(135deg, #1e1b4b, #3b0764);
+    color: white;
+    border-radius: var(--radius);
+    padding: 28px 32px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .formula-box .f-label { font-size: 0.8rem; opacity: 0.6; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px; }
+  .formula-box .formula {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(1.4rem, 4vw, 2.2rem);
+    font-weight: 800; line-height: 1.4;
+  }
+  .formula-box .formula .v { color: #60a5fa; }
+  .formula-box .formula .n { color: #fb923c; }
+  .formula-box .formula .same { color: #34d399; font-size: 0.85em; }
+  .formula-box .f-note { font-size: 0.85rem; opacity: 0.7; margin-top: 10px; }
+
+  /* ─── MAGIC SENTENCE ─── */
+  .magic-wrap {
+    background: linear-gradient(135deg, #fef9c3, #fef3c7);
+    border: 3px solid #fbbf24;
+    border-radius: var(--radius);
+    padding: 30px 28px;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .magic-wrap::before {
+    content: '✨';
+    position: absolute; right: 20px; top: 16px;
+    font-size: 2.5rem; opacity: 0.4;
+  }
+  .magic-wrap h3 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.3rem; font-weight: 800; color: #92400e;
+    margin-bottom: 6px;
+  }
+  .magic-wrap .uk-label { font-size: 0.85rem; color: #b45309; margin-bottom: 18px; font-style: italic; }
+  .magic-sent {
+    background: white;
+    border-radius: 14px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    border-left: 5px solid;
+    font-size: 1rem; line-height: 1.6;
+  }
+  .magic-sent.v { border-color: var(--secondary); }
+  .magic-sent.n { border-color: var(--primary); }
+  .magic-sent .tag {
+    display: inline-block;
+    font-size: 0.7rem; font-weight: 800; letter-spacing: 0.5px;
+    text-transform: uppercase; padding: 2px 8px; border-radius: 100px;
+    margin-bottom: 6px;
+  }
+  .magic-sent.v .tag { background: #dbeafe; color: var(--secondary); }
+  .magic-sent.n .tag { background: #ffedd5; color: var(--primary); }
+  .magic-sent strong { font-weight: 800; }
+  .magic-sent.v strong { color: var(--secondary); }
+  .magic-sent.n strong { color: var(--primary); }
+  .magic-sent .uk { display: block; color: #64748b; font-size: 0.88rem; margin-top: 4px; font-style: italic; }
+
+  /* ─── EXAMPLE TABLE ─── */
+  .word-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  .word-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: transform .2s;
+  }
+  .word-card:hover { transform: translateY(-4px); }
+  .word-card-top {
+    padding: 14px 18px 10px;
+    display: flex; gap: 12px; align-items: center;
+  }
+  .word-card-emoji { font-size: 2.2rem; }
+  .word-card-words { flex: 1; }
+  .word-card-verb {
+    font-size: 0.72rem; font-weight: 800; letter-spacing: 0.5px;
+    text-transform: uppercase; color: var(--secondary); margin-bottom: 2px;
+  }
+  .word-card-vword { font-family: 'Baloo 2', cursive; font-size: 1.35rem; font-weight: 800; color: var(--secondary); }
+  .word-card-arrow { font-size: 1.1rem; color: #94a3b8; margin: 0 2px; }
+  .word-card-noun { color: var(--primary); }
+  .word-card-bottom { padding: 10px 18px 14px; background: #f8fafc; }
+  .word-card-ex { font-size: 0.85rem; color: #334155; line-height: 1.5; }
+  .word-card-ex .hi-v { color: var(--secondary); font-weight: 800; }
+  .word-card-ex .hi-n { color: var(--primary); font-weight: 800; }
+  .word-card-ex .uk { color: #94a3b8; font-size: 0.8rem; font-style: italic; display: block; margin-top: 2px; }
+
+  /* ─── WHEN TO USE ─── */
+  .use-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px; margin-bottom: 20px;
+  }
+  .use-card {
+    background: white;
+    border-radius: 16px;
+    padding: 22px 20px;
+    box-shadow: var(--shadow);
+    border-top: 5px solid;
+  }
+  .use-card .u-icon { font-size: 2.2rem; margin-bottom: 10px; }
+  .use-card h4 { font-family: 'Baloo 2', cursive; font-size: 1.15rem; font-weight: 800; margin-bottom: 6px; }
+  .use-card p { font-size: 0.9rem; line-height: 1.6; color: #475569; }
+  .use-card .u-uk { font-size: 0.82rem; color: #94a3b8; font-style: italic; margin-top: 4px; }
+
+  /* ─── STRUCTURE INFOGRAPHIC ─── */
+  .infographic {
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 32px 28px;
+    margin-bottom: 20px;
+  }
+  .infographic h3 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.4rem; font-weight: 800;
+    margin-bottom: 20px; text-align: center;
+  }
+  .inf-row {
+    display: flex; align-items: stretch;
+    gap: 12px; margin-bottom: 16px; flex-wrap: wrap;
+  }
+  .inf-cell {
+    flex: 1; min-width: 120px;
+    border-radius: 14px;
+    padding: 14px 16px; text-align: center;
+  }
+  .inf-cell .c-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 6px; }
+  .inf-cell .c-val { font-family: 'Baloo 2', cursive; font-size: 1.4rem; font-weight: 800; }
+  .inf-cell .c-uk { font-size: 0.78rem; margin-top: 4px; opacity: 0.7; }
+  .inf-sep { display: flex; align-items: center; font-size: 1.6rem; color: #94a3b8; }
+  .inf-cell.subj { background: #eff6ff; }
+  .inf-cell.subj .c-label { color: var(--secondary); }
+  .inf-cell.subj .c-val { color: var(--secondary); }
+  .inf-cell.verb-c { background: #f0fdf4; }
+  .inf-cell.verb-c .c-label { color: var(--accent); }
+  .inf-cell.verb-c .c-val { color: var(--accent); }
+  .inf-cell.noun-c { background: #fff7ed; }
+  .inf-cell.noun-c .c-label { color: var(--primary); }
+  .inf-cell.noun-c .c-val { color: var(--primary); }
+  .inf-cell.obj { background: #fdf4ff; }
+  .inf-cell.obj .c-label { color: var(--purple); }
+  .inf-cell.obj .c-val { color: var(--purple); }
+
+  /* ─── COMMON WORDS ─── */
+  .tag-cloud {
+    display: flex; flex-wrap: wrap; gap: 10px;
+    margin-bottom: 20px;
+  }
+  .tag-item {
+    background: white;
+    border-radius: 100px;
+    padding: 8px 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    font-weight: 700; font-size: 0.9rem;
+    display: flex; align-items: center; gap: 8px;
+    border: 2px solid;
+  }
+  .tag-item .v-part { font-size: 0.78rem; font-weight: 600; }
+
+  /* ─── QUIZ ─── */
+  .quiz-wrap {
+    background: linear-gradient(135deg, #1e1b4b, #312e81);
+    border-radius: var(--radius);
+    padding: 32px 28px;
+    color: white;
+    margin-bottom: 20px;
+  }
+  .quiz-wrap h3 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.6rem; font-weight: 800; margin-bottom: 6px;
+  }
+  .quiz-wrap .q-uk { font-size: 0.9rem; opacity: 0.6; margin-bottom: 24px; }
+  .q-card {
+    background: rgba(255,255,255,0.08);
+    border-radius: 16px; padding: 22px 20px; margin-bottom: 16px;
+    border: 1.5px solid rgba(255,255,255,0.12);
+  }
+  .q-card .q-num { font-size: 0.75rem; font-weight: 800; letter-spacing: 0.5px; opacity: 0.5; margin-bottom: 8px; }
+  .q-card .q-text { font-size: 1rem; line-height: 1.6; margin-bottom: 14px; }
+  .q-card .q-text .blank {
+    display: inline-block;
+    min-width: 90px; border-bottom: 2.5px solid rgba(255,255,255,0.4);
+    text-align: center; font-weight: 800; color: #fbbf24;
+    padding: 0 6px;
+  }
+  .q-options { display: flex; flex-wrap: wrap; gap: 8px; }
+  .q-btn {
+    background: rgba(255,255,255,0.1);
+    border: 1.5px solid rgba(255,255,255,0.2);
+    color: white; border-radius: 100px;
+    padding: 8px 18px; font-size: 0.9rem; font-weight: 700;
+    cursor: pointer; transition: all .2s; font-family: 'Nunito', sans-serif;
+  }
+  .q-btn:hover { background: rgba(255,255,255,0.2); }
+  .q-btn.correct { background: #10b981; border-color: #10b981; }
+  .q-btn.wrong { background: #ef4444; border-color: #ef4444; }
+  .q-feedback { margin-top: 10px; font-size: 0.88rem; opacity: 0; transition: opacity .3s; }
+  .q-feedback.show { opacity: 1; }
+  .q-score {
+    text-align: center; margin-top: 20px;
+    font-family: 'Baloo 2', cursive; font-size: 1.5rem; font-weight: 800;
+    display: none;
+  }
+  .quiz-reset {
+    display: block; margin: 16px auto 0;
+    background: #fbbf24; color: #1e1b4b;
+    border: none; border-radius: 100px;
+    padding: 12px 32px; font-size: 1rem; font-weight: 800;
+    cursor: pointer; font-family: 'Nunito', sans-serif;
+    transition: transform .15s;
+  }
+  .quiz-reset:hover { transform: scale(1.04); }
+
+  /* ─── TIPS ─── */
+  .tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px; margin-bottom: 20px;
+  }
+  .tip-card {
+    background: white; border-radius: 16px;
+    padding: 22px 18px; box-shadow: var(--shadow);
+    position: relative; overflow: hidden;
+  }
+  .tip-card::before {
+    content: ''; position: absolute; right: -14px; bottom: -14px;
+    width: 70px; height: 70px; border-radius: 50%;
+    opacity: 0.08;
+  }
+  .tip-card .t-icon { font-size: 2rem; margin-bottom: 10px; }
+  .tip-card h4 { font-family: 'Baloo 2', cursive; font-size: 1.05rem; font-weight: 800; margin-bottom: 6px; }
+  .tip-card p { font-size: 0.87rem; line-height: 1.6; color: #475569; }
+  .tip-card .t-uk { font-size: 0.8rem; color: #94a3b8; font-style: italic; margin-top: 4px; }
+
+  /* ─── SCROLL TOP ─── */
+  #scrollBtn {
+    position: fixed; bottom: 28px; right: 28px;
+    background: var(--primary); color: white;
+    border: none; border-radius: 50%;
+    width: 52px; height: 52px; font-size: 1.5rem;
+    cursor: pointer; display: none;
+    box-shadow: 0 4px 16px rgba(255,107,53,0.4);
+    transition: transform .2s;
+    z-index: 999;
+  }
+  #scrollBtn:hover { transform: scale(1.12); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    text-align: center; padding: 48px 20px;
+    color: #94a3b8; font-size: 0.9rem;
+    margin-top: 60px; border-top: 2px solid #f1f5f9;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 600px) {
+    .transform-box { flex-direction: column; align-items: center; }
+    .t-arrow { transform: rotate(90deg); margin: 0; }
+    .inf-row { flex-direction: column; }
+    .inf-sep { justify-content: center; transform: rotate(90deg); }
+    .card { padding: 20px 18px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <span class="hero-emoji">🔄</span>
+  <h1>Verb <span>→</span> Noun<br>Conversion</h1>
+  <p class="hero-sub">Same word, two jobs — no changes needed!</p>
+  <p class="hero-uk">Те саме слово — і дієслово, і іменник!</p>
+  <div class="pills">
+    <span class="pill">🏷 Zero Derivation</span>
+    <span class="pill">✏️ Grammar</span>
+    <span class="pill">🔤 Word Forms</span>
+    <span class="pill">🇬🇧 English</span>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- SECTION 1: WHAT IS IT? -->
+  <section id="what">
+    <div class="sec-head">
+      <div class="sec-icon" style="background:#dbeafe;">💡</div>
+      <h2>What is Conversion?
+        <small>Що таке конверсія?</small>
+      </h2>
+    </div>
+    <div class="big-idea">
+      <p>In English, <strong>many words can be both a verb AND a noun</strong> — without any change in spelling!</p>
+      <p>В англійській мові <strong>одне й те саме слово</strong> може бути і дієсловом, і іменником — <em>форма слова не змінюється</em>, лише його роль у реченні.</p>
+    </div>
+
+    <div class="transform-box">
+      <div class="t-word verb">
+        <div class="label">Verb / Дієслово</div>
+        <div class="word">run</div>
+        <div class="meaning">бігти / запускати</div>
+      </div>
+      <div class="t-arrow">→</div>
+      <div class="t-word noun">
+        <div class="label">Noun / Іменник</div>
+        <div class="word">run</div>
+        <div class="meaning">пробіжка / запуск</div>
+      </div>
+    </div>
+
+    <div class="formula-box">
+      <div class="f-label">📐 The Golden Rule / Золоте правило</div>
+      <div class="formula">
+        <span class="v">verb</span> → <span class="n">noun</span><br>
+        <span class="same">same spelling · same pronunciation · different role</span>
+      </div>
+      <div class="f-note">однакове написання · однакова вимова · різна функція у реченні</div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: MAGIC SENTENCE -->
+  <section id="magic">
+    <div class="sec-head">
+      <div class="sec-icon" style="background:#fef9c3;">✨</div>
+      <h2>Magic Sentence
+        <small>Магічне речення — одне слово, два значення</small>
+      </h2>
+    </div>
+
+    <div class="magic-wrap">
+      <h3>✨ The Magic Word: "WALK"</h3>
+      <p class="uk-label">Слово «walk» — і дієслово, і іменник. Дивись, як змінюється зміст!</p>
+
+      <div class="magic-sent v">
+        <span class="tag">🔵 VERB / Дієслово</span>
+        I <strong>walk</strong> to school every morning.
+        <span class="uk">Я <strong>іду</strong> до школи щоранку.</span>
+      </div>
+      <div class="magic-sent n">
+        <span class="tag">🟠 NOUN / Іменник</span>
+        Every morning I take a <strong>walk</strong> to school.
+        <span class="uk">Щоранку я роблю <strong>прогулянку</strong> до школи.</span>
+      </div>
+
+      <div class="magic-sent v" style="margin-top:16px;">
+        <span class="tag">🔵 VERB / Дієслово</span>
+        We <strong>call</strong> our friends on weekends.
+        <span class="uk">Ми <strong>дзвонимо</strong> друзям у вихідні.</span>
+      </div>
+      <div class="magic-sent n">
+        <span class="tag">🟠 NOUN / Іменник</span>
+        We always make a <strong>call</strong> on weekends.
+        <span class="uk">Ми завжди робимо <strong>дзвінок</strong> у вихідні.</span>
+      </div>
+
+      <div class="magic-sent v" style="margin-top:16px;">
+        <span class="tag">🔵 VERB / Дієслово</span>
+        She loves to <strong>dream</strong> about adventures.
+        <span class="uk">Вона любить <strong>мріяти</strong> про пригоди.</span>
+      </div>
+      <div class="magic-sent n">
+        <span class="tag">🟠 NOUN / Іменник</span>
+        She has a big <strong>dream</strong> about adventures.
+        <span class="uk">У неї є велика <strong>мрія</strong> про пригоди.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: HOW TO KNOW? -->
+  <section id="howto">
+    <div class="sec-head">
+      <div class="sec-icon" style="background:#f0fdf4;">🔍</div>
+      <h2>How Do You Know?
+        <small>Як зрозуміти — дієслово чи іменник?</small>
+      </h2>
+    </div>
+
+    <div class="infographic">
+      <h3>📍 Look at the sentence position / Дивись на місце в реченні</h3>
+      <div class="inf-row">
+        <div class="inf-cell subj">
+          <div class="c-label">Subject</div>
+          <div class="c-val">The run</div>
+          <div class="c-uk">підмет</div>
+        </div>
+        <div class="inf-sep">+</div>
+        <div class="inf-cell verb-c">
+          <div class="c-label">Verb</div>
+          <div class="c-val">was</div>
+          <div class="c-uk">присудок</div>
+        </div>
+        <div class="inf-sep">+</div>
+        <div class="inf-cell noun-c">
+          <div class="c-label">Adjective</div>
+          <div class="c-val">great</div>
+          <div class="c-uk">означення</div>
+        </div>
+      </div>
+      <p style="text-align:center;font-size:1.05rem;font-weight:700;color:#10b981;margin:6px 0 20px;">→ "run" is a NOUN here (іменник)</p>
+
+      <div class="inf-row">
+        <div class="inf-cell subj">
+          <div class="c-label">Subject</div>
+          <div class="c-val">She</div>
+          <div class="c-uk">підмет</div>
+        </div>
+        <div class="inf-sep">+</div>
+        <div class="inf-cell verb-c">
+          <div class="c-label">VERB ← here!</div>
+          <div class="c-val">runs</div>
+          <div class="c-uk">присудок</div>
+        </div>
+        <div class="inf-sep">+</div>
+        <div class="inf-cell obj">
+          <div class="c-label">Object</div>
+          <div class="c-val">every day</div>
+          <div class="c-uk">обставина</div>
+        </div>
+      </div>
+      <p style="text-align:center;font-size:1.05rem;font-weight:700;color:#3b82f6;margin:6px 0 0;">→ "run/runs" is a VERB here (дієслово)</p>
+    </div>
+
+    <div class="use-grid">
+      <div class="use-card" style="border-color:#3b82f6;">
+        <div class="u-icon">🔵</div>
+        <h4>It's a VERB when…</h4>
+        <p>It follows a subject and shows an action.<br><em>He runs fast.</em></p>
+        <p class="u-uk">Це дієслово, коли воно стоїть після підмета і показує дію.</p>
+      </div>
+      <div class="use-card" style="border-color:#ff6b35;">
+        <div class="u-icon">🟠</div>
+        <h4>It's a NOUN when…</h4>
+        <p>It comes after <em>a / an / the / my / a good</em> etc.<br><em>a good run · the call</em></p>
+        <p class="u-uk">Це іменник, коли перед ним стоїть артикль або присвійний займенник.</p>
+      </div>
+      <div class="use-card" style="border-color:#10b981;">
+        <div class="u-icon">🟢</div>
+        <h4>Clue words / Підказки</h4>
+        <p><strong>a, an, the, my, his, her, this, good, big, long…</strong> → NOUN follows!</p>
+        <p class="u-uk">Ці слова — підказка, що далі буде іменник!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: EXAMPLES -->
+  <section id="examples">
+    <div class="sec-head">
+      <div class="sec-icon" style="background:#fff7ed;">📚</div>
+      <h2>Word Examples
+        <small>Приклади слів та речень</small>
+      </h2>
+    </div>
+
+    <div class="word-grid">
+      <div class="word-card">
+        <div class="word-card-top">
+          <div class="word-card-emoji">🏃</div>
+          <div class="word-card-words">
+            <div class="word-card-verb">verb → noun</div>
+            <div class="word-card-vword">run <span class="word-card-arrow">→</span> <span class="word-card-noun">run</span></div>
+          </div>
+        </div>
+        <div class="word-card-bottom">
+          <div class="word-card-ex">I <span class="hi-v">run</span> every day. → a morning <span class="hi-n">run</span></div>
+          <div class="word-card-ex"><span class="uk">Я бігаю щодня. → ранкова пробіжка</span></div>
+        </div>
+      </div>
+
+      <div class="word-card">
+        <div class="word-card-top">
+          <div class="word-card-emoji">📞</div>
+          <div class="word-card-words">
+            <div class="word-card-verb">verb → noun</div>
+            <div class="word-card-vword">call <span class="word-card-arrow">→</span> <span class="word-card-noun">call</span></div>
+          </div>
+        </div>
+        <div class="word-card-bottom">
+          <div class="word-card-ex">I'll <span class="hi-v">call</span> you. → Give me a <span class="hi-n">call</span>.</div>
+          <div class="word-card-ex"><span class="uk">Я зателефоную. → Зателефонуй мені.</span></div>
+        </div>
+      </div>
+
+      <div class="word-card">
+        <div class="word-card-top">
+          <div class="word-card-emoji">💤</div>
+          <div class="word-card-words">
+            <div class="word-card-verb">verb → noun</div>
+            <div class="word-card-vword">sleep <span class="word-card-arrow">→</span> <span class="word-card-noun">sleep</span></div>
+          </div>
+        </div>
+        <div class="word-card-bottom">
+          <div class="word-card-ex">I <span class="hi-v">sleep</span> 8 hours. → a good <span class="hi-n">sleep</span></div>
+          <div class="word-card-ex"><span class="uk">Я сплю 8 годин. → гарний сон</span></div>
+        </div>
+      </div>
+
+      <div class="word-card">
+        <div class="word-card-top">
+          <div class="word-card-emoji">💔</div>
+          <div class="word-card-words">
+            <div class="word-card-verb">verb → noun</div>
+            <div class="word-card-vword">break <span class="word-card-arrow">→</span> <span class="word-card-noun">break</span></div>
+          </div>
+        </div>
+        <div class="word-card-bottom">
+          <div class="word-card-ex">Don't <span class="hi-v">break</span> it! → Take a <span class="hi-n">break</span>.</div>
+          <div class="word-card-ex"><span class="uk">Не ламай! → Зроби перерву.</span></div>
+        </div>
+      </div>
+
+      <div class="word-card">
+        <div class="word-card-top">
+          <div class="word-card-emoji">❤️</div>
+          <div class="word-card-words">
+            <div class="word-card-verb">verb → noun</div>
+            <div class="word-card-vword">love <span class="word-card-arrow">→</span> <span class="word-card-noun">love</span></div>
+          </div>
+        </div>
+        <div class="word-card-bottom">
+          <div class="word-card-ex">I <span class="hi-v">love</span> music. → This is true <span class="hi-n">love</span>.</div>
+          <div class="word-card-ex"><span class="uk">Я люблю музику. → Це справжнє кохання.</span></div>
+        </div>
+      </div>
+
+      <div class="word-card">
+        <div class="word-card-top">
+          <div class="word-card-emoji">💬</div>
+          <div class="word-card-words">
+            <div class="word-card-verb">verb → noun</div>
+            <div class="word-card-vword">chat <span class="word-card-arrow">→</span> <span class="word-card-noun">chat</span></div>
+          </div>
+        </div>
+        <div class="word-card-bottom">
+          <div class="word-card-ex">We <span class="hi-v">chat</span> online. → Let's have a <span class="hi-n">chat</span>.</div>
+          <div class="word-card-ex"><span class="uk">Ми спілкуємось онлайн. → Давай поговоримо.</span></div>
+        </div>
+      </div>
+
+      <div class="word-card">
+        <div class="word-card-top">
+          <div class="word-card-emoji">🎮</div>
+          <div class="word-card-words">
+            <div class="word-card-verb">verb → noun</div>
+            <div class="word-card-vword">play <span class="word-card-arrow">→</span> <span class="word-card-noun">play</span></div>
+          </div>
+        </div>
+        <div class="word-card-bottom">
+          <div class="word-card-ex">Kids <span class="hi-v">play</span> outside. → a great <span class="hi-n">play</span> (театральна п'єса)</div>
+          <div class="word-card-ex"><span class="uk">Діти грають надворі. → чудова п'єса.</span></div>
+        </div>
+      </div>
+
+      <div class="word-card">
+        <div class="word-card-top">
+          <div class="word-card-emoji">🌊</div>
+          <div class="word-card-words">
+            <div class="word-card-verb">verb → noun</div>
+            <div class="word-card-vword">swim <span class="word-card-arrow">→</span> <span class="word-card-noun">swim</span></div>
+          </div>
+        </div>
+        <div class="word-card-bottom">
+          <div class="word-card-ex">I <span class="hi-v">swim</span> every day. → a long <span class="hi-n">swim</span></div>
+          <div class="word-card-ex"><span class="uk">Я плаваю щодня. → довге плавання.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: COMMON WORDS -->
+  <section id="words">
+    <div class="sec-head">
+      <div class="sec-icon" style="background:#fdf4ff;">🏷</div>
+      <h2>Most Common Conversion Words
+        <small>Найпоширеніші слова-конвертери</small>
+      </h2>
+    </div>
+
+    <div class="tag-cloud">
+      <span class="tag-item" style="border-color:#3b82f6;color:#3b82f6;">🏃 <span>run</span> <span class="v-part">пробіжка</span></span>
+      <span class="tag-item" style="border-color:#ff6b35;color:#ff6b35;">☕ <span>drink</span> <span class="v-part">напій</span></span>
+      <span class="tag-item" style="border-color:#10b981;color:#10b981;">💤 <span>sleep</span> <span class="v-part">сон</span></span>
+      <span class="tag-item" style="border-color:#8b5cf6;color:#8b5cf6;">🎯 <span>try</span> <span class="v-part">спроба</span></span>
+      <span class="tag-item" style="border-color:#ec4899;color:#ec4899;">💔 <span>break</span> <span class="v-part">перерва</span></span>
+      <span class="tag-item" style="border-color:#f59e0b;color:#b45309;">📞 <span>call</span> <span class="v-part">дзвінок</span></span>
+      <span class="tag-item" style="border-color:#3b82f6;color:#3b82f6;">❤️ <span>love</span> <span class="v-part">кохання</span></span>
+      <span class="tag-item" style="border-color:#10b981;color:#10b981;">🚶 <span>walk</span> <span class="v-part">прогулянка</span></span>
+      <span class="tag-item" style="border-color:#ff6b35;color:#ff6b35;">🤔 <span>think</span> <span class="v-part">думка</span></span>
+      <span class="tag-item" style="border-color:#8b5cf6;color:#8b5cf6;">📖 <span>study</span> <span class="v-part">навчання</span></span>
+      <span class="tag-item" style="border-color:#ec4899;color:#ec4899;">🎭 <span>play</span> <span class="v-part">гра / п'єса</span></span>
+      <span class="tag-item" style="border-color:#3b82f6;color:#3b82f6;">💰 <span>work</span> <span class="v-part">робота</span></span>
+      <span class="tag-item" style="border-color:#f59e0b;color:#b45309;">🌊 <span>swim</span> <span class="v-part">плавання</span></span>
+      <span class="tag-item" style="border-color:#10b981;color:#10b981;">💬 <span>talk</span> <span class="v-part">розмова</span></span>
+      <span class="tag-item" style="border-color:#ff6b35;color:#ff6b35;">🎯 <span>aim</span> <span class="v-part">мета</span></span>
+      <span class="tag-item" style="border-color:#8b5cf6;color:#8b5cf6;">✉️ <span>email</span> <span class="v-part">листування</span></span>
+      <span class="tag-item" style="border-color:#ec4899;color:#ec4899;">🖊 <span>design</span> <span class="v-part">дизайн</span></span>
+      <span class="tag-item" style="border-color:#3b82f6;color:#3b82f6;">🚀 <span>launch</span> <span class="v-part">запуск</span></span>
+    </div>
+  </section>
+
+  <!-- SECTION 6: TIPS -->
+  <section id="tips">
+    <div class="sec-head">
+      <div class="sec-icon" style="background:#fef9c3;">💎</div>
+      <h2>Pro Tips
+        <small>Корисні підказки</small>
+      </h2>
+    </div>
+
+    <div class="tips-grid">
+      <div class="tip-card">
+        <div class="t-icon">🔎</div>
+        <h4>Check the article</h4>
+        <p>If you see <em>a, an, the, my, his</em> before the word — it's a noun!</p>
+        <p class="t-uk">Якщо перед словом є артикль або займенник — це іменник!</p>
+      </div>
+      <div class="tip-card">
+        <div class="t-icon">🧩</div>
+        <h4>Check the position</h4>
+        <p>After subject + before object/complement → usually a verb.</p>
+        <p class="t-uk">Після підмета перед додатком — зазвичай дієслово.</p>
+      </div>
+      <div class="tip-card">
+        <div class="t-icon">🌍</div>
+        <h4>Context is king!</h4>
+        <p><em>"I swim"</em> = verb. <em>"A swim"</em> = noun. Read the whole sentence!</p>
+        <p class="t-uk">Контекст — найважливіший! Читай все речення.</p>
+      </div>
+      <div class="tip-card">
+        <div class="t-icon">🎯</div>
+        <h4>No suffix needed!</h4>
+        <p>Unlike Ukrainian, English doesn't need extra endings for this change.</p>
+        <p class="t-uk">На відміну від української, в англійській не потрібні суфікси для зміни частини мови!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: QUIZ -->
+  <section id="quiz" style="padding-bottom:0;">
+    <div class="sec-head">
+      <div class="sec-icon" style="background:#fce7f3;">🧠</div>
+      <h2>Quick Quiz
+        <small>Перевір себе!</small>
+      </h2>
+    </div>
+
+    <div class="quiz-wrap">
+      <h3>🧠 Test Your Knowledge!</h3>
+      <p class="q-uk">Перевір, чи ти розумієш конверсію</p>
+
+      <!-- Q1 -->
+      <div class="q-card" data-answer="noun">
+        <div class="q-num">QUESTION 1 / 5</div>
+        <div class="q-text">She took a long <span class="blank" id="b1">walk</span> in the park. — "walk" is a…</div>
+        <div class="q-options">
+          <button class="q-btn" onclick="answer(this, 'verb', 1)">🔵 Verb</button>
+          <button class="q-btn" onclick="answer(this, 'noun', 1)">🟠 Noun</button>
+        </div>
+        <div class="q-feedback" id="f1">✅ Correct! "a long walk" — article + adjective + word = NOUN! Артикль перед словом → іменник!</div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="q-card" data-answer="verb">
+        <div class="q-num">QUESTION 2 / 5</div>
+        <div class="q-text">I <span class="blank" id="b2">call</span> my parents every Sunday. — "call" is a…</div>
+        <div class="q-options">
+          <button class="q-btn" onclick="answer(this, 'verb', 2)">🔵 Verb</button>
+          <button class="q-btn" onclick="answer(this, 'noun', 2)">🟠 Noun</button>
+        </div>
+        <div class="q-feedback" id="f2">✅ Correct! "I call" — after subject, shows action = VERB! Стоїть після підмета → дієслово!</div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="q-card" data-answer="noun">
+        <div class="q-num">QUESTION 3 / 5</div>
+        <div class="q-text">Can we have a <span class="blank" id="b3">chat</span> after school? — "chat" is a…</div>
+        <div class="q-options">
+          <button class="q-btn" onclick="answer(this, 'verb', 3)">🔵 Verb</button>
+          <button class="q-btn" onclick="answer(this, 'noun', 3)">🟠 Noun</button>
+        </div>
+        <div class="q-feedback" id="f3">✅ Correct! "a chat" — article "a" before word = NOUN! Артикль "a" → іменник!</div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="q-card" data-answer="verb">
+        <div class="q-num">QUESTION 4 / 5</div>
+        <div class="q-text">They <span class="blank" id="b4">play</span> football on weekends. — "play" is a…</div>
+        <div class="q-options">
+          <button class="q-btn" onclick="answer(this, 'verb', 4)">🔵 Verb</button>
+          <button class="q-btn" onclick="answer(this, 'noun', 4)">🟠 Noun</button>
+        </div>
+        <div class="q-feedback" id="f4">✅ Correct! "they play" — shows action after subject = VERB! Показує дію → дієслово!</div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="q-card" data-answer="noun">
+        <div class="q-num">QUESTION 5 / 5</div>
+        <div class="q-text">He had a great <span class="blank" id="b5">run</span> this morning. — "run" is a…</div>
+        <div class="q-options">
+          <button class="q-btn" onclick="answer(this, 'verb', 5)">🔵 Verb</button>
+          <button class="q-btn" onclick="answer(this, 'noun', 5)">🟠 Noun</button>
+        </div>
+        <div class="q-feedback" id="f5">✅ Correct! "a great run" — adjective + word after "a" = NOUN! Прикметник + слово після "a" → іменник!</div>
+      </div>
+
+      <div class="q-score" id="scoreBox"></div>
+      <button class="quiz-reset" onclick="resetQuiz()" id="resetBtn" style="display:none;">🔄 Try Again / Спробуй ще раз</button>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>🇬🇧 Verb → Noun Conversion · Zero Derivation in English</p>
+  <p style="margin-top:6px;">Конверсія в англійській мові · Для початківців і підлітків 🇺🇦</p>
+</footer>
+
+<button id="scrollBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
+
+<script>
+  // Scroll button
+  window.addEventListener('scroll', () => {
+    document.getElementById('scrollBtn').style.display = window.scrollY > 300 ? 'block' : 'none';
+  });
+
+  // Quiz logic
+  const correct = { 1:'noun', 2:'verb', 3:'noun', 4:'verb', 5:'noun' };
+  let answered = {};
+  let score = 0;
+
+  function answer(btn, choice, q) {
+    if (answered[q]) return;
+    answered[q] = choice;
+    const isRight = choice === correct[q];
+    if (isRight) { btn.classList.add('correct'); score++; }
+    else {
+      btn.classList.add('wrong');
+      // highlight correct
+      btn.parentElement.querySelectorAll('.q-btn').forEach(b => {
+        if (b !== btn) {
+          const v = b.textContent.toLowerCase().includes('verb') ? 'verb' : 'noun';
+          if (v === correct[q]) b.classList.add('correct');
+        }
+      });
+    }
+    const fb = document.getElementById('f' + q);
+    if (!isRight) fb.textContent = '❌ Not quite! The answer is: ' + (correct[q] === 'noun' ? '🟠 NOUN — look for the article before it! Шукай артикль перед словом!' : '🔵 VERB — it follows a subject and shows action! Після підмета і показує дію!');
+    fb.classList.add('show');
+
+    // check all done
+    if (Object.keys(answered).length === 5) {
+      const box = document.getElementById('scoreBox');
+      const msgs = ['Keep practising! 💪 Практикуйся!', 'Good job! 😊 Непогано!', 'Great! 🎉 Чудово!', 'Excellent! ⭐ Відмінно!', 'Perfect! 🏆 Ідеально!'];
+      box.innerHTML = `Score: ${score}/5 — ${msgs[score]}`;
+      box.style.display = 'block';
+      document.getElementById('resetBtn').style.display = 'block';
+    }
+  }
+
+  function resetQuiz() {
+    answered = {}; score = 0;
+    document.querySelectorAll('.q-btn').forEach(b => b.classList.remove('correct','wrong'));
+    document.querySelectorAll('.q-feedback').forEach(f => f.classList.remove('show'));
+    document.getElementById('scoreBox').style.display = 'none';
+    document.getElementById('resetBtn').style.display = 'none';
+  }
+
+  // Animate cards on scroll
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.style.opacity=1; e.target.style.transform='translateY(0)'; }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.word-card, .use-card, .tip-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = 'opacity .5s ease, transform .5s ease';
+    obs.observe(el);
+  });
+</script>
+</body>
+</html>

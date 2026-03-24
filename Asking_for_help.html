@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Asking for Help in English 🙋</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sky: #4FC3F7;
+    --sky-dark: #0288D1;
+    --mint: #69F0AE;
+    --mint-dark: #00C853;
+    --sun: #FFD740;
+    --sun-dark: #FF8F00;
+    --coral: #FF7043;
+    --lavender: #CE93D8;
+    --lavender-dark: #AB47BC;
+    --bg: #F0F9FF;
+    --card-bg: #FFFFFF;
+    --text: #1A2340;
+    --muted: #5C7080;
+    --ua: #1565C0;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: linear-gradient(135deg, #0288D1 0%, #4FC3F7 50%, #69F0AE 100%);
+    padding: 48px 20px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(255,255,255,.18) 0%, transparent 60%),
+                radial-gradient(circle at 80% 30%, rgba(255,215,64,.2) 0%, transparent 50%);
+  }
+  .hero-emoji {
+    font-size: 72px;
+    display: block;
+    animation: bounce 2s ease-in-out infinite;
+    filter: drop-shadow(0 6px 16px rgba(0,0,0,.18));
+    position: relative;
+  }
+  @keyframes bounce {
+    0%,100% { transform: translateY(0); }
+    50%      { transform: translateY(-14px); }
+  }
+  header h1 {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(2rem, 6vw, 3.4rem);
+    color: #fff;
+    text-shadow: 0 3px 12px rgba(0,0,0,.25);
+    margin: 12px 0 6px;
+    position: relative;
+  }
+  .subtitle {
+    font-size: clamp(1rem, 3vw, 1.3rem);
+    color: rgba(255,255,255,.9);
+    font-weight: 700;
+    position: relative;
+  }
+  .ua-subtitle {
+    font-size: clamp(.85rem, 2.5vw, 1.05rem);
+    color: rgba(255,255,255,.8);
+    margin-top: 6px;
+    position: relative;
+    font-style: italic;
+  }
+
+  /* ── LAYOUT ── */
+  main { max-width: 960px; margin: 0 auto; padding: 40px 16px 80px; }
+
+  .section-title {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.7rem;
+    margin: 48px 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-title .pill {
+    background: var(--sun);
+    color: #7B4800;
+    border-radius: 50px;
+    padding: 2px 16px;
+    font-size: 1rem;
+    font-weight: 800;
+  }
+
+  /* ── INTRO BANNER ── */
+  .intro-banner {
+    background: linear-gradient(135deg, #E3F2FD, #E8F5E9);
+    border-radius: 24px;
+    padding: 28px 32px;
+    border-left: 6px solid var(--sky-dark);
+    margin-bottom: 8px;
+    position: relative;
+    overflow: hidden;
+  }
+  .intro-banner::after {
+    content: '💬';
+    position: absolute;
+    right: 24px; top: 50%;
+    transform: translateY(-50%);
+    font-size: 64px;
+    opacity: .18;
+  }
+  .intro-banner p { font-size: 1.05rem; line-height: 1.7; }
+  .intro-banner .ua { color: var(--ua); font-style: italic; margin-top: 8px; font-size: .97rem; }
+
+  /* ── CARDS GRID ── */
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+
+  .card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 4px 20px rgba(0,0,0,.07);
+    transition: transform .25s, box-shadow .25s;
+    border-top: 5px solid var(--sky);
+    position: relative;
+    overflow: hidden;
+  }
+  .card:hover { transform: translateY(-5px); box-shadow: 0 10px 32px rgba(0,0,0,.13); }
+  .card.mint  { border-color: var(--mint-dark); }
+  .card.sun   { border-color: var(--sun-dark); }
+  .card.coral { border-color: var(--coral); }
+  .card.lav   { border-color: var(--lavender-dark); }
+
+  .card-icon { font-size: 40px; margin-bottom: 10px; display: block; }
+  .card h3 { font-family: 'Baloo 2', cursive; font-size: 1.2rem; margin-bottom: 6px; }
+  .card .ua-note { font-size: .82rem; color: var(--ua); font-style: italic; font-weight: 700; margin-bottom: 12px; }
+  .card p { font-size: .92rem; line-height: 1.65; color: #334; }
+
+  /* ── FORMULA BOX ── */
+  .formula-box {
+    background: linear-gradient(135deg, #1A237E, #283593);
+    border-radius: 20px;
+    padding: 28px 32px;
+    color: #fff;
+    margin: 8px 0;
+  }
+  .formula-box h3 { font-family: 'Baloo 2', cursive; font-size: 1.3rem; margin-bottom: 16px; opacity: .9; }
+  .formula {
+    background: rgba(255,255,255,.12);
+    border-radius: 12px;
+    padding: 14px 20px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    border-left: 4px solid var(--sun);
+    line-height: 1.5;
+  }
+  .formula span { color: var(--sun); }
+  .formula .ua { display: block; font-size: .82rem; color: rgba(255,255,255,.65); font-weight: 600; margin-top: 4px; font-style: italic; }
+
+  /* ── PHRASE TABLE ── */
+  .phrase-table { width: 100%; border-collapse: separate; border-spacing: 0 8px; }
+  .phrase-table thead tr th {
+    background: var(--sky-dark);
+    color: #fff;
+    padding: 10px 16px;
+    text-align: left;
+    font-size: .9rem;
+    font-weight: 800;
+  }
+  .phrase-table thead tr th:first-child { border-radius: 10px 0 0 10px; }
+  .phrase-table thead tr th:last-child  { border-radius: 0 10px 10px 0; }
+  .phrase-table tbody tr { background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
+  .phrase-table tbody tr:hover { background: #E3F2FD; }
+  .phrase-table td { padding: 12px 16px; font-size: .93rem; vertical-align: top; }
+  .phrase-table td:first-child { border-radius: 10px 0 0 10px; font-weight: 700; color: #0D47A1; }
+  .phrase-table td:last-child  { border-radius: 0 10px 10px 0; color: var(--ua); font-style: italic; font-size: .87rem; }
+  .badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 50px;
+    font-size: .72rem;
+    font-weight: 800;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+  .badge.formal   { background: #E3F2FD; color: #1565C0; }
+  .badge.informal { background: #F3E5F5; color: #6A1B9A; }
+  .badge.polite   { background: #E8F5E9; color: #2E7D32; }
+
+  /* ── DIALOGUE BUBBLES ── */
+  .dialogue { display: flex; flex-direction: column; gap: 14px; }
+  .bubble-wrap { display: flex; align-items: flex-end; gap: 12px; }
+  .bubble-wrap.right { flex-direction: row-reverse; }
+  .avatar {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px;
+    flex-shrink: 0;
+    box-shadow: 0 3px 10px rgba(0,0,0,.12);
+  }
+  .avatar.a { background: #BBDEFB; }
+  .avatar.b { background: #C8E6C9; }
+  .bubble {
+    max-width: 72%;
+    border-radius: 20px;
+    padding: 14px 18px;
+    font-size: .95rem;
+    line-height: 1.6;
+    box-shadow: 0 3px 12px rgba(0,0,0,.08);
+  }
+  .bubble.left  { background: #fff; border-bottom-left-radius: 4px; }
+  .bubble.right { background: linear-gradient(135deg, #4FC3F7, #0288D1); color: #fff; border-bottom-right-radius: 4px; }
+  .bubble strong { display: block; margin-bottom: 3px; }
+  .bubble .ua   { font-size: .8rem; opacity: .7; font-style: italic; margin-top: 4px; }
+  .bubble.right .ua { color: rgba(255,255,255,.85); }
+  .bubble.left  .ua { color: var(--ua); }
+
+  /* ── SITUATION CARDS ── */
+  .situation {
+    background: #fff;
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 4px 16px rgba(0,0,0,.07);
+    margin-bottom: 20px;
+  }
+  .situation-header {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 16px;
+  }
+  .situation-header .sit-icon {
+    font-size: 36px;
+    background: var(--bg);
+    width: 60px; height: 60px;
+    border-radius: 16px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .situation-header h3 { font-family: 'Baloo 2', cursive; font-size: 1.2rem; }
+  .situation-header .ua-h { font-size: .85rem; color: var(--ua); font-style: italic; }
+
+  .phrase-chip {
+    display: inline-block;
+    background: #E3F2FD;
+    color: #0D47A1;
+    border-radius: 50px;
+    padding: 5px 14px;
+    font-size: .88rem;
+    font-weight: 700;
+    margin: 4px 4px 4px 0;
+    border: 2px solid #BBDEFB;
+  }
+
+  /* ── TIPS ── */
+  .tips-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 16px; }
+  .tip {
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 3px 14px rgba(0,0,0,.07);
+    border-bottom: 4px solid var(--mint-dark);
+  }
+  .tip .tip-icon { font-size: 36px; margin-bottom: 10px; }
+  .tip h4 { font-family: 'Baloo 2', cursive; font-size: 1.05rem; margin-bottom: 6px; }
+  .tip p  { font-size: .87rem; line-height: 1.6; color: #445; }
+  .tip .ua { font-size: .8rem; color: var(--ua); font-style: italic; margin-top: 6px; }
+
+  /* ── QUIZ ── */
+  .quiz-box {
+    background: linear-gradient(135deg, #FFF8E1, #FFF3E0);
+    border-radius: 24px;
+    padding: 32px;
+    border: 3px solid var(--sun);
+    margin-top: 12px;
+  }
+  .quiz-box h3 { font-family: 'Baloo 2', cursive; font-size: 1.4rem; margin-bottom: 20px; }
+  .quiz-q { margin-bottom: 24px; }
+  .quiz-q p { font-size: 1rem; font-weight: 700; margin-bottom: 10px; }
+  .quiz-q .ua { font-size: .85rem; color: var(--ua); font-style: italic; margin-bottom: 12px; }
+  .options { display: flex; flex-direction: column; gap: 8px; }
+  .opt {
+    background: #fff;
+    border: 2px solid #E0E0E0;
+    border-radius: 12px;
+    padding: 10px 16px;
+    font-size: .93rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .2s;
+    text-align: left;
+  }
+  .opt:hover { border-color: var(--sky-dark); background: #E3F2FD; }
+  .opt.correct { border-color: var(--mint-dark); background: #E8F5E9; color: #1B5E20; }
+  .opt.wrong   { border-color: #EF5350; background: #FFEBEE; color: #B71C1C; }
+  .opt.disabled { pointer-events: none; opacity: .5; }
+  .feedback { font-size: .88rem; font-weight: 700; margin-top: 8px; padding: 8px 14px; border-radius: 8px; display: none; }
+  .feedback.show { display: block; }
+  .feedback.ok  { background: #E8F5E9; color: #2E7D32; }
+  .feedback.bad { background: #FFEBEE; color: #C62828; }
+
+  /* ── SCROLL-TOP ── */
+  #scrollTop {
+    position: fixed;
+    bottom: 28px; right: 24px;
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--sky-dark), var(--mint-dark));
+    color: #fff;
+    font-size: 22px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(0,0,0,.2);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .3s, transform .3s;
+    z-index: 999;
+    display: flex; align-items: center; justify-content: center;
+  }
+  #scrollTop.show { opacity: 1; transform: translateY(0); }
+  #scrollTop:hover { transform: translateY(-3px) scale(1.05); }
+
+  /* ── MAGIC SENTENCE BANNER ── */
+  .magic {
+    background: linear-gradient(135deg, #E8EAF6, #EDE7F6);
+    border-radius: 20px;
+    padding: 24px 28px;
+    border-left: 6px solid var(--lavender-dark);
+    margin: 16px 0;
+    display: flex; gap: 16px; align-items: flex-start;
+  }
+  .magic .m-icon { font-size: 40px; flex-shrink: 0; }
+  .magic h4 { font-family: 'Baloo 2', cursive; font-size: 1.15rem; margin-bottom: 4px; }
+  .magic p  { font-size: .95rem; line-height: 1.65; }
+  .magic .ua { color: var(--ua); font-style: italic; font-size: .88rem; margin-top: 6px; }
+
+  /* ── INFOGRAPHIC: SCALE ── */
+  .scale-box {
+    background: #fff;
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: 0 4px 18px rgba(0,0,0,.07);
+    overflow-x: auto;
+  }
+  .scale-row {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    border-radius: 14px;
+    overflow: hidden;
+    min-width: 560px;
+  }
+  .scale-item {
+    flex: 1;
+    padding: 16px 10px;
+    text-align: center;
+    font-size: .82rem;
+    font-weight: 700;
+    line-height: 1.4;
+    display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
+  }
+  .scale-item .s-emoji { font-size: 26px; margin-bottom: 6px; }
+  .scale-item .s-en   { color: #1A2340; margin-bottom: 4px; }
+  .scale-item .s-ua   { color: var(--ua); font-style: italic; font-size: .75rem; }
+
+  .s1 { background: #E3F2FD; }
+  .s2 { background: #BBDEFB; }
+  .s3 { background: #90CAF9; }
+  .s4 { background: #64B5F6; }
+  .s5 { background: #42A5F5; color: #fff; }
+
+  .scale-labels {
+    display: flex; justify-content: space-between;
+    min-width: 560px;
+    font-size: .78rem; font-weight: 800;
+    color: #666;
+    margin-top: 8px;
+    padding: 0 4px;
+  }
+
+  /* ── WORD LIST ── */
+  .word-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; }
+  .word-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 16px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.06);
+    border-top: 4px solid var(--coral);
+  }
+  .word-card .w-en   { font-size: 1rem; font-weight: 800; color: #1A2340; margin-bottom: 2px; }
+  .word-card .w-pron { font-size: .78rem; color: #999; font-style: italic; margin-bottom: 4px; }
+  .word-card .w-ua   { font-size: .82rem; color: var(--ua); font-weight: 700; }
+  .word-card .w-ex   { font-size: .8rem; color: #556; margin-top: 6px; border-top: 1px dashed #eee; padding-top: 6px; }
+
+  /* responsive */
+  @media (max-width: 600px) {
+    .cards { grid-template-columns: 1fr; }
+    .phrase-table td, .phrase-table th { padding: 10px 10px; font-size: .82rem; }
+    .bubble { max-width: 85%; }
+    .formula-box { padding: 20px 18px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <span class="hero-emoji">🙋</span>
+  <h1>Asking for Help</h1>
+  <p class="subtitle">How to ask for help in English</p>
+  <p class="ua-subtitle">Як просити про допомогу англійською мовою</p>
+</header>
+
+<main>
+
+  <!-- INTRO -->
+  <div class="intro-banner">
+    <p>Asking for help is something we all do every day! In English, how you ask depends on <strong>who</strong> you're talking to and <strong>what</strong> you need. This page will teach you the best phrases and when to use them! 💪</p>
+    <p class="ua">Просити про допомогу — це те, що ми робимо кожного дня! В англійській мові спосіб, яким ти просиш, залежить від того, <strong>з ким</strong> ти розмовляєш і <strong>що</strong> тобі потрібно. Ця сторінка навчить тебе найкращих фраз і коли їх використовувати!</p>
+  </div>
+
+  <!-- MAGIC SENTENCE -->
+  <div class="magic">
+    <span class="m-icon">✨</span>
+    <div>
+      <h4>Magic Sentence / Чарівна фраза</h4>
+      <p><strong>"Could you help me, please?"</strong> — Works in almost every situation!</p>
+      <p class="ua">«Могли б ви допомогти мені, будь ласка?» — Підходить майже для будь-якої ситуації!</p>
+    </div>
+  </div>
+
+  <!-- SECTION 1 – WHY IT MATTERS -->
+  <div class="section-title">🌟 <span>Why ask for help?</span> <span class="pill">Навіщо просити?</span></div>
+
+  <div class="cards">
+    <div class="card">
+      <span class="card-icon">🤝</span>
+      <h3>It's normal & brave</h3>
+      <p class="ua-note">Це нормально і сміливо</p>
+      <p>Asking for help shows you are smart enough to know when you need support. Everyone needs help sometimes — even teachers and adults!</p>
+    </div>
+    <div class="card mint">
+      <span class="card-icon">📚</span>
+      <h3>You learn faster</h3>
+      <p class="ua-note">Ти навчаєшся швидше</p>
+      <p>When you ask, you get the answer right away. Trying to figure everything out alone takes much longer!</p>
+    </div>
+    <div class="card sun">
+      <span class="card-icon">😊</span>
+      <h3>People like to help</h3>
+      <p class="ua-note">Люди люблять допомагати</p>
+      <p>Most people are happy to help if you ask politely. A kind request almost always gets a positive response!</p>
+    </div>
+  </div>
+
+  <!-- SECTION 2 – FORMAL vs INFORMAL -->
+  <div class="section-title">🎚️ <span>Formal vs Informal</span> <span class="pill">Офіційно vs Неофіційно</span></div>
+
+  <div class="scale-box">
+    <p style="font-weight:700; margin-bottom:14px; font-size:.95rem;">From VERY POLITE → CASUAL <span style="color:var(--ua); font-style:italic; font-size:.85rem;"> / Від ДУЖЕ ВВІЧЛИВОГО → РОЗСЛАБЛЕНОГО</span></p>
+    <div class="scale-row">
+      <div class="scale-item s1">
+        <span class="s-emoji">🤵</span>
+        <span class="s-en">Would you mind helping me?</span>
+        <span class="s-ua">Дуже офіційно<br>Very formal</span>
+      </div>
+      <div class="scale-item s2">
+        <span class="s-emoji">👔</span>
+        <span class="s-en">Could you help me, please?</span>
+        <span class="s-ua">Офіційно<br>Formal</span>
+      </div>
+      <div class="scale-item s3">
+        <span class="s-emoji">😊</span>
+        <span class="s-en">Can you help me?</span>
+        <span class="s-ua">Нейтрально<br>Neutral</span>
+      </div>
+      <div class="scale-item s4">
+        <span class="s-emoji">😎</span>
+        <span class="s-en">Help me out?</span>
+        <span class="s-ua">Неофіційно<br>Informal</span>
+      </div>
+      <div class="scale-item s5">
+        <span class="s-emoji">🤙</span>
+        <span class="s-en">Can you give me a hand?</span>
+        <span class="s-ua">Дуже неофіційно<br>Very casual</span>
+      </div>
+    </div>
+    <div class="scale-labels">
+      <span>← VERY POLITE / ДУЖЕ ВВІЧЛИВО</span>
+      <span>CASUAL / НЕВИМУШЕНО →</span>
+    </div>
+  </div>
+
+  <!-- SECTION 3 – KEY FORMULAS -->
+  <div class="section-title">📐 <span>Key Formulas</span> <span class="pill">Ключові формули</span></div>
+
+  <div class="formula-box">
+    <h3>🔑 Use these patterns / Використовуй ці шаблони:</h3>
+
+    <div class="formula">
+      <span>Could you</span> + verb + please?
+      <span class="ua">«Могли б ви» + дієслово + будь ласка? — ввічливо, офіційно</span>
+    </div>
+    <div class="formula">
+      <span>Can you</span> + verb + for me?
+      <span class="ua">«Ти можеш» + дієслово + для мене? — нейтрально, щоденно</span>
+    </div>
+    <div class="formula">
+      <span>Would you mind</span> + verb-ing?
+      <span class="ua">«Ви б не заперечували» + дієслово + ing? — дуже ввічливо</span>
+    </div>
+    <div class="formula">
+      I need help <span>with</span> + noun / I need help <span>to</span> + verb
+      <span class="ua">Мені потрібна допомога + з чимось / Мені потрібна допомога + зробити щось</span>
+    </div>
+    <div class="formula">
+      <span>Do you think you could</span> + verb?
+      <span class="ua">«Як ти думаєш, ти міг би» + дієслово? — ввічливо й непрямо</span>
+    </div>
+  </div>
+
+  <!-- SECTION 4 – BIG PHRASE TABLE -->
+  <div class="section-title">💬 <span>Useful Phrases</span> <span class="pill">Корисні фрази</span></div>
+
+  <div style="overflow-x:auto;">
+    <table class="phrase-table">
+      <thead>
+        <tr>
+          <th>English Phrase</th>
+          <th>When to use it</th>
+          <th>Українською</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Could you help me, please? <span class="badge polite">polite</span></td>
+          <td>With anyone — teacher, stranger, friend</td>
+          <td>Могли б ви допомогти мені, будь ласка?</td>
+        </tr>
+        <tr>
+          <td>Can you help me? <span class="badge informal">informal</span></td>
+          <td>Friends, classmates, family</td>
+          <td>Ти можеш мені допомогти?</td>
+        </tr>
+        <tr>
+          <td>Would you mind helping me? <span class="badge formal">formal</span></td>
+          <td>Very polite — for adults or strangers</td>
+          <td>Ви б не заперечували допомогти мені?</td>
+        </tr>
+        <tr>
+          <td>I need some help with this.</td>
+          <td>Explaining what you need</td>
+          <td>Мені потрібна трохи допомоги з цим.</td>
+        </tr>
+        <tr>
+          <td>Excuse me, could you show me…?  <span class="badge formal">formal</span></td>
+          <td>Strangers, teachers — asking to explain</td>
+          <td>Вибачте, ви могли б показати мені…?</td>
+        </tr>
+        <tr>
+          <td>Do you think you could…? <span class="badge polite">polite</span></td>
+          <td>Soft, indirect — great for requests</td>
+          <td>Як ти думаєш, ти зміг би…?</td>
+        </tr>
+        <tr>
+          <td>I'm stuck. Can you give me a hint? <span class="badge informal">informal</span></td>
+          <td>Classmates, friends — when you're confused</td>
+          <td>Я застряг. Можеш дати підказку?</td>
+        </tr>
+        <tr>
+          <td>Is there any way you could help me? <span class="badge polite">polite</span></td>
+          <td>When unsure if they're available</td>
+          <td>Чи є якийсь спосіб, яким ти міг би мені допомогти?</td>
+        </tr>
+        <tr>
+          <td>Could you give me a hand? <span class="badge informal">informal</span></td>
+          <td>Friends, siblings — physical tasks</td>
+          <td>Ти міг би мені допомогти? (дослівно: дати руку)</td>
+        </tr>
+        <tr>
+          <td>I'd appreciate your help. <span class="badge formal">formal</span></td>
+          <td>Emails, formal situations</td>
+          <td>Я був би вдячний за вашу допомогу.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SECTION 5 – SITUATIONS -->
+  <div class="section-title">📍 <span>Real Situations</span> <span class="pill">Реальні ситуації</span></div>
+
+  <div class="situation">
+    <div class="situation-header">
+      <div class="sit-icon">🏫</div>
+      <div>
+        <h3>At School / У школі</h3>
+        <p class="ua-h">Asking a teacher or classmate for help</p>
+      </div>
+    </div>
+    <span class="phrase-chip">Could you explain this again, please?</span>
+    <span class="phrase-chip">I don't understand. Can you help me?</span>
+    <span class="phrase-chip">Excuse me, is this correct?</span>
+    <span class="phrase-chip">Can I ask you something?</span>
+    <span class="phrase-chip">I'm not sure about this part.</span>
+  </div>
+
+  <div class="situation">
+    <div class="situation-header">
+      <div class="sit-icon">🛒</div>
+      <div>
+        <h3>In a Shop / У магазині</h3>
+        <p class="ua-h">Asking a shop assistant for help</p>
+      </div>
+    </div>
+    <span class="phrase-chip">Excuse me, could you help me find…?</span>
+    <span class="phrase-chip">Do you have this in a different size?</span>
+    <span class="phrase-chip">Where can I find the…?</span>
+    <span class="phrase-chip">I'm looking for… Can you help?</span>
+  </div>
+
+  <div class="situation">
+    <div class="situation-header">
+      <div class="sit-icon">🗺️</div>
+      <div>
+        <h3>On the Street / На вулиці</h3>
+        <p class="ua-h">Asking a stranger for directions</p>
+      </div>
+    </div>
+    <span class="phrase-chip">Excuse me! Could you help me, please?</span>
+    <span class="phrase-chip">I'm lost. Do you know where… is?</span>
+    <span class="phrase-chip">Sorry to bother you, but…</span>
+    <span class="phrase-chip">Could you point me in the right direction?</span>
+  </div>
+
+  <div class="situation">
+    <div class="situation-header">
+      <div class="sit-icon">👨‍💻</div>
+      <div>
+        <h3>With Technology / З технологіями</h3>
+        <p class="ua-h">Asking for tech help</p>
+      </div>
+    </div>
+    <span class="phrase-chip">Can you show me how to do this?</span>
+    <span class="phrase-chip">I can't figure this out. Could you help?</span>
+    <span class="phrase-chip">Do you know how to fix this?</span>
+    <span class="phrase-chip">Can you walk me through it?</span>
+  </div>
+
+  <!-- SECTION 6 – DIALOGUES -->
+  <div class="section-title">🗣️ <span>Mini Dialogues</span> <span class="pill">Міні-діалоги</span></div>
+
+  <!-- Dialogue 1 -->
+  <div style="background:#fff; border-radius:20px; padding:24px; box-shadow:0 4px 16px rgba(0,0,0,.07); margin-bottom:20px;">
+    <p style="font-weight:800; margin-bottom:16px; font-size:.9rem; color:#666;">📚 AT SCHOOL / У ШКОЛІ</p>
+    <div class="dialogue">
+      <div class="bubble-wrap">
+        <div class="avatar a">👦</div>
+        <div class="bubble left">
+          <strong>Alex:</strong> Excuse me, could you help me with this maths problem, please?
+          <span class="ua">Вибачте, ви могли б допомогти мені з цим завданням з математики, будь ласка?</span>
+        </div>
+      </div>
+      <div class="bubble-wrap right">
+        <div class="avatar b">👩‍🏫</div>
+        <div class="bubble right">
+          <strong>Teacher:</strong> Of course! Which part are you stuck on?
+          <span class="ua">Звичайно! На якій частині ти застряг?</span>
+        </div>
+      </div>
+      <div class="bubble-wrap">
+        <div class="avatar a">👦</div>
+        <div class="bubble left">
+          <strong>Alex:</strong> I don't understand how to do step 3. Could you show me?
+          <span class="ua">Я не розумію, як виконати крок 3. Могли б ви показати мені?</span>
+        </div>
+      </div>
+      <div class="bubble-wrap right">
+        <div class="avatar b">👩‍🏫</div>
+        <div class="bubble right">
+          <strong>Teacher:</strong> Sure! Let me explain. First, you need to…
+          <span class="ua">Звичайно! Дозволь поясни. По-перше, тобі потрібно…</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dialogue 2 -->
+  <div style="background:#fff; border-radius:20px; padding:24px; box-shadow:0 4px 16px rgba(0,0,0,.07); margin-bottom:20px;">
+    <p style="font-weight:800; margin-bottom:16px; font-size:.9rem; color:#666;">🏪 IN A SHOP / У МАГАЗИНІ</p>
+    <div class="dialogue">
+      <div class="bubble-wrap">
+        <div class="avatar a">👧</div>
+        <div class="bubble left">
+          <strong>Mia:</strong> Excuse me! I'm looking for the sports section. Could you help me find it?
+          <span class="ua">Вибачте! Я шукаю спортивний відділ. Ви могли б допомогти мені його знайти?</span>
+        </div>
+      </div>
+      <div class="bubble-wrap right">
+        <div class="avatar b">👨‍💼</div>
+        <div class="bubble right">
+          <strong>Staff:</strong> No problem! It's on the second floor, near the escalator.
+          <span class="ua">Без проблем! Він на другому поверсі, біля ескалатора.</span>
+        </div>
+      </div>
+      <div class="bubble-wrap">
+        <div class="avatar a">👧</div>
+        <div class="bubble left">
+          <strong>Mia:</strong> Thank you so much! That's really helpful!
+          <span class="ua">Велике дякую! Це дуже корисно!</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dialogue 3 -->
+  <div style="background:#fff; border-radius:20px; padding:24px; box-shadow:0 4px 16px rgba(0,0,0,.07); margin-bottom:20px;">
+    <p style="font-weight:800; margin-bottom:16px; font-size:.9rem; color:#666;">👫 WITH A FRIEND / З ДРУГОМ</p>
+    <div class="dialogue">
+      <div class="bubble-wrap">
+        <div class="avatar a">🧒</div>
+        <div class="bubble left">
+          <strong>Sam:</strong> Hey, can you give me a hand with this? I can't carry it alone!
+          <span class="ua">Гей, можеш допомогти мені з цим? Я не можу нести це сам!</span>
+        </div>
+      </div>
+      <div class="bubble-wrap right">
+        <div class="avatar b">👦</div>
+        <div class="bubble right">
+          <strong>Jake:</strong> Sure, no problem! What do you need me to do?
+          <span class="ua">Звичайно, без проблем! Що мені потрібно зробити?</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 7 – KEY WORDS -->
+  <div class="section-title">📖 <span>Key Words</span> <span class="pill">Ключові слова</span></div>
+
+  <div class="word-grid">
+    <div class="word-card">
+      <div class="w-en">help</div>
+      <div class="w-pron">/help/</div>
+      <div class="w-ua">допомога / допомагати</div>
+      <div class="w-ex">"I need your help."</div>
+    </div>
+    <div class="word-card">
+      <div class="w-en">assist</div>
+      <div class="w-pron">/əˈsɪst/</div>
+      <div class="w-ua">допомагати (офіційно)</div>
+      <div class="w-ex">"Could you assist me?"</div>
+    </div>
+    <div class="word-card">
+      <div class="w-en">please</div>
+      <div class="w-pron">/pliːz/</div>
+      <div class="w-ua">будь ласка</div>
+      <div class="w-ex">"Help me, please."</div>
+    </div>
+    <div class="word-card">
+      <div class="w-en">excuse me</div>
+      <div class="w-pron">/ɪkˈskjuːz miː/</div>
+      <div class="w-ua">вибачте / пробачте</div>
+      <div class="w-ex">"Excuse me, could you…?"</div>
+    </div>
+    <div class="word-card">
+      <div class="w-en">stuck</div>
+      <div class="w-pron">/stʌk/</div>
+      <div class="w-ua">застряг / не можу вирішити</div>
+      <div class="w-ex">"I'm stuck on this."</div>
+    </div>
+    <div class="word-card">
+      <div class="w-en">figure out</div>
+      <div class="w-pron">/ˈfɪɡər aʊt/</div>
+      <div class="w-ua">розібратися / зрозуміти</div>
+      <div class="w-ex">"I can't figure this out."</div>
+    </div>
+    <div class="word-card">
+      <div class="w-en">mind</div>
+      <div class="w-pron">/maɪnd/</div>
+      <div class="w-ua">заперечувати (у питаннях)</div>
+      <div class="w-ex">"Would you mind…?"</div>
+    </div>
+    <div class="word-card">
+      <div class="w-en">appreciate</div>
+      <div class="w-pron">/əˈpriːʃieɪt/</div>
+      <div class="w-ua">бути вдячним</div>
+      <div class="w-ex">"I appreciate your help."</div>
+    </div>
+    <div class="word-card">
+      <div class="w-en">hint</div>
+      <div class="w-pron">/hɪnt/</div>
+      <div class="w-ua">підказка / натяк</div>
+      <div class="w-ex">"Can you give me a hint?"</div>
+    </div>
+  </div>
+
+  <!-- SECTION 8 – HOW TO SAY THANK YOU -->
+  <div class="section-title">🙏 <span>Saying Thank You</span> <span class="pill">Як подякувати</span></div>
+
+  <div class="cards">
+    <div class="card mint">
+      <span class="card-icon">😊</span>
+      <h3>Thanks! / Thank you!</h3>
+      <p class="ua-note">Дякую! — неофіційно й офіційно</p>
+      <p>The simplest and most common way to thank someone for their help.</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">🤩</span>
+      <h3>Thank you so much!</h3>
+      <p class="ua-note">Дуже дякую! — більш емоційно</p>
+      <p>Use this when someone was especially helpful or kind!</p>
+    </div>
+    <div class="card sun">
+      <span class="card-icon">💙</span>
+      <h3>That's really helpful!</h3>
+      <p class="ua-note">Це дуже корисно!</p>
+      <p>A great way to show the help made a difference.</p>
+    </div>
+    <div class="card lav">
+      <span class="card-icon">✨</span>
+      <h3>I really appreciate it!</h3>
+      <p class="ua-note">Я справді вдячний(-а)!</p>
+      <p>More formal and shows genuine gratitude. Great for adults.</p>
+    </div>
+    <div class="card coral">
+      <span class="card-icon">🎉</span>
+      <h3>You're a lifesaver!</h3>
+      <p class="ua-note">Ти мене врятував(-ла)! — неофіційно</p>
+      <p>Fun informal expression when someone really helped you out of trouble!</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">👍</span>
+      <h3>I owe you one!</h3>
+      <p class="ua-note">Я твій боржник! — неофіційно</p>
+      <p>Casual expression meaning you'll do something nice for them in return.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 9 – TIPS -->
+  <div class="section-title">💡 <span>Top Tips</span> <span class="pill">Корисні поради</span></div>
+
+  <div class="tips-grid">
+    <div class="tip">
+      <div class="tip-icon">😊</div>
+      <h4>Smile & be friendly</h4>
+      <p>Your face and voice matter! A smile makes any request more pleasant.</p>
+      <p class="ua">Посмішка та дружній тон — ваш вираз обличчя теж важливий!</p>
+    </div>
+    <div class="tip">
+      <div class="tip-icon">🎯</div>
+      <h4>Be specific</h4>
+      <p>Say exactly what you need. "Help me with question 5" is better than "help me".</p>
+      <p class="ua">Говори конкретно, що саме тобі потрібно.</p>
+    </div>
+    <div class="tip">
+      <div class="tip-icon">🙏</div>
+      <h4>Always say please</h4>
+      <p>Adding "please" makes even a simple request sound much more polite!</p>
+      <p class="ua">Завжди кажи «please» — це робить прохання більш ввічливим.</p>
+    </div>
+    <div class="tip">
+      <div class="tip-icon">💬</div>
+      <h4>Start with "Excuse me"</h4>
+      <p>When talking to a stranger or teacher, "Excuse me" is the perfect opener.</p>
+      <p class="ua">З незнайомцями та вчителями завжди починай з «Excuse me».</p>
+    </div>
+    <div class="tip">
+      <div class="tip-icon">🎚️</div>
+      <h4>Match the situation</h4>
+      <p>Use formal English with teachers and strangers. Use casual English with friends.</p>
+      <p class="ua">Обирай стиль мови залежно від ситуації та співрозмовника.</p>
+    </div>
+    <div class="tip">
+      <div class="tip-icon">🙌</div>
+      <h4>Always say thank you</h4>
+      <p>Never forget to thank the person who helped you — it matters a lot!</p>
+      <p class="ua">Завжди дякуй тому, хто тобі допоміг — це дуже важливо!</p>
+    </div>
+  </div>
+
+  <!-- SECTION 10 – QUIZ -->
+  <div class="section-title">🧠 <span>Quick Quiz</span> <span class="pill">Швидкий тест</span></div>
+
+  <div class="quiz-box">
+    <h3>🎯 Test yourself! / Перевір себе!</h3>
+
+    <!-- Q1 -->
+    <div class="quiz-q" id="q1">
+      <p>1. You are talking to your teacher. Which phrase is MOST polite?</p>
+      <p class="ua">Ти розмовляєш зі своїм вчителем. Яка фраза є НАЙБІЛЬШ ввічливою?</p>
+      <div class="options">
+        <button class="opt" onclick="answer(this,'wrong','q1')">A) Hey, help me!</button>
+        <button class="opt" onclick="answer(this,'correct','q1')">B) Excuse me, could you help me, please?</button>
+        <button class="opt" onclick="answer(this,'wrong','q1')">C) Help me now.</button>
+        <button class="opt" onclick="answer(this,'wrong','q1')">D) Can you give me a hand?</button>
+      </div>
+      <div class="feedback" id="fb1"></div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="quiz-q" id="q2">
+      <p>2. Your friend is helping you move a box. How do you say thank you casually?</p>
+      <p class="ua">Твій друг допомагає тобі перенести коробку. Як ти подякуєш неофіційно?</p>
+      <div class="options">
+        <button class="opt" onclick="answer(this,'wrong','q2')">A) I appreciate your assistance.</button>
+        <button class="opt" onclick="answer(this,'wrong','q2')">B) I am grateful for your help.</button>
+        <button class="opt" onclick="answer(this,'correct','q2')">C) You're a lifesaver! Thanks!</button>
+        <button class="opt" onclick="answer(this,'wrong','q2')">D) I owe you a formal debt.</button>
+      </div>
+      <div class="feedback" id="fb2"></div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="quiz-q" id="q3">
+      <p>3. Fill in the blank: "Would you _____ helping me carry this?"</p>
+      <p class="ua">Заповни пропуск: «Would you _____ helping me carry this?»</p>
+      <div class="options">
+        <button class="opt" onclick="answer(this,'wrong','q3')">A) like</button>
+        <button class="opt" onclick="answer(this,'correct','q3')">B) mind</button>
+        <button class="opt" onclick="answer(this,'wrong','q3')">C) want</button>
+        <button class="opt" onclick="answer(this,'wrong','q3')">D) need</button>
+      </div>
+      <div class="feedback" id="fb3"></div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="quiz-q" id="q4">
+      <p>4. You are lost in a city and see a stranger. What is the BEST first thing to say?</p>
+      <p class="ua">Ти загубився в місті й бачиш незнайомця. Що НАЙКРАЩЕ сказати першим?</p>
+      <div class="options">
+        <button class="opt" onclick="answer(this,'wrong','q4')">A) Hey you!</button>
+        <button class="opt" onclick="answer(this,'correct','q4')">B) Excuse me, could you help me, please?</button>
+        <button class="opt" onclick="answer(this,'wrong','q4')">C) I need help!</button>
+        <button class="opt" onclick="answer(this,'wrong','q4')">D) Help!</button>
+      </div>
+      <div class="feedback" id="fb4"></div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="quiz-q" id="q5">
+      <p>5. Which sentence means "I can't solve this problem"?</p>
+      <p class="ua">Яке речення означає «Я не можу вирішити цю проблему»?</p>
+      <div class="options">
+        <button class="opt" onclick="answer(this,'correct','q5')">A) I'm stuck on this.</button>
+        <button class="opt" onclick="answer(this,'wrong','q5')">B) I finished this.</button>
+        <button class="opt" onclick="answer(this,'wrong','q5')">C) I don't want this.</button>
+        <button class="opt" onclick="answer(this,'wrong','q5')">D) This is easy for me.</button>
+      </div>
+      <div class="feedback" id="fb5"></div>
+    </div>
+  </div>
+
+</main>
+
+<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Вгору">▲</button>
+
+<script>
+  // scroll-to-top
+  window.addEventListener('scroll', () => {
+    const btn = document.getElementById('scrollTop');
+    btn.classList.toggle('show', window.scrollY > 300);
+  });
+
+  // quiz
+  const feedback = {
+    correct: ['✅ Excellent! / Чудово!', '✅ Correct! / Правильно!', '✅ Well done! / Молодець!', '✅ Perfect! / Ідеально!', '✅ Great job! / Чудово!'],
+    wrong:   ['❌ Not quite. / Не зовсім.', '❌ Try again! / Спробуй ще!', '❌ That\'s not right. / Це неправильно.']
+  };
+
+  function answer(btn, type, qId) {
+    const opts = btn.closest('.options').querySelectorAll('.opt');
+    opts.forEach(o => o.classList.add('disabled'));
+    btn.classList.add(type);
+
+    const fb = document.getElementById('fb' + qId.replace('q',''));
+    const msgs = feedback[type];
+    fb.textContent = msgs[Math.floor(Math.random() * msgs.length)];
+    fb.className = 'feedback show ' + (type === 'correct' ? 'ok' : 'bad');
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giving Advice in English 💬</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --mint:    #3ecf8e;
+    --sky:     #38bdf8;
+    --coral:   #f97058;
+    --lemon:   #fbbf24;
+    --violet:  #a78bfa;
+    --rose:    #fb7185;
+    --dark:    #1e1b3a;
+    --card-bg: #ffffff;
+    --page-bg: #f0f7ff;
+    --text:    #2d2d4e;
+    --sub:     #6b7280;
+    --radius:  18px;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--page-bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  /* ── HERO ─────────────────────────────────────────── */
+  .hero {
+    background: linear-gradient(135deg, #1e1b3a 0%, #2d1b69 55%, #1e3a5f 100%);
+    padding: 60px 20px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content:'';
+    position:absolute; inset:0;
+    background: radial-gradient(circle at 20% 50%, rgba(62,207,142,.18) 0%, transparent 55%),
+                radial-gradient(circle at 80% 30%, rgba(167,139,250,.18) 0%, transparent 50%);
+  }
+  .hero-emoji { font-size: 72px; display:block; margin-bottom:16px; animation: bounce 2s infinite; }
+  @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+  .hero h1 {
+    font-family:'Fredoka One', cursive;
+    font-size: clamp(2rem, 6vw, 3.6rem);
+    color: #fff;
+    line-height: 1.15;
+    position:relative;
+  }
+  .hero h1 span { color: var(--lemon); }
+  .hero p {
+    color: rgba(255,255,255,.75);
+    font-size: clamp(.95rem, 2vw, 1.15rem);
+    margin-top: 14px;
+    position:relative;
+  }
+  .hero-tags { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-top:28px; position:relative; }
+  .hero-tags span {
+    background: rgba(255,255,255,.12);
+    border: 1.5px solid rgba(255,255,255,.25);
+    color: #fff;
+    border-radius: 50px;
+    padding: 6px 18px;
+    font-size: .88rem;
+    font-weight: 700;
+    backdrop-filter: blur(4px);
+  }
+
+  /* ── WRAPPER ──────────────────────────────────────── */
+  .container { max-width: 920px; margin: 0 auto; padding: 0 16px; }
+
+  /* ── SECTION TITLE ────────────────────────────────── */
+  .section-title {
+    text-align: center;
+    margin: 52px 0 28px;
+  }
+  .section-title h2 {
+    font-family:'Fredoka One', cursive;
+    font-size: clamp(1.5rem, 4vw, 2.1rem);
+    color: var(--dark);
+    display:inline-flex;
+    align-items:center;
+    gap: 10px;
+  }
+  .section-title p {
+    color: var(--sub);
+    font-size: .95rem;
+    margin-top: 6px;
+  }
+
+  /* ── CARD ─────────────────────────────────────────── */
+  .card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 26px 28px;
+    box-shadow: 0 4px 24px rgba(0,0,0,.07);
+    margin-bottom: 20px;
+    border-left: 6px solid var(--mint);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .card:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(0,0,0,.11); }
+  .card.sky    { border-color: var(--sky); }
+  .card.coral  { border-color: var(--coral); }
+  .card.lemon  { border-color: var(--lemon); }
+  .card.violet { border-color: var(--violet); }
+  .card.rose   { border-color: var(--rose); }
+
+  .card-head {
+    display:flex; align-items:center; gap:12px; margin-bottom:14px;
+  }
+  .card-icon {
+    font-size: 2rem;
+    width:52px; height:52px;
+    border-radius:14px;
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .bg-mint   { background: #d1fae5; }
+  .bg-sky    { background: #e0f2fe; }
+  .bg-coral  { background: #ffe4de; }
+  .bg-lemon  { background: #fef3c7; }
+  .bg-violet { background: #ede9fe; }
+  .bg-rose   { background: #ffe4e6; }
+
+  .card-head-text h3 { font-size: 1.1rem; font-weight: 800; color: var(--dark); }
+  .card-head-text p  { font-size: .83rem; color: var(--sub); }
+
+  /* ── FORMULA BOX ──────────────────────────────────── */
+  .formula {
+    background: linear-gradient(135deg, #1e1b3a, #2d1b69);
+    color: #fff;
+    border-radius: 14px;
+    padding: 18px 22px;
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    margin: 14px 0;
+    display:flex; align-items:center; gap:10px;
+    flex-wrap:wrap;
+  }
+  .formula .label {
+    background: var(--lemon);
+    color: var(--dark);
+    border-radius: 8px;
+    padding: 2px 10px;
+    font-size: .8rem;
+    font-weight: 800;
+    font-family:'Nunito',sans-serif;
+    flex-shrink:0;
+  }
+  .formula .text { font-weight:700; font-size: 1.05rem; }
+
+  /* ── PHRASE CHIPS ─────────────────────────────────── */
+  .chips { display:flex; flex-wrap:wrap; gap:10px; margin: 14px 0; }
+  .chip {
+    border-radius: 50px;
+    padding: 7px 18px;
+    font-size: .88rem;
+    font-weight: 700;
+    border: 2px solid transparent;
+    cursor: default;
+    transition: transform .15s;
+  }
+  .chip:hover { transform: scale(1.06); }
+  .chip-mint   { background:#d1fae5; color:#065f46; border-color:#6ee7b7; }
+  .chip-sky    { background:#e0f2fe; color:#075985; border-color:#7dd3fc; }
+  .chip-coral  { background:#ffe4de; color:#9a3412; border-color:#fdba74; }
+  .chip-lemon  { background:#fef3c7; color:#78350f; border-color:#fcd34d; }
+  .chip-violet { background:#ede9fe; color:#4c1d95; border-color:#c4b5fd; }
+  .chip-rose   { background:#ffe4e6; color:#9f1239; border-color:#fda4af; }
+
+  /* ── DIALOGUE ─────────────────────────────────────── */
+  .dialogue { display:flex; flex-direction:column; gap:12px; margin: 16px 0; }
+  .msg {
+    max-width: 80%;
+    padding: 12px 16px;
+    border-radius: 18px;
+    font-size: .93rem;
+    line-height: 1.5;
+    position:relative;
+  }
+  .msg-left  { align-self:flex-start; background:#f1f5f9; border-bottom-left-radius:4px; }
+  .msg-right { align-self:flex-end;   background:linear-gradient(135deg,#3ecf8e,#38bdf8); color:#fff; border-bottom-right-radius:4px; }
+  .msg-name  { font-size:.72rem; font-weight:800; color:var(--sub); margin-bottom:4px; text-transform:uppercase; letter-spacing:.04em; }
+  .msg-right .msg-name { color:rgba(255,255,255,.75); }
+  .msg strong { color: var(--dark); }
+  .msg-right strong { color: #fff; text-decoration:underline; text-underline-offset:2px; }
+
+  /* ── GRID 2-COL ───────────────────────────────────── */
+  .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+  @media(max-width:640px){ .grid2 { grid-template-columns:1fr; } }
+
+  /* ── INFOGRAPHIC STRIP ────────────────────────────── */
+  .infographic {
+    background: linear-gradient(135deg, #1e1b3a 0%, #2d1b69 100%);
+    border-radius: var(--radius);
+    padding: 32px 24px;
+    margin-bottom: 20px;
+    color: #fff;
+  }
+  .infographic h3 {
+    font-family:'Fredoka One',cursive;
+    font-size: 1.4rem;
+    margin-bottom: 22px;
+    text-align:center;
+  }
+  .steps { display:flex; flex-wrap:wrap; gap:16px; justify-content:center; }
+  .step {
+    background: rgba(255,255,255,.1);
+    border: 1.5px solid rgba(255,255,255,.2);
+    border-radius: 14px;
+    padding: 18px 16px;
+    text-align:center;
+    flex:1; min-width:130px; max-width:180px;
+    backdrop-filter:blur(4px);
+  }
+  .step-num {
+    font-family:'Fredoka One',cursive;
+    font-size: 2rem;
+    color: var(--lemon);
+    display:block;
+    margin-bottom:6px;
+  }
+  .step-en { font-size:.85rem; font-weight:700; color:#fff; }
+  .step-ua { font-size:.78rem; color:rgba(255,255,255,.6); margin-top:3px; }
+  .step-emoji { font-size:1.8rem; display:block; margin-bottom:6px; }
+
+  /* ── TRAFFIC LIGHT ────────────────────────────────── */
+  .light-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+  @media(max-width:520px){ .light-grid { grid-template-columns:1fr; } }
+  .light-card {
+    border-radius:14px;
+    padding:20px 16px;
+    text-align:center;
+  }
+  .light-card.green  { background:#d1fae5; }
+  .light-card.yellow { background:#fef3c7; }
+  .light-card.red    { background:#ffe4e6; }
+  .light-card .dot {
+    width:38px; height:38px; border-radius:50%;
+    margin:0 auto 10px;
+    font-size:1.4rem; display:flex; align-items:center; justify-content:center;
+  }
+  .light-card.green  .dot { background:#10b981; }
+  .light-card.yellow .dot { background:#f59e0b; }
+  .light-card.red    .dot { background:#ef4444; }
+  .light-card h4 { font-size:.92rem; font-weight:800; margin-bottom:8px; color:var(--dark); }
+  .light-card ul { list-style:none; font-size:.82rem; color:var(--text); line-height:1.8; }
+
+  /* ── EXAMPLE SENTENCE ─────────────────────────────── */
+  .example {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 12px 16px;
+    margin: 8px 0;
+    border-left: 4px solid var(--mint);
+    font-size: .93rem;
+  }
+  .example.sky    { border-color: var(--sky); }
+  .example.coral  { border-color: var(--coral); }
+  .example.lemon  { border-color: var(--lemon); }
+  .example.violet { border-color: var(--violet); }
+  .example.rose   { border-color: var(--rose); }
+  .example .en { font-weight: 700; color: var(--dark); }
+  .example .ua { color: var(--sub); font-size: .85rem; margin-top:3px; }
+  .example em  { color: var(--coral); font-style:normal; font-weight:800; }
+
+  /* ── QUIZ ─────────────────────────────────────────── */
+  .quiz-wrap {
+    background: linear-gradient(135deg, #fef3c7, #ffe4de);
+    border-radius: var(--radius);
+    padding: 32px 24px;
+    margin-top: 10px;
+  }
+  .quiz-wrap h2 {
+    font-family:'Fredoka One',cursive;
+    font-size:1.6rem;
+    text-align:center;
+    color:var(--dark);
+    margin-bottom:24px;
+  }
+  .q-item { background:#fff; border-radius:14px; padding:20px; margin-bottom:16px; box-shadow:0 2px 12px rgba(0,0,0,.06); }
+  .q-item p { font-weight:700; color:var(--dark); margin-bottom:14px; font-size:.97rem; }
+  .q-options { display:flex; flex-wrap:wrap; gap:8px; }
+  .q-btn {
+    padding: 9px 20px;
+    border-radius: 50px;
+    border: 2px solid #e2e8f0;
+    background: #f8fafc;
+    font-family:'Nunito',sans-serif;
+    font-size: .88rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all .2s;
+    color: var(--text);
+  }
+  .q-btn:hover { border-color: var(--mint); background: #d1fae5; }
+  .q-btn.correct { background:#d1fae5; border-color:#10b981; color:#065f46; }
+  .q-btn.wrong   { background:#ffe4e6; border-color:#ef4444; color:#9f1239; }
+  .q-feedback { font-size:.85rem; margin-top:10px; font-weight:700; min-height:22px; }
+  .q-feedback.ok  { color:#065f46; }
+  .q-feedback.bad { color:#9f1239; }
+
+  .score-box {
+    text-align:center;
+    background:#fff;
+    border-radius:14px;
+    padding:24px;
+    margin-top:20px;
+    display:none;
+    box-shadow:0 2px 12px rgba(0,0,0,.06);
+  }
+  .score-box h3 { font-family:'Fredoka One',cursive; font-size:1.8rem; color:var(--dark); }
+  .score-box p  { color:var(--sub); margin-top:6px; }
+  #quiz-btn {
+    display:block; margin:20px auto 0;
+    background: linear-gradient(135deg,#3ecf8e,#38bdf8);
+    color:#fff;
+    border:none; border-radius:50px;
+    padding:13px 40px;
+    font-family:'Nunito',sans-serif;
+    font-size:1rem; font-weight:800;
+    cursor:pointer;
+    transition:transform .2s,box-shadow .2s;
+    box-shadow:0 4px 16px rgba(62,207,142,.35);
+  }
+  #quiz-btn:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(62,207,142,.4); }
+
+  /* ── FOOTER ───────────────────────────────────────── */
+  footer {
+    text-align:center;
+    padding:40px 20px;
+    color:var(--sub);
+    font-size:.85rem;
+  }
+
+  /* ── SCROLL TOP ───────────────────────────────────── */
+  #scrollTop {
+    position:fixed; bottom:24px; right:24px;
+    width:46px; height:46px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#3ecf8e,#38bdf8);
+    color:#fff; border:none;
+    font-size:1.3rem; cursor:pointer;
+    box-shadow:0 4px 16px rgba(0,0,0,.18);
+    display:none; align-items:center; justify-content:center;
+    transition:transform .2s;
+    z-index:999;
+  }
+  #scrollTop:hover { transform:translateY(-3px); }
+
+  /* ── BADGE ─────────────────────────────────────────── */
+  .badge {
+    display:inline-block;
+    background:var(--lemon);
+    color:var(--dark);
+    font-size:.72rem; font-weight:800;
+    border-radius:6px; padding:2px 8px;
+    text-transform:uppercase; letter-spacing:.05em;
+    margin-left:6px; vertical-align:middle;
+  }
+  .badge.blue { background:#bfdbfe; color:#1e40af; }
+  .badge.pink { background:#fce7f3; color:#9d174d; }
+
+  ul.list { padding-left:20px; }
+  ul.list li { margin-bottom:6px; font-size:.93rem; }
+
+  hr.sep { border:none; border-top:2px dashed #e2e8f0; margin:32px 0; }
+</style>
+</head>
+<body>
+
+<!-- ══════════════ HERO ══════════════ -->
+<div class="hero">
+  <span class="hero-emoji">💬</span>
+  <h1>Giving <span>Advice</span> in English</h1>
+  <p>Як давати поради англійською — просто й зрозуміло!</p>
+  <div class="hero-tags">
+    <span>🟢 Beginner friendly</span>
+    <span>📚 Grammar + Examples</span>
+    <span>🎮 Quiz inside</span>
+    <span>🇺🇦 + 🇬🇧 Bilingual</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ══ WHAT IS GIVING ADVICE ══ -->
+  <div class="section-title">
+    <h2>🤔 What is "Giving Advice"?</h2>
+    <p>Що таке «давати пораду»?</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <div class="card-icon bg-mint">💡</div>
+      <div class="card-head-text">
+        <h3>Giving Advice = telling someone what to do</h3>
+        <p>Давати пораду = говорити комусь, що робити</p>
+      </div>
+    </div>
+    <p>When a friend has a problem, you want to help them. You can <strong>give advice</strong> — suggest what they should do, what's good or bad for them.</p>
+    <p style="color:var(--sub);font-size:.88rem;margin-top:6px;">Коли друг має проблему, ти хочеш допомогти. Ти можеш дати пораду — підказати, що йому варто зробити, що добре чи погано для нього.</p>
+    <div class="chips" style="margin-top:16px;">
+      <span class="chip chip-mint">😷 Health problems</span>
+      <span class="chip chip-sky">📚 Study tips</span>
+      <span class="chip chip-coral">😢 Personal problems</span>
+      <span class="chip chip-lemon">💼 Work / Career</span>
+      <span class="chip chip-violet">🤝 Relationships</span>
+    </div>
+  </div>
+
+  <!-- ══ MAIN STRUCTURES ══ -->
+  <div class="section-title">
+    <h2>🔧 Main Structures <span style="font-size:1.1rem;font-weight:400;font-family:'Nunito',sans-serif;">— Основні конструкції</span></h2>
+    <p>The most important phrases you need to know / Найважливіші фрази, які треба знати</p>
+  </div>
+
+  <!-- SHOULD -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-icon bg-mint">⭐</div>
+      <div class="card-head-text">
+        <h3>You should… <span class="badge">Most Common</span></h3>
+        <p>Тобі варто… / Тобі треба… — найпоширеніша форма поради</p>
+      </div>
+    </div>
+    <div class="formula">
+      <span class="label">FORMULA</span>
+      <span class="text">You should + verb (base form)</span>
+    </div>
+    <div class="example"><div class="en">You <em>should</em> drink more water.</div><div class="ua">Тобі варто пити більше води.</div></div>
+    <div class="example"><div class="en">You <em>should</em> go to the doctor.</div><div class="ua">Тобі треба піти до лікаря.</div></div>
+    <div class="example"><div class="en">You <em>should</em> study every day.</div><div class="ua">Тобі варто вчитися щодня.</div></div>
+    <p style="margin-top:14px;font-size:.85rem;color:var(--sub);">💡 <strong>shouldn't</strong> = negative advice / негативна порада</p>
+    <div class="example coral"><div class="en">You <em>shouldn't</em> eat so much junk food.</div><div class="ua">Тобі не варто їсти стільки шкідливої їжі.</div></div>
+  </div>
+
+  <!-- OUGHT TO -->
+  <div class="card sky">
+    <div class="card-head">
+      <div class="card-icon bg-sky">📌</div>
+      <div class="card-head-text">
+        <h3>You ought to…</h3>
+        <p>Тобі слід… (схоже на "should", трохи офіційніше)</p>
+      </div>
+    </div>
+    <div class="formula">
+      <span class="label">FORMULA</span>
+      <span class="text">You ought to + verb</span>
+    </div>
+    <div class="example sky"><div class="en">You <em>ought to</em> apologize to her.</div><div class="ua">Тобі слід вибачитися перед нею.</div></div>
+    <div class="example sky"><div class="en">You <em>ought to</em> get more sleep.</div><div class="ua">Тобі слід більше спати.</div></div>
+  </div>
+
+  <!-- HAD BETTER -->
+  <div class="card coral">
+    <div class="card-head">
+      <div class="card-icon bg-coral">⚠️</div>
+      <div class="card-head-text">
+        <h3>You'd better… <span class="badge pink">Strong Warning</span></h3>
+        <p>Тобі краще… (сильна порада, майже попередження)</p>
+      </div>
+    </div>
+    <div class="formula">
+      <span class="label">FORMULA</span>
+      <span class="text">You'd better + verb (base form)</span>
+    </div>
+    <div class="example coral"><div class="en">You<em>'d better</em> see a doctor now.</div><div class="ua">Тобі краще зараз піти до лікаря.</div></div>
+    <div class="example coral"><div class="en">You<em>'d better not</em> be late again.</div><div class="ua">Тобі краще більше не запізнюватись.</div></div>
+    <p style="margin-top:10px;font-size:.82rem;color:var(--sub);">⚠️ Use this when something bad might happen if they don't listen. / Використовуй, коли може статися щось погане.</p>
+  </div>
+
+  <!-- WHY DON'T YOU -->
+  <div class="card lemon">
+    <div class="card-head">
+      <div class="card-icon bg-lemon">💬</div>
+      <div class="card-head-text">
+        <h3>Why don't you…?</h3>
+        <p>Чому б тобі не…? (м'яка, дружня порада)</p>
+      </div>
+    </div>
+    <div class="formula">
+      <span class="label">FORMULA</span>
+      <span class="text">Why don't you + verb?</span>
+    </div>
+    <div class="example lemon"><div class="en"><em>Why don't you</em> talk to your teacher?</div><div class="ua">Чому б тобі не поговорити з учителем?</div></div>
+    <div class="example lemon"><div class="en"><em>Why don't you</em> take a break?</div><div class="ua">Чому б тобі не зробити перерву?</div></div>
+  </div>
+
+  <!-- HAVE YOU TRIED -->
+  <div class="card violet">
+    <div class="card-head">
+      <div class="card-icon bg-violet">🔍</div>
+      <div class="card-head-text">
+        <h3>Have you tried…?</h3>
+        <p>Ти пробував…? (порада через запитання)</p>
+      </div>
+    </div>
+    <div class="formula">
+      <span class="label">FORMULA</span>
+      <span class="text">Have you tried + verb-ing?</span>
+    </div>
+    <div class="example violet"><div class="en"><em>Have you tried</em> meditating?</div><div class="ua">Ти пробував медитувати?</div></div>
+    <div class="example violet"><div class="en"><em>Have you tried</em> talking to her?</div><div class="ua">Ти пробував поговорити з нею?</div></div>
+  </div>
+
+  <!-- WHAT ABOUT / HOW ABOUT -->
+  <div class="card rose">
+    <div class="card-head">
+      <div class="card-icon bg-rose">🌟</div>
+      <div class="card-head-text">
+        <h3>What about…? / How about…?</h3>
+        <p>А що якщо…? / Як щодо…? (пропозиція)</p>
+      </div>
+    </div>
+    <div class="formula">
+      <span class="label">FORMULA</span>
+      <span class="text">What/How about + verb-ing?</span>
+    </div>
+    <div class="example rose"><div class="en"><em>What about</em> joining a sports club?</div><div class="ua">А що якщо вступити до спортивного клубу?</div></div>
+    <div class="example rose"><div class="en"><em>How about</em> trying a new hobby?</div><div class="ua">Як щодо того, щоб спробувати нове хобі?</div></div>
+  </div>
+
+  <!-- IF I WERE YOU -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-icon bg-mint">🪞</div>
+      <div class="card-head-text">
+        <h3>If I were you, I would… <span class="badge blue">Advanced</span></h3>
+        <p>Якби я був на твоєму місці, я б… (думати на місці іншої людини)</p>
+      </div>
+    </div>
+    <div class="formula">
+      <span class="label">FORMULA</span>
+      <span class="text">If I were you, I would + verb</span>
+    </div>
+    <div class="example"><div class="en"><em>If I were you</em>, I would apologize.</div><div class="ua">Якби я був на твоєму місці, я б вибачився.</div></div>
+    <div class="example"><div class="en"><em>If I were you</em>, I wouldn't worry so much.</div><div class="ua">Якби я був на твоєму місці, я б так не переймався.</div></div>
+    <p style="margin-top:10px;font-size:.82rem;color:var(--sub);">📝 Note: we say "If I <strong>were</strong> you" (NOT "was") — this is the subjunctive mood / Зверни увагу: "were", не "was"</p>
+  </div>
+
+  <hr class="sep">
+
+  <!-- ══ INFOGRAPHIC ══ -->
+  <div class="infographic">
+    <h3>⚡ Quick Reference — Шпаргалка</h3>
+    <div class="steps">
+      <div class="step">
+        <span class="step-emoji">⭐</span>
+        <div class="step-en">should / shouldn't</div>
+        <div class="step-ua">варто / не варто</div>
+      </div>
+      <div class="step">
+        <span class="step-emoji">📌</span>
+        <div class="step-en">ought to</div>
+        <div class="step-ua">слід</div>
+      </div>
+      <div class="step">
+        <span class="step-emoji">⚠️</span>
+        <div class="step-en">had better</div>
+        <div class="step-ua">краще б</div>
+      </div>
+      <div class="step">
+        <span class="step-emoji">💬</span>
+        <div class="step-en">Why don't you…?</div>
+        <div class="step-ua">Чому б не…?</div>
+      </div>
+      <div class="step">
+        <span class="step-emoji">🔍</span>
+        <div class="step-en">Have you tried…?</div>
+        <div class="step-ua">Ти пробував…?</div>
+      </div>
+      <div class="step">
+        <span class="step-emoji">🌟</span>
+        <div class="step-en">What / How about…?</div>
+        <div class="step-ua">А що якщо…?</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ STRENGTH LEVELS ══ -->
+  <div class="section-title">
+    <h2>🚦 Strength of Advice <span style="font-size:1rem;font-weight:400;font-family:'Nunito',sans-serif;">— Сила поради</span></h2>
+    <p>Not all advice is equal! / Не всі поради однакові за силою!</p>
+  </div>
+
+  <div class="light-grid" style="margin-bottom:20px;">
+    <div class="light-card green">
+      <div class="dot">😊</div>
+      <h4>Gentle Advice<br><span style="font-size:.76rem;color:var(--sub);">М'яка порада</span></h4>
+      <ul>
+        <li>Why don't you…?</li>
+        <li>What about…?</li>
+        <li>How about…?</li>
+        <li>Have you tried…?</li>
+      </ul>
+    </div>
+    <div class="light-card yellow">
+      <div class="dot">💡</div>
+      <h4>Normal Advice<br><span style="font-size:.76rem;color:var(--sub);">Звичайна порада</span></h4>
+      <ul>
+        <li>You should…</li>
+        <li>You ought to…</li>
+        <li>If I were you…</li>
+        <li>I think you should…</li>
+      </ul>
+    </div>
+    <div class="light-card red">
+      <div class="dot">⚠️</div>
+      <h4>Strong Warning<br><span style="font-size:.76rem;color:var(--sub);">Сильне попередження</span></h4>
+      <ul>
+        <li>You'd better…</li>
+        <li>You must…</li>
+        <li>You have to…</li>
+        <li>Don't ever…!</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ══ ASKING FOR ADVICE ══ -->
+  <div class="section-title">
+    <h2>❓ Asking for Advice <span style="font-size:1rem;font-weight:400;font-family:'Nunito',sans-serif;">— Як просити пораду</span></h2>
+    <p>Before giving advice, someone needs to ask for it! / Перш ніж давати пораду, хтось має її попросити!</p>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <div class="card-icon bg-sky" style="margin-bottom:12px;">🙋</div>
+      <h3 style="font-size:.95rem;margin-bottom:10px;">Asking for advice / Прохання про пораду</h3>
+      <div class="example sky"><div class="en">What should I do?</div><div class="ua">Що мені робити?</div></div>
+      <div class="example sky"><div class="en">What do you think I should do?</div><div class="ua">Що ти думаєш, що мені варто зробити?</div></div>
+      <div class="example sky"><div class="en">Can you give me some advice?</div><div class="ua">Можеш дати мені пораду?</div></div>
+      <div class="example sky"><div class="en">What would you do in my situation?</div><div class="ua">Що б ти зробив на моєму місці?</div></div>
+    </div>
+    <div class="card violet">
+      <div class="card-icon bg-violet" style="margin-bottom:12px;">🤗</div>
+      <h3 style="font-size:.95rem;margin-bottom:10px;">Reacting to advice / Реакція на пораду</h3>
+      <div class="example violet"><div class="en">That's a great idea!</div><div class="ua">Це чудова ідея!</div></div>
+      <div class="example violet"><div class="en">I'll think about it.</div><div class="ua">Я подумаю про це.</div></div>
+      <div class="example violet"><div class="en">I'm not sure that will work.</div><div class="ua">Не впевнений, що це спрацює.</div></div>
+      <div class="example violet"><div class="en">Thanks, I'll try that.</div><div class="ua">Дякую, я спробую.</div></div>
+    </div>
+  </div>
+
+  <!-- ══ DIALOGUES ══ -->
+  <div class="section-title">
+    <h2>🎭 Real Dialogues <span style="font-size:1rem;font-weight:400;font-family:'Nunito',sans-serif;">— Справжні діалоги</span></h2>
+    <p>See how it works in real life! / Подивись, як це працює в житті!</p>
+  </div>
+
+  <!-- Dialogue 1 -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-icon bg-coral">😷</div>
+      <div class="card-head-text">
+        <h3>Situation 1: Feeling sick / Погано себе почуває</h3>
+      </div>
+    </div>
+    <div class="dialogue">
+      <div class="msg msg-left"><div class="msg-name">👦 Tom</div>I have a terrible headache and I feel really tired.</div>
+      <div class="msg msg-right"><div class="msg-name">👧 Anna</div>Oh no! You <strong>should</strong> drink more water — you might be dehydrated.</div>
+      <div class="msg msg-left"><div class="msg-name">👦 Tom</div>I tried, but it's not helping much.</div>
+      <div class="msg msg-right"><div class="msg-name">👧 Anna</div>Hmm, <strong>have you tried</strong> taking a painkiller? And you<strong>'d better</strong> rest today.</div>
+      <div class="msg msg-left"><div class="msg-name">👦 Tom</div>Yeah, that sounds like a good idea. Thanks!</div>
+    </div>
+  </div>
+
+  <!-- Dialogue 2 -->
+  <div class="card sky">
+    <div class="card-head">
+      <div class="card-icon bg-sky">📚</div>
+      <div class="card-head-text">
+        <h3>Situation 2: Failing at school / Проблеми з навчанням</h3>
+      </div>
+    </div>
+    <div class="dialogue">
+      <div class="msg msg-left"><div class="msg-name">👧 Mia</div>I'm failing my math class. I don't know what to do!</div>
+      <div class="msg msg-right"><div class="msg-name">👦 Leo</div><strong>If I were you</strong>, I would ask the teacher for extra help.</div>
+      <div class="msg msg-left"><div class="msg-name">👧 Mia</div>I'm scared to do that…</div>
+      <div class="msg msg-right"><div class="msg-name">👦 Leo</div><strong>Why don't you</strong> study with me after school? <strong>What about</strong> joining a study group?</div>
+      <div class="msg msg-left"><div class="msg-name">👧 Mia</div>Great ideas! I'll try both. Thanks a lot!</div>
+    </div>
+  </div>
+
+  <!-- ══ USEFUL PHRASES ══ -->
+  <div class="section-title">
+    <h2>🗣️ Useful Phrases <span style="font-size:1rem;font-weight:400;font-family:'Nunito',sans-serif;">— Корисні фрази</span></h2>
+    <p>Extra phrases to make your advice sound more natural / Додаткові фрази, щоб звучати природніше</p>
+  </div>
+
+  <div class="card lemon">
+    <div class="grid2">
+      <div>
+        <h4 style="margin-bottom:10px;font-size:.9rem;">🌱 Starting advice / Починаємо пораду</h4>
+        <div class="chips">
+          <span class="chip chip-lemon">In my opinion…</span>
+          <span class="chip chip-lemon">I think you should…</span>
+          <span class="chip chip-lemon">Personally, I believe…</span>
+          <span class="chip chip-lemon">The best thing to do is…</span>
+          <span class="chip chip-lemon">It might be a good idea to…</span>
+        </div>
+      </div>
+      <div>
+        <h4 style="margin-bottom:10px;font-size:.9rem;">💜 Showing empathy / Показуємо розуміння</h4>
+        <div class="chips">
+          <span class="chip chip-violet">I understand how you feel.</span>
+          <span class="chip chip-violet">That sounds really hard.</span>
+          <span class="chip chip-violet">I know it's not easy.</span>
+          <span class="chip chip-violet">Don't worry, it'll be okay.</span>
+          <span class="chip chip-violet">I've been there too.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ COMMON MISTAKES ══ -->
+  <div class="section-title">
+    <h2>❌ Common Mistakes <span style="font-size:1rem;font-weight:400;font-family:'Nunito',sans-serif;">— Типові помилки</span></h2>
+    <p>Don't make these mistakes! / Не роби цих помилок!</p>
+  </div>
+
+  <div class="grid2">
+    <div class="card coral">
+      <h3 style="font-size:.92rem;margin-bottom:12px;">❌ Wrong / Неправильно</h3>
+      <div class="example coral"><div class="en">You should to drink water.</div><div class="ua">❌ НЕ пиши "to" після should</div></div>
+      <div class="example coral"><div class="en">You should drinking water.</div><div class="ua">❌ НЕ додавай -ing після should</div></div>
+      <div class="example coral"><div class="en">If I was you, I would…</div><div class="ua">❌ Пиши "were", не "was"</div></div>
+    </div>
+    <div class="card">
+      <h3 style="font-size:.92rem;margin-bottom:12px;">✅ Correct / Правильно</h3>
+      <div class="example"><div class="en">You should drink water.</div><div class="ua">✅ should + base verb (без to)</div></div>
+      <div class="example"><div class="en">You should drink water.</div><div class="ua">✅ Не додавай -ing</div></div>
+      <div class="example"><div class="en">If I <em>were</em> you, I would…</div><div class="ua">✅ Завжди "were" у цій фразі</div></div>
+    </div>
+  </div>
+
+  <hr class="sep">
+
+  <!-- ══ QUIZ ══ -->
+  <div class="quiz-wrap">
+    <h2>🎮 Quick Quiz — Перевір себе!</h2>
+
+    <div class="q-item" id="q1">
+      <p>1. My friend has a headache. What should you say?<br><span style="font-size:.82rem;color:var(--sub);">Мій друг має головний біль. Що ти скажеш?</span></p>
+      <div class="q-options">
+        <button class="q-btn" onclick="answer(this,'q1',false)">You should to rest.</button>
+        <button class="q-btn" onclick="answer(this,'q1',true)">You should rest.</button>
+        <button class="q-btn" onclick="answer(this,'q1',false)">You should resting.</button>
+      </div>
+      <div class="q-feedback" id="fb1"></div>
+    </div>
+
+    <div class="q-item" id="q2">
+      <p>2. Choose the correct form: "If I ___ you, I would leave."<br><span style="font-size:.82rem;color:var(--sub);">Обери правильну форму: «Якби я ___ на твоєму місці, я б пішов.»</span></p>
+      <div class="q-options">
+        <button class="q-btn" onclick="answer(this,'q2',false)">was</button>
+        <button class="q-btn" onclick="answer(this,'q2',true)">were</button>
+        <button class="q-btn" onclick="answer(this,'q2',false)">am</button>
+      </div>
+      <div class="q-feedback" id="fb2"></div>
+    </div>
+
+    <div class="q-item" id="q3">
+      <p>3. Which phrase shows a STRONG warning?<br><span style="font-size:.82rem;color:var(--sub);">Яка фраза показує СИЛЬНЕ попередження?</span></p>
+      <div class="q-options">
+        <button class="q-btn" onclick="answer(this,'q3',false)">Why don't you exercise more?</button>
+        <button class="q-btn" onclick="answer(this,'q3',false)">Have you tried yoga?</button>
+        <button class="q-btn" onclick="answer(this,'q3',true)">You'd better see a doctor now!</button>
+      </div>
+      <div class="q-feedback" id="fb3"></div>
+    </div>
+
+    <div class="q-item" id="q4">
+      <p>4. How do you ask for advice in English?<br><span style="font-size:.82rem;color:var(--sub);">Як попросити пораду англійською?</span></p>
+      <div class="q-options">
+        <button class="q-btn" onclick="answer(this,'q4',false)">I advice you to study.</button>
+        <button class="q-btn" onclick="answer(this,'q4',true)">What do you think I should do?</button>
+        <button class="q-btn" onclick="answer(this,'q4',false)">You should help me.</button>
+      </div>
+      <div class="q-feedback" id="fb4"></div>
+    </div>
+
+    <div class="q-item" id="q5">
+      <p>5. Complete: "_______ joining a club?"<br><span style="font-size:.82rem;color:var(--sub);">Доповни: «_______ вступити до клубу?»</span></p>
+      <div class="q-options">
+        <button class="q-btn" onclick="answer(this,'q5',false)">Why not you</button>
+        <button class="q-btn" onclick="answer(this,'q5',true)">What about</button>
+        <button class="q-btn" onclick="answer(this,'q5',false)">You should</button>
+      </div>
+      <div class="q-feedback" id="fb5"></div>
+    </div>
+
+    <button id="quiz-btn" onclick="showScore()">See my score! 🎉</button>
+    <div class="score-box" id="score-box">
+      <div id="score-emoji" style="font-size:3rem;"></div>
+      <h3 id="score-text"></h3>
+      <p id="score-msg"></p>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<footer>
+  <p>💬 <strong>Giving Advice in English</strong> — Bilingual Learning Page 🇬🇧🇺🇦</p>
+  <p style="margin-top:4px;">Practice makes perfect! Практика — ключ до успіху! ✨</p>
+</footer>
+
+<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  // Scroll top button
+  window.addEventListener('scroll', () => {
+    const btn = document.getElementById('scrollTop');
+    btn.style.display = window.scrollY > 300 ? 'flex' : 'none';
+  });
+
+  // Quiz logic
+  const answers = {q1:0, q2:0, q3:0, q4:0, q5:0};
+  const correct  = {q1:0, q2:0, q3:0, q4:0, q5:0};
+  const msgs = {
+    right: ['✅ Correct! / Правильно!', '🎉 Great job! / Чудово!', '⭐ Perfect! / Відмінно!'],
+    wrong: ['❌ Not quite. / Не зовсім.', '😅 Try again! / Спробуй ще раз!', '💡 Almost! / Майже!']
+  };
+
+  function answer(btn, qid, isCorrect) {
+    const item = document.getElementById(qid);
+    if (item.dataset.answered) return;
+    item.dataset.answered = '1';
+    const btns = item.querySelectorAll('.q-btn');
+    btns.forEach(b => b.disabled = true);
+    const fb = document.getElementById('fb' + qid.slice(1));
+    if (isCorrect) {
+      btn.classList.add('correct');
+      answers[qid] = 1;
+      fb.textContent = msgs.right[Math.floor(Math.random()*msgs.right.length)];
+      fb.className = 'q-feedback ok';
+    } else {
+      btn.classList.add('wrong');
+      // highlight correct
+      btns.forEach(b => { if (!b.classList.contains('wrong')) b.classList.add('correct'); });
+      fb.textContent = msgs.wrong[Math.floor(Math.random()*msgs.wrong.length)];
+      fb.className = 'q-feedback bad';
+    }
+  }
+
+  function showScore() {
+    const total = Object.values(answers).reduce((a,b)=>a+b,0);
+    const box = document.getElementById('score-box');
+    box.style.display = 'block';
+    document.getElementById('score-text').textContent = `${total} / 5`;
+    const emojis = ['😢','😅','🙂','😊','🎉'];
+    const msgs2 = [
+      'Keep practising! / Продовжуй практикуватися!',
+      'Not bad! Keep going! / Непогано! Продовжуй!',
+      'Good effort! / Гарна спроба!',
+      'Well done! / Молодець!',
+      'Amazing! You\'re a superstar! 🌟 / Фантастично!'
+    ];
+    document.getElementById('score-emoji').textContent = emojis[total];
+    document.getElementById('score-msg').textContent   = msgs2[total];
+    box.scrollIntoView({behavior:'smooth'});
+  }
+</script>
+</body>
+</html>

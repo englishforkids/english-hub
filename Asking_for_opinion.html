@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Asking for & Giving Opinions 💬</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f0f4ff;
+    --card-bg: #ffffff;
+    --ask-color: #6C63FF;
+    --give-color: #FF6B9D;
+    --agree-color: #00C9A7;
+    --disagree-color: #FF8C42;
+    --neutral-color: #4DBCE9;
+    --text: #2d2d44;
+    --text-light: #6b7280;
+    --shadow: 0 8px 32px rgba(108,99,255,0.10);
+    --radius: 20px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #6C63FF 0%, #FF6B9D 60%, #FFD166 100%);
+    padding: 48px 20px 56px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.07'%3E%3Ccircle cx='30' cy='30' r='8'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-emoji { font-size: 64px; display: block; margin-bottom: 12px; animation: bounce 2s infinite; }
+  @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+  .hero h1 {
+    font-family: 'Baloo 2', sans-serif;
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    font-weight: 800;
+    color: #fff;
+    text-shadow: 0 4px 16px rgba(0,0,0,0.18);
+    margin-bottom: 6px;
+  }
+  .hero-ua {
+    font-size: clamp(1rem, 3vw, 1.3rem);
+    color: rgba(255,255,255,0.88);
+    font-weight: 600;
+    margin-bottom: 18px;
+  }
+  .hero-desc {
+    background: rgba(255,255,255,0.18);
+    border-radius: 50px;
+    display: inline-block;
+    padding: 8px 24px;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 700;
+    backdrop-filter: blur(4px);
+  }
+
+  /* NAV PILLS */
+  .nav-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    padding: 24px 16px 8px;
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(108,99,255,0.07);
+  }
+  .pill {
+    background: #fff;
+    border: 2.5px solid #e5e7ef;
+    border-radius: 50px;
+    padding: 8px 20px;
+    font-weight: 800;
+    font-size: 0.88rem;
+    cursor: pointer;
+    transition: all 0.18s;
+    text-decoration: none;
+    color: var(--text);
+    display: flex; align-items: center; gap: 6px;
+  }
+  .pill:hover { border-color: var(--ask-color); color: var(--ask-color); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(108,99,255,0.13); }
+
+  /* MAIN */
+  main { max-width: 860px; margin: 0 auto; padding: 32px 16px 80px; }
+
+  /* SECTION HEADER */
+  .section-header {
+    display: flex; align-items: center; gap: 14px;
+    margin: 48px 0 20px;
+  }
+  .section-icon {
+    width: 52px; height: 52px;
+    border-radius: 16px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 26px;
+    flex-shrink: 0;
+  }
+  .section-header h2 {
+    font-family: 'Baloo 2', sans-serif;
+    font-size: clamp(1.25rem, 3.5vw, 1.75rem);
+    font-weight: 800;
+    line-height: 1.2;
+  }
+  .section-header .ua-label {
+    font-size: 0.88rem;
+    color: var(--text-light);
+    font-weight: 600;
+  }
+
+  /* INTRO CARD */
+  .intro-card {
+    background: linear-gradient(135deg, #fff 60%, #f3f0ff);
+    border-radius: var(--radius);
+    padding: 28px;
+    box-shadow: var(--shadow);
+    border-left: 6px solid var(--ask-color);
+    margin-bottom: 32px;
+  }
+  .intro-card p { font-size: 1rem; line-height: 1.7; margin-bottom: 10px; }
+  .intro-card p:last-child { margin-bottom: 0; }
+  .en { color: var(--text); font-weight: 700; }
+  .ua { color: var(--text-light); font-weight: 600; font-style: italic; }
+
+  /* INFOGRAPHIC GRID */
+  .infographic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .info-card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 22px 20px;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .info-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 5px;
+    border-radius: var(--radius) var(--radius) 0 0;
+  }
+  .info-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(108,99,255,0.14); }
+  .info-card .card-emoji { font-size: 36px; margin-bottom: 10px; display: block; }
+  .info-card h3 {
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 800;
+    margin-bottom: 4px;
+    color: var(--text);
+  }
+  .info-card .card-ua { font-size: 0.82rem; color: var(--text-light); font-weight: 600; margin-bottom: 12px; }
+  .info-card p { font-size: 0.9rem; line-height: 1.6; color: var(--text); }
+
+  .ask-card::before { background: var(--ask-color); }
+  .give-card::before { background: var(--give-color); }
+  .agree-card::before { background: var(--agree-color); }
+  .disagree-card::before { background: var(--disagree-color); }
+  .neutral-card::before { background: var(--neutral-color); }
+
+  /* PHRASE TABLE */
+  .phrase-section {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    margin-bottom: 28px;
+  }
+  .phrase-section-header {
+    padding: 16px 24px;
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    display: flex; align-items: center; gap: 10px;
+    color: #fff;
+  }
+  .phrase-list { padding: 8px 0; }
+  .phrase-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    padding: 14px 24px;
+    border-bottom: 1px solid #f3f4f6;
+    transition: background 0.15s;
+    align-items: start;
+  }
+  .phrase-item:last-child { border-bottom: none; }
+  .phrase-item:hover { background: #fafbff; }
+  .phrase-en {
+    font-weight: 800;
+    font-size: 0.97rem;
+    color: var(--text);
+    padding-right: 12px;
+  }
+  .phrase-ua {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    font-weight: 600;
+    font-style: italic;
+  }
+  .phrase-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: 50px;
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .tag-formal { background: #e0e7ff; color: #4338ca; }
+  .tag-casual { background: #fef3c7; color: #b45309; }
+  .tag-strong { background: #fce7f3; color: #be185d; }
+  .tag-soft { background: #d1fae5; color: #065f46; }
+
+  /* DIALOGUE */
+  .dialogue-box {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin-bottom: 28px;
+  }
+  .dialogue-title {
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    margin-bottom: 18px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .chat-bubble-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .chat-row { display: flex; align-items: flex-end; gap: 10px; }
+  .chat-row.right { flex-direction: row-reverse; }
+  .avatar {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+    font-weight: 900;
+  }
+  .avatar-a { background: #e0e7ff; }
+  .avatar-b { background: #fce7f3; }
+  .bubble {
+    max-width: 75%;
+    padding: 12px 16px;
+    border-radius: 18px;
+    font-size: 0.93rem;
+    line-height: 1.55;
+  }
+  .bubble-a {
+    background: #f0f4ff;
+    border-bottom-left-radius: 4px;
+  }
+  .bubble-b {
+    background: #fff0f6;
+    border-bottom-right-radius: 4px;
+  }
+  .bubble strong { display: block; font-weight: 800; color: var(--text); }
+  .bubble span { display: block; font-size: 0.82rem; color: var(--text-light); font-style: italic; margin-top: 2px; }
+  .bubble .highlight {
+    background: linear-gradient(90deg, #6C63FF22, #FF6B9D22);
+    border-radius: 6px;
+    padding: 1px 5px;
+    font-weight: 800;
+    color: var(--ask-color);
+    font-style: normal;
+  }
+
+  /* TIPS BOX */
+  .tips-box {
+    background: linear-gradient(135deg, #fff9e6, #fff3d6);
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    border-left: 6px solid #FFD166;
+    box-shadow: var(--shadow);
+    margin-bottom: 28px;
+  }
+  .tips-box h3 { font-family: 'Baloo 2', sans-serif; font-size: 1.1rem; font-weight: 800; margin-bottom: 14px; }
+  .tip-item {
+    display: flex; gap: 10px; align-items: flex-start;
+    margin-bottom: 10px; font-size: 0.93rem; line-height: 1.6;
+  }
+  .tip-num {
+    background: #FFD166;
+    color: #7c5500;
+    font-weight: 900;
+    border-radius: 50%;
+    width: 26px; height: 26px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.82rem;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* MAGIC SENTENCE */
+  .magic-box {
+    background: linear-gradient(135deg, #6C63FF, #FF6B9D);
+    border-radius: var(--radius);
+    padding: 28px;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 8px 32px rgba(108,99,255,0.25);
+    margin-bottom: 32px;
+  }
+  .magic-box .magic-label {
+    font-size: 0.82rem; font-weight: 800; letter-spacing: 2px;
+    text-transform: uppercase; opacity: 0.8; margin-bottom: 10px;
+  }
+  .magic-box .magic-en {
+    font-family: 'Baloo 2', sans-serif;
+    font-size: clamp(1.1rem, 3vw, 1.5rem);
+    font-weight: 800; margin-bottom: 8px;
+  }
+  .magic-box .magic-ua { font-size: 0.97rem; opacity: 0.88; font-weight: 600; font-style: italic; }
+
+  /* QUIZ */
+  .quiz-section {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 28px;
+    box-shadow: var(--shadow);
+    margin-bottom: 28px;
+  }
+  .quiz-title { font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 1.2rem; margin-bottom: 6px; }
+  .quiz-subtitle { font-size: 0.9rem; color: var(--text-light); margin-bottom: 22px; }
+  .quiz-q { margin-bottom: 22px; }
+  .quiz-q p { font-weight: 700; font-size: 0.97rem; margin-bottom: 10px; }
+  .quiz-options { display: flex; flex-wrap: wrap; gap: 8px; }
+  .quiz-btn {
+    background: #f3f4f6;
+    border: 2.5px solid #e5e7ef;
+    border-radius: 12px;
+    padding: 8px 18px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.18s;
+    color: var(--text);
+  }
+  .quiz-btn:hover { border-color: var(--ask-color); color: var(--ask-color); }
+  .quiz-btn.correct { background: #d1fae5; border-color: var(--agree-color); color: #065f46; }
+  .quiz-btn.wrong { background: #fee2e2; border-color: #ef4444; color: #991b1b; }
+  .quiz-feedback {
+    margin-top: 10px; font-size: 0.88rem; font-weight: 700;
+    min-height: 20px;
+  }
+  .quiz-feedback.ok { color: var(--agree-color); }
+  .quiz-feedback.no { color: #ef4444; }
+  .quiz-score {
+    background: linear-gradient(135deg, #6C63FF, #FF6B9D);
+    color: #fff;
+    border-radius: 14px;
+    padding: 16px 24px;
+    font-weight: 800;
+    font-size: 1.05rem;
+    text-align: center;
+    margin-top: 16px;
+    display: none;
+  }
+  .btn-reset {
+    background: var(--ask-color);
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 28px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 0.95rem;
+    cursor: pointer;
+    margin-top: 14px;
+    transition: background 0.18s;
+  }
+  .btn-reset:hover { background: #4f46e5; }
+
+  /* SCROLL TOP */
+  #scrollTopBtn {
+    position: fixed;
+    bottom: 28px;
+    right: 24px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--ask-color), var(--give-color));
+    color: white;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 4px 18px rgba(108,99,255,0.35);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.18s;
+    z-index: 999;
+  }
+  #scrollTopBtn:hover { transform: scale(1.12); }
+  #scrollTopBtn.visible { display: flex; }
+
+  /* FORMULA */
+  .formula-box {
+    background: #f8f5ff;
+    border: 2.5px dashed var(--ask-color);
+    border-radius: 16px;
+    padding: 18px 24px;
+    margin: 16px 0;
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--ask-color);
+    text-align: center;
+  }
+  .formula-box span { color: var(--text-light); font-size: 0.82rem; display: block; margin-top: 4px; font-family: 'Nunito', sans-serif; font-style: italic; }
+
+  /* COLUMNS */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 28px; }
+  @media (max-width: 600px) { .two-col { grid-template-columns: 1fr; } .phrase-item { grid-template-columns: 1fr; } .bubble { max-width: 90%; } }
+
+  /* SCALE VISUAL */
+  .scale-wrap {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: var(--shadow);
+    margin-bottom: 28px;
+  }
+  .scale-title { font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 1.05rem; margin-bottom: 16px; text-align: center; }
+  .scale-bar {
+    display: flex;
+    border-radius: 50px;
+    overflow: hidden;
+    height: 44px;
+    margin-bottom: 8px;
+  }
+  .scale-seg {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #fff;
+    padding: 4px;
+    text-align: center;
+    line-height: 1.2;
+  }
+  .scale-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--text-light);
+    font-weight: 600;
+    padding: 0 4px;
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 32px 16px;
+    color: var(--text-light);
+    font-size: 0.88rem;
+    font-weight: 600;
+  }
+  footer span { color: var(--give-color); }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <span class="hero-emoji">💬</span>
+  <h1>Asking for & Giving Opinions</h1>
+  <p class="hero-ua">Як запитати й висловити думку англійською</p>
+  <div class="hero-desc">🎯 English + Українська • Для початківців</div>
+</header>
+
+<!-- NAV -->
+<nav class="nav-pills">
+  <a class="pill" href="#what">❓ What is it?</a>
+  <a class="pill" href="#ask">🙋 Ask</a>
+  <a class="pill" href="#give">💡 Give</a>
+  <a class="pill" href="#colloquial">🗣️ Slang</a>
+  <a class="pill" href="#agree">👍 Agree</a>
+  <a class="pill" href="#disagree">🤔 Disagree</a>
+  <a class="pill" href="#dialogue">💬 Dialogue</a>
+  <a class="pill" href="#quiz">🧩 Quiz</a>
+</nav>
+
+<main>
+
+  <!-- WHAT IS IT -->
+  <div id="what">
+    <div class="section-header">
+      <div class="section-icon" style="background:#e0e7ff;">❓</div>
+      <div>
+        <h2>What is it? / Що це таке?</h2>
+        <div class="ua-label">Основна ідея теми</div>
+      </div>
+    </div>
+    <div class="intro-card">
+      <p class="en">When we talk with friends, classmates or teachers, we often need to <strong>ask what someone thinks</strong> about a topic — or <strong>share our own point of view</strong>. In English, there are special phrases to do this politely and clearly.</p>
+      <p class="ua">Коли ми спілкуємося з друзями, однокласниками чи вчителями, нам часто потрібно <strong>запитати, що хтось думає</strong> про якусь тему — або <strong>поділитися своєю думкою</strong>. В англійській мові є спеціальні фрази, щоб робити це ввічливо й чітко.</p>
+    </div>
+
+    <!-- 4 CARDS -->
+    <div class="infographic-grid">
+      <div class="info-card ask-card">
+        <span class="card-emoji">🙋</span>
+        <h3>Asking for Opinion</h3>
+        <div class="card-ua">Просити висловити думку</div>
+        <p>You want to know <strong>what someone else thinks</strong>. You ask them a question.</p>
+      </div>
+      <div class="info-card give-card">
+        <span class="card-emoji">💡</span>
+        <h3>Giving Opinion</h3>
+        <div class="card-ua">Висловлювати свою думку</div>
+        <p>You share <strong>your own thoughts</strong> or ideas about something.</p>
+      </div>
+      <div class="info-card agree-card">
+        <span class="card-emoji">👍</span>
+        <h3>Agreeing</h3>
+        <div class="card-ua">Погоджуватися</div>
+        <p>You say that you <strong>think the same</strong> as the other person.</p>
+      </div>
+      <div class="info-card disagree-card">
+        <span class="card-emoji">🤔</span>
+        <h3>Disagreeing</h3>
+        <div class="card-ua">Не погоджуватися</div>
+        <p>You say that your opinion is <strong>different</strong>, but still be polite!</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAGIC SENTENCE -->
+  <div class="magic-box">
+    <div class="magic-label">✨ Magic Sentence · Чарівне речення</div>
+    <div class="magic-en">"What do you think about studying English every day?"</div>
+    <div class="magic-ua">«Що ти думаєш про те, щоб вивчати англійську щодня?»</div>
+  </div>
+
+  <!-- ASK SECTION -->
+  <div id="ask">
+    <div class="section-header">
+      <div class="section-icon" style="background:#e0e7ff;">🙋</div>
+      <div>
+        <h2>Asking for Opinion</h2>
+        <div class="ua-label">Як попросити когось висловити думку</div>
+      </div>
+    </div>
+
+    <div class="formula-box">
+      What do you think about + [topic] ?
+      <span>Що ти думаєш про + [тема]?</span>
+    </div>
+
+    <div class="phrase-section">
+      <div class="phrase-section-header" style="background: linear-gradient(90deg, #6C63FF, #8b85ff);">
+        🙋 Phrases to ASK for an opinion &nbsp;·&nbsp; Фрази для запиту думки
+      </div>
+      <div class="phrase-list">
+        <div class="phrase-item">
+          <div class="phrase-en">What do you think about…?
+            <span class="phrase-tag tag-casual">casual</span></div>
+          <div class="phrase-ua">Що ти думаєш про…?</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">What's your opinion on…?
+            <span class="phrase-tag tag-formal">formal</span></div>
+          <div class="phrase-ua">Яка твоя думка щодо…?</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">What do you feel about…?
+            <span class="phrase-tag tag-casual">casual</span></div>
+          <div class="phrase-ua">Як ти ставишся до…?</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">How do you feel about…?
+            <span class="phrase-tag tag-casual">casual</span></div>
+          <div class="phrase-ua">Як ти почуваєшся щодо…?</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">Do you think that…?
+            <span class="phrase-tag tag-casual">casual</span></div>
+          <div class="phrase-ua">Ти думаєш, що…?</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">What are your thoughts on…?
+            <span class="phrase-tag tag-formal">formal</span></div>
+          <div class="phrase-ua">Які твої думки щодо…?</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">Would you say that…?
+            <span class="phrase-tag tag-formal">formal</span></div>
+          <div class="phrase-ua">Ти б сказав/сказала, що…?</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">What's your view on…?
+            <span class="phrase-tag tag-formal">formal</span></div>
+          <div class="phrase-ua">Яка твоя точка зору на…?</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">What do you reckon about…?
+            <span class="phrase-tag tag-casual">casual</span></div>
+          <div class="phrase-ua">Що ти думаєш про…? (розмовне, британський варіант)</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">What's your take on…?
+            <span class="phrase-tag tag-casual">casual</span></div>
+          <div class="phrase-ua">Яка твоя думка / позиція щодо…?</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">Any thoughts on…?
+            <span class="phrase-tag tag-casual">casual</span></div>
+          <div class="phrase-ua">Є якісь думки щодо…? (коротко й невимушено)</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">What's your stance on…?
+            <span class="phrase-tag tag-formal">formal</span></div>
+          <div class="phrase-ua">Яка твоя позиція щодо…?</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">Do you have any opinion on…?
+            <span class="phrase-tag tag-casual">casual</span></div>
+          <div class="phrase-ua">Маєш якусь думку щодо…?</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">What would you say about…?
+            <span class="phrase-tag tag-casual">casual</span></div>
+          <div class="phrase-ua">Що б ти сказав/сказала про…?</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">What do you make of…?
+            <span class="phrase-tag tag-casual">casual</span></div>
+          <div class="phrase-ua">Що ти думаєш / як ти розумієш…? (розмовне)</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">Tell me what you think about…
+            <span class="phrase-tag tag-casual">casual</span></div>
+          <div class="phrase-ua">Розкажи, що ти думаєш про…</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">I'd love to hear your opinion on…
+            <span class="phrase-tag tag-soft">soft</span></div>
+          <div class="phrase-ua">Мені було б цікаво почути твою думку про…</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">I'm curious — what do you think about…?
+            <span class="phrase-tag tag-casual">casual</span></div>
+          <div class="phrase-ua">Мені цікаво — що ти думаєш про…?</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">Do you have a strong opinion on…?
+            <span class="phrase-tag tag-casual">casual</span></div>
+          <div class="phrase-ua">Ти маєш чітку думку щодо…?</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">What do you honestly think about…?
+            <span class="phrase-tag tag-casual">casual</span></div>
+          <div class="phrase-ua">Що ти справді / чесно думаєш про…?</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">What's your gut feeling about…?
+            <span class="phrase-tag tag-casual">casual</span></div>
+          <div class="phrase-ua">Яке твоє інтуїтивне відчуття щодо…? (неформально)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXAMPLES -->
+    <div class="two-col">
+      <div class="tips-box" style="margin-bottom:0;">
+        <h3>📌 Examples · Приклади</h3>
+        <div class="tip-item"><div class="tip-num">1</div><div><strong>What do you think about homework?</strong><br><em>Що ти думаєш про домашнє завдання?</em></div></div>
+        <div class="tip-item"><div class="tip-num">2</div><div><strong>What's your opinion on social media?</strong><br><em>Яка твоя думка про соціальні мережі?</em></div></div>
+        <div class="tip-item"><div class="tip-num">3</div><div><strong>How do you feel about eating vegetables?</strong><br><em>Як ти ставишся до того, щоб їсти овочі?</em></div></div>
+      </div>
+      <div class="info-card neutral-card" style="margin-bottom:0;">
+        <span class="card-emoji">💡</span>
+        <h3>Pro Tip</h3>
+        <div class="card-ua">Порада</div>
+        <p>After asking, always <strong>listen carefully</strong> to the answer. Then you can share your own opinion too!</p>
+        <p style="margin-top:8px;"><em>Після запитання завжди <strong>уважно слухай</strong> відповідь. Потім ти теж можеш поділитися своєю думкою!</em></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- GIVE OPINION -->
+  <div id="give" style="margin-top:48px;">
+    <div class="section-header">
+      <div class="section-icon" style="background:#fce7f3;">💡</div>
+      <div>
+        <h2>Giving Your Opinion</h2>
+        <div class="ua-label">Як висловити свою думку</div>
+      </div>
+    </div>
+
+    <div class="formula-box" style="border-color: var(--give-color); color: var(--give-color); background: #fff0f6;">
+      I think / I believe / In my opinion + [your idea]
+      <span>Я думаю / Я вважаю / На мою думку + [твоя ідея]</span>
+    </div>
+
+    <div class="phrase-section">
+      <div class="phrase-section-header" style="background: linear-gradient(90deg, #FF6B9D, #ff9ec0);">
+        💡 Phrases to GIVE your opinion &nbsp;·&nbsp; Фрази для вираження думки
+      </div>
+      <div class="phrase-list">
+        <div class="phrase-item">
+          <div class="phrase-en">I think that…
+            <span class="phrase-tag tag-casual">casual</span></div>
+          <div class="phrase-ua">Я думаю, що…</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">I believe that…
+            <span class="phrase-tag tag-casual">casual</span></div>
+          <div class="phrase-ua">Я вважаю, що…</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">In my opinion, …
+            <span class="phrase-tag tag-formal">formal</span></div>
+          <div class="phrase-ua">На мою думку, …</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">In my view, …
+            <span class="phrase-tag tag-formal">formal</span></div>
+          <div class="phrase-ua">На мій погляд, …</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">I feel that…
+            <span class="phrase-tag tag-casual">casual</span></div>
+          <div class="phrase-ua">Мені здається, що…</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">It seems to me that…
+            <span class="phrase-tag tag-soft">soft</span></div>
+          <div class="phrase-ua">Мені здається, що… (м'якше)</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">Personally, I think…
+            <span class="phrase-tag tag-casual">casual</span></div>
+          <div class="phrase-ua">Особисто я думаю…</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">As far as I'm concerned, …
+            <span class="phrase-tag tag-formal">formal</span></div>
+          <div class="phrase-ua">Що стосується мене, …</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">To my mind, …
+            <span class="phrase-tag tag-formal">formal</span></div>
+          <div class="phrase-ua">На мій розум, … / Я вважаю, …</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">I'd say that…
+            <span class="phrase-tag tag-soft">soft</span></div>
+          <div class="phrase-ua">Я б сказав/сказала, що…</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">If you ask me, …
+            <span class="phrase-tag tag-casual">casual</span></div>
+          <div class="phrase-ua">Якщо мене запитаєш, … / На мій погляд, …</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">The way I see it, …
+            <span class="phrase-tag tag-casual">casual</span></div>
+          <div class="phrase-ua">Як я це бачу, … / На мій погляд, …</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">From my perspective, …
+            <span class="phrase-tag tag-formal">formal</span></div>
+          <div class="phrase-ua">З моєї точки зору, …</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">From where I stand, …
+            <span class="phrase-tag tag-casual">casual</span></div>
+          <div class="phrase-ua">Зі своєї позиції, … (розмовне)</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">I reckon (that)…
+            <span class="phrase-tag tag-casual">casual</span></div>
+          <div class="phrase-ua">Я думаю / гадаю, що… (британський розмовний)</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">I suppose (that)…
+            <span class="phrase-tag tag-soft">soft</span></div>
+          <div class="phrase-ua">Я припускаю, що… / Мабуть, …</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">I guess (that)…
+            <span class="phrase-tag tag-casual">casual</span></div>
+          <div class="phrase-ua">Мені здається, що… / Думаю, що… (невимушено)</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">I'm convinced that…
+            <span class="phrase-tag tag-strong">strong</span></div>
+          <div class="phrase-ua">Я переконаний/переконана, що…</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">I strongly believe that…
+            <span class="phrase-tag tag-strong">strong</span></div>
+          <div class="phrase-ua">Я міцно вірю / переконаний, що…</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">I'm pretty sure that…
+            <span class="phrase-tag tag-casual">casual</span></div>
+          <div class="phrase-ua">Я досить впевнений/впевнена, що…</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">Honestly, I think…
+            <span class="phrase-tag tag-casual">casual</span></div>
+          <div class="phrase-ua">Чесно кажучи, я думаю…</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">To be honest, …
+            <span class="phrase-tag tag-casual">casual</span></div>
+          <div class="phrase-ua">Якщо чесно, … (скорочено: TBH)</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">To be fair, …
+            <span class="phrase-tag tag-casual">casual</span></div>
+          <div class="phrase-ua">Якщо по-чесному / справедливо кажучи, …</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">Don't get me wrong, but…
+            <span class="phrase-tag tag-casual">casual</span></div>
+          <div class="phrase-ua">Не зрозумій мене неправильно, але… (пом'якшення)</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">The thing is, …
+            <span class="phrase-tag tag-casual">casual</span></div>
+          <div class="phrase-ua">Справа в тому, що… (розмовне вступне слово)</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">I have mixed feelings about…
+            <span class="phrase-tag tag-soft">soft</span></div>
+          <div class="phrase-ua">У мене неоднозначне ставлення до… / Я не визначився/визначилась щодо…</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">I'm on the fence about…
+            <span class="phrase-tag tag-soft">soft</span></div>
+          <div class="phrase-ua">Я ще не визначився/визначилась щодо… (ідіома)</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">As I see it, …
+            <span class="phrase-tag tag-casual">casual</span></div>
+          <div class="phrase-ua">Як я це розумію, … / На мій погляд, …</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">Speaking for myself, …
+            <span class="phrase-tag tag-casual">casual</span></div>
+          <div class="phrase-ua">Говорячи особисто від себе, …</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COLLOQUIAL SPOTLIGHT -->
+    <div id="colloquial" style="background: linear-gradient(135deg, #fff9e6, #fff0f6); border-radius: var(--radius); padding: 24px 28px; box-shadow: var(--shadow); margin-bottom: 28px; border-left: 6px solid #FFD166;">
+      <h3 style="font-family:'Baloo 2',sans-serif; font-weight:800; font-size:1.1rem; margin-bottom:6px;">🗣️ Conversational Spotlight · Розмовний прожектор</h3>
+      <p style="font-size:0.88rem; color:var(--text-light); font-weight:600; margin-bottom:16px;">These short phrases sound very natural in everyday spoken English. / Ці короткі фрази звучать дуже природно в повсякденній розмовній англійській.</p>
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:12px;">
+        <div style="background:#fff; border-radius:14px; padding:14px; box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+          <div style="font-weight:900; font-size:1rem; color:var(--give-color);">"If you ask me…"</div>
+          <div style="font-size:0.82rem; color:var(--text-light); margin:4px 0 8px; font-style:italic;">Якщо мене запитаєш…</div>
+          <div style="font-size:0.88rem;">"<em>If you ask me, the movie was too long.</em>"<br><span style="color:var(--text-light); font-size:0.8rem;">Якщо мене запитаєш, фільм був задовгий.</span></div>
+        </div>
+        <div style="background:#fff; border-radius:14px; padding:14px; box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+          <div style="font-weight:900; font-size:1rem; color:var(--ask-color);">"What's your take?"</div>
+          <div style="font-size:0.82rem; color:var(--text-light); margin:4px 0 8px; font-style:italic;">Яка твоя позиція?</div>
+          <div style="font-size:0.88rem;">"<em>What's your take on the new teacher?</em>"<br><span style="color:var(--text-light); font-size:0.8rem;">Яка твоя думка про нового вчителя?</span></div>
+        </div>
+        <div style="background:#fff; border-radius:14px; padding:14px; box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+          <div style="font-weight:900; font-size:1rem; color:#FF8C42;">"The way I see it…"</div>
+          <div style="font-size:0.82rem; color:var(--text-light); margin:4px 0 8px; font-style:italic;">Як я це бачу…</div>
+          <div style="font-size:0.88rem;">"<em>The way I see it, we should study more.</em>"<br><span style="color:var(--text-light); font-size:0.8rem;">Як я це бачу, нам варто більше вчитися.</span></div>
+        </div>
+        <div style="background:#fff; border-radius:14px; padding:14px; box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+          <div style="font-weight:900; font-size:1rem; color:var(--agree-color);">"I reckon…"</div>
+          <div style="font-size:0.82rem; color:var(--text-light); margin:4px 0 8px; font-style:italic;">Я думаю / гадаю… (брит.)</div>
+          <div style="font-size:0.88rem;">"<em>I reckon it's going to rain today.</em>"<br><span style="color:var(--text-light); font-size:0.8rem;">Гадаю, сьогодні буде дощ.</span></div>
+        </div>
+        <div style="background:#fff; border-radius:14px; padding:14px; box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+          <div style="font-weight:900; font-size:1rem; color:#6C63FF;">"To be honest…"</div>
+          <div style="font-size:0.82rem; color:var(--text-light); margin:4px 0 8px; font-style:italic;">Якщо чесно… (TBH)</div>
+          <div style="font-size:0.88rem;">"<em>To be honest, I didn't like the food.</em>"<br><span style="color:var(--text-light); font-size:0.8rem;">Якщо чесно, мені не сподобалася їжа.</span></div>
+        </div>
+        <div style="background:#fff; border-radius:14px; padding:14px; box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+          <div style="font-weight:900; font-size:1rem; color:#FF6B9D;">"I'm on the fence…"</div>
+          <div style="font-size:0.82rem; color:var(--text-light); margin:4px 0 8px; font-style:italic;">Я ще не визначився…</div>
+          <div style="font-size:0.88rem;">"<em>I'm on the fence about getting a dog.</em>"<br><span style="color:var(--text-light); font-size:0.8rem;">Я ще не визначився щодо того, щоб завести собаку.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STRENGTH SCALE -->
+    <div class="scale-wrap">
+      <div class="scale-title">📊 Opinion Strength Scale · Шкала впевненості у висловлюванні</div>
+      <div class="scale-bar">
+        <div class="scale-seg" style="background:#4DBCE9; flex:0.8;">It seems to me…</div>
+        <div class="scale-seg" style="background:#6C63FF;">I think…</div>
+        <div class="scale-seg" style="background:#FF6B9D;">I believe…</div>
+        <div class="scale-seg" style="background:#FF8C42; flex:0.8;">In my opinion…</div>
+        <div class="scale-seg" style="background:#e53e3e; flex:0.7;">I'm sure that…</div>
+      </div>
+      <div class="scale-labels">
+        <span>😊 Soft / М'яко</span>
+        <span>💪 Strong / Впевнено</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- AGREE -->
+  <div id="agree">
+    <div class="section-header">
+      <div class="section-icon" style="background:#d1fae5;">👍</div>
+      <div>
+        <h2>Agreeing</h2>
+        <div class="ua-label">Як погодитися з думкою іншої людини</div>
+      </div>
+    </div>
+    <div class="phrase-section">
+      <div class="phrase-section-header" style="background: linear-gradient(90deg, #00C9A7, #3dd9bc);">
+        👍 Phrases to AGREE &nbsp;·&nbsp; Фрази для згоди
+      </div>
+      <div class="phrase-list">
+        <div class="phrase-item">
+          <div class="phrase-en">I agree (with you).
+            <span class="phrase-tag tag-casual">casual</span></div>
+          <div class="phrase-ua">Я згоден/згодна (з тобою).</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">I totally agree!
+            <span class="phrase-tag tag-strong">strong</span></div>
+          <div class="phrase-ua">Повністю згоден/згодна!</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">You're absolutely right.
+            <span class="phrase-tag tag-strong">strong</span></div>
+          <div class="phrase-ua">Ти абсолютно правий/права.</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">That's a great point!
+            <span class="phrase-tag tag-casual">casual</span></div>
+          <div class="phrase-ua">Чудова думка!</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">Exactly!
+            <span class="phrase-tag tag-casual">casual</span></div>
+          <div class="phrase-ua">Саме так! / Точно!</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">I think so too.
+            <span class="phrase-tag tag-casual">casual</span></div>
+          <div class="phrase-ua">Я теж так думаю.</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">I couldn't agree more.
+            <span class="phrase-tag tag-formal">formal</span></div>
+          <div class="phrase-ua">Не можу не погодитися. (= Повністю згоден)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DISAGREE -->
+  <div id="disagree">
+    <div class="section-header">
+      <div class="section-icon" style="background:#ffedd5;">🤔</div>
+      <div>
+        <h2>Disagreeing (Politely!)</h2>
+        <div class="ua-label">Як ввічливо не погодитися</div>
+      </div>
+    </div>
+
+    <div class="tips-box">
+      <h3>⚠️ Important Rule · Важливе правило</h3>
+      <div class="tip-item"><div class="tip-num">!</div><div>Always disagree <strong>politely</strong>! Start with something positive or use softening words like <em>"but", "however", "I see your point, but…"</em><br><em>Завжди не погоджуйся <strong>ввічливо</strong>! Почни з чогось позитивного або використовуй слова-пом'якшення.</em></div></div>
+    </div>
+
+    <div class="phrase-section">
+      <div class="phrase-section-header" style="background: linear-gradient(90deg, #FF8C42, #ffaa72);">
+        🤔 Phrases to DISAGREE &nbsp;·&nbsp; Фрази для незгоди
+      </div>
+      <div class="phrase-list">
+        <div class="phrase-item">
+          <div class="phrase-en">I disagree (with you).
+            <span class="phrase-tag tag-casual">casual</span></div>
+          <div class="phrase-ua">Я не згоден/згодна (з тобою).</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">I'm not sure I agree.
+            <span class="phrase-tag tag-soft">soft</span></div>
+          <div class="phrase-ua">Не впевнений/впевнена, що погоджуюся.</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">I see your point, but…
+            <span class="phrase-tag tag-soft">soft</span></div>
+          <div class="phrase-ua">Я розумію твою думку, але…</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">I understand what you mean, but…
+            <span class="phrase-tag tag-soft">soft</span></div>
+          <div class="phrase-ua">Я розумію, що ти маєш на увазі, але…</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">That's a good point, but I think…
+            <span class="phrase-tag tag-soft">soft</span></div>
+          <div class="phrase-ua">Гарна думка, але я вважаю…</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">I'm afraid I disagree.
+            <span class="phrase-tag tag-formal">formal</span></div>
+          <div class="phrase-ua">Боюся, що не погоджуюся.</div>
+        </div>
+        <div class="phrase-item">
+          <div class="phrase-en">I don't think that's right.
+            <span class="phrase-tag tag-casual">casual</span></div>
+          <div class="phrase-ua">Я не думаю, що це правильно.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FORMULA DISAGREE POLITELY -->
+    <div class="formula-box" style="border-color: var(--disagree-color); color: var(--disagree-color); background: #fff7f0;">
+      I see your point, but + [your opinion]
+      <span>Я розумію тебе, але + [твоя думка] — ввічливий спосіб не погодитися</span>
+    </div>
+  </div>
+
+  <!-- DIALOGUE -->
+  <div id="dialogue">
+    <div class="section-header">
+      <div class="section-icon" style="background:#fef3c7;">🗣️</div>
+      <div>
+        <h2>Real Dialogue</h2>
+        <div class="ua-label">Справжній діалог — дивись, як це працює!</div>
+      </div>
+    </div>
+
+    <div class="dialogue-box">
+      <div class="dialogue-title">📱 Mia & Tom talk about social media · Міа і Том говорять про соцмережі</div>
+      <div class="chat-bubble-wrap">
+
+        <div class="chat-row">
+          <div class="avatar avatar-a">😊</div>
+          <div class="bubble bubble-a">
+            <strong><span class="highlight">What do you think about</span> spending too much time on social media?</strong>
+            <span>Що ти думаєш про те, щоб проводити забагато часу в соцмережах?</span>
+          </div>
+        </div>
+
+        <div class="chat-row right">
+          <div class="avatar avatar-b">🧑</div>
+          <div class="bubble bubble-b">
+            <strong><span class="highlight">In my opinion,</span> it's not good for young people.</strong>
+            <span>На мою думку, це не добре для молоді.</span>
+          </div>
+        </div>
+
+        <div class="chat-row">
+          <div class="avatar avatar-a">😊</div>
+          <div class="bubble bubble-a">
+            <strong><span class="highlight">I totally agree!</span> It can also make us feel bad about ourselves.</strong>
+            <span>Повністю згодна! Це також може змусити нас почуватися погано.</span>
+          </div>
+        </div>
+
+        <div class="chat-row right">
+          <div class="avatar avatar-b">🧑</div>
+          <div class="bubble bubble-b">
+            <strong><span class="highlight">That's a great point, but I think</span> it depends on how you use it.</strong>
+            <span>Чудова думка, але я вважаю, що все залежить від того, як ти це використовуєш.</span>
+          </div>
+        </div>
+
+        <div class="chat-row">
+          <div class="avatar avatar-a">😊</div>
+          <div class="bubble bubble-a">
+            <strong><span class="highlight">I see your point.</span> Maybe it's okay in small amounts!</strong>
+            <span>Розумію тебе. Можливо, трохи — це нормально!</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SECOND DIALOGUE -->
+    <div class="dialogue-box">
+      <div class="dialogue-title">🎮 Alex & Sam talk about video games · Алекс і Сем говорять про відеоігри</div>
+      <div class="chat-bubble-wrap">
+
+        <div class="chat-row">
+          <div class="avatar avatar-a">🎮</div>
+          <div class="bubble bubble-a">
+            <strong><span class="highlight">What's your opinion on</span> playing video games every day?</strong>
+            <span>Яка твоя думка щодо того, щоб грати у відеоігри щодня?</span>
+          </div>
+        </div>
+
+        <div class="chat-row right">
+          <div class="avatar avatar-b">🌟</div>
+          <div class="bubble bubble-b">
+            <strong><span class="highlight">I believe</span> it's fine if you do homework first!</strong>
+            <span>Я вважаю, що це нормально, якщо спочатку зробити домашнє завдання!</span>
+          </div>
+        </div>
+
+        <div class="chat-row">
+          <div class="avatar avatar-a">🎮</div>
+          <div class="bubble bubble-a">
+            <strong><span class="highlight">I'm not sure I agree.</span> Games can be very addictive.</strong>
+            <span>Не впевнений, що погоджуюся. Ігри можуть бути дуже затягуючими.</span>
+          </div>
+        </div>
+
+        <div class="chat-row right">
+          <div class="avatar avatar-b">🌟</div>
+          <div class="bubble bubble-b">
+            <strong><span class="highlight">You're right,</span> but <span class="highlight">I think</span> everything in moderation is okay.</strong>
+            <span>Ти маєш рацію, але я думаю, що все в міру — це нормально.</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- TIPS -->
+  <div class="tips-box" style="margin-bottom: 32px;">
+    <h3>🌟 Top 5 Tips · 5 головних порад</h3>
+    <div class="tip-item"><div class="tip-num">1</div><div><strong>Use "I think" or "I believe"</strong> to start your opinion — don't just say a fact!<br><em>Починай з «I think» або «I believe» — не просто говори факт!</em></div></div>
+    <div class="tip-item"><div class="tip-num">2</div><div><strong>Always be polite</strong> when you disagree — say "I see your point, but…"<br><em>Завжди будь ввічливим, коли не погоджуєшся — кажи «I see your point, but…»</em></div></div>
+    <div class="tip-item"><div class="tip-num">3</div><div><strong>Ask follow-up questions</strong> like "What about you?" or "Do you agree?"<br><em>Задавай додаткові запитання: «What about you?» або «Do you agree?»</em></div></div>
+    <div class="tip-item"><div class="tip-num">4</div><div><strong>Use "In my opinion"</strong> for formal situations (school, tests, essays).<br><em>Використовуй «In my opinion» у формальних ситуаціях (школа, тести, есе).</em></div></div>
+    <div class="tip-item"><div class="tip-num">5</div><div><strong>Practice!</strong> Discuss topics like: homework, phones, food, movies, sports.<br><em>Практикуйся! Обговорюй теми: домашнє завдання, телефони, їжа, фільми, спорт.</em></div></div>
+  </div>
+
+  <!-- QUICK REFERENCE -->
+  <div class="scale-wrap" style="margin-bottom: 32px;">
+    <div class="scale-title" style="text-align:left; font-size:1.1rem; margin-bottom:20px;">📋 Quick Reference Card · Картка швидкого огляду</div>
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:12px;">
+      <div style="background:#f0f4ff; border-radius:14px; padding:14px;">
+        <div style="font-weight:800; color:var(--ask-color); margin-bottom:8px;">🙋 ASK</div>
+        <div style="font-size:0.88rem; line-height:1.8;">What do you think…?<br>What's your take on…?<br>Any thoughts on…?<br>What do you make of…?</div>
+      </div>
+      <div style="background:#fff0f6; border-radius:14px; padding:14px;">
+        <div style="font-weight:800; color:var(--give-color); margin-bottom:8px;">💡 GIVE</div>
+        <div style="font-size:0.88rem; line-height:1.8;">I think / I believe…<br>If you ask me…<br>The way I see it…<br>To be honest…<br>I reckon…</div>
+      </div>
+      <div style="background:#ecfdf5; border-radius:14px; padding:14px;">
+        <div style="font-weight:800; color:var(--agree-color); margin-bottom:8px;">👍 AGREE</div>
+        <div style="font-size:0.88rem; line-height:1.8;">I agree!<br>Exactly!<br>You're right!</div>
+      </div>
+      <div style="background:#fff7ed; border-radius:14px; padding:14px;">
+        <div style="font-weight:800; color:var(--disagree-color); margin-bottom:8px;">🤔 DISAGREE</div>
+        <div style="font-size:0.88rem; line-height:1.8;">I see your point, but…<br>I'm not sure I agree.<br>I understand, but…</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUIZ -->
+  <div id="quiz" class="quiz-section">
+    <div class="quiz-title">🧩 Quick Quiz · Міні-тест</div>
+    <div class="quiz-subtitle">Choose the correct phrase for each situation. / Обери правильну фразу для кожної ситуації.</div>
+
+    <!-- Q1 -->
+    <div class="quiz-q" data-correct="a">
+      <p>1. You want to know your friend's thoughts about the new movie. / Ти хочеш дізнатися думку друга про новий фільм.</p>
+      <div class="quiz-options">
+        <button class="quiz-btn" data-val="a">What do you think about the new movie?</button>
+        <button class="quiz-btn" data-val="b">I think the movie is good.</button>
+        <button class="quiz-btn" data-val="c">I agree with you.</button>
+      </div>
+      <div class="quiz-feedback"></div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="quiz-q" data-correct="b">
+      <p>2. You want to share your own opinion. / Ти хочеш поділитися своєю думкою.</p>
+      <div class="quiz-options">
+        <button class="quiz-btn" data-val="a">What's your opinion on this?</button>
+        <button class="quiz-btn" data-val="b">In my opinion, homework is important.</button>
+        <button class="quiz-btn" data-val="c">I couldn't agree more.</button>
+      </div>
+      <div class="quiz-feedback"></div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="quiz-q" data-correct="c">
+      <p>3. You want to politely disagree. / Ти хочеш ввічливо не погодитися.</p>
+      <div class="quiz-options">
+        <button class="quiz-btn" data-val="a">I totally agree!</button>
+        <button class="quiz-btn" data-val="b">What do you think?</button>
+        <button class="quiz-btn" data-val="c">I see your point, but I think differently.</button>
+      </div>
+      <div class="quiz-feedback"></div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="quiz-q" data-correct="a">
+      <p>4. Your friend said something and you completely agree. / Друг щось сказав, і ти повністю згоден/згодна.</p>
+      <div class="quiz-options">
+        <button class="quiz-btn" data-val="a">I couldn't agree more!</button>
+        <button class="quiz-btn" data-val="b">I'm afraid I disagree.</button>
+        <button class="quiz-btn" data-val="c">How do you feel about this?</button>
+      </div>
+      <div class="quiz-feedback"></div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="quiz-q" data-correct="b">
+      <p>5. Which is the most FORMAL way to give an opinion? / Який найбільш ФОРМАЛЬНИЙ спосіб висловити думку?</p>
+      <div class="quiz-options">
+        <button class="quiz-btn" data-val="a">I think it's nice.</button>
+        <button class="quiz-btn" data-val="b">As far as I'm concerned, this is very important.</button>
+        <button class="quiz-btn" data-val="c">I feel like it's okay.</button>
+      </div>
+      <div class="quiz-feedback"></div>
+    </div>
+
+    <div class="quiz-score" id="quizScore"></div>
+    <button class="btn-reset" id="resetBtn" style="display:none;" onclick="resetQuiz()">🔄 Try Again · Спробувати ще раз</button>
+  </div>
+
+</main>
+
+<footer>
+  Made with <span>❤️</span> for English learners &nbsp;·&nbsp; Для учнів, які вивчають англійську
+</footer>
+
+<button id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
+
+<script>
+  // SCROLL TOP
+  const btn = document.getElementById('scrollTopBtn');
+  window.addEventListener('scroll', () => {
+    btn.classList.toggle('visible', window.scrollY > 300);
+  });
+
+  // QUIZ
+  let answers = {};
+  let total = document.querySelectorAll('.quiz-q').length;
+
+  document.querySelectorAll('.quiz-q').forEach((q, qi) => {
+    const correct = q.dataset.correct;
+    q.querySelectorAll('.quiz-btn').forEach(b => {
+      b.addEventListener('click', () => {
+        if (answers[qi] !== undefined) return;
+        answers[qi] = b.dataset.val;
+        const fb = q.querySelector('.quiz-feedback');
+        q.querySelectorAll('.quiz-btn').forEach(x => {
+          if (x.dataset.val === correct) x.classList.add('correct');
+        });
+        if (b.dataset.val === correct) {
+          b.classList.add('correct');
+          fb.textContent = '✅ Correct! · Правильно!';
+          fb.className = 'quiz-feedback ok';
+        } else {
+          b.classList.add('wrong');
+          fb.textContent = '❌ Try again! · Спробуй ще раз!';
+          fb.className = 'quiz-feedback no';
+        }
+        if (Object.keys(answers).length === total) showScore();
+      });
+    });
+  });
+
+  function showScore() {
+    const score = Object.entries(answers).filter(([qi, val]) => {
+      return document.querySelectorAll('.quiz-q')[qi].dataset.correct === val;
+    }).length;
+    const el = document.getElementById('quizScore');
+    el.style.display = 'block';
+    document.getElementById('resetBtn').style.display = 'inline-block';
+    if (score === total) el.textContent = `🎉 Perfect! ${score}/${total} — You're amazing! / Ти молодець!`;
+    else if (score >= total * 0.6) el.textContent = `👍 Good job! ${score}/${total} — Keep practising! / Продовжуй практикуватися!`;
+    else el.textContent = `😊 ${score}/${total} — Don't give up! Try again! / Не здавайся! Спробуй ще раз!`;
+  }
+
+  function resetQuiz() {
+    answers = {};
+    document.querySelectorAll('.quiz-btn').forEach(b => { b.classList.remove('correct','wrong'); });
+    document.querySelectorAll('.quiz-feedback').forEach(f => { f.textContent = ''; f.className = 'quiz-feedback'; });
+    document.getElementById('quizScore').style.display = 'none';
+    document.getElementById('resetBtn').style.display = 'none';
+  }
+</script>
+</body>
+</html>
