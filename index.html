@@ -1,0 +1,2704 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>English Grammar Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+    rel="stylesheet" />
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --ink: #1a1208;
+      --cream: #f5f0e8;
+      --gold: #c8963e;
+      --paper: #ede8dc;
+      --paper-dark: #d9d2c0;
+      --shadow: rgba(26, 18, 8, 0.10);
+      --nav-w: 240px;
+      --viewer-h: calc(100vh - 56px);
+      /* toolbar height */
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ══════════════════════════════════
+       TOP BAR (always visible)
+    ══════════════════════════════════ */
+    .topbar {
+      height: 56px;
+      min-height: 56px;
+      background: var(--ink);
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      gap: 16px;
+      z-index: 200;
+      position: relative;
+    }
+
+    .topbar-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      color: var(--cream);
+      font-weight: 700;
+      white-space: nowrap;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .topbar-logo span {
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    .topbar-divider {
+      width: 1px;
+      height: 24px;
+      background: rgba(255, 255, 255, 0.12);
+      flex-shrink: 0;
+    }
+
+    /* breadcrumb */
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: rgba(245, 240, 232, 0.5);
+      flex: 1;
+      min-width: 0;
+      overflow: hidden;
+    }
+
+    .breadcrumb .bc-home {
+      color: rgba(245, 240, 232, 0.5);
+      cursor: pointer;
+      transition: color 0.15s;
+      white-space: nowrap;
+    }
+
+    .breadcrumb .bc-home:hover {
+      color: var(--gold);
+    }
+
+    .breadcrumb .bc-sep {
+      opacity: 0.3;
+    }
+
+    .breadcrumb .bc-current {
+      color: var(--gold);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* search in topbar */
+    .topbar-search {
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .topbar-search input {
+      width: 220px;
+      padding: 6px 12px 6px 32px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.07);
+      color: var(--cream);
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .topbar-search input::placeholder {
+      color: rgba(245, 240, 232, 0.35);
+    }
+
+    .topbar-search input:focus {
+      border-color: var(--gold);
+      background: rgba(255, 255, 255, 0.10);
+    }
+
+    .topbar-search-icon {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: rgba(245, 240, 232, 0.4);
+      font-size: 15px;
+      pointer-events: none;
+    }
+
+    /* back button (shown when viewing topic) */
+    .btn-back {
+      display: none;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 4px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: transparent;
+      color: var(--cream);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+      flex-shrink: 0;
+    }
+
+    .btn-back:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--gold);
+    }
+
+    .btn-back.visible {
+      display: flex;
+    }
+
+    /* open in new tab */
+    .btn-newtab {
+      display: none;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 4px;
+      border: 1px solid rgba(200, 150, 62, 0.4);
+      background: transparent;
+      color: var(--gold);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.15s;
+      flex-shrink: 0;
+    }
+
+    .btn-newtab:hover {
+      background: rgba(200, 150, 62, 0.12);
+    }
+
+    .btn-newtab.visible {
+      display: flex;
+    }
+
+    /* ══════════════════════════════════
+       MAIN LAYOUT (sidebar + content)
+    ══════════════════════════════════ */
+    .layout {
+      flex: 1;
+      display: flex;
+      overflow: hidden;
+    }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      width: var(--nav-w);
+      min-width: var(--nav-w);
+      background: var(--ink);
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid rgba(255, 255, 255, 0.05);
+      scrollbar-width: thin;
+      scrollbar-color: #333 transparent;
+    }
+
+    .nav-section-label {
+      font-size: 9px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(245, 240, 232, 0.3);
+      padding: 16px 20px 6px;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 20px;
+      font-size: 12.5px;
+      color: rgba(245, 240, 232, 0.6);
+      cursor: pointer;
+      transition: color 0.15s, background 0.15s;
+      border-left: 2px solid transparent;
+    }
+
+    .nav-link:hover {
+      color: var(--cream);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .nav-link.active {
+      color: var(--gold);
+      border-left-color: var(--gold);
+      background: rgba(200, 150, 62, 0.07);
+    }
+
+    .nav-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .nav-ua {
+      font-size: 10px;
+      color: rgba(245, 240, 232, 0.35);
+      font-weight: 300;
+    }
+
+    .section-ua {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      color: #aaa;
+      font-style: normal;
+    }
+
+    .pill-ua {
+      font-size: 10px;
+      opacity: 0.65;
+      font-weight: 400;
+    }
+
+    /* ══════════════════════════════════
+       CONTENT AREA
+    ══════════════════════════════════ */
+    .content-area {
+      flex: 1;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* ── HOME VIEW (card grid) ── */
+    #home-view {
+      height: 100%;
+      overflow-y: auto;
+      padding: 0 40px 60px;
+    }
+
+    /* Hero */
+    .home-hero {
+      background: var(--ink);
+      margin: 0 -40px 32px;
+      padding: 44px 40px 36px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .home-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 100% at 80% 50%, rgba(200, 150, 62, 0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 80% at 15% 60%, rgba(160, 69, 42, 0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .home-hero-eyebrow {
+      font-size: 10px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .home-hero-eyebrow::before,
+    .home-hero-eyebrow::after {
+      content: '';
+      height: 1px;
+      width: 36px;
+      background: var(--gold);
+      opacity: 0.35;
+    }
+
+    .home-hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(40px, 6vw, 72px);
+      font-weight: 900;
+      line-height: 1;
+      color: var(--cream);
+      position: relative;
+    }
+
+    .home-hero-title em {
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    .home-hero-meta {
+      margin-top: 12px;
+      font-size: 13px;
+      color: rgba(245, 240, 232, 0.4);
+      font-weight: 300;
+      position: relative;
+    }
+
+    .filter-row {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    .pill {
+      padding: 5px 14px;
+      border-radius: 20px;
+      border: 1.5px solid var(--paper-dark);
+      background: transparent;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      color: #888;
+      cursor: pointer;
+      transition: all 0.18s;
+      white-space: nowrap;
+    }
+
+    .pill:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .pill.active {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: var(--cream);
+    }
+
+    .results-label {
+      font-size: 11px;
+      color: #aaa;
+      margin-left: auto;
+      align-self: center;
+      white-space: nowrap;
+    }
+
+    /* Section */
+    .section {
+      margin-bottom: 44px;
+      scroll-margin-top: 20px;
+    }
+
+    .section.hidden {
+      display: none;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .section-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 7px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .section-title small {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      color: #aaa;
+      letter-spacing: 0.05em;
+      margin-left: 8px;
+      text-transform: uppercase;
+    }
+
+    .section-line {
+      flex: 1;
+      height: 1px;
+      background: var(--paper-dark);
+    }
+
+    /* Subsection */
+    .subsection {
+      margin-bottom: 28px;
+    }
+
+    .subsection.hidden {
+      display: none;
+    }
+
+    .subsection-head {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+      margin-top: 20px;
+    }
+
+    .subsection-title {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #999;
+      white-space: nowrap;
+    }
+
+    .subsection-line {
+      flex: 1;
+      height: 1px;
+      background: var(--paper);
+    }
+
+
+
+    /* Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 10px;
+    }
+
+    /* Card */
+    .card {
+      background: white;
+      border: 1.5px solid var(--paper-dark);
+      border-radius: 6px;
+      padding: 18px 18px 42px;
+      cursor: pointer;
+      transition: transform 0.2s cubic-bezier(.2, .8, .3, 1), box-shadow 0.2s, border-color 0.18s;
+      position: relative;
+      overflow: hidden;
+      user-select: none;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.22s cubic-bezier(.2, .8, .3, 1);
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 28px var(--shadow);
+    }
+
+    .card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .card.hidden {
+      display: none;
+    }
+
+    .card-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 3px;
+      margin-bottom: 9px;
+    }
+
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 6px;
+      color: var(--ink);
+    }
+
+    .card-desc {
+      font-size: 12px;
+      color: #777;
+      line-height: 1.5;
+      font-weight: 300;
+    }
+
+    .card-footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 8px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      border-top: 1px solid var(--paper);
+    }
+
+
+    .card-title-ua {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      color: #aaa;
+      font-style: normal;
+    }
+
+
+    /* Multiple card tags */
+    .card-tag+.card-tag {
+      margin-left: 4px;
+    }
+
+    .card-arrow {
+      font-size: 13px;
+      color: #ccc;
+      transition: color 0.18s, transform 0.18s;
+    }
+
+    .card:hover .card-arrow {
+      color: var(--gold);
+      transform: translateX(3px);
+    }
+
+    .ua-badge {
+      font-size: 11px;
+      margin-right: auto;
+      opacity: 0.7;
+    }
+
+    /* ── CATEGORY COLORS ── */
+    [data-section="tenses"] .card::before {
+      background: #c8963e;
+    }
+
+    [data-section="tenses"] .card:hover {
+      border-color: #e8c47a;
+    }
+
+    [data-section="tenses"] .card-tag {
+      background: #fff3e0;
+      color: #a0642a;
+    }
+
+    [data-section="tenses"] .section-icon {
+      background: #fff3e0;
+    }
+
+    [data-section="verbs"] .card::before {
+      background: #4a6741;
+    }
+
+    [data-section="verbs"] .card:hover {
+      border-color: #a5c8a0;
+    }
+
+    [data-section="verbs"] .card-tag {
+      background: #e8f5e9;
+      color: #2e7d32;
+    }
+
+    [data-section="verbs"] .section-icon {
+      background: #e8f5e9;
+    }
+
+    [data-section="clauses"] .card::before {
+      background: #2c5f8a;
+    }
+
+    [data-section="clauses"] .card:hover {
+      border-color: #90bfdf;
+    }
+
+    [data-section="clauses"] .card-tag {
+      background: #e3f2fd;
+      color: #1565c0;
+    }
+
+    [data-section="clauses"] .section-icon {
+      background: #e3f2fd;
+    }
+
+    [data-section="structure"] .card::before {
+      background: #8a2c5f;
+    }
+
+    [data-section="structure"] .card:hover {
+      border-color: #dfa0c0;
+    }
+
+    [data-section="structure"] .card-tag {
+      background: #fce4ec;
+      color: #880e4f;
+    }
+
+    [data-section="structure"] .section-icon {
+      background: #fce4ec;
+    }
+
+    [data-section="pos"] .card::before {
+      background: #5f3a8a;
+    }
+
+    [data-section="pos"] .card:hover {
+      border-color: #c0a0df;
+    }
+
+    [data-section="pos"] .card-tag {
+      background: #f3e5f5;
+      color: #6a1b9a;
+    }
+
+    [data-section="pos"] .section-icon {
+      background: #f3e5f5;
+    }
+
+    [data-section="advanced"] .card::before {
+      background: #7a5c2c;
+    }
+
+    [data-section="advanced"] .card:hover {
+      border-color: #dfc090;
+    }
+
+    [data-section="advanced"] .card-tag {
+      background: #fff8e1;
+      color: #6d4c00;
+    }
+
+    [data-section="advanced"] .section-icon {
+      background: #fff8e1;
+    }
+
+
+    [data-section="levels"] .card::before {
+      background: #1a6b8a;
+    }
+
+    [data-section="levels"] .card:hover {
+      border-color: #7fc4df;
+    }
+
+    [data-section="levels"] .card-tag {
+      background: #e3f4fb;
+      color: #0d4f6b;
+    }
+
+    [data-section="levels"] .section-icon {
+      background: #e3f4fb;
+    }
+
+    [data-section="speaking"] .card::before {
+      background: #2c7a60;
+    }
+
+    [data-section="speaking"] .card:hover {
+      border-color: #90dfbf;
+    }
+
+    [data-section="speaking"] .card-tag {
+      background: #e0f7fa;
+      color: #006064;
+    }
+
+    [data-section="speaking"] .section-icon {
+      background: #e0f7fa;
+    }
+
+    /* Empty state */
+    #empty-state {
+      display: none;
+      text-align: center;
+      padding: 80px 20px;
+      grid-column: 1/-1;
+    }
+
+    #empty-state p {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 18px;
+      color: #bbb;
+    }
+
+    /* ── TOPIC VIEWER ── */
+    #topic-view {
+      display: none;
+      height: 100%;
+      flex-direction: column;
+      background: white;
+    }
+
+    #topic-view.active {
+      display: flex;
+    }
+
+    #topic-frame {
+      flex: 1;
+      border: none;
+      width: 100%;
+    }
+
+    /* ══════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════ */
+    @media (max-width: 800px) {
+      .sidebar {
+        display: none;
+      }
+
+      #home-view {
+        padding: 20px 16px 40px;
+      }
+
+      .topbar-search input {
+        width: 160px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar-search {
+        display: none;
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .card {
+      animation: fadeUp 0.35s both;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ══════════ TOP BAR ══════════ -->
+  <div class="topbar">
+    <div class="topbar-logo" onclick="goHome()">Master <span>English</span></div>
+    <div class="topbar-divider"></div>
+
+    <div class="breadcrumb">
+      <span class="bc-home" onclick="goHome()">All Topics</span>
+      <span class="bc-sep" id="bc-sep" style="display:none">›</span>
+      <span class="bc-current" id="bc-current"></span>
+    </div>
+
+    <div class="topbar-search">
+      <span class="topbar-search-icon">⌕</span>
+      <input type="text" id="search" placeholder="Search topics…" oninput="filterAll()" />
+    </div>
+
+    <button class="btn-back" id="btn-back" onclick="goHome()">← All Topics</button>
+    <a class="btn-newtab" id="btn-newtab" href="#" target="_blank">↗ Open in tab</a>
+  </div>
+
+  <!-- ══════════ LAYOUT ══════════ -->
+  <div class="layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="nav-section-label">Sections</div>
+      <div class="nav-link" onclick="jumpTo('tenses',this)"><span class="nav-dot" style="background:#c8963e"></span>
+        Tenses <span class="nav-ua">(Часи)</span></div>
+      <div class="nav-link" onclick="jumpTo('verbs',this)"><span class="nav-dot" style="background:#4a6741"></span>
+        Verbs <span class="nav-ua">(Дієслова)</span></div>
+      <div class="nav-link" onclick="jumpTo('clauses',this)"><span class="nav-dot" style="background:#2c5f8a"></span>
+        Clauses <span class="nav-ua">(Підрядні речення)</span></div>
+      <div class="nav-link" onclick="jumpTo('structure',this)"><span class="nav-dot" style="background:#8a2c5f"></span>
+        Sentence Structure <span class="nav-ua">(Структура речення)</span></div>
+      <div class="nav-link" onclick="jumpTo('pos',this)"><span class="nav-dot" style="background:#5f3a8a"></span> Parts
+        of Speech <span class="nav-ua">(Частини мови)</span></div>
+      <div class="nav-link" onclick="jumpTo('advanced',this)"><span class="nav-dot" style="background:#7a5c2c"></span>
+        Advanced Grammar <span class="nav-ua">(Складна граматика)</span></div>
+      <div class="nav-link" onclick="jumpTo('levels',this)"><span class="nav-dot" style="background:#1a6b8a"></span>
+        Levels <span class="nav-ua">(Рівні)</span></div>
+      <div class="nav-link" onclick="jumpTo('speaking',this)"><span class="nav-dot" style="background:#2c7a60"></span>
+        Speaking &amp; Topics <span class="nav-ua">(Розмова та теми)</span></div>
+    </aside>
+
+    <!-- CONTENT AREA -->
+    <div class="content-area">
+
+      <!-- HOME: card grid -->
+      <div id="home-view">
+
+        <!-- Hero header -->
+        <div class="home-hero">
+          <div class="home-hero-eyebrow">English Grammar Hub</div>
+          <h1 class="home-hero-title">Master <em>English</em></h1>
+          <p class="home-hero-meta">89 interactive topics · 7 sections · Ukrainian support included</p>
+        </div>
+
+        <!-- Filter pills -->
+        <div class="filter-row">
+          <button class="pill active" onclick="setFilter('all',this)">All</button>
+          <button class="pill" onclick="setFilter('tenses',this)">Tenses <span class="pill-ua">(Часи)</span></button>
+          <button class="pill" onclick="setFilter('verbs',this)">Verbs <span class="pill-ua">(Дієслова)</span></button>
+          <button class="pill" onclick="setFilter('clauses',this)">Clauses <span
+              class="pill-ua">(Підрядні)</span></button>
+          <button class="pill" onclick="setFilter('structure',this)">Structure <span
+              class="pill-ua">(Структура)</span></button>
+          <button class="pill" onclick="setFilter('pos',this)">Parts of Speech <span class="pill-ua">(Частини
+              мови)</span></button>
+          <button class="pill" onclick="setFilter('advanced',this)">Advanced <span class="pill-ua">(Складна
+              граматика)</span></button>
+          <button class="pill" onclick="setFilter('levels',this)">Levels <span class="pill-ua">(Рівні)</span></button>
+          <button class="pill" onclick="setFilter('speaking',this)">Speaking &amp; Topics <span class="pill-ua">(Розмова
+              та теми)</span></button>
+          <span class="results-label" id="results-count">67 topics</span>
+        </div>
+
+        <!-- ═══ TENSES ═══ -->
+        <section class="section" id="section-tenses" data-section="tenses">
+          <div class="section-head">
+            <div class="section-icon">🕐</div>
+            <div class="section-title">Tenses <span class="section-ua">(Часи)</span> <small>13 topics</small></div>
+            <div class="section-line"></div>
+          </div>
+          <div class="subsection">
+            <div class="subsection-head"><span class="subsection-title">Tense Overview</span>
+              <div class="subsection-line"></div>
+            </div>
+            <div class="grid">
+              <div class="card" data-section="tenses" data-file="Basic_English_Tenses.html"
+                data-title="Basic English Tenses" data-keywords="basic tenses overview all forms"
+                onclick="openTopic(this)"><span class="card-tag">Tenses</span>
+                <div class="card-title">Basic English Tenses <span class="card-title-ua">(Огляд часів)</span></div>
+                <div class="card-desc">A complete overview of all English tenses — forms, structures and usage at a
+                  glance.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="tenses" data-file="English_Tenses.html" data-title="English Tenses"
+                data-keywords="english tenses all 12 deep dive" onclick="openTopic(this)"><span
+                  class="card-tag">Tenses</span>
+                <div class="card-title">English Tenses <span class="card-title-ua">(Англійські часи)</span></div>
+                <div class="card-desc">Deep dive into all 12 tenses — forms, usage rules, and time expressions
+                  explained.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <div class="subsection-head"><span class="subsection-title">Tense Groups</span>
+              <div class="subsection-line"></div>
+            </div>
+            <div class="grid">
+              <div class="card" data-section="tenses" data-file="Present_Tenses.html" data-title="Present Tenses"
+                data-keywords="present simple continuous perfect tenses" onclick="openTopic(this)"><span
+                  class="card-tag">Tenses</span>
+                <div class="card-title">Present Tenses <span class="card-title-ua">(Теперішні часи)</span></div>
+                <div class="card-desc">Present Simple, Continuous, Perfect and Perfect Continuous — all present forms in
+                  one place.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="tenses" data-file="Past_Tenses.html" data-title="Past Tenses"
+                data-keywords="past simple continuous perfect tenses" onclick="openTopic(this)"><span
+                  class="card-tag">Tenses</span>
+                <div class="card-title">Past Tenses <span class="card-title-ua">(Минулі часи)</span></div>
+                <div class="card-desc">Past Simple, Continuous, Perfect and Perfect Continuous — all past forms in one
+                  place.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="tenses" data-file="Past_in_English.html"
+                data-title="Past in English Extended" data-keywords="past extended simple continuous perfect tenses"
+                onclick="openTopic(this)"><span class="card-tag">Tenses</span>
+                <div class="card-title">Past in English Extended <span class="card-title-ua">(Минулі часи
+                    (розширено))</span></div>
+                <div class="card-desc">Past Simple, Continuous, Perfect and Perfect Continuous — every past form in
+                  detail.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="tenses" data-file="Future_Tenses.html" data-title="Future Tenses"
+                data-keywords="future simple going to present continuous" onclick="openTopic(this)"><span
+                  class="card-tag">Tenses</span>
+                <div class="card-title">Future Tenses <span class="card-title-ua">(Майбутні часи)</span></div>
+                <div class="card-desc">Future Simple, Going to, and Present Continuous for future — when to use each.
+                </div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <div class="subsection-head"><span class="subsection-title">Verb Aspects</span>
+              <div class="subsection-line"></div>
+            </div>
+            <div class="grid">
+              <div class="card" data-section="tenses" data-file="English_Aspects.html" data-title="English Aspects"
+                data-keywords="aspects simple continuous perfect aspect overview" onclick="openTopic(this)"><span
+                  class="card-tag">Tenses</span>
+                <div class="card-title">English Aspects <span class="card-title-ua">(Аспекти дієслів)</span></div>
+                <div class="card-desc">An overview of all four English aspects — simple, continuous, perfect, and
+                  perfect continuous.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="tenses" data-file="Simple_Aspect.html" data-title="Simple Aspect"
+                data-keywords="simple aspect tense habit fact state present past future" onclick="openTopic(this)"><span
+                  class="card-tag">Tenses</span>
+                <div class="card-title">Simple Aspect <span class="card-title-ua">(Простий аспект)</span></div>
+                <div class="card-desc">The simple aspect — habits, facts, and states across present, past, and future.
+                </div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="tenses" data-file="Continuous_Aspect.html" data-title="Continuous Aspect"
+                data-keywords="continuous aspect progressive ongoing action temporary" onclick="openTopic(this)"><span
+                  class="card-tag">Tenses</span>
+                <div class="card-title">Continuous Aspect <span class="card-title-ua">(Тривалий аспект)</span></div>
+                <div class="card-desc">The continuous aspect — ongoing and temporary actions in progress across all
+                  tenses.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="tenses" data-file="Perfect_Aspect.html" data-title="Perfect Aspect"
+                data-keywords="perfect aspect have has had completed experience result" onclick="openTopic(this)"><span
+                  class="card-tag">Tenses</span>
+                <div class="card-title">Perfect Aspect <span class="card-title-ua">(Перфектний аспект)</span></div>
+                <div class="card-desc">The perfect aspect — completed actions, experiences, and results across all
+                  tenses.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="tenses" data-file="Perfect_Continuous_Aspect.html"
+                data-title="Perfect Continuous Aspect"
+                data-keywords="perfect continuous aspect duration ongoing completed action" onclick="openTopic(this)">
+                <span class="card-tag">Tenses</span>
+                <div class="card-title">Perfect Continuous Aspect <span class="card-title-ua">(Перфектно-тривалий
+                    аспект)</span></div>
+                <div class="card-desc">Duration and ongoing actions with a result — perfect continuous across all
+                  tenses.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <div class="subsection-head"><span class="subsection-title">Tense Logic</span>
+              <div class="subsection-line"></div>
+            </div>
+            <div class="grid">
+              <div class="card" data-section="tenses" data-file="Tense_Consistency.html" data-title="Tense Consistency"
+                data-keywords="tense consistency sequence narrative writing" onclick="openTopic(this)"><span
+                  class="card-tag">Tenses</span>
+                <div class="card-title">Tense Consistency <span class="card-title-ua">(Узгодження часів)</span></div>
+                <div class="card-desc">How to keep tenses consistent in writing and avoid common errors in narratives.
+                </div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══ VERBS ═══ -->
+        <section class="section" id="section-verbs" data-section="verbs">
+          <div class="section-head">
+            <div class="section-icon">✦</div>
+            <div class="section-title">Verbs <span class="section-ua">(Дієслова)</span> <small>13 topics</small></div>
+            <div class="section-line"></div>
+          </div>
+          <div class="subsection">
+            <div class="subsection-head"><span class="subsection-title">Core Verbs</span>
+              <div class="subsection-line"></div>
+            </div>
+            <div class="grid">
+              <div class="card" data-section="verbs" data-file="GET.html" data-title="GET"
+                data-keywords="get phrasal verb expressions get up get out" onclick="openTopic(this)"><span
+                  class="card-tag">Verbs</span>
+                <div class="card-title">GET <span class="card-title-ua">(Отримувати)</span></div>
+                <div class="card-desc">All key uses of "get" — phrasal verbs, expressions, and collocations.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="verbs" data-file="TAKE.html" data-title="TAKE"
+                data-keywords="take phrasal verb expressions take up take out" onclick="openTopic(this)"><span
+                  class="card-tag">Verbs</span>
+                <div class="card-title">TAKE <span class="card-title-ua">(Брати)</span></div>
+                <div class="card-desc">All key uses of "take" — phrasal verbs, expressions, and collocations.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="verbs" data-file="GIVE.html" data-title="GIVE"
+                data-keywords="give phrasal verb expressions give up give out" onclick="openTopic(this)"><span
+                  class="card-tag">Verbs</span>
+                <div class="card-title">GIVE <span class="card-title-ua">(Давати)</span></div>
+                <div class="card-desc">All key uses of "give" — phrasal verbs, expressions, and collocations.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="verbs" data-file="MAKE.html" data-title="MAKE"
+                data-keywords="make phrasal verb expressions make up make out" onclick="openTopic(this)"><span
+                  class="card-tag">Verbs</span>
+                <div class="card-title">MAKE <span class="card-title-ua">(Робити / Створювати)</span></div>
+                <div class="card-desc">All key uses of "make" — phrasal verbs, expressions, and collocations.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="verbs" data-file="DO.html" data-title="DO"
+                data-keywords="do phrasal verb expressions auxiliary do up" onclick="openTopic(this)"><span
+                  class="card-tag">Verbs</span>
+                <div class="card-title">DO <span class="card-title-ua">(Виконувати)</span></div>
+                <div class="card-desc">All key uses of "do" — phrasal verbs, auxiliary uses, and collocations.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="verbs" data-file="HAVE.html" data-title="HAVE"
+                data-keywords="have phrasal verb expressions have got auxiliary" onclick="openTopic(this)"><span
+                  class="card-tag">Verbs</span>
+                <div class="card-title">HAVE <span class="card-title-ua">(Мати)</span></div>
+                <div class="card-desc">All key uses of "have" — auxiliary, possession, and collocations.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <div class="subsection-head"><span class="subsection-title">Fundamental Verbs</span>
+              <div class="subsection-line"></div>
+            </div>
+            <div class="grid">
+              <div class="card" data-section="verbs" data-file="To_BE_English.html" data-title="To BE in English"
+                data-keywords="to be am is are was were verb forms" onclick="openTopic(this)"><span
+                  class="card-tag">Verbs</span>
+                <div class="card-title">To BE in English <span class="card-title-ua">(Дієслово BE)</span></div>
+                <div class="card-desc">All forms, uses and functions of "to be" — the most fundamental English verb.
+                </div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <div class="subsection-head"><span class="subsection-title">Verb Types</span>
+              <div class="subsection-line"></div>
+            </div>
+            <div class="grid">
+              <div class="card" data-section="verbs" data-file="Modal_Verbs.html" data-title="Modal Verbs"
+                data-keywords="modal verbs can could may might must should would" onclick="openTopic(this)"><span
+                  class="card-tag">Verbs</span>
+                <div class="card-title">Modal Verbs <span class="card-title-ua">(Модальні дієслова)</span></div>
+                <div class="card-desc">Can, could, may, might, must, should — meanings, uses, and common patterns.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="verbs" data-file="Phrasal_Verbs.html" data-title="Phrasal Verbs"
+                data-keywords="phrasal verbs particles up out in on down" onclick="openTopic(this)"><span
+                  class="card-tag">Verbs</span>
+                <div class="card-title">Phrasal Verbs <span class="card-title-ua">(Фразові дієслова)</span></div>
+                <div class="card-desc">The most important phrasal verbs grouped by particle and meaning with examples.
+                </div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <div class="subsection-head"><span class="subsection-title">Verb Forms</span>
+              <div class="subsection-line"></div>
+            </div>
+            <div class="grid">
+              <div class="card" data-section="verbs" data-file="Infinitive_and_Gerund.html"
+                data-title="Infinitive and Gerund" data-keywords="infinitive gerund to verb ing form"
+                onclick="openTopic(this)"><span class="card-tag">Verbs</span>
+                <div class="card-title">Infinitive and Gerund <span class="card-title-ua">(Інфінітив і герундій)</span>
+                </div>
+                <div class="card-desc">When to use to + verb vs. verb + -ing — rules, lists, and tricky exceptions.
+                </div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <div class="subsection-head"><span class="subsection-title">Verb Constructions</span>
+              <div class="subsection-line"></div>
+            </div>
+            <div class="grid">
+              <div class="card" data-section="verbs" data-file="Passive_Voice.html" data-title="Passive Voice"
+                data-keywords="passive voice ukrainian пасивний стан" onclick="openTopic(this)"><span
+                  class="card-tag">Verbs</span>
+                <div class="card-title">Passive Voice <span class="card-title-ua">(Пасивний стан)</span></div>
+                <div class="card-desc">Пасивний стан в англійській мові — пояснення та приклади українською.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <div class="subsection-head"><span class="subsection-title">Time Expressions with Verbs</span>
+              <div class="subsection-line"></div>
+            </div>
+            <div class="grid">
+              <div class="card" data-section="verbs" data-file="USED_TO.html" data-title="Used To"
+                data-keywords="used to would past habit state be used to get used to" onclick="openTopic(this)"><span
+                  class="card-tag">Verbs</span>
+                <div class="card-title">Used To <span class="card-title-ua">(Звичка в минулому)</span></div>
+                <div class="card-desc">Used to, be used to, get used to — past habits, states, and common confusions.
+                </div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <div class="subsection-head"><span class="subsection-title">Speech Structures</span>
+              <div class="subsection-line"></div>
+            </div>
+            <div class="grid">
+              <div class="card" data-section="verbs" data-file="Reported_Speech.html" data-title="Reported Speech"
+                data-keywords="reported speech indirect say tell backshift" onclick="openTopic(this)"><span
+                  class="card-tag">Verbs</span>
+                <div class="card-title">Reported Speech <span class="card-title-ua">(Непряма мова)</span></div>
+                <div class="card-desc">Backshift, reporting verbs, and how to convert direct speech to indirect speech.
+                </div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══ CLAUSES ═══ -->
+        <section class="section" id="section-clauses" data-section="clauses">
+          <div class="section-head">
+            <div class="section-icon">⊕</div>
+            <div class="section-title">Clauses <span class="section-ua">(Підрядні речення)</span> <small>7
+                topics</small></div>
+            <div class="section-line"></div>
+          </div>
+          <div class="subsection">
+            <div class="subsection-head"><span class="subsection-title">Conditional Clauses</span>
+              <div class="subsection-line"></div>
+            </div>
+            <div class="grid">
+              <div class="card" data-section="clauses" data-file="Conditionals_Advanced.html"
+                data-title="Conditionals — Advanced"
+                data-keywords="conditionals advanced mixed inversion unless provided" onclick="openTopic(this)"><span
+                  class="card-tag">Clauses</span>
+                <div class="card-title">Conditionals — Advanced <span class="card-title-ua">(Умовні речення
+                    (просунутий))</span></div>
+                <div class="card-desc">Mixed conditionals, inversion in conditionals, and advanced conditional
+                  expressions.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="clauses" data-file="Conditionals.html" data-title="Conditionals"
+                data-keywords="conditionals ukrainian умовні речення" onclick="openTopic(this)"><span
+                  class="card-tag">Clauses</span>
+                <div class="card-title">Conditionals <span class="card-title-ua">(Умовні речення)</span></div>
+                <div class="card-desc">Умовні речення в англійській — детальні пояснення українською мовою.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <div class="subsection-head"><span class="subsection-title">Relative Clauses</span>
+              <div class="subsection-line"></div>
+            </div>
+            <div class="grid">
+              <div class="card" data-section="clauses" data-file="Relative_Clauses.html" data-title="Relative Clauses"
+                data-keywords="relative clauses who which that where whose defining" onclick="openTopic(this)"><span
+                  class="card-tag">Clauses</span>
+                <div class="card-title">Relative Clauses <span class="card-title-ua">(Відносні підрядні)</span></div>
+                <div class="card-desc">Defining and non-defining relative clauses with who, which, that, where, whose.
+                </div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <div class="subsection-head"><span class="subsection-title">Clause Types</span>
+              <div class="subsection-line"></div>
+            </div>
+            <div class="grid">
+              <div class="card" data-section="clauses" data-file="Noun_Clauses.html" data-title="Noun Clauses"
+                data-keywords="noun clauses that what whether embedded questions" onclick="openTopic(this)"><span
+                  class="card-tag">Clauses</span>
+                <div class="card-title">Noun Clauses <span class="card-title-ua">(Іменні підрядні)</span></div>
+                <div class="card-desc">That-clauses, embedded questions, and wh-clauses used as nouns in sentences.
+                </div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="clauses" data-file="Adverbial_Clauses.html" data-title="Adverbial Clauses"
+                data-keywords="adverbial clauses time reason purpose result concession" onclick="openTopic(this)"><span
+                  class="card-tag">Clauses</span>
+                <div class="card-title">Adverbial Clauses <span class="card-title-ua">(Обставинні підрядні)</span></div>
+                <div class="card-desc">Clauses of time, reason, purpose, result, concession — linking ideas powerfully.
+                </div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <div class="subsection-head"><span class="subsection-title">Reduced Clauses</span>
+              <div class="subsection-line"></div>
+            </div>
+            <div class="grid">
+              <div class="card" data-section="clauses" data-file="Participle_Clauses.html"
+                data-title="Participle Clauses" data-keywords="participle clauses ing ed reduced having done"
+                onclick="openTopic(this)"><span class="card-tag">Clauses</span>
+                <div class="card-title">Participle Clauses <span class="card-title-ua">(Дієприкметникові
+                    підрядні)</span></div>
+                <div class="card-desc">Using -ing and -ed participle clauses to add detail and vary sentence structure.
+                </div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <div class="subsection-head"><span class="subsection-title">Emphasis Structures</span>
+              <div class="subsection-line"></div>
+            </div>
+            <div class="grid">
+              <div class="card" data-section="clauses" data-file="Cleft_Sentences.html" data-title="Cleft Sentences"
+                data-keywords="cleft sentences it is what emphasis focus" onclick="openTopic(this)"><span
+                  class="card-tag">Clauses</span>
+                <div class="card-title">Cleft Sentences <span class="card-title-ua">(Розщеплені речення)</span></div>
+                <div class="card-desc">It-clefts and wh-clefts for adding emphasis and shifting focus in English.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══ SENTENCE STRUCTURE ═══ -->
+        <section class="section" id="section-structure" data-section="structure">
+          <div class="section-head">
+            <div class="section-icon">⟁</div>
+            <div class="section-title">Sentence Structure <span class="section-ua">(Структура речення)</span> <small>6
+                topics</small></div>
+            <div class="section-line"></div>
+          </div>
+          <div class="subsection">
+            <div class="subsection-head"><span class="subsection-title">Basic Sentence Structure</span>
+              <div class="subsection-line"></div>
+            </div>
+            <div class="grid">
+              <div class="card" data-section="structure" data-file="English_Sentence_Structure.html"
+                data-title="English Sentence Structure"
+                data-keywords="sentence structure SVO subject verb object word order" onclick="openTopic(this)"><span
+                  class="card-tag">Structure</span>
+                <div class="card-title">English Sentence Structure <span class="card-title-ua">(Структура
+                    речення)</span></div>
+                <div class="card-desc">Subject, verb, object and beyond — how to build correct English sentences from
+                  scratch.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <div class="subsection-head"><span class="subsection-title">Comparisons</span>
+              <div class="subsection-line"></div>
+            </div>
+            <div class="grid">
+              <div class="card" data-section="structure" data-file="Comparisons.html" data-title="Comparisons"
+                data-keywords="comparisons comparative superlative as than more most" onclick="openTopic(this)"><span
+                  class="card-tag">Structure</span>
+                <div class="card-title">Comparisons <span class="card-title-ua">(Порівняння)</span></div>
+                <div class="card-desc">Comparative and superlative forms, as…as structures, and comparison patterns.
+                </div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <div class="subsection-head"><span class="subsection-title">Special Sentence Structures</span>
+              <div class="subsection-line"></div>
+            </div>
+            <div class="grid">
+              <div class="card" data-section="structure" data-file="There_is_There_are.html"
+                data-title="There is / There are" data-keywords="there is there are existential construction"
+                onclick="openTopic(this)"><span class="card-tag">Structure</span>
+                <div class="card-title">There is / There are <span class="card-title-ua">(Конструкція there
+                    is/are)</span></div>
+                <div class="card-desc">Using existential "there" constructions correctly across all tenses and contexts.
+                </div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <div class="subsection-head"><span class="subsection-title">Word Order Variations</span>
+              <div class="subsection-line"></div>
+            </div>
+            <div class="grid">
+              <div class="card" data-section="structure" data-file="Inversion.html" data-title="Inversion"
+                data-keywords="inversion rarely never not only formal negative adverbials" onclick="openTopic(this)">
+                <span class="card-tag">Structure</span>
+                <div class="card-title">Inversion <span class="card-title-ua">(Інверсія)</span></div>
+                <div class="card-desc">Subject-verb inversion after negative adverbials — formal and advanced
+                  structures.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <div class="subsection-head"><span class="subsection-title">Questions</span>
+              <div class="subsection-line"></div>
+            </div>
+            <div class="grid">
+              <div class="card" data-section="structure" data-file="Question_Tags_Reply_Questions.html"
+                data-title="Question Tags &amp; Reply Questions"
+                data-keywords="question tags reply questions isn't it don't they tag" onclick="openTopic(this)"><span
+                  class="card-tag">Structure</span>
+                <div class="card-title">Question Tags &amp; Reply Questions <span class="card-title-ua">(Питальні
+                    хвостики)</span></div>
+                <div class="card-desc">Question tags and reply questions — how to form and use them naturally in
+                  conversation.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══ PARTS OF SPEECH ═══ -->
+        <section class="section" id="section-pos" data-section="pos">
+          <div class="section-head">
+            <div class="section-icon">𝐀</div>
+            <div class="section-title">Parts of Speech <span class="section-ua">(Частини мови)</span> <small>15
+                topics</small></div>
+            <div class="section-line"></div>
+          </div>
+          <div class="subsection">
+            <div class="subsection-head"><span class="subsection-title">Nouns</span>
+              <div class="subsection-line"></div>
+            </div>
+            <div class="grid">
+              <div class="card" data-section="pos" data-file="Nouns.html" data-title="Nouns"
+                data-keywords="nouns countable uncountable plural singular collective" onclick="openTopic(this)"><span
+                  class="card-tag">Parts of Speech</span>
+                <div class="card-title">Nouns <span class="card-title-ua">(Іменники)</span></div>
+                <div class="card-desc">Countable and uncountable nouns, plurals, collective nouns and noun phrases.
+                </div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="pos" data-file="Quantifiers.html" data-title="Quantifiers"
+                data-keywords="quantifiers some any much many few little a lot of" onclick="openTopic(this)"><span
+                  class="card-tag">Parts of Speech</span>
+                <div class="card-title">Quantifiers <span class="card-title-ua">(Квантифікатори)</span></div>
+                <div class="card-desc">Some, any, much, many, few, little — how to quantify nouns correctly.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <div class="subsection-head"><span class="subsection-title">Articles</span>
+              <div class="subsection-line"></div>
+            </div>
+            <div class="grid">
+              <div class="card" data-section="pos" data-file="Articles.html" data-title="Articles"
+                data-keywords="articles a an the zero article definite indefinite" onclick="openTopic(this)"><span
+                  class="card-tag">Parts of Speech</span>
+                <div class="card-title">Articles <span class="card-title-ua">(Артиклі)</span></div>
+                <div class="card-desc">A, an, the and zero article — when and why to use each, with detailed rules.
+                </div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <div class="subsection-head"><span class="subsection-title">Adjectives</span>
+              <div class="subsection-line"></div>
+            </div>
+            <div class="grid">
+              <div class="card" data-section="pos" data-file="Adjectives.html" data-title="Adjectives"
+                data-keywords="adjectives order attributive predicative gradable" onclick="openTopic(this)"><span
+                  class="card-tag">Parts of Speech</span>
+                <div class="card-title">Adjectives <span class="card-title-ua">(Прикметники)</span></div>
+                <div class="card-desc">Adjective types, order, placement, and common adjective patterns in English.
+                </div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="pos" data-file="Phrasal_Adjectives.html" data-title="Phrasal Adjectives"
+                data-keywords="phrasal adjectives compound hyphenated well-known" onclick="openTopic(this)"><span
+                  class="card-tag">Parts of Speech</span>
+                <div class="card-title">Phrasal Adjectives <span class="card-title-ua">(Складені прикметники)</span>
+                </div>
+                <div class="card-desc">Compound and hyphenated adjectives — how to form and use them correctly.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <div class="subsection-head"><span class="subsection-title">Adverbs</span>
+              <div class="subsection-line"></div>
+            </div>
+            <div class="grid">
+              <div class="card" data-section="pos" data-file="Adverbs.html" data-title="Adverbs"
+                data-keywords="adverbs manner frequency degree position sentence" onclick="openTopic(this)"><span
+                  class="card-tag">Parts of Speech</span>
+                <div class="card-title">Adverbs <span class="card-title-ua">(Прислівники)</span></div>
+                <div class="card-desc">Types of adverbs — manner, frequency, degree — and their correct position in
+                  sentences.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <div class="subsection-head"><span class="subsection-title">Pronouns</span>
+              <div class="subsection-line"></div>
+            </div>
+            <div class="grid">
+              <div class="card" data-section="pos" data-file="Pronouns.html" data-title="Pronouns"
+                data-keywords="pronouns personal possessive reflexive relative indefinite" onclick="openTopic(this)">
+                <span class="card-tag">Parts of Speech</span>
+                <div class="card-title">Pronouns <span class="card-title-ua">(Займенники)</span></div>
+                <div class="card-desc">Personal, possessive, reflexive, relative and indefinite pronouns — complete
+                  guide.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <div class="subsection-head"><span class="subsection-title">Prepositions</span>
+              <div class="subsection-line"></div>
+            </div>
+            <div class="grid">
+              <div class="card" data-section="pos" data-file="Prepositions.html" data-title="Prepositions"
+                data-keywords="prepositions in on at to for with time place direction" onclick="openTopic(this)"><span
+                  class="card-tag">Parts of Speech</span>
+                <div class="card-title">Prepositions <span class="card-title-ua">(Прийменники)</span></div>
+                <div class="card-desc">Prepositions of time, place, and direction — rules, patterns, and common
+                  mistakes.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <div class="subsection-head"><span class="subsection-title">Conjunctions</span>
+              <div class="subsection-line"></div>
+            </div>
+            <div class="grid">
+              <div class="card" data-section="pos" data-file="Conjunctions.html" data-title="Conjunctions"
+                data-keywords="conjunctions and but or so because although coordinating" onclick="openTopic(this)"><span
+                  class="card-tag">Parts of Speech</span>
+                <div class="card-title">Conjunctions <span class="card-title-ua">(Сполучники)</span></div>
+                <div class="card-desc">Coordinating and subordinating conjunctions — how to connect clauses and ideas.
+                </div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <div class="subsection-head"><span class="subsection-title">Word Combinations</span>
+              <div class="subsection-line"></div>
+            </div>
+            <div class="grid">
+              <div class="card" data-section="pos" data-file="Collocations.html" data-title="Collocations"
+                data-keywords="collocations extended practice reference topics" onclick="openTopic(this)"><span
+                  class="card-tag">Parts of Speech</span>
+                <div class="card-title">Collocations <span class="card-title-ua">(Колокації)</span></div>
+                <div class="card-desc">A broader collocation reference with topic-based groupings and practice material.
+                </div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <div class="subsection-head"><span class="subsection-title">Word Formation</span>
+              <div class="subsection-line"></div>
+            </div>
+            <div class="grid">
+              <div class="card" data-section="pos" data-file="Word_Families.html" data-title="Word Families"
+                data-keywords="word families noun verb adjective adverb suffixes root forms" onclick="openTopic(this)"><span
+                  class="card-tag">Parts of Speech</span>
+                <div class="card-title">Word Families <span class="card-title-ua">(Сім'ї слів)</span></div>
+                <div class="card-desc">How one root word grows into verbs, nouns, adjectives and adverbs — with examples and patterns.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="pos" data-file="Verb_to_noun_conversion.html" data-title="Verb to Noun Conversion"
+                data-keywords="verb noun conversion zero derivation same word two roles run call walk" onclick="openTopic(this)"><span
+                  class="card-tag">Parts of Speech</span>
+                <div class="card-title">Verb → Noun Conversion <span class="card-title-ua">(Конверсія дієслів)</span></div>
+                <div class="card-desc">Same word, two jobs — how English words can be both a verb and a noun without changing form.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="pos" data-file="Suffixes.html" data-title="Suffixes"
+                data-keywords="suffixes word endings tion ness ful less ly er ment ive ous able" onclick="openTopic(this)"><span
+                  class="card-tag">Parts of Speech</span>
+                <div class="card-title">Suffixes <span class="card-title-ua">(Суфікси)</span></div>
+                <div class="card-desc">Magic word endings that change meaning and part of speech — -tion, -ness, -ful, -less, -ly and more.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="pos" data-file="Prefixes.html" data-title="Prefixes"
+                data-keywords="prefixes un in im dis re over under pre post mis non anti super" onclick="openTopic(this)"><span
+                  class="card-tag">Parts of Speech</span>
+                <div class="card-title">Prefixes <span class="card-title-ua">(Префікси)</span></div>
+                <div class="card-desc">Word-changing beginnings — un-, re-, dis-, over-, pre- and many more with examples and rules.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══ ADVANCED GRAMMAR ═══ -->
+        <section class="section" id="section-advanced" data-section="advanced">
+          <div class="section-head">
+            <div class="section-icon">◈</div>
+            <div class="section-title">Advanced Grammar <span class="section-ua">(Складна граматика)</span> <small>7
+                topics</small></div>
+            <div class="section-line"></div>
+          </div>
+          <div class="subsection">
+            <div class="subsection-head"><span class="subsection-title">Advanced Verb Forms</span>
+              <div class="subsection-line"></div>
+            </div>
+            <div class="grid">
+              <div class="card" data-section="advanced" data-file="Subjunctive.html" data-title="Subjunctive Mood"
+                data-keywords="subjunctive mood wish if only formal that clauses" onclick="openTopic(this)"><span
+                  class="card-tag">Advanced</span>
+                <div class="card-title">Subjunctive Mood <span class="card-title-ua">(Умовний спосіб)</span></div>
+                <div class="card-desc">The subjunctive in English — wish, if only, formal that-clauses, and literary
+                  uses.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <div class="subsection-head"><span class="subsection-title">Academic Grammar</span>
+              <div class="subsection-line"></div>
+            </div>
+            <div class="grid">
+              <div class="card" data-section="advanced" data-file="Nominalisation.html" data-title="Nominalisation"
+                data-keywords="nominalisation noun phrases academic formal writing" onclick="openTopic(this)"><span
+                  class="card-tag">Advanced</span>
+                <div class="card-title">Nominalisation <span class="card-title-ua">(Номіналізація)</span></div>
+                <div class="card-desc">Converting verbs and adjectives into nouns — key to academic and formal writing.
+                </div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <div class="subsection-head"><span class="subsection-title">Academic Writing</span>
+              <div class="subsection-line"></div>
+            </div>
+            <div class="grid">
+              <div class="card" data-section="advanced" data-file="Hedging.html" data-title="Hedging"
+                data-keywords="hedging extended reference expressions contexts usage" onclick="openTopic(this)"><span
+                  class="card-tag">Advanced</span>
+                <div class="card-title">Hedging <span class="card-title-ua">(Хеджинг)</span></div>
+                <div class="card-desc">Extended hedging reference with more expressions, contexts, and usage guidance.
+                </div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <div class="subsection-head"><span class="subsection-title">Ellipsis and Reduction</span>
+              <div class="subsection-line"></div>
+            </div>
+            <div class="grid">
+              <div class="card" data-section="advanced" data-file="Ellipsis.html" data-title="Ellipsis"
+                data-keywords="ellipsis omission substitution so neither nor either" onclick="openTopic(this)"><span
+                  class="card-tag">Advanced</span>
+                <div class="card-title">Ellipsis <span class="card-title-ua">(Еліпсис)</span></div>
+                <div class="card-desc">Leaving out words without losing meaning — ellipsis and substitution in natural
+                  English.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <div class="subsection-head"><span class="subsection-title">Discourse and Text Structure</span>
+              <div class="subsection-line"></div>
+            </div>
+            <div class="grid">
+              <div class="card" data-section="advanced" data-file="Discourse_Markers.html"
+                data-title="Discourse Markers"
+                data-keywords="discourse markers linking however moreover furthermore therefore"
+                onclick="openTopic(this)"><span class="card-tag">Advanced</span>
+                <div class="card-title">Discourse Markers <span class="card-title-ua">(Дискурсивні маркери)</span></div>
+                <div class="card-desc">However, moreover, therefore, nevertheless — organizing and connecting ideas in
+                  text.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="advanced" data-file="Linking_and_Discourse.html"
+                data-title="Linking and Discourse"
+                data-keywords="linking discourse cohesion coherence connectors reference" onclick="openTopic(this)">
+                <span class="card-tag">Advanced</span>
+                <div class="card-title">Linking and Discourse <span class="card-title-ua">(Зв'язність тексту)</span>
+                </div>
+                <div class="card-desc">Cohesion and coherence in text — linking devices, reference chains, and flow.
+                </div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <div class="subsection-head"><span class="subsection-title">Speech Transformation</span>
+              <div class="subsection-line"></div>
+            </div>
+            <div class="grid">
+              <div class="card" data-section="advanced" data-file="Reported_Speech.html" data-title="Reported Speech"
+                data-keywords="reported speech indirect backshift formal writing academic" onclick="openTopic(this)">
+                <span class="card-tag">Advanced</span>
+                <div class="card-title">Reported Speech <span class="card-title-ua">(Непряма мова (просунутий))</span>
+                </div>
+                <div class="card-desc">Backshift, reporting verbs, and converting direct to indirect speech accurately.
+                </div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══ SPEAKING &AMP; TOPICS ═══ -->
+        <section class="section" id="section-speaking" data-section="speaking">
+          <div class="section-head">
+            <div class="section-icon">💬</div>
+            <div class="section-title">Speaking &amp; Topics <span class="section-ua">(Розмова та теми)</span> <small>32
+                topics</small></div>
+            <div class="section-line"></div>
+          </div>
+          <div class="subsection">
+            <div class="subsection-head"><span class="subsection-title">Speaking Skills</span>
+              <div class="subsection-line"></div>
+            </div>
+            <div class="grid">
+              <div class="card" data-section="speaking" data-file="English_Speaking_Framework.html"
+                data-title="English Speaking Framework"
+                data-keywords="speaking framework fluency phrases conversation strategies" onclick="openTopic(this)">
+                <span class="card-tag">Speaking</span>
+                <div class="card-title">English Speaking Framework <span class="card-title-ua">(Основи розмови)</span>
+                </div>
+                <div class="card-desc">A practical framework for building fluency — phrases, patterns and conversation
+                  strategies.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <div class="subsection-head"><span class="subsection-title">Functional Language</span>
+              <div class="subsection-line"></div>
+            </div>
+            <div class="grid">
+              <div class="card" data-section="speaking" data-file="Asking_for_opinion.html"
+                data-title="Asking for and Giving Opinions"
+                data-keywords="asking opinion giving opinion agree disagree what do you think i think i believe" onclick="openTopic(this)">
+                <span class="card-tag">Speaking</span>
+                <div class="card-title">Asking for &amp; Giving Opinions <span class="card-title-ua">(Думки та погляди)</span></div>
+                <div class="card-desc">How to ask what someone thinks and share your own views — phrases for agreeing and disagreeing.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="speaking" data-file="Making_suggestions.html"
+                data-title="Making Suggestions"
+                data-keywords="making suggestions lets why dont we how about what about should could shall" onclick="openTopic(this)">
+                <span class="card-tag">Speaking</span>
+                <div class="card-title">Making Suggestions <span class="card-title-ua">(Пропозиції)</span></div>
+                <div class="card-desc">Let's, Why don't we, How about — all the key structures for suggesting ideas with examples.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="speaking" data-file="Giving_Advice.html"
+                data-title="Giving Advice"
+                data-keywords="giving advice should ought to had better why dont you if i were you have you tried" onclick="openTopic(this)">
+                <span class="card-tag">Speaking</span>
+                <div class="card-title">Giving Advice <span class="card-title-ua">(Поради)</span></div>
+                <div class="card-desc">Should, ought to, had better, if I were you — how to give advice at different strengths.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="speaking" data-file="Asking_for_help.html"
+                data-title="Asking for Help"
+                data-keywords="asking for help could you can you would you mind excuse me please formal informal" onclick="openTopic(this)">
+                <span class="card-tag">Speaking</span>
+                <div class="card-title">Asking for Help <span class="card-title-ua">(Просити допомоги)</span></div>
+                <div class="card-desc">Could you, Can you, Would you mind — polite and casual ways to ask for help in any situation.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="speaking" data-file="Complaining_English.html"
+                data-title="Complaining in English"
+                data-keywords="complaining complaint i am not happy i have a complaint excuse me problem formal informal" onclick="openTopic(this)">
+                <span class="card-tag">Speaking</span>
+                <div class="card-title">Complaining in English <span class="card-title-ua">(Скарги)</span></div>
+                <div class="card-desc">How to complain politely and effectively — starting complaints, describing problems and asking for solutions.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="speaking" data-file="Apologising_and_Sympathy.html"
+                data-title="Apologising and Sympathy"
+                data-keywords="apologising sympathy sorry apologise forgive condolences i understand how you feel" onclick="openTopic(this)">
+                <span class="card-tag">Speaking</span>
+                <div class="card-title">Apologising &amp; Sympathy <span class="card-title-ua">(Вибачення та співчуття)</span></div>
+                <div class="card-desc">How to say sorry sincerely and express empathy — formal, informal and deep condolence phrases.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <div class="subsection-head"><span class="subsection-title">Real English</span>
+              <div class="subsection-line"></div>
+            </div>
+            <div class="grid">
+              <div class="card" data-section="speaking" data-file="Informal_Contractions.html"
+                data-title="Informal Contractions"
+                data-keywords="informal contractions gonna wanna gotta kinda sorta spoken" onclick="openTopic(this)">
+                <span class="card-tag">Speaking</span>
+                <div class="card-title">Informal Contractions <span class="card-title-ua">(Розмовні скорочення)</span>
+                </div>
+                <div class="card-desc">Gonna, wanna, gotta, kinda — the informal contractions native speakers use in
+                  everyday speech.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <div class="subsection-head"><span class="subsection-title">Learning Through Media</span>
+              <div class="subsection-line"></div>
+            </div>
+            <div class="grid">
+              <div class="card" data-section="speaking" data-file="Movie_English_Guide.html"
+                data-title="Movie English Guide" data-keywords="movie films english guide slang listening vocabulary"
+                onclick="openTopic(this)"><span class="card-tag">Speaking</span>
+                <div class="card-title">Movie English Guide <span class="card-title-ua">(Англійська через фільми)</span>
+                </div>
+                <div class="card-desc">Learn real English through films — expressions, slang, and listening
+                  comprehension tips.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <div class="subsection-head"><span class="subsection-title">Culture & Arts</span>
+              <div class="subsection-line"></div>
+            </div>
+            <div class="grid">
+              <div class="card" data-section="speaking" data-file="Art_English.html" data-title="Art English"
+                data-keywords="art vocabulary painting sculpture gallery museum" onclick="openTopic(this)"><span
+                  class="card-tag">Speaking</span>
+                <div class="card-title">Art English <span class="card-title-ua">(Мистецтво)</span></div>
+                <div class="card-desc">Vocabulary for art, painting, sculpture, galleries and discussing artistic works.
+                </div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="speaking" data-file="Books_English.html" data-title="Books English"
+                data-keywords="books reading literature vocabulary author plot genre" onclick="openTopic(this)"><span
+                  class="card-tag">Speaking</span>
+                <div class="card-title">Books English <span class="card-title-ua">(Книги)</span></div>
+                <div class="card-desc">Words and phrases for talking about books, reading, literature and authors.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="speaking" data-file="Music_English.html" data-title="Music English"
+                data-keywords="music vocabulary instruments genres concerts band rhythm" onclick="openTopic(this)"><span
+                  class="card-tag">Speaking</span>
+                <div class="card-title">Music English <span class="card-title-ua">(Музика)</span></div>
+                <div class="card-desc">Musical terms, genres, instruments and phrases for talking about music.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <div class="subsection-head"><span class="subsection-title">Everyday Life</span>
+              <div class="subsection-line"></div>
+            </div>
+            <div class="grid">
+              <div class="card" data-section="speaking" data-file="Clothes_English.html" data-title="Clothes English"
+                data-keywords="clothes fashion vocabulary shirt dress outfit wear" onclick="openTopic(this)"><span
+                  class="card-tag">Speaking</span>
+                <div class="card-title">Clothes English <span class="card-title-ua">(Одяг)</span></div>
+                <div class="card-desc">Fashion and clothing vocabulary — items, materials, styles, and shopping for
+                  clothes.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="speaking" data-file="Food_Restaurant_English.html"
+                data-title="Food & Restaurant English"
+                data-keywords="food restaurant menu order dining cuisine vocabulary" onclick="openTopic(this)"><span
+                  class="card-tag">Speaking</span>
+                <div class="card-title">Food & Restaurant English <span class="card-title-ua">(Їжа і ресторан)</span>
+                </div>
+                <div class="card-desc">Restaurant language, menu vocabulary, ordering food, and describing cuisine.
+                </div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="speaking" data-file="Shopping_English.html" data-title="Shopping English"
+                data-keywords="shopping vocabulary store price buy sell retail" onclick="openTopic(this)"><span
+                  class="card-tag">Speaking</span>
+                <div class="card-title">Shopping English <span class="card-title-ua">(Покупки)</span></div>
+                <div class="card-desc">Shopping vocabulary — stores, prices, purchasing, returns and consumer language.
+                </div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="speaking" data-file="Hobbies_English.html" data-title="Hobbies English"
+                data-keywords="hobbies interests free time leisure vocabulary activities" onclick="openTopic(this)">
+                <span class="card-tag">Speaking</span>
+                <div class="card-title">Hobbies English <span class="card-title-ua">(Хобі)</span></div>
+                <div class="card-desc">Expressions and vocabulary for talking about hobbies, interests, and free time.
+                </div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <div class="subsection-head"><span class="subsection-title">Society</span>
+              <div class="subsection-line"></div>
+            </div>
+            <div class="grid">
+              <div class="card" data-section="speaking" data-file="Relationships_English.html"
+                data-title="Relationships English"
+                data-keywords="relationships family friends vocabulary social dating partner" onclick="openTopic(this)">
+                <span class="card-tag">Speaking</span>
+                <div class="card-title">Relationships English <span class="card-title-ua">(Стосунки)</span></div>
+                <div class="card-desc">Vocabulary for family, friendships, romantic relationships, and social
+                  situations.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="speaking" data-file="School_English.html" data-title="School English"
+                data-keywords="school education vocabulary subjects lessons study exams" onclick="openTopic(this)"><span
+                  class="card-tag">Speaking</span>
+                <div class="card-title">School English <span class="card-title-ua">(Школа)</span></div>
+                <div class="card-desc">School, education and academic vocabulary — subjects, studying, grades and exams.
+                </div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="speaking" data-file="Social_Media_English.html"
+                data-title="Social Media English"
+                data-keywords="social media internet online vocabulary digital post share" onclick="openTopic(this)">
+                <span class="card-tag">Speaking</span>
+                <div class="card-title">Social Media English <span class="card-title-ua">(Соціальні мережі)</span></div>
+                <div class="card-desc">Digital and social media vocabulary — posts, engagement, platforms and online
+                  culture.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <div class="subsection-head"><span class="subsection-title">Knowledge & Education</span>
+              <div class="subsection-line"></div>
+            </div>
+            <div class="grid">
+              <div class="card" data-section="speaking" data-file="Science_English.html" data-title="Science English"
+                data-keywords="science vocabulary research experiment hypothesis lab" onclick="openTopic(this)"><span
+                  class="card-tag">Speaking</span>
+                <div class="card-title">Science English <span class="card-title-ua">(Наука)</span></div>
+                <div class="card-desc">Scientific vocabulary — experiments, research, hypotheses and scientific
+                  discourse.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="speaking" data-file="History_English.html" data-title="History English"
+                data-keywords="history vocabulary historical events periods war civilization" onclick="openTopic(this)">
+                <span class="card-tag">Speaking</span>
+                <div class="card-title">History English <span class="card-title-ua">(Історія)</span></div>
+                <div class="card-desc">Vocabulary for discussing history, historical events, eras and civilizations.
+                </div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="speaking" data-file="Geography_English.html"
+                data-title="Geography English" data-keywords="geography vocabulary landscape terrain map country region"
+                onclick="openTopic(this)"><span class="card-tag">Speaking</span>
+                <div class="card-title">Geography English <span class="card-title-ua">(Географія)</span></div>
+                <div class="card-desc">Geographical terms, landscape vocabulary, and how to describe locations and
+                  places.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <div class="subsection-head"><span class="subsection-title">Travel & World</span>
+              <div class="subsection-line"></div>
+            </div>
+            <div class="grid">
+              <div class="card" data-section="speaking" data-file="Holidays_English.html" data-title="Holidays English"
+                data-keywords="holidays vacation travel vocabulary trip abroad tourism" onclick="openTopic(this)"><span
+                  class="card-tag">Speaking</span>
+                <div class="card-title">Holidays English <span class="card-title-ua">(Свята і подорожі)</span></div>
+                <div class="card-desc">Vocabulary for holidays, vacations, and travelling abroad with confidence.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="speaking" data-file="Travel_English.html" data-title="Travel English"
+                data-keywords="travel vocabulary airport hotel transport directions passport" onclick="openTopic(this)">
+                <span class="card-tag">Speaking</span>
+                <div class="card-title">Travel English <span class="card-title-ua">(Подорожі)</span></div>
+                <div class="card-desc">Essential travel language — airports, hotels, transport, directions and travel
+                  phrases.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="speaking" data-file="Giving_Directions.html"
+                data-title="Giving Directions"
+                data-keywords="giving directions turn left right straight ahead map navigate" onclick="openTopic(this)">
+                <span class="card-tag">Speaking</span>
+                <div class="card-title">Giving Directions <span class="card-title-ua">(Пояснення маршруту)</span></div>
+                <div class="card-desc">How to give and understand directions in English — phrases, vocabulary and
+                  examples.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <div class="subsection-head"><span class="subsection-title">Specialised Vocabulary</span>
+              <div class="subsection-line"></div>
+            </div>
+            <div class="grid">
+              <div class="card" data-section="speaking" data-file="Medical_English.html" data-title="Medical English"
+                data-keywords="medical health doctor hospital symptoms treatment" onclick="openTopic(this)"><span
+                  class="card-tag">Speaking</span>
+                <div class="card-title">Medical English <span class="card-title-ua">(Медицина)</span></div>
+                <div class="card-desc">Health and medical vocabulary — symptoms, treatments, hospital and doctor visits.
+                </div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="speaking" data-file="Money_English.html" data-title="Money English"
+                data-keywords="money finance banking budget investment salary" onclick="openTopic(this)"><span
+                  class="card-tag">Speaking</span>
+                <div class="card-title">Money English <span class="card-title-ua">(Гроші)</span></div>
+                <div class="card-desc">Financial vocabulary — banking, budgeting, investing and talking about money.
+                </div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="speaking" data-file="Tech_English.html" data-title="Tech English"
+                data-keywords="technology vocabulary software hardware digital IT computer" onclick="openTopic(this)">
+                <span class="card-tag">Speaking</span>
+                <div class="card-title">Tech English <span class="card-title-ua">(Технології)</span></div>
+                <div class="card-desc">Technology vocabulary — software, hardware, digital tools, and the world of IT.
+                </div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="speaking" data-file="Space_English.html" data-title="Space English"
+                data-keywords="space astronomy vocabulary planets universe galaxy" onclick="openTopic(this)"><span
+                  class="card-tag">Speaking</span>
+                <div class="card-title">Space English <span class="card-title-ua">(Космос)</span></div>
+                <div class="card-desc">Astronomy and space vocabulary — planets, galaxies, space travel and exploration.
+                </div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="speaking" data-file="Sports_English.html" data-title="Sports English"
+                data-keywords="sports vocabulary football tennis basketball match team" onclick="openTopic(this)"><span
+                  class="card-tag">Speaking</span>
+                <div class="card-title">Sports English <span class="card-title-ua">(Спорт)</span></div>
+                <div class="card-desc">Sports vocabulary and phrases — talking about matches, teams, results, and
+                  athletes.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="speaking" data-file="Games_English.html" data-title="Games English"
+                data-keywords="games gaming video games board games vocabulary" onclick="openTopic(this)"><span
+                  class="card-tag">Speaking</span>
+                <div class="card-title">Games English <span class="card-title-ua">(Ігри)</span></div>
+                <div class="card-desc">Vocabulary for board games, video games, sports games and gaming culture.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══ LEVELS ═══ -->
+        <section class="section" id="section-levels" data-section="levels">
+          <div class="section-head">
+            <div class="section-icon">🎓</div>
+            <div class="section-title">Levels <span class="section-ua">(Рівні)</span> <small>57 topics</small></div>
+            <div class="section-line"></div>
+          </div>
+          <div class="subsection">
+            <div class="subsection-head"><span class="subsection-title">Beginner (A0–A1)</span>
+              <div class="subsection-line"></div>
+            </div>
+            <div class="grid">
+              <div class="card" data-section="levels" data-file="To_BE_English.html" data-title="To BE in English"
+                data-keywords="to be am is are verb forms beginner" onclick="openTopic(this)"><span
+                  class="card-tag">Verbs</span><span class="card-tag">Levels</span>
+                <div class="card-title">To BE in English <span class="card-title-ua">(Дієслово BE)</span></div>
+                <div class="card-desc">All forms and uses of "to be" — the first verb every learner needs.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="Basic_English_Tenses.html"
+                data-title="Basic English Tenses" data-keywords="basic tenses overview all forms beginner"
+                onclick="openTopic(this)"><span class="card-tag">Tenses</span><span class="card-tag">Levels</span>
+                <div class="card-title">Basic English Tenses <span class="card-title-ua">(Огляд часів)</span></div>
+                <div class="card-desc">A complete overview of all English tenses at a glance.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="There_is_There_are.html"
+                data-title="There is / There are" data-keywords="there is there are existential beginner"
+                onclick="openTopic(this)"><span class="card-tag">Structure</span><span class="card-tag">Levels</span>
+                <div class="card-title">There is / There are <span class="card-title-ua">(Конструкція there)</span>
+                </div>
+                <div class="card-desc">Using "there is / there are" correctly across tenses.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="Nouns.html" data-title="Nouns"
+                data-keywords="nouns countable uncountable plural beginner" onclick="openTopic(this)"><span
+                  class="card-tag">Parts of Speech</span><span class="card-tag">Levels</span>
+                <div class="card-title">Nouns <span class="card-title-ua">(Іменники)</span></div>
+                <div class="card-desc">Countable and uncountable nouns, plurals, and noun phrases.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="Pronouns.html" data-title="Pronouns"
+                data-keywords="pronouns personal possessive reflexive beginner" onclick="openTopic(this)"><span
+                  class="card-tag">Parts of Speech</span><span class="card-tag">Levels</span>
+                <div class="card-title">Pronouns <span class="card-title-ua">(Займенники)</span></div>
+                <div class="card-desc">Personal, possessive, and reflexive pronouns — complete guide.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="Articles.html" data-title="Articles"
+                data-keywords="articles a an the zero article beginner" onclick="openTopic(this)"><span
+                  class="card-tag">Parts of Speech</span><span class="card-tag">Levels</span>
+                <div class="card-title">Articles <span class="card-title-ua">(Артиклі)</span></div>
+                <div class="card-desc">A, an, the and zero article — when and why to use each.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="GET.html" data-title="GET"
+                data-keywords="get expressions collocations beginner" onclick="openTopic(this)"><span
+                  class="card-tag">Verbs</span><span class="card-tag">Levels</span>
+                <div class="card-title">GET <span class="card-title-ua">(Отримувати)</span></div>
+                <div class="card-desc">The most essential uses and expressions with "get".</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <div class="subsection-head"><span class="subsection-title">Elementary (A1–A2)</span>
+              <div class="subsection-line"></div>
+            </div>
+            <div class="grid">
+              <div class="card" data-section="levels" data-file="Present_Tenses.html" data-title="Present Tenses"
+                data-keywords="present simple continuous perfect elementary" onclick="openTopic(this)"><span
+                  class="card-tag">Tenses</span><span class="card-tag">Levels</span>
+                <div class="card-title">Present Tenses <span class="card-title-ua">(Теперішні часи)</span></div>
+                <div class="card-desc">All present tense forms — simple, continuous, and perfect.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="Past_Tenses.html" data-title="Past Tenses"
+                data-keywords="past simple continuous perfect elementary" onclick="openTopic(this)"><span
+                  class="card-tag">Tenses</span><span class="card-tag">Levels</span>
+                <div class="card-title">Past Tenses <span class="card-title-ua">(Минулі часи)</span></div>
+                <div class="card-desc">All past tense forms — simple, continuous, and perfect.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="Future_Tenses.html" data-title="Future Tenses"
+                data-keywords="future simple going to present continuous elementary" onclick="openTopic(this)"><span
+                  class="card-tag">Tenses</span><span class="card-tag">Levels</span>
+                <div class="card-title">Future Tenses <span class="card-title-ua">(Майбутні часи)</span></div>
+                <div class="card-desc">Future Simple, Going to, and Present Continuous for future.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="Simple_Aspect.html" data-title="Simple Aspect"
+                data-keywords="simple aspect habit fact state elementary" onclick="openTopic(this)"><span
+                  class="card-tag">Tenses</span><span class="card-tag">Levels</span>
+                <div class="card-title">Simple Aspect <span class="card-title-ua">(Простий аспект)</span></div>
+                <div class="card-desc">The simple aspect — habits, facts, and states across tenses.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="Adjectives.html" data-title="Adjectives"
+                data-keywords="adjectives order attributive elementary" onclick="openTopic(this)"><span
+                  class="card-tag">Parts of Speech</span><span class="card-tag">Levels</span>
+                <div class="card-title">Adjectives <span class="card-title-ua">(Прикметники)</span></div>
+                <div class="card-desc">Adjective types, order, and common patterns in English.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="Adverbs.html" data-title="Adverbs"
+                data-keywords="adverbs manner frequency degree elementary" onclick="openTopic(this)"><span
+                  class="card-tag">Parts of Speech</span><span class="card-tag">Levels</span>
+                <div class="card-title">Adverbs <span class="card-title-ua">(Прислівники)</span></div>
+                <div class="card-desc">Types of adverbs and their correct position in sentences.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="Prepositions.html" data-title="Prepositions"
+                data-keywords="prepositions in on at time place elementary" onclick="openTopic(this)"><span
+                  class="card-tag">Parts of Speech</span><span class="card-tag">Levels</span>
+                <div class="card-title">Prepositions <span class="card-title-ua">(Прийменники)</span></div>
+                <div class="card-desc">Prepositions of time, place, and direction — rules and patterns.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="Conjunctions.html" data-title="Conjunctions"
+                data-keywords="conjunctions and but or so because elementary" onclick="openTopic(this)"><span
+                  class="card-tag">Parts of Speech</span><span class="card-tag">Levels</span>
+                <div class="card-title">Conjunctions <span class="card-title-ua">(Сполучники)</span></div>
+                <div class="card-desc">Coordinating and subordinating conjunctions — connecting clauses.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="DO.html" data-title="DO"
+                data-keywords="do auxiliary expressions elementary" onclick="openTopic(this)"><span
+                  class="card-tag">Verbs</span><span class="card-tag">Levels</span>
+                <div class="card-title">DO <span class="card-title-ua">(Виконувати)</span></div>
+                <div class="card-desc">Key uses of "do" — auxiliary verb, expressions, and collocations.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="HAVE.html" data-title="HAVE"
+                data-keywords="have auxiliary possession elementary" onclick="openTopic(this)"><span
+                  class="card-tag">Verbs</span><span class="card-tag">Levels</span>
+                <div class="card-title">HAVE <span class="card-title-ua">(Мати)</span></div>
+                <div class="card-desc">Key uses of "have" — auxiliary, possession, and collocations.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="Quantifiers.html" data-title="Quantifiers"
+                data-keywords="quantifiers some any much many few little elementary" onclick="openTopic(this)"><span
+                  class="card-tag">Parts of Speech</span><span class="card-tag">Levels</span>
+                <div class="card-title">Quantifiers <span class="card-title-ua">(Квантифікатори)</span></div>
+                <div class="card-desc">Some, any, much, many, few, little — quantifying nouns at elementary level.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="Giving_Directions.html" data-title="Giving Directions"
+                data-keywords="giving directions turn left right elementary" onclick="openTopic(this)"><span
+                  class="card-tag">Speaking</span><span class="card-tag">Levels</span>
+                <div class="card-title">Giving Directions <span class="card-title-ua">(Пояснення маршруту)</span></div>
+                <div class="card-desc">How to give and understand directions — phrases and vocabulary.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <div class="subsection-head"><span class="subsection-title">Pre-Intermediate (A2–B1)</span>
+              <div class="subsection-line"></div>
+            </div>
+            <div class="grid">
+              <div class="card" data-section="levels" data-file="English_Tenses.html" data-title="English Tenses"
+                data-keywords="english tenses all 12 pre-intermediate" onclick="openTopic(this)"><span
+                  class="card-tag">Tenses</span><span class="card-tag">Levels</span>
+                <div class="card-title">English Tenses <span class="card-title-ua">(Англійські часи)</span></div>
+                <div class="card-desc">Deep dive into all 12 tenses — forms, rules, and time expressions.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="Continuous_Aspect.html" data-title="Continuous Aspect"
+                data-keywords="continuous aspect progressive pre-intermediate" onclick="openTopic(this)"><span
+                  class="card-tag">Tenses</span><span class="card-tag">Levels</span>
+                <div class="card-title">Continuous Aspect <span class="card-title-ua">(Тривалий аспект)</span></div>
+                <div class="card-desc">Ongoing and temporary actions in progress across all tenses.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="Past_in_English.html"
+                data-title="Past in English Extended" data-keywords="past extended pre-intermediate"
+                onclick="openTopic(this)"><span class="card-tag">Tenses</span><span class="card-tag">Levels</span>
+                <div class="card-title">Past in English Extended <span class="card-title-ua">(Минулі часи
+                    (розширено))</span></div>
+                <div class="card-desc">Every past form in detail — simple, continuous, perfect.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="Modal_Verbs.html" data-title="Modal Verbs"
+                data-keywords="modal verbs can could may must pre-intermediate" onclick="openTopic(this)"><span
+                  class="card-tag">Verbs</span><span class="card-tag">Levels</span>
+                <div class="card-title">Modal Verbs <span class="card-title-ua">(Модальні дієслова)</span></div>
+                <div class="card-desc">Can, could, may, might, must, should — meanings and uses.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="Phrasal_Verbs.html" data-title="Phrasal Verbs"
+                data-keywords="phrasal verbs particles pre-intermediate" onclick="openTopic(this)"><span
+                  class="card-tag">Verbs</span><span class="card-tag">Levels</span>
+                <div class="card-title">Phrasal Verbs <span class="card-title-ua">(Фразові дієслова)</span></div>
+                <div class="card-desc">The most important phrasal verbs grouped by particle.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="Comparisons.html" data-title="Comparisons"
+                data-keywords="comparisons comparative superlative pre-intermediate" onclick="openTopic(this)"><span
+                  class="card-tag">Structure</span><span class="card-tag">Levels</span>
+                <div class="card-title">Comparisons <span class="card-title-ua">(Порівняння)</span></div>
+                <div class="card-desc">Comparative and superlative forms, as…as structures.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="Relative_Clauses.html" data-title="Relative Clauses"
+                data-keywords="relative clauses who which that pre-intermediate" onclick="openTopic(this)"><span
+                  class="card-tag">Clauses</span><span class="card-tag">Levels</span>
+                <div class="card-title">Relative Clauses <span class="card-title-ua">(Відносні підрядні)</span></div>
+                <div class="card-desc">Defining and non-defining relative clauses.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="Reported_Speech.html" data-title="Reported Speech"
+                data-keywords="reported speech indirect pre-intermediate" onclick="openTopic(this)"><span
+                  class="card-tag">Verbs</span><span class="card-tag">Levels</span>
+                <div class="card-title">Reported Speech <span class="card-title-ua">(Непряма мова)</span></div>
+                <div class="card-desc">Backshift, reporting verbs, direct to indirect speech.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="USED_TO.html" data-title="Used To"
+                data-keywords="used to past habit pre-intermediate" onclick="openTopic(this)"><span
+                  class="card-tag">Verbs</span><span class="card-tag">Levels</span>
+                <div class="card-title">Used To <span class="card-title-ua">(Звичка в минулому)</span></div>
+                <div class="card-desc">Used to, be used to, get used to — past habits and states.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="Collocations.html" data-title="Collocations"
+                data-keywords="collocations word combinations pre-intermediate" onclick="openTopic(this)"><span
+                  class="card-tag">Parts of Speech</span><span class="card-tag">Levels</span>
+                <div class="card-title">Collocations <span class="card-title-ua">(Колокації)</span></div>
+                <div class="card-desc">Natural word combinations that native speakers use.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="Informal_Contractions.html"
+                data-title="Informal Contractions" data-keywords="informal contractions gonna wanna pre-intermediate"
+                onclick="openTopic(this)"><span class="card-tag">Speaking</span><span class="card-tag">Levels</span>
+                <div class="card-title">Informal Contractions <span class="card-title-ua">(Розмовні скорочення)</span>
+                </div>
+                <div class="card-desc">Gonna, wanna, gotta — contractions used in everyday speech.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="MAKE.html" data-title="MAKE"
+                data-keywords="make expressions pre-intermediate" onclick="openTopic(this)"><span
+                  class="card-tag">Verbs</span><span class="card-tag">Levels</span>
+                <div class="card-title">MAKE <span class="card-title-ua">(Робити / Створювати)</span></div>
+                <div class="card-desc">Key uses of "make" — phrasal verbs, expressions, collocations.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="TAKE.html" data-title="TAKE"
+                data-keywords="take expressions pre-intermediate" onclick="openTopic(this)"><span
+                  class="card-tag">Verbs</span><span class="card-tag">Levels</span>
+                <div class="card-title">TAKE <span class="card-title-ua">(Брати)</span></div>
+                <div class="card-desc">Key uses of "take" — phrasal verbs, expressions, collocations.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <div class="subsection-head"><span class="subsection-title">Intermediate (B1–B2)</span>
+              <div class="subsection-line"></div>
+            </div>
+            <div class="grid">
+              <div class="card" data-section="levels" data-file="English_Aspects.html" data-title="English Aspects"
+                data-keywords="aspects overview intermediate" onclick="openTopic(this)"><span
+                  class="card-tag">Tenses</span><span class="card-tag">Levels</span>
+                <div class="card-title">English Aspects <span class="card-title-ua">(Аспекти дієслів)</span></div>
+                <div class="card-desc">Overview of all four English aspects — simple, continuous, perfect.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="Perfect_Aspect.html" data-title="Perfect Aspect"
+                data-keywords="perfect aspect have completed intermediate" onclick="openTopic(this)"><span
+                  class="card-tag">Tenses</span><span class="card-tag">Levels</span>
+                <div class="card-title">Perfect Aspect <span class="card-title-ua">(Перфектний аспект)</span></div>
+                <div class="card-desc">Completed actions, experiences, and results across tenses.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="Perfect_Continuous_Aspect.html"
+                data-title="Perfect Continuous Aspect" data-keywords="perfect continuous aspect intermediate"
+                onclick="openTopic(this)"><span class="card-tag">Tenses</span><span class="card-tag">Levels</span>
+                <div class="card-title">Perfect Continuous Aspect <span
+                    class="card-title-ua">(Перфектно-тривалий)</span></div>
+                <div class="card-desc">Duration and ongoing actions with a result across tenses.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="Tense_Consistency.html" data-title="Tense Consistency"
+                data-keywords="tense consistency narrative intermediate" onclick="openTopic(this)"><span
+                  class="card-tag">Tenses</span><span class="card-tag">Levels</span>
+                <div class="card-title">Tense Consistency <span class="card-title-ua">(Узгодження часів)</span></div>
+                <div class="card-desc">Keeping tenses consistent and avoiding errors in narratives.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="English_Sentence_Structure.html"
+                data-title="English Sentence Structure" data-keywords="sentence structure SVO intermediate"
+                onclick="openTopic(this)"><span class="card-tag">Structure</span><span class="card-tag">Levels</span>
+                <div class="card-title">English Sentence Structure <span class="card-title-ua">(Структура
+                    речення)</span></div>
+                <div class="card-desc">Subject, verb, object — building correct English sentences.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="Infinitive_and_Gerund.html"
+                data-title="Infinitive and Gerund" data-keywords="infinitive gerund to verb ing intermediate"
+                onclick="openTopic(this)"><span class="card-tag">Verbs</span><span class="card-tag">Levels</span>
+                <div class="card-title">Infinitive and Gerund <span class="card-title-ua">(Інфінітив і герундій)</span>
+                </div>
+                <div class="card-desc">When to use to + verb vs. verb + -ing — rules and exceptions.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="Passive_Voice.html" data-title="Passive Voice"
+                data-keywords="passive voice constructions intermediate" onclick="openTopic(this)"><span
+                  class="card-tag">Verbs</span><span class="card-tag">Levels</span>
+                <div class="card-title">Passive Voice <span class="card-title-ua">(Пасивний стан)</span></div>
+                <div class="card-desc">Forming and using passive constructions across tenses.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="Adverbial_Clauses.html" data-title="Adverbial Clauses"
+                data-keywords="adverbial clauses time reason purpose intermediate" onclick="openTopic(this)"><span
+                  class="card-tag">Clauses</span><span class="card-tag">Levels</span>
+                <div class="card-title">Adverbial Clauses <span class="card-title-ua">(Обставинні підрядні)</span></div>
+                <div class="card-desc">Clauses of time, reason, purpose, result, concession.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="Conditionals.html" data-title="Conditionals"
+                data-keywords="conditionals if zero first second third intermediate" onclick="openTopic(this)"><span
+                  class="card-tag">Clauses</span><span class="card-tag">Levels</span>
+                <div class="card-title">Conditionals <span class="card-title-ua">(Умовні речення)</span></div>
+                <div class="card-desc">Zero, first, second, third conditionals — structures and examples.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="Noun_Clauses.html" data-title="Noun Clauses"
+                data-keywords="noun clauses that what whether intermediate" onclick="openTopic(this)"><span
+                  class="card-tag">Clauses</span><span class="card-tag">Levels</span>
+                <div class="card-title">Noun Clauses <span class="card-title-ua">(Іменні підрядні)</span></div>
+                <div class="card-desc">That-clauses, embedded questions, wh-clauses as nouns.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="Phrasal_Adjectives.html"
+                data-title="Phrasal Adjectives" data-keywords="phrasal adjectives compound hyphenated intermediate"
+                onclick="openTopic(this)"><span class="card-tag">Parts of Speech</span><span
+                  class="card-tag">Levels</span>
+                <div class="card-title">Phrasal Adjectives <span class="card-title-ua">(Складені прикметники)</span>
+                </div>
+                <div class="card-desc">Compound and hyphenated adjectives — how to form and use them.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="GIVE.html" data-title="GIVE"
+                data-keywords="give expressions intermediate" onclick="openTopic(this)"><span
+                  class="card-tag">Verbs</span><span class="card-tag">Levels</span>
+                <div class="card-title">GIVE <span class="card-title-ua">(Давати)</span></div>
+                <div class="card-desc">Key uses of "give" — phrasal verbs, expressions, collocations.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="Discourse_Markers.html" data-title="Discourse Markers"
+                data-keywords="discourse markers however moreover intermediate" onclick="openTopic(this)"><span
+                  class="card-tag">Advanced</span><span class="card-tag">Levels</span>
+                <div class="card-title">Discourse Markers <span class="card-title-ua">(Дискурсивні маркери)</span></div>
+                <div class="card-desc">However, moreover, therefore — organizing ideas in text.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="Linking_and_Discourse.html"
+                data-title="Linking and Discourse" data-keywords="linking discourse cohesion intermediate"
+                onclick="openTopic(this)"><span class="card-tag">Advanced</span><span class="card-tag">Levels</span>
+                <div class="card-title">Linking and Discourse <span class="card-title-ua">(Зв'язність тексту)</span>
+                </div>
+                <div class="card-desc">Cohesion and coherence — linking devices and reference chains.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="English_Speaking_Framework.html"
+                data-title="English Speaking Framework" data-keywords="speaking framework fluency intermediate"
+                onclick="openTopic(this)"><span class="card-tag">Speaking</span><span class="card-tag">Levels</span>
+                <div class="card-title">English Speaking Framework <span class="card-title-ua">(Основи розмови)</span>
+                </div>
+                <div class="card-desc">A practical framework for building fluency and conversation.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="Quantifiers.html" data-title="Quantifiers"
+                data-keywords="quantifiers some any much many few intermediate" onclick="openTopic(this)"><span
+                  class="card-tag">Parts of Speech</span><span class="card-tag">Levels</span>
+                <div class="card-title">Quantifiers <span class="card-title-ua">(Квантифікатори)</span></div>
+                <div class="card-desc">Some, any, much, many, few, little — quantifying nouns at intermediate level.
+                </div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="Question_Tags_Reply_Questions.html"
+                data-title="Question Tags &amp; Reply Questions"
+                data-keywords="question tags reply questions intermediate" onclick="openTopic(this)"><span
+                  class="card-tag">Structure</span><span class="card-tag">Levels</span>
+                <div class="card-title">Question Tags &amp; Reply Questions <span class="card-title-ua">(Питальні
+                    хвостики)</span></div>
+                <div class="card-desc">Question tags and reply questions — forming and using them naturally.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <div class="subsection-head"><span class="subsection-title">Upper-Intermediate (B2)</span>
+              <div class="subsection-line"></div>
+            </div>
+            <div class="grid">
+              <div class="card" data-section="levels" data-file="Conditionals_Advanced.html"
+                data-title="Conditionals — Advanced" data-keywords="conditionals advanced mixed inversion upper"
+                onclick="openTopic(this)"><span class="card-tag">Clauses</span><span class="card-tag">Levels</span>
+                <div class="card-title">Conditionals — Advanced <span class="card-title-ua">(Умовні речення
+                    (просунутий))</span></div>
+                <div class="card-desc">Mixed conditionals, inversion, and advanced conditional expressions.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="Participle_Clauses.html"
+                data-title="Participle Clauses" data-keywords="participle clauses ing ed reduced upper"
+                onclick="openTopic(this)"><span class="card-tag">Clauses</span><span class="card-tag">Levels</span>
+                <div class="card-title">Participle Clauses <span class="card-title-ua">(Дієприкметникові
+                    підрядні)</span></div>
+                <div class="card-desc">-ing and -ed participle clauses to add detail and variety.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="Cleft_Sentences.html" data-title="Cleft Sentences"
+                data-keywords="cleft sentences emphasis focus upper" onclick="openTopic(this)"><span
+                  class="card-tag">Clauses</span><span class="card-tag">Levels</span>
+                <div class="card-title">Cleft Sentences <span class="card-title-ua">(Розщеплені речення)</span></div>
+                <div class="card-desc">It-clefts and wh-clefts for emphasis and shifting focus.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="Inversion.html" data-title="Inversion"
+                data-keywords="inversion negative adverbials formal upper" onclick="openTopic(this)"><span
+                  class="card-tag">Structure</span><span class="card-tag">Levels</span>
+                <div class="card-title">Inversion <span class="card-title-ua">(Інверсія)</span></div>
+                <div class="card-desc">Subject-verb inversion after negative adverbials.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="Subjunctive.html" data-title="Subjunctive Mood"
+                data-keywords="subjunctive wish if only formal upper" onclick="openTopic(this)"><span
+                  class="card-tag">Advanced</span><span class="card-tag">Levels</span>
+                <div class="card-title">Subjunctive Mood <span class="card-title-ua">(Умовний спосіб)</span></div>
+                <div class="card-desc">Wish, if only, formal that-clauses, and literary subjunctive.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="Reported_Speech.html" data-title="Reported Speech"
+                data-keywords="reported speech backshift advanced upper" onclick="openTopic(this)"><span
+                  class="card-tag">Verbs</span><span class="card-tag">Levels</span>
+                <div class="card-title">Reported Speech <span class="card-title-ua">(Непряма мова)</span></div>
+                <div class="card-desc">Advanced reported speech — backshift and reporting verbs.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="Tense_Consistency.html" data-title="Tense Consistency"
+                data-keywords="tense consistency advanced upper" onclick="openTopic(this)"><span
+                  class="card-tag">Tenses</span><span class="card-tag">Levels</span>
+                <div class="card-title">Tense Consistency <span class="card-title-ua">(Узгодження часів)</span></div>
+                <div class="card-desc">Advanced tense consistency — complex narratives and formal writing.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="Movie_English_Guide.html"
+                data-title="Movie English Guide" data-keywords="movie english slang listening upper"
+                onclick="openTopic(this)"><span class="card-tag">Speaking</span><span class="card-tag">Levels</span>
+                <div class="card-title">Movie English Guide <span class="card-title-ua">(Англійська через фільми)</span>
+                </div>
+                <div class="card-desc">Learn real English through films — expressions, slang, listening tips.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <div class="subsection-head"><span class="subsection-title">Advanced (C1–C2)</span>
+              <div class="subsection-line"></div>
+            </div>
+            <div class="grid">
+              <div class="card" data-section="levels" data-file="Subjunctive.html" data-title="Subjunctive Mood"
+                data-keywords="subjunctive advanced c1 c2" onclick="openTopic(this)"><span
+                  class="card-tag">Advanced</span><span class="card-tag">Levels</span>
+                <div class="card-title">Subjunctive Mood <span class="card-title-ua">(Умовний спосіб)</span></div>
+                <div class="card-desc">Advanced uses of the subjunctive — literary, formal, and rare forms.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="Nominalisation.html" data-title="Nominalisation"
+                data-keywords="nominalisation academic formal advanced c1" onclick="openTopic(this)"><span
+                  class="card-tag">Advanced</span><span class="card-tag">Levels</span>
+                <div class="card-title">Nominalisation <span class="card-title-ua">(Номіналізація)</span></div>
+                <div class="card-desc">Converting verbs and adjectives into nouns for academic writing.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="Hedging.html" data-title="Hedging"
+                data-keywords="hedging tentative academic advanced c1" onclick="openTopic(this)"><span
+                  class="card-tag">Advanced</span><span class="card-tag">Levels</span>
+                <div class="card-title">Hedging <span class="card-title-ua">(Хеджинг)</span></div>
+                <div class="card-desc">Tentative language in academic and professional writing.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="Ellipsis.html" data-title="Ellipsis"
+                data-keywords="ellipsis omission substitution advanced c1" onclick="openTopic(this)"><span
+                  class="card-tag">Advanced</span><span class="card-tag">Levels</span>
+                <div class="card-title">Ellipsis <span class="card-title-ua">(Еліпсис)</span></div>
+                <div class="card-desc">Leaving out words without losing meaning — ellipsis and substitution.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="Cleft_Sentences.html" data-title="Cleft Sentences"
+                data-keywords="cleft sentences emphasis advanced c1" onclick="openTopic(this)"><span
+                  class="card-tag">Clauses</span><span class="card-tag">Levels</span>
+                <div class="card-title">Cleft Sentences <span class="card-title-ua">(Розщеплені речення)</span></div>
+                <div class="card-desc">Advanced use of it-clefts and wh-clefts for emphasis.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="Inversion.html" data-title="Inversion"
+                data-keywords="inversion advanced formal c1 c2" onclick="openTopic(this)"><span
+                  class="card-tag">Structure</span><span class="card-tag">Levels</span>
+                <div class="card-title">Inversion <span class="card-title-ua">(Інверсія)</span></div>
+                <div class="card-desc">Advanced inversion patterns in formal and literary English.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="Linking_and_Discourse.html"
+                data-title="Linking and Discourse" data-keywords="linking discourse cohesion advanced c1"
+                onclick="openTopic(this)"><span class="card-tag">Advanced</span><span class="card-tag">Levels</span>
+                <div class="card-title">Linking and Discourse <span class="card-title-ua">(Зв'язність тексту)</span>
+                </div>
+                <div class="card-desc">Advanced cohesion and coherence techniques in text.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="English_Aspects.html" data-title="English Aspects"
+                data-keywords="aspects advanced c1 c2" onclick="openTopic(this)"><span
+                  class="card-tag">Tenses</span><span class="card-tag">Levels</span>
+                <div class="card-title">English Aspects <span class="card-title-ua">(Аспекти дієслів)</span></div>
+                <div class="card-desc">Mastering all four English aspects at an advanced level.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="Simple_Aspect.html" data-title="Simple Aspect"
+                data-keywords="simple aspect advanced c1 c2" onclick="openTopic(this)"><span
+                  class="card-tag">Tenses</span><span class="card-tag">Levels</span>
+                <div class="card-title">Simple Aspect <span class="card-title-ua">(Простий аспект)</span></div>
+                <div class="card-desc">Deep understanding of the simple aspect at an advanced level.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="Continuous_Aspect.html" data-title="Continuous Aspect"
+                data-keywords="continuous aspect advanced c1 c2" onclick="openTopic(this)"><span
+                  class="card-tag">Tenses</span><span class="card-tag">Levels</span>
+                <div class="card-title">Continuous Aspect <span class="card-title-ua">(Тривалий аспект)</span></div>
+                <div class="card-desc">Advanced mastery of the continuous aspect across all tenses.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="Perfect_Aspect.html" data-title="Perfect Aspect"
+                data-keywords="perfect aspect advanced c1 c2" onclick="openTopic(this)"><span
+                  class="card-tag">Tenses</span><span class="card-tag">Levels</span>
+                <div class="card-title">Perfect Aspect <span class="card-title-ua">(Перфектний аспект)</span></div>
+                <div class="card-desc">Advanced mastery of the perfect aspect across all tenses.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+              <div class="card" data-section="levels" data-file="Perfect_Continuous_Aspect.html"
+                data-title="Perfect Continuous Aspect" data-keywords="perfect continuous advanced c1 c2"
+                onclick="openTopic(this)"><span class="card-tag">Tenses</span><span class="card-tag">Levels</span>
+                <div class="card-title">Perfect Continuous Aspect <span
+                    class="card-title-ua">(Перфектно-тривалий)</span></div>
+                <div class="card-desc">Advanced mastery of the perfect continuous aspect.</div>
+                <div class="card-footer"><span class="card-arrow">→</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div id="empty-state">
+          <p>No topics found. Try a different search.</p>
+        </div>
+
+      </div><!-- /#home-view -->
+
+      <!-- TOPIC VIEWER -->
+      <div id="topic-view">
+        <iframe id="topic-frame" src="" title="Topic"></iframe>
+      </div>
+
+    </div><!-- /.content-area -->
+  </div><!-- /.layout -->
+
+  <script>
+    let activeFilter = 'all';
+    let currentFile = '';
+
+    /* ── open topic in iframe ── */
+    function openTopic(card) {
+      const file = card.dataset.file;
+      const title = card.dataset.title;
+      currentFile = file;
+
+      document.getElementById('topic-frame').src = file;
+      document.getElementById('home-view').style.display = 'none';
+      document.getElementById('topic-view').classList.add('active');
+
+      // topbar
+      document.getElementById('bc-sep').style.display = '';
+      document.getElementById('bc-current').textContent = title;
+      document.getElementById('btn-back').classList.add('visible');
+      document.getElementById('btn-newtab').classList.add('visible');
+      document.getElementById('btn-newtab').href = file;
+      document.getElementById('search').style.display = 'none';
+
+      // push browser history so back button works
+      history.pushState({ file, title }, '', '#' + encodeURIComponent(file));
+    }
+
+    /* ── go back to home ── */
+    function goHome() {
+      currentFile = '';
+      document.getElementById('topic-frame').src = '';
+      document.getElementById('home-view').style.display = '';
+      document.getElementById('topic-view').classList.remove('active');
+
+      document.getElementById('bc-sep').style.display = 'none';
+      document.getElementById('bc-current').textContent = '';
+      document.getElementById('btn-back').classList.remove('visible');
+      document.getElementById('btn-newtab').classList.remove('visible');
+      document.getElementById('search').style.display = '';
+
+      if (history.state && history.state.file) history.back();
+    }
+
+    /* browser back button */
+    window.addEventListener('popstate', e => {
+      if (!e.state || !e.state.file) goHome();
+    });
+
+    /* message from iframe back button */
+    window.addEventListener('message', e => {
+      if (e.data === 'goHome') goHome();
+    });
+
+    /* ── filter ── */
+    function setFilter(cat, btn) {
+      activeFilter = cat;
+      document.querySelectorAll('.pill').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      filterAll();
+    }
+
+    function filterAll() {
+      const q = document.getElementById('search').value.toLowerCase().trim();
+      let total = 0;
+
+      document.querySelectorAll('.section').forEach(sec => {
+        const secCat = sec.id.replace('section-', '');
+        const catMatch = activeFilter === 'all' || activeFilter === secCat;
+        let secVisible = 0;
+
+        sec.querySelectorAll('.subsection').forEach(sub => {
+          let subVisible = 0;
+          sub.querySelectorAll('.card').forEach(card => {
+            const text = (card.dataset.keywords || '') + ' ' +
+              card.querySelector('.card-title').textContent + ' ' +
+              card.querySelector('.card-desc').textContent;
+            const show = catMatch && (!q || text.toLowerCase().includes(q));
+            card.classList.toggle('hidden', !show);
+            if (show) { subVisible++; secVisible++; }
+          });
+          sub.classList.toggle('hidden', subVisible === 0);
+        });
+
+        sec.classList.toggle('hidden', secVisible === 0);
+        total += secVisible;
+      });
+
+      document.getElementById('results-count').textContent =
+        total + ' topic' + (total !== 1 ? 's' : '');
+      document.getElementById('empty-state').style.display =
+        total === 0 ? 'block' : 'none';
+    }
+
+    /* ── jump to section via sidebar ── */
+    function jumpTo(cat, el) {
+      // if currently in topic view, go home first
+      if (document.getElementById('topic-view').classList.contains('active')) goHome();
+
+      activeFilter = 'all';
+      document.querySelectorAll('.pill').forEach(b => b.classList.remove('active'));
+      document.querySelector('.pill').classList.add('active');
+      document.getElementById('search').value = '';
+      filterAll();
+
+      document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+      el.classList.add('active');
+
+      setTimeout(() => {
+        const sec = document.getElementById('section-' + cat);
+        if (sec) sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 60);
+    }
+
+    /* ── card animation stagger ── */
+    document.querySelectorAll('.section').forEach(sec => {
+      sec.querySelectorAll('.card').forEach((card, i) => {
+        card.style.animationDelay = (i * 0.04) + 's';
+      });
+    });
+
+  </script>
+</body>
+
+</html>
