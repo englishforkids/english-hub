@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Causative Verbs — Have, Get, Make, Let</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Bangers&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f0e17;
+    --card-bg: #1a1929;
+    --have: #ff6b6b;
+    --have-soft: #2a1a1a;
+    --get: #ffd166;
+    --get-soft: #2a2310;
+    --make: #06d6a0;
+    --make-soft: #0a2320;
+    --let: #a78bfa;
+    --let-soft: #1e1530;
+    --text: #fffffe;
+    --muted: #a7a9be;
+    --border: #2e2d3d;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Nunito', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    text-align: center;
+    padding: 60px 20px 40px;
+    background: radial-gradient(ellipse at top, #1e1b4b 0%, #0f0e17 60%);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #a78bfa, #06d6a0);
+    color: #000;
+    font-weight: 800;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 999px;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: 'Bangers', cursive;
+    font-size: clamp(2.8rem, 8vw, 5.5rem);
+    letter-spacing: 0.05em;
+    line-height: 1;
+    background: linear-gradient(135deg, #ff6b6b, #ffd166, #06d6a0, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 12px;
+  }
+  .hero-sub {
+    font-size: clamp(1rem, 3vw, 1.3rem);
+    color: var(--muted);
+    max-width: 600px;
+    margin: 0 auto 30px;
+    line-height: 1.6;
+  }
+
+  /* MAGIC SENTENCE BOX */
+  .magic-box {
+    max-width: 750px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, #1e1b4b, #1a1929);
+    border: 2px solid #3730a3;
+    border-radius: 20px;
+    padding: 28px 32px;
+    text-align: center;
+  }
+  .magic-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #a78bfa;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .magic-sentence {
+    font-size: clamp(1.1rem, 3vw, 1.5rem);
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+  .magic-sentence span {
+    color: #ffd166;
+  }
+  .magic-uk {
+    font-size: 1rem;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  /* SECTION */
+  .section {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px 20px;
+  }
+
+  /* QUICK NAV */
+  .quick-nav {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 30px 20px 10px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .nav-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 22px;
+    border-radius: 999px;
+    font-weight: 800;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    border: 2px solid transparent;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .nav-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
+  .nav-have { background: var(--have); color: #000; }
+  .nav-get  { background: var(--get);  color: #000; }
+  .nav-make { background: var(--make); color: #000; }
+  .nav-let  { background: var(--let);  color: #000; }
+
+  /* VERB CARD */
+  .verb-card {
+    border-radius: 24px;
+    overflow: hidden;
+    margin-bottom: 48px;
+    border: 2px solid var(--border);
+    position: relative;
+    animation: fadeUp 0.6s ease both;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .verb-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 28px 32px;
+    flex-wrap: wrap;
+  }
+  .verb-emoji {
+    font-size: 3rem;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
+  }
+  .verb-title-block h2 {
+    font-family: 'Bangers', cursive;
+    font-size: clamp(2rem, 5vw, 3rem);
+    letter-spacing: 0.05em;
+    line-height: 1;
+  }
+  .verb-title-block .verb-meaning {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-top: 4px;
+    opacity: 0.85;
+  }
+
+  .verb-body {
+    padding: 0 32px 32px;
+    background: var(--card-bg);
+  }
+
+  /* FORMULA BOX */
+  .formula-box {
+    background: rgba(0,0,0,0.3);
+    border-radius: 16px;
+    padding: 18px 24px;
+    margin-bottom: 24px;
+    border-left: 5px solid;
+    font-family: 'Comic Neue', cursive;
+  }
+  .formula-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 700;
+    margin-bottom: 8px;
+    opacity: 0.7;
+    font-family: 'Nunito', sans-serif;
+  }
+  .formula {
+    font-size: clamp(1rem, 3vw, 1.3rem);
+    font-weight: 700;
+    word-break: break-word;
+  }
+  .formula .f-verb { border-radius: 6px; padding: 2px 8px; font-weight: 800; }
+  .formula .f-obj  { color: #93c5fd; }
+  .formula .f-pp   { color: #86efac; }
+  .formula .f-to   { color: #fcd34d; }
+  .formula .f-inf  { color: #f9a8d4; }
+  .formula .f-bare { color: #a5f3fc; }
+
+  /* NUANCE GRID */
+  .nuance-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+  .nuance-item {
+    background: rgba(0,0,0,0.25);
+    border-radius: 14px;
+    padding: 16px;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .nuance-icon { font-size: 1.6rem; margin-bottom: 8px; }
+  .nuance-item h4 { font-size: 0.9rem; font-weight: 800; margin-bottom: 4px; }
+  .nuance-item p { font-size: 0.85rem; color: var(--muted); line-height: 1.5; }
+
+  /* MAGIC TRANSFORM */
+  .magic-transform {
+    background: rgba(0,0,0,0.2);
+    border-radius: 16px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+    border: 1px dashed rgba(255,255,255,0.12);
+  }
+  .magic-transform .ml { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 700; opacity: 0.6; margin-bottom: 10px; }
+  .transform-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+  .transform-row:last-child { margin-bottom: 0; }
+  .tr-label {
+    font-size: 0.8rem;
+    font-weight: 800;
+    width: 80px;
+    flex-shrink: 0;
+    opacity: 0.6;
+  }
+  .tr-sentence {
+    font-size: 0.95rem;
+    font-weight: 700;
+  }
+  .tr-sentence .hl { border-radius: 4px; padding: 1px 6px; font-weight: 900; color: #000; }
+
+  /* EXAMPLES */
+  .examples-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+  .ex-card {
+    background: rgba(0,0,0,0.25);
+    border-radius: 14px;
+    padding: 16px 18px;
+    border: 1px solid rgba(255,255,255,0.07);
+    transition: transform 0.2s;
+  }
+  .ex-card:hover { transform: translateY(-3px); }
+  .ex-en {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    line-height: 1.4;
+  }
+  .ex-uk {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+  .ex-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 2px 8px;
+    border-radius: 999px;
+    margin-bottom: 8px;
+    color: #000;
+  }
+
+  /* COMPARISON TABLE */
+  .compare-section {
+    max-width: 960px;
+    margin: 0 auto 60px;
+    padding: 0 20px;
+  }
+  .compare-title {
+    font-family: 'Bangers', cursive;
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    letter-spacing: 0.05em;
+    text-align: center;
+    margin-bottom: 24px;
+    background: linear-gradient(135deg, #ffd166, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .compare-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 8px;
+    font-size: 0.9rem;
+  }
+  .compare-table th {
+    padding: 12px 16px;
+    font-weight: 800;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    text-align: left;
+  }
+  .compare-table td {
+    padding: 14px 16px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    line-height: 1.5;
+  }
+  .compare-table td:first-child { border-radius: 12px 0 0 12px; font-weight: 800; font-size: 1rem; }
+  .compare-table td:last-child  { border-radius: 0 12px 12px 0; }
+  .compare-table .c-have td:first-child { color: var(--have); }
+  .compare-table .c-get  td:first-child { color: var(--get); }
+  .compare-table .c-make td:first-child { color: var(--make); }
+  .compare-table .c-let  td:first-child { color: var(--let); }
+
+  /* INFOGRAPHIC TIMELINE */
+  .timeline {
+    position: relative;
+    padding-left: 32px;
+    margin-bottom: 24px;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 10px; top: 0; bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, var(--have), var(--get), var(--make), var(--let));
+    border-radius: 3px;
+  }
+  .tl-item {
+    position: relative;
+    margin-bottom: 18px;
+  }
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -26px; top: 6px;
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    border: 3px solid;
+  }
+  .tl-dot-have::before { border-color: var(--have); background: var(--have-soft); }
+  .tl-dot-get::before  { border-color: var(--get);  background: var(--get-soft); }
+  .tl-dot-make::before { border-color: var(--make); background: var(--make-soft); }
+  .tl-dot-let::before  { border-color: var(--let);  background: var(--let-soft); }
+  .tl-item h4 { font-size: 0.95rem; font-weight: 800; margin-bottom: 3px; }
+  .tl-item p  { font-size: 0.85rem; color: var(--muted); }
+
+  /* SCROLL TOP */
+  #scrollTop {
+    position: fixed;
+    bottom: 28px; right: 28px;
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #a78bfa, #06d6a0);
+    color: #000;
+    font-size: 1.3rem;
+    border: none;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: 999;
+  }
+  #scrollTop.visible { opacity: 1; transform: translateY(0); }
+  #scrollTop:hover { transform: scale(1.1); }
+
+  /* SECTION TITLE */
+  .section-title {
+    font-family: 'Bangers', cursive;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+  }
+  .section-sub {
+    font-size: 1rem;
+    color: var(--muted);
+    margin-bottom: 32px;
+    line-height: 1.6;
+  }
+
+  /* DIVIDER */
+  .divider {
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    margin: 20px 0 40px;
+  }
+
+  /* WHEN TO USE */
+  .when-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+  .when-card {
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+  }
+  .when-card .wi { font-size: 2rem; margin-bottom: 10px; }
+  .when-card h4 { font-size: 0.95rem; font-weight: 800; margin-bottom: 6px; }
+  .when-card p  { font-size: 0.83rem; color: #000; opacity: 0.75; line-height: 1.5; }
+
+  /* responsive */
+  @media (max-width: 600px) {
+    .verb-body { padding: 0 18px 24px; }
+    .verb-header { padding: 20px 18px; }
+    .magic-box { padding: 20px 18px; }
+    .formula { font-size: 1rem; }
+  }
+  .have-card { --accent: var(--have); }
+  .get-card  { --accent: var(--get);  }
+  .make-card { --accent: var(--make); }
+  .let-card  { --accent: var(--let);  }
+  .verb-card { border-color: var(--accent, var(--border)); }
+  .verb-header { background: linear-gradient(135deg, color-mix(in srgb, var(--accent,#fff) 15%, transparent), transparent); }
+  .formula-box { border-left-color: var(--accent, #fff); }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">🎓 English Grammar for Everyone</div>
+  <h1>HAVE · GET · MAKE · LET</h1>
+  <p class="hero-sub">
+    Causative Verbs — коли ти просиш, змушуєш, дозволяєш комусь щось зробити замість тебе!<br>
+    <span style="color:#a78bfa">When someone else does the action — but YOU are in charge! 💪</span>
+  </p>
+
+  <div class="magic-box">
+    <div class="magic-label">⭐ Universal Base Sentence / Базове речення</div>
+    <div class="magic-sentence">I want <span>the mechanic</span> to fix <span>my car</span>.</div>
+    <div class="magic-uk">Я хочу, щоб механік відремонтував мою машину.</div>
+  </div>
+</div>
+
+<!-- QUICK NAV -->
+<div class="quick-nav">
+  <a class="nav-btn nav-have" href="#have">🔧 HAVE</a>
+  <a class="nav-btn nav-get"  href="#get">🤝 GET</a>
+  <a class="nav-btn nav-make" href="#make">💪 MAKE</a>
+  <a class="nav-btn nav-let"  href="#let">🌟 LET</a>
+  <a class="nav-btn" style="background:#2e2d3d;color:#fff;border-color:#555" href="#compare">📊 Compare All</a>
+</div>
+
+<!-- ─────────────────────────── HAVE ─────────────────────────── -->
+<div class="section" id="have">
+  <div class="section-title" style="color:var(--have)">🔧 HAVE + object + past participle</div>
+  <p class="section-sub">
+    You arrange for someone to do something for you — professional, polite, neutral.<br>
+    <strong style="color:var(--have)">Ти організовуєш, щоб хтось зробив щось для тебе</strong> — ти не кажеш «хто» зробить, просто це відбувається. Ти платиш або організовуєш — і хтось робить роботу. Нейтрально та офіційно.
+  </p>
+</div>
+
+<div class="verb-card have-card section">
+  <div class="verb-header">
+    <div class="verb-emoji">🔧</div>
+    <div class="verb-title-block">
+      <h2 style="color:var(--have)">HAVE</h2>
+      <div class="verb-meaning" style="color:var(--have)">
+        "Організувати, щоб хтось зробив" · Arrange / Get done for you
+      </div>
+    </div>
+  </div>
+  <div class="verb-body">
+
+    <!-- FORMULA -->
+    <div class="formula-box">
+      <div class="formula-label">📐 Formula / Формула</div>
+      <div class="formula">
+        Subject + <span class="f-verb" style="background:var(--have);color:#000">have / has / had</span>
+        + <span class="f-obj">object</span>
+        + <span class="f-pp">past participle (V3)</span>
+      </div>
+    </div>
+
+    <!-- NUANCES -->
+    <div class="nuance-grid">
+      <div class="nuance-item">
+        <div class="nuance-icon">💼</div>
+        <h4 style="color:var(--have)">Professional / Офіційно</h4>
+        <p>Ти наймаєш когось або організовуєш послугу. Хто робить — неважливо чи не згадується.</p>
+      </div>
+      <div class="nuance-item">
+        <div class="nuance-icon">💰</div>
+        <h4 style="color:var(--have)">Usually paid / Зазвичай платна послуга</h4>
+        <p>Перукар, механік, лікар, будівельник — ти платиш і вони роблять.</p>
+      </div>
+      <div class="nuance-item">
+        <div class="nuance-icon">😇</div>
+        <h4 style="color:var(--have)">Neutral tone / Нейтральний тон</h4>
+        <p>Немає примусу, немає прохання — просто факт: щось зроблено для тебе.</p>
+      </div>
+      <div class="nuance-item">
+        <div class="nuance-icon">🎯</div>
+        <h4 style="color:var(--have)">Also: bad things happen to you!</h4>
+        <p>Іноді щось погане трапляється з тобою: I had my phone stolen. (У мене вкрали телефон.)</p>
+      </div>
+    </div>
+
+    <!-- MAGIC TRANSFORM -->
+    <div class="magic-transform">
+      <div class="ml">⭐ Universal sentence transformed / Базове речення змінюється</div>
+      <div class="transform-row">
+        <span class="tr-label">Base:</span>
+        <span class="tr-sentence">I want <em>the mechanic</em> to fix <em>my car</em>.</span>
+      </div>
+      <div class="transform-row">
+        <span class="tr-label">HAVE:</span>
+        <span class="tr-sentence">I <span class="hl" style="background:var(--have)">had</span> my car <span class="hl" style="background:var(--have)">fixed</span>.</span>
+      </div>
+      <div class="transform-row" style="margin-top:4px">
+        <span class="tr-label" style="color:var(--muted)">UA:</span>
+        <span class="tr-sentence" style="color:var(--muted)">Мені відремонтували машину. / Я здав машину на ремонт.</span>
+      </div>
+    </div>
+
+    <!-- WHEN -->
+    <div class="when-grid">
+      <div class="when-card" style="background:var(--have)">
+        <div class="wi">✂️</div>
+        <h4>Hair &amp; Beauty</h4>
+        <p>Перукарня, манікюр, макіяж — все що роблять для тебе фахівці</p>
+      </div>
+      <div class="when-card" style="background:var(--have)">
+        <div class="wi">🏠</div>
+        <h4>Home &amp; Repairs</h4>
+        <p>Ремонт будинку, сантехніка, електрика — ти наймаєш майстра</p>
+      </div>
+      <div class="when-card" style="background:var(--have)">
+        <div class="wi">🚗</div>
+        <h4>Car Service</h4>
+        <p>Машина в сервісі — механік робить, ти чекаєш</p>
+      </div>
+      <div class="when-card" style="background:var(--have)">
+        <div class="wi">😱</div>
+        <h4>Bad Events</h4>
+        <p>Щось погане трапилось — крадіжка, аварія, зламана річ</p>
+      </div>
+    </div>
+
+    <!-- EXAMPLES -->
+    <div style="font-weight:800;font-size:1rem;margin-bottom:12px;color:var(--have)">📚 Lots of Examples / Багато прикладів</div>
+    <div class="examples-grid">
+      <div class="ex-card">
+        <span class="ex-tag" style="background:var(--have)">💇 hair</span>
+        <div class="ex-en">I <strong>have</strong> my hair <strong>cut</strong> every month.</div>
+        <div class="ex-uk">Я стрижуся кожного місяця. (хтось стриже мене)</div>
+      </div>
+      <div class="ex-card">
+        <span class="ex-tag" style="background:var(--have)">🚗 car</span>
+        <div class="ex-en">She <strong>had</strong> her car <strong>repaired</strong> yesterday.</div>
+        <div class="ex-uk">Їй вчора відремонтували машину.</div>
+      </div>
+      <div class="ex-card">
+        <span class="ex-tag" style="background:var(--have)">🏠 home</span>
+        <div class="ex-en">We're <strong>having</strong> our house <strong>painted</strong> next week.</div>
+        <div class="ex-uk">Наступного тижня нам фарбуватимуть будинок.</div>
+      </div>
+      <div class="ex-card">
+        <span class="ex-tag" style="background:var(--have)">📸 photo</span>
+        <div class="ex-en">He <strong>had</strong> his photo <strong>taken</strong> by a professional.</div>
+        <div class="ex-uk">Він сфотографувався у професійного фотографа.</div>
+      </div>
+      <div class="ex-card">
+        <span class="ex-tag" style="background:var(--have)">🦷 health</span>
+        <div class="ex-en">I need to <strong>have</strong> my teeth <strong>checked</strong>.</div>
+        <div class="ex-uk">Мені треба перевірити зуби (у стоматолога).</div>
+      </div>
+      <div class="ex-card">
+        <span class="ex-tag" style="background:var(--have)">👗 clothes</span>
+        <div class="ex-en">She <strong>had</strong> her dress <strong>cleaned</strong> at the laundry.</div>
+        <div class="ex-uk">Вона здала сукню до хімчистки.</div>
+      </div>
+      <div class="ex-card">
+        <span class="ex-tag" style="background:var(--have)">😱 theft</span>
+        <div class="ex-en">I <strong>had</strong> my wallet <strong>stolen</strong> on the bus.</div>
+        <div class="ex-uk">У мене вкрали гаманець в автобусі.</div>
+      </div>
+      <div class="ex-card">
+        <span class="ex-tag" style="background:var(--have)">🏗️ build</span>
+        <div class="ex-en">They <strong>had</strong> a new kitchen <strong>installed</strong>.</div>
+        <div class="ex-uk">Їм встановили нову кухню.</div>
+      </div>
+      <div class="ex-card">
+        <span class="ex-tag" style="background:var(--have)">📱 tech</span>
+        <div class="ex-en">I <strong>had</strong> my phone <strong>fixed</strong> at the repair shop.</div>
+        <div class="ex-uk">Я здав телефон у ремонт.</div>
+      </div>
+      <div class="ex-card">
+        <span class="ex-tag" style="background:var(--have)">🐕 pet</span>
+        <div class="ex-en">We <strong>have</strong> our dog <strong>washed</strong> at the pet salon.</div>
+        <div class="ex-uk">Ми купаємо собаку в зоосалоні.</div>
+      </div>
+      <div class="ex-card">
+        <span class="ex-tag" style="background:var(--have)">📄 docs</span>
+        <div class="ex-en">He <strong>had</strong> the contract <strong>signed</strong> by the lawyer.</div>
+        <div class="ex-uk">Він підписав контракт через адвоката.</div>
+      </div>
+      <div class="ex-card">
+        <span class="ex-tag" style="background:var(--have)">💻 work</span>
+        <div class="ex-en">The company <strong>had</strong> the website <strong>redesigned</strong>.</div>
+        <div class="ex-uk">Компанія замовила редизайн сайту.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─────────────────────────── GET ─────────────────────────── -->
+<div class="section" id="get">
+  <div class="section-title" style="color:var(--get)">🤝 GET + object + to + verb / past participle</div>
+  <p class="section-sub">
+    You persuade or convince someone to do something — it takes effort!<br>
+    <strong style="color:var(--get)">Ти переконуєш, умовляєш, домагаєшся, щоб хтось щось зробив</strong> — це потребує зусиль. GET = трохи важче, ніж HAVE.
+  </p>
+</div>
+
+<div class="verb-card get-card section">
+  <div class="verb-header">
+    <div class="verb-emoji">🤝</div>
+    <div class="verb-title-block">
+      <h2 style="color:var(--get)">GET</h2>
+      <div class="verb-meaning" style="color:var(--get)">
+        "Умовити / домогтися, щоб хтось зробив" · Persuade / Convince to do
+      </div>
+    </div>
+  </div>
+  <div class="verb-body">
+
+    <!-- TWO FORMULAS -->
+    <div class="formula-box">
+      <div class="formula-label">📐 Formula 1 — People / Люди (переконати когось)</div>
+      <div class="formula">
+        Subject + <span class="f-verb" style="background:var(--get);color:#000">get / gets / got</span>
+        + <span class="f-obj">person</span>
+        + <span class="f-to" style="font-weight:900">to</span>
+        + <span class="f-inf">verb (infinitive)</span>
+      </div>
+    </div>
+    <div class="formula-box" style="margin-top:-10px">
+      <div class="formula-label">📐 Formula 2 — Things / Речі (організувати, щоб щось зробили)</div>
+      <div class="formula">
+        Subject + <span class="f-verb" style="background:var(--get);color:#000">get / gets / got</span>
+        + <span class="f-obj">thing</span>
+        + <span class="f-pp">past participle (V3)</span>
+      </div>
+    </div>
+
+    <!-- NUANCES -->
+    <div class="nuance-grid">
+      <div class="nuance-item">
+        <div class="nuance-icon">🗣️</div>
+        <h4 style="color:var(--get)">Persuasion / Переконання</h4>
+        <p>Ти доклав зусилля — можливо попросив кілька разів, умовляв, переконував.</p>
+      </div>
+      <div class="nuance-item">
+        <div class="nuance-icon">😅</div>
+        <h4 style="color:var(--get)">Not easy / Не просто</h4>
+        <p>GET показує, що це не завжди легко. Людина могла не хотіти — але ти домігся!</p>
+      </div>
+      <div class="nuance-item">
+        <div class="nuance-icon">💬</div>
+        <h4 style="color:var(--get)">Informal / Неформально</h4>
+        <p>Вживається в розмовній мові. GET звучить більш по-дружньому, ніж HAVE.</p>
+      </div>
+      <div class="nuance-item">
+        <div class="nuance-icon">🔄</div>
+        <h4 style="color:var(--get)">Two formulas! / Дві формули</h4>
+        <p>GET + person + TO + verb (переконати людину) або GET + thing + V3 (речі зробити)</p>
+      </div>
+    </div>
+
+    <!-- MAGIC TRANSFORM -->
+    <div class="magic-transform">
+      <div class="ml">⭐ Universal sentence transformed / Базове речення змінюється</div>
+      <div class="transform-row">
+        <span class="tr-label">Base:</span>
+        <span class="tr-sentence">I want <em>the mechanic</em> to fix <em>my car</em>.</span>
+      </div>
+      <div class="transform-row">
+        <span class="tr-label">GET (person):</span>
+        <span class="tr-sentence">I <span class="hl" style="background:var(--get)">got</span> the mechanic <span class="hl" style="background:var(--get)">to fix</span> my car.</span>
+      </div>
+      <div class="transform-row">
+        <span class="tr-label">GET (thing):</span>
+        <span class="tr-sentence">I <span class="hl" style="background:var(--get)">got</span> my car <span class="hl" style="background:var(--get)">fixed</span>.</span>
+      </div>
+      <div class="transform-row" style="margin-top:4px">
+        <span class="tr-label" style="color:var(--muted)">UA:</span>
+        <span class="tr-sentence" style="color:var(--muted)">Я умовив механіка відремонтувати машину. / Мені нарешті полагодили машину!</span>
+      </div>
+    </div>
+
+    <!-- WHEN -->
+    <div class="when-grid">
+      <div class="when-card" style="background:var(--get)">
+        <div class="wi">🙋</div>
+        <h4>Convince friends</h4>
+        <p>Умовити друга або члена родини зробити щось</p>
+      </div>
+      <div class="when-card" style="background:var(--get)">
+        <div class="wi">👨‍🔧</div>
+        <h4>Arrange services</h4>
+        <p>Організувати ремонт чи послугу — але з зусиллям</p>
+      </div>
+      <div class="when-card" style="background:var(--get)">
+        <div class="wi">🗣️</div>
+        <h4>Persuade</h4>
+        <p>Переконати когось неохочого, хто спочатку відмовлявся</p>
+      </div>
+      <div class="when-card" style="background:var(--get)">
+        <div class="wi">🎉</div>
+        <h4>Achieve a result</h4>
+        <p>Добитися результату — нарешті щось зроблено!</p>
+      </div>
+    </div>
+
+    <!-- EXAMPLES -->
+    <div style="font-weight:800;font-size:1rem;margin-bottom:12px;color:var(--get)">📚 Lots of Examples / Багато прикладів</div>
+    <div class="examples-grid">
+      <div class="ex-card">
+        <span class="ex-tag" style="background:var(--get)">🧹 chores</span>
+        <div class="ex-en">She <strong>got</strong> her brother <strong>to clean</strong> the room.</div>
+        <div class="ex-uk">Вона умовила брата прибрати кімнату.</div>
+      </div>
+      <div class="ex-card">
+        <span class="ex-tag" style="background:var(--get)">🚗 car</span>
+        <div class="ex-en">I finally <strong>got</strong> my car <strong>fixed</strong>!</div>
+        <div class="ex-uk">Нарешті мені полагодили машину!</div>
+      </div>
+      <div class="ex-card">
+        <span class="ex-tag" style="background:var(--get)">👨‍👦 family</span>
+        <div class="ex-en">He <strong>got</strong> his dad <strong>to lend</strong> him money.</div>
+        <div class="ex-uk">Він умовив тата позичити йому грошей.</div>
+      </div>
+      <div class="ex-card">
+        <span class="ex-tag" style="background:var(--get)">🖨️ office</span>
+        <div class="ex-en">Can you <strong>get</strong> the printer <strong>fixed</strong>?</div>
+        <div class="ex-uk">Ти можеш домогтися, щоб принтер полагодили?</div>
+      </div>
+      <div class="ex-card">
+        <span class="ex-tag" style="background:var(--get)">👩‍💼 boss</span>
+        <div class="ex-en">She <strong>got</strong> her boss <strong>to approve</strong> the project.</div>
+        <div class="ex-uk">Вона переконала боса схвалити проект.</div>
+      </div>
+      <div class="ex-card">
+        <span class="ex-tag" style="background:var(--get)">🐕 pet</span>
+        <div class="ex-en">He <strong>got</strong> his sister <strong>to walk</strong> the dog.</div>
+        <div class="ex-uk">Він умовив сестру вигуляти собаку.</div>
+      </div>
+      <div class="ex-card">
+        <span class="ex-tag" style="background:var(--get)">📝 homework</span>
+        <div class="ex-en">I <strong>got</strong> my friend <strong>to help</strong> me with homework.</div>
+        <div class="ex-uk">Я попросив (умовив) друга допомогти з домашнім.</div>
+      </div>
+      <div class="ex-card">
+        <span class="ex-tag" style="background:var(--get)">🔑 keys</span>
+        <div class="ex-en">She <strong>got</strong> her keys <strong>copied</strong> at the shop.</div>
+        <div class="ex-uk">Вона скопіювала ключі в майстерні.</div>
+      </div>
+      <div class="ex-card">
+        <span class="ex-tag" style="background:var(--get)">🏥 health</span>
+        <div class="ex-en">I <strong>got</strong> my blood <strong>tested</strong> at the clinic.</div>
+        <div class="ex-uk">Я здав аналіз крові в клініці.</div>
+      </div>
+      <div class="ex-card">
+        <span class="ex-tag" style="background:var(--get)">📦 delivery</span>
+        <div class="ex-en">She <strong>got</strong> the package <strong>delivered</strong> quickly.</div>
+        <div class="ex-uk">Вона домоглася швидкої доставки посилки.</div>
+      </div>
+      <div class="ex-card">
+        <span class="ex-tag" style="background:var(--get)">🎸 music</span>
+        <div class="ex-en">He <strong>got</strong> his friends <strong>to sing</strong> at the party.</div>
+        <div class="ex-uk">Він умовив друзів заспівати на вечірці.</div>
+      </div>
+      <div class="ex-card">
+        <span class="ex-tag" style="background:var(--get)">🏠 rent</span>
+        <div class="ex-en">She <strong>got</strong> the landlord <strong>to lower</strong> the rent.</div>
+        <div class="ex-uk">Вона переконала орендодавця знизити орендну плату.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─────────────────────────── MAKE ─────────────────────────── -->
+<div class="section" id="make">
+  <div class="section-title" style="color:var(--make)">💪 MAKE + object + verb (bare infinitive)</div>
+  <p class="section-sub">
+    You force or cause someone to do something — they have no choice!<br>
+    <strong style="color:var(--make)">Ти змушуєш когось щось зробити</strong> — у людини немає вибору. Це може бути через владу, правило, ситуацію або емоцію. MAKE = примус або сильний вплив!
+  </p>
+</div>
+
+<div class="verb-card make-card section">
+  <div class="verb-header">
+    <div class="verb-emoji">💪</div>
+    <div class="verb-title-block">
+      <h2 style="color:var(--make)">MAKE</h2>
+      <div class="verb-meaning" style="color:var(--make)">
+        "Змусити / викликати" · Force / Cause (no choice!)
+      </div>
+    </div>
+  </div>
+  <div class="verb-body">
+
+    <div class="formula-box">
+      <div class="formula-label">📐 Formula / Формула — УВАГА: без "TO"!</div>
+      <div class="formula">
+        Subject + <span class="f-verb" style="background:var(--make);color:#000">make / makes / made</span>
+        + <span class="f-obj">object</span>
+        + <span class="f-bare">bare infinitive (verb, NO "to"!)</span>
+      </div>
+    </div>
+
+    <div style="background: rgba(6,214,160,0.1); border:2px solid var(--make); border-radius:14px; padding:14px 18px; margin-bottom:20px; font-weight:700;">
+      ⚠️ <span style="color:var(--make)">IMPORTANT!</span> After MAKE we use verb WITHOUT "to" — bare infinitive!<br>
+      <span style="color:var(--muted); font-weight:400">Після MAKE ми ставимо дієслово БЕЗ "to" — голий інфінітив!</span><br>
+      ✅ She made him <strong>go</strong>. &nbsp;&nbsp; ❌ She made him <s>to go</s>.
+    </div>
+
+    <!-- NUANCES -->
+    <div class="nuance-grid">
+      <div class="nuance-item">
+        <div class="nuance-icon">😤</div>
+        <h4 style="color:var(--make)">Force / Примус</h4>
+        <p>Людина не хоче, але мусить. Немає вибору! Мама, вчитель, правило, закон...</p>
+      </div>
+      <div class="nuance-item">
+        <div class="nuance-icon">😢</div>
+        <h4 style="color:var(--make)">Cause emotions / Емоції</h4>
+        <p>MAKE може викликати почуття: The film made me cry. (Фільм змусив мене плакати.)</p>
+      </div>
+      <div class="nuance-item">
+        <div class="nuance-icon">👨‍👩‍👧</div>
+        <h4 style="color:var(--make)">Authority / Авторитет</h4>
+        <p>Батьки, вчителі, боси, правила — вони мають право змушувати.</p>
+      </div>
+      <div class="nuance-item">
+        <div class="nuance-icon">🌍</div>
+        <h4 style="color:var(--make)">Situations / Ситуації</h4>
+        <p>Не тільки люди! Дощ, шум, погода теж можуть "змушувати": The rain made us stop.</p>
+      </div>
+    </div>
+
+    <!-- MAGIC TRANSFORM -->
+    <div class="magic-transform">
+      <div class="ml">⭐ Universal sentence transformed / Базове речення змінюється</div>
+      <div class="transform-row">
+        <span class="tr-label">Base:</span>
+        <span class="tr-sentence">I want <em>the mechanic</em> to fix <em>my car</em>.</span>
+      </div>
+      <div class="transform-row">
+        <span class="tr-label">MAKE:</span>
+        <span class="tr-sentence">The manager <span class="hl" style="background:var(--make)">made</span> the mechanic <span class="hl" style="background:var(--make)">fix</span> the car.</span>
+      </div>
+      <div class="transform-row" style="margin-top:4px">
+        <span class="tr-label" style="color:var(--muted)">UA:</span>
+        <span class="tr-sentence" style="color:var(--muted)">Менеджер змусив механіка відремонтувати машину.</span>
+      </div>
+    </div>
+
+    <!-- WHEN -->
+    <div class="when-grid">
+      <div class="when-card" style="background:var(--make)">
+        <div class="wi">👩‍👧</div>
+        <h4>Parents &amp; kids</h4>
+        <p>Батьки змушують дітей щось робити — прибирати, їсти, спати</p>
+      </div>
+      <div class="when-card" style="background:var(--make)">
+        <div class="wi">📖</div>
+        <h4>Rules &amp; laws</h4>
+        <p>Правила, закони, розклад — вони змушують людей діяти</p>
+      </div>
+      <div class="when-card" style="background:var(--make)">
+        <div class="wi">😂</div>
+        <h4>Emotions &amp; feelings</h4>
+        <p>Щось викликає у тебе почуття: сміх, сльози, злість</p>
+      </div>
+      <div class="when-card" style="background:var(--make)">
+        <div class="wi">🌧️</div>
+        <h4>Situations</h4>
+        <p>Ситуації змушують нас щось робити: дощ, темрява, шум</p>
+      </div>
+    </div>
+
+    <!-- EXAMPLES -->
+    <div style="font-weight:800;font-size:1rem;margin-bottom:12px;color:var(--make)">📚 Lots of Examples / Багато прикладів</div>
+    <div class="examples-grid">
+      <div class="ex-card">
+        <span class="ex-tag" style="background:var(--make)">👩‍👧 parent</span>
+        <div class="ex-en">Mum <strong>made</strong> me <strong>eat</strong> my vegetables.</div>
+        <div class="ex-uk">Мама змусила мене з'їсти овочі.</div>
+      </div>
+      <div class="ex-card">
+        <span class="ex-tag" style="background:var(--make)">😂 funny</span>
+        <div class="ex-en">That joke <strong>made</strong> everyone <strong>laugh</strong>.</div>
+        <div class="ex-uk">Цей жарт змусив усіх сміятися.</div>
+      </div>
+      <div class="ex-card">
+        <span class="ex-tag" style="background:var(--make)">🎬 movie</span>
+        <div class="ex-en">The film <strong>made</strong> me <strong>cry</strong>.</div>
+        <div class="ex-uk">Фільм змусив мене плакати.</div>
+      </div>
+      <div class="ex-card">
+        <span class="ex-tag" style="background:var(--make)">👨‍💼 boss</span>
+        <div class="ex-en">The boss <strong>made</strong> us <strong>work</strong> overtime.</div>
+        <div class="ex-uk">Бос змусив нас працювати понаднормово.</div>
+      </div>
+      <div class="ex-card">
+        <span class="ex-tag" style="background:var(--make)">🏫 school</span>
+        <div class="ex-en">The teacher <strong>made</strong> him <strong>redo</strong> the test.</div>
+        <div class="ex-uk">Вчитель змусив його переробити тест.</div>
+      </div>
+      <div class="ex-card">
+        <span class="ex-tag" style="background:var(--make)">😤 anger</span>
+        <div class="ex-en">His attitude <strong>makes</strong> me <strong>feel</strong> angry.</div>
+        <div class="ex-uk">Його поведінка злить мене.</div>
+      </div>
+      <div class="ex-card">
+        <span class="ex-tag" style="background:var(--make)">🌧️ weather</span>
+        <div class="ex-en">The rain <strong>made</strong> us <strong>stay</strong> inside.</div>
+        <div class="ex-uk">Дощ змусив нас залишитися вдома.</div>
+      </div>
+      <div class="ex-card">
+        <span class="ex-tag" style="background:var(--make)">🛑 rules</span>
+        <div class="ex-en">The law <strong>makes</strong> drivers <strong>wear</strong> seatbelts.</div>
+        <div class="ex-uk">Закон змушує водіїв пристібати ремінь.</div>
+      </div>
+      <div class="ex-card">
+        <span class="ex-tag" style="background:var(--make)">😴 sleep</span>
+        <div class="ex-en">Mum <strong>makes</strong> us <strong>go</strong> to bed at 9 pm.</div>
+        <div class="ex-uk">Мама змушує нас лягати спати о 9-й.</div>
+      </div>
+      <div class="ex-card">
+        <span class="ex-tag" style="background:var(--make)">😨 scary</span>
+        <div class="ex-en">The horror movie <strong>made</strong> her <strong>scream</strong>.</div>
+        <div class="ex-uk">Фільм жахів змусив її закричати.</div>
+      </div>
+      <div class="ex-card">
+        <span class="ex-tag" style="background:var(--make)">🔕 noise</span>
+        <div class="ex-en">The loud music <strong>made</strong> me <strong>leave</strong> the room.</div>
+        <div class="ex-uk">Гучна музика змусила мене вийти з кімнати.</div>
+      </div>
+      <div class="ex-card">
+        <span class="ex-tag" style="background:var(--make)">🏃 run</span>
+        <div class="ex-en">The coach <strong>made</strong> us <strong>run</strong> five kilometres.</div>
+        <div class="ex-uk">Тренер змусив нас пробігти п'ять кілометрів.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─────────────────────────── LET ─────────────────────────── -->
+<div class="section" id="let">
+  <div class="section-title" style="color:var(--let)">🌟 LET + object + verb (bare infinitive)</div>
+  <p class="section-sub">
+    You allow or permit someone to do something — they want to do it, and you say YES!<br>
+    <strong style="color:var(--let)">Ти дозволяєш, розрішаєш комусь щось зробити</strong> — людина хоче, і ти не проти. Протилежне до MAKE: не примушуєш, а дозволяєш!
+  </p>
+</div>
+
+<div class="verb-card let-card section">
+  <div class="verb-header">
+    <div class="verb-emoji">🌟</div>
+    <div class="verb-title-block">
+      <h2 style="color:var(--let)">LET</h2>
+      <div class="verb-meaning" style="color:var(--let)">
+        "Дозволити / не заважати" · Allow / Permit
+      </div>
+    </div>
+  </div>
+  <div class="verb-body">
+
+    <div class="formula-box">
+      <div class="formula-label">📐 Formula / Формула — теж без "TO"!</div>
+      <div class="formula">
+        Subject + <span class="f-verb" style="background:var(--let);color:#000">let / lets / let</span>
+        + <span class="f-obj">object</span>
+        + <span class="f-bare">bare infinitive (verb, NO "to"!)</span>
+      </div>
+    </div>
+
+    <div style="background: rgba(167,139,250,0.1); border:2px solid var(--let); border-radius:14px; padding:14px 18px; margin-bottom:20px; font-weight:700;">
+      ⚠️ <span style="color:var(--let)">IMPORTANT!</span> LET теж без "to" — як і MAKE!<br>
+      <span style="color:var(--muted); font-weight:400">Після LET теж стоїть дієслово БЕЗ "to"!</span><br>
+      ✅ She let him <strong>go</strong>. &nbsp;&nbsp; ❌ She let him <s>to go</s>.<br>
+      ⚠️ Past tense of LET = <strong>let</strong> (не змінюється!)
+    </div>
+
+    <!-- NUANCES -->
+    <div class="nuance-grid">
+      <div class="nuance-item">
+        <div class="nuance-icon">✅</div>
+        <h4 style="color:var(--let)">Permission / Дозвіл</h4>
+        <p>Ти маєш владу або контроль і кажеш "так". Батьки дозволяють, вчитель дозволяє.</p>
+      </div>
+      <div class="nuance-item">
+        <div class="nuance-icon">😊</div>
+        <h4 style="color:var(--let)">Positive / Позитивно</h4>
+        <p>LET — добре слово! Людина рада, бо їй дозволили. Немає примусу.</p>
+      </div>
+      <div class="nuance-item">
+        <div class="nuance-icon">🙅</div>
+        <h4 style="color:var(--let)">Not let = refuse / Не пускати</h4>
+        <p>NOT LET = відмовити: My mum didn't let me go out. (Мама не пустила мене гуляти.)</p>
+      </div>
+      <div class="nuance-item">
+        <div class="nuance-icon">🔀</div>
+        <h4 style="color:var(--let)">Opposite of MAKE!</h4>
+        <p>MAKE = змушує | LET = дозволяє. Ці два слова — протилежності!</p>
+      </div>
+    </div>
+
+    <!-- MAGIC TRANSFORM -->
+    <div class="magic-transform">
+      <div class="ml">⭐ Universal sentence transformed / Базове речення змінюється</div>
+      <div class="transform-row">
+        <span class="tr-label">Base:</span>
+        <span class="tr-sentence">I want <em>the mechanic</em> to fix <em>my car</em>.</span>
+      </div>
+      <div class="transform-row">
+        <span class="tr-label">LET:</span>
+        <span class="tr-sentence">The owner <span class="hl" style="background:var(--let)">let</span> the mechanic <span class="hl" style="background:var(--let)">fix</span> the car right away.</span>
+      </div>
+      <div class="transform-row" style="margin-top:4px">
+        <span class="tr-label" style="color:var(--muted)">UA:</span>
+        <span class="tr-sentence" style="color:var(--muted)">Власник дозволив механіку одразу відремонтувати машину.</span>
+      </div>
+    </div>
+
+    <!-- WHEN -->
+    <div class="when-grid">
+      <div class="when-card" style="background:var(--let)">
+        <div class="wi">🏃</div>
+        <h4>Go out &amp; play</h4>
+        <p>Батьки дозволяють гуляти, грати, виходити</p>
+      </div>
+      <div class="when-card" style="background:var(--let)">
+        <div class="wi">📺</div>
+        <h4>Watch &amp; enjoy</h4>
+        <p>Дозвіл дивитися, слухати, брати участь</p>
+      </div>
+      <div class="when-card" style="background:var(--let)">
+        <div class="wi">🤲</div>
+        <h4>Freedom &amp; choice</h4>
+        <p>Ти не контролюєш — ти даєш свободу дій</p>
+      </div>
+      <div class="when-card" style="background:var(--let)">
+        <div class="wi">🚫</div>
+        <h4>NOT let = refuse</h4>
+        <p>Відмовити в дозволі — not let / didn't let / won't let</p>
+      </div>
+    </div>
+
+    <!-- EXAMPLES -->
+    <div style="font-weight:800;font-size:1rem;margin-bottom:12px;color:var(--let)">📚 Lots of Examples / Багато прикладів</div>
+    <div class="examples-grid">
+      <div class="ex-card">
+        <span class="ex-tag" style="background:var(--let)">🏃 go out</span>
+        <div class="ex-en">Mum <strong>let</strong> me <strong>go</strong> to the party!</div>
+        <div class="ex-uk">Мама дозволила мені піти на вечірку!</div>
+      </div>
+      <div class="ex-card">
+        <span class="ex-tag" style="background:var(--let)">🐕 pet</span>
+        <div class="ex-en">He <strong>let</strong> the dog <strong>sleep</strong> on the sofa.</div>
+        <div class="ex-uk">Він дозволив собаці спати на дивані.</div>
+      </div>
+      <div class="ex-card">
+        <span class="ex-tag" style="background:var(--let)">📺 TV</span>
+        <div class="ex-en">Dad <strong>let</strong> us <strong>stay</strong> up late to watch the film.</div>
+        <div class="ex-uk">Тато дозволив нам не лягати спати пізно, щоб подивитися фільм.</div>
+      </div>
+      <div class="ex-card">
+        <span class="ex-tag" style="background:var(--let)">🚗 drive</span>
+        <div class="ex-en">She <strong>let</strong> her son <strong>drive</strong> her car.</div>
+        <div class="ex-uk">Вона дозволила синові їздити на своїй машині.</div>
+      </div>
+      <div class="ex-card">
+        <span class="ex-tag" style="background:var(--let)">🎮 games</span>
+        <div class="ex-en">He didn't <strong>let</strong> me <strong>use</strong> his console.</div>
+        <div class="ex-uk">Він не дозволив мені користуватися його консоллю.</div>
+      </div>
+      <div class="ex-card">
+        <span class="ex-tag" style="background:var(--let)">🧑‍🍳 cook</span>
+        <div class="ex-en">The teacher <strong>let</strong> students <strong>choose</strong> their topics.</div>
+        <div class="ex-uk">Вчитель дозволив учням обирати теми самостійно.</div>
+      </div>
+      <div class="ex-card">
+        <span class="ex-tag" style="background:var(--let)">🎤 sing</span>
+        <div class="ex-en">Let me <strong>help</strong> you with that!</div>
+        <div class="ex-uk">Дозволь мені тобі допомогти!</div>
+      </div>
+      <div class="ex-card">
+        <span class="ex-tag" style="background:var(--let)">🏊 swim</span>
+        <div class="ex-en">They <strong>let</strong> the kids <strong>swim</strong> in the lake.</div>
+        <div class="ex-uk">Вони дозволили дітям купатися в озері.</div>
+      </div>
+      <div class="ex-card">
+        <span class="ex-tag" style="background:var(--let)">🐈 cat</span>
+        <div class="ex-en">Please <strong>let</strong> the cat <strong>out</strong> of the room.</div>
+        <div class="ex-uk">Будь ласка, випусти кота з кімнати.</div>
+      </div>
+      <div class="ex-card">
+        <span class="ex-tag" style="background:var(--let)">🛍️ shop</span>
+        <div class="ex-en">She <strong>let</strong> her daughter <strong>buy</strong> new shoes.</div>
+        <div class="ex-uk">Вона дозволила доньці купити нове взуття.</div>
+      </div>
+      <div class="ex-card">
+        <span class="ex-tag" style="background:var(--let)">🎨 art</span>
+        <div class="ex-en">The teacher <strong>let</strong> us <strong>draw</strong> freely today.</div>
+        <div class="ex-uk">Сьогодні вчитель дозволив нам малювати вільно.</div>
+      </div>
+      <div class="ex-card">
+        <span class="ex-tag" style="background:var(--let)">🤫 secret</span>
+        <div class="ex-en">Don't <strong>let</strong> anyone <strong>know</strong> about this!</div>
+        <div class="ex-uk">Нікому не кажи про це!</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─────────────────────────── COMPARE ALL ─────────────────────────── -->
+<div class="compare-section" id="compare">
+  <div class="divider"></div>
+  <div class="compare-title">📊 Compare All Four / Порівняй усі чотири</div>
+
+  <!-- INFOGRAPHIC: CONTROL SCALE -->
+  <div style="background:var(--card-bg);border-radius:20px;padding:28px;border:1px solid var(--border);margin-bottom:32px;">
+    <div style="font-weight:800;font-size:1rem;margin-bottom:16px;text-align:center;color:var(--muted)">
+      🎯 Power Scale / Шкала контролю та сили
+    </div>
+    <div style="display:flex;align-items:center;gap:0;justify-content:center;flex-wrap:wrap;gap:4px;">
+      <div style="text-align:center;padding:12px 16px;background:var(--let-soft);border:2px solid var(--let);border-radius:12px;flex:1;min-width:130px;">
+        <div style="font-size:1.6rem">🌟</div>
+        <div style="color:var(--let);font-weight:800;font-size:1rem">LET</div>
+        <div style="font-size:0.8rem;color:var(--muted)">Дозволяєш<br>"You may!"</div>
+      </div>
+      <div style="font-size:1.5rem;color:var(--muted);padding:0 6px">→</div>
+      <div style="text-align:center;padding:12px 16px;background:var(--have-soft);border:2px solid var(--have);border-radius:12px;flex:1;min-width:130px;">
+        <div style="font-size:1.6rem">🔧</div>
+        <div style="color:var(--have);font-weight:800;font-size:1rem">HAVE</div>
+        <div style="font-size:0.8rem;color:var(--muted)">Організовуєш<br>"It's done for me"</div>
+      </div>
+      <div style="font-size:1.5rem;color:var(--muted);padding:0 6px">→</div>
+      <div style="text-align:center;padding:12px 16px;background:var(--get-soft);border:2px solid var(--get);border-radius:12px;flex:1;min-width:130px;">
+        <div style="font-size:1.6rem">🤝</div>
+        <div style="color:var(--get);font-weight:800;font-size:1rem">GET</div>
+        <div style="font-size:0.8rem;color:var(--muted)">Переконуєш<br>"I persuaded!"</div>
+      </div>
+      <div style="font-size:1.5rem;color:var(--muted);padding:0 6px">→</div>
+      <div style="text-align:center;padding:12px 16px;background:var(--make-soft);border:2px solid var(--make);border-radius:12px;flex:1;min-width:130px;">
+        <div style="font-size:1.6rem">💪</div>
+        <div style="color:var(--make);font-weight:800;font-size:1rem">MAKE</div>
+        <div style="font-size:0.8rem;color:var(--muted)">Змушуєш<br>"No choice!"</div>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:space-between;margin-top:10px;padding:0 10px;font-size:0.8rem;color:var(--muted)">
+      <span>😊 Most friendly / Найдружніше</span>
+      <span>😤 Most forceful / Найсильніше</span>
+    </div>
+  </div>
+
+  <!-- QUICK FORMULA RECAP -->
+  <div style="background:var(--card-bg);border-radius:20px;padding:28px;border:1px solid var(--border);margin-bottom:32px;">
+    <div style="font-weight:800;font-size:1rem;margin-bottom:16px;text-align:center;color:var(--muted)">
+      📐 All Formulas at a Glance / Всі формули разом
+    </div>
+    <div class="timeline">
+      <div class="tl-item tl-dot-have">
+        <h4 style="color:var(--have)">HAVE + object + <span style="background:var(--have);color:#000;padding:1px 6px;border-radius:4px;font-size:0.85rem">past participle (V3)</span></h4>
+        <p>I had my car <strong>repaired</strong>. — Мені відремонтували машину.</p>
+      </div>
+      <div class="tl-item tl-dot-get">
+        <h4 style="color:var(--get)">GET + person + <span style="background:var(--get);color:#000;padding:1px 6px;border-radius:4px;font-size:0.85rem">to + verb</span> &nbsp;|&nbsp; GET + thing + <span style="background:var(--get);color:#000;padding:1px 6px;border-radius:4px;font-size:0.85rem">past participle</span></h4>
+        <p>I got him <strong>to wash</strong> the car. / I got the car <strong>washed</strong>. — Я умовив його помити машину. / Машину помили.</p>
+      </div>
+      <div class="tl-item tl-dot-make">
+        <h4 style="color:var(--make)">MAKE + object + <span style="background:var(--make);color:#000;padding:1px 6px;border-radius:4px;font-size:0.85rem">bare infinitive (NO "to"!)</span></h4>
+        <p>She made him <strong>wash</strong> the car. — Вона змусила його помити машину.</p>
+      </div>
+      <div class="tl-item tl-dot-let">
+        <h4 style="color:var(--let)">LET + object + <span style="background:var(--let);color:#000;padding:1px 6px;border-radius:4px;font-size:0.85rem">bare infinitive (NO "to"!)</span></h4>
+        <p>Dad let me <strong>drive</strong> the car. — Тато дозволив мені вести машину.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FULL COMPARISON TABLE -->
+  <div style="overflow-x:auto">
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th>Verb</th>
+        <th>Meaning / Значення</th>
+        <th>Formula / Формула</th>
+        <th>Tone / Відтінок</th>
+        <th>Example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="c-have">
+        <td>HAVE</td>
+        <td>Arrange for sb to do sth<br><span style="color:var(--muted);font-size:0.85rem">Організувати, щоб хтось зробив</span></td>
+        <td>have + obj + <strong>V3</strong></td>
+        <td>Neutral, professional<br><span style="color:var(--muted);font-size:0.85rem">Нейтрально, офіційно</span></td>
+        <td>I had my hair <strong>cut</strong>.</td>
+      </tr>
+      <tr class="c-get">
+        <td>GET</td>
+        <td>Persuade / convince to do<br><span style="color:var(--muted);font-size:0.85rem">Умовити, переконати</span></td>
+        <td>get + person + <strong>to V</strong><br>get + thing + <strong>V3</strong></td>
+        <td>Informal, effort needed<br><span style="color:var(--muted);font-size:0.85rem">Розмовно, потрібні зусилля</span></td>
+        <td>I got him <strong>to help</strong> me.</td>
+      </tr>
+      <tr class="c-make">
+        <td>MAKE</td>
+        <td>Force, cause to do<br><span style="color:var(--muted);font-size:0.85rem">Змусити, примусити</span></td>
+        <td>make + obj + <strong>V (no to!)</strong></td>
+        <td>Strong, no choice!<br><span style="color:var(--muted);font-size:0.85rem">Сильно, без вибору!</span></td>
+        <td>She made him <strong>apologise</strong>.</td>
+      </tr>
+      <tr class="c-let">
+        <td>LET</td>
+        <td>Allow, permit to do<br><span style="color:var(--muted);font-size:0.85rem">Дозволити</span></td>
+        <td>let + obj + <strong>V (no to!)</strong></td>
+        <td>Positive, freedom<br><span style="color:var(--muted);font-size:0.85rem">Позитивно, свобода</span></td>
+        <td>Mum let me <strong>stay</strong> up late.</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <!-- SAME SITUATION — DIFFERENT VERB -->
+  <div style="background:var(--card-bg);border-radius:20px;padding:28px;border:1px solid var(--border);margin-top:32px;">
+    <div style="font-weight:800;font-size:1.1rem;margin-bottom:6px;text-align:center;">
+      🎭 Same situation, 4 different verbs / Та сама ситуація — 4 різних дієслова
+    </div>
+    <div style="text-align:center;color:var(--muted);font-size:0.9rem;margin-bottom:20px">
+      Situation: Tom and his son Tom Jr. and washing the car / Том і його син, і миття машини
+    </div>
+    <div style="display:grid;gap:12px;">
+      <div style="display:flex;align-items:flex-start;gap:14px;background:var(--have-soft);border-radius:14px;padding:16px;border:1px solid var(--have)">
+        <span style="font-size:1.6rem">🔧</span>
+        <div>
+          <div style="font-weight:800;color:var(--have)">HAVE: Tom had his car washed.</div>
+          <div style="color:var(--muted);font-size:0.9rem">Том організував миття машини (хтось зробив, ми не знаємо хто). Нейтрально.</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:14px;background:var(--get-soft);border-radius:14px;padding:16px;border:1px solid var(--get)">
+        <span style="font-size:1.6rem">🤝</span>
+        <div>
+          <div style="font-weight:800;color:var(--get)">GET: Tom got his son to wash the car.</div>
+          <div style="color:var(--muted);font-size:0.9rem">Том умовив сина помити машину. Можливо, це зайняло кілька спроб 😅</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:14px;background:var(--make-soft);border-radius:14px;padding:16px;border:1px solid var(--make)">
+        <span style="font-size:1.6rem">💪</span>
+        <div>
+          <div style="font-weight:800;color:var(--make)">MAKE: Tom made his son wash the car.</div>
+          <div style="color:var(--muted);font-size:0.9rem">Том змусив сина помити машину — без варіантів! Синові довелося. 😤</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:14px;background:var(--let-soft);border-radius:14px;padding:16px;border:1px solid var(--let)">
+        <span style="font-size:1.6rem">🌟</span>
+        <div>
+          <div style="font-weight:800;color:var(--let)">LET: Tom let his son wash the car.</div>
+          <div style="color:var(--muted);font-size:0.9rem">Том дозволив синові помити машину — син сам хотів, і тато погодився 😊</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMMON MISTAKES -->
+  <div style="background:var(--card-bg);border-radius:20px;padding:28px;border:1px solid #ef4444;margin-top:32px;">
+    <div style="font-weight:800;font-size:1.1rem;margin-bottom:16px;color:#ef4444">
+      ⚠️ Common Mistakes / Типові помилки
+    </div>
+    <div style="display:grid;gap:12px;">
+      <div style="background:rgba(239,68,68,0.1);border-radius:12px;padding:14px;">
+        <div style="font-size:0.8rem;font-weight:800;color:#ef4444;margin-bottom:6px">❌ WRONG / НЕПРАВИЛЬНО</div>
+        <div>She made him <s>to go</s>. &nbsp;→&nbsp; ✅ She made him <strong>go</strong>.</div>
+        <div style="color:var(--muted);font-size:0.85rem;margin-top:4px">Після MAKE не вживається "to"!</div>
+      </div>
+      <div style="background:rgba(239,68,68,0.1);border-radius:12px;padding:14px;">
+        <div style="font-size:0.8rem;font-weight:800;color:#ef4444;margin-bottom:6px">❌ WRONG / НЕПРАВИЛЬНО</div>
+        <div>He let her <s>to leave</s>. &nbsp;→&nbsp; ✅ He let her <strong>leave</strong>.</div>
+        <div style="color:var(--muted);font-size:0.85rem;margin-top:4px">Після LET теж не вживається "to"!</div>
+      </div>
+      <div style="background:rgba(239,68,68,0.1);border-radius:12px;padding:14px;">
+        <div style="font-size:0.8rem;font-weight:800;color:#ef4444;margin-bottom:6px">❌ WRONG / НЕПРАВИЛЬНО</div>
+        <div>I got her <s>fix</s> my car. &nbsp;→&nbsp; ✅ I got her <strong>to fix</strong> my car.</div>
+        <div style="color:var(--muted);font-size:0.85rem;margin-top:4px">Після GET + person ставимо "to"!</div>
+      </div>
+      <div style="background:rgba(239,68,68,0.1);border-radius:12px;padding:14px;">
+        <div style="font-size:0.8rem;font-weight:800;color:#ef4444;margin-bottom:6px">❌ WRONG / НЕПРАВИЛЬНО</div>
+        <div>I had my hair <s>cut by me</s>. &nbsp;→&nbsp; ✅ I had my hair <strong>cut</strong>.</div>
+        <div style="color:var(--muted);font-size:0.85rem;margin-top:4px">У HAVE конструкції виконавця зазвичай не називаємо!</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div style="text-align:center;padding:40px 20px;color:var(--muted);font-size:0.9rem;">
+    <div style="font-size:2rem;margin-bottom:10px">🎓</div>
+    <div style="font-weight:800;font-size:1.1rem;color:#fff;margin-bottom:6px">You've got this! Ти впораєшся!</div>
+    Practice makes perfect — MAKE yourself practice every day! 💪
+  </div>
+</div>
+
+<!-- SCROLL TOP -->
+<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const btn = document.getElementById('scrollTop');
+    if (window.scrollY > 400) btn.classList.add('visible');
+    else btn.classList.remove('visible');
+  });
+
+  // animate cards on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.animationPlayState = 'running';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.verb-card').forEach(card => {
+    card.style.animationPlayState = 'paused';
+    observer.observe(card);
+  });
+</script>
+</body>
+</html>
